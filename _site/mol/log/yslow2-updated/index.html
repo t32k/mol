@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YSlow 2.0 アップデート &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="YSlow 2.0 アップデート ">
+    <link rel="canonical" href="http://t32k.me//mol/log/yslow2-updated">
+     
+           
+    <meta property="og:title" content="YSlow 2.0 アップデート "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/yslow2-updated"/>
+    
+    
+    <!--meta property="og:description" content="<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SfwFSF4A4lI/AAAAAAAAAXE/Kw2nQ22a5OY/8.png" alt="Yslow2.0" />
+先日、<a href="http://developer.yahoo.net/blog/archives/2009/04/yslow_update.html">YSlowがアップデート</a>されましたね。主な変更点と言えば、
+<ul>
+    <li>新たに9つの指標を追加</li>
+    <li>独自のルールセットが設定可能</li>
+    <li>Smushi.itツールの追加</li>
+    <li>UIデザインの変更</li>
+</ul>
+ですかね。
+<h5>新たに9つの指標を追加</h5>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwEwosBxtI/AAAAAAAAAWM/M0tm-XhgdzY/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-1.png" alt="" />
+上のキャプチャはこのブログを測定したものです。前のバージョンでは13の指標でしたが、今回は9つ追加されて合計で22となります。以下、追加された９つです。
+<ul>
+    <li>Make AJAX cacheable<span style="color: #999999;"> (content)</span></li>
+    <li>Use GET for AJAX requests<span style="color: #999999;"> (server)</span></li>
+    <li>Reduce the number of DOM elements<span style="color: #999999;"> (content)</span></li>
+    <li>Avoid HTTP 404 (Not Found) error <span style="color: #999999;"> (content)</span></li>
+    <li>Reduce cookie size<span style="color: #999999;"> (cookie)</span></li>
+    <li>Use cookie-free domains<span style="color: #999999;"> (cookie)</span></li>
+    <li>Avoid AlphaImageLoader filter<span style="color: #999999;"> (css)</span></li>
+    <li>Do not scale images in HTML<span style="color: #999999;"> (images)</span></li>
+    <li>Make favicon small and cacheable<span style="color: #999999;"> (images)</span></li>
+</ul>
+<h5>独自のルールセットが設定可能</h5>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwFRw7wXzI/AAAAAAAAAW0/ibqvyqNsfwo/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-6.png" alt="" />
+小規模のサイトやブログなどでCDNを利用しなさいってのはコスト的に現実的ではないですよね。またサーバーの設定がいじれないということもありえます。そういった時にこれらの指標は検証しないという設定ができるようになりました。自分で22の指標から測定したい指標だけをチェックして独自のルールセットが作れます。またYslow1.0の13指標だけチェックする<span style="font-weight: bold;">classic(v1) </span>や小規模サイトのための<span style="font-weight: bold;">Small Site or Blog</span>のルールがあらかじめセットされています。<span style="font-weight: bold;">Small Site or Blog</span>でもう一度このブログを測定したら<span style="font-weight: bold;">D</span>から<span style="font-weight: bold;">Ｃ</span>に評価が上がりました。
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SfwFSOToFNI/AAAAAAAAAW8/kwULw6F7fMU/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-7.png" alt="" />
+<h5>Smushi.itツールの追加</h5>
+<img src="http://lh3.ggpht.com/_1drnogi3vdg/SfwEw9HTeXI/AAAAAAAAAWk/dhnYiN0LOw4/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-4.png" alt="" />
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SfwEwwaivfI/AAAAAAAAAWs/dDigLDCqliM/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-5.png" alt="" />
+Yahoo! Performance Teamの人らが作った画像最適化ツールもYSlowから利用できるようになりました。タブの<span style="font-weight: bold;">Tools</span>から<span style="font-weight: bold;">All Smush.it™</span> をクリックすれば、表示されている画像を最適化してくれます。
+<h5>UIデザインの変更</h5>
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SfwEwotXkqI/AAAAAAAAAWU/eagkoT4Yguc/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-2.png" alt="" />
+<span style="font-weight: bold;">Components</span>は種類ごとにグルーピングされて見やすくなりましたね。</p>
+
+<p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwEwvRdgBI/AAAAAAAAAWc/OnoI1nbad14/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-3.png" alt="" />
+<span style="font-weight: bold;">Statistics</span>はYahoo!カラーの紫系でまとめたんでしょうか、おしゃれですが区別しにくくなったのではと個人的には思います。。。</p>
+
+<p>みなさんも新しいYSlow試してみてはどうでしょうか。
+<ul>
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/5369">YSlow :: Firefox Add-ons</a></li>
+</ul></p>
+"/>
+    <meta name="description" content="<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SfwFSF4A4lI/AAAAAAAAAXE/Kw2nQ22a5OY/8.png" alt="Yslow2.0" />
+先日、<a href="http://developer.yahoo.net/blog/archives/2009/04/yslow_update.html">YSlowがアップデート</a>されましたね。主な変更点と言えば、
+<ul>
+    <li>新たに9つの指標を追加</li>
+    <li>独自のルールセットが設定可能</li>
+    <li>Smushi.itツールの追加</li>
+    <li>UIデザインの変更</li>
+</ul>
+ですかね。
+<h5>新たに9つの指標を追加</h5>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwEwosBxtI/AAAAAAAAAWM/M0tm-XhgdzY/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-1.png" alt="" />
+上のキャプチャはこのブログを測定したものです。前のバージョンでは13の指標でしたが、今回は9つ追加されて合計で22となります。以下、追加された９つです。
+<ul>
+    <li>Make AJAX cacheable<span style="color: #999999;"> (content)</span></li>
+    <li>Use GET for AJAX requests<span style="color: #999999;"> (server)</span></li>
+    <li>Reduce the number of DOM elements<span style="color: #999999;"> (content)</span></li>
+    <li>Avoid HTTP 404 (Not Found) error <span style="color: #999999;"> (content)</span></li>
+    <li>Reduce cookie size<span style="color: #999999;"> (cookie)</span></li>
+    <li>Use cookie-free domains<span style="color: #999999;"> (cookie)</span></li>
+    <li>Avoid AlphaImageLoader filter<span style="color: #999999;"> (css)</span></li>
+    <li>Do not scale images in HTML<span style="color: #999999;"> (images)</span></li>
+    <li>Make favicon small and cacheable<span style="color: #999999;"> (images)</span></li>
+</ul>
+<h5>独自のルールセットが設定可能</h5>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwFRw7wXzI/AAAAAAAAAW0/ibqvyqNsfwo/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-6.png" alt="" />
+小規模のサイトやブログなどでCDNを利用しなさいってのはコスト的に現実的ではないですよね。またサーバーの設定がいじれないということもありえます。そういった時にこれらの指標は検証しないという設定ができるようになりました。自分で22の指標から測定したい指標だけをチェックして独自のルールセットが作れます。またYslow1.0の13指標だけチェックする<span style="font-weight: bold;">classic(v1) </span>や小規模サイトのための<span style="font-weight: bold;">Small Site or Blog</span>のルールがあらかじめセットされています。<span style="font-weight: bold;">Small Site or Blog</span>でもう一度このブログを測定したら<span style="font-weight: bold;">D</span>から<span style="font-weight: bold;">Ｃ</span>に評価が上がりました。
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SfwFSOToFNI/AAAAAAAAAW8/kwULw6F7fMU/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-7.png" alt="" />
+<h5>Smushi.itツールの追加</h5>
+<img src="http://lh3.ggpht.com/_1drnogi3vdg/SfwEw9HTeXI/AAAAAAAAAWk/dhnYiN0LOw4/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-4.png" alt="" />
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SfwEwwaivfI/AAAAAAAAAWs/dDigLDCqliM/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-5.png" alt="" />
+Yahoo! Performance Teamの人らが作った画像最適化ツールもYSlowから利用できるようになりました。タブの<span style="font-weight: bold;">Tools</span>から<span style="font-weight: bold;">All Smush.it™</span> をクリックすれば、表示されている画像を最適化してくれます。
+<h5>UIデザインの変更</h5>
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SfwEwotXkqI/AAAAAAAAAWU/eagkoT4Yguc/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-2.png" alt="" />
+<span style="font-weight: bold;">Components</span>は種類ごとにグルーピングされて見やすくなりましたね。</p>
+
+<p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwEwvRdgBI/AAAAAAAAAWc/OnoI1nbad14/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-3.png" alt="" />
+<span style="font-weight: bold;">Statistics</span>はYahoo!カラーの紫系でまとめたんでしょうか、おしゃれですが区別しにくくなったのではと個人的には思います。。。</p>
+
+<p>みなさんも新しいYSlow試してみてはどうでしょうか。
+<ul>
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/5369">YSlow :: Firefox Add-ons</a></li>
+</ul></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2009-02-May" title="May 02, 2009">May 02, 2009</time>
+            </div>
+            <h1 class="title">YSlow 2.0 アップデート</h1>
+            
+        </header>
+
+        <section>
+            <p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SfwFSF4A4lI/AAAAAAAAAXE/Kw2nQ22a5OY/8.png" alt="Yslow2.0" />
+先日、<a href="http://developer.yahoo.net/blog/archives/2009/04/yslow_update.html">YSlowがアップデート</a>されましたね。主な変更点と言えば、
+<ul>
+    <li>新たに9つの指標を追加</li>
+    <li>独自のルールセットが設定可能</li>
+    <li>Smushi.itツールの追加</li>
+    <li>UIデザインの変更</li>
+</ul>
+ですかね。
+<h5>新たに9つの指標を追加</h5>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwEwosBxtI/AAAAAAAAAWM/M0tm-XhgdzY/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-1.png" alt="" />
+上のキャプチャはこのブログを測定したものです。前のバージョンでは13の指標でしたが、今回は9つ追加されて合計で22となります。以下、追加された９つです。
+<ul>
+    <li>Make AJAX cacheable<span style="color: #999999;"> (content)</span></li>
+    <li>Use GET for AJAX requests<span style="color: #999999;"> (server)</span></li>
+    <li>Reduce the number of DOM elements<span style="color: #999999;"> (content)</span></li>
+    <li>Avoid HTTP 404 (Not Found) error <span style="color: #999999;"> (content)</span></li>
+    <li>Reduce cookie size<span style="color: #999999;"> (cookie)</span></li>
+    <li>Use cookie-free domains<span style="color: #999999;"> (cookie)</span></li>
+    <li>Avoid AlphaImageLoader filter<span style="color: #999999;"> (css)</span></li>
+    <li>Do not scale images in HTML<span style="color: #999999;"> (images)</span></li>
+    <li>Make favicon small and cacheable<span style="color: #999999;"> (images)</span></li>
+</ul>
+<h5>独自のルールセットが設定可能</h5>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwFRw7wXzI/AAAAAAAAAW0/ibqvyqNsfwo/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-6.png" alt="" />
+小規模のサイトやブログなどでCDNを利用しなさいってのはコスト的に現実的ではないですよね。またサーバーの設定がいじれないということもありえます。そういった時にこれらの指標は検証しないという設定ができるようになりました。自分で22の指標から測定したい指標だけをチェックして独自のルールセットが作れます。またYslow1.0の13指標だけチェックする<span style="font-weight: bold;">classic(v1) </span>や小規模サイトのための<span style="font-weight: bold;">Small Site or Blog</span>のルールがあらかじめセットされています。<span style="font-weight: bold;">Small Site or Blog</span>でもう一度このブログを測定したら<span style="font-weight: bold;">D</span>から<span style="font-weight: bold;">Ｃ</span>に評価が上がりました。
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SfwFSOToFNI/AAAAAAAAAW8/kwULw6F7fMU/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-7.png" alt="" />
+<h5>Smushi.itツールの追加</h5>
+<img src="http://lh3.ggpht.com/_1drnogi3vdg/SfwEw9HTeXI/AAAAAAAAAWk/dhnYiN0LOw4/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-4.png" alt="" />
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SfwEwwaivfI/AAAAAAAAAWs/dDigLDCqliM/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-5.png" alt="" />
+Yahoo! Performance Teamの人らが作った画像最適化ツールもYSlowから利用できるようになりました。タブの<span style="font-weight: bold;">Tools</span>から<span style="font-weight: bold;">All Smush.it™</span> をクリックすれば、表示されている画像を最適化してくれます。
+<h5>UIデザインの変更</h5>
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SfwEwotXkqI/AAAAAAAAAWU/eagkoT4Yguc/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-2.png" alt="" />
+<span style="font-weight: bold;">Components</span>は種類ごとにグルーピングされて見やすくなりましたね。</p>
+
+<p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SfwEwvRdgBI/AAAAAAAAAWc/OnoI1nbad14/%E3%83%94%E3%82%AF%E3%83%81%E3%83%A3-3.png" alt="" />
+<span style="font-weight: bold;">Statistics</span>はYahoo!カラーの紫系でまとめたんでしょうか、おしゃれですが区別しにくくなったのではと個人的には思います。。。</p>
+
+<p>みなさんも新しいYSlow試してみてはどうでしょうか。
+<ul>
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/5369">YSlow :: Firefox Add-ons</a></li>
+</ul></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="YSlow 2.0 アップデート" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

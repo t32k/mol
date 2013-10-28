@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HttpWatch 6.2 Basic Edtion &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="HttpWatch 6.2 Basic Edtion ">
+    <link rel="canonical" href="http://t32k.me//mol/log/httpwatch">
+     
+           
+    <meta property="og:title" content="HttpWatch 6.2 Basic Edtion "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/httpwatch"/>
+    
+    
+    <!--meta property="og:description" content="<p><img class="alignnone size-full wp-image-976" src="http://t32k.me/mol/file/2010/04/httpwatch.png" alt="" width="210" height="205" />
+<a href="http://www.httpwatch.com/">HttpWatch: An HTTP Viewer and HTTP Sniffer for IE and Firefox</a></p>
+
+<p>HttpWatchというWindowsのIE, Fxで動くツールがありまして、何をするもんかと言いますと、HTTPリクエストの流れをウォータホールチャートで確認できる代物です(Basic Editionは無料)。こんな具合に↓</p>
+
+<!--more-->
+
+<p><img class="fig" src="http://t32k.me/mol/file/2010/04/chart.png" alt="" width="442" height="246" /></p>
+
+<p>んで、この赤いのやら緑ぃのやらはどうゆう意味やねんと思いまして、ツールヘルプを参照したら英語で書いてあったので、日本語でメモしといたのが以下。
+<h3>Request Level Time Charts</h3>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/blocked.png" alt="" width="75" height="18" /> Blocked</h4>
+<strong>ブロックキング</strong>はプリプロセッシング（キャッシュを探したりなど）の時間を含んだり、ネットワーク接続が確立するまでの時間です。IE7とFirefox2は1つのホスト名（すなわちwww.microsoft.com）に対して、最大で2つの同時ネットワーク接続しかできないので、接続が確立するまでリクエストを待ち続けます。しばしば、ブロックキングは画像を含んだウェブページのダウンロード時間の最も重要な要因となります。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/DNS.png" alt="" width="75" height="18" /> DNS Lookup</h4>
+<strong>DNSルックアップ</strong>はホスト名（例：www.google.com）を数値であるIPアドレス（例：216.239.59.99）に変換するのに要する時間です。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/connect.png" alt="" width="75" height="18" /> Connect</h4>
+<strong>接続</strong>はWeb（もしくはProxy）サーバとTCP接続を確立するのに要する時間です。もし、セキュアなHTTPS接続ならば、これに<span style="color: #ff00ff;">*</span><em>SSLハンドシェイク</em>時間も含みます。Keep-Alive接続は一定時間Webサーバと接続することによって、必要以上の接続終了の負荷を回避します。</p>
+
+<p><span style="color: #888888;"><span style="color: #ff00ff;">*</span>認証／暗号化を含んだ一連の処理</span>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/send.png" alt="" width="75" height="18" /> Send</h4>
+<strong>送信</strong>はHTTPリクエストメッセージをサーバに送信するために必要な時間であり、送信するデータ量に依存します。例えば、長い送信時間の場合、HTTP POSTを使ってファイルをアップロードしていることが考えられます。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/wait.png" alt="" width="75" height="18" /> Wait</h4>
+<strong>待機</strong>はサーバからのレスポンスメッセージを待っている時間です。この値にはネットワークの遅延やHTTPリクエストをサーバに送る時間も含まれます。</p>
+
+<p><span style="color: #888888;">※ <strong>TTFB </strong>(Time To First Byte) = Connect + Send + Wait</span>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/receive.png" alt="" width="75" height="18" /> Receive</h4>
+<strong>受信</strong>はサーバからのレスポンスメッセージを読み込む時間です。この値は返されるコンテンツのサイズ、帯域幅、HTTP圧縮の使用の有無によって変化します。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/cr.png" alt="" width="75" height="18" /> Cache Read</h4>
+<strong>キャッシュ読み込み</strong>はブラウザキャッシュが存在する場合、もしくは304レスポンスが返された場合のコンテンツを読み込む時間です。</p>
+
+<h2></h2>
+
+<p>HTTPWatch以外にもこうゆうツールいっぱいあるわけだけど、リクエストのフロー自体はおんなじものを計測しているわけだから、他のツール理解にもつながったかなと。
+<h3>参考サイト</h3>
+<ul>
+    <li>Safari のリソースパネルについての解説あり<a href="http://webkit.org/blog/197/web-inspector-redesign/">
+Surfin’ Safari - Blog Archive » Web Inspector Redesign</a></li>
+    <li>Firebug 接続タブの解説あり<a href="http://rensodevelopment.blogspot.com/2009/06/firebug-network-monitoring-quick.html">
+Software Development Practices: Firebug Network Monitoring Quick Reference Guide</a></li>
+</ul></p>
+"/>
+    <meta name="description" content="<p><img class="alignnone size-full wp-image-976" src="http://t32k.me/mol/file/2010/04/httpwatch.png" alt="" width="210" height="205" />
+<a href="http://www.httpwatch.com/">HttpWatch: An HTTP Viewer and HTTP Sniffer for IE and Firefox</a></p>
+
+<p>HttpWatchというWindowsのIE, Fxで動くツールがありまして、何をするもんかと言いますと、HTTPリクエストの流れをウォータホールチャートで確認できる代物です(Basic Editionは無料)。こんな具合に↓</p>
+
+<!--more-->
+
+<p><img class="fig" src="http://t32k.me/mol/file/2010/04/chart.png" alt="" width="442" height="246" /></p>
+
+<p>んで、この赤いのやら緑ぃのやらはどうゆう意味やねんと思いまして、ツールヘルプを参照したら英語で書いてあったので、日本語でメモしといたのが以下。
+<h3>Request Level Time Charts</h3>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/blocked.png" alt="" width="75" height="18" /> Blocked</h4>
+<strong>ブロックキング</strong>はプリプロセッシング（キャッシュを探したりなど）の時間を含んだり、ネットワーク接続が確立するまでの時間です。IE7とFirefox2は1つのホスト名（すなわちwww.microsoft.com）に対して、最大で2つの同時ネットワーク接続しかできないので、接続が確立するまでリクエストを待ち続けます。しばしば、ブロックキングは画像を含んだウェブページのダウンロード時間の最も重要な要因となります。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/DNS.png" alt="" width="75" height="18" /> DNS Lookup</h4>
+<strong>DNSルックアップ</strong>はホスト名（例：www.google.com）を数値であるIPアドレス（例：216.239.59.99）に変換するのに要する時間です。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/connect.png" alt="" width="75" height="18" /> Connect</h4>
+<strong>接続</strong>はWeb（もしくはProxy）サーバとTCP接続を確立するのに要する時間です。もし、セキュアなHTTPS接続ならば、これに<span style="color: #ff00ff;">*</span><em>SSLハンドシェイク</em>時間も含みます。Keep-Alive接続は一定時間Webサーバと接続することによって、必要以上の接続終了の負荷を回避します。</p>
+
+<p><span style="color: #888888;"><span style="color: #ff00ff;">*</span>認証／暗号化を含んだ一連の処理</span>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/send.png" alt="" width="75" height="18" /> Send</h4>
+<strong>送信</strong>はHTTPリクエストメッセージをサーバに送信するために必要な時間であり、送信するデータ量に依存します。例えば、長い送信時間の場合、HTTP POSTを使ってファイルをアップロードしていることが考えられます。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/wait.png" alt="" width="75" height="18" /> Wait</h4>
+<strong>待機</strong>はサーバからのレスポンスメッセージを待っている時間です。この値にはネットワークの遅延やHTTPリクエストをサーバに送る時間も含まれます。</p>
+
+<p><span style="color: #888888;">※ <strong>TTFB </strong>(Time To First Byte) = Connect + Send + Wait</span>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/receive.png" alt="" width="75" height="18" /> Receive</h4>
+<strong>受信</strong>はサーバからのレスポンスメッセージを読み込む時間です。この値は返されるコンテンツのサイズ、帯域幅、HTTP圧縮の使用の有無によって変化します。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/cr.png" alt="" width="75" height="18" /> Cache Read</h4>
+<strong>キャッシュ読み込み</strong>はブラウザキャッシュが存在する場合、もしくは304レスポンスが返された場合のコンテンツを読み込む時間です。</p>
+
+<h2></h2>
+
+<p>HTTPWatch以外にもこうゆうツールいっぱいあるわけだけど、リクエストのフロー自体はおんなじものを計測しているわけだから、他のツール理解にもつながったかなと。
+<h3>参考サイト</h3>
+<ul>
+    <li>Safari のリソースパネルについての解説あり<a href="http://webkit.org/blog/197/web-inspector-redesign/">
+Surfin’ Safari - Blog Archive » Web Inspector Redesign</a></li>
+    <li>Firebug 接続タブの解説あり<a href="http://rensodevelopment.blogspot.com/2009/06/firebug-network-monitoring-quick.html">
+Software Development Practices: Firebug Network Monitoring Quick Reference Guide</a></li>
+</ul></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-08-April" title="April 08, 2010">April 08, 2010</time>
+            </div>
+            <h1 class="title">HttpWatch 6.2 Basic Edtion</h1>
+            
+        </header>
+
+        <section>
+            <p><img class="alignnone size-full wp-image-976" src="http://t32k.me/mol/file/2010/04/httpwatch.png" alt="" width="210" height="205" />
+<a href="http://www.httpwatch.com/">HttpWatch: An HTTP Viewer and HTTP Sniffer for IE and Firefox</a></p>
+
+<p>HttpWatchというWindowsのIE, Fxで動くツールがありまして、何をするもんかと言いますと、HTTPリクエストの流れをウォータホールチャートで確認できる代物です(Basic Editionは無料)。こんな具合に↓</p>
+
+<!--more-->
+
+<p><img class="fig" src="http://t32k.me/mol/file/2010/04/chart.png" alt="" width="442" height="246" /></p>
+
+<p>んで、この赤いのやら緑ぃのやらはどうゆう意味やねんと思いまして、ツールヘルプを参照したら英語で書いてあったので、日本語でメモしといたのが以下。
+<h3>Request Level Time Charts</h3>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/blocked.png" alt="" width="75" height="18" /> Blocked</h4>
+<strong>ブロックキング</strong>はプリプロセッシング（キャッシュを探したりなど）の時間を含んだり、ネットワーク接続が確立するまでの時間です。IE7とFirefox2は1つのホスト名（すなわちwww.microsoft.com）に対して、最大で2つの同時ネットワーク接続しかできないので、接続が確立するまでリクエストを待ち続けます。しばしば、ブロックキングは画像を含んだウェブページのダウンロード時間の最も重要な要因となります。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/DNS.png" alt="" width="75" height="18" /> DNS Lookup</h4>
+<strong>DNSルックアップ</strong>はホスト名（例：www.google.com）を数値であるIPアドレス（例：216.239.59.99）に変換するのに要する時間です。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/connect.png" alt="" width="75" height="18" /> Connect</h4>
+<strong>接続</strong>はWeb（もしくはProxy）サーバとTCP接続を確立するのに要する時間です。もし、セキュアなHTTPS接続ならば、これに<span style="color: #ff00ff;">*</span><em>SSLハンドシェイク</em>時間も含みます。Keep-Alive接続は一定時間Webサーバと接続することによって、必要以上の接続終了の負荷を回避します。</p>
+
+<p><span style="color: #888888;"><span style="color: #ff00ff;">*</span>認証／暗号化を含んだ一連の処理</span>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/send.png" alt="" width="75" height="18" /> Send</h4>
+<strong>送信</strong>はHTTPリクエストメッセージをサーバに送信するために必要な時間であり、送信するデータ量に依存します。例えば、長い送信時間の場合、HTTP POSTを使ってファイルをアップロードしていることが考えられます。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/wait.png" alt="" width="75" height="18" /> Wait</h4>
+<strong>待機</strong>はサーバからのレスポンスメッセージを待っている時間です。この値にはネットワークの遅延やHTTPリクエストをサーバに送る時間も含まれます。</p>
+
+<p><span style="color: #888888;">※ <strong>TTFB </strong>(Time To First Byte) = Connect + Send + Wait</span>
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/receive.png" alt="" width="75" height="18" /> Receive</h4>
+<strong>受信</strong>はサーバからのレスポンスメッセージを読み込む時間です。この値は返されるコンテンツのサイズ、帯域幅、HTTP圧縮の使用の有無によって変化します。
+<h4><img style="vertical-align: middle;" src="http://t32k.me/mol/file/2010/04/cr.png" alt="" width="75" height="18" /> Cache Read</h4>
+<strong>キャッシュ読み込み</strong>はブラウザキャッシュが存在する場合、もしくは304レスポンスが返された場合のコンテンツを読み込む時間です。</p>
+
+<h2></h2>
+
+<p>HTTPWatch以外にもこうゆうツールいっぱいあるわけだけど、リクエストのフロー自体はおんなじものを計測しているわけだから、他のツール理解にもつながったかなと。
+<h3>参考サイト</h3>
+<ul>
+    <li>Safari のリソースパネルについての解説あり<a href="http://webkit.org/blog/197/web-inspector-redesign/">
+Surfin’ Safari - Blog Archive » Web Inspector Redesign</a></li>
+    <li>Firebug 接続タブの解説あり<a href="http://rensodevelopment.blogspot.com/2009/06/firebug-network-monitoring-quick.html">
+Software Development Practices: Firebug Network Monitoring Quick Reference Guide</a></li>
+</ul></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="HttpWatch 6.2 Basic Edtion" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

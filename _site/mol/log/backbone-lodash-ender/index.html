@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backbone +  Lo-Dash + Ender? &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Backbone +  Lo-Dash + Ender? ">
+    <link rel="canonical" href="http://t32k.me//mol/log/backbone-lodash-ender">
+     
+           
+    <meta property="og:title" content="Backbone +  Lo-Dash + Ender? "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/backbone-lodash-ender"/>
+    
+    
+    <!--meta property="og:description" content="<p><strong><a href="http://www.adventar.org/calendars/15">Backbone.js Advent Calendar 2012</a></strong>
+<blockquote>Backbone.jsのTIPSとかパターンとか、他のライブラリとの連携などなど。
+フルスタック感がない分、各自でいろいろ編み出しながら使いこなしていると思うので、そのあたりの共有がてら書きましょう！</blockquote>
+ということで、Advent Calendarでは与えられたテーマから外れた内容で記事を書くことに定評のある<a href="https://twitter.com/t32k">@t32k</a>が23日目をお贈りしてやんよ(o°3°b)b</p>
+
+<p>私、恥ずかしながらBackbone.jsとは今のところ無縁な最下級HTMLコーダー(戦闘力・たったの５か・・ゴミめ・・・)でして、そんあ僕でもいつかはAPIとか使って情報とってきて面白いWebアプリケーション作りたいと思うわけです。そこでBackbone.jsなわけです。</p>
+
+<p>そんなわけでわけの分からぬまま<a href="http://backbonejs.org/">Backbone.jsの公式サイト</a>を読んでみると
+<blockquote>Backbone&#39;s only hard dependency is either <a href="http://underscorejs.org/">Underscore.js</a> <small>( &gt; 1.4.3)</small> or <a href="http://lodash.com/">Lo-Dash</a>. For RESTful persistence, history support via <a href="http://backbonejs.org/#Router">Backbone.Router</a> and DOM manipulation with<a href="http://backbonejs.org/#View">Backbone.View</a>, include <a href="https://github.com/douglascrockford/JSON-js">json2.js</a>, and either <a href="http://jquery.com/">jQuery</a> <small>( &gt; 1.4.2)</small> or <a href="http://zeptojs.com/">Zepto</a>.</blockquote>
+とかいてあり、とりあえず、Backbone.jsを使うには、Underscore / Lo-Dashと、jQuery / Zeptoが必要みたい。Lo-Dashについては、<a href="http://havelog.ayumusato.com/develop/javascript/e531-backbone_webapp_case_intro.html">1日目の@ahomuさん</a>もちょっと触れてるね。
+<pre><code class="javascript">// For Backbone&#39;s purposes, jQuery, Zepto, or Ender owns the <code>$</code> variable.
+Backbone.$ = root.jQuery || root.Zepto || root.ender;</code></pre>
+ソースコードの方を読んでみると、jQuery / Zepto以外にもEnderってのも使っていいらしい。なんぞこれ初耳よ！どれ使ったらいいのよ！</p>
+
+<p>ということでBackboneはおいといて、この記事は形から入る男@t32kが Underscore / Lo-Dash と Zepto / Ender について調べてみるよ！
+<h2>Underscore / Lo-Dash</h2>
+<ul>
+    <li><a href="http://underscorejs.org/">Underscore.js</a> (v1.4.3)</li>
+    <li><a href="http://lodash.com/">Lo-Dash</a> (v1.0.0-rc.3)</li>
+</ul>
+Underscoreに関しては、Backboneと同じDocumentCloudが管理してるので、Backbone使うんならUnderscoreというように1セットのように考えている人も多いように思います。実際、@ahomuさんが使ってなかったら僕も知らなかったす。</p>
+
+<p>そもそも、Lo-Dashのなぜ必要なのか、Underscoreと全く同じであるのであれば存在する必要性はないのですが、<a href="https://github.com/bestiejs/lodash">README</a>を読んでみるとUnderscoreに勝る利点がいくつか書いてあります。
+<h3>consistency</h3>
+<ul>
+    <li>Allow iteration of objects with a <code>length</code> property [<a href="https://github.com/documentcloud/underscore/pull/799">#799</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L605-L611">test</a>]</li>
+    <li>Fix cross-browser object iteration bugs [<a href="https://github.com/documentcloud/underscore/issues/60">#60</a>, <a href="https://github.com/documentcloud/underscore/issues/376">#376</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L618-L642">test</a>]</li>
+    <li>Methods should work on pages with incorrectly shimmed native methods [<a href="https://github.com/documentcloud/underscore/issues/7">#7</a>, <a href="https://github.com/documentcloud/underscore/issues/742">#742</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L140-L146">test</a>]</li>
+    <li><code><em>.isEmpty</code> should support jQuery/MooTools DOM query collections [<a href="https://github.com/documentcloud/underscore/pull/690">#690</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L807-L812">test</a>]</li>
+    <li><code></em>.isObject</code> should avoid V8 bug <a href="http://code.google.com/p/v8/issues/detail?id=2291">#2291</a> [<a href="https://github.com/documentcloud/underscore/issues/605">#605</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L888-L900">test</a>]</li>
+    <li><code><em>.keys</code> should work with <code>arguments</code> objects cross-browser [<a href="https://github.com/documentcloud/underscore/issues/396">#396</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L982-L984">test</a>]</li>
+    <li><code></em>.range</code> should coerce arguments to numbers [<a href="https://github.com/documentcloud/underscore/issues/634">#634</a>, <a href="https://github.com/documentcloud/underscore/issues/683">#683</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L1383-L1386">test</a>]</li>
+</ul>
+なんかいろいろ解決されているらしい。
+<h3>customization</h3>
+<ul>
+    <li>lodash bacbone</li>
+    <li>lodash csp</li>
+    <li>lodash legacy</li>
+    <li>lodash mobile</li>
+    <li>lodash strict</li>
+    <li>loadh underscore</li>
+</ul>
+<a href="https://github.com/bestiejs/lodash#custom-builds">なんかいろいろカスタムビルド</a>出来るらしい。
+<h3>performance</h3>
+<p style="text-align: center;"><img class="fig aligncenter" alt="" src="http://t32k.me/mol/file/2012/12/bench.png" width="600" height="386" /></p>
+<a href="http://lodash.com/benchmarks">
+<ul>
+    <li><strong>ベンチマークテスト</strong></li>
+</ul>
+</a></p>
+
+<p>だいたい速いらしい(77/89でlodashが速かった。全部テストしてない)
+<h4>extra features</h4>
+<ul>
+    <li>AMD loader support (<a href="http://requirejs.org/">RequireJS</a>, <a href="https://github.com/cujojs/curl">curl.js</a>, etc.)</li>
+    <li><a href="http://lodash.com/docs#_"><code><em>(…)</code></a> supports intuitive chaining</li>
+    <li><a href="http://lodash.com/docs#bindKey"><code></em>.bindKey</code></a> for binding <a href="http://michaux.ca/articles/lazy-function-definition-pattern"><em>“lazy”</em> defined</a> methods</li>
+    <li><a href="http://lodash.com/docs#cloneDeep"><code><em>.cloneDeep</code></a> for <em>“deep”</em> cloning arrays and objects</li>
+    <li><a href="http://lodash.com/docs#contains"><code></em>.contains</code></a> accepts a <code>fromIndex</code> argument</li>
+    <li><a href="http://lodash.com/docs#forEach"><code><em>.forEach</code></a> is chainable and supports exiting iteration early</li>
+    <li><a href="http://lodash.com/docs#forIn"><code></em>.forIn</code></a> for iterating over an object’s own and inherited properties</li>
+    <li><a href="http://lodash.com/docs#forOwn"><code><em>.forOwn</code></a> for iterating over an object’s own properties</li>
+    <li><a href="http://lodash.com/docs#isPlainObject"><code></em>.isPlainObject</code></a> checks if values are created by the <code>Object</code> constructor</li>
+    <li><a href="http://lodash.com/docs#merge"><code><em>.merge</code></a> for a <em>“deep”</em> <a href="http://lodash.com/docs#extend"><code></em>.extend</code></a></li>
+    <li><a href="http://lodash.com/docs#partial"><code><em>.partial</code></a> for partial application without <code>this</code> binding</li>
+    <li><a href="http://lodash.com/docs#pick"><code></em>.pick</code></a> and <a href="http://lodash.com/docs#omit"><code><em>.omit</code></a> accept <code>callback</code> and <code>thisArg</code> arguments</li>
+    <li><a href="http://lodash.com/docs#template"><code></em>.template</code></a> supports <a href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-7.8.6">ES6 template delimiters</a> and utilizes <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl">sourceURLs</a> for easier debugging</li>
+    <li><a href="http://lodash.com/docs#contains"><code><em>.contains</code></a>, <a href="http://lodash.com/docs#size"><code></em>.size</code></a>, <a href="http://lodash.com/docs#toArray"><code><em>.toArray</code></a>, &lt;a title=&quot;</em>.countBy, _.every, _.filter, _.find, _.forEach, _.groupBy, _.invoke, _.map, _.max, _.min, _.pluck, _.reduce, _.reduceRight, _.reject, _.shuffle, _.some, _.sortBy, _.where&quot; href=&quot;http://lodash.com/docs&quot;&gt;and more…</a> accept strings</li>
+</ul>
+わーい、いっぱいーヽ(=´▽`=)ﾉ</p>
+
+<p>というわけ、Underscoreも改善されてくると思うけど、今んところLo-Dashを使ったほうが良さげな感じ。
+<h2>Zepto / Ender</h2>
+<ul>
+    <li><a href="http://zeptojs.com/">Zepto.js: the aerogel-weight jQuery-compatible JavaScript library </a> (v1.0rc1)</li>
+    <li><a href="http://ender.jit.su/">Ender - the no-library JavaScript library </a></li>
+</ul>
+だんだんめんどくさくなってきたので、
+<p style="display: inline !important;"><a href="http://www.whatsmyip.org/http-compression-test/">WhatsMyIP.org | HTTP Compression Test </a>で各ファイルサイズ（Gzip後のサイズ）だけ比べてみる。</p>
+■ <a href="http://zeptojs.com/zepto.min.js"><strong>http://zeptojs.com/zepto.min.js</strong></a>
+<blockquote>Original Size: 23.45 KB
+Compressed Size: 9.22 KB</blockquote>
+■ <a href="http://cdn.enderjs.com/jeesh.min.js"><strong>http://cdn.enderjs.com/jeesh.min.js</strong></a>
+<blockquote>Actual Page Size: 30.68 KB
+Size if Compressed: 11.23 KB</blockquote>
+■ <a href="http://code.jquery.com/jquery-1.8.3.min.js"><strong>http://code.jquery.com/jquery-1.8.3.min.js</strong></a>
+<blockquote>Original Size: 91.44 KB
+Compressed Size: 32.69 KB</blockquote>
+Jeesh.min.jsってのはEnder.jsのスタータパックみたいなものでセレクタエンジン（<a href="https://github.com/ded/qwery">Qwery</a>）とか最小限が入ってる構成。こう見てみると、jQueryが重いのは当たり前として、EnderよりZeptoのほうが軽いんだね。</p>
+
+<p>しかし、まぁ個々のメソッドの実行速度(<a href="http://jsperf.com/qwery-vs-jquery-vs-mootools-selector-engines/13)">jQuery vs Zepto.js vs Jeesh(Ender.js) selector engines · jsPerf)</a>を見てみないとなんとも言えないし、古いIEを切り捨てる<a href="http://blog.jquery.com/2012/06/28/jquery-core-version-1-9-and-beyond/">jQuery 2.0</a>がどれだけ軽くなるか気になるとこだけど、個人的にちょっとEnder.js調べてみたいかもと思ったかも ∈ ﾟ) ﾉ</p>
+
+<h2></h2>
+
+<p>とまぁなんやかんや調べてみましたけど、Backbone +  Lo-Dash + Enderって構成がナウいのかな。この辺りに関してはたぶん来年のFrontrend  Vol.4 powered by CyberAgentで詳しく話されるんじゃないかなと思ってる。興味持った人は参加してみてー。案内出てないけど。</p>
+"/>
+    <meta name="description" content="<p><strong><a href="http://www.adventar.org/calendars/15">Backbone.js Advent Calendar 2012</a></strong>
+<blockquote>Backbone.jsのTIPSとかパターンとか、他のライブラリとの連携などなど。
+フルスタック感がない分、各自でいろいろ編み出しながら使いこなしていると思うので、そのあたりの共有がてら書きましょう！</blockquote>
+ということで、Advent Calendarでは与えられたテーマから外れた内容で記事を書くことに定評のある<a href="https://twitter.com/t32k">@t32k</a>が23日目をお贈りしてやんよ(o°3°b)b</p>
+
+<p>私、恥ずかしながらBackbone.jsとは今のところ無縁な最下級HTMLコーダー(戦闘力・たったの５か・・ゴミめ・・・)でして、そんあ僕でもいつかはAPIとか使って情報とってきて面白いWebアプリケーション作りたいと思うわけです。そこでBackbone.jsなわけです。</p>
+
+<p>そんなわけでわけの分からぬまま<a href="http://backbonejs.org/">Backbone.jsの公式サイト</a>を読んでみると
+<blockquote>Backbone&#39;s only hard dependency is either <a href="http://underscorejs.org/">Underscore.js</a> <small>( &gt; 1.4.3)</small> or <a href="http://lodash.com/">Lo-Dash</a>. For RESTful persistence, history support via <a href="http://backbonejs.org/#Router">Backbone.Router</a> and DOM manipulation with<a href="http://backbonejs.org/#View">Backbone.View</a>, include <a href="https://github.com/douglascrockford/JSON-js">json2.js</a>, and either <a href="http://jquery.com/">jQuery</a> <small>( &gt; 1.4.2)</small> or <a href="http://zeptojs.com/">Zepto</a>.</blockquote>
+とかいてあり、とりあえず、Backbone.jsを使うには、Underscore / Lo-Dashと、jQuery / Zeptoが必要みたい。Lo-Dashについては、<a href="http://havelog.ayumusato.com/develop/javascript/e531-backbone_webapp_case_intro.html">1日目の@ahomuさん</a>もちょっと触れてるね。
+<pre><code class="javascript">// For Backbone&#39;s purposes, jQuery, Zepto, or Ender owns the <code>$</code> variable.
+Backbone.$ = root.jQuery || root.Zepto || root.ender;</code></pre>
+ソースコードの方を読んでみると、jQuery / Zepto以外にもEnderってのも使っていいらしい。なんぞこれ初耳よ！どれ使ったらいいのよ！</p>
+
+<p>ということでBackboneはおいといて、この記事は形から入る男@t32kが Underscore / Lo-Dash と Zepto / Ender について調べてみるよ！
+<h2>Underscore / Lo-Dash</h2>
+<ul>
+    <li><a href="http://underscorejs.org/">Underscore.js</a> (v1.4.3)</li>
+    <li><a href="http://lodash.com/">Lo-Dash</a> (v1.0.0-rc.3)</li>
+</ul>
+Underscoreに関しては、Backboneと同じDocumentCloudが管理してるので、Backbone使うんならUnderscoreというように1セットのように考えている人も多いように思います。実際、@ahomuさんが使ってなかったら僕も知らなかったす。</p>
+
+<p>そもそも、Lo-Dashのなぜ必要なのか、Underscoreと全く同じであるのであれば存在する必要性はないのですが、<a href="https://github.com/bestiejs/lodash">README</a>を読んでみるとUnderscoreに勝る利点がいくつか書いてあります。
+<h3>consistency</h3>
+<ul>
+    <li>Allow iteration of objects with a <code>length</code> property [<a href="https://github.com/documentcloud/underscore/pull/799">#799</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L605-L611">test</a>]</li>
+    <li>Fix cross-browser object iteration bugs [<a href="https://github.com/documentcloud/underscore/issues/60">#60</a>, <a href="https://github.com/documentcloud/underscore/issues/376">#376</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L618-L642">test</a>]</li>
+    <li>Methods should work on pages with incorrectly shimmed native methods [<a href="https://github.com/documentcloud/underscore/issues/7">#7</a>, <a href="https://github.com/documentcloud/underscore/issues/742">#742</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L140-L146">test</a>]</li>
+    <li><code><em>.isEmpty</code> should support jQuery/MooTools DOM query collections [<a href="https://github.com/documentcloud/underscore/pull/690">#690</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L807-L812">test</a>]</li>
+    <li><code></em>.isObject</code> should avoid V8 bug <a href="http://code.google.com/p/v8/issues/detail?id=2291">#2291</a> [<a href="https://github.com/documentcloud/underscore/issues/605">#605</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L888-L900">test</a>]</li>
+    <li><code><em>.keys</code> should work with <code>arguments</code> objects cross-browser [<a href="https://github.com/documentcloud/underscore/issues/396">#396</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L982-L984">test</a>]</li>
+    <li><code></em>.range</code> should coerce arguments to numbers [<a href="https://github.com/documentcloud/underscore/issues/634">#634</a>, <a href="https://github.com/documentcloud/underscore/issues/683">#683</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L1383-L1386">test</a>]</li>
+</ul>
+なんかいろいろ解決されているらしい。
+<h3>customization</h3>
+<ul>
+    <li>lodash bacbone</li>
+    <li>lodash csp</li>
+    <li>lodash legacy</li>
+    <li>lodash mobile</li>
+    <li>lodash strict</li>
+    <li>loadh underscore</li>
+</ul>
+<a href="https://github.com/bestiejs/lodash#custom-builds">なんかいろいろカスタムビルド</a>出来るらしい。
+<h3>performance</h3>
+<p style="text-align: center;"><img class="fig aligncenter" alt="" src="http://t32k.me/mol/file/2012/12/bench.png" width="600" height="386" /></p>
+<a href="http://lodash.com/benchmarks">
+<ul>
+    <li><strong>ベンチマークテスト</strong></li>
+</ul>
+</a></p>
+
+<p>だいたい速いらしい(77/89でlodashが速かった。全部テストしてない)
+<h4>extra features</h4>
+<ul>
+    <li>AMD loader support (<a href="http://requirejs.org/">RequireJS</a>, <a href="https://github.com/cujojs/curl">curl.js</a>, etc.)</li>
+    <li><a href="http://lodash.com/docs#_"><code><em>(…)</code></a> supports intuitive chaining</li>
+    <li><a href="http://lodash.com/docs#bindKey"><code></em>.bindKey</code></a> for binding <a href="http://michaux.ca/articles/lazy-function-definition-pattern"><em>“lazy”</em> defined</a> methods</li>
+    <li><a href="http://lodash.com/docs#cloneDeep"><code><em>.cloneDeep</code></a> for <em>“deep”</em> cloning arrays and objects</li>
+    <li><a href="http://lodash.com/docs#contains"><code></em>.contains</code></a> accepts a <code>fromIndex</code> argument</li>
+    <li><a href="http://lodash.com/docs#forEach"><code><em>.forEach</code></a> is chainable and supports exiting iteration early</li>
+    <li><a href="http://lodash.com/docs#forIn"><code></em>.forIn</code></a> for iterating over an object’s own and inherited properties</li>
+    <li><a href="http://lodash.com/docs#forOwn"><code><em>.forOwn</code></a> for iterating over an object’s own properties</li>
+    <li><a href="http://lodash.com/docs#isPlainObject"><code></em>.isPlainObject</code></a> checks if values are created by the <code>Object</code> constructor</li>
+    <li><a href="http://lodash.com/docs#merge"><code><em>.merge</code></a> for a <em>“deep”</em> <a href="http://lodash.com/docs#extend"><code></em>.extend</code></a></li>
+    <li><a href="http://lodash.com/docs#partial"><code><em>.partial</code></a> for partial application without <code>this</code> binding</li>
+    <li><a href="http://lodash.com/docs#pick"><code></em>.pick</code></a> and <a href="http://lodash.com/docs#omit"><code><em>.omit</code></a> accept <code>callback</code> and <code>thisArg</code> arguments</li>
+    <li><a href="http://lodash.com/docs#template"><code></em>.template</code></a> supports <a href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-7.8.6">ES6 template delimiters</a> and utilizes <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl">sourceURLs</a> for easier debugging</li>
+    <li><a href="http://lodash.com/docs#contains"><code><em>.contains</code></a>, <a href="http://lodash.com/docs#size"><code></em>.size</code></a>, <a href="http://lodash.com/docs#toArray"><code><em>.toArray</code></a>, &lt;a title=&quot;</em>.countBy, _.every, _.filter, _.find, _.forEach, _.groupBy, _.invoke, _.map, _.max, _.min, _.pluck, _.reduce, _.reduceRight, _.reject, _.shuffle, _.some, _.sortBy, _.where&quot; href=&quot;http://lodash.com/docs&quot;&gt;and more…</a> accept strings</li>
+</ul>
+わーい、いっぱいーヽ(=´▽`=)ﾉ</p>
+
+<p>というわけ、Underscoreも改善されてくると思うけど、今んところLo-Dashを使ったほうが良さげな感じ。
+<h2>Zepto / Ender</h2>
+<ul>
+    <li><a href="http://zeptojs.com/">Zepto.js: the aerogel-weight jQuery-compatible JavaScript library </a> (v1.0rc1)</li>
+    <li><a href="http://ender.jit.su/">Ender - the no-library JavaScript library </a></li>
+</ul>
+だんだんめんどくさくなってきたので、
+<p style="display: inline !important;"><a href="http://www.whatsmyip.org/http-compression-test/">WhatsMyIP.org | HTTP Compression Test </a>で各ファイルサイズ（Gzip後のサイズ）だけ比べてみる。</p>
+■ <a href="http://zeptojs.com/zepto.min.js"><strong>http://zeptojs.com/zepto.min.js</strong></a>
+<blockquote>Original Size: 23.45 KB
+Compressed Size: 9.22 KB</blockquote>
+■ <a href="http://cdn.enderjs.com/jeesh.min.js"><strong>http://cdn.enderjs.com/jeesh.min.js</strong></a>
+<blockquote>Actual Page Size: 30.68 KB
+Size if Compressed: 11.23 KB</blockquote>
+■ <a href="http://code.jquery.com/jquery-1.8.3.min.js"><strong>http://code.jquery.com/jquery-1.8.3.min.js</strong></a>
+<blockquote>Original Size: 91.44 KB
+Compressed Size: 32.69 KB</blockquote>
+Jeesh.min.jsってのはEnder.jsのスタータパックみたいなものでセレクタエンジン（<a href="https://github.com/ded/qwery">Qwery</a>）とか最小限が入ってる構成。こう見てみると、jQueryが重いのは当たり前として、EnderよりZeptoのほうが軽いんだね。</p>
+
+<p>しかし、まぁ個々のメソッドの実行速度(<a href="http://jsperf.com/qwery-vs-jquery-vs-mootools-selector-engines/13)">jQuery vs Zepto.js vs Jeesh(Ender.js) selector engines · jsPerf)</a>を見てみないとなんとも言えないし、古いIEを切り捨てる<a href="http://blog.jquery.com/2012/06/28/jquery-core-version-1-9-and-beyond/">jQuery 2.0</a>がどれだけ軽くなるか気になるとこだけど、個人的にちょっとEnder.js調べてみたいかもと思ったかも ∈ ﾟ) ﾉ</p>
+
+<h2></h2>
+
+<p>とまぁなんやかんや調べてみましたけど、Backbone +  Lo-Dash + Enderって構成がナウいのかな。この辺りに関してはたぶん来年のFrontrend  Vol.4 powered by CyberAgentで詳しく話されるんじゃないかなと思ってる。興味持った人は参加してみてー。案内出てないけど。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2012-23-December" title="December 23, 2012">December 23, 2012</time>
+            </div>
+            <h1 class="title">Backbone +  Lo-Dash + Ender?</h1>
+            
+        </header>
+
+        <section>
+            <p><strong><a href="http://www.adventar.org/calendars/15">Backbone.js Advent Calendar 2012</a></strong>
+<blockquote>Backbone.jsのTIPSとかパターンとか、他のライブラリとの連携などなど。
+フルスタック感がない分、各自でいろいろ編み出しながら使いこなしていると思うので、そのあたりの共有がてら書きましょう！</blockquote>
+ということで、Advent Calendarでは与えられたテーマから外れた内容で記事を書くことに定評のある<a href="https://twitter.com/t32k">@t32k</a>が23日目をお贈りしてやんよ(o°3°b)b</p>
+
+<p>私、恥ずかしながらBackbone.jsとは今のところ無縁な最下級HTMLコーダー(戦闘力・たったの５か・・ゴミめ・・・)でして、そんあ僕でもいつかはAPIとか使って情報とってきて面白いWebアプリケーション作りたいと思うわけです。そこでBackbone.jsなわけです。</p>
+
+<p>そんなわけでわけの分からぬまま<a href="http://backbonejs.org/">Backbone.jsの公式サイト</a>を読んでみると
+<blockquote>Backbone&#39;s only hard dependency is either <a href="http://underscorejs.org/">Underscore.js</a> <small>( &gt; 1.4.3)</small> or <a href="http://lodash.com/">Lo-Dash</a>. For RESTful persistence, history support via <a href="http://backbonejs.org/#Router">Backbone.Router</a> and DOM manipulation with<a href="http://backbonejs.org/#View">Backbone.View</a>, include <a href="https://github.com/douglascrockford/JSON-js">json2.js</a>, and either <a href="http://jquery.com/">jQuery</a> <small>( &gt; 1.4.2)</small> or <a href="http://zeptojs.com/">Zepto</a>.</blockquote>
+とかいてあり、とりあえず、Backbone.jsを使うには、Underscore / Lo-Dashと、jQuery / Zeptoが必要みたい。Lo-Dashについては、<a href="http://havelog.ayumusato.com/develop/javascript/e531-backbone_webapp_case_intro.html">1日目の@ahomuさん</a>もちょっと触れてるね。
+<pre><code class="javascript">// For Backbone&#39;s purposes, jQuery, Zepto, or Ender owns the <code>$</code> variable.
+Backbone.$ = root.jQuery || root.Zepto || root.ender;</code></pre>
+ソースコードの方を読んでみると、jQuery / Zepto以外にもEnderってのも使っていいらしい。なんぞこれ初耳よ！どれ使ったらいいのよ！</p>
+
+<p>ということでBackboneはおいといて、この記事は形から入る男@t32kが Underscore / Lo-Dash と Zepto / Ender について調べてみるよ！
+<h2>Underscore / Lo-Dash</h2>
+<ul>
+    <li><a href="http://underscorejs.org/">Underscore.js</a> (v1.4.3)</li>
+    <li><a href="http://lodash.com/">Lo-Dash</a> (v1.0.0-rc.3)</li>
+</ul>
+Underscoreに関しては、Backboneと同じDocumentCloudが管理してるので、Backbone使うんならUnderscoreというように1セットのように考えている人も多いように思います。実際、@ahomuさんが使ってなかったら僕も知らなかったす。</p>
+
+<p>そもそも、Lo-Dashのなぜ必要なのか、Underscoreと全く同じであるのであれば存在する必要性はないのですが、<a href="https://github.com/bestiejs/lodash">README</a>を読んでみるとUnderscoreに勝る利点がいくつか書いてあります。
+<h3>consistency</h3>
+<ul>
+    <li>Allow iteration of objects with a <code>length</code> property [<a href="https://github.com/documentcloud/underscore/pull/799">#799</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L605-L611">test</a>]</li>
+    <li>Fix cross-browser object iteration bugs [<a href="https://github.com/documentcloud/underscore/issues/60">#60</a>, <a href="https://github.com/documentcloud/underscore/issues/376">#376</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L618-L642">test</a>]</li>
+    <li>Methods should work on pages with incorrectly shimmed native methods [<a href="https://github.com/documentcloud/underscore/issues/7">#7</a>, <a href="https://github.com/documentcloud/underscore/issues/742">#742</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L140-L146">test</a>]</li>
+    <li><code><em>.isEmpty</code> should support jQuery/MooTools DOM query collections [<a href="https://github.com/documentcloud/underscore/pull/690">#690</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L807-L812">test</a>]</li>
+    <li><code></em>.isObject</code> should avoid V8 bug <a href="http://code.google.com/p/v8/issues/detail?id=2291">#2291</a> [<a href="https://github.com/documentcloud/underscore/issues/605">#605</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L888-L900">test</a>]</li>
+    <li><code><em>.keys</code> should work with <code>arguments</code> objects cross-browser [<a href="https://github.com/documentcloud/underscore/issues/396">#396</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L982-L984">test</a>]</li>
+    <li><code></em>.range</code> should coerce arguments to numbers [<a href="https://github.com/documentcloud/underscore/issues/634">#634</a>, <a href="https://github.com/documentcloud/underscore/issues/683">#683</a>, <a href="https://github.com/bestiejs/lodash/blob/v1.0.0-rc.3/test/test.js#L1383-L1386">test</a>]</li>
+</ul>
+なんかいろいろ解決されているらしい。
+<h3>customization</h3>
+<ul>
+    <li>lodash bacbone</li>
+    <li>lodash csp</li>
+    <li>lodash legacy</li>
+    <li>lodash mobile</li>
+    <li>lodash strict</li>
+    <li>loadh underscore</li>
+</ul>
+<a href="https://github.com/bestiejs/lodash#custom-builds">なんかいろいろカスタムビルド</a>出来るらしい。
+<h3>performance</h3>
+<p style="text-align: center;"><img class="fig aligncenter" alt="" src="http://t32k.me/mol/file/2012/12/bench.png" width="600" height="386" /></p>
+<a href="http://lodash.com/benchmarks">
+<ul>
+    <li><strong>ベンチマークテスト</strong></li>
+</ul>
+</a></p>
+
+<p>だいたい速いらしい(77/89でlodashが速かった。全部テストしてない)
+<h4>extra features</h4>
+<ul>
+    <li>AMD loader support (<a href="http://requirejs.org/">RequireJS</a>, <a href="https://github.com/cujojs/curl">curl.js</a>, etc.)</li>
+    <li><a href="http://lodash.com/docs#_"><code><em>(…)</code></a> supports intuitive chaining</li>
+    <li><a href="http://lodash.com/docs#bindKey"><code></em>.bindKey</code></a> for binding <a href="http://michaux.ca/articles/lazy-function-definition-pattern"><em>“lazy”</em> defined</a> methods</li>
+    <li><a href="http://lodash.com/docs#cloneDeep"><code><em>.cloneDeep</code></a> for <em>“deep”</em> cloning arrays and objects</li>
+    <li><a href="http://lodash.com/docs#contains"><code></em>.contains</code></a> accepts a <code>fromIndex</code> argument</li>
+    <li><a href="http://lodash.com/docs#forEach"><code><em>.forEach</code></a> is chainable and supports exiting iteration early</li>
+    <li><a href="http://lodash.com/docs#forIn"><code></em>.forIn</code></a> for iterating over an object’s own and inherited properties</li>
+    <li><a href="http://lodash.com/docs#forOwn"><code><em>.forOwn</code></a> for iterating over an object’s own properties</li>
+    <li><a href="http://lodash.com/docs#isPlainObject"><code></em>.isPlainObject</code></a> checks if values are created by the <code>Object</code> constructor</li>
+    <li><a href="http://lodash.com/docs#merge"><code><em>.merge</code></a> for a <em>“deep”</em> <a href="http://lodash.com/docs#extend"><code></em>.extend</code></a></li>
+    <li><a href="http://lodash.com/docs#partial"><code><em>.partial</code></a> for partial application without <code>this</code> binding</li>
+    <li><a href="http://lodash.com/docs#pick"><code></em>.pick</code></a> and <a href="http://lodash.com/docs#omit"><code><em>.omit</code></a> accept <code>callback</code> and <code>thisArg</code> arguments</li>
+    <li><a href="http://lodash.com/docs#template"><code></em>.template</code></a> supports <a href="http://people.mozilla.org/~jorendorff/es6-draft.html#sec-7.8.6">ES6 template delimiters</a> and utilizes <a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl">sourceURLs</a> for easier debugging</li>
+    <li><a href="http://lodash.com/docs#contains"><code><em>.contains</code></a>, <a href="http://lodash.com/docs#size"><code></em>.size</code></a>, <a href="http://lodash.com/docs#toArray"><code><em>.toArray</code></a>, &lt;a title=&quot;</em>.countBy, _.every, _.filter, _.find, _.forEach, _.groupBy, _.invoke, _.map, _.max, _.min, _.pluck, _.reduce, _.reduceRight, _.reject, _.shuffle, _.some, _.sortBy, _.where&quot; href=&quot;http://lodash.com/docs&quot;&gt;and more…</a> accept strings</li>
+</ul>
+わーい、いっぱいーヽ(=´▽`=)ﾉ</p>
+
+<p>というわけ、Underscoreも改善されてくると思うけど、今んところLo-Dashを使ったほうが良さげな感じ。
+<h2>Zepto / Ender</h2>
+<ul>
+    <li><a href="http://zeptojs.com/">Zepto.js: the aerogel-weight jQuery-compatible JavaScript library </a> (v1.0rc1)</li>
+    <li><a href="http://ender.jit.su/">Ender - the no-library JavaScript library </a></li>
+</ul>
+だんだんめんどくさくなってきたので、
+<p style="display: inline !important;"><a href="http://www.whatsmyip.org/http-compression-test/">WhatsMyIP.org | HTTP Compression Test </a>で各ファイルサイズ（Gzip後のサイズ）だけ比べてみる。</p>
+■ <a href="http://zeptojs.com/zepto.min.js"><strong>http://zeptojs.com/zepto.min.js</strong></a>
+<blockquote>Original Size: 23.45 KB
+Compressed Size: 9.22 KB</blockquote>
+■ <a href="http://cdn.enderjs.com/jeesh.min.js"><strong>http://cdn.enderjs.com/jeesh.min.js</strong></a>
+<blockquote>Actual Page Size: 30.68 KB
+Size if Compressed: 11.23 KB</blockquote>
+■ <a href="http://code.jquery.com/jquery-1.8.3.min.js"><strong>http://code.jquery.com/jquery-1.8.3.min.js</strong></a>
+<blockquote>Original Size: 91.44 KB
+Compressed Size: 32.69 KB</blockquote>
+Jeesh.min.jsってのはEnder.jsのスタータパックみたいなものでセレクタエンジン（<a href="https://github.com/ded/qwery">Qwery</a>）とか最小限が入ってる構成。こう見てみると、jQueryが重いのは当たり前として、EnderよりZeptoのほうが軽いんだね。</p>
+
+<p>しかし、まぁ個々のメソッドの実行速度(<a href="http://jsperf.com/qwery-vs-jquery-vs-mootools-selector-engines/13)">jQuery vs Zepto.js vs Jeesh(Ender.js) selector engines · jsPerf)</a>を見てみないとなんとも言えないし、古いIEを切り捨てる<a href="http://blog.jquery.com/2012/06/28/jquery-core-version-1-9-and-beyond/">jQuery 2.0</a>がどれだけ軽くなるか気になるとこだけど、個人的にちょっとEnder.js調べてみたいかもと思ったかも ∈ ﾟ) ﾉ</p>
+
+<h2></h2>
+
+<p>とまぁなんやかんや調べてみましたけど、Backbone +  Lo-Dash + Enderって構成がナウいのかな。この辺りに関してはたぶん来年のFrontrend  Vol.4 powered by CyberAgentで詳しく話されるんじゃないかなと思ってる。興味持った人は参加してみてー。案内出てないけど。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Backbone +  Lo-Dash + Ender?" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

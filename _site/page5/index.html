@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page5/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page5/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/no-more-stopwatch" rel="prefetch">サイトの速度</a></h2>
+            <p><p><a href="http://www.flickr.com/photos/wwarby/3296379139/"><img class="aligncenter size-full wp-image-4789" title="timer" src="http://t32k.me/mol/file/2013/04/timer1.jpg" alt="" width="870" height="300" /></a>
+<div style="text-align: right;"><a href="http://www.flickr.com/photos/wwarby/3296379139/">Stopwatch | By wwarby Flickr!</a></div>
+こんにちわ、あなたの<a href="https://twitter.com/t32k">@t32k</a>、ごきげんいかがでしょう。みなさんはスマホWebアプリ作っていて、自分の作ったものは速いのか遅いのか気になりませんかね？僕は木に泣くりまくりすてぃです。</p>
+
+<p>そうゆうわけなもんで、表示速度とか計測してみようって話になるじゃないですかー、まさかストップウォッチで計測しないとは思うんですけどー、一応どのようにスピードを計測、そのアプリの性能を評価すればよいのか一緒に考えてみましょう。</p>
+
+<p>僕が昔、ゴメス・コンサルティング（現：<del>コンピュウェア</del> モーニングスター） の<a href="http://t32k.me/mol/log/gomez/">セミナーに行ってきた時の話</a>ですが、ここの会社はサイトパフォーマンスの計測サービスを提供していて、計測で重要なのは『<strong>定期的かつ継続的かつ同手法にてパフォーマンス測定</strong>』と言っておられました。</p>
+
+<p>サービスリリース時はスモールスタートなのでアプリもコンパクトですからスピードは速めかもしれません。しかし月日がたつにつれて、多くの機能が実装され、それに伴いサイトのスピードが落ちてはなんの意味もありません。計測した日がたまたま速かったのかもしれませんし、たまたま遅かったのかもしれませんので、定期的かつ継続的にかつ計測する必要性があります。また、1回目と2回目の測定条件（環境）が違ったりしては参考になりません。ましてや数ms単位でしのぎを削る我々にとってこの辺はシビアでかつ正確であってほしいわけです。</p>
+
+<p>ですから、ストップウォッチや計測コードを毎回差し込むといった人間の手による対応ではコストが高すぎますし不正確な計測しか出来ません。そこですべてを自動化し計測する必要性があります。
+<h2>すべてを自動化ってそんなことできるの？</h2>
+大抵のサイトに実装されているであろうGoogle アナリティクスを使えば可能です。</p>
+
+<p>[caption id=&quot;attachment_4832&quot; align=&quot;aligncenter&quot; width=&quot;540&quot;]<a href="http://t32k.me/mol/file/2013/04/s11.png"><img class=" wp-image-4832 fig " title="[コンテンツ] &gt; [サイトの速度] &gt; [サマリー]" src="http://t32k.me/mol/file/2013/04/s11.png" alt="" width="540" /></a> サイトの速度[/caption]<strong>[コンテンツ] &gt; [サイトの速度] &gt; [サマリー]</strong></p>
+
+<p>上記Google アナリティクスのレポートから『<strong>平均表示時間</strong>』等を確認できます。『平均表示時間』と書いてありますが、英語メニューでは『Avg. Page Load Time』ですので、『平均読み込み時間』が適切かと思われます（ラベリングおかしい（●｀ε´●））
+<blockquote>平均表示時間 - ページの読み込みにかかった平均時間（秒）</p>
+
+<p>ga:avgPageLoadTime = (ga:pageLoadTime / ga:pageLoadSample) * 0.001
+平均表示時間（秒）= ページの読み込みの合算値 (ミリ秒）÷ サンプル数 × 0.001
+<p style="text-align: right;"><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets/sitespeed">Site Speed - Dimensions &amp; Metrics Reference </a></p>
+</blockquote>
+と言った計算式で算出されております。これであればサイトの全ページを計測でき、なおかつ平均なので、ある程度ならした数値を得ることができます（外れ値は別途カスタムレポートとかで除外することもできます）し、パフォーマンス改善もPVの多いとこから対応したほうが効率的だということが理解できるでしょう。</p>
+
+<p><strong><span style="color: #333399;">[追記]</span></strong>　コメントに指摘されたように、値にばらつきがあるような場合（凹凸形状な分布）だとやはり、中央値を確認すべきなので、<strong>[分布]</strong>タブをクリックすれば、どの値の範囲に多いのか確認できます。
+<p style="text-align: center;"><a href="http://t32k.me/mol/file/2013/04/fig.png"><img class="aligncenter size-large wp-image-4889 fig" title="Distribution" src="http://t32k.me/mol/file/2013/04/fig-1024x646.png" alt="" width="540" height="340" /></a></p>
+またディレクトリごとで読み込み時間の違いを確認したり、端末ごとでの読み込み時間を確認するといったことも可能でしょう。</p>
+
+<p>さて、この読み込み時間ってのはどこから取ってきてるのかと言いますと、<a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html">Navigation Timing</a>という仕様を実装しているブラウザからです。ユーザーがページ遷移するとネットワークの接続、サーバーレスポンス、ブラウザ読み込みにかかった時間が自動的にブラウザに記録され、その情報をGAがサーバーに送ってるといった感じです。
+<p style="text-align: center;"><img class="size-full wp-image-4848 aligncenter" title="Before" src="http://t32k.me/mol/file/2013/04/f1.png" alt="" width="640" height="300" /></p>
+これまでというか、一昔前まではそうゆうことを計測しようと思うと上記のようなコードを挿入して計測していた気がします。これをページの読み込み時間と定義してしまうのは、いささか問題があります。Aのページの読み込みを考えれば、当然Bとなど他のページから遷移したと想定され、Bのページのリンクを押してから、Aのベージの読み込み完了までが本来の意味での（体感的な）読み込み時間と考えるべきでしょう。つまり、上記のコードではネットワークやサーバーのやり取りの部分が考慮されてないことを意味します。またそもそも<a href="http://ejohn.org/blog/accuracy-of-javascript-time/">JavaScriptでの時間計測は不正確</a>ということも懸念されます。
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-4836" title="After" src="http://t32k.me/mol/file/2013/04/f2.png" alt="" width="640" height="340" /></p>
+より体感に近い読み込み時間を考慮すれば上図のような流れを計測すべきです。このような計測をJavaScriptだけで行おうとするとやや複雑な処理を記述しなければなりません。そんなめんどくさいことしなくても計測できるようになったのが、Navigation timingです。</p>
+
+<p>[caption id=&quot;attachment_4838&quot; align=&quot;aligncenter&quot; width=&quot;540&quot;]<a href="http://t32k.me/mol/file/2013/04/s21.png"><img class="size-large wp-image-4838 fig" title="技術" src="http://t32k.me/mol/file/2013/04/s21-1024x844.png" alt="" width="540" height="445" /></a> ページの速度：技術[/caption]</p>
+
+<p>もう一度、GAのレポート（[コンテンツ] &gt; [サイトの速度] &gt; [ページ速度]）を見てみると、『平均表示時間』の以外にも様々な指標が確認できるでしょう。
+<ol>
+    <li><strong>平均リダイレクト時間</strong>（ページを読み込む前にリダイレクトにかかった平均時間。リダイレクトがなければ0になる）</li>
+    <li><strong>ドメインの平均ルックアップ時間</strong>（ページのDNS名前解決にかかった平均時間）</li>
+    <li><strong>サーバーの平均接続時間</strong>（サーバーとのTCPコネクション確立に要した平均時間）</li>
+    <li><strong>サーバーの平均応答時間</strong>（サーバーがユーザーリクエストに応答するまでの時間。ユーザーの所在地からサイトのサーバーにアクセスするネットワークの通信時間も含まれる）</li>
+    <li><strong>ページの平均ダウンロード時間</strong>（ ページ（のみ）のダウンロードにかかった時間）</li>
+</ol>
+<strong>[エクスプローラ]</strong>タブの<strong>[技術]</strong>にはネットワークとサーバーに関する指標がレポーティングされています。『平均表示時間』の大半がこの部分で占められていれば、フロントエンドエンジニアではなくサーバーサイドエンジニアに文句を言いましょう。</p>
+
+<p>[caption id=&quot;attachment_4837&quot; align=&quot;aligncenter&quot; width=&quot;540&quot;]<a href="http://t32k.me/mol/file/2013/04/s3.png"><img class="size-large wp-image-4837 fig" title="DOM速度" src="http://t32k.me/mol/file/2013/04/s3-1024x844.png" alt="" width="540" height="445" /></a> ページの速度：DOM速度[/caption]
+<ol>
+    <li><strong>平均ドキュメントインタラクティブ時間</strong>（ドキュメントがパースされるのにかかった平均時間。このときDOMは完全に読み込まれてはいないが、ユーザー操作可能な状態。またユーザーの所在地からサイトのサーバーにアクセスするネットワークの通信時間も含まれる）</li>
+    <li><strong>平均ドキュメントコンテンツ読み込み時間</strong>（ドキュメントがパースされDOMContentLoadedを実行するのにかかった平均時間。このときDOMは読み込まれているがCSSや画像などのリソースが読み込みが完了しているわけではない）</li>
+</ol>
+<strong>[エクスプローラ]</strong>タブの<strong>[DOM速度]</strong>にはドキュメント解析に関する指標がレポーティングされています。『平均表示時間』の大半がこの部分で占められていればDOMが複雑すぎるのでしょう。コーダーに文句を言いましょう。</p>
+
+<p>平均ドキュメントインタラクティブ時間と平均ドキュメントコンテンツ読み込み時間はほぼ同義って思っていいでしょう（ここで差が出るケースがわからない）。</p>
+
+<p>とりあえずこれらのレポートは特に手間を要することなくGAスニペットが挿入されていれば、サイトユーザーの1%のサンプリングレートで記録されるので、ほっといてもデータ溜まっていきます。1%じゃサイトの規模的に足りないって方は<code>&lt;a href=&quot;https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._setSiteSpeedSampleRate&quot;&gt;_setSiteSpeedSampleRate()&lt;/a&gt;</code>を使えばサンプルレートを調整できます。
+<ul>
+    <li><a href="https://support.google.com/analytics/answer/1205784?hl=ja&amp;ref_topic=1282106">サイトの速度について - アナリティクス ヘルプ</a></li>
+</ul>
+&nbsp;
+<h2>対応しているブラウザは？</h2>
+さて、 このNavigation Timingに対応したブラウザってどんなもんなんでしょう。ヘルプには下記のように書いてありました。
+<blockquote>サイトの速度のトラッキングは、HTML5 Navigation Timing インターフェース対応のブラウザか、Google ツールバーがインストールされたブラウザからの訪問に対してのみ行われます。該当する主なブラウザには、Chrome、Firefox 7 以降、Internet Explorer 9 以降、Android 4.0 以降のブラウザと、Google ツールバーがインストールされた Internet Explorer の以前のバージョンなどがあります。</blockquote>
+ほうほう、Navigation Timingに対応してなくても、PCだとGoogleツールバー入れてたらいいんだね。って、俺の知りたいのはスマホだ、iOSだ！ということで。
+<p style="text-align: center;"><a href="http://caniuse.com/#search=Navigation%20Timing%20API"><img class="aligncenter  wp-image-4873 fig" title="Navigation Timing" src="http://t32k.me/mol/file/2013/04/f9b438c86a9e68bc50b3b9b65b4fca5e.png" alt="" width="870" /></a></p>
+Can I use...で見てみると、iOS全滅じゃん！Desktop Safariでさえ対応してないと見ると、Appleさんは対応する気がないんでしょうかね...(´・ω・`)</p>
+
+<p>とはいえ、<a href="http://japanese.engadget.com/2013/04/02/android-4-0-55/">Android4.0以降がバージョン別シェア半数</a>を超えたとかニュースで言っておりましたし、今後のモバイルの主流になっていくの当然であり、十分な量のデータサンプルを収集することも難なくできるでしょう。
+<p style="text-align: center;"><a href="http://www.browserscope.org/?category=network&amp;v=top-m&amp;ua=Android%202.3%2CAndroid%204%2CiPhone%205%2CiPhone%206"><img class="aligncenter  wp-image-4875 fig" title="Browserscope" src="http://t32k.me/mol/file/2013/04/cad4f2acb23f9d4aa554d564aa920837.png" alt="" width="870" /></a></p>
+ また、Android4.0以降であればパフォーマンスの観点からいってもiOSとひけをとりません（むしろ4.0のほうがいいくらい）なので、Android4.0で集められたGAレポートのデータを暫定的にiOSでもこのくらいの読み込み時間かなーと考えといても良いかなと個人的には考えています。
+<h2>もうちょっと詳しく...</h2>
+<p style="text-align: center;"><a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html"><img class="aligncenter size-full wp-image-4866 fig" title="Navigation Timing" src="http://t32k.me/mol/file/2013/04/nt.png" alt="" width="870" height="540" /></a></p>
+もうちょっと細かく、Navigation Timingの仕様を見てみましょう。上図は仕様書にも書いて有るNavigation Timingの概要です。なんかいっぱいタイミングがあってごちゃごちゃします。まぁこのように細かく分けることでどこがボトルネックか突き止めることができるってもんです。とはいえ覚えきれないので、もっと大雑把に考えたのが下図。</p>
+
+<p><img class="aligncenter size-full wp-image-4840" title="three" src="http://t32k.me/mol/file/2013/04/f3.png" alt="" width="400" height="340" /></p>
+
+<p>ブラウザー、ネットワーク、サーバーの登場人物は3人です。『読み込み時間』とひとくくりに言っても3つのカテゴリーに分けて考えることができます。つまり問題を整理して対応策を考えることできます。</p>
+
+<p>さらに、ブラウザー、ネットワーク、サーバーで色分けし、先ほどのGAレポートの項目とNavigation Timingの項目を照らし合わせたのが下の図。</p>
+
+<p><img class="aligncenter size-full wp-image-4861" title="f4" src="http://t32k.me/mol/file/2013/04/f4.png" alt="" width="750" height="750" /></p>
+
+<p>やっべーわかりやっしーちょーわかりやっしー。</p>
+
+<p>とこのように、Google アナリティクスの『サイトの速度』を利用すれば、公正でかつ正確なサイトのパフォーマンス評価をすることが可能です。また、それに対する策も考えやすいといったように開発者にやさしい機能となっていますので、みなさんじゃんじゃん使ってみてください。</p>
+
+<p>最後に地域が日本で、ブラウザーがAndroidのスマホ用のサイトの速度カスタムレポート作っときました。
+<ul>
+    <li><strong><a href="https://www.google.com/analytics/web/template?uid=tyEajMvPSySkw9VSN6vzMg">Navigation Timing用カスタムレポート</a>（スマホ用）</strong></li>
+</ul>
+<div></div>
+<div>最後にGAの『サイトの速度』レポートはできて日が浅く（そもそもNavigation Timing自体仕様が勧告でない）、データが集まりにくかったりかゆいところに手がとどかなかったりするのは致し方無いかないう印象です。もし、お金払ってでももっと正確なデータが欲しいという方は、<a href="http://www.keynotesystems.jp/#!measurement-and-monitoring/c196n">Keynote Systemsのような有料の計測サービス</a>を利用するのもひとつの手段かと思います。</div>
+<div></div>
+<h2>参考</h2>
+<ul>
+    <li><a href="http://www.html5rocks.com/en/tutorials/webperformance/basics/">Measuring Page Load Speed with Navigation Timing - HTML5 Rocks</a></li>
+    <li><a href="http://www.igvita.com/2012/04/04/measuring-site-speed-with-navigation-timing/">Measuring Site Speed with Navigation Timing - igvita.com</a></li>
+    <li><a href="http://blog.d-bow.com/post/17368332231/measuring-page-load-times-navigation-timing-api-vs">dblog, Measuring Page Load times: Navigation Timing API vs Inline JavaScript with the Date object</a></li>
+    <li><a href="http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks</a></li>
+    <li><a href="http://66.7percentangel.com/2011/12/breaking-down-onload-event-performance-bookmarklet/">Breaking Down onLoad Event – Performance Bookmarklet | Kasia Drzyzga</a></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-15-April" title="April 15, 2013">April 15, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/entrepreneur" rel="prefetch">起業家</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E8%B5%B7%E6%A5%AD%E5%AE%B6-%E8%97%A4%E7%94%B0-%E6%99%8B/dp/4344023633%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4344023633" target="_blank">起業家</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E8%B5%B7%E6%A5%AD%E5%AE%B6-%E8%97%A4%E7%94%B0-%E6%99%8B/dp/4344023633%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4344023633" target="_blank"><img class="fig" style="border: 0px;" src="http://ecx.images-amazon.com/images/I/51REj8QHv6L._SL160_.jpg" alt="起業家" width="108" height="160" border="0" /></a></td>
+<td valign="top"><span>藤田 晋 </span>幻冬舎 2013-04-12
+売り上げランキング : 8
+
+<a href="http://www.amazon.co.jp/%E8%B5%B7%E6%A5%AD%E5%AE%B6-%E8%97%A4%E7%94%B0-%E6%99%8B/dp/4344023633%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4344023633" target="_blank">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>あっちを立てればこっちが立たず、こっちを立てればあっちが立たず。</p>
+
+<p>経営者はバランスが難しいですね。</p>
+
+<p>とりあえず、トップの考えがブログなり本なりで知ることが出来るのは良いことだと思った。</p>
+
+<p>（社長のゆるふわツッコミがおもしろかった）</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-14-April" title="April 14, 2013">April 14, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/macbook-pro-how-to-remove-and-install-memory" rel="prefetch">MacBook Pro’13 Mid 2012 のメモリ交換して16GBにした</a></h2>
+            <p><p style="text-align: center;"><a title="DSC06706 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8644568837/"><img class="aligncenter" src="http://farm9.staticflickr.com/8393/8644568837_f9442d0b6b_c.jpg" alt="DSC06706" width="800" height="448" /></a></p>
+
+<p>今日は表題のとおり、MBP13の2012Midのメモリ交換したよ。BTOのとき、16GBが選択できなくててっきり認識しないのかと思ってたけど普通に認識するみたいだ。</p>
+
+<p><img class="aligncenter size-full wp-image-4801" title="MBP" src="http://t32k.me/mol/file/2013/04/s1.png" alt="" width="700" height="461" /></p>
+
+<p>交換前のMyBookのスペック。</p>
+
+<p><img class="aligncenter size-full wp-image-4802" title="８GB" src="http://t32k.me/mol/file/2013/04/s2.png" alt="" width="700" height="382" /></p>
+
+<p>4GB×2の8GB. まぁそこまでメモリ不足に悩んでないけどAdobe CSとかVMを一緒に立ち上げてるとなかなか重い気がするのと、1万未満で16GBが買えるということなので買ってみた（やつ↓）
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC-%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-DDR3-1600-PC3-12800-SP016GBSTU160N22/dp/B0094P98FK%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0094P98FK" target="_top">シリコンパワー メモリモジュール 204Pin SO-DIMM DDR3-1600(PC3-12800) 8GB×2枚組 SP016GBSTU160N22</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC-%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-DDR3-1600-PC3-12800-SP016GBSTU160N22/dp/B0094P98FK%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0094P98FK" target="_top"><img src="http://ecx.images-amazon.com/images/I/51ghxIR7QoL._SL160_.jpg" alt="シリコンパワー メモリモジュール 204Pin SO-DIMM DDR3-1600(PC3-12800) 8GB×2枚組 SP016GBSTU160N22" border="0" /></a></td>
+<td valign="top"><span>
+シリコンパワー
+売り上げランキング : 398</span><a href="http://www.amazon.co.jp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC-%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-DDR3-1600-PC3-12800-SP016GBSTU160N22/dp/B0094P98FK%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0094P98FK" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+メモリの交換の仕方は公式サポートに書いてあるので、取り掛かる前に一読を。</p>
+
+<p><strong>メモリカードの仕様</strong></p>
+
+<ul>
+<li>DDR3 (Double Data Rate Small Outline Dual Inline Memory Module) 方式</li>
+<li>67.6mm x 30mm (1.18 インチ)</li>
+<li>2 GB または 4 GB</li>
+<li>204 ピン</li>
+<li>PC3-12800 DDR3 1600 MHz タイプの RAM</li>
+</ul>
+
+<ul>
+    <li><strong><a href="http://support.apple.com/kb/HT1270?viewlocale=ja_JP">MacBook Pro：メモリの取り外し方法と取り付け方法</a></strong></li>
+</ul>
+
+<p>あと、メモリ交換する際にMBPを開かなきゃいけないんだけど、これて保証の対象外になるんだよなーと思ってたけど、保証の対象外になるのはそのメモリ交換に起因する故障の場合で、例えば電源タップがなんか知らんが壊れたとかなら期間内であれば保証してもらえるって感じかな。
+<ul>
+    <li><strong><a href="https://discussionsjapan.apple.com/thread/10116307?start=0&amp;tstart=0">SSDやメモリを換装するとサポート対象外...？: Apple サポートコミュニティ </a></strong></li>
+</ul>
+確かに公式サポートでメモリの取り外し方書いてあるし、いいのかな。とはいえ、買ってもう1年するし保証期間も終わるってるしな、どうでもいいやということで、交換してみる。</p>
+
+<p>まずは静電気対策のためにとりあえず全裸になりましょう。
+<p style="text-align: center;"><img class="aligncenter" src="http://farm9.staticflickr.com/8541/8645666878_bd3e5c7eb8_c.jpg" alt="DSC06707" width="800" height="448" /></p>
+裏面をみてみると、10本のネジがありますんで外しましょう。家にある100均の精密ドライバーセット使ってみたけど、サイズが合わなかった。00番のプラスドライバーが必要ということが分かったので、下記を注文した。とりあえず全裸になったけどドライバー届くまで服を着ようと思う。
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002SQLEIG/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/41-2usJbNaL._SL160_.jpg" alt="アネックス(ANEX) 精密ドライバー プラス00×50 No.3450" width="160" height="160" border="0" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/%E3%82%A2%E3%83%8D%E3%83%83%E3%82%AF%E3%82%B9-ANEX-%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-%E3%83%97%E3%83%A9%E3%82%B900%C3%9750-No-3450/dp/B002SQLEIG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB002SQLEIG" target="_blank">アネックス(ANEX) 精密ドライバー プラス00×50 No.3450</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span>兼古製作所
+売り上げランキング : 32<a href="http://www.amazon.co.jp/%E3%82%A2%E3%83%8D%E3%83%83%E3%82%AF%E3%82%B9-ANEX-%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-%E3%83%97%E3%83%A9%E3%82%B900%C3%9750-No-3450/dp/B002SQLEIG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB002SQLEIG" target="_blank">Amazonで詳しく見る</a> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+無事にプラスドライバーがきたので全裸になる。右上右から3本までは長いネジであとは短いネジの計10本をはずす。</p>
+
+<p><a title="DSC06709 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8644568759/"><img class="aligncenter" src="http://farm9.staticflickr.com/8241/8644568759_8a3370ef9f_c.jpg" alt="DSC06709" width="800" height="448" /></a></p>
+
+<p>外すと、こんな感じで右中央にメモリ部分を確認できる。</p>
+
+<p><a title="DSC06710 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8644568711/"><img class="aligncenter" src="http://farm9.staticflickr.com/8103/8644568711_a15def17b9_c.jpg" alt="DSC06710" width="800" height="448" /></a></p>
+
+<p>全裸になってるけど、メモリ部分を外す前に金属っぽいとこ触って放電しておきましょう。取り外し方はメモリがハマってる両端のレバーみたいなものを外側に開くとパカっと上にメモリが開くような感じになる。</p>
+
+<p><a title="DSC06712 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8644568671/"><img class="aligncenter" src="http://farm9.staticflickr.com/8532/8644568671_59912641ac_c.jpg" alt="DSC06712" width="800" height="448" /></a></p>
+
+<p>慎重に外してみた感じ。下段のメモリを取り外すのがてこづった。</p>
+
+<p><a title="DSC06713 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8645666616/"><img class="aligncenter" src="http://farm9.staticflickr.com/8537/8645666616_2d982b4a03_c.jpg" alt="DSC06713" width="800" height="448" /></a></p>
+
+<p>ほんで、買ったメモリ取り付けて完了！</p>
+
+<p><a title="DSC06714 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8644568509/"><img class="aligncenter" src="http://farm9.staticflickr.com/8401/8644568509_b7594d0909_c.jpg" alt="DSC06714" width="800" height="448" /></a></p>
+
+<p>Yeah!!!!!!!</p>
+
+<p><img class="aligncenter size-full wp-image-4803" title="16GB" src="http://t32k.me/mol/file/2013/04/fd79ce5dba48706f16fc11179000825b.png" alt="" width="700" height="382" /></p>
+
+<p>ちゃんと認識してるみたい！
+<ul>
+    <li><strong><a href="http://support.apple.com/kb/HT1379?viewlocale=ja_JP">NVRAM と PRAM について </a></strong></li>
+</ul>
+あと念の為にNVRAMのリセットもしておいたほうがよいとおもう。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-13-April" title="April 13, 2013">April 13, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/inheriting-link-colour" rel="prefetch">CSSプロパティの継承：inherit 忘れてたわー</a></h2>
+            <p><p style="text-align: center;"><img class="aligncenter size-full wp-image-4776" title="listviews" src="http://t32k.me/mol/file/2013/04/link.png" alt="" width="860" height="450" /></p>
+
+<p>最近のスマホサイトとかコーディングしてるとこーゆうリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりなんかアクションしたりする。</p>
+
+<p>こーゆのコーディングするとなると、ul &gt; li &gt; aでaをblock要素にしたりする。そんとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。
+<pre><code> body { color: black; } a { color: blue; } </code></pre>
+下線付きとは言わなくてもまぁたいていリセットの段階で基本的なリンク色を設定してると思う。
+<pre><code> ul li { color: gray; } </code></pre>
+それじゃいけないってもんだから、ul &gt; liにグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだaのcolorは継承しないんだったー』ってことが疲れてるとよくある。
+<pre><code> ul li, ul li a { color: gray; } </code></pre>
+だもんで、めんどくさいけど、こんなことしてた（aで包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここでinheritさんの登場だ。
+<pre><code> a { color: inherit; } ul li { color: gray; } </code></pre>
+こうしとけば、 ul &gt; li &gt; aは、グレーの文字色を継承する。inheritなんて初めて使っただよ。（<a href="http://jigokuno.com/?eid=943">やっべー、CSS3ばっか使ってinherit使ってこなかったわー。ほら俺ってCSS3ばっか使っちゃうからー</a>）</p>
+
+<p>スマホサイトはタップエリアを大きくするためにblock化して、aに多くの内容物が放り込まれるきらいがある。だもんで、aも通常のspanとかdiv感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。</p>
+
+<p>とおもったの(´・ω・`)
+<ul>
+    <li><strong><a href="http://snook.ca/archives/html_and_css/inheriting_link">Inheriting Link Colour - Snook.ca </a></strong></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-08-April" title="April 08, 2013">April 08, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/gfaceee" rel="prefetch">gFaceee</a></h2>
+            <p><p><img class="aligncenter" title="gface" src="https://raw.github.com/t32k/gFaceee/master/img/_preview.png" alt="" width="852" height="400" />
+<ul>
+    <li><a href="https://chrome.google.com/webstore/detail/gfaceee/fgkdbhnipaaeokfjgdmpejglfepclgbk"><strong>Chrome ウェブストア - gFaceee </strong></a></li>
+</ul>
+最近GitHubをよく見てるのですが、トップページのNewsFeedが文字ばかりで誰が何をやってるのかよく分かんなかったので、アイコンを表示させるextension作りました。インスコすると上図みたいな感じで表示されるようになります。</p>
+
+<p>そんだけ。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-20-March" title="March 20, 2013">March 20, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page4" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page6" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

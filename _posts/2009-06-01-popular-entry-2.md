@@ -1,0 +1,17 @@
+---
+layout: post
+title: 2009年上半期アクセストップ10記事
+categories:
+- blog
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: warikiru.blogspot.com
+  blogger_author: t32khttp://www.blogger.com/profile/06797489791220082722noreply@blogger.com
+  blogger_permalink: /2009/06/top-10-articles-from-first-half-of-2009.html
+  _edit_last: '1'
+  pvc_views: '1718'
+---
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SiPmOQ0He9I/AAAAAAAAAZ4/HlAayotGo5U/1.png" alt="Google Analytics 上位のコンテンツ" /><br />たまには過去を振り返るのも良いかなと思いまして、アクセス数トップテン記事を紹介。<br />月3000PV程度の弱小ブログなのでPVは少ないよ。一極集中！<br /><br /><br /><span style="font-size:130%;"><span style="font-weight: bold;">　1位 </span><a style="font-weight: bold;" href="http://warikiru.blogspot.com/2009/01/macbook-hdd-exchange.html">MacBookハードディスク交換（換装）</a><span style="font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold; color: rgb(102, 0, 204);">4965PV</span></span><br />　うちの稼ぎ頭ですｗ SEO的に成功したからかな。。title重要っす！<br /><br /><span style="font-weight: bold;">　2位 </span><a style="font-weight: bold;" href="http://warikiru.blogspot.com/2007/08/mercedes-benz-mixed-tape.html">Mercedes Benz Mixed Tape</a><span style="font-weight: bold;"> <span style="font-style: italic; color: rgb(102, 0, 204);">696PV</span></span><br />　これも根強い人気。メルセデス万歳！<br /><br /><span style="font-weight: bold;">　3位 </span><a style="font-weight: bold;" href="http://warikiru.blogspot.com/2009/01/update-google-analytics-code.html">Google Analytics コードアップデート</a><span style="font-weight: bold;"> <span style="font-style: italic; color: rgb(102, 0, 204);">223PV</span></span><br />　これは早さが命ってことで。すぐ訳して紹介したからか<br /><br />　<span style="font-weight: bold;">4位</span> <a href="http://warikiru.blogspot.com/2009/01/blog-post.html">北陸新年オフ会 - 2009年</a> <span style="font-style: italic; color: rgb(102, 0, 204);">205PV</span><br />　いろいろ有名人に会えたし、このブログを紹介してもらったのが大きい。<br /><br />　<span style="font-weight: bold;">5位</span> <a href="http://warikiru.blogspot.com/2007/09/macbook.html">MacBookメモリ増設</a> <span style="font-style: italic; color: rgb(102, 0, 204);">191PV</span><br />　みんなMacが好きなんだｗ<br /><br />　<span style="font-weight: bold;">6位</span> <a href="http://warikiru.blogspot.com/2008/08/blog-post_21.html">ページネーション考察</a> <span style="font-style: italic; color: rgb(102, 0, 204);">144PV</span><br />　これは地味にめんどくさいのを調べてみた甲斐があったかな。<br /><br />　<span style="font-weight: bold;">7位</span> <a href="http://warikiru.blogspot.com/2009/04/dom-scripting-futomi-01.html">DOMから始めるJavaScriptモダン・スクリプティング</a>  <span style="font-style: italic; color: rgb(102, 0, 204);">142PV</span><br />　タイトルに釣られましたなｗ<br /><br /><span style="font-weight: bold;">　8位</span> <a href="http://warikiru.blogspot.com/2009/04/straight-days-tha-blue-herb.html">THA BLUE HERB - STRAIGHT DAYS TOUR'08 </a><span style="font-style: italic; color: rgb(102, 0, 204);">138PV</span><br />　完全に自分の趣味の紹介ですが根強い感じ。<br /><br /><span style="font-weight: bold;">　9位</span> <a href="http://warikiru.blogspot.com/2009/02/css-property-order.html">じゃ僕もCSSプロパティの書き順とか</a> <span style="font-style: italic; color: rgb(102, 0, 204);">137PV</span><br />　<a href="http://redline.hippy.jp/lab/css/post_55.php">Redlineさんに紹介</a>してもらったヽ(´ー｀)ノ<br /><br /><span style="font-weight: bold;">　10位</span> <a href="http://warikiru.blogspot.com/2008/01/document_05.html">チュートリアル：デザイナーのためのjQuery</a> <span style="font-style: italic; color: rgb(102, 0, 204);">135PV</span><br />　はじめて訳したの記事。右も左も分からない頃の話。<br /><br />なんか、こうして見てみると意図せずして書いた記事が人気になったり、これイケるだろうと思った記事がランクインしてなかったり、ブログって難しいね。。

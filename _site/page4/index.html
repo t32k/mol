@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page4/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page4/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/make-oocss-styleguide" rel="prefetch">OOCSSをbuildする</a></h2>
+            <p><p>ちょいーんっす！あたーんっす！</p>
+
+<p>みなさん、<a href="http://oocss.org/">OOCSS</a>って知ってますか？僕は知らないです。嘘です。</p>
+
+<p><a href="https://twitter.com/stubbornella">@stubbornella</a>が、4,5年前に言い出したオブジェクト指向なCSSの考え方みたいなもんです。CSSでこんなもの表現できた！とかそうゆうTips系の話題は事欠かないのですが、CSSの設計についての話はそれ以前には（今もそうですが）あまりなかったので、個人的にはとても衝撃的でした。
+<ul>
+    <li><a href="http://www.slideshare.net/hiloki/a-good-css-and-sass-architecture">ちゃんとCSSを書くために - CSS/Sass設計の話</a>（あ、最近イカス資料見つけたぞ！）</li>
+</ul>
+まぁそんなOOCSSですが、ここ一年は目立った更新はありませんでした。と思ってたら最近、<a href="https://github.com/stubbornella/oocss">GitHubのレポジトリ</a>見たらなんかすごく変わってる！</p>
+
+<p>新しくなったドキュメントを読みたいのですが、<a href="https://github.com/stubbornella/oocss/tree/master/oocss">Readme</a>を読むと、どうやらSassやらHandlebarsやら使っててbuildしなきゃいけないっぽいす。んで仮想環境をVagrantで提供してるとのこと。</p>
+
+<p>なんと！俺はただCSSのドキュメントを読みたいだけなのに、めんどくせ(๑･ิω･ิ๑)yー～</p>
+
+<p>と言っててもしょうがないのでがんばってみる。
+<h2>事前インストール</h2>
+<ul>
+    <li><a href="http://git-scm.com/downloads">Git</a> (多分入ってると思うけど...)</li>
+    <li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> (現状、4.2.14やめて、4.2.12を選択しとく)</li>
+    <li><a href="http://downloads.vagrantup.com/">Vagrant</a> (gemでインスコしたことある人はアンスコしとく)</li>
+</ul>
+<h2>OOCSSをbuild</h2>
+<p style="text-align: center;"><img class="aligncenter  wp-image-4963" src="http://t32k.me/mol/file/2013/06/4f7c94e2ab3fb1d22b3c581a01721d3b.png" alt="" width="900" /></p>
+<a href="https://github.com/stubbornella/oocss">OOCSS</a>をForkする(フォークボタン押すだけね！)</p>
+
+<pre><code class="bash">git clone https://github.com/{user_name}/oocss.git
+
+Cloning into 'oocss'...
+remote: Counting objects: 1800, done.
+remote: Compressing objects: 100% (1261/1261), done.
+remote: Total 1800 (delta 580), reused 1626 (delta 445)
+Receiving objects: 100% (1800/1800), 1.53 MiB | 121.00 KiB/s, done.
+Resolving deltas: 100% (580/580), done.</code></pre>
+
+<p>ForkしたのをCloneしてくる</p>
+
+<pre><code class="bash">cd oocss/oocss</code></pre>
+
+<p>Vagrantfileのある場所に移動する</p>
+
+<pre><code class="bash">$ vagrant up
+
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Box 'stubbornella' was not found. Fetching box from specified URL for
+the provider 'virtualbox'. Note that if the URL does not have
+a box for this provider, you should interrupt Vagrant now and add
+the box yourself. Otherwise Vagrant will attempt to download the
+full box prior to discovering this error.
+Downloading or copying the box...
+Extracting box...te: 206k/s, Estimated time remaining: 0:00:01))
+Successfully added box 'stubbornella' with provider 'virtualbox'!
+[default] Importing base box 'stubbornella'...</code></pre>
+
+<p>vagrant upで起動させる</p>
+
+<pre><code class="bash">$ vagrant ssh</code></pre>
+
+<p>vagrant sshで中に入る</p>
+
+<pre><code class="bash">vagrant@lucid32:/vagrant$ make build
+
+##################################################
+Clean the project
+##################################################
+Removing the build directory
+cleaning compass files...
+Remove Node modules
+##################################################
+Clean project                               ✔ Done
+##################################################
+
+##################################################
+Building OOCSS...
+##################################################
+
+
+##################################################
+Building CSS Files with Sass...
+
+##################################################
+Building Documentation...
+##################################################
+
+Build done at : Fri Jun 28 2013 20:36:15 GMT+0200 (CEST)
+
+##################################################
+##################################################
+
+OOCSS Build                                 ✔ Done
+##################################################</code></pre>
+
+<p>makeする</p>
+
+<p><a href="http://localhost:8080/docs/library.html">http://localhost:8080/docs/library.html</a> にアクセスしてドキュメントみる。わーい見れた！
+<p style="text-align: center;"><a href="http://t32k.me/mol/file/2013/06/b37d8e01bd98623ba758276cde9747da.png"><img class="aligncenter  wp-image-4964" src="http://t32k.me/mol/file/2013/06/b37d8e01bd98623ba758276cde9747da.png" alt="" width="900" /></a></p>
+ほらね、簡単でしょ？</p>
+
+<pre><code class="bash">$ vagrant halt</code></pre>
+
+<p>ちなみにvagrant haltでVMを停止させることができます。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-29-June" title="June 29, 2013">June 29, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/vagrant1-2-centos6-4-jenkins1-5" rel="prefetch">VagrantでCentOSを入れてJenkinsを導入してみる</a></h2>
+            <p><p><a href="http://t32k.me/mol/file/2013/06/vj.png"><img src="http://t32k.me/mol/file/2013/06/vj.png" alt="" title="vj" width="900" height="100" class="aligncenter size-full wp-image-4945" /></a></p>
+
+<p>我も<a href="http://jenkins-ci.org/">Jenkins</a>触ってみたかったんや...
+<ol>
+    <li>Jenkinsで我もジョブ書きたい</li>
+    <li>とりあえずローカル環境で動かしたい</li>
+    <li>Macのインストーラーで一発やん！</li>
+    <li>でもいろいろインスコしたら危なそう</li>
+    <li>んじゃ、VM上でJenkins動すか &lt;-イマココ</li>
+</ol>
+ってことで、<a href="http://www.vagrantup.com/">Vagrant</a>使ってみることにする。<span style="font-size: 13px; line-height: 19px;"> </span></p>
+
+<h2>各種インストール</h2>
+
+<p><strong><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox をインストール</a>しましょう。</strong></p>
+
+<p>最新の4.2.14でvagrant upすると&quot;Progress object failure: NS<em>ERROR</em>CALL_FAILED&quot;ってエラーでるので、4.2.12をインストールしませう。</p>
+
+<p><strong><a href="http://downloads.vagrantup.com/">Vagrantをインストール</a>しましょう。</strong></p>
+
+<p>以前に、gem installでvagrantをインスコした人はuninstallしておきませう。古いのがあるとうまく動きません。</p>
+
+<p>vagrantで利用できるBoxファイルはここに一覧がありますんで、好きなやつ選びましょう。
+<ul>
+    <li><a href="http://www.vagrantbox.es/">A list of base boxes for Vagrant - Vagrantbox.es</a></li>
+</ul>
+僕はCentOSをいれたかったので、<em>”CentOS 6.4 x86<em>64 Minimal (VirtualBox Guest Additions 4.2.12, Chef 11.4.4, Puppet 3.1.1)”</em>を選びました。
+<pre><code class="bash">$ vagrant box add centos-6.4 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86</em>64-v20130427.box</code></pre>
+これで、ローカルの~/.vagrant.d/boxes/にcentos-6.4って名前でBoxファイルが保存されます。
+<pre><code class="bash">$ vagrant init 
+centos-6.4 A <code>Vagrantfile</code> has been placed in this directory. You are now ready to <code>vagrant up</code> your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on <code>vagrantup.com</code> for more information on using Vagrant. </p>
+
+<p>$ vagrant up 
+Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider... [default] Importing base box &#39;centos-6.4&#39;... ...</code></pre>
+あとは、initで初期化して、upで起動させる。
+<pre><code class="bash">$ vagrant ssh 
+Welcome to your Vagrant-built virtual machine. 
+[vagrant@localhost ~]$</code></pre>
+sshでVMの中に入れます。
+<pre><code class="bash">$ sudo yum install java-1.7.0-openjdk.x86_64</code></pre>
+Jenkinsで必要なためcentOSにJavaをインストールします。
+<pre><code class="bash">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo 
+$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
+$ sudo yum install jenkins </code></pre>
+<a href="http://pkg.jenkins-ci.org/redhat/">RedHat Linux RPM packages for Jenkins</a>のページ見ながら、Jenkinsをインストールします。
+<pre><code class="bash">$ sudo service jenkins start</code></pre>
+Jenkinsを起動させます。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。</p>
+
+<p>が、表示されない。</p>
+
+<h2>各種設定</h2>
+
+<pre><code class="bash">$ sudo vi /etc/sysconfig/iptables</code></pre>
+
+<pre><code># 下記一行追加
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</code></pre>
+
+<p>8080のポートを空けます。
+<pre><code class="bash">$ /etc/init.d/iptables restart</code></pre>
+再起動します。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。
+が、表示されない。</p>
+
+<pre><code class="ruby"># Vagrantfile 
+
+# Create a forwarded port mapping which allows access to a specific port 
+# within the machine from a port on the host machine. In the example below, 
+# accessing "localhost:8080" will access port 80 on the guest machine. 
+config.vm.network :forwarded_port, guest: 8080, host: 8001 
+
+# Create a private network, which allows host-only access to the machine 
+# using a specific IP. 
+config.vm.network :private_network, ip: "192.168.33.10" </code></pre>
+
+<p>Vagrantfileの設定で、<a href="http://e-words.jp/w/E3839DE383BCE38388E38395E382A9E383AFE383BCE38387E382A3E383B3E382B0.html">ポートフォワーディング</a>を設定します。
+（ゲストOS上の8080への接続をホストOSの8001からアクセスするみたいな感じ？）
+config.vm.network :private_networkのコメントアウトを外します(外さなくてもいいかもしんない)。
+<pre><code class="bash">$ vagrant reload</code></pre>
+再起動して、
+<a href="http://localhost:8001/">http://localhost:8001/</a>でJenkinsのホーム画面が表示されれば成功です。
+<a href="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png"><img src="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png" alt="" title="スクリーンショット 2013-06-29 2.29.46" width="900"  class="aligncenter size-full wp-image-4955" /></a>
+ほらね、簡単でしょ？</p>
+
+<h2>参考</h2>
+
+<p><a href="http://ja.wikipedia.org/wiki/TCP%E3%82%84UDP%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%81%AE%E4%B8%80%E8%A6%A7">TCPやUDPにおけるポート番号の一覧 - Wikipedia </a></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-28-June" title="June 28, 2013">June 28, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/insecure" rel="prefetch">転職してから1年が経った</a></h2>
+            <p><p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>不安しか無い(良い意味で)。
+&nbsp;</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-03-June" title="June 03, 2013">June 03, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/frontrend-vol-5" rel="prefetch">Frontrend Vol.5 powered by CyberAgent, Inc.</a></h2>
+            <p><p><a href="http://t32k.me/mol/file/2013/05/hd_05.jpg"><img class="aligncenter  wp-image-4900" title="FRONTREND" src="http://t32k.me/mol/file/2013/05/hd_05.jpg" alt="" width="870" /></a></p>
+
+<p>サイバーエージェントが主催するFrontrend Vol.5が開催されます。今回は5月の25日に開催されるということもあってGOGO松井ゴジラといった感じで、CreateJS, Functional JS, Node.jsといった幅広いラインナップとなっております。よろしくお願いします。当日僕はたぶん司会です、たぶん。</p>
+
+<p>あと別途、6月8日、静岡でも開催されます。こちらは過去の講演をブラッシュアップしたベストセレクション版としてお届けします。お近くの方はぜひご参加を！
+<h3>2013/05/25 @渋谷</h3>
+<ul>
+    <li><strong><a href="http://frontrend.github.io/events/05/">Frontrend Vol.5 powered by CyberAgent, Inc.</a></strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>イベント名</th>
+<th>Frontrend Vol.5 powered by CyberAgent, Inc.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日時</td>
+<td>2013年5月25日（土） 14:00 – 18:00（開場13:30）</td>
+</tr>
+<tr>
+<td>会場</td>
+<td><a href="https://www.cyberagent.co.jp/company/access/tokyo.html">サイバーエージェント本社 17F セミナールーム</a></td>
+</tr>
+<tr>
+<td>定員</td>
+<td>140名</td>
+</tr>
+<tr>
+<td>講師</td>
+<td>小阪 智弘 <a href="https://twitter.com/tomowaqs">@tomowaqs</a>
+泉水 翔吾 <a href="https://twitter.com/1000ch">@1000ch</a>
+原 一成 <a href="https://twitter.com/herablog">@herablog</a></td>
+</tr>
+<tr>
+<td>主催</td>
+<td>株式会社サイバーエージェント</td>
+</tr>
+<tr>
+<td>参加費</td>
+<td>無料</td>
+</tr>
+<tr>
+<td>事前登録</td>
+<td>必要</td>
+</tr>
+<tr>
+<td>タグ</td>
+<td><a href="https://twitter.com/search?q=%23frontrend">#frontrend</a></td>
+</tr>
+<tr>
+<td>備考</td>
+<td>スクール形式（一部机あり）</td>
+</tr>
+</tbody>
+</table>
+<h3>2013/06/08 @静岡</h3>
+<ul>
+    <li><strong><a href="http://talknote.me/vol8/">TalkNote（トークノート）という名の勉強会Vol.8</a></strong></li>
+</ul>
+講演者のブログ<a href="http://havelog.ayumusato.com/news/e558-talknote_x_frontrend.html">
+6/8のTalkNote Vol.8「TalkNote × Frontrend」に出演します ::ハブろぐ </a></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-07-May" title="May 07, 2013">May 07, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/oh-im-not-a" rel="prefetch">Oh, I’m not a…</a></h2>
+            <p><p>っけねー、MOLと間違えて、enjaの方にポストしちまったー＞ｍ＜
+<ul>
+    <li><a href="http://enja.studiomohawk.com/2013/04/22/oh-i-am-not-a/"><strong>Oh, I’m not a… | en.ja | Translated Articles for Front End Developers</strong></a></li>
+</ul>
+ってことで、デザイナーがプログラミングを学べばいいのか、プログラマーがデザインを学べばいいのかって議論は前々からありますよね。前に、デ<a href="http://t32k.me/mol/log/why-valley-wants-designers-can-code/">ザイナーがプログラミング覚えたらスーパーデザイナーだぜ！</a>って記事があったかと思いますが、今回はプログラマーがデザイナーを名乗ってみたって話です。</p>
+
+<p>うだうだ言ってないで行動に起こせ！って感じがすごく共感できたので訳してみました。</p>
+
+<p>Shut the fuck up and write some code. ですね、俺。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-30-April" title="April 30, 2013">April 30, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page3" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page5" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

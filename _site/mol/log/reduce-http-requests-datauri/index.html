@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避 &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避 ">
+    <link rel="canonical" href="http://t32k.me//mol/log/reduce-http-requests-datauri">
+     
+    <link rel="author" href="https://plus.google.com/104886596569728254273">       
+    <meta property="og:title" content="HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避 "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/reduce-http-requests-datauri"/>
+    
+    
+    <!--meta property="og:description" content="このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。"/>
+    <meta name="description" content="このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="Koji Ishimoto" target="_blank">Koji Ishimoto</a> &mdash;
+                <time pubdate datetime="2013-22-August" title="August 22, 2013">August 22, 2013</time>
+            </div>
+            <h1 class="title">HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避</h1>
+            
+        </header>
+
+        <section>
+            <p>このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。
+<ul>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-overview/">【序章】HTTPリクエストは甘え</a></li>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-css-sprite/">【CSS Sprite編】スプライト地獄からの解放</a></li>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-webfont/">【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ</a></li>
+    <li><strong>【DataURI編】遅延ロードでレンダリングブロックを回避</strong></li>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-one-second/">【終章】我々には1000msの猶予しか残されていない</a></li>
+</ul>
+4日目は、本ブログでも何回か話題にしているインライン画像についてです。
+<ul>
+    <li><a href="http://t32k.me/mol/log/data-uri-scheme/">データURIスキーム</a></li>
+    <li><a href="http://t32k.me/mol/log/sprite-image-vs-inline-image/">CSS Sprite画像はDataURI画像にすべきか？ </a></li>
+</ul>
+以前の記事で私は以下のように述べましたが、これはいやらしい表現です。</p>
+
+<blockquote>
+<p>DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事もあります
+<a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">http://www.mobify.com/blog/data-uris-are-slow-on-mobile/</a></p>
+</blockquote>
+
+<p>こうゆう、『xxx倍高速化』、『xxx倍遅い』と言った表現は、わかりやすい反面、本質を見失ってしまう危険性があります。例えば、10秒が1秒になるのも、1秒が0.1秒になるのもどちらも同じく『10倍速くなった』と表現できます。</p>
+
+<p>似たような例として、毎年のようにブラウザのJavaScriptエンジンがx倍高速化した！といったようなニュースを一度は聞いてるかと思いますが、実体感としては、それほど速くなっていないように感じます。これも結局はブラウザのJS処理というのは何msという単位（あるいはもっと細かい単位かもしれません）での改善なので、そのような文脈での『x倍』というのは、実際は0.数ms程度の違いしかないのかもしれません。</p>
+
+<p>このように『x倍速くなった・遅くなった』という表現をしているときは、注意が必要です（大人はみんな騙そうとしてきます）！どうゆう文脈での何倍なのか、ちゃんと確認してみましょう。</p>
+
+<blockquote>
+<p>In the first condition, the src image attribute was specified to an image location known to be in the browser cache. This is called the binary condition.</p>
+</blockquote>
+
+<p>In the second condition, the src image attribute was specified to a pre- fetched data URI of the same image as in the first condition. This is called the data URI condition.</p>
+
+<p>Both conditions used the same image, a 17.8kB PNG. In both conditions, the same image was materialized 5 times. Materialization completion was measured by using the &quot;load&quot; event of the image object.</p>
+
+<p>When the load event for all 5 images fired, the test was marked as “complete” and results were recorded.</p>
+
+<p><a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">http://www.mobify.com/blog/data-uris-are-slow-on-mobile/</a></p>
+
+<p>件のテスト条件は上記のとおりです。まずテストに使われる画像ですが17.8KBのPNGって結構でかいですよ。。ちょっとしたアイコンどころじゃないですよね？そもそも、その大きさの画像でテストする事自体どうなんだって気もします。</p>
+
+<p>次に、画像のloadイベントが発生した時を完了と見なしています、そして通常の画像パスでの読み込みはブラウザキャッシュがある状態としています。</p>
+
+<p><a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/"><img class="aligncenter size-large wp-image-5194" alt="image_0" src="http://t32k.me/mol/file/2013/08/image_0-1024x768.png" width="540" height="405" /></a></p>
+
+<p>で、結果が上記のグラフです、Android2系はほっといてAndroid4系、iOS6の差を見てみるとだいたい100ms ~ 150msくらいです。この差をどう捉えるかですね。実際のケースで考えれば、17.6KBの画像を3G回線でHTTPリクエストすればラウンドトリップだけで200ms以上はかかるでしょうし、また画像リクエストで同時接続数の1つを失ってしまい、後続のリソースのブロッキングをする可能性も出てくると考えれば、 150msくらい許容範囲ではないでしょうか？</p>
+
+<p>許容範囲であるかないかは、各々の状況というのがあると思うので各人で判断してもられば良いのですが、少なくとも『DataURI？あ、6倍遅いからダメ！』って短絡的に片付けるの良くないかと思います。</p>
+
+<hr>
+
+<p>では、インライン画像ってどうゆうときに使うのでしょうか？使わざるを得ないのでしょうか？</p>
+
+<p>HTTPリクエストを減らすという観点から言えば、大抵のものは前々回で話したようにCSSスプライトにしてしまえばよいのです、また、単純な図形・アイコンでカラーバリエーションがあるようなものであればWebフォントにすればよいでしょう。</p>
+
+<p>しかし世の中そんなに甘くありません。下記のようなものはCSSスプライトできません。
+<ul>
+    <li><span class="code">border-image</span></li>
+    <li><span class="code">background-image</span>(縦横リピート)</li>
+</ul>
+まぁ、こうゆうのですよね。</p>
+
+<p><img class="aligncenter size-full wp-image-5196" alt="ss" src="http://t32k.me/mol/file/2013/08/ss1.png" width="556" height="154" /></p>
+
+<p>ボタンの文字が決め打ちだったり、幅が決まってたりする場合は単純にその画像をスプライトすればよいのですが、そうでもない場合は<span class="code">border-image</span>にしたほうが、都合が良いです。もちろん左端と右端と中央で画像を分けて各背景画像で対応するのもいいけど、やっぱり<span class="code">border-image</span>がなにかと都合が良いです。</p>
+
+<p>あと背景画像は、X軸、Y軸リピートならなんとかできるけど、縦横リピートになるとCSSスプライトではどうしようもできないです。でも、全体の背景にテクスチャ画像を貼るのもよくある表現です。</p>
+
+<p>ということで、DataURI使いたいと思います。インライン画像を考える上で重要なのは以下の3つです。
+<ul>
+    <li>インライン画像はリクエストを発生させない</li>
+    <li>だがファイルサイズが重くなる</li>
+    <li>CSSファイルに含めるとレンダリングブロックに繋がる可能性あり</li>
+</ul>
+ちなみにCompassだと下記のような関数を使うとbase64エンコードしてくれます。</p>
+<div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="nc">.border</span><span class="p">{</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">image</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="n">image</span><span class="p">(</span><span class="s2">&quot;/path/to/border-image.png&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+    <li><a href="http://compass-style.org/reference/compass/helpers/inline-data/">Compass Inline Data Helpers | Compass Documentation</a></li>
+</ul>
+
+<p>では、3つめのインライン画像をCSSファイルに含んだ時のレンダリングブロック回避について考えて行きましょう。</p>
+
+<p>それで、通常のスタイルとインライン画像の指定をしたCSSを分けてみました。</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;css/app.css&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;css/base64.css&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+<ul>
+    <li><a href="http://t32k.github.io/test/include-datauri/block.html">Block : Include DataURI Source </a></li>
+</ul>
+
+<p>感覚的には、こういったマークアップをしてしまいがちですが、これでも結局、インライン画像を含んだ重いbase64.cssが読み込まれるまでレンダリングが始まりません。</p>
+<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">);</span>
+  <span class="nx">c</span><span class="p">.</span><span class="nx">rel</span> <span class="o">=</span> <span class="s1">&#39;stylesheet&#39;</span><span class="p">;</span>
+  <span class="nx">c</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s1">&#39;css/base64.css&#39;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+<span class="p">})(</span><span class="nb">document</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<ul>
+    <li><a href="http://t32k.github.io/test/include-datauri/">Defer : Include DataURI Source </a></li>
+</ul>
+
+<p>ですので、遅延読み込みしたのが上記です。</p>
+
+<p><a href="http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G"><img class="aligncenter size-full wp-image-5198" alt="ss1" src="http://t32k.me/mol/file/2013/08/ss11.png" width="840" height="365" /></a></p>
+
+<p><a href="http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G">WebPagetest - Visual Comparison</a></p>
+
+<p>BlockとDeferをVideo Comparisonした結果が上記です。Video Comparisonのテスト条件上、Dulles, VA - IE 9の環境でしかテストできませんので、border-imageは対応していないため表示されていません、あしからず。遅延読み込みしたのが、0.2秒でレンダリングが始まっているのに対して、通常読み込みは0.5秒で完成しています。</p>
+
+<p>差を分かりやすくするために、base64.cssにはコメントアウトした長ーい文字列を記述しファイルサイズを増加させています。
+<ul>
+    <li><a href="http://www.webpagetest.org/result/130815_HC_66Z/">Defer : WebPagetest Test Result - Tokyo</a></li>
+    <li><a href="http://www.webpagetest.org/result/130817_22_D68/">Block : WebPagetest Test Result - Tokyo</a></li>
+</ul>
+Chrome,3G回線でテストした詳細な結果でも、遅延読み込みしている方の<strong>Start Renderは1.786s</strong>に対して、通常読み込みは<strong>3.564s</strong>とかなり違う結果になりました。もちろん遅延読み込みしている分、最終的なFully Loadedは遅くなります。</p>
+
+<p>以上のようにすれば、懸念していたインライン画像を含む重いCSSによるレンダリングブロックを回避できるかと思います。</p>
+
+<p>遅延読み込みが銀の弾丸かと言えば、とうてい、そんな上等なものでありません。苦肉の策感がにじみ出ています。今回のようなborder-imageを使ったボタンも高さや幅を限定してパターン数を絞ればCSSスプライトでまかなえることも可能ですし、背景画像もno-repeatにできればCSSスプライトで収まる場合もあります。そのようなことを考慮した上で、はじめて遅延読み込みするといった手段を採用すべきです。</p>
+
+<p>なにごともバランスが重要です。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               <img src="/images/t32k.png">
+                <p>Written by <strong><a rel="author" href="https://twitter.com/t32k" title="" target="_blank">Koji Ishimoto</a></strong><br>
+                <span class="muted">Front-end Developer</span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

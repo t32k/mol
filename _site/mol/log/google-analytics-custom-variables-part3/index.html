@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics カスタム変数、パート3：スロットぜよ！ &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Google Analytics カスタム変数、パート3：スロットぜよ！ ">
+    <link rel="canonical" href="http://t32k.me//mol/log/google-analytics-custom-variables-part3">
+     
+           
+    <meta property="og:title" content="Google Analytics カスタム変数、パート3：スロットぜよ！ "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/google-analytics-custom-variables-part3"/>
+    
+    
+    <!--meta property="og:description" content="<p><cite>原文：<a href="http://www.lunametrics.com/blog/2010/07/23/custom-variables-part-iii-slots/">Custom Variables, Part III: Slots</a>
+投稿日：2010-7-23 by Jonathan</cite></p>
+
+<p>これがカスタム変数シリーズ3番目の記事だ（ようやくだね）。僕らはすでに、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">なぜカスタム変数を使うのか</a>、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">どのようにコードが動作するのか</a>見てきた。カスタム変数のスロットと呼ばれるものがどのように動作するのか説明する、これが最後のパートだ。
+<h3>スロットとスコープ</h3>
+<a href="http://t32k.me/mol/file/2010/10/slot.jpg"><img class="alignright size-full wp-image-1764" title="slot" src="http://t32k.me/mol/file/2010/10/slot.jpg" alt="" width="200" height="245" /></a></p>
+
+<p><a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">パート2</a>でスロットもしくはインデックスは、_setCustomVar関数の第1引数だと覚えているだろうし、僕らもその時はもっともらしく説明していた。なぜなら、本気で説明しようとなると記事丸々使うことになっちゃうからね。</p>
+
+<p>スロットをGAからの小さな郵便箱だと考えることができると思うよ。君は名前と値のペアを紙に書いて投函することができて、GA配達員がそれを引き出し、値を書き込んでいく。そこには1から5とナンバリングされている5つのスロットがある。各スロットには1枚の紙しか入れておけないんだ。</p>
+
+<p>”それで... ”と、君は言うだろう。 ”ということは、僕らは5つのカスタム変数を持てるってことだよね？&quot;</p>
+
+<!--more-->
+
+<p>うん、まぁちょっと違うんだ。なぜなら、思い出してほしい。各変数はビジター、セッション、ページレベルといった<strong>スコープ</strong>を持ってたよね。これらの動作の仕方は微妙に違うんだ！</p>
+
+<p>ページレベル変数において、Google Analytics の郵便配達員はすべてのページで、ボックスの中の紙を取り出す。そしてボックスは空になり次のページで新しい紙を入れることができるんだ。</p>
+
+<p>セッションレベル変数において、Google Analytics の郵便配達員はセッションの終りに、ボックスの紙を取り出す。君は新しい紙を投函することができるが、まずは古い紙を捨ててからだ。</p>
+
+<p>ビジターレベル変数において、Google Analytics の郵便配達員は紙を取り出し、値を書き込む。そして紙を戻す。（__utmvクッキーが存在する限り）また、新しい紙を入れることが出来るがこれも古い紙を捨ててからだ。</p>
+
+<p>どのスロットにおいても、<strong>最後に記録された値が勝つ</strong>ってこと。
+<h3>OK、いい話だったよ、つべこべ言わず要旨を教えてくれ。</h3>
+それで、結論はここかい？
+<ul>
+    <li>ページレベル変数では異なるページでスロットを再利用出来る。</li>
+    <li>もしセッションレベルとページレベル、いずれの変数において再利用するならば、最後の値が勝つので、スロットを再利用する場合は本当にそれが上書きされたのか確認すべきだろう。時にこれは理にかなっている（誰かがステータスを“member=gold” から“member=platinum”に変えた時など）。たいていは、セッションレベルもしくはビジターレベルの変数が他の影響を受けないためにも、君はスロットを取っておきたいはずだ。</li>
+    <li>常に同じスロットで同じキーを変数として使うべきだ。君は“member=gold”を異なる2つのスロットで使ってはいけないし、さらに悪いことに“member=gold”をスロット1で使って“member=platinum” をスロット2に使うなんて言語道断だ。</li>
+    <li>最も重要な教訓は<strong>カスタム変数の管理方法はあなた次第</strong>ということ。もし、多くのカスタム変数を抱えるような複雑な状況ならば、スロットとスコープの表を作って管理するといいだろう。</li>
+</ul>
+<h3>スロットを知る</h3>
+カスタム変数の案件を隣の部署のエンジニアに任せたいし、彼らはそれをうまく解決してくれそうだけれども、すでにスロットは重要であることは気づいただろう。スロットが重要である理由はカスタム変数を詳細セグメント(またはクロスセグメントのレポート、カスタムレポート）でも使えるからだ。以下のような感じでスロットを利用できる。</p>
+
+<p><a href="http://t32k.me/mol/file/2010/10/dimension.png"><img class="alignnone size-full wp-image-1761" title="dimension" src="http://t32k.me/mol/file/2010/10/dimension.png" alt="" width="200" height="260" /></a>
+<h3>もっと知りたい</h3>
+Google Code のサイトになかなかよい<a href="http://t32k.me/mol/2010/10/gatrackingcustomvariables/">カスタム変数についてのドキュメント</a>があるよ。でも、この<a href="http://www.youtube.com/watch?v=UmQTfqmoSyk">ウェビナー</a>を見るのが一番いいね。Google Analytics のプロダクトマネージャーであるPhil Mui がカスタム変数がどのように動くのか丁寧に教えてくれるよ。最後に、Phi から君に良い言葉がある。” Google Analytics がどのように動くのか知りたいと思った時ほど成長するチャンスはない”</p>
+"/>
+    <meta name="description" content="<p><cite>原文：<a href="http://www.lunametrics.com/blog/2010/07/23/custom-variables-part-iii-slots/">Custom Variables, Part III: Slots</a>
+投稿日：2010-7-23 by Jonathan</cite></p>
+
+<p>これがカスタム変数シリーズ3番目の記事だ（ようやくだね）。僕らはすでに、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">なぜカスタム変数を使うのか</a>、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">どのようにコードが動作するのか</a>見てきた。カスタム変数のスロットと呼ばれるものがどのように動作するのか説明する、これが最後のパートだ。
+<h3>スロットとスコープ</h3>
+<a href="http://t32k.me/mol/file/2010/10/slot.jpg"><img class="alignright size-full wp-image-1764" title="slot" src="http://t32k.me/mol/file/2010/10/slot.jpg" alt="" width="200" height="245" /></a></p>
+
+<p><a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">パート2</a>でスロットもしくはインデックスは、_setCustomVar関数の第1引数だと覚えているだろうし、僕らもその時はもっともらしく説明していた。なぜなら、本気で説明しようとなると記事丸々使うことになっちゃうからね。</p>
+
+<p>スロットをGAからの小さな郵便箱だと考えることができると思うよ。君は名前と値のペアを紙に書いて投函することができて、GA配達員がそれを引き出し、値を書き込んでいく。そこには1から5とナンバリングされている5つのスロットがある。各スロットには1枚の紙しか入れておけないんだ。</p>
+
+<p>”それで... ”と、君は言うだろう。 ”ということは、僕らは5つのカスタム変数を持てるってことだよね？&quot;</p>
+
+<!--more-->
+
+<p>うん、まぁちょっと違うんだ。なぜなら、思い出してほしい。各変数はビジター、セッション、ページレベルといった<strong>スコープ</strong>を持ってたよね。これらの動作の仕方は微妙に違うんだ！</p>
+
+<p>ページレベル変数において、Google Analytics の郵便配達員はすべてのページで、ボックスの中の紙を取り出す。そしてボックスは空になり次のページで新しい紙を入れることができるんだ。</p>
+
+<p>セッションレベル変数において、Google Analytics の郵便配達員はセッションの終りに、ボックスの紙を取り出す。君は新しい紙を投函することができるが、まずは古い紙を捨ててからだ。</p>
+
+<p>ビジターレベル変数において、Google Analytics の郵便配達員は紙を取り出し、値を書き込む。そして紙を戻す。（__utmvクッキーが存在する限り）また、新しい紙を入れることが出来るがこれも古い紙を捨ててからだ。</p>
+
+<p>どのスロットにおいても、<strong>最後に記録された値が勝つ</strong>ってこと。
+<h3>OK、いい話だったよ、つべこべ言わず要旨を教えてくれ。</h3>
+それで、結論はここかい？
+<ul>
+    <li>ページレベル変数では異なるページでスロットを再利用出来る。</li>
+    <li>もしセッションレベルとページレベル、いずれの変数において再利用するならば、最後の値が勝つので、スロットを再利用する場合は本当にそれが上書きされたのか確認すべきだろう。時にこれは理にかなっている（誰かがステータスを“member=gold” から“member=platinum”に変えた時など）。たいていは、セッションレベルもしくはビジターレベルの変数が他の影響を受けないためにも、君はスロットを取っておきたいはずだ。</li>
+    <li>常に同じスロットで同じキーを変数として使うべきだ。君は“member=gold”を異なる2つのスロットで使ってはいけないし、さらに悪いことに“member=gold”をスロット1で使って“member=platinum” をスロット2に使うなんて言語道断だ。</li>
+    <li>最も重要な教訓は<strong>カスタム変数の管理方法はあなた次第</strong>ということ。もし、多くのカスタム変数を抱えるような複雑な状況ならば、スロットとスコープの表を作って管理するといいだろう。</li>
+</ul>
+<h3>スロットを知る</h3>
+カスタム変数の案件を隣の部署のエンジニアに任せたいし、彼らはそれをうまく解決してくれそうだけれども、すでにスロットは重要であることは気づいただろう。スロットが重要である理由はカスタム変数を詳細セグメント(またはクロスセグメントのレポート、カスタムレポート）でも使えるからだ。以下のような感じでスロットを利用できる。</p>
+
+<p><a href="http://t32k.me/mol/file/2010/10/dimension.png"><img class="alignnone size-full wp-image-1761" title="dimension" src="http://t32k.me/mol/file/2010/10/dimension.png" alt="" width="200" height="260" /></a>
+<h3>もっと知りたい</h3>
+Google Code のサイトになかなかよい<a href="http://t32k.me/mol/2010/10/gatrackingcustomvariables/">カスタム変数についてのドキュメント</a>があるよ。でも、この<a href="http://www.youtube.com/watch?v=UmQTfqmoSyk">ウェビナー</a>を見るのが一番いいね。Google Analytics のプロダクトマネージャーであるPhil Mui がカスタム変数がどのように動くのか丁寧に教えてくれるよ。最後に、Phi から君に良い言葉がある。” Google Analytics がどのように動くのか知りたいと思った時ほど成長するチャンスはない”</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-07-October" title="October 07, 2010">October 07, 2010</time>
+            </div>
+            <h1 class="title">Google Analytics カスタム変数、パート3：スロットぜよ！</h1>
+            
+        </header>
+
+        <section>
+            <p><cite>原文：<a href="http://www.lunametrics.com/blog/2010/07/23/custom-variables-part-iii-slots/">Custom Variables, Part III: Slots</a>
+投稿日：2010-7-23 by Jonathan</cite></p>
+
+<p>これがカスタム変数シリーズ3番目の記事だ（ようやくだね）。僕らはすでに、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">なぜカスタム変数を使うのか</a>、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">どのようにコードが動作するのか</a>見てきた。カスタム変数のスロットと呼ばれるものがどのように動作するのか説明する、これが最後のパートだ。
+<h3>スロットとスコープ</h3>
+<a href="http://t32k.me/mol/file/2010/10/slot.jpg"><img class="alignright size-full wp-image-1764" title="slot" src="http://t32k.me/mol/file/2010/10/slot.jpg" alt="" width="200" height="245" /></a></p>
+
+<p><a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">パート2</a>でスロットもしくはインデックスは、_setCustomVar関数の第1引数だと覚えているだろうし、僕らもその時はもっともらしく説明していた。なぜなら、本気で説明しようとなると記事丸々使うことになっちゃうからね。</p>
+
+<p>スロットをGAからの小さな郵便箱だと考えることができると思うよ。君は名前と値のペアを紙に書いて投函することができて、GA配達員がそれを引き出し、値を書き込んでいく。そこには1から5とナンバリングされている5つのスロットがある。各スロットには1枚の紙しか入れておけないんだ。</p>
+
+<p>”それで... ”と、君は言うだろう。 ”ということは、僕らは5つのカスタム変数を持てるってことだよね？&quot;</p>
+
+<!--more-->
+
+<p>うん、まぁちょっと違うんだ。なぜなら、思い出してほしい。各変数はビジター、セッション、ページレベルといった<strong>スコープ</strong>を持ってたよね。これらの動作の仕方は微妙に違うんだ！</p>
+
+<p>ページレベル変数において、Google Analytics の郵便配達員はすべてのページで、ボックスの中の紙を取り出す。そしてボックスは空になり次のページで新しい紙を入れることができるんだ。</p>
+
+<p>セッションレベル変数において、Google Analytics の郵便配達員はセッションの終りに、ボックスの紙を取り出す。君は新しい紙を投函することができるが、まずは古い紙を捨ててからだ。</p>
+
+<p>ビジターレベル変数において、Google Analytics の郵便配達員は紙を取り出し、値を書き込む。そして紙を戻す。（__utmvクッキーが存在する限り）また、新しい紙を入れることが出来るがこれも古い紙を捨ててからだ。</p>
+
+<p>どのスロットにおいても、<strong>最後に記録された値が勝つ</strong>ってこと。
+<h3>OK、いい話だったよ、つべこべ言わず要旨を教えてくれ。</h3>
+それで、結論はここかい？
+<ul>
+    <li>ページレベル変数では異なるページでスロットを再利用出来る。</li>
+    <li>もしセッションレベルとページレベル、いずれの変数において再利用するならば、最後の値が勝つので、スロットを再利用する場合は本当にそれが上書きされたのか確認すべきだろう。時にこれは理にかなっている（誰かがステータスを“member=gold” から“member=platinum”に変えた時など）。たいていは、セッションレベルもしくはビジターレベルの変数が他の影響を受けないためにも、君はスロットを取っておきたいはずだ。</li>
+    <li>常に同じスロットで同じキーを変数として使うべきだ。君は“member=gold”を異なる2つのスロットで使ってはいけないし、さらに悪いことに“member=gold”をスロット1で使って“member=platinum” をスロット2に使うなんて言語道断だ。</li>
+    <li>最も重要な教訓は<strong>カスタム変数の管理方法はあなた次第</strong>ということ。もし、多くのカスタム変数を抱えるような複雑な状況ならば、スロットとスコープの表を作って管理するといいだろう。</li>
+</ul>
+<h3>スロットを知る</h3>
+カスタム変数の案件を隣の部署のエンジニアに任せたいし、彼らはそれをうまく解決してくれそうだけれども、すでにスロットは重要であることは気づいただろう。スロットが重要である理由はカスタム変数を詳細セグメント(またはクロスセグメントのレポート、カスタムレポート）でも使えるからだ。以下のような感じでスロットを利用できる。</p>
+
+<p><a href="http://t32k.me/mol/file/2010/10/dimension.png"><img class="alignnone size-full wp-image-1761" title="dimension" src="http://t32k.me/mol/file/2010/10/dimension.png" alt="" width="200" height="260" /></a>
+<h3>もっと知りたい</h3>
+Google Code のサイトになかなかよい<a href="http://t32k.me/mol/2010/10/gatrackingcustomvariables/">カスタム変数についてのドキュメント</a>があるよ。でも、この<a href="http://www.youtube.com/watch?v=UmQTfqmoSyk">ウェビナー</a>を見るのが一番いいね。Google Analytics のプロダクトマネージャーであるPhil Mui がカスタム変数がどのように動くのか丁寧に教えてくれるよ。最後に、Phi から君に良い言葉がある。” Google Analytics がどのように動くのか知りたいと思った時ほど成長するチャンスはない”</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Google Analytics カスタム変数、パート3：スロットぜよ！" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

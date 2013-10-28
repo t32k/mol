@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analyticsでページロード時間を計測する &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Google Analyticsでページロード時間を計測する ">
+    <link rel="canonical" href="http://t32k.me//mol/log/google-analytics-load-time">
+     
+           
+    <meta property="og:title" content="Google Analyticsでページロード時間を計測する "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/google-analytics-load-time"/>
+    
+    
+    <!--meta property="og:description" content="<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0470562315/warikiru-22/ref=nosim/" target="_blank"><img class="fig" style="border: 0pt none;" src="http://ecx.images-amazon.com/images/I/51SGTdagbaL._SL160_.jpg" border="0" alt="Advanced Web Metrics with Google Analytics" width="125" height="160" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470562315%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470562315" target="_blank">Advanced Web Metrics with Google Analytics</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
+Brian Clifton </span>
+
+<span>Sybex  2010-03-15
+売り上げランキング : 50643</span>
+
+<span><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470562315%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470562315" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>はい、タイトル通りです。Advanced Web Metricsをパラパラ見てたらおもしろそうな項目を見つけたので自分のブログでもやってみようと思った次第です。ただ、若干古いトラッキングコードを使っている点ともうちょっとイベントトラッキングで遊びたかったので、サンプルコードを改造しています。
+<a name="more"></a>
+<div style="color: #4c1130; text-align: center;"><strong>注意：このコードは直帰率に影響します。詳しくは後述を参照。</strong></div>
+<h5>コード実装編</h5>
+先ずは以下のSCRIPT要素をBODY開始タグの直後に記述しましょう。
+<pre><span style="color: #666666;">&lt;body&gt;</span>
+&lt;script type=&#39;text/javascript&#39;&gt;
+<em style="color: #38761d;"> var Begin = new Date();
+ var Start = Begin.getTime();
+</em>&lt;/script&gt;</p>
+
+<p><span style="color: #666666;"> [ ページのコンテンツ]</span></pre>
+はい、では次に以下のSCRIPT要素をBODY終了タグの直前に記述しましょう。
+<pre>&lt;script type=&#39;text/javascript&#39;&gt;
+<span style="color: #666666;">try {var pageTracker = <em>gat.</em>getTracker(&quot;UA-xxxxxxx-1&quot;);
+pageTracker._trackPageview();</span><em><span style="color: #38761d;"></p>
+
+<p>var End = new Date();
+ var Stop = End.getTime();
+ var timeElapse = Stop - Start; // stored as millsecond
+ var Url = location.href;
+ pageTracker._trackEvent(  &#39;Page Load&#39;,  &#39;Load Time&#39;,  Url,  timeElapse</span>);</em><span style="color: #666666;"></p>
+
+<p>} catch(err) {}
+</span>&lt;/script&gt;</pre>
+BODY要素の始まりと終わりにDateメソッドでタイムスタンプをして、その差分の時間を見ようって寸法です。そして、その値をイベントトラッキングメソッドに渡しています。トラッキングコードをテンプレートに入れても大丈夫なようにlocation.hrefでそのページのURLも渡しています。</p>
+
+<p>つまり、上記のコードは以下のような構造になっていますね。
+<ul>
+    <li><strong> 1. カテゴリ：Page Load</strong></li>
+    <li><strong> 2. アクション：Load Time</strong></li>
+    <li><strong> 3. ラベル：ページのURL</strong></li>
+    <li><strong> 4. バリュー：ロード時間</strong></li>
+</ul>
+コードを記述したらデータが貯まるまで待ちましょうzzz
+<h5>レポート編</h5>
+<a title="イベントトラッキングサマリー by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309583/"><img class="fig" src="http://farm5.static.flickr.com/4003/4268309583_9c1bb0f29a.jpg" alt="イベントトラッキングサマリー" width="491" height="500" /></a></p>
+
+<p>レポートの『<strong>コンテンツ</strong>』＞『<strong>イベントトラッキング</strong>』を見るとカテゴリ名が『<strong>Page Load</strong>』アクション名が『<strong>Load Time</strong>』って項目が見えてきますのでクリックしましょ。</p>
+
+<p><a title="イベントトラッキングラベル by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309655/"><img class="fig" src="http://farm3.static.flickr.com/2778/4268309655_ea908d8cb2.jpg" alt="イベントトラッキングラベル" width="500" height="368" /></a></p>
+
+<p>そうすると、<strong>ラベル：ページURL</strong>毎の<strong>イベント値：ロード時間</strong>が確認できるでしょう。まぁこれでは、ちょっとおもしろくないのでデータの見せ方を変えてみましょう。</p>
+
+<p><a title="イベントトラッキングラベル（ピボット） by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309803/"><img class="fig" src="http://farm3.static.flickr.com/2722/4268309803_bb8367c678.jpg" alt="イベントトラッキングラベル（ピボット）" width="500" height="315" /></a></p>
+
+<p>表示形式（青枠部分）を<strong>ピボット形式</strong>にして、ピボット（青枠部分）の値を<strong>ブラウザ</strong>にしてみましょう。なんということでしょう。ブラウザ毎のロード時間が確認できるようになりましたね。今回の計測の場合、FxとIEと比べてみたら断然にFxの方がロード時間が短いという結果も理解できるかと思います。</p>
+
+<p>また、<a href="http://warikiru.blogspot.com/2009/11/high-performance-web-design.html">1番のページ</a>はフラッシュオブジェクトや画像が多いので他のページよりも重いので、<a href="http://warikiru.blogspot.com/2009/11/design-at-facebook.html">5番のテキストだけのページ</a>よりもロード時間が長いのも理解できますよね。レポートの値もそうなっています。まぁ、絶対値がどうとか言うよりもページ毎に比較できるようになったのでこれを参考にパフォーマンス改善していけばいいんじゃないでしょうか。</p>
+
+<p>余談ですが、コードの実装段階でブラウザ情報もJSで取得してイベントトラッキングに渡そうと思ったんだけど、難しくて良く分かんなかった。でも考えてみたらGAの本体コードでブラウザ情報取っているわけだからそれをなんとかできんもんかといろいろ弄ってたら、たまたまできましたｗGoogle Analyticsおもしろいですね。
+<h5>不具合編</h5>
+<a title="ユーザーの直帰率 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309861/"><img class="fig" src="http://farm5.static.flickr.com/4006/4268309861_20725d427e.jpg" alt="ユーザーの直帰率" width="500" height="426" /></a></p>
+
+<p>不具合というか、そういう仕様なので仕方がないのですが、このコードを入れると直帰率が減少していきます。ゼロにもなります。というのもGoogle Analyticsの直帰率の定義が１回のGIFリクエストとなっているので。詳しくは以下を参照。
+<blockquote><span style="font-size: x-small;"><strong>直帰率への影響</strong>
+一般的に『直帰』というのは１ページだけの訪問と言われています。Google Analyticsにおいて、直帰は１回のGIFリクエストがトリガーとなって明確にセッションとして記録されます。それは、あるユーザーがあなたのサイトに来て、出て行く時に２回目のリクエストをAnalyticsサーバーにリクエストしないようなセッションです。しかしながら、イベントトラッキングが実装するのなら、あなたはこれらのイベントトラッキングコードが実装されているページの直帰率の変化に気づくでしょう。これらは原因はイベントトラッキングがGIFリクエストを発生させるためです。</span></p>
+
+<p>一回の訪問（ユーザーセッション）で、トラッキングできるGATCリクエスト（イベントもPVも含めて）の最大数はおおよそ500です。
+<a href="http://warikiru.blogspot.com/2009/09/event-tracking-guide.html%20"></a>
+<div style="text-align: right;"><a href="http://warikiru.blogspot.com/2009/09/event-tracking-guide.html"><span style="font-size: x-small;">Google Analytics イベントトラッキングガイド | warikiru</span></a></div></blockquote>
+つまり、ページを読み込んだ時点でブラウザ情報など基本的な情報がGIFリクエストとしてAnalyticsサーバーに送信されるとともに、ページのロード時間を計測したイベントトラッキングの情報もGIFリクエストされるので1ページ見ただけで２回のGIFリクエストしたことになります。これは普通に2ページ見たのと同じだとGAは解釈するわけで、つまり直帰していないという風にレポートでは表示されます。</p>
+
+<p>そのほかにもマウスオーバーや、ビデオプレーヤのボタンクリックなどページ遷移をしないイベントでトラッキングすると意図しない直帰率の減少が懸念されますので注意してくださいね。</p>
+
+<p>なんか上手い回避方法ないんですかね... せめて回避方法はなくてもプロファイルでフィルタでデータを整理とかできんもんかなと。誰か偉い人教えてください＞＜</p>
+
+<p>[追記]
+新たにプロパティID発行してロード時間測定用のオブジェクトとして別で計測すればレポート分離できるなと思いついた。あとで試す。</p>
+"/>
+    <meta name="description" content="<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0470562315/warikiru-22/ref=nosim/" target="_blank"><img class="fig" style="border: 0pt none;" src="http://ecx.images-amazon.com/images/I/51SGTdagbaL._SL160_.jpg" border="0" alt="Advanced Web Metrics with Google Analytics" width="125" height="160" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470562315%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470562315" target="_blank">Advanced Web Metrics with Google Analytics</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
+Brian Clifton </span>
+
+<span>Sybex  2010-03-15
+売り上げランキング : 50643</span>
+
+<span><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470562315%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470562315" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>はい、タイトル通りです。Advanced Web Metricsをパラパラ見てたらおもしろそうな項目を見つけたので自分のブログでもやってみようと思った次第です。ただ、若干古いトラッキングコードを使っている点ともうちょっとイベントトラッキングで遊びたかったので、サンプルコードを改造しています。
+<a name="more"></a>
+<div style="color: #4c1130; text-align: center;"><strong>注意：このコードは直帰率に影響します。詳しくは後述を参照。</strong></div>
+<h5>コード実装編</h5>
+先ずは以下のSCRIPT要素をBODY開始タグの直後に記述しましょう。
+<pre><span style="color: #666666;">&lt;body&gt;</span>
+&lt;script type=&#39;text/javascript&#39;&gt;
+<em style="color: #38761d;"> var Begin = new Date();
+ var Start = Begin.getTime();
+</em>&lt;/script&gt;</p>
+
+<p><span style="color: #666666;"> [ ページのコンテンツ]</span></pre>
+はい、では次に以下のSCRIPT要素をBODY終了タグの直前に記述しましょう。
+<pre>&lt;script type=&#39;text/javascript&#39;&gt;
+<span style="color: #666666;">try {var pageTracker = <em>gat.</em>getTracker(&quot;UA-xxxxxxx-1&quot;);
+pageTracker._trackPageview();</span><em><span style="color: #38761d;"></p>
+
+<p>var End = new Date();
+ var Stop = End.getTime();
+ var timeElapse = Stop - Start; // stored as millsecond
+ var Url = location.href;
+ pageTracker._trackEvent(  &#39;Page Load&#39;,  &#39;Load Time&#39;,  Url,  timeElapse</span>);</em><span style="color: #666666;"></p>
+
+<p>} catch(err) {}
+</span>&lt;/script&gt;</pre>
+BODY要素の始まりと終わりにDateメソッドでタイムスタンプをして、その差分の時間を見ようって寸法です。そして、その値をイベントトラッキングメソッドに渡しています。トラッキングコードをテンプレートに入れても大丈夫なようにlocation.hrefでそのページのURLも渡しています。</p>
+
+<p>つまり、上記のコードは以下のような構造になっていますね。
+<ul>
+    <li><strong> 1. カテゴリ：Page Load</strong></li>
+    <li><strong> 2. アクション：Load Time</strong></li>
+    <li><strong> 3. ラベル：ページのURL</strong></li>
+    <li><strong> 4. バリュー：ロード時間</strong></li>
+</ul>
+コードを記述したらデータが貯まるまで待ちましょうzzz
+<h5>レポート編</h5>
+<a title="イベントトラッキングサマリー by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309583/"><img class="fig" src="http://farm5.static.flickr.com/4003/4268309583_9c1bb0f29a.jpg" alt="イベントトラッキングサマリー" width="491" height="500" /></a></p>
+
+<p>レポートの『<strong>コンテンツ</strong>』＞『<strong>イベントトラッキング</strong>』を見るとカテゴリ名が『<strong>Page Load</strong>』アクション名が『<strong>Load Time</strong>』って項目が見えてきますのでクリックしましょ。</p>
+
+<p><a title="イベントトラッキングラベル by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309655/"><img class="fig" src="http://farm3.static.flickr.com/2778/4268309655_ea908d8cb2.jpg" alt="イベントトラッキングラベル" width="500" height="368" /></a></p>
+
+<p>そうすると、<strong>ラベル：ページURL</strong>毎の<strong>イベント値：ロード時間</strong>が確認できるでしょう。まぁこれでは、ちょっとおもしろくないのでデータの見せ方を変えてみましょう。</p>
+
+<p><a title="イベントトラッキングラベル（ピボット） by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309803/"><img class="fig" src="http://farm3.static.flickr.com/2722/4268309803_bb8367c678.jpg" alt="イベントトラッキングラベル（ピボット）" width="500" height="315" /></a></p>
+
+<p>表示形式（青枠部分）を<strong>ピボット形式</strong>にして、ピボット（青枠部分）の値を<strong>ブラウザ</strong>にしてみましょう。なんということでしょう。ブラウザ毎のロード時間が確認できるようになりましたね。今回の計測の場合、FxとIEと比べてみたら断然にFxの方がロード時間が短いという結果も理解できるかと思います。</p>
+
+<p>また、<a href="http://warikiru.blogspot.com/2009/11/high-performance-web-design.html">1番のページ</a>はフラッシュオブジェクトや画像が多いので他のページよりも重いので、<a href="http://warikiru.blogspot.com/2009/11/design-at-facebook.html">5番のテキストだけのページ</a>よりもロード時間が長いのも理解できますよね。レポートの値もそうなっています。まぁ、絶対値がどうとか言うよりもページ毎に比較できるようになったのでこれを参考にパフォーマンス改善していけばいいんじゃないでしょうか。</p>
+
+<p>余談ですが、コードの実装段階でブラウザ情報もJSで取得してイベントトラッキングに渡そうと思ったんだけど、難しくて良く分かんなかった。でも考えてみたらGAの本体コードでブラウザ情報取っているわけだからそれをなんとかできんもんかといろいろ弄ってたら、たまたまできましたｗGoogle Analyticsおもしろいですね。
+<h5>不具合編</h5>
+<a title="ユーザーの直帰率 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309861/"><img class="fig" src="http://farm5.static.flickr.com/4006/4268309861_20725d427e.jpg" alt="ユーザーの直帰率" width="500" height="426" /></a></p>
+
+<p>不具合というか、そういう仕様なので仕方がないのですが、このコードを入れると直帰率が減少していきます。ゼロにもなります。というのもGoogle Analyticsの直帰率の定義が１回のGIFリクエストとなっているので。詳しくは以下を参照。
+<blockquote><span style="font-size: x-small;"><strong>直帰率への影響</strong>
+一般的に『直帰』というのは１ページだけの訪問と言われています。Google Analyticsにおいて、直帰は１回のGIFリクエストがトリガーとなって明確にセッションとして記録されます。それは、あるユーザーがあなたのサイトに来て、出て行く時に２回目のリクエストをAnalyticsサーバーにリクエストしないようなセッションです。しかしながら、イベントトラッキングが実装するのなら、あなたはこれらのイベントトラッキングコードが実装されているページの直帰率の変化に気づくでしょう。これらは原因はイベントトラッキングがGIFリクエストを発生させるためです。</span></p>
+
+<p>一回の訪問（ユーザーセッション）で、トラッキングできるGATCリクエスト（イベントもPVも含めて）の最大数はおおよそ500です。
+<a href="http://warikiru.blogspot.com/2009/09/event-tracking-guide.html%20"></a>
+<div style="text-align: right;"><a href="http://warikiru.blogspot.com/2009/09/event-tracking-guide.html"><span style="font-size: x-small;">Google Analytics イベントトラッキングガイド | warikiru</span></a></div></blockquote>
+つまり、ページを読み込んだ時点でブラウザ情報など基本的な情報がGIFリクエストとしてAnalyticsサーバーに送信されるとともに、ページのロード時間を計測したイベントトラッキングの情報もGIFリクエストされるので1ページ見ただけで２回のGIFリクエストしたことになります。これは普通に2ページ見たのと同じだとGAは解釈するわけで、つまり直帰していないという風にレポートでは表示されます。</p>
+
+<p>そのほかにもマウスオーバーや、ビデオプレーヤのボタンクリックなどページ遷移をしないイベントでトラッキングすると意図しない直帰率の減少が懸念されますので注意してくださいね。</p>
+
+<p>なんか上手い回避方法ないんですかね... せめて回避方法はなくてもプロファイルでフィルタでデータを整理とかできんもんかなと。誰か偉い人教えてください＞＜</p>
+
+<p>[追記]
+新たにプロパティID発行してロード時間測定用のオブジェクトとして別で計測すればレポート分離できるなと思いついた。あとで試す。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-13-January" title="January 13, 2010">January 13, 2010</time>
+            </div>
+            <h1 class="title">Google Analyticsでページロード時間を計測する</h1>
+            
+        </header>
+
+        <section>
+            <table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0470562315/warikiru-22/ref=nosim/" target="_blank"><img class="fig" style="border: 0pt none;" src="http://ecx.images-amazon.com/images/I/51SGTdagbaL._SL160_.jpg" border="0" alt="Advanced Web Metrics with Google Analytics" width="125" height="160" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470562315%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470562315" target="_blank">Advanced Web Metrics with Google Analytics</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
+Brian Clifton </span>
+
+<span>Sybex  2010-03-15
+売り上げランキング : 50643</span>
+
+<span><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470562315%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470562315" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>はい、タイトル通りです。Advanced Web Metricsをパラパラ見てたらおもしろそうな項目を見つけたので自分のブログでもやってみようと思った次第です。ただ、若干古いトラッキングコードを使っている点ともうちょっとイベントトラッキングで遊びたかったので、サンプルコードを改造しています。
+<a name="more"></a>
+<div style="color: #4c1130; text-align: center;"><strong>注意：このコードは直帰率に影響します。詳しくは後述を参照。</strong></div>
+<h5>コード実装編</h5>
+先ずは以下のSCRIPT要素をBODY開始タグの直後に記述しましょう。
+<pre><span style="color: #666666;">&lt;body&gt;</span>
+&lt;script type=&#39;text/javascript&#39;&gt;
+<em style="color: #38761d;"> var Begin = new Date();
+ var Start = Begin.getTime();
+</em>&lt;/script&gt;</p>
+
+<p><span style="color: #666666;"> [ ページのコンテンツ]</span></pre>
+はい、では次に以下のSCRIPT要素をBODY終了タグの直前に記述しましょう。
+<pre>&lt;script type=&#39;text/javascript&#39;&gt;
+<span style="color: #666666;">try {var pageTracker = <em>gat.</em>getTracker(&quot;UA-xxxxxxx-1&quot;);
+pageTracker._trackPageview();</span><em><span style="color: #38761d;"></p>
+
+<p>var End = new Date();
+ var Stop = End.getTime();
+ var timeElapse = Stop - Start; // stored as millsecond
+ var Url = location.href;
+ pageTracker._trackEvent(  &#39;Page Load&#39;,  &#39;Load Time&#39;,  Url,  timeElapse</span>);</em><span style="color: #666666;"></p>
+
+<p>} catch(err) {}
+</span>&lt;/script&gt;</pre>
+BODY要素の始まりと終わりにDateメソッドでタイムスタンプをして、その差分の時間を見ようって寸法です。そして、その値をイベントトラッキングメソッドに渡しています。トラッキングコードをテンプレートに入れても大丈夫なようにlocation.hrefでそのページのURLも渡しています。</p>
+
+<p>つまり、上記のコードは以下のような構造になっていますね。
+<ul>
+    <li><strong> 1. カテゴリ：Page Load</strong></li>
+    <li><strong> 2. アクション：Load Time</strong></li>
+    <li><strong> 3. ラベル：ページのURL</strong></li>
+    <li><strong> 4. バリュー：ロード時間</strong></li>
+</ul>
+コードを記述したらデータが貯まるまで待ちましょうzzz
+<h5>レポート編</h5>
+<a title="イベントトラッキングサマリー by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309583/"><img class="fig" src="http://farm5.static.flickr.com/4003/4268309583_9c1bb0f29a.jpg" alt="イベントトラッキングサマリー" width="491" height="500" /></a></p>
+
+<p>レポートの『<strong>コンテンツ</strong>』＞『<strong>イベントトラッキング</strong>』を見るとカテゴリ名が『<strong>Page Load</strong>』アクション名が『<strong>Load Time</strong>』って項目が見えてきますのでクリックしましょ。</p>
+
+<p><a title="イベントトラッキングラベル by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309655/"><img class="fig" src="http://farm3.static.flickr.com/2778/4268309655_ea908d8cb2.jpg" alt="イベントトラッキングラベル" width="500" height="368" /></a></p>
+
+<p>そうすると、<strong>ラベル：ページURL</strong>毎の<strong>イベント値：ロード時間</strong>が確認できるでしょう。まぁこれでは、ちょっとおもしろくないのでデータの見せ方を変えてみましょう。</p>
+
+<p><a title="イベントトラッキングラベル（ピボット） by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309803/"><img class="fig" src="http://farm3.static.flickr.com/2722/4268309803_bb8367c678.jpg" alt="イベントトラッキングラベル（ピボット）" width="500" height="315" /></a></p>
+
+<p>表示形式（青枠部分）を<strong>ピボット形式</strong>にして、ピボット（青枠部分）の値を<strong>ブラウザ</strong>にしてみましょう。なんということでしょう。ブラウザ毎のロード時間が確認できるようになりましたね。今回の計測の場合、FxとIEと比べてみたら断然にFxの方がロード時間が短いという結果も理解できるかと思います。</p>
+
+<p>また、<a href="http://warikiru.blogspot.com/2009/11/high-performance-web-design.html">1番のページ</a>はフラッシュオブジェクトや画像が多いので他のページよりも重いので、<a href="http://warikiru.blogspot.com/2009/11/design-at-facebook.html">5番のテキストだけのページ</a>よりもロード時間が長いのも理解できますよね。レポートの値もそうなっています。まぁ、絶対値がどうとか言うよりもページ毎に比較できるようになったのでこれを参考にパフォーマンス改善していけばいいんじゃないでしょうか。</p>
+
+<p>余談ですが、コードの実装段階でブラウザ情報もJSで取得してイベントトラッキングに渡そうと思ったんだけど、難しくて良く分かんなかった。でも考えてみたらGAの本体コードでブラウザ情報取っているわけだからそれをなんとかできんもんかといろいろ弄ってたら、たまたまできましたｗGoogle Analyticsおもしろいですね。
+<h5>不具合編</h5>
+<a title="ユーザーの直帰率 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4268309861/"><img class="fig" src="http://farm5.static.flickr.com/4006/4268309861_20725d427e.jpg" alt="ユーザーの直帰率" width="500" height="426" /></a></p>
+
+<p>不具合というか、そういう仕様なので仕方がないのですが、このコードを入れると直帰率が減少していきます。ゼロにもなります。というのもGoogle Analyticsの直帰率の定義が１回のGIFリクエストとなっているので。詳しくは以下を参照。
+<blockquote><span style="font-size: x-small;"><strong>直帰率への影響</strong>
+一般的に『直帰』というのは１ページだけの訪問と言われています。Google Analyticsにおいて、直帰は１回のGIFリクエストがトリガーとなって明確にセッションとして記録されます。それは、あるユーザーがあなたのサイトに来て、出て行く時に２回目のリクエストをAnalyticsサーバーにリクエストしないようなセッションです。しかしながら、イベントトラッキングが実装するのなら、あなたはこれらのイベントトラッキングコードが実装されているページの直帰率の変化に気づくでしょう。これらは原因はイベントトラッキングがGIFリクエストを発生させるためです。</span></p>
+
+<p>一回の訪問（ユーザーセッション）で、トラッキングできるGATCリクエスト（イベントもPVも含めて）の最大数はおおよそ500です。
+<a href="http://warikiru.blogspot.com/2009/09/event-tracking-guide.html%20"></a>
+<div style="text-align: right;"><a href="http://warikiru.blogspot.com/2009/09/event-tracking-guide.html"><span style="font-size: x-small;">Google Analytics イベントトラッキングガイド | warikiru</span></a></div></blockquote>
+つまり、ページを読み込んだ時点でブラウザ情報など基本的な情報がGIFリクエストとしてAnalyticsサーバーに送信されるとともに、ページのロード時間を計測したイベントトラッキングの情報もGIFリクエストされるので1ページ見ただけで２回のGIFリクエストしたことになります。これは普通に2ページ見たのと同じだとGAは解釈するわけで、つまり直帰していないという風にレポートでは表示されます。</p>
+
+<p>そのほかにもマウスオーバーや、ビデオプレーヤのボタンクリックなどページ遷移をしないイベントでトラッキングすると意図しない直帰率の減少が懸念されますので注意してくださいね。</p>
+
+<p>なんか上手い回避方法ないんですかね... せめて回避方法はなくてもプロファイルでフィルタでデータを整理とかできんもんかなと。誰か偉い人教えてください＞＜</p>
+
+<p>[追記]
+新たにプロパティID発行してロード時間測定用のオブジェクトとして別で計測すればレポート分離できるなと思いついた。あとで試す。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Google Analyticsでページロード時間を計測する" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

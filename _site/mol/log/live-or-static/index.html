@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector と querySelectorAll というか Live NodeList と Static NodeList &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="querySelector と querySelectorAll というか Live NodeList と Static NodeList ">
+    <link rel="canonical" href="http://t32k.me//mol/log/live-or-static">
+     
+           
+    <meta property="og:title" content="querySelector と querySelectorAll というか Live NodeList と Static NodeList "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/live-or-static"/>
+    
+    
+    <!--meta property="og:description" content="<p>先日、getElementsByClassName便利だぜ！とブログに書いたら、to-Rの西畑せんせより「<a href="http://t32k.me/mol/2010/12/getelementsbyname-and-getelementsbyclassname/comment-page-1/#comment-1116">querySelectorAllアルヨ！</a>」と言われたので、調べてみる。</p>
+
+<!--more-->
+
+<h3>querySelector と querySelectorAll</h3>
+
+<ul>
+    <li><a href="http://d.hatena.ne.jp/amachang/20080306/1204787459">IE8 で実装された Selectors API とは何か？ - IT戦記</a></li>
+</ul>
+
+<p>まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。</p>
+
+<p>なにはともあれ、サポート状況をば。
+<blockquote><a href="http://t32k.me/mol/file/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="http://t32k.me/mol/file/2011/01/qsa-300x62.png" alt="" /></a></p>
+
+<p><a href="http://www.quirksmode.org/dom/w3c_core.html">W3C DOM Compatibility – Core</a></blockquote>
+ほーFx3.0は対応していないけど、IE8は対応してるのか。素敵！
+<blockquote>
+<pre><code><em>element</em> = document.querySelector(<strong><em>selectors</em></strong>);</code></pre>
+<em>element</em> is an element object.<a href="https://developer.mozilla.org/En/DOM/Document.querySelector">
+document.querySelector - MDC Doc Center</a></blockquote>
+querySelector ってのもある。基本的な使い方は両方一緒で<em>selectors</em>の引数に、取得したい要素のCSSセレクタ書いてあげればいい。querySelector は最初に見つけてきた単一の要素を返すのに対して、
+<blockquote>
+<pre><code><em>elementList</em> = document.querySelectorAll(<strong><em>selectors</em></strong>);</code></pre>
+<em>elementList</em> is a non-live NodeList of element objects.
+<a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll - MDC Doc Center</a></blockquote>
+querySelectorAll はノードリストを返す。
+<pre><code>var node = document.querySelectorAll(&#39;#hoge &gt; h2&#39;);</code></pre>
+つまり、#hogeの中の子供のh2だけを取ってくるなんてことも、上記のようにCSSセレクタで簡単に書けちゃう。jQueryライクに書けちゃう。だから、これまでFirefoxのグリモンとかChromeの拡張機能を作成するときは僕はjQuery読み込んでいたんだけど、簡単なものであればSelectors API使えば、jQueryに頼らなくても良くなった（いや、欲しいけど）。
+<h3>Live NodeList と Static NodeList</h3>
+はい、そんなわけでSelectors API＼(-o-)／なんですけども、ひとつ気になる点がありました。querySelectorAllが返すのはnon-liveなノードリストと書いてあります。non-liveって何よ？ってことで、仕様書、仕様書
+<blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
+セレクター API Level 1</a></blockquote>
+ほほー、静的なノードリストなわけですね。具体的な例ですと、
+<pre><code>var divs = document.getElementsByTagName(&quot;div&quot;),
+    i=0;
+while(i &lt; divs.length){
+ document.body.appendChild(document.createElement(&quot;div&quot;));
+ i++;
+}</code></pre>
+getElementsByTagName()で返される値は動的なノードリストですので、上記のスクリプトは無限ループになる。
+<pre><code>var divs = document.querySelectorAll(&quot;div&quot;),
+    i=0;
+while(i &lt; divs.length){
+ document.body.appendChild(document.createElement(&quot;div&quot;));
+ i++;
+}</code></pre>
+代わって、querySelectorAllで返される値は静的なノードリストで、取得してきた時点での数になります。つまり、divが10個そのときあったのであれば、その後に何個divを生成しようが10回でこのループは止まります。</p>
+
+<p>違いが分かりましたけど、なんでちゃうのん？
+<ul>
+    <li><a href="http://web.g.hatena.ne.jp/vantguarde/20081114/1226673398">querySelectorAllがliveじゃないNodeList返すのはなんで？ - vantguarde - web:g</a></li>
+</ul>
+コメント欄にuupaaせんせがDOMアクセスを減らすためと書いてある。</p>
+
+<p>おーなるほど、パフォーマンスのためか？と思ったのでもうちっと調べてみると、こんな記事があった。
+<ul>
+    <li><a href="http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/">Why is getElementsByTagName() faster that querySelectorAll()? | NCZOnline</a></li>
+    <li><a href="http://journal.mycom.co.jp/articles/2010/10/01/javascript-nodelist-difference/index.html">【レポート】getElementsByTagName()がquerySelectorAll()より高速な理由  | マイコミジャーナル</a></li>
+    <li><a href="http://d.hatena.ne.jp/vwxyz/20101005">Nicholas C. Zakas「getElementsByTagName()がquerySelectorAll()よりも高速な件」 - クライアント・サイド・スクリプティング with Web Standards</a></li>
+</ul>
+上記ブログに書いてあることをなんとなく理解すると、静的リストはまるまるコピーするから事前にやることが多いので、動的リストよりも遅くなる。けども、取ってきたノードリストをイテレートする分には動的リストは毎回チェックするのに対して、静的リストはしないから速い。とのことみたいな事言ってるんだけど、</p>
+
+<p><a href="http://jsperf.com/">jsPerf</a> ってところでパフォーマンスしてみたのがこれ。ついでに、ほかのgetElementsBy*メソッドもテストしてみた。</p>
+
+<p><strong>getElementsByTagName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall">http://jsperf.com/getelementsbytagname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall/2">http://jsperf.com/getelementsbytagname-vs-queryselectorall/2</a></li>
+</ul>
+<strong>getElementsByName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall">http://jsperf.com/getelementsbyname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall/2">http://jsperf.com/getelementsbyname-vs-queryselectorall/2</a></li>
+</ul>
+<strong>getElementsByClassName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall">http://jsperf.com/getelementsbyclassname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2">http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2</a></li>
+</ul>
+なんか全部のテストで、（operaを除いて）getElementsBy*（動的）が速いんですけど。。。でも、<a href="http://jsperf.com/getelementsbytagname-a-0-vs-queryselector-a/4">このテスト</a>だとQSAの方が速い。。。うんーわからん。だれかおせーてエロい人！</p>
+
+<p>結局、getElementsBy*で取れるもんはわざわざ、QSAでやらないほうがいいよ。ってことかな。あ、だからってQSAをディスってないよ。クラスの複数付けとか取ってくるときはQSAでやったほうが楽チンだし速いからね。と思ったけど、<a href="http://jsperf.com/the-benefit-of-using-the-selectors-api">このテスト</a>だとgetElementsByTagNameの方が速いじゃん（High Perfromace JavaScriptにはQSAのほうが2-6倍速いって書いてあるのに...）</p>
+
+<p>とりあえず、よく分かりません＞＜。</p>
+"/>
+    <meta name="description" content="<p>先日、getElementsByClassName便利だぜ！とブログに書いたら、to-Rの西畑せんせより「<a href="http://t32k.me/mol/2010/12/getelementsbyname-and-getelementsbyclassname/comment-page-1/#comment-1116">querySelectorAllアルヨ！</a>」と言われたので、調べてみる。</p>
+
+<!--more-->
+
+<h3>querySelector と querySelectorAll</h3>
+
+<ul>
+    <li><a href="http://d.hatena.ne.jp/amachang/20080306/1204787459">IE8 で実装された Selectors API とは何か？ - IT戦記</a></li>
+</ul>
+
+<p>まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。</p>
+
+<p>なにはともあれ、サポート状況をば。
+<blockquote><a href="http://t32k.me/mol/file/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="http://t32k.me/mol/file/2011/01/qsa-300x62.png" alt="" /></a></p>
+
+<p><a href="http://www.quirksmode.org/dom/w3c_core.html">W3C DOM Compatibility – Core</a></blockquote>
+ほーFx3.0は対応していないけど、IE8は対応してるのか。素敵！
+<blockquote>
+<pre><code><em>element</em> = document.querySelector(<strong><em>selectors</em></strong>);</code></pre>
+<em>element</em> is an element object.<a href="https://developer.mozilla.org/En/DOM/Document.querySelector">
+document.querySelector - MDC Doc Center</a></blockquote>
+querySelector ってのもある。基本的な使い方は両方一緒で<em>selectors</em>の引数に、取得したい要素のCSSセレクタ書いてあげればいい。querySelector は最初に見つけてきた単一の要素を返すのに対して、
+<blockquote>
+<pre><code><em>elementList</em> = document.querySelectorAll(<strong><em>selectors</em></strong>);</code></pre>
+<em>elementList</em> is a non-live NodeList of element objects.
+<a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll - MDC Doc Center</a></blockquote>
+querySelectorAll はノードリストを返す。
+<pre><code>var node = document.querySelectorAll(&#39;#hoge &gt; h2&#39;);</code></pre>
+つまり、#hogeの中の子供のh2だけを取ってくるなんてことも、上記のようにCSSセレクタで簡単に書けちゃう。jQueryライクに書けちゃう。だから、これまでFirefoxのグリモンとかChromeの拡張機能を作成するときは僕はjQuery読み込んでいたんだけど、簡単なものであればSelectors API使えば、jQueryに頼らなくても良くなった（いや、欲しいけど）。
+<h3>Live NodeList と Static NodeList</h3>
+はい、そんなわけでSelectors API＼(-o-)／なんですけども、ひとつ気になる点がありました。querySelectorAllが返すのはnon-liveなノードリストと書いてあります。non-liveって何よ？ってことで、仕様書、仕様書
+<blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
+セレクター API Level 1</a></blockquote>
+ほほー、静的なノードリストなわけですね。具体的な例ですと、
+<pre><code>var divs = document.getElementsByTagName(&quot;div&quot;),
+    i=0;
+while(i &lt; divs.length){
+ document.body.appendChild(document.createElement(&quot;div&quot;));
+ i++;
+}</code></pre>
+getElementsByTagName()で返される値は動的なノードリストですので、上記のスクリプトは無限ループになる。
+<pre><code>var divs = document.querySelectorAll(&quot;div&quot;),
+    i=0;
+while(i &lt; divs.length){
+ document.body.appendChild(document.createElement(&quot;div&quot;));
+ i++;
+}</code></pre>
+代わって、querySelectorAllで返される値は静的なノードリストで、取得してきた時点での数になります。つまり、divが10個そのときあったのであれば、その後に何個divを生成しようが10回でこのループは止まります。</p>
+
+<p>違いが分かりましたけど、なんでちゃうのん？
+<ul>
+    <li><a href="http://web.g.hatena.ne.jp/vantguarde/20081114/1226673398">querySelectorAllがliveじゃないNodeList返すのはなんで？ - vantguarde - web:g</a></li>
+</ul>
+コメント欄にuupaaせんせがDOMアクセスを減らすためと書いてある。</p>
+
+<p>おーなるほど、パフォーマンスのためか？と思ったのでもうちっと調べてみると、こんな記事があった。
+<ul>
+    <li><a href="http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/">Why is getElementsByTagName() faster that querySelectorAll()? | NCZOnline</a></li>
+    <li><a href="http://journal.mycom.co.jp/articles/2010/10/01/javascript-nodelist-difference/index.html">【レポート】getElementsByTagName()がquerySelectorAll()より高速な理由  | マイコミジャーナル</a></li>
+    <li><a href="http://d.hatena.ne.jp/vwxyz/20101005">Nicholas C. Zakas「getElementsByTagName()がquerySelectorAll()よりも高速な件」 - クライアント・サイド・スクリプティング with Web Standards</a></li>
+</ul>
+上記ブログに書いてあることをなんとなく理解すると、静的リストはまるまるコピーするから事前にやることが多いので、動的リストよりも遅くなる。けども、取ってきたノードリストをイテレートする分には動的リストは毎回チェックするのに対して、静的リストはしないから速い。とのことみたいな事言ってるんだけど、</p>
+
+<p><a href="http://jsperf.com/">jsPerf</a> ってところでパフォーマンスしてみたのがこれ。ついでに、ほかのgetElementsBy*メソッドもテストしてみた。</p>
+
+<p><strong>getElementsByTagName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall">http://jsperf.com/getelementsbytagname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall/2">http://jsperf.com/getelementsbytagname-vs-queryselectorall/2</a></li>
+</ul>
+<strong>getElementsByName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall">http://jsperf.com/getelementsbyname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall/2">http://jsperf.com/getelementsbyname-vs-queryselectorall/2</a></li>
+</ul>
+<strong>getElementsByClassName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall">http://jsperf.com/getelementsbyclassname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2">http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2</a></li>
+</ul>
+なんか全部のテストで、（operaを除いて）getElementsBy*（動的）が速いんですけど。。。でも、<a href="http://jsperf.com/getelementsbytagname-a-0-vs-queryselector-a/4">このテスト</a>だとQSAの方が速い。。。うんーわからん。だれかおせーてエロい人！</p>
+
+<p>結局、getElementsBy*で取れるもんはわざわざ、QSAでやらないほうがいいよ。ってことかな。あ、だからってQSAをディスってないよ。クラスの複数付けとか取ってくるときはQSAでやったほうが楽チンだし速いからね。と思ったけど、<a href="http://jsperf.com/the-benefit-of-using-the-selectors-api">このテスト</a>だとgetElementsByTagNameの方が速いじゃん（High Perfromace JavaScriptにはQSAのほうが2-6倍速いって書いてあるのに...）</p>
+
+<p>とりあえず、よく分かりません＞＜。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-02-January" title="January 02, 2011">January 02, 2011</time>
+            </div>
+            <h1 class="title">querySelector と querySelectorAll というか Live NodeList と Static NodeList</h1>
+            
+        </header>
+
+        <section>
+            <p>先日、getElementsByClassName便利だぜ！とブログに書いたら、to-Rの西畑せんせより「<a href="http://t32k.me/mol/2010/12/getelementsbyname-and-getelementsbyclassname/comment-page-1/#comment-1116">querySelectorAllアルヨ！</a>」と言われたので、調べてみる。</p>
+
+<!--more-->
+
+<h3>querySelector と querySelectorAll</h3>
+
+<ul>
+    <li><a href="http://d.hatena.ne.jp/amachang/20080306/1204787459">IE8 で実装された Selectors API とは何か？ - IT戦記</a></li>
+</ul>
+
+<p>まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。</p>
+
+<p>なにはともあれ、サポート状況をば。
+<blockquote><a href="http://t32k.me/mol/file/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="http://t32k.me/mol/file/2011/01/qsa-300x62.png" alt="" /></a></p>
+
+<p><a href="http://www.quirksmode.org/dom/w3c_core.html">W3C DOM Compatibility – Core</a></blockquote>
+ほーFx3.0は対応していないけど、IE8は対応してるのか。素敵！
+<blockquote>
+<pre><code><em>element</em> = document.querySelector(<strong><em>selectors</em></strong>);</code></pre>
+<em>element</em> is an element object.<a href="https://developer.mozilla.org/En/DOM/Document.querySelector">
+document.querySelector - MDC Doc Center</a></blockquote>
+querySelector ってのもある。基本的な使い方は両方一緒で<em>selectors</em>の引数に、取得したい要素のCSSセレクタ書いてあげればいい。querySelector は最初に見つけてきた単一の要素を返すのに対して、
+<blockquote>
+<pre><code><em>elementList</em> = document.querySelectorAll(<strong><em>selectors</em></strong>);</code></pre>
+<em>elementList</em> is a non-live NodeList of element objects.
+<a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll - MDC Doc Center</a></blockquote>
+querySelectorAll はノードリストを返す。
+<pre><code>var node = document.querySelectorAll(&#39;#hoge &gt; h2&#39;);</code></pre>
+つまり、#hogeの中の子供のh2だけを取ってくるなんてことも、上記のようにCSSセレクタで簡単に書けちゃう。jQueryライクに書けちゃう。だから、これまでFirefoxのグリモンとかChromeの拡張機能を作成するときは僕はjQuery読み込んでいたんだけど、簡単なものであればSelectors API使えば、jQueryに頼らなくても良くなった（いや、欲しいけど）。
+<h3>Live NodeList と Static NodeList</h3>
+はい、そんなわけでSelectors API＼(-o-)／なんですけども、ひとつ気になる点がありました。querySelectorAllが返すのはnon-liveなノードリストと書いてあります。non-liveって何よ？ってことで、仕様書、仕様書
+<blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
+セレクター API Level 1</a></blockquote>
+ほほー、静的なノードリストなわけですね。具体的な例ですと、
+<pre><code>var divs = document.getElementsByTagName(&quot;div&quot;),
+    i=0;
+while(i &lt; divs.length){
+ document.body.appendChild(document.createElement(&quot;div&quot;));
+ i++;
+}</code></pre>
+getElementsByTagName()で返される値は動的なノードリストですので、上記のスクリプトは無限ループになる。
+<pre><code>var divs = document.querySelectorAll(&quot;div&quot;),
+    i=0;
+while(i &lt; divs.length){
+ document.body.appendChild(document.createElement(&quot;div&quot;));
+ i++;
+}</code></pre>
+代わって、querySelectorAllで返される値は静的なノードリストで、取得してきた時点での数になります。つまり、divが10個そのときあったのであれば、その後に何個divを生成しようが10回でこのループは止まります。</p>
+
+<p>違いが分かりましたけど、なんでちゃうのん？
+<ul>
+    <li><a href="http://web.g.hatena.ne.jp/vantguarde/20081114/1226673398">querySelectorAllがliveじゃないNodeList返すのはなんで？ - vantguarde - web:g</a></li>
+</ul>
+コメント欄にuupaaせんせがDOMアクセスを減らすためと書いてある。</p>
+
+<p>おーなるほど、パフォーマンスのためか？と思ったのでもうちっと調べてみると、こんな記事があった。
+<ul>
+    <li><a href="http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/">Why is getElementsByTagName() faster that querySelectorAll()? | NCZOnline</a></li>
+    <li><a href="http://journal.mycom.co.jp/articles/2010/10/01/javascript-nodelist-difference/index.html">【レポート】getElementsByTagName()がquerySelectorAll()より高速な理由  | マイコミジャーナル</a></li>
+    <li><a href="http://d.hatena.ne.jp/vwxyz/20101005">Nicholas C. Zakas「getElementsByTagName()がquerySelectorAll()よりも高速な件」 - クライアント・サイド・スクリプティング with Web Standards</a></li>
+</ul>
+上記ブログに書いてあることをなんとなく理解すると、静的リストはまるまるコピーするから事前にやることが多いので、動的リストよりも遅くなる。けども、取ってきたノードリストをイテレートする分には動的リストは毎回チェックするのに対して、静的リストはしないから速い。とのことみたいな事言ってるんだけど、</p>
+
+<p><a href="http://jsperf.com/">jsPerf</a> ってところでパフォーマンスしてみたのがこれ。ついでに、ほかのgetElementsBy*メソッドもテストしてみた。</p>
+
+<p><strong>getElementsByTagName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall">http://jsperf.com/getelementsbytagname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall/2">http://jsperf.com/getelementsbytagname-vs-queryselectorall/2</a></li>
+</ul>
+<strong>getElementsByName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall">http://jsperf.com/getelementsbyname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall/2">http://jsperf.com/getelementsbyname-vs-queryselectorall/2</a></li>
+</ul>
+<strong>getElementsByClassName VS querySelectorAll · jsPerf</strong>
+<ul>
+    <li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall">http://jsperf.com/getelementsbyclassname-vs-queryselectorall</a></li>
+    <li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2">http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2</a></li>
+</ul>
+なんか全部のテストで、（operaを除いて）getElementsBy*（動的）が速いんですけど。。。でも、<a href="http://jsperf.com/getelementsbytagname-a-0-vs-queryselector-a/4">このテスト</a>だとQSAの方が速い。。。うんーわからん。だれかおせーてエロい人！</p>
+
+<p>結局、getElementsBy*で取れるもんはわざわざ、QSAでやらないほうがいいよ。ってことかな。あ、だからってQSAをディスってないよ。クラスの複数付けとか取ってくるときはQSAでやったほうが楽チンだし速いからね。と思ったけど、<a href="http://jsperf.com/the-benefit-of-using-the-selectors-api">このテスト</a>だとgetElementsByTagNameの方が速いじゃん（High Perfromace JavaScriptにはQSAのほうが2-6倍速いって書いてあるのに...）</p>
+
+<p>とりあえず、よく分かりません＞＜。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="querySelector と querySelectorAll というか Live NodeList と Static NodeList" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

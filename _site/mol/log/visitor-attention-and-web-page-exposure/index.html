@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザーの注意力とページ露出 &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="ユーザーの注意力とページ露出 ">
+    <link rel="canonical" href="http://t32k.me//mol/log/visitor-attention-and-web-page-exposure">
+     
+           
+    <meta property="og:title" content="ユーザーの注意力とページ露出 "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/visitor-attention-and-web-page-exposure"/>
+    
+    
+    <!--meta property="og:description" content="<p>2ヶ月前のＷｅｂクリエイターに載ってたのでちょっと訳してみた。(今回は適当です)</p>
+
+<p><cite style="font-size: 90%; display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文:<a href="http://blog.clicktale.com/2007/12/04/clicktale-scrolling-research-report-v20-part-2-visitor-attention-and-web-page-exposure/">ClickTale Scrolling Research Report V2.0 - Part 2: Visitor Attention a....</a>
+調査会社：<a href="http://www.clicktale.com/">Click Tale</a>
+</cite></p>
+
+<p><a href="http://blog.clicktale.com/2007/10/05/clicktale-scrolling-research-report-v20-part-1-visibility-and-scroll-reach/">パート1</a>で分かったことに、ユーザーは何pxスクロールするか？などの絶対的な単位ではなくページ内の相対的な位置でスクロールする。言い換えれば、たいていのユーザーはページ高が5,000pxであろうと10,000pxであろうとも、ページの半分もしくは4分の3ぐらいはスクロールする。パート2ではユーザーがあなたのサイトのどこに注意を払っているのか、またページのどの部分に最も注意が払われているのか紹介する。
+<h3>ユーザーは注意を払っているのか？</h3>
+いったいユーザーがどのくらいあなたのサイトのコンテンツに注意を払っているのか、疑問に思ったことはないだろうか？もちろん私たちも経験している。しかし、最近まで、この答えに対する証拠は、システマティックな科学的調査というよりも個人的な意見やでたらめな調査に基づいていた。この問題に客観的に答えるために、私たちは80,000以上のブラウザセッションを1ヶ月で収集し解析した。</p>
+
+<p>私たちは　<span style="font-weight: bold;">&quot;ユーザーの注意力 (Visitor Attention)&quot; </span>つまり、ユーザーがページをスクロールアップやダウンしている間のページの特定エリアにおける注意を払っている平均時間と定義したものを調査することからはじめた。この調査は実際にユーザーが活動している時間しかカウントしない。つまり、ユーザー自身がマウスを動かしたり、スクロール、クリック、タイピングしたりする時間は含むが、他のサイトをブラウジングしたり、コーヒー片手に持っている時間は含まない。下のグラフはページ高が違う、各々のセクションあたりにどのくらい注意を払ったかを示している。</p>
+
+<p><span style="font-weight: bold;">&quot;スクロールリーチ (Absolute Scrolling Reach)&quot; </span>は、ピクセルでページトップからユーザーがスクロールダウンした距離を示している。</p>
+
+<p><img class="fig" src="http://farm4.static.flickr.com/3233/2816828167_7255e0e863.jpg" alt="visitor_attentiton" width="500" height="309" /></p>
+
+<p>ユーザーの注意力パターン調査から私たちは以下のことが分かった。
+<ul>
+    <li>ユーザーの注意力は異なるページ高さでも同じようなパターンを示す。
+それはページトップと540px付近、最下部から500px付近上部でピークとなる。</li>
+    <li>ページトップと最下部の現象を除けば、指数関数的にページスクロールと共に注意力が減少していく。</li>
+    <li>ページトップ付近がピークなのはたぶん、典型的にサイトの上部にはロゴがあり、それは真っ先にスクロールダウンされ、視界の外になることで説明されるだろう。</li>
+    <li>ページ下部でのピークはユーザーが次の行動（他のサイトに行くか違うページを見るのか）を
+決定するのに注意力が上昇するのだろう。ユーザーはたぶん大量のリンク（例えば、Contact USや会社の電話番号などのフッター項目）から次の行動を決めるためにちょっと休憩しているのだとおもう。もしくは、単純にページ末でスクロールをとめているだけかもしれない。</li>
+    <li>このグラフはユーザーの注意力はページの長さの絶対的位置（ピクセル）に要因があり、ページ内部の相対的位置関係はあまり意味がない。</li>
+</ul>
+<h3>あなたのページはどのくらい露出しているのか？</h3>
+この質問に答えるために<span style="font-weight: bold;"> &quot;ページ露出 (Page Exposure)&quot;</span> を定義します。全ての訪問者に特定のエリアが露出した平均時間（特定のページエリアを見た人の一部とは反対に）また、ユーザーの活動している時間しかカウントしない。</p>
+
+<p>下のグラフは特定のページエリアが表示された平均時間を表している。</p>
+
+<p><img class="fig" src="http://farm4.static.flickr.com/3182/2817678934_558cf543f3.jpg" alt="page_exposure" width="500" height="309" /></p>
+
+<p>このグラフから以下のことが分かる
+<ul>
+    <li>ページトップ付近のページはページ最下部付近に比べ17倍多く露出している。
+実際、ページ露出のピークはページトップから540px付近の24秒でページ下部付近のくぼみ部分は1.4秒</li>
+    <li>異なるページ長でもページ露出パターンは似たような軌跡をたどる。
+べき関数のように減少していくように見える。</li>
+    <li>ページ露出はページ最下部付近で小さな上昇を見せる。これは驚くべきことだ。
+なぜなら、最初のグラフでページ下部付近でのユーザーの注意力上昇が特筆すべきことだからだ。特定エリアのページ露出はページ訪問者の総数に基づいて計算されているので、２番目のグラフのぺちゃんこな段差が意味しているのは、注意力の高レベルは少数のユーザーによってカウントされているだけで、すべてのユーザーで平均化される。</li>
+    <li>この仮説はパート１で結果を見れば証明される。
+下のグラフはページ長に関わらずページ訪問者の15~20%しかページ最下部にたどり着いていない。
+（<span style="font-weight: bold;">‘Visibility’</span> と呼ばれる新しい測定基準によって測定した。
+この‘Visibility’はページの特定のエリアにスクロールした人の割合）</li>
+</ul>
+<img class="fig" src="http://farm4.static.flickr.com/3239/2817678900_0230283068.jpg" alt="visibility" width="500" height="309" />
+<h3>いくつかの重要な結果</h3>
+<ul>
+    <li>540px以下でユーザー注意力、ページ露出ともに指数関数的に減少していく
+この現象の考えられる理由として、ヤコブニールセン氏が次のように述べている。
+“<a href="http://www.useit.com/alertbox/whyscanning.html">Why Web Users Scan Instead of Read</a>“ （邦訳：<a href="http://www.usability.gr.jp/alertbox/whyscanning.html">なぜウェブユーザは流し読みするのか</a>）</li>
+    <li>1000pxを境にユーザーの数は直線状に減少していく
+See part 1 where we showed that Visibility = 57.6 - (0.409 x Scrolling Reach) with an R-squared = 89.4% which indicates that the linear model is a very good fit for the scrolling data.
+<span style="color: #888888;">(計算関係はよくわからない)</span></li>
+</ul>
+<h3><span style="font-weight: bold;">私たちが薦めること</span></h3>
+<ul>
+    <li>ウェブページで最も価値のある場所はページトップ付近で0から800pxの間、ユーザー注意力、ページ露出ともに、540px付近がピーク。</li>
+    <li>もしあなたがページ長の長いページを持っているのならば、ユーザーが一気にスクロ－ルしないように見出しや画像などのいわゆるストップポイントを付け加えたらよいだろう。</li>
+    <li>あなたのページのフッターはとても重要だ。ユーザーはあなたのページの中でかなりの注意をこのあたりで払っているだろう。</li>
+</ul>
+<h4>補足</h4>
+各値の算出方法
+<strong><img src="http://ijok.ijok.googlepages.com/080902.gif" alt="" width="500" /></strong></p>
+"/>
+    <meta name="description" content="<p>2ヶ月前のＷｅｂクリエイターに載ってたのでちょっと訳してみた。(今回は適当です)</p>
+
+<p><cite style="font-size: 90%; display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文:<a href="http://blog.clicktale.com/2007/12/04/clicktale-scrolling-research-report-v20-part-2-visitor-attention-and-web-page-exposure/">ClickTale Scrolling Research Report V2.0 - Part 2: Visitor Attention a....</a>
+調査会社：<a href="http://www.clicktale.com/">Click Tale</a>
+</cite></p>
+
+<p><a href="http://blog.clicktale.com/2007/10/05/clicktale-scrolling-research-report-v20-part-1-visibility-and-scroll-reach/">パート1</a>で分かったことに、ユーザーは何pxスクロールするか？などの絶対的な単位ではなくページ内の相対的な位置でスクロールする。言い換えれば、たいていのユーザーはページ高が5,000pxであろうと10,000pxであろうとも、ページの半分もしくは4分の3ぐらいはスクロールする。パート2ではユーザーがあなたのサイトのどこに注意を払っているのか、またページのどの部分に最も注意が払われているのか紹介する。
+<h3>ユーザーは注意を払っているのか？</h3>
+いったいユーザーがどのくらいあなたのサイトのコンテンツに注意を払っているのか、疑問に思ったことはないだろうか？もちろん私たちも経験している。しかし、最近まで、この答えに対する証拠は、システマティックな科学的調査というよりも個人的な意見やでたらめな調査に基づいていた。この問題に客観的に答えるために、私たちは80,000以上のブラウザセッションを1ヶ月で収集し解析した。</p>
+
+<p>私たちは　<span style="font-weight: bold;">&quot;ユーザーの注意力 (Visitor Attention)&quot; </span>つまり、ユーザーがページをスクロールアップやダウンしている間のページの特定エリアにおける注意を払っている平均時間と定義したものを調査することからはじめた。この調査は実際にユーザーが活動している時間しかカウントしない。つまり、ユーザー自身がマウスを動かしたり、スクロール、クリック、タイピングしたりする時間は含むが、他のサイトをブラウジングしたり、コーヒー片手に持っている時間は含まない。下のグラフはページ高が違う、各々のセクションあたりにどのくらい注意を払ったかを示している。</p>
+
+<p><span style="font-weight: bold;">&quot;スクロールリーチ (Absolute Scrolling Reach)&quot; </span>は、ピクセルでページトップからユーザーがスクロールダウンした距離を示している。</p>
+
+<p><img class="fig" src="http://farm4.static.flickr.com/3233/2816828167_7255e0e863.jpg" alt="visitor_attentiton" width="500" height="309" /></p>
+
+<p>ユーザーの注意力パターン調査から私たちは以下のことが分かった。
+<ul>
+    <li>ユーザーの注意力は異なるページ高さでも同じようなパターンを示す。
+それはページトップと540px付近、最下部から500px付近上部でピークとなる。</li>
+    <li>ページトップと最下部の現象を除けば、指数関数的にページスクロールと共に注意力が減少していく。</li>
+    <li>ページトップ付近がピークなのはたぶん、典型的にサイトの上部にはロゴがあり、それは真っ先にスクロールダウンされ、視界の外になることで説明されるだろう。</li>
+    <li>ページ下部でのピークはユーザーが次の行動（他のサイトに行くか違うページを見るのか）を
+決定するのに注意力が上昇するのだろう。ユーザーはたぶん大量のリンク（例えば、Contact USや会社の電話番号などのフッター項目）から次の行動を決めるためにちょっと休憩しているのだとおもう。もしくは、単純にページ末でスクロールをとめているだけかもしれない。</li>
+    <li>このグラフはユーザーの注意力はページの長さの絶対的位置（ピクセル）に要因があり、ページ内部の相対的位置関係はあまり意味がない。</li>
+</ul>
+<h3>あなたのページはどのくらい露出しているのか？</h3>
+この質問に答えるために<span style="font-weight: bold;"> &quot;ページ露出 (Page Exposure)&quot;</span> を定義します。全ての訪問者に特定のエリアが露出した平均時間（特定のページエリアを見た人の一部とは反対に）また、ユーザーの活動している時間しかカウントしない。</p>
+
+<p>下のグラフは特定のページエリアが表示された平均時間を表している。</p>
+
+<p><img class="fig" src="http://farm4.static.flickr.com/3182/2817678934_558cf543f3.jpg" alt="page_exposure" width="500" height="309" /></p>
+
+<p>このグラフから以下のことが分かる
+<ul>
+    <li>ページトップ付近のページはページ最下部付近に比べ17倍多く露出している。
+実際、ページ露出のピークはページトップから540px付近の24秒でページ下部付近のくぼみ部分は1.4秒</li>
+    <li>異なるページ長でもページ露出パターンは似たような軌跡をたどる。
+べき関数のように減少していくように見える。</li>
+    <li>ページ露出はページ最下部付近で小さな上昇を見せる。これは驚くべきことだ。
+なぜなら、最初のグラフでページ下部付近でのユーザーの注意力上昇が特筆すべきことだからだ。特定エリアのページ露出はページ訪問者の総数に基づいて計算されているので、２番目のグラフのぺちゃんこな段差が意味しているのは、注意力の高レベルは少数のユーザーによってカウントされているだけで、すべてのユーザーで平均化される。</li>
+    <li>この仮説はパート１で結果を見れば証明される。
+下のグラフはページ長に関わらずページ訪問者の15~20%しかページ最下部にたどり着いていない。
+（<span style="font-weight: bold;">‘Visibility’</span> と呼ばれる新しい測定基準によって測定した。
+この‘Visibility’はページの特定のエリアにスクロールした人の割合）</li>
+</ul>
+<img class="fig" src="http://farm4.static.flickr.com/3239/2817678900_0230283068.jpg" alt="visibility" width="500" height="309" />
+<h3>いくつかの重要な結果</h3>
+<ul>
+    <li>540px以下でユーザー注意力、ページ露出ともに指数関数的に減少していく
+この現象の考えられる理由として、ヤコブニールセン氏が次のように述べている。
+“<a href="http://www.useit.com/alertbox/whyscanning.html">Why Web Users Scan Instead of Read</a>“ （邦訳：<a href="http://www.usability.gr.jp/alertbox/whyscanning.html">なぜウェブユーザは流し読みするのか</a>）</li>
+    <li>1000pxを境にユーザーの数は直線状に減少していく
+See part 1 where we showed that Visibility = 57.6 - (0.409 x Scrolling Reach) with an R-squared = 89.4% which indicates that the linear model is a very good fit for the scrolling data.
+<span style="color: #888888;">(計算関係はよくわからない)</span></li>
+</ul>
+<h3><span style="font-weight: bold;">私たちが薦めること</span></h3>
+<ul>
+    <li>ウェブページで最も価値のある場所はページトップ付近で0から800pxの間、ユーザー注意力、ページ露出ともに、540px付近がピーク。</li>
+    <li>もしあなたがページ長の長いページを持っているのならば、ユーザーが一気にスクロ－ルしないように見出しや画像などのいわゆるストップポイントを付け加えたらよいだろう。</li>
+    <li>あなたのページのフッターはとても重要だ。ユーザーはあなたのページの中でかなりの注意をこのあたりで払っているだろう。</li>
+</ul>
+<h4>補足</h4>
+各値の算出方法
+<strong><img src="http://ijok.ijok.googlepages.com/080902.gif" alt="" width="500" /></strong></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2008-01-September" title="September 01, 2008">September 01, 2008</time>
+            </div>
+            <h1 class="title">ユーザーの注意力とページ露出</h1>
+            
+        </header>
+
+        <section>
+            <p>2ヶ月前のＷｅｂクリエイターに載ってたのでちょっと訳してみた。(今回は適当です)</p>
+
+<p><cite style="font-size: 90%; display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文:<a href="http://blog.clicktale.com/2007/12/04/clicktale-scrolling-research-report-v20-part-2-visitor-attention-and-web-page-exposure/">ClickTale Scrolling Research Report V2.0 - Part 2: Visitor Attention a....</a>
+調査会社：<a href="http://www.clicktale.com/">Click Tale</a>
+</cite></p>
+
+<p><a href="http://blog.clicktale.com/2007/10/05/clicktale-scrolling-research-report-v20-part-1-visibility-and-scroll-reach/">パート1</a>で分かったことに、ユーザーは何pxスクロールするか？などの絶対的な単位ではなくページ内の相対的な位置でスクロールする。言い換えれば、たいていのユーザーはページ高が5,000pxであろうと10,000pxであろうとも、ページの半分もしくは4分の3ぐらいはスクロールする。パート2ではユーザーがあなたのサイトのどこに注意を払っているのか、またページのどの部分に最も注意が払われているのか紹介する。
+<h3>ユーザーは注意を払っているのか？</h3>
+いったいユーザーがどのくらいあなたのサイトのコンテンツに注意を払っているのか、疑問に思ったことはないだろうか？もちろん私たちも経験している。しかし、最近まで、この答えに対する証拠は、システマティックな科学的調査というよりも個人的な意見やでたらめな調査に基づいていた。この問題に客観的に答えるために、私たちは80,000以上のブラウザセッションを1ヶ月で収集し解析した。</p>
+
+<p>私たちは　<span style="font-weight: bold;">&quot;ユーザーの注意力 (Visitor Attention)&quot; </span>つまり、ユーザーがページをスクロールアップやダウンしている間のページの特定エリアにおける注意を払っている平均時間と定義したものを調査することからはじめた。この調査は実際にユーザーが活動している時間しかカウントしない。つまり、ユーザー自身がマウスを動かしたり、スクロール、クリック、タイピングしたりする時間は含むが、他のサイトをブラウジングしたり、コーヒー片手に持っている時間は含まない。下のグラフはページ高が違う、各々のセクションあたりにどのくらい注意を払ったかを示している。</p>
+
+<p><span style="font-weight: bold;">&quot;スクロールリーチ (Absolute Scrolling Reach)&quot; </span>は、ピクセルでページトップからユーザーがスクロールダウンした距離を示している。</p>
+
+<p><img class="fig" src="http://farm4.static.flickr.com/3233/2816828167_7255e0e863.jpg" alt="visitor_attentiton" width="500" height="309" /></p>
+
+<p>ユーザーの注意力パターン調査から私たちは以下のことが分かった。
+<ul>
+    <li>ユーザーの注意力は異なるページ高さでも同じようなパターンを示す。
+それはページトップと540px付近、最下部から500px付近上部でピークとなる。</li>
+    <li>ページトップと最下部の現象を除けば、指数関数的にページスクロールと共に注意力が減少していく。</li>
+    <li>ページトップ付近がピークなのはたぶん、典型的にサイトの上部にはロゴがあり、それは真っ先にスクロールダウンされ、視界の外になることで説明されるだろう。</li>
+    <li>ページ下部でのピークはユーザーが次の行動（他のサイトに行くか違うページを見るのか）を
+決定するのに注意力が上昇するのだろう。ユーザーはたぶん大量のリンク（例えば、Contact USや会社の電話番号などのフッター項目）から次の行動を決めるためにちょっと休憩しているのだとおもう。もしくは、単純にページ末でスクロールをとめているだけかもしれない。</li>
+    <li>このグラフはユーザーの注意力はページの長さの絶対的位置（ピクセル）に要因があり、ページ内部の相対的位置関係はあまり意味がない。</li>
+</ul>
+<h3>あなたのページはどのくらい露出しているのか？</h3>
+この質問に答えるために<span style="font-weight: bold;"> &quot;ページ露出 (Page Exposure)&quot;</span> を定義します。全ての訪問者に特定のエリアが露出した平均時間（特定のページエリアを見た人の一部とは反対に）また、ユーザーの活動している時間しかカウントしない。</p>
+
+<p>下のグラフは特定のページエリアが表示された平均時間を表している。</p>
+
+<p><img class="fig" src="http://farm4.static.flickr.com/3182/2817678934_558cf543f3.jpg" alt="page_exposure" width="500" height="309" /></p>
+
+<p>このグラフから以下のことが分かる
+<ul>
+    <li>ページトップ付近のページはページ最下部付近に比べ17倍多く露出している。
+実際、ページ露出のピークはページトップから540px付近の24秒でページ下部付近のくぼみ部分は1.4秒</li>
+    <li>異なるページ長でもページ露出パターンは似たような軌跡をたどる。
+べき関数のように減少していくように見える。</li>
+    <li>ページ露出はページ最下部付近で小さな上昇を見せる。これは驚くべきことだ。
+なぜなら、最初のグラフでページ下部付近でのユーザーの注意力上昇が特筆すべきことだからだ。特定エリアのページ露出はページ訪問者の総数に基づいて計算されているので、２番目のグラフのぺちゃんこな段差が意味しているのは、注意力の高レベルは少数のユーザーによってカウントされているだけで、すべてのユーザーで平均化される。</li>
+    <li>この仮説はパート１で結果を見れば証明される。
+下のグラフはページ長に関わらずページ訪問者の15~20%しかページ最下部にたどり着いていない。
+（<span style="font-weight: bold;">‘Visibility’</span> と呼ばれる新しい測定基準によって測定した。
+この‘Visibility’はページの特定のエリアにスクロールした人の割合）</li>
+</ul>
+<img class="fig" src="http://farm4.static.flickr.com/3239/2817678900_0230283068.jpg" alt="visibility" width="500" height="309" />
+<h3>いくつかの重要な結果</h3>
+<ul>
+    <li>540px以下でユーザー注意力、ページ露出ともに指数関数的に減少していく
+この現象の考えられる理由として、ヤコブニールセン氏が次のように述べている。
+“<a href="http://www.useit.com/alertbox/whyscanning.html">Why Web Users Scan Instead of Read</a>“ （邦訳：<a href="http://www.usability.gr.jp/alertbox/whyscanning.html">なぜウェブユーザは流し読みするのか</a>）</li>
+    <li>1000pxを境にユーザーの数は直線状に減少していく
+See part 1 where we showed that Visibility = 57.6 - (0.409 x Scrolling Reach) with an R-squared = 89.4% which indicates that the linear model is a very good fit for the scrolling data.
+<span style="color: #888888;">(計算関係はよくわからない)</span></li>
+</ul>
+<h3><span style="font-weight: bold;">私たちが薦めること</span></h3>
+<ul>
+    <li>ウェブページで最も価値のある場所はページトップ付近で0から800pxの間、ユーザー注意力、ページ露出ともに、540px付近がピーク。</li>
+    <li>もしあなたがページ長の長いページを持っているのならば、ユーザーが一気にスクロ－ルしないように見出しや画像などのいわゆるストップポイントを付け加えたらよいだろう。</li>
+    <li>あなたのページのフッターはとても重要だ。ユーザーはあなたのページの中でかなりの注意をこのあたりで払っているだろう。</li>
+</ul>
+<h4>補足</h4>
+各値の算出方法
+<strong><img src="http://ijok.ijok.googlepages.com/080902.gif" alt="" width="500" /></strong></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="ユーザーの注意力とページ露出" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

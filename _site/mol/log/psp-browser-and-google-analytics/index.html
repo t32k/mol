@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSPインターネットブラウザとGoolge Analytics &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="PSPインターネットブラウザとGoolge Analytics ">
+    <link rel="canonical" href="http://t32k.me//mol/log/psp-browser-and-google-analytics">
+     
+           
+    <meta property="og:title" content="PSPインターネットブラウザとGoolge Analytics "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/psp-browser-and-google-analytics"/>
+    
+    
+    <!--meta property="og:description" content="<p>先日、Google Analyticsの非同期スニペットに移行作業中、PSP専用サイトでのデータ取得ができなくなった報告を受けました。非同期スニペットに変更した途端、データが取得できなくなったので、これが問題なのは確かなようです。</p>
+
+<p>実装したスニペットにセミコロン抜けなどのコードミスは見受けられず、非同期スニペット自体が問題なのかなと思いましたが、他のサイトでは問題なくデータが取得できているのでこれも原因ではなさそうです。</p>
+
+<!--more-->
+
+<p>やれやれ困ったなと考えあぐねてたのですが、優秀な同僚さんがこんなものを見つけて来てくれました。
+<blockquote>
+<div id="_mcePaste">
+<ul>
+    <li><a href="http://www.jp.playstation.com/psp/dl/pdf/InternetBrowser_ContentGuideline-J_500.pdf">PSP™ (PlayStation® Portable)インターネットブラウザ向けコンテンツ作成ガイドライン　Version 5.00</a> [ PDF 約492KB ]</li>
+</ul>
+</div>
+<div id="_mcePaste"><a href="http://www.jp.playstation.com/psp/update/ud_01.html"><span style="font-size: x-small;">PlayStation.com(Japan)｜PSP®「プレイステーション・ポータブル」情報｜システムソフトウェア アップデート</span></a></div></blockquote>
+PSP専用サイトなので、当然アクセスしてくるユーザーエージェントはPSP専用ブラウザです。簡単にゆうと、そのPSP専用ブラウザがDOMに対応してないんじゃないの？ってことっぽいです。</p>
+
+<p>ということで、今一度、非同期スニペットがどのようなものか、見てみましょう。
+<pre><span style="color: #888888;">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+var <em>gaq = _gaq || [];
+_gaq.push([&#39;</em>setAccount&#39;, &#39;UA-XXXXX-X&#39;]);
+<em>gaq.push([&#39;</em>trackPageview&#39;]);</p>
+
+<p>(function() {
+var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
+ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
+})();
+<span style="color: #888888;">&lt;/script&gt;</span></pre>
+上記スニペットとPSPインターネットブラウザガイドラインの<em>8 Appendix 詳細仕様DOM</em>の部分を見比べてみると、どうやらSCRIPT要素を書き出している部分のcreateElement、insertBeforeメソッドが対応していない模様です。</p>
+
+<p>なるほど、どうりでデータが取得されていなわいけですね。ga.jsを読み込めてないわけですから。
+<pre><span style="color: #888888;">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+var gaJsHost = ((&quot;https:&quot; == document.location.protocol) ? &quot;https://ssl.&quot; : &quot;http://www.&quot;);
+document.write(unescape(&quot;%3Cscript src=&#39;&quot; + gaJsHost + &quot;google-analytics.com/ga.js&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));
+<span style="color: #888888;">&lt;/script&gt;</span></pre>
+そこで、ga.jsの読み込みの部分だけ、旧スニペットのdocument.writeによる書き出しに修正してみたのですが、なぜか動かない。なせ動かない、よく分からない＞＜</p>
+
+<p>そこで、仕方なく非同期スニペット導入以前の旧スニペット（アカウント設定の部分も旧メソッド）に変更して対応しました。</p>
+
+<p>結局分からないままなので、非同期スニペットだとPSPブラウザトラッキングできないの？とGoogleさんに問い合せてみたところ、以下のような返答がきました。
+<blockquote><span style="font-family: 'MS ゴシック'; line-height: normal; border-collapse: collapse;">Analytics を使用するためには javaEnabled 等のメソッドが使える必要がございます。 PSP ブラウザの仕様書によりますとこれらのメソッドが PSP ブラウザにサポートされていないため、Analytics によるトラッキングがご利用頂けません。<br style="font-family: 'MS ゴシック' !important;" /><br style="font-family: 'MS ゴシック' !important;" />なお、本件につきましては弊社米国エンジニアにリクエストとしてご連絡させていただきましたので、将来的に PSP におきましても Analytics が使用できるようになる可能性がございますが、正確な時期に関しましては現在のところご案内致しかねますので、ご了承下さい。</span></blockquote>
+<span style="font-family: 'MS ゴシック';"><span style="border-collapse: collapse; line-height: normal;">javaEnableメソッドはJAVAをサポートしてるかどうか調べるもんだから、そこ対応していなくてもJAVAサポートのデータが取れないだけで問題なさげのような気もしますが、いろいろ対応していないのでしょう。てかそもそも非同期スニペットだからだめなのか、それとも旧スニペットでもだめなのかというところを再度質問すると、</span></span>
+<blockquote><span style="font-family: 'MS ゴシック';"><span style="border-collapse: collapse; line-height: normal;">確認しましたところ、旧スニペットにおきましても Analytics の動作環境を PSP ブラウザが満たしておりません。<br style="font-family: 'MS ゴシック' !important;" /><br style="font-family: 'MS ゴシック' !important;" />そのため、旧スニペットで測定できていたとしても、Analytics の動作環境を PSP ブラウザが満たしていないため、正確な値が取れているという保証はできません。</span></span></blockquote>
+なんと！今まで取れていた情報って不正確なの！？てか、そもそもPSPブラウザなんなの？って根本的なことが疑問になってきたので、今度はPSPブラウザに調べてみた。
+<h3>NetFront</h3>
+さっきのPSPインターネットブラウザガイドラインにはこのように書かれています。
+<blockquote>PSPのインターネット機能は株式会社ACCESS のNetFrontを搭載しています。</blockquote>
+おー！Net Frontってなに？
+<blockquote>携帯電話（NTTドコモ・ソフトバンク）、PDA、ゲーム機、セットトップボックスに搭載されている。 モジュール化されていて、必要な機能を取捨選択して実装できる。Adobe社と共同開発により、Adobe Reader LE、Adobe Flash Playerも移植されている。主要なHTMLレンダリングエンジンの中では、唯一、PC版を提供していない。Net Applicationsの調査によると、2010年10月現在、世界シェアは0.05%。</p>
+
+<p><a href="http://ja.wikipedia.org/wiki/NetFront_Browser"><span style="font-size: x-small;">NetFront Browser - Wikipedia</span> </a></blockquote>
+ほー！これってPS2のブラウザもそうなんだけど、PS3にも実装されてるのかなと疑問に思ったので、pS3のコンテンツ作成ガイドライン見つけた。しかしね、特に情報となるものは書いていない。。
+<ul>
+<blockquote>
+    <li><a href="http://www.jp.playstation.com/ps3/pdf/Web_Content-Guidelines_j250.pdf">PlayStation®3 インターネットブラウザ向け Webコンテンツ ガイドライン Version 2.50</a> [ PDF 約430KB ]</li>
+<a href=" http://www.jp.playstation.com/ps3/update/"><span style="font-size: x-small;">PlayStation.com(Japan)｜PlayStation®3 情報｜システムソフトウェア アップデート</span></a></blockquote>
+</ul>
+JavaScriptの対応もざっくりとしか書いてないので、ゲンナリですが、<a href="http://q.hatena.ne.jp/1163249228">ここに</a>書いてあるぶんは、NetFrontベースで独自カスタマイズされた感じでしょうか？
+<blockquote>【携帯端末向けNetFront Browser】
+NetFront Browserは、世界中で最も利用されている携帯端末向けブラウザです。柔軟な機能拡張性を活かし、各通信事業者の独自サービスの提供をサポートします。CPU速度やメモリの限られた携帯端末においても、最新のＰＣ向けコンテンツの閲覧を可能とする、先進のブラウジングエンジンを提供。画面が小さく、入力キーの限られた環境においても高速かつ快適なブラウジングを実現するさまざまな独自機能を取り揃えています。</blockquote>
+公式サイトにはNetFrontも携帯端末向けと情報家電向けがあるそうです。たぶん携帯端末向けがPSPに実装されているブラウザなのかも。
+<blockquote>【情報家電向けNetFront Browser】
+NetFront Browserは、ＴＶ、ゲーム機、セットトップボックス、カーナビゲーションシステムなどの情報家電向けにも広く採用されています。
+NetFront® Browser SDK（移植開発キット）を利用することで、ＴＶ画面向けのリモコン操作を前提としたユーザインターフェースの開発も容易に行えます。
+また、機器のコントロールを可能とするDirectConnectと組み合わせることで、Webコンテンツで機器のユーザインターフェースを実現するためのプラットフォームとしても数多く採用されています。</blockquote>
+で、情報家電向けがNetFrontを改造したのがPS3のブラウザなのかな。。。</p>
+
+<p>まぁ、特に答えもない感じです。。そんなわけで、僕のググる力なんざこんなもんよ。</p>
+
+<p>Google Analyticsのレポートで確認したところPS3のブラウザのアクセス数は非同期スニペット導入以前、以後も対して変わっていないので問題なさそうです。たぶん。</p>
+
+<p>話は戻ってまとめると、PSPインターネットブラウザはGoogle Analyticsに対応していない。PSPインターネットブラウザをトラッキングしたい場合は、JavaScriptビーコン型では無理だと思うので、パケットスニファ型かアクセスログ型で解析する必要性がある。あと、PSPインターネットブラウザを携帯電話端末と同じレベルと考えれば、携帯版トGAラッキングコードを使用すれば良いのかもと思ったけど、試していない（てか、モバイル製品なんだからモバイル向けトラッキングコードを使うのは当たり前か）。なにせ、検証機とかテスト環境を用意できないのであきらめている。</p>
+
+<p>そんなわけで、サポートさん的には米国のGAエンジニアに報告したと言っておりますが、世界的なシェアを見れば優先度低そうなので、気長に待ちましょう。</p>
+"/>
+    <meta name="description" content="<p>先日、Google Analyticsの非同期スニペットに移行作業中、PSP専用サイトでのデータ取得ができなくなった報告を受けました。非同期スニペットに変更した途端、データが取得できなくなったので、これが問題なのは確かなようです。</p>
+
+<p>実装したスニペットにセミコロン抜けなどのコードミスは見受けられず、非同期スニペット自体が問題なのかなと思いましたが、他のサイトでは問題なくデータが取得できているのでこれも原因ではなさそうです。</p>
+
+<!--more-->
+
+<p>やれやれ困ったなと考えあぐねてたのですが、優秀な同僚さんがこんなものを見つけて来てくれました。
+<blockquote>
+<div id="_mcePaste">
+<ul>
+    <li><a href="http://www.jp.playstation.com/psp/dl/pdf/InternetBrowser_ContentGuideline-J_500.pdf">PSP™ (PlayStation® Portable)インターネットブラウザ向けコンテンツ作成ガイドライン　Version 5.00</a> [ PDF 約492KB ]</li>
+</ul>
+</div>
+<div id="_mcePaste"><a href="http://www.jp.playstation.com/psp/update/ud_01.html"><span style="font-size: x-small;">PlayStation.com(Japan)｜PSP®「プレイステーション・ポータブル」情報｜システムソフトウェア アップデート</span></a></div></blockquote>
+PSP専用サイトなので、当然アクセスしてくるユーザーエージェントはPSP専用ブラウザです。簡単にゆうと、そのPSP専用ブラウザがDOMに対応してないんじゃないの？ってことっぽいです。</p>
+
+<p>ということで、今一度、非同期スニペットがどのようなものか、見てみましょう。
+<pre><span style="color: #888888;">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+var <em>gaq = _gaq || [];
+_gaq.push([&#39;</em>setAccount&#39;, &#39;UA-XXXXX-X&#39;]);
+<em>gaq.push([&#39;</em>trackPageview&#39;]);</p>
+
+<p>(function() {
+var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
+ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
+})();
+<span style="color: #888888;">&lt;/script&gt;</span></pre>
+上記スニペットとPSPインターネットブラウザガイドラインの<em>8 Appendix 詳細仕様DOM</em>の部分を見比べてみると、どうやらSCRIPT要素を書き出している部分のcreateElement、insertBeforeメソッドが対応していない模様です。</p>
+
+<p>なるほど、どうりでデータが取得されていなわいけですね。ga.jsを読み込めてないわけですから。
+<pre><span style="color: #888888;">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+var gaJsHost = ((&quot;https:&quot; == document.location.protocol) ? &quot;https://ssl.&quot; : &quot;http://www.&quot;);
+document.write(unescape(&quot;%3Cscript src=&#39;&quot; + gaJsHost + &quot;google-analytics.com/ga.js&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));
+<span style="color: #888888;">&lt;/script&gt;</span></pre>
+そこで、ga.jsの読み込みの部分だけ、旧スニペットのdocument.writeによる書き出しに修正してみたのですが、なぜか動かない。なせ動かない、よく分からない＞＜</p>
+
+<p>そこで、仕方なく非同期スニペット導入以前の旧スニペット（アカウント設定の部分も旧メソッド）に変更して対応しました。</p>
+
+<p>結局分からないままなので、非同期スニペットだとPSPブラウザトラッキングできないの？とGoogleさんに問い合せてみたところ、以下のような返答がきました。
+<blockquote><span style="font-family: 'MS ゴシック'; line-height: normal; border-collapse: collapse;">Analytics を使用するためには javaEnabled 等のメソッドが使える必要がございます。 PSP ブラウザの仕様書によりますとこれらのメソッドが PSP ブラウザにサポートされていないため、Analytics によるトラッキングがご利用頂けません。<br style="font-family: 'MS ゴシック' !important;" /><br style="font-family: 'MS ゴシック' !important;" />なお、本件につきましては弊社米国エンジニアにリクエストとしてご連絡させていただきましたので、将来的に PSP におきましても Analytics が使用できるようになる可能性がございますが、正確な時期に関しましては現在のところご案内致しかねますので、ご了承下さい。</span></blockquote>
+<span style="font-family: 'MS ゴシック';"><span style="border-collapse: collapse; line-height: normal;">javaEnableメソッドはJAVAをサポートしてるかどうか調べるもんだから、そこ対応していなくてもJAVAサポートのデータが取れないだけで問題なさげのような気もしますが、いろいろ対応していないのでしょう。てかそもそも非同期スニペットだからだめなのか、それとも旧スニペットでもだめなのかというところを再度質問すると、</span></span>
+<blockquote><span style="font-family: 'MS ゴシック';"><span style="border-collapse: collapse; line-height: normal;">確認しましたところ、旧スニペットにおきましても Analytics の動作環境を PSP ブラウザが満たしておりません。<br style="font-family: 'MS ゴシック' !important;" /><br style="font-family: 'MS ゴシック' !important;" />そのため、旧スニペットで測定できていたとしても、Analytics の動作環境を PSP ブラウザが満たしていないため、正確な値が取れているという保証はできません。</span></span></blockquote>
+なんと！今まで取れていた情報って不正確なの！？てか、そもそもPSPブラウザなんなの？って根本的なことが疑問になってきたので、今度はPSPブラウザに調べてみた。
+<h3>NetFront</h3>
+さっきのPSPインターネットブラウザガイドラインにはこのように書かれています。
+<blockquote>PSPのインターネット機能は株式会社ACCESS のNetFrontを搭載しています。</blockquote>
+おー！Net Frontってなに？
+<blockquote>携帯電話（NTTドコモ・ソフトバンク）、PDA、ゲーム機、セットトップボックスに搭載されている。 モジュール化されていて、必要な機能を取捨選択して実装できる。Adobe社と共同開発により、Adobe Reader LE、Adobe Flash Playerも移植されている。主要なHTMLレンダリングエンジンの中では、唯一、PC版を提供していない。Net Applicationsの調査によると、2010年10月現在、世界シェアは0.05%。</p>
+
+<p><a href="http://ja.wikipedia.org/wiki/NetFront_Browser"><span style="font-size: x-small;">NetFront Browser - Wikipedia</span> </a></blockquote>
+ほー！これってPS2のブラウザもそうなんだけど、PS3にも実装されてるのかなと疑問に思ったので、pS3のコンテンツ作成ガイドライン見つけた。しかしね、特に情報となるものは書いていない。。
+<ul>
+<blockquote>
+    <li><a href="http://www.jp.playstation.com/ps3/pdf/Web_Content-Guidelines_j250.pdf">PlayStation®3 インターネットブラウザ向け Webコンテンツ ガイドライン Version 2.50</a> [ PDF 約430KB ]</li>
+<a href=" http://www.jp.playstation.com/ps3/update/"><span style="font-size: x-small;">PlayStation.com(Japan)｜PlayStation®3 情報｜システムソフトウェア アップデート</span></a></blockquote>
+</ul>
+JavaScriptの対応もざっくりとしか書いてないので、ゲンナリですが、<a href="http://q.hatena.ne.jp/1163249228">ここに</a>書いてあるぶんは、NetFrontベースで独自カスタマイズされた感じでしょうか？
+<blockquote>【携帯端末向けNetFront Browser】
+NetFront Browserは、世界中で最も利用されている携帯端末向けブラウザです。柔軟な機能拡張性を活かし、各通信事業者の独自サービスの提供をサポートします。CPU速度やメモリの限られた携帯端末においても、最新のＰＣ向けコンテンツの閲覧を可能とする、先進のブラウジングエンジンを提供。画面が小さく、入力キーの限られた環境においても高速かつ快適なブラウジングを実現するさまざまな独自機能を取り揃えています。</blockquote>
+公式サイトにはNetFrontも携帯端末向けと情報家電向けがあるそうです。たぶん携帯端末向けがPSPに実装されているブラウザなのかも。
+<blockquote>【情報家電向けNetFront Browser】
+NetFront Browserは、ＴＶ、ゲーム機、セットトップボックス、カーナビゲーションシステムなどの情報家電向けにも広く採用されています。
+NetFront® Browser SDK（移植開発キット）を利用することで、ＴＶ画面向けのリモコン操作を前提としたユーザインターフェースの開発も容易に行えます。
+また、機器のコントロールを可能とするDirectConnectと組み合わせることで、Webコンテンツで機器のユーザインターフェースを実現するためのプラットフォームとしても数多く採用されています。</blockquote>
+で、情報家電向けがNetFrontを改造したのがPS3のブラウザなのかな。。。</p>
+
+<p>まぁ、特に答えもない感じです。。そんなわけで、僕のググる力なんざこんなもんよ。</p>
+
+<p>Google Analyticsのレポートで確認したところPS3のブラウザのアクセス数は非同期スニペット導入以前、以後も対して変わっていないので問題なさそうです。たぶん。</p>
+
+<p>話は戻ってまとめると、PSPインターネットブラウザはGoogle Analyticsに対応していない。PSPインターネットブラウザをトラッキングしたい場合は、JavaScriptビーコン型では無理だと思うので、パケットスニファ型かアクセスログ型で解析する必要性がある。あと、PSPインターネットブラウザを携帯電話端末と同じレベルと考えれば、携帯版トGAラッキングコードを使用すれば良いのかもと思ったけど、試していない（てか、モバイル製品なんだからモバイル向けトラッキングコードを使うのは当たり前か）。なにせ、検証機とかテスト環境を用意できないのであきらめている。</p>
+
+<p>そんなわけで、サポートさん的には米国のGAエンジニアに報告したと言っておりますが、世界的なシェアを見れば優先度低そうなので、気長に待ちましょう。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-20-December" title="December 20, 2010">December 20, 2010</time>
+            </div>
+            <h1 class="title">PSPインターネットブラウザとGoolge Analytics</h1>
+            
+        </header>
+
+        <section>
+            <p>先日、Google Analyticsの非同期スニペットに移行作業中、PSP専用サイトでのデータ取得ができなくなった報告を受けました。非同期スニペットに変更した途端、データが取得できなくなったので、これが問題なのは確かなようです。</p>
+
+<p>実装したスニペットにセミコロン抜けなどのコードミスは見受けられず、非同期スニペット自体が問題なのかなと思いましたが、他のサイトでは問題なくデータが取得できているのでこれも原因ではなさそうです。</p>
+
+<!--more-->
+
+<p>やれやれ困ったなと考えあぐねてたのですが、優秀な同僚さんがこんなものを見つけて来てくれました。
+<blockquote>
+<div id="_mcePaste">
+<ul>
+    <li><a href="http://www.jp.playstation.com/psp/dl/pdf/InternetBrowser_ContentGuideline-J_500.pdf">PSP™ (PlayStation® Portable)インターネットブラウザ向けコンテンツ作成ガイドライン　Version 5.00</a> [ PDF 約492KB ]</li>
+</ul>
+</div>
+<div id="_mcePaste"><a href="http://www.jp.playstation.com/psp/update/ud_01.html"><span style="font-size: x-small;">PlayStation.com(Japan)｜PSP®「プレイステーション・ポータブル」情報｜システムソフトウェア アップデート</span></a></div></blockquote>
+PSP専用サイトなので、当然アクセスしてくるユーザーエージェントはPSP専用ブラウザです。簡単にゆうと、そのPSP専用ブラウザがDOMに対応してないんじゃないの？ってことっぽいです。</p>
+
+<p>ということで、今一度、非同期スニペットがどのようなものか、見てみましょう。
+<pre><span style="color: #888888;">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+var <em>gaq = _gaq || [];
+_gaq.push([&#39;</em>setAccount&#39;, &#39;UA-XXXXX-X&#39;]);
+<em>gaq.push([&#39;</em>trackPageview&#39;]);</p>
+
+<p>(function() {
+var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
+ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
+})();
+<span style="color: #888888;">&lt;/script&gt;</span></pre>
+上記スニペットとPSPインターネットブラウザガイドラインの<em>8 Appendix 詳細仕様DOM</em>の部分を見比べてみると、どうやらSCRIPT要素を書き出している部分のcreateElement、insertBeforeメソッドが対応していない模様です。</p>
+
+<p>なるほど、どうりでデータが取得されていなわいけですね。ga.jsを読み込めてないわけですから。
+<pre><span style="color: #888888;">&lt;script type=&quot;text/javascript&quot;&gt;</span>
+var gaJsHost = ((&quot;https:&quot; == document.location.protocol) ? &quot;https://ssl.&quot; : &quot;http://www.&quot;);
+document.write(unescape(&quot;%3Cscript src=&#39;&quot; + gaJsHost + &quot;google-analytics.com/ga.js&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));
+<span style="color: #888888;">&lt;/script&gt;</span></pre>
+そこで、ga.jsの読み込みの部分だけ、旧スニペットのdocument.writeによる書き出しに修正してみたのですが、なぜか動かない。なせ動かない、よく分からない＞＜</p>
+
+<p>そこで、仕方なく非同期スニペット導入以前の旧スニペット（アカウント設定の部分も旧メソッド）に変更して対応しました。</p>
+
+<p>結局分からないままなので、非同期スニペットだとPSPブラウザトラッキングできないの？とGoogleさんに問い合せてみたところ、以下のような返答がきました。
+<blockquote><span style="font-family: 'MS ゴシック'; line-height: normal; border-collapse: collapse;">Analytics を使用するためには javaEnabled 等のメソッドが使える必要がございます。 PSP ブラウザの仕様書によりますとこれらのメソッドが PSP ブラウザにサポートされていないため、Analytics によるトラッキングがご利用頂けません。<br style="font-family: 'MS ゴシック' !important;" /><br style="font-family: 'MS ゴシック' !important;" />なお、本件につきましては弊社米国エンジニアにリクエストとしてご連絡させていただきましたので、将来的に PSP におきましても Analytics が使用できるようになる可能性がございますが、正確な時期に関しましては現在のところご案内致しかねますので、ご了承下さい。</span></blockquote>
+<span style="font-family: 'MS ゴシック';"><span style="border-collapse: collapse; line-height: normal;">javaEnableメソッドはJAVAをサポートしてるかどうか調べるもんだから、そこ対応していなくてもJAVAサポートのデータが取れないだけで問題なさげのような気もしますが、いろいろ対応していないのでしょう。てかそもそも非同期スニペットだからだめなのか、それとも旧スニペットでもだめなのかというところを再度質問すると、</span></span>
+<blockquote><span style="font-family: 'MS ゴシック';"><span style="border-collapse: collapse; line-height: normal;">確認しましたところ、旧スニペットにおきましても Analytics の動作環境を PSP ブラウザが満たしておりません。<br style="font-family: 'MS ゴシック' !important;" /><br style="font-family: 'MS ゴシック' !important;" />そのため、旧スニペットで測定できていたとしても、Analytics の動作環境を PSP ブラウザが満たしていないため、正確な値が取れているという保証はできません。</span></span></blockquote>
+なんと！今まで取れていた情報って不正確なの！？てか、そもそもPSPブラウザなんなの？って根本的なことが疑問になってきたので、今度はPSPブラウザに調べてみた。
+<h3>NetFront</h3>
+さっきのPSPインターネットブラウザガイドラインにはこのように書かれています。
+<blockquote>PSPのインターネット機能は株式会社ACCESS のNetFrontを搭載しています。</blockquote>
+おー！Net Frontってなに？
+<blockquote>携帯電話（NTTドコモ・ソフトバンク）、PDA、ゲーム機、セットトップボックスに搭載されている。 モジュール化されていて、必要な機能を取捨選択して実装できる。Adobe社と共同開発により、Adobe Reader LE、Adobe Flash Playerも移植されている。主要なHTMLレンダリングエンジンの中では、唯一、PC版を提供していない。Net Applicationsの調査によると、2010年10月現在、世界シェアは0.05%。</p>
+
+<p><a href="http://ja.wikipedia.org/wiki/NetFront_Browser"><span style="font-size: x-small;">NetFront Browser - Wikipedia</span> </a></blockquote>
+ほー！これってPS2のブラウザもそうなんだけど、PS3にも実装されてるのかなと疑問に思ったので、pS3のコンテンツ作成ガイドライン見つけた。しかしね、特に情報となるものは書いていない。。
+<ul>
+<blockquote>
+    <li><a href="http://www.jp.playstation.com/ps3/pdf/Web_Content-Guidelines_j250.pdf">PlayStation®3 インターネットブラウザ向け Webコンテンツ ガイドライン Version 2.50</a> [ PDF 約430KB ]</li>
+<a href=" http://www.jp.playstation.com/ps3/update/"><span style="font-size: x-small;">PlayStation.com(Japan)｜PlayStation®3 情報｜システムソフトウェア アップデート</span></a></blockquote>
+</ul>
+JavaScriptの対応もざっくりとしか書いてないので、ゲンナリですが、<a href="http://q.hatena.ne.jp/1163249228">ここに</a>書いてあるぶんは、NetFrontベースで独自カスタマイズされた感じでしょうか？
+<blockquote>【携帯端末向けNetFront Browser】
+NetFront Browserは、世界中で最も利用されている携帯端末向けブラウザです。柔軟な機能拡張性を活かし、各通信事業者の独自サービスの提供をサポートします。CPU速度やメモリの限られた携帯端末においても、最新のＰＣ向けコンテンツの閲覧を可能とする、先進のブラウジングエンジンを提供。画面が小さく、入力キーの限られた環境においても高速かつ快適なブラウジングを実現するさまざまな独自機能を取り揃えています。</blockquote>
+公式サイトにはNetFrontも携帯端末向けと情報家電向けがあるそうです。たぶん携帯端末向けがPSPに実装されているブラウザなのかも。
+<blockquote>【情報家電向けNetFront Browser】
+NetFront Browserは、ＴＶ、ゲーム機、セットトップボックス、カーナビゲーションシステムなどの情報家電向けにも広く採用されています。
+NetFront® Browser SDK（移植開発キット）を利用することで、ＴＶ画面向けのリモコン操作を前提としたユーザインターフェースの開発も容易に行えます。
+また、機器のコントロールを可能とするDirectConnectと組み合わせることで、Webコンテンツで機器のユーザインターフェースを実現するためのプラットフォームとしても数多く採用されています。</blockquote>
+で、情報家電向けがNetFrontを改造したのがPS3のブラウザなのかな。。。</p>
+
+<p>まぁ、特に答えもない感じです。。そんなわけで、僕のググる力なんざこんなもんよ。</p>
+
+<p>Google Analyticsのレポートで確認したところPS3のブラウザのアクセス数は非同期スニペット導入以前、以後も対して変わっていないので問題なさそうです。たぶん。</p>
+
+<p>話は戻ってまとめると、PSPインターネットブラウザはGoogle Analyticsに対応していない。PSPインターネットブラウザをトラッキングしたい場合は、JavaScriptビーコン型では無理だと思うので、パケットスニファ型かアクセスログ型で解析する必要性がある。あと、PSPインターネットブラウザを携帯電話端末と同じレベルと考えれば、携帯版トGAラッキングコードを使用すれば良いのかもと思ったけど、試していない（てか、モバイル製品なんだからモバイル向けトラッキングコードを使うのは当たり前か）。なにせ、検証機とかテスト環境を用意できないのであきらめている。</p>
+
+<p>そんなわけで、サポートさん的には米国のGAエンジニアに報告したと言っておりますが、世界的なシェアを見れば優先度低そうなので、気長に待ちましょう。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="PSPインターネットブラウザとGoolge Analytics" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

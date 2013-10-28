@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics上でメモが残せるFxの拡張機能 &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Google Analytics上でメモが残せるFxの拡張機能 ">
+    <link rel="canonical" href="http://t32k.me//mol/log/google-analytics-annotations">
+     
+           
+    <meta property="og:title" content="Google Analytics上でメモが残せるFxの拡張機能 "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/google-analytics-annotations"/>
+    
+    
+    <!--meta property="og:description" content="<p>Google Analyticsを使ってて、コレあったら便利だなーっていう機能を思い浮かべると、僕的にはメモ帳じゃないかと思います。1ヶ月のPVの折れ線グラフを見てて、ある日から急激に右肩上がりしてるのを見つけると、この日なにかしたっけなとよく思います。あとあと、（例えば）あ〜CM開始した日だったとか思い出すわけです。だから<abbr title="Google Analytics">GA</abbr>のグラフ上、もしくはその近くにでもメモを残せればなと思い、ヘルプセンターに要望を出したぐらい本気ですw<br /><br />で、世の中広し、やっぱり僕と同じようなことを考えてるような人がいまして、Firefoxの拡張機能でありました。<br /><br /><blockquote><span style="font-size:85%;"><a href="http://www.epikone.com/blog/2008/10/28/adding-business-data-to-google-analytics-data/">Adding Business Data to Google Analytics Data</a></span><br />　GANotes：<a href="https://ga-notes.appspot.com/ganotes.xpi">https://ga-notes.appspot.com/ganotes.xpi</a></blockquote><br />xpiファイルをダウンロードしてFirefoxで開けば、インストールしてくれます。<br /><br /><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYmgr2GY_YI/AAAAAAAAARE/lkvXfi0dbS0/1.png" alt="" /><br />インストール後、<abbr title="Google Analytics">GA</abbr>をひらくと『エクスポート』『メール』の横に『Show Notes』（図の赤枠の所）という項目がてきますので、それをクリックするとメモ書きが残せるようになってます。<br /><br /><img src="http://lh3.ggpht.com/_1drnogi3vdg/SYmgr8H-_UI/AAAAAAAAARM/cOwAK3JyHCw/2.png" alt="" /><br />↑<a href="http://warikiru.blogspot.com/2009/01/blog-post.html">１月４日のはホント</a>だけど、あとのはデタラメに書いたやつです。<br />これソート機能とかついたらもっと便利ですね。まぁCSVで書き出せるからいいちゃっいいんですけどね。なんかこーゆーのをさらっと作れるような人になりたいなーと思いましたw<br /><br />あと、似たようなので<a href="http://www.vkistudios.com/tools/firefox/betterga/index.cfm">Better Google Analytics</a>ってのもありますんで、こちらもチェックすれば良いと思います。詳しくは<a href="http://d.hatena.ne.jp/ryuka01/">リアルアクセス解析</a>さんの「<a href="http://d.hatena.ne.jp/ryuka01/20081215/p1">便利なFirefoxアドオン10選＋αを使って評価してみた</a>」を参考に。<br /><br />あ、ちなみに最近、円高を良いことにこれ↓買いましたけど、<br />全然読んでません。てか読めません＞＜<br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0470253126/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51bmWPV0V0L._SL160_.jpg" alt="Advanced Web Metrics with Google Analytics" border="0" /></a></td><td valign="top"><span style=""><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470253126%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470253126" target="_blank">Advanced Web Metrics with Google Analytics</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br />Brian Clifton<br /><br />Sybex Inc  2008-03-31<br />売り上げランキング : 969<br /><br /><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470253126%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470253126" target="_blank">Amazonで詳しく見る</a></span> <span style="">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table></p>
+"/>
+    <meta name="description" content="<p>Google Analyticsを使ってて、コレあったら便利だなーっていう機能を思い浮かべると、僕的にはメモ帳じゃないかと思います。1ヶ月のPVの折れ線グラフを見てて、ある日から急激に右肩上がりしてるのを見つけると、この日なにかしたっけなとよく思います。あとあと、（例えば）あ〜CM開始した日だったとか思い出すわけです。だから<abbr title="Google Analytics">GA</abbr>のグラフ上、もしくはその近くにでもメモを残せればなと思い、ヘルプセンターに要望を出したぐらい本気ですw<br /><br />で、世の中広し、やっぱり僕と同じようなことを考えてるような人がいまして、Firefoxの拡張機能でありました。<br /><br /><blockquote><span style="font-size:85%;"><a href="http://www.epikone.com/blog/2008/10/28/adding-business-data-to-google-analytics-data/">Adding Business Data to Google Analytics Data</a></span><br />　GANotes：<a href="https://ga-notes.appspot.com/ganotes.xpi">https://ga-notes.appspot.com/ganotes.xpi</a></blockquote><br />xpiファイルをダウンロードしてFirefoxで開けば、インストールしてくれます。<br /><br /><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYmgr2GY_YI/AAAAAAAAARE/lkvXfi0dbS0/1.png" alt="" /><br />インストール後、<abbr title="Google Analytics">GA</abbr>をひらくと『エクスポート』『メール』の横に『Show Notes』（図の赤枠の所）という項目がてきますので、それをクリックするとメモ書きが残せるようになってます。<br /><br /><img src="http://lh3.ggpht.com/_1drnogi3vdg/SYmgr8H-_UI/AAAAAAAAARM/cOwAK3JyHCw/2.png" alt="" /><br />↑<a href="http://warikiru.blogspot.com/2009/01/blog-post.html">１月４日のはホント</a>だけど、あとのはデタラメに書いたやつです。<br />これソート機能とかついたらもっと便利ですね。まぁCSVで書き出せるからいいちゃっいいんですけどね。なんかこーゆーのをさらっと作れるような人になりたいなーと思いましたw<br /><br />あと、似たようなので<a href="http://www.vkistudios.com/tools/firefox/betterga/index.cfm">Better Google Analytics</a>ってのもありますんで、こちらもチェックすれば良いと思います。詳しくは<a href="http://d.hatena.ne.jp/ryuka01/">リアルアクセス解析</a>さんの「<a href="http://d.hatena.ne.jp/ryuka01/20081215/p1">便利なFirefoxアドオン10選＋αを使って評価してみた</a>」を参考に。<br /><br />あ、ちなみに最近、円高を良いことにこれ↓買いましたけど、<br />全然読んでません。てか読めません＞＜<br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0470253126/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51bmWPV0V0L._SL160_.jpg" alt="Advanced Web Metrics with Google Analytics" border="0" /></a></td><td valign="top"><span style=""><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470253126%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470253126" target="_blank">Advanced Web Metrics with Google Analytics</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br />Brian Clifton<br /><br />Sybex Inc  2008-03-31<br />売り上げランキング : 969<br /><br /><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470253126%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470253126" target="_blank">Amazonで詳しく見る</a></span> <span style="">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2009-04-February" title="February 04, 2009">February 04, 2009</time>
+            </div>
+            <h1 class="title">Google Analytics上でメモが残せるFxの拡張機能</h1>
+            
+        </header>
+
+        <section>
+            <p>Google Analyticsを使ってて、コレあったら便利だなーっていう機能を思い浮かべると、僕的にはメモ帳じゃないかと思います。1ヶ月のPVの折れ線グラフを見てて、ある日から急激に右肩上がりしてるのを見つけると、この日なにかしたっけなとよく思います。あとあと、（例えば）あ〜CM開始した日だったとか思い出すわけです。だから<abbr title="Google Analytics">GA</abbr>のグラフ上、もしくはその近くにでもメモを残せればなと思い、ヘルプセンターに要望を出したぐらい本気ですw<br /><br />で、世の中広し、やっぱり僕と同じようなことを考えてるような人がいまして、Firefoxの拡張機能でありました。<br /><br /><blockquote><span style="font-size:85%;"><a href="http://www.epikone.com/blog/2008/10/28/adding-business-data-to-google-analytics-data/">Adding Business Data to Google Analytics Data</a></span><br />　GANotes：<a href="https://ga-notes.appspot.com/ganotes.xpi">https://ga-notes.appspot.com/ganotes.xpi</a></blockquote><br />xpiファイルをダウンロードしてFirefoxで開けば、インストールしてくれます。<br /><br /><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYmgr2GY_YI/AAAAAAAAARE/lkvXfi0dbS0/1.png" alt="" /><br />インストール後、<abbr title="Google Analytics">GA</abbr>をひらくと『エクスポート』『メール』の横に『Show Notes』（図の赤枠の所）という項目がてきますので、それをクリックするとメモ書きが残せるようになってます。<br /><br /><img src="http://lh3.ggpht.com/_1drnogi3vdg/SYmgr8H-_UI/AAAAAAAAARM/cOwAK3JyHCw/2.png" alt="" /><br />↑<a href="http://warikiru.blogspot.com/2009/01/blog-post.html">１月４日のはホント</a>だけど、あとのはデタラメに書いたやつです。<br />これソート機能とかついたらもっと便利ですね。まぁCSVで書き出せるからいいちゃっいいんですけどね。なんかこーゆーのをさらっと作れるような人になりたいなーと思いましたw<br /><br />あと、似たようなので<a href="http://www.vkistudios.com/tools/firefox/betterga/index.cfm">Better Google Analytics</a>ってのもありますんで、こちらもチェックすれば良いと思います。詳しくは<a href="http://d.hatena.ne.jp/ryuka01/">リアルアクセス解析</a>さんの「<a href="http://d.hatena.ne.jp/ryuka01/20081215/p1">便利なFirefoxアドオン10選＋αを使って評価してみた</a>」を参考に。<br /><br />あ、ちなみに最近、円高を良いことにこれ↓買いましたけど、<br />全然読んでません。てか読めません＞＜<br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/0470253126/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51bmWPV0V0L._SL160_.jpg" alt="Advanced Web Metrics with Google Analytics" border="0" /></a></td><td valign="top"><span style=""><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470253126%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470253126" target="_blank">Advanced Web Metrics with Google Analytics</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br />Brian Clifton<br /><br />Sybex Inc  2008-03-31<br />売り上げランキング : 969<br /><br /><a href="http://www.amazon.co.jp/Advanced-Web-Metrics-Google-Analytics/dp/0470253126%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470253126" target="_blank">Amazonで詳しく見る</a></span> <span style="">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Google Analytics上でメモが残せるFxの拡張機能" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

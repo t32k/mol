@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page17/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page17/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/tips-for-duplicating-label-properties" rel="prefetch">おんなじラベル何回も作るのめんどくさい</a></h2>
+            <p><p>あいかわらず、TItanium Mobileでもごもごしてる@t32kでございます。</p>
+
+<p>アプリ作っていると、同じスタイルのLabelだけど、文言だけ違ってその度に、Titanium.UI.createLabelして同じプロパティ毎回書き連ねることが何回かあって、これめんどくさいなと。以下のように。
+&lt;!--more--&gt;
+<script src="https://gist.github.com/1180418.js?file=gistfile1.js"></script></p>
+
+<p>最初は根性やで！と書いていたのですが6回くらい続いて、ようやくなんか違うって思いました@t32k</p>
+
+<p>そこで向かいの向かいの人に聞いたら、関数でまとめればいんじゃね？って言われました。こんな具合に。</p>
+
+<script src="https://gist.github.com/1180421.js?file=gistfile1.js"></script>
+
+<p>素敵！抱いて！！ってなるほどーって思ったのですが、
+<ul>
+    <li><a href="http://developer.appcelerator.com/question/18731/tips-for-duplicating-label-properties">Tips for Duplicating Label Properties » Community Q&amp;A » Appcelerator Developer Center </a></li>
+</ul>
+上記のQ&amp;Aにも似たような感じのことが書いてありましたが、なんか違う方法のようです。</p>
+
+<script src="https://gist.github.com/1180423.js?file=gistfile1.txt"></script>
+
+<p>なるほど、in演算子使って、あらかじめ指定したプロパティに後から書いたプロパティを追加して、そのオブジェクトを返してるんすかね。こっちのほうが汎用性高いですな。</p>
+
+<p>ちなみに、Object.extendに代入してある関数はprototype.jsから拝借してるっぽい。</p>
+
+<p>とまぁ、さも分かったようなこと書いてあるのですが、ぜんぶpocotanせんせに教えてもらいました。ありがとございました。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-30-August" title="August 30, 2011">August 30, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/javascript-bibliography" rel="prefetch">JavaScriptを学ぶために役立つ本 85選</a></h2>
+            <p><p><a href="http://t32k.me/mol/log/why-valley-wants-designers-can-code/">前の翻訳記事</a>でも述べらているけど、やっぱりデザイナーもプログラミングはある程度書けたほうがいいと思う。んで、<a href="http://t32k.me/mol/log/you-must-learn-javascript/">その言語はJavaScript！</a></p>
+
+<p>O&#39;ReillyさんからJavaScriptを学ぶうえで役立つ本をまとめた電子書籍（JavaScript Bibliography）が公開されているのを教えてもらったのでAmazonリンクを張ってみるポスト。こう見てみると、翻訳されていないJS本いっぱいですね（気づいてないのもありそう...）。原書の方はKindle版も売ってますので、円高のアレもあるのでYOU買っちゃったらいいんじゃないの！
+<ul>
+    <li><strong><a href="http://oreilly.com/catalog/0636920021926">JavaScript Bibliography - O&#39;Reilly Media </a></strong></li>
+</ul>
+<div>[追記]</div>
+<div>上記の電子書籍には各書籍の簡単なレビューも記載されいるので、興味持たれた方は読むとよいです。無料でダウンロードできます。</div>
+<div>--</div>
+<div>&lt;!--more--&gt;</div>
+<h2>1. Beginning JavaScript</h2>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/First-JavaScript-%E2%80%95%E9%A0%AD%E3%81%A8%E3%81%8B%E3%82%89%E3%81%A0%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BJavaScript%E3%81%AE%E5%9F%BA%E6%9C%AC-Michael-Morrison/dp/4873113733%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113733"><img class="fig" src="http://ecx.images-amazon.com/images/I/51yQpI7Yf1L._SL160_.jpg" alt="Head First JavaScript ―頭とからだで覚えるJavaScriptの基本" width="139" height="160" border="0" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/First-JavaScript-%E2%80%95%E9%A0%AD%E3%81%A8%E3%81%8B%E3%82%89%E3%81%A0%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BJavaScript%E3%81%AE%E5%9F%BA%E6%9C%AC-Michael-Morrison/dp/4873113733%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113733" target="_top">Head First JavaScript</a></span><span><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
+</span><span>Michael Morrison 豊福 剛</span></p>
+
+<p><span>
+</span>オライリージャパン 2008-08-14
+<a href="http://www.amazon.co.jp/First-JavaScript-%E2%80%95%E9%A0%AD%E3%81%A8%E3%81%8B%E3%82%89%E3%81%A0%E3%81%A7%E8%A6%9A%E3%81%88%E3%82%8BJavaScript%E3%81%AE%E5%9F%BA%E6%9C%AC-Michael-Morrison/dp/4873113733%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113733" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<ol>
+    <li><a href="http://www.amazon.com/dp/1593272820/">Eloquent JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/0596806132/">JavaScript Cookbook</a> (<a href="http://www.amazon.co.jp/dp/4873114942/">JavaScriptクックブック</a>)</li>
+    <li><a href="http://www.amazon.com/dp/0596521871/">Learning JavaScript, Second Edition</a> (<a href="http://www.amazon.co.jp/dp/487311425X/">初めてのJavaScript 第2版</a>)</li>
+    <li><a href="http://www.amazon.com/dp/0470526912/">JavaScript Bible, Seventh Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0596527748/">Head First JavaScript</a> (<a href="http://www.amazon.co.jp/dp/4873113733/">Head First JavaScript ―頭とからだで覚えるJavaScriptの基本</a>)</li>
+    <li><a href="http://www.amazon.com/dp/1430272198/">JavaScript for Absolute Beginners</a></li>
+    <li><a href="http://www.amazon.com/dp/0470344725/">JavaScript® Programmer’s Reference</a></li>
+    <li><a href="http://www.amazon.com/dp/0735645523/">JavaScript Step by Step, Second Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0137054890/">JavaScript by Example, Second Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0596515898/">JavaScript: The Missing Manual</a></li>
+    <li><a href="http://www.amazon.com/dp/0470525932/">Beginning JavaScript, Fourth Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0470647833/">JavaScript 24-Hour Trainer</a></li>
+    <li><a href="http://www.amazon.com/dp/0980285801/">Simply JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/0321772970/">JavaScript: Visual QuickStart Guide, Eighth Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0321700953/">The JavaScript PocketGuide</a></li>
+    <li><a href="http://www.amazon.com/dp/0672328798/">Sams Teach Yourself JavaScript in 24 Hours</a></li>
+    <li><a href="http://www.amazon.com/dp/0672333325/">SAMS Teach Yourself HTML, CSS and JavaScript All in One</a></li>
+    <li><a href="http://www.amazon.com/dp/0137018258/">Javascript Fundamentals I and II (Video Training) </a></li>
+</ol>
+<h2>2. Advanced JavaScript topics</h2>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/JavaScript%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E2%80%95%E5%84%AA%E3%82%8C%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E4%BD%9C%E6%B3%95-Stoyan-Stefanov/dp/4873114888%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114888"><img class="fig" src="http://ecx.images-amazon.com/images/I/51ZoMJ%2BrLhL._SL160_.jpg" alt="JavaScriptパターン ―優れたアプリケーションのための作法" width="125" height="160" border="0" /></a></td>
+<td valign="top"><span><span><a href="http://www.amazon.co.jp/JavaScript%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E2%80%95%E5%84%AA%E3%82%8C%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E4%BD%9C%E6%B3%95-Stoyan-Stefanov/dp/4873114888%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114888" target="_top">JavaScriptパターン</a></span></span><span><span>
+Stoyan Stefanov 豊福 剛</span></span></p>
+
+<p><span><span>
+</span></span>オライリージャパン 2011-02-16
+<a href="http://www.amazon.co.jp/JavaScript%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E2%80%95%E5%84%AA%E3%82%8C%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E4%BD%9C%E6%B3%95-Stoyan-Stefanov/dp/4873114888%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114888" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<ol>
+    <li><a href="http://www.amazon.com/dp/0596805527/">JavaScript: The Definitive Guide</a> (<a href="http://www.amazon.co.jp/dp/4873113296/">JavaScript 第5版</a>)</li>
+    <li><a href="http://www.amazon.com/dp/0596517742/">JavaScript: The Good Parts</a> (<a href="http://www.amazon.co.jp/dp/4873113911/">JavaScript: The Good Parts ―「良いパーツ」によるベストプラクティス</a>)</li>
+    <li><a href="http://www.amazon.com/dp/0596806752/">JavaScript Patterns</a> (<a href="http://www.amazon.co.jp/dp/4873114888/">JavaScriptパターン ―優れたアプリケーションのための作法</a>)</li>
+    <li><a href="http://www.amazon.com/dp/059680279X/">High Performance JavaScript</a> (<a href="http://www.amazon.co.jp/dp/487311490X/">ハイパフォーマンスJavaScript</a>)</li>
+    <li><a href="http://www.amazon.com/dp/193398869X/">Secrets of the JavaScript Ninja</a></li>
+    <li><a href="http://www.amazon.com/dp/0321423305/">ppk on JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/0321683919/">Test-Driven JavaScript Development</a></li>
+    <li><a href="http://www.amazon.com/dp/1449398588/">Node: Up and Running: Scalable Server-Side Code with JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/1847194141/">Object-Oriented JavaScript: Create scalable, reusable high-quality JavaScript applications and libraries</a></li>
+    <li><a href="http://www.amazon.com/dp/047022780X/">Professional, JavaScript for Web Developers, Second Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/1590597273/">Pro JavaScript Techniques</a></li>
+    <li><a href="http://www.amazon.com/dp/159059908X/">Pro JavaScript Design Patterns</a></li>
+    <li><a href="http://www.amazon.com/dp/1598220330/">Advanced JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/144930351X/">Developing JavaScript Web Applications</a></li>
+    <li><a href="http://www.amazon.com/dp/1849510008/">JavaScript Testing Beginner’s Guide : Test and Debug JavaScript the Easy Way</a></li>
+    <li><a href="http://www.amazon.com/dp/0596529309/">High Performance Web Sites</a> (<a href="http://www.amazon.co.jp/dp/487311361X/">ハイパフォーマンスWebサイト ―高速サイトを実現する14のルール</a>)</li>
+    <li><a href="http://www.amazon.com/dp/0596522304/">Even Faster Web Sites</a> (<a href="http://www.amazon.co.jp/dp/4873114462/">続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス</a>)</li>
+    <li><a href="http://www.amazon.com/dp/1449393632/">Supercharged JavaScript Graphics</a></li>
+</ol>
+<h2>3. AJAX &amp; DOM Scripting</h2>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/Scripting-%E6%A8%99%E6%BA%96%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%7E%E3%82%84%E3%81%95%E3%81%97%E3%81%8F%E5%AD%A6%E3%81%B6%E3%80%81JavaScript%E3%81%A8DOM%E3%81%AB%E3%82%88%E3%82%8BWeb%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%7E-Designing-BOOKS/dp/4839922373%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839922373"><img class="fig" src="http://ecx.images-amazon.com/images/I/41ER9SJujTL._SL160_.jpg" alt="DOM Scripting 標準ガイドブック ~やさしく学ぶ、JavaScriptとDOMによるWebデザイン~ (Web Designing BOOKS)" width="124" height="160" border="0" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/Scripting-%E6%A8%99%E6%BA%96%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%7E%E3%82%84%E3%81%95%E3%81%97%E3%81%8F%E5%AD%A6%E3%81%B6%E3%80%81JavaScript%E3%81%A8DOM%E3%81%AB%E3%82%88%E3%82%8BWeb%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%7E-Designing-BOOKS/dp/4839922373%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839922373" target="_top">DOM Scripting 標準ガイドブック</a></span><span>
+Jeremy Keith 中村 享介</span></p>
+
+<p><span>
+</span>毎日コミュニケーションズ 2007-06-21
+<a href="http://www.amazon.co.jp/Scripting-%E6%A8%99%E6%BA%96%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%7E%E3%82%84%E3%81%95%E3%81%97%E3%81%8F%E5%AD%A6%E3%81%B6%E3%80%81JavaScript%E3%81%A8DOM%E3%81%AB%E3%82%88%E3%82%8BWeb%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%7E-Designing-BOOKS/dp/4839922373%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839922373" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<ol>
+    <li><a href="http://www.amazon.com/dp/0596528388/">Ajax: The Definitive Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/1430233893/">DOM Scripting: Web Design with JavaScript and the Document Object Model, Second Edition</a> (<a href="http://www.amazon.co.jp/dp/4839922373/">DOM Scripting 標準ガイドブック ~やさしく学ぶ、JavaScriptとDOMによるWebデザイン~ 初版</a>)</li>
+    <li><a href="http://www.amazon.com/dp/0321572602/">Scriptin’ with JavaScript and Ajax: A Designer’s Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/1590598164/">Practical JavaScript, DOM Scripting and Ajax Projects</a></li>
+    <li><a href="http://www.amazon.com/dp/1590597648/">Accelerated DOM Scripting with Ajax, APIs, and Libraries</a></li>
+    <li><a href="http://www.amazon.com/dp/0470109491/">Professional Ajax, 2nd Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/1890774553/">Murach’s JavaScript and DOM Scripting (Murach: Training &amp; Reference)</a></li>
+    <li><a href="http://www.amazon.com/dp/0470417994/">JavaScript and AJAX for Dummies</a></li>
+    <li><a href="http://www.amazon.com/dp/0321564081/">JavaScript and Ajax for the Web: Visual QuickStart Guide, Seventh Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0596101805/">Ajax Design Patterns</a> (<a href="http://www.amazon.co.jp/dp/4873113237/">Ajaxデザインパターン ―ユーザビリティと開発効率の向上のために)</a></li>
+    <li><a href="http://www.amazon.com/dp/0596529368/">Adding Ajax</a></li>
+    <li><a href="http://oreilly.com/catalog/9780596510244">Unobtrusive Ajax</a></li>
+</ol>
+<h2>4. JavaScript Libraries</h2>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/jQuery%E3%82%AF%E3%83%83%E3%82%AF%E3%83%96%E3%83%83%E3%82%AF-jQuery-Community-Experts/dp/4873114683%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114683"><img class="fig" src="http://ecx.images-amazon.com/images/I/51dVUV4c1KL._SL160_.jpg" alt="jQueryクックブック" width="123" height="160" border="0" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/jQuery%E3%82%AF%E3%83%83%E3%82%AF%E3%83%96%E3%83%83%E3%82%AF-jQuery-Community-Experts/dp/4873114683%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114683" target="_top">jQueryクックブック</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span><span>
+jQuery Community Experts 株式会社クイープ</span></p>
+
+<p><span>
+</span>オライリージャパン 2010-08-18
+<a href="http://www.amazon.co.jp/jQuery%E3%82%AF%E3%83%83%E3%82%AF%E3%83%96%E3%83%83%E3%82%AF-jQuery-Community-Experts/dp/4873114683%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114683" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<ol>
+    <li><a href="http://www.amazon.com/dp/1935182323/">jQuery in Action, Second Edition</a></li>
+    <li><a href="http://www.amazon.com/dp/0980576857/">jQuery: Novice to Ninja</a></li>
+    <li><a href="http://www.amazon.com/dp/0596159773/">jQuery Cookbook</a> (<a href="http://www.amazon.co.jp/dp/4873114683/">jQueryクックブック</a>)</li>
+    <li><a href="http://www.amazon.com/dp/1849510040/">jQuery 1.4 Reference Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/1449397220/">jQuery Pocket Reference</a></li>
+    <li><a href="http://www.amazon.com/dp/1849512248/">jQuery 1.4 Plugin Development</a></li>
+    <li><a href="http://www.amazon.com/dp/1847192505/">Learning jQuery: Better Interaction Design and Web Development with Simple JavaScript Techniques</a></li>
+    <li><a href="http://www.amazon.com/dp/0321647491/">jQuery: Visual QuickStart Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/1847199720/">jQuery UI 1.7</a></li>
+    <li><a href="http://www.amazon.com/dp/0470227796/">Beginning JavaScript and CSS Development with jQuery</a></li>
+    <li><a href="http://www.amazon.com/dp/047038459X/">Professional JavaScript Frameworks</a></li>
+    <li><a href="http://www.amazon.com/dp/1847192327/">Learning the Yahoo! User Interface Library: Get started and get to grips with the YUI JavaScript development library!</a></li>
+    <li><a href="http://www.amazon.com/dp/1849510709/">YUI 2.8 Learning the Library</a></li>
+    <li><a href="http://www.amazon.com/dp/1430230541/">Pro JavaScript with MooTools: Learning Advanced JavaScript Programming</a></li>
+    <li><a href="http://www.amazon.com/dp/1847194583/">MooTools 1.2 Beginner’s Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/0596516487/">Dojo: The Definitive Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/1430210664/">Practical Dojo Projects</a></li>
+    <li><a href="http://www.amazon.com/dp/1934356115/">Mastering Dojo: JavaScript and Ajax Tools for Great Web Experiences (Pragmatic Programmers)</a></li>
+    <li><a href="http://www.amazon.com/dp/0132358042/">Dojo: Using the Dojo JavaScript Library to Build Ajax Applications</a></li>
+    <li><a href="http://www.amazon.com/dp/1935182110/">Ext JS in Action</a></li>
+    <li><a href="http://www.amazon.com/dp/1849511209/">Learning Ext JS 3.2</a></li>
+    <li><a href="http://www.amazon.com/dp/0321705149/">Essential GWT: Building for the Web with Google Web Toolkit 2</a></li>
+    <li><a href="http://www.amazon.com/dp/1849511845/">Ext GWT 2.0 : Beginner’s Guide</a></li>
+    <li><a href="http://www.amazon.com/dp/0672335565/">SAMS Teach Yourself jQuery in 24 Hours Rich Internet Applications with Ajax and jQuery LiveLessons</a></li>
+    <li><a href="http://www.amazon.com/dp/0672335573/">SAMS Teach Yourself jQuery Mobile in 10 minutes</a></li>
+    <li><a href="http://www.amazon.com/dp/1590599195/">Practical Prototype and script.aculo.us (Expert’s Voice in Web Development) </a></li>
+    <li><a href="http://www.amazon.com/dp/0321772563/">Applied jQuery: Develop and Design</a></li>
+    <li><a href="http://www.amazon.com/dp/1449393217/">Head First jQuery</a></li>
+    <li><a href="http://www.amazon.com/dp/0596515898/">JavaScript and jQuery: The Missing Manual</a></li>
+</ol>
+<h2>5. Mobile JavaScript</h2>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/Android%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89-%E2%80%95HTML%EF%BC%8BCSS%EF%BC%8BJavaScript%E3%81%AB%E3%82%88%E3%82%8B%E9%96%8B%E7%99%BA%E6%89%8B%E6%B3%95-Jonathan-Stark/dp/4873114861%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114861"><img class="fig" src="http://ecx.images-amazon.com/images/I/51KyD4VEAcL._SL160_.jpg" alt="Androidアプリケーション開発ガイド ―HTML＋CSS＋JavaScriptによる開発手法" width="125" height="160" border="0" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/Android%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89-%E2%80%95HTML%EF%BC%8BCSS%EF%BC%8BJavaScript%E3%81%AB%E3%82%88%E3%82%8B%E9%96%8B%E7%99%BA%E6%89%8B%E6%B3%95-Jonathan-Stark/dp/4873114861%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114861" target="_top">Androidアプリケーション開発ガイド</a></span><span>
+Jonathan Stark 増井 俊之（監訳）</span></p>
+
+<p><span>
+</span>オライリージャパン 2011-02-24
+<a href="http://www.amazon.co.jp/Android%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%82%AC%E3%82%A4%E3%83%89-%E2%80%95HTML%EF%BC%8BCSS%EF%BC%8BJavaScript%E3%81%AB%E3%82%88%E3%82%8B%E9%96%8B%E7%99%BA%E6%89%8B%E6%B3%95-Jonathan-Stark/dp/4873114861%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114861" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<ol>
+    <li><a href="http://www.amazon.com/dp/0596805780/">Building iPhone Apps with HTML, CSS, and JavaScript</a> <a href="http://www.amazon.co.jp/dp/4873114616/">(iPhoneアプリケーション開発ガイド　―HTML+CSS+JavaScript による開発手法</a>)</li>
+    <li><a href="http://www.amazon.com/dp/1430230452/">Beginning iPhone and iPad Web Apps: Scripting with HTML5, CSS3, and JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/1449383262/">Building Android Apps with HTML, CSS, and JavaScript</a> (<a href="http://www.amazon.co.jp/dp/4873114861/">Androidアプリケーション開発ガイド ―HTML＋CSS＋JavaScriptによる開発手法</a>)</li>
+    <li><a href="http://www.amazon.com/dp/1430232765/">Pro Android Web Apps: Develop for Android Using HTML5, CSS3 &amp; JavaScript</a></li>
+    <li><a href="http://www.amazon.com/dp/B004VHFX1E/">Beginning Smartphone Web Development: Building JavaScript, CSS, HTML and Ajax-based Applications for iPhone, Android, Palm Pre, BlackBerry, Windows Mobile, and Nokia S60</a></li>
+    <li><a href="http://www.amazon.com/dp/0321732987/">The Web Designer’s Guide to iOS Apps: Create iPhone, iPod touch, and iPad Apps with Web Standards</a></li>
+    <li><a href="http://www.amazon.com/dp/0596807783/">Programming the Mobile Web</a></li>
+    <li><a href="http://www.amazon.com/dp/1449397654/">jQuery Mobile: Up and Running</a></li>
+</ol>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 53px; top: 151px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=JavaScript%20Bibliography%20-%20O'Reilly%20Media%C2%A0&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-08-August" title="August 08, 2011">August 08, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/why-valley-wants-designers-can-code" rel="prefetch">なぜシリコンバレーはコードの書けるデザイナーを求めているのか？</a></h2>
+            <p><p><cite>原文：<a href="http://www.uie.com/brainsparks/2011/05/31/why-the-valley-wants-designers-that-can-code/">Why The Valley Wants Designers That Can Code</a>
+投稿日：2011-5-31 by Jared Spool</cite></p>
+
+<p><img class="alignleft size-full wp-image-3469" title="Jared Spool" src="http://t32k.me/mol/file/2011/08/jared_headshot.jpg" alt="Jared Spool" width="70" height="70" />もし周りにデザイナーが大勢いるのなら、デザイナーがコードも書けることは価値のあることかどうか話題に挙げてみてください。すぐに、モーゼが紅海を2つに割ったよりも早くデザイナー達の意見は分かれるでしょう。片方はプログラミングは必要不可欠なスキルだと主張し、もう片方はプロミグラミングはデザイナーの価値を薄めてしまうと猛烈に論じるでしょう。</p>
+
+<!--more-->
+
+<p>興味深いことに、プログラミングもできるデザイナーが価値があるかどうかはデザイナーの決めることではありません。それは採用マネージャーの仕事です。今日の雇用市場に基づけば、彼らがどの立場なのかは非常に明白です。多くの採用マネージャーは<strong>スーパーデザイナー</strong>を求めています。スーパーデザイナーというのはもちろんプログラミングもできるデザイナーのことです。</p>
+
+<p>雇うべきスーパーデザイナーはそこら中にいる一方で、最近、シリコンバレーのスタートアップ企業から実際の需要が起きています。 AppleやMint.comのようなデザイン評価の高い成功事例に伴って、シリコンバレーの投資家や事業家はデザイナーの仕事に対して新しい理解を持つようになってきました。</p>
+
+<p>しかしながら、スタートアップ企業というのはできる限りムダのない経営を心がけているので、幅広いスキルを持ったタレントを探しています。シリコンバレーの住人の考えでは、もしデザインとプログラミング両方出来る人を雇うことができれば、最小限のリソースでコンセプトをプロダクトに落としこみリリースできると考えています。さもなければ、デザイナーとプログラマーの2人を雇わなければならません、もしくは誰もいなくてもやらなければなりません。</p>
+
+<p>私たちはここ数年間でデザイナーがいなくてもプロダクトをリリースできると証明してきました。多くの企業はこれと同じようなことをしてきましたが、リリースできたとしても素晴らしい成果をあげているとは言えません。しかしながら、プログラマーなしでプロダクトをリリースすることは不可能ではないかもしれませんが、難しいことでしょう。</p>
+
+<p>そうゆうわけで、プログラミングもできるデザイナーを見つけるために大金を支払うようなスタートアップ企業が数十は存在します。需要は多いですし、デザイナーでプログラミング経験者と証明できれば、プログラミングのできないデザイナーよりも給料は高くなります。</p>
+
+<p>スタートアップではない企業での需要はどうでしょうか？伝統的な大企業ではプログラマー、デザイナーを分けた大きなチームを簡単に作ることが可能です。</p>
+
+<p>しかしだからといって、コードの書けるデザイナーの価値がないというわけではありません。2人のスーパーデザイナーがいるチームでは、普通のデザイナー、プログラマーが1人づついるチームよりもフレキシブルで可能性を秘めています。フレキシブルなチームはより良いデザインされたプロダクトをより早く作ることができます</p>
+
+<p>プログラミングとデザインはスキルの集合です。私たちが学んだことは、役割によって分けられてない、うまくスキルが配分されたチームがより良い結果を生み出すということです。プログラミングもデザインもできる人材に恵まれたチームは、長期的に見ればスキルによって分けられたチームよりも効率的でしょう。</p>
+
+<p>もしあなたがデザイナーならプログラミングを学ばなくてもよいでしょう。しかし、学んで身につければ時が経つにつれてより多くのチャンスにめぐりあうことでしょう。</p>
+
+<h2></h2>
+
+<p>次のポストではなぜデザイナーがコードを書けたほうが良いのか３つの理由を述べています。</p>
+
+<p><cite>原文：<a href="http://www.uie.com/brainsparks/2011/06/06/3-reasons-why-learning-to-code-makes-you-a-better-designer/">3 Reasons Why Learning To Code Makes You A Better Designer</a>
+投稿日：2011-6-6 by Jared Spool</cite></p>
+
+<p><em><strong>1.</strong></em>
+あなたが働いている領域の中間についてより深く理解できるでしょう。もし効率的なデータベース処理をできるクエリーが書ければ、トレードオフに必要な適切なレスポンス時間を設定できます。なにがコードを簡単にし、難しくするのか理解していれば、アイデアをより速く実装できるでしょう。（開発工数は限られているので工数削減以上のものが得られるかもしれません。）中間領域を知ることは事をうまく運び、 より考えられたデザインの決定をする上で役立つでしょう。</p>
+
+<p><em><strong>2.</strong></em>
+プログラミングを理解することで、より良いプロトタイプ作ることができます。デザインアイデアをチームメイトやクライアントに伝えるための最適な方法は、動くプロトタイプを作ることです。素早くプロトタイプを作ることであなたのアイデアに命が吹き込まれ、内なる素晴らしいアイデアを解き放たれ、あなたのデザインの本当の意味を皆が理解するのに役立つでしょう。</p>
+
+<p><em><strong>3.</strong></em>
+プログラミングを理解することで、製品コードのバグや欠陥を特定するのに役立つでしょう。チームメイトのデザイナーが活気づくにつれて、あなたはUIインタラクションの問題に取り掛かっているプログラマーを助ける重要な役割を担うことができるでしょう。つまりそれは、最終プロダクトがこれ以上無いほどの出来になるということです。</p>
+
+<h2></h2>
+
+<p>実際にコードを書かなくても、どのように動くのか理解してるだけでも全然効率は違うと思うし、話も進めやすいと思うYO（個人経験談）</p>
+
+<p>以下の記事でも似たようなことが言われてます。
+<ul>
+    <li><a href="http://tech.a-listers.jp/2011/06/01/5-skills-a-designer-must-have-at-startup/">デザイナーがスタートアップで生き抜くための5つのスキル « A-Listers</a></li>
+    <li><a href="http://tech.a-listers.jp/2011/05/19/frontend-developer-worth-millions/">売れっ子フロントエンドデベロッパになる為の10のスキル « A-Listers</a></li>
+</ul>
+んなわけで、デザイナーの皆も<a href="http://kanazawajs.tumblr.com/">kanazawa.js</a>来てプログラミング勉強しちゃいなよ！
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 107px; top: 793px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=effective%20&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 8px; top: 866px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=1.&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 140px; top: 836px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=Kenny%20Meyers&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 148px; top: 45px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=Kenny%20Meyers&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 15px; top: 906px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=make%20the%20right%20response%20time%20tradeoffs&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 498px; top: 886px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=If%20you%20know&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 424px; top: 885px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=If%20you%20know&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 649px; top: 908px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=you%20can%20make%20the%20right%20response%20time%20tradeoffs.%E3%80%80&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 194px; top: 1290px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=kanazawa.js&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-03-August" title="August 03, 2011">August 03, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/titanium-studio-font" rel="prefetch">TitaniumStudioのフォント設定</a></h2>
+            <p><p>TitaniumStudioになってから全然触ってない、@t32kでございます。何が気に食わないのだろうかと思ったらこれ文字ちっさいんだ。そうだ。文字おっきくしたらやる気も起きるんじゃね？ってことで変えてみる。</p>
+
+<p><img class="fig" title="Before" src="http://t32k.me/mol/file/2011/08/b4.png" alt="" width="420" height="420" /></p>
+
+<p>デフォルトはこんな感じでちっこいですね。</p>
+
+<!--more-->
+
+<p><a href="http://t32k.me/mol/file/2011/08/pref.png"><img class="fig" title="Preferences" src="http://t32k.me/mol/file/2011/08/pref.png" alt="" width="420" /></a></p>
+
+<p>メニューバーの [<strong>Titanium Studio</strong>] &gt; [<strong>Preferences...</strong>] を選択します。</p>
+
+<p>Preferencesの設定パネルが表示されるので左のメニューから [<strong>General</strong>] &gt; [<strong>Appearance</strong>] &gt; [<strong>Colors and Fonts</strong>]を選択し、さらにその中の [<strong>Basic</strong>] &gt; ［<strong>Text Font</strong>] を選択し、Editボタンを押して好きなフォント、サイズに変更すればOKです。</p>
+
+<p><img class="fig" title="Before" src="http://t32k.me/mol/file/2011/08/af.png" alt="" width="420" height="420" /></p>
+
+<p>おっきくなりました。ヤル気がでてきました！（嘘です
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 115px; top: 881px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=Titanium%20Studio&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-02-August" title="August 02, 2011">August 02, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/strategic-shift" rel="prefetch">戦略シフト</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E6%88%A6%E7%95%A5%E3%82%B7%E3%83%95%E3%83%88-%E7%9F%B3%E5%80%89-%E6%B4%8B%E5%AD%90/dp/4492532641%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4492532641"><img class="fig" src="http://ecx.images-amazon.com/images/I/41clyA1D-rL._SL160_.jpg" alt="戦略シフト" width="110" height="160" border="0" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/%E6%88%A6%E7%95%A5%E3%82%B7%E3%83%95%E3%83%88-%E7%9F%B3%E5%80%89-%E6%B4%8B%E5%AD%90/dp/4492532641%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4492532641" target="_top">戦略シフト</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span>
+
+<span>石倉 洋子 </span>東洋経済新報社 2009-09-11
+売り上げランキング : 56650
+
+<a href="http://www.amazon.co.jp/%E6%88%A6%E7%95%A5%E3%82%B7%E3%83%95%E3%83%88-%E7%9F%B3%E5%80%89-%E6%B4%8B%E5%AD%90/dp/4492532641%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4492532641" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>前回に続き、石倉さんの著書。グローバルキャリアよりこっちの方が早く出てたということで、「 オープン化」や「ORをANDにする」などお馴染みのキーワードを使い企業戦略について語っている。</p>
+
+<!--more-->
+
+<p>戦略論の本を読むと、事例にでてくる会社いつの時代だよと思うほど古典的な本が多いが、本書は2009年発行なのでその心配はない。むしろIT関連（ICTと呼称）の言及も多く、積極的にICTを利用することを推奨している。</p>
+
+<p>ORをANDにするのは結局選択できない企業なのではないかと思ったが、うまくやるらしい。あとシリコンバレーと京都の比較というか、京都のクラスターとしての可能性について解説されていてワクワクした。ほんとに京都がシリコンバレーになったらおもしろそうだ。</p>
+
+<p>とまぁ、ライトに企業戦略について調べたかったらおすすめなのでないかとおもう。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-01-August" title="August 01, 2011">August 01, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page16" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page18" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

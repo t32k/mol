@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Googleを支える技術 ~巨大システムの内側の世界 &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Googleを支える技術 ~巨大システムの内側の世界 ">
+    <link rel="canonical" href="http://t32k.me//mol/log/google-technic">
+     
+           
+    <meta property="og:title" content="Googleを支える技術 ~巨大システムの内側の世界 "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/google-technic"/>
+    
+    
+    <!--meta property="og:description" content="<p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774134325/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51m8phYZbyL._SL160_.jpg" alt="Googleを支える技術 ‾巨大システムの内側の世界 (WEB+DB PRESSプラスシリーズ)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/Google%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-%E2%80%BE%E5%B7%A8%E5%A4%A7%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%86%85%E5%81%B4%E3%81%AE%E4%B8%96%E7%95%8C-WEB-DB-PRESS%E3%83%97%E3%83%A9%E3%82%B9%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4774134325%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774134325" target="_blank">Googleを支える技術 ‾巨大システムの内側の世界 (WEB+DB PRESSプラスシリーズ)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />技術評論社  2008-03-28<br />売り上げランキング : 15225<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" /><br /><br /><a href="http://www.amazon.co.jp/Google%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-%E2%80%BE%E5%B7%A8%E5%A4%A7%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%86%85%E5%81%B4%E3%81%AE%E4%B8%96%E7%95%8C-WEB-DB-PRESS%E3%83%97%E3%83%A9%E3%82%B9%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4774134325%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774134325" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />『ググる』と瞬時に検索結果が返されるのが当たり前で、しかも遅いことを体験したことがないので、その凄さをつい忘れてしまうけど、本書を読んでGoogleの並々ならぬ努力を改めて理解した。考えてみれば、世界中のWebページをインデックスしてる時点で数千億、数兆？ページぐらいあるのだから、そこから最適な結果を0.何秒以内に返すってすごいことだなと思う。だってDreamweaverでちょっと容量のあるページを検索しても1秒以上かかることを考えれば、Webデザイナーの僕でもその凄さは理解できる。<br /><br />　本書は検索システムの簡単な説明から<span style="font-weight: bold;">GFS</span> (Google Fire System：分散ファイルシステム)、<span style="font-weight: bold;">Bigtable </span>(分散ストレージステム)、<span style="font-weight: bold;">Chunbby </span>(分散ロックサービス)、<span style="font-weight: bold;">MapReduce</span>（分散処理のための基盤技術）、<span style="font-weight: bold;">Sawzall </span>(手軽に分散処理するための専用言語)など、お馴染みのGoogleシステムについて解説している。<br /><br />僕はちょっと専門外なので完璧には理解できなかったけど、なんとなく分かったような気がした。というか、GFS! Bigtable! ってゆう単語聞くだけでワクワクするようなミーハーなのでｗ　ここら辺はせひともプロジェクトXなんかの番組にしたらおもしろいなと個人的に思った。<br />　<br />『データーセンターが火災で焼失した。それでもシステムは動き続けた。エンジニアは誇らしげだった（田口トモロヲ風）』<br /><br />なんて具合にｗ</p>
+"/>
+    <meta name="description" content="<p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774134325/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51m8phYZbyL._SL160_.jpg" alt="Googleを支える技術 ‾巨大システムの内側の世界 (WEB+DB PRESSプラスシリーズ)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/Google%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-%E2%80%BE%E5%B7%A8%E5%A4%A7%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%86%85%E5%81%B4%E3%81%AE%E4%B8%96%E7%95%8C-WEB-DB-PRESS%E3%83%97%E3%83%A9%E3%82%B9%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4774134325%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774134325" target="_blank">Googleを支える技術 ‾巨大システムの内側の世界 (WEB+DB PRESSプラスシリーズ)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />技術評論社  2008-03-28<br />売り上げランキング : 15225<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" /><br /><br /><a href="http://www.amazon.co.jp/Google%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-%E2%80%BE%E5%B7%A8%E5%A4%A7%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%86%85%E5%81%B4%E3%81%AE%E4%B8%96%E7%95%8C-WEB-DB-PRESS%E3%83%97%E3%83%A9%E3%82%B9%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4774134325%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774134325" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />『ググる』と瞬時に検索結果が返されるのが当たり前で、しかも遅いことを体験したことがないので、その凄さをつい忘れてしまうけど、本書を読んでGoogleの並々ならぬ努力を改めて理解した。考えてみれば、世界中のWebページをインデックスしてる時点で数千億、数兆？ページぐらいあるのだから、そこから最適な結果を0.何秒以内に返すってすごいことだなと思う。だってDreamweaverでちょっと容量のあるページを検索しても1秒以上かかることを考えれば、Webデザイナーの僕でもその凄さは理解できる。<br /><br />　本書は検索システムの簡単な説明から<span style="font-weight: bold;">GFS</span> (Google Fire System：分散ファイルシステム)、<span style="font-weight: bold;">Bigtable </span>(分散ストレージステム)、<span style="font-weight: bold;">Chunbby </span>(分散ロックサービス)、<span style="font-weight: bold;">MapReduce</span>（分散処理のための基盤技術）、<span style="font-weight: bold;">Sawzall </span>(手軽に分散処理するための専用言語)など、お馴染みのGoogleシステムについて解説している。<br /><br />僕はちょっと専門外なので完璧には理解できなかったけど、なんとなく分かったような気がした。というか、GFS! Bigtable! ってゆう単語聞くだけでワクワクするようなミーハーなのでｗ　ここら辺はせひともプロジェクトXなんかの番組にしたらおもしろいなと個人的に思った。<br />　<br />『データーセンターが火災で焼失した。それでもシステムは動き続けた。エンジニアは誇らしげだった（田口トモロヲ風）』<br /><br />なんて具合にｗ</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2009-02-November" title="November 02, 2009">November 02, 2009</time>
+            </div>
+            <h1 class="title">Googleを支える技術 ~巨大システムの内側の世界</h1>
+            
+        </header>
+
+        <section>
+            <p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4774134325/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51m8phYZbyL._SL160_.jpg" alt="Googleを支える技術 ‾巨大システムの内側の世界 (WEB+DB PRESSプラスシリーズ)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/Google%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-%E2%80%BE%E5%B7%A8%E5%A4%A7%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%86%85%E5%81%B4%E3%81%AE%E4%B8%96%E7%95%8C-WEB-DB-PRESS%E3%83%97%E3%83%A9%E3%82%B9%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4774134325%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774134325" target="_blank">Googleを支える技術 ‾巨大システムの内側の世界 (WEB+DB PRESSプラスシリーズ)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />技術評論社  2008-03-28<br />売り上げランキング : 15225<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" /><br /><br /><a href="http://www.amazon.co.jp/Google%E3%82%92%E6%94%AF%E3%81%88%E3%82%8B%E6%8A%80%E8%A1%93-%E2%80%BE%E5%B7%A8%E5%A4%A7%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%86%85%E5%81%B4%E3%81%AE%E4%B8%96%E7%95%8C-WEB-DB-PRESS%E3%83%97%E3%83%A9%E3%82%B9%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4774134325%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774134325" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />『ググる』と瞬時に検索結果が返されるのが当たり前で、しかも遅いことを体験したことがないので、その凄さをつい忘れてしまうけど、本書を読んでGoogleの並々ならぬ努力を改めて理解した。考えてみれば、世界中のWebページをインデックスしてる時点で数千億、数兆？ページぐらいあるのだから、そこから最適な結果を0.何秒以内に返すってすごいことだなと思う。だってDreamweaverでちょっと容量のあるページを検索しても1秒以上かかることを考えれば、Webデザイナーの僕でもその凄さは理解できる。<br /><br />　本書は検索システムの簡単な説明から<span style="font-weight: bold;">GFS</span> (Google Fire System：分散ファイルシステム)、<span style="font-weight: bold;">Bigtable </span>(分散ストレージステム)、<span style="font-weight: bold;">Chunbby </span>(分散ロックサービス)、<span style="font-weight: bold;">MapReduce</span>（分散処理のための基盤技術）、<span style="font-weight: bold;">Sawzall </span>(手軽に分散処理するための専用言語)など、お馴染みのGoogleシステムについて解説している。<br /><br />僕はちょっと専門外なので完璧には理解できなかったけど、なんとなく分かったような気がした。というか、GFS! Bigtable! ってゆう単語聞くだけでワクワクするようなミーハーなのでｗ　ここら辺はせひともプロジェクトXなんかの番組にしたらおもしろいなと個人的に思った。<br />　<br />『データーセンターが火災で焼失した。それでもシステムは動き続けた。エンジニアは誇らしげだった（田口トモロヲ風）』<br /><br />なんて具合にｗ</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Googleを支える技術 ~巨大システムの内側の世界" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

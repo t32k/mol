@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VagrantでCentOSを入れてJenkinsを導入してみる &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="VagrantでCentOSを入れてJenkinsを導入してみる ">
+    <link rel="canonical" href="http://t32k.me//mol/log/vagrant1-2-centos6-4-jenkins1-5">
+     
+           
+    <meta property="og:title" content="VagrantでCentOSを入れてJenkinsを導入してみる "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/vagrant1-2-centos6-4-jenkins1-5"/>
+    
+    
+    <!--meta property="og:description" content="<p><a href="http://t32k.me/mol/file/2013/06/vj.png"><img src="http://t32k.me/mol/file/2013/06/vj.png" alt="" title="vj" width="900" height="100" class="aligncenter size-full wp-image-4945" /></a></p>
+
+<p>我も<a href="http://jenkins-ci.org/">Jenkins</a>触ってみたかったんや...
+<ol>
+    <li>Jenkinsで我もジョブ書きたい</li>
+    <li>とりあえずローカル環境で動かしたい</li>
+    <li>Macのインストーラーで一発やん！</li>
+    <li>でもいろいろインスコしたら危なそう</li>
+    <li>んじゃ、VM上でJenkins動すか &lt;-イマココ</li>
+</ol>
+ってことで、<a href="http://www.vagrantup.com/">Vagrant</a>使ってみることにする。<span style="font-size: 13px; line-height: 19px;"> </span></p>
+
+<h2>各種インストール</h2>
+
+<p><strong><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox をインストール</a>しましょう。</strong></p>
+
+<p>最新の4.2.14でvagrant upすると&quot;Progress object failure: NS<em>ERROR</em>CALL_FAILED&quot;ってエラーでるので、4.2.12をインストールしませう。</p>
+
+<p><strong><a href="http://downloads.vagrantup.com/">Vagrantをインストール</a>しましょう。</strong></p>
+
+<p>以前に、gem installでvagrantをインスコした人はuninstallしておきませう。古いのがあるとうまく動きません。</p>
+
+<p>vagrantで利用できるBoxファイルはここに一覧がありますんで、好きなやつ選びましょう。
+<ul>
+    <li><a href="http://www.vagrantbox.es/">A list of base boxes for Vagrant - Vagrantbox.es</a></li>
+</ul>
+僕はCentOSをいれたかったので、<em>”CentOS 6.4 x86<em>64 Minimal (VirtualBox Guest Additions 4.2.12, Chef 11.4.4, Puppet 3.1.1)”</em>を選びました。
+<pre><code class="bash">$ vagrant box add centos-6.4 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86</em>64-v20130427.box</code></pre>
+これで、ローカルの~/.vagrant.d/boxes/にcentos-6.4って名前でBoxファイルが保存されます。
+<pre><code class="bash">$ vagrant init 
+centos-6.4 A <code>Vagrantfile</code> has been placed in this directory. You are now ready to <code>vagrant up</code> your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on <code>vagrantup.com</code> for more information on using Vagrant. </p>
+
+<p>$ vagrant up 
+Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider... [default] Importing base box &#39;centos-6.4&#39;... ...</code></pre>
+あとは、initで初期化して、upで起動させる。
+<pre><code class="bash">$ vagrant ssh 
+Welcome to your Vagrant-built virtual machine. 
+[vagrant@localhost ~]$</code></pre>
+sshでVMの中に入れます。
+<pre><code class="bash">$ sudo yum install java-1.7.0-openjdk.x86_64</code></pre>
+Jenkinsで必要なためcentOSにJavaをインストールします。
+<pre><code class="bash">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo 
+$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
+$ sudo yum install jenkins </code></pre>
+<a href="http://pkg.jenkins-ci.org/redhat/">RedHat Linux RPM packages for Jenkins</a>のページ見ながら、Jenkinsをインストールします。
+<pre><code class="bash">$ sudo service jenkins start</code></pre>
+Jenkinsを起動させます。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。</p>
+
+<p>が、表示されない。</p>
+
+<h2>各種設定</h2>
+
+<pre><code class="bash">$ sudo vi /etc/sysconfig/iptables</code></pre>
+
+<pre><code># 下記一行追加
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</code></pre>
+
+<p>8080のポートを空けます。
+<pre><code class="bash">$ /etc/init.d/iptables restart</code></pre>
+再起動します。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。
+が、表示されない。</p>
+
+<pre><code class="ruby"># Vagrantfile 
+
+# Create a forwarded port mapping which allows access to a specific port 
+# within the machine from a port on the host machine. In the example below, 
+# accessing "localhost:8080" will access port 80 on the guest machine. 
+config.vm.network :forwarded_port, guest: 8080, host: 8001 
+
+# Create a private network, which allows host-only access to the machine 
+# using a specific IP. 
+config.vm.network :private_network, ip: "192.168.33.10" </code></pre>
+
+<p>Vagrantfileの設定で、<a href="http://e-words.jp/w/E3839DE383BCE38388E38395E382A9E383AFE383BCE38387E382A3E383B3E382B0.html">ポートフォワーディング</a>を設定します。
+（ゲストOS上の8080への接続をホストOSの8001からアクセスするみたいな感じ？）
+config.vm.network :private_networkのコメントアウトを外します(外さなくてもいいかもしんない)。
+<pre><code class="bash">$ vagrant reload</code></pre>
+再起動して、
+<a href="http://localhost:8001/">http://localhost:8001/</a>でJenkinsのホーム画面が表示されれば成功です。
+<a href="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png"><img src="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png" alt="" title="スクリーンショット 2013-06-29 2.29.46" width="900"  class="aligncenter size-full wp-image-4955" /></a>
+ほらね、簡単でしょ？</p>
+
+<h2>参考</h2>
+
+<p><a href="http://ja.wikipedia.org/wiki/TCP%E3%82%84UDP%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%81%AE%E4%B8%80%E8%A6%A7">TCPやUDPにおけるポート番号の一覧 - Wikipedia </a></p>
+"/>
+    <meta name="description" content="<p><a href="http://t32k.me/mol/file/2013/06/vj.png"><img src="http://t32k.me/mol/file/2013/06/vj.png" alt="" title="vj" width="900" height="100" class="aligncenter size-full wp-image-4945" /></a></p>
+
+<p>我も<a href="http://jenkins-ci.org/">Jenkins</a>触ってみたかったんや...
+<ol>
+    <li>Jenkinsで我もジョブ書きたい</li>
+    <li>とりあえずローカル環境で動かしたい</li>
+    <li>Macのインストーラーで一発やん！</li>
+    <li>でもいろいろインスコしたら危なそう</li>
+    <li>んじゃ、VM上でJenkins動すか &lt;-イマココ</li>
+</ol>
+ってことで、<a href="http://www.vagrantup.com/">Vagrant</a>使ってみることにする。<span style="font-size: 13px; line-height: 19px;"> </span></p>
+
+<h2>各種インストール</h2>
+
+<p><strong><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox をインストール</a>しましょう。</strong></p>
+
+<p>最新の4.2.14でvagrant upすると&quot;Progress object failure: NS<em>ERROR</em>CALL_FAILED&quot;ってエラーでるので、4.2.12をインストールしませう。</p>
+
+<p><strong><a href="http://downloads.vagrantup.com/">Vagrantをインストール</a>しましょう。</strong></p>
+
+<p>以前に、gem installでvagrantをインスコした人はuninstallしておきませう。古いのがあるとうまく動きません。</p>
+
+<p>vagrantで利用できるBoxファイルはここに一覧がありますんで、好きなやつ選びましょう。
+<ul>
+    <li><a href="http://www.vagrantbox.es/">A list of base boxes for Vagrant - Vagrantbox.es</a></li>
+</ul>
+僕はCentOSをいれたかったので、<em>”CentOS 6.4 x86<em>64 Minimal (VirtualBox Guest Additions 4.2.12, Chef 11.4.4, Puppet 3.1.1)”</em>を選びました。
+<pre><code class="bash">$ vagrant box add centos-6.4 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86</em>64-v20130427.box</code></pre>
+これで、ローカルの~/.vagrant.d/boxes/にcentos-6.4って名前でBoxファイルが保存されます。
+<pre><code class="bash">$ vagrant init 
+centos-6.4 A <code>Vagrantfile</code> has been placed in this directory. You are now ready to <code>vagrant up</code> your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on <code>vagrantup.com</code> for more information on using Vagrant. </p>
+
+<p>$ vagrant up 
+Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider... [default] Importing base box &#39;centos-6.4&#39;... ...</code></pre>
+あとは、initで初期化して、upで起動させる。
+<pre><code class="bash">$ vagrant ssh 
+Welcome to your Vagrant-built virtual machine. 
+[vagrant@localhost ~]$</code></pre>
+sshでVMの中に入れます。
+<pre><code class="bash">$ sudo yum install java-1.7.0-openjdk.x86_64</code></pre>
+Jenkinsで必要なためcentOSにJavaをインストールします。
+<pre><code class="bash">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo 
+$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
+$ sudo yum install jenkins </code></pre>
+<a href="http://pkg.jenkins-ci.org/redhat/">RedHat Linux RPM packages for Jenkins</a>のページ見ながら、Jenkinsをインストールします。
+<pre><code class="bash">$ sudo service jenkins start</code></pre>
+Jenkinsを起動させます。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。</p>
+
+<p>が、表示されない。</p>
+
+<h2>各種設定</h2>
+
+<pre><code class="bash">$ sudo vi /etc/sysconfig/iptables</code></pre>
+
+<pre><code># 下記一行追加
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</code></pre>
+
+<p>8080のポートを空けます。
+<pre><code class="bash">$ /etc/init.d/iptables restart</code></pre>
+再起動します。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。
+が、表示されない。</p>
+
+<pre><code class="ruby"># Vagrantfile 
+
+# Create a forwarded port mapping which allows access to a specific port 
+# within the machine from a port on the host machine. In the example below, 
+# accessing "localhost:8080" will access port 80 on the guest machine. 
+config.vm.network :forwarded_port, guest: 8080, host: 8001 
+
+# Create a private network, which allows host-only access to the machine 
+# using a specific IP. 
+config.vm.network :private_network, ip: "192.168.33.10" </code></pre>
+
+<p>Vagrantfileの設定で、<a href="http://e-words.jp/w/E3839DE383BCE38388E38395E382A9E383AFE383BCE38387E382A3E383B3E382B0.html">ポートフォワーディング</a>を設定します。
+（ゲストOS上の8080への接続をホストOSの8001からアクセスするみたいな感じ？）
+config.vm.network :private_networkのコメントアウトを外します(外さなくてもいいかもしんない)。
+<pre><code class="bash">$ vagrant reload</code></pre>
+再起動して、
+<a href="http://localhost:8001/">http://localhost:8001/</a>でJenkinsのホーム画面が表示されれば成功です。
+<a href="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png"><img src="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png" alt="" title="スクリーンショット 2013-06-29 2.29.46" width="900"  class="aligncenter size-full wp-image-4955" /></a>
+ほらね、簡単でしょ？</p>
+
+<h2>参考</h2>
+
+<p><a href="http://ja.wikipedia.org/wiki/TCP%E3%82%84UDP%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%81%AE%E4%B8%80%E8%A6%A7">TCPやUDPにおけるポート番号の一覧 - Wikipedia </a></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2013-28-June" title="June 28, 2013">June 28, 2013</time>
+            </div>
+            <h1 class="title">VagrantでCentOSを入れてJenkinsを導入してみる</h1>
+            
+        </header>
+
+        <section>
+            <p><a href="http://t32k.me/mol/file/2013/06/vj.png"><img src="http://t32k.me/mol/file/2013/06/vj.png" alt="" title="vj" width="900" height="100" class="aligncenter size-full wp-image-4945" /></a></p>
+
+<p>我も<a href="http://jenkins-ci.org/">Jenkins</a>触ってみたかったんや...
+<ol>
+    <li>Jenkinsで我もジョブ書きたい</li>
+    <li>とりあえずローカル環境で動かしたい</li>
+    <li>Macのインストーラーで一発やん！</li>
+    <li>でもいろいろインスコしたら危なそう</li>
+    <li>んじゃ、VM上でJenkins動すか &lt;-イマココ</li>
+</ol>
+ってことで、<a href="http://www.vagrantup.com/">Vagrant</a>使ってみることにする。<span style="font-size: 13px; line-height: 19px;"> </span></p>
+
+<h2>各種インストール</h2>
+
+<p><strong><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox をインストール</a>しましょう。</strong></p>
+
+<p>最新の4.2.14でvagrant upすると&quot;Progress object failure: NS<em>ERROR</em>CALL_FAILED&quot;ってエラーでるので、4.2.12をインストールしませう。</p>
+
+<p><strong><a href="http://downloads.vagrantup.com/">Vagrantをインストール</a>しましょう。</strong></p>
+
+<p>以前に、gem installでvagrantをインスコした人はuninstallしておきませう。古いのがあるとうまく動きません。</p>
+
+<p>vagrantで利用できるBoxファイルはここに一覧がありますんで、好きなやつ選びましょう。
+<ul>
+    <li><a href="http://www.vagrantbox.es/">A list of base boxes for Vagrant - Vagrantbox.es</a></li>
+</ul>
+僕はCentOSをいれたかったので、<em>”CentOS 6.4 x86<em>64 Minimal (VirtualBox Guest Additions 4.2.12, Chef 11.4.4, Puppet 3.1.1)”</em>を選びました。
+<pre><code class="bash">$ vagrant box add centos-6.4 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86</em>64-v20130427.box</code></pre>
+これで、ローカルの~/.vagrant.d/boxes/にcentos-6.4って名前でBoxファイルが保存されます。
+<pre><code class="bash">$ vagrant init 
+centos-6.4 A <code>Vagrantfile</code> has been placed in this directory. You are now ready to <code>vagrant up</code> your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on <code>vagrantup.com</code> for more information on using Vagrant. </p>
+
+<p>$ vagrant up 
+Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider... [default] Importing base box &#39;centos-6.4&#39;... ...</code></pre>
+あとは、initで初期化して、upで起動させる。
+<pre><code class="bash">$ vagrant ssh 
+Welcome to your Vagrant-built virtual machine. 
+[vagrant@localhost ~]$</code></pre>
+sshでVMの中に入れます。
+<pre><code class="bash">$ sudo yum install java-1.7.0-openjdk.x86_64</code></pre>
+Jenkinsで必要なためcentOSにJavaをインストールします。
+<pre><code class="bash">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo 
+$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
+$ sudo yum install jenkins </code></pre>
+<a href="http://pkg.jenkins-ci.org/redhat/">RedHat Linux RPM packages for Jenkins</a>のページ見ながら、Jenkinsをインストールします。
+<pre><code class="bash">$ sudo service jenkins start</code></pre>
+Jenkinsを起動させます。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。</p>
+
+<p>が、表示されない。</p>
+
+<h2>各種設定</h2>
+
+<pre><code class="bash">$ sudo vi /etc/sysconfig/iptables</code></pre>
+
+<pre><code># 下記一行追加
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</code></pre>
+
+<p>8080のポートを空けます。
+<pre><code class="bash">$ /etc/init.d/iptables restart</code></pre>
+再起動します。</p>
+
+<p><a href="http://localhost:8080/">http://localhost:8080/</a>でJenkinsのホーム画面が表示されれば成功です。
+が、表示されない。</p>
+
+<pre><code class="ruby"># Vagrantfile 
+
+# Create a forwarded port mapping which allows access to a specific port 
+# within the machine from a port on the host machine. In the example below, 
+# accessing "localhost:8080" will access port 80 on the guest machine. 
+config.vm.network :forwarded_port, guest: 8080, host: 8001 
+
+# Create a private network, which allows host-only access to the machine 
+# using a specific IP. 
+config.vm.network :private_network, ip: "192.168.33.10" </code></pre>
+
+<p>Vagrantfileの設定で、<a href="http://e-words.jp/w/E3839DE383BCE38388E38395E382A9E383AFE383BCE38387E382A3E383B3E382B0.html">ポートフォワーディング</a>を設定します。
+（ゲストOS上の8080への接続をホストOSの8001からアクセスするみたいな感じ？）
+config.vm.network :private_networkのコメントアウトを外します(外さなくてもいいかもしんない)。
+<pre><code class="bash">$ vagrant reload</code></pre>
+再起動して、
+<a href="http://localhost:8001/">http://localhost:8001/</a>でJenkinsのホーム画面が表示されれば成功です。
+<a href="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png"><img src="http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png" alt="" title="スクリーンショット 2013-06-29 2.29.46" width="900"  class="aligncenter size-full wp-image-4955" /></a>
+ほらね、簡単でしょ？</p>
+
+<h2>参考</h2>
+
+<p><a href="http://ja.wikipedia.org/wiki/TCP%E3%82%84UDP%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%81%AE%E4%B8%80%E8%A6%A7">TCPやUDPにおけるポート番号の一覧 - Wikipedia </a></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="VagrantでCentOSを入れてJenkinsを導入してみる" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

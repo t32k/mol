@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of JavaScript &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="The Future of JavaScript ">
+    <link rel="canonical" href="http://t32k.me//mol/log/the-future-of-javascript">
+     
+           
+    <meta property="og:title" content="The Future of JavaScript "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/the-future-of-javascript"/>
+    
+    
+    <!--meta property="og:description" content="<p><a href="http://www.mozilla-japan.org/events/2007/javascript/">The Future of JavaScript</a> 行きたいなー、でも仕事だしなーなんて悩んでたら<br />すぐに受付終了になっちゃいました、<br />でも、<a href="http://ustream.tv/channel/the-future-of-javascript">ここ</a>で見られると聞いたので、見てたんですけど、<br /><br />さっぱりです＞＜<br /><br />唯一理解したのは、<br /><br />John Resigさんは長髪でFireFoxのTシャツを着てたのが羨ましかった。俺も欲しい。<br /><br />以上。。。<br /><br />でも、piroさんとamachangさんのプレゼンは何となく理解できる範囲だったので安心した。<br /><br />要はXPathできたらモテるぜ！<br /><br />ということですね。 まぁ冗談はおいといて、<br /><br />ノードを特定したいとき、３つの方法がある、<br /><br />１つはDOM core<br />document.getElementByIdとか使ってノードを得る方法ですね。<br />まー、デザイナーの自分にとってはよく分からんですわ、これ。ややこいし。<br /><br />２つめはCSSセレクタ<br />jQueryなどのライブラリをつかって、$(&quot;div p&quot;)といった感じで得る方法。<br />これだとdiv要素の子孫であるp要素のノードを簡単得ることができる。<br />CSSを使うデザイナーさんでも比較的理解しやすい。<br />しかし、これだとライブラリに依存しなければならないし、<br />もっと込み入ってくると無駄なidなど振って対応させなければならない。<br /><br />そこで3つめ、XPathは<br />ちょっと書き方が難しいけどもノードを厳密に特定することができる。<br />ので、余計なidやclassを追加する必要もないのでHTMLを綺麗に保てる。<br />らしいです。<br /><br />とりあえず、ノードが住所としたら、<br />XPathは「石川県金沢市JS町5丁目1番地」といった感じでスパッと表現するのに対して、<br />CSSセレクタは「21世紀美術館あるとこの向かいのデパートの右らへん」といった感じかな。<br /><br />またお勉強しなければならないね、これは。。。<br /><br />あと、amachngさんおプレゼンツールはオサレでした。<br />あれは<a href="http://amachang.art-code.org/pr/">S6</a>かなー?上キー押したら一覧表みたいになるのね、オサレー☆<br />ぼくも使ってみようと♪<br /><br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/2155209GFML.jpg" alt="スラムダンク (22)" border="0" /></a></td><td valign="top"><span style=""><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank">スラムダンク (22)</a><br />井上 雄彦<br /><br />集英社  1994-12<br />売り上げランキング :<br /><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank">Amazonで詳しく見る</a></span><span style=""> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table>先生、おれFireFoxのTシャツを着ればJSできると思ってたのかなぁ・・・</p>
+"/>
+    <meta name="description" content="<p><a href="http://www.mozilla-japan.org/events/2007/javascript/">The Future of JavaScript</a> 行きたいなー、でも仕事だしなーなんて悩んでたら<br />すぐに受付終了になっちゃいました、<br />でも、<a href="http://ustream.tv/channel/the-future-of-javascript">ここ</a>で見られると聞いたので、見てたんですけど、<br /><br />さっぱりです＞＜<br /><br />唯一理解したのは、<br /><br />John Resigさんは長髪でFireFoxのTシャツを着てたのが羨ましかった。俺も欲しい。<br /><br />以上。。。<br /><br />でも、piroさんとamachangさんのプレゼンは何となく理解できる範囲だったので安心した。<br /><br />要はXPathできたらモテるぜ！<br /><br />ということですね。 まぁ冗談はおいといて、<br /><br />ノードを特定したいとき、３つの方法がある、<br /><br />１つはDOM core<br />document.getElementByIdとか使ってノードを得る方法ですね。<br />まー、デザイナーの自分にとってはよく分からんですわ、これ。ややこいし。<br /><br />２つめはCSSセレクタ<br />jQueryなどのライブラリをつかって、$(&quot;div p&quot;)といった感じで得る方法。<br />これだとdiv要素の子孫であるp要素のノードを簡単得ることができる。<br />CSSを使うデザイナーさんでも比較的理解しやすい。<br />しかし、これだとライブラリに依存しなければならないし、<br />もっと込み入ってくると無駄なidなど振って対応させなければならない。<br /><br />そこで3つめ、XPathは<br />ちょっと書き方が難しいけどもノードを厳密に特定することができる。<br />ので、余計なidやclassを追加する必要もないのでHTMLを綺麗に保てる。<br />らしいです。<br /><br />とりあえず、ノードが住所としたら、<br />XPathは「石川県金沢市JS町5丁目1番地」といった感じでスパッと表現するのに対して、<br />CSSセレクタは「21世紀美術館あるとこの向かいのデパートの右らへん」といった感じかな。<br /><br />またお勉強しなければならないね、これは。。。<br /><br />あと、amachngさんおプレゼンツールはオサレでした。<br />あれは<a href="http://amachang.art-code.org/pr/">S6</a>かなー?上キー押したら一覧表みたいになるのね、オサレー☆<br />ぼくも使ってみようと♪<br /><br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/2155209GFML.jpg" alt="スラムダンク (22)" border="0" /></a></td><td valign="top"><span style=""><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank">スラムダンク (22)</a><br />井上 雄彦<br /><br />集英社  1994-12<br />売り上げランキング :<br /><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank">Amazonで詳しく見る</a></span><span style=""> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table>先生、おれFireFoxのTシャツを着ればJSできると思ってたのかなぁ・・・</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2007-03-November" title="November 03, 2007">November 03, 2007</time>
+            </div>
+            <h1 class="title">The Future of JavaScript</h1>
+            
+        </header>
+
+        <section>
+            <p><a href="http://www.mozilla-japan.org/events/2007/javascript/">The Future of JavaScript</a> 行きたいなー、でも仕事だしなーなんて悩んでたら<br />すぐに受付終了になっちゃいました、<br />でも、<a href="http://ustream.tv/channel/the-future-of-javascript">ここ</a>で見られると聞いたので、見てたんですけど、<br /><br />さっぱりです＞＜<br /><br />唯一理解したのは、<br /><br />John Resigさんは長髪でFireFoxのTシャツを着てたのが羨ましかった。俺も欲しい。<br /><br />以上。。。<br /><br />でも、piroさんとamachangさんのプレゼンは何となく理解できる範囲だったので安心した。<br /><br />要はXPathできたらモテるぜ！<br /><br />ということですね。 まぁ冗談はおいといて、<br /><br />ノードを特定したいとき、３つの方法がある、<br /><br />１つはDOM core<br />document.getElementByIdとか使ってノードを得る方法ですね。<br />まー、デザイナーの自分にとってはよく分からんですわ、これ。ややこいし。<br /><br />２つめはCSSセレクタ<br />jQueryなどのライブラリをつかって、$(&quot;div p&quot;)といった感じで得る方法。<br />これだとdiv要素の子孫であるp要素のノードを簡単得ることができる。<br />CSSを使うデザイナーさんでも比較的理解しやすい。<br />しかし、これだとライブラリに依存しなければならないし、<br />もっと込み入ってくると無駄なidなど振って対応させなければならない。<br /><br />そこで3つめ、XPathは<br />ちょっと書き方が難しいけどもノードを厳密に特定することができる。<br />ので、余計なidやclassを追加する必要もないのでHTMLを綺麗に保てる。<br />らしいです。<br /><br />とりあえず、ノードが住所としたら、<br />XPathは「石川県金沢市JS町5丁目1番地」といった感じでスパッと表現するのに対して、<br />CSSセレクタは「21世紀美術館あるとこの向かいのデパートの右らへん」といった感じかな。<br /><br />またお勉強しなければならないね、これは。。。<br /><br />あと、amachngさんおプレゼンツールはオサレでした。<br />あれは<a href="http://amachang.art-code.org/pr/">S6</a>かなー?上キー押したら一覧表みたいになるのね、オサレー☆<br />ぼくも使ってみようと♪<br /><br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/2155209GFML.jpg" alt="スラムダンク (22)" border="0" /></a></td><td valign="top"><span style=""><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank">スラムダンク (22)</a><br />井上 雄彦<br /><br />集英社  1994-12<br />売り上げランキング :<br /><br /><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4088718429/warikiru-22/ref=nosim/" target="_blank">Amazonで詳しく見る</a></span><span style=""> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table>先生、おれFireFoxのTシャツを着ればJSできると思ってたのかなぁ・・・</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="The Future of JavaScript" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page70/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page70/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/default-and-index" rel="prefetch">デフォルトページとindex.html</a></h2>
+            <p><p><a title="ga01 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3049307631/"><img src="http://farm4.static.flickr.com/3142/3049307631_82c30d6cfb.jpg" alt="ga01" width="500" height="239" /></a></p>
+
+<p>Google Analytics(以下、GA)でのプロファイル設定の『デフォルトのページ』に違和感、というかイマイチよくわかならない。</p>
+
+<p>『デフォルトのページ』に関してのGoogleヘルプページ内容はこちら↓
+<blockquote><span style="font-weight: bold;">デフォルトのページ</span>
+[デフォルトのページ] は、ドメイン上のページが指定されていない場合に、サーバーがデフォルトで返すウェブ ページのことです。 たとえば、「www.yourdomain.co.jp」と入力すると、サーバーから index.html ページが返される場合は、index.html がデフォルトのページとなります。
+Analytics の [プロファイル設定] ページには、デフォルトのページを指定する欄があります。 Google Analytics では、この情報を使用して www.yourdomain.co.jp と www.yourdomain.co.jp/index.html のヒットが実際には同じページであると判断します。デフォルトのページが指定されていない場合、これら 2 つのエントリは別のページとしてレポートに集計されます。
+<div style="text-align: right;"><a href="http://www.google.co.jp/support/googleanalytics/bin/answer.py?answer=32995&amp;useful=0&amp;show_useful=1&amp;comment="><span style="font-size: 85%;">デフォルトのページ - Google Analytics ヘルプ センター</span></a></div></blockquote>
+www.yourdomain.co.jp入力したらindex.html返すの当たり前じゃん、最初からそんなん指定しといてよと思った。だがそうでも、ないらしいのね。こんな記事見つけた↓
+<blockquote>何故、最初からデフォールトのページを「index.html」にしてしまわないのか。それは、ウェブサーバーの設定で、デフォールトのページを変えられるから。
+例えば、Apache のデフォールトは「index.html」だけど、IIS (Microsoft のウェブサーバー) のデフォールトは「Default.htm」だったり「index.htm」だったりする。「main.html」をデフォールトのページに設定してる人もいるかもしれないし、もっと変な名前をデフォールトにしてるかもしれない。若しくは、「○○/」と「○○/index.html」を同じとして数えたくない人もいるかもしれない。
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://at-aka.blogspot.com/2006/04/google-analytics.html">clmemo@aka: Google Analytics のデフォールト・ページ</a></span></div></blockquote>
+なるほど、そういうことか。合点がいったよ。で、GAで『デフォルトのページ』をindex.htmlにしたわけです。そしたら、GA上では、www.example.com/などスラッシュで終わってるURLはすべてwww.example.com/index.htmlという表記でカウントされるんですね。</p>
+
+<p>当たり前というか当たり前だけど。。。すべてのページをでディレクトリ作ってindex.htmlで作ったとしたら、おしりが全部index.htmlなので、見にくいじゃん。こんなふうに↓</p>
+
+<p><a title="ga02 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3050147092/"><img src="http://farm4.static.flickr.com/3188/3050147092_34fafc50c9.jpg" alt="ga02" width="500" height="232" /></a></p>
+
+<p>ということで、デフォルトのページは設定しないことにした。そしたらwww.example.com/とwww.example.com/index.htmlは、別々のURLで扱われるじゃないか！と思うけど。index.htmlでアクセスししてきた人は/にリダイレクトすればいいんだ。で.htaccessでこんなん見つけた↓
+<blockquote>Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.<em>/index.html
+RewriteRule ^(.</em>)index.html$ http://www.example.com/$1 [R=301,L]
+<span style="font-size: 85%;">※www.example.com内のすべてのディレクトリで、「/index.html」が「/」に正規化されます。</span>
+<div style="text-align: right;"><a href="http://www.suzukikenichi.com/blog/canonicalization-of-indexhtml-and-non-indexhtml/"><span style="font-size: 85%;">index.html「あり・なし」のURL正規化～301リダイレクト応用編 » 海外SEO情報ブログ・メルマガ</span></a></div></blockquote>
+ようやく、自分の思い通りになったけど、GAで表示する出力を変えるだけなら、<a href="http://www.google.com/support/analytics/bin/answer.py?hl=jp&amp;answer=55461">アドバンスフィルタ</a>とか使えば良かったのかな、フィルタ系全然分からないな。もっと勉強します。。。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2008-22-November" title="November 22, 2008">November 22, 2008</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/google-analytics-100tips" rel="prefetch">できる100ワザ Google Analytics SEO & SEM を極めるアクセス解析ノウハウ</a></h2>
+            <p><p>Google Analyticsはすごく便利かつ機能も豊富なんだけど、<br />アクセス解析初心者にとっては、何をどう始めたらよいのか分からないのが本音。<br /><table border="0" cellpadding="5"><tbody><tr><td colspan="2"><a href="http://www.amazon.co.jp/%E3%81%A7%E3%81%8D%E3%82%8B100%E3%83%AF%E3%82%B6-Google-Analytics-SEO-%E3%82%92%E6%A5%B5%E3%82%81%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%83%8E%E3%82%A6%E3%83%8F%E3%82%A6/dp/4844324284%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844324284" target="_blank">できる100ワザ Google Analytics SEO &amp; SEM を極めるアクセス解析ノウハウ</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /></td></tr><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%81%A7%E3%81%8D%E3%82%8B100%E3%83%AF%E3%82%B6-Google-Analytics-SEO-%E3%82%92%E6%A5%B5%E3%82%81%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%83%8E%E3%82%A6%E3%83%8F%E3%82%A6/dp/4844324284%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844324284" target="_blank"><img src="http://ecx.images-amazon.com/images/I/518VGQGRgXL._SL160_.jpg" alt="できる100ワザ Google Analytics SEO &amp; SEM を極めるアクセス解析ノウハウ" border="0" /></a></td><td valign="top"><span style=";font-size:85%;" >大内 範行<br />インプレスジャパン  2007-07-19<br />売り上げランキング : 2047<br /><br /><strong>おすすめ平均  </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="star" /><br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" />良く分かる指南書<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />プロのサイト管理者はもちろん<br /><br /><a href="http://www.amazon.co.jp/%E3%81%A7%E3%81%8D%E3%82%8B100%E3%83%AF%E3%82%B6-Google-Analytics-SEO-%E3%82%92%E6%A5%B5%E3%82%81%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%83%8E%E3%82%A6%E3%83%8F%E3%82%A6/dp/4844324284%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844324284" target="_blank">Amazonで詳しく見る</a></span><span style=";font-size:85%;" > by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table>そんな人にとっては、この本は役に立つと思う。<br /><br /><ul><li>ファイルのダウンロード数を調べよう</li><li>成長の余地があるキーワードを見つけよう</li></ul><br />などと具体的なTipsが100個載っている。<br />（最初の設定なども紹介されているので、全くの初心者でもOK）<br />おぉ、こんなこともできるのか！ってことが多々ある。<br /><br />結局、アクセス解析ツールで出るのは数字でしかないので、<br />そこにどんなユーザーのストーリーがあるのか、<br />ユーザーは？？？を求めている！ってことを証明するには、<br />どのデータとどのデータが関係しているのか、<br />などというのは、想像力の問題ですね。<br /><br />ただ、最初からちゃんとできる人なんていないので、<br />英語を喋るのと同じで、単語を覚え、例文を叩きこまければ、<br />自分の意志ってのは伝えられない。<br />そういう意味で、本書はGoogle Analyticsっていう言葉を喋るための<br />最初にやるべき例文集には最適ですね。<br /><br />あ、あと載っているトラッキングコードのサンプルは以前のバージョンの<br />urchin.jsだから、ga.jsの人は気をつけてね。<br /><br /><span style="font-size:85%;">関連エントリ<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2009/09/dekiru-google-analytics-100tips.html">できる100ワザ Google Analytics 増補改訂版</a></span></li></ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2008-21-November" title="November 21, 2008">November 21, 2008</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/web-is-god" rel="prefetch">ウェブは菩薩である</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E3%81%AF%E8%8F%A9%E8%96%A9%E3%81%A7%E3%81%82%E3%82%8B-%E6%B7%B1%E8%A6%8B-%E5%98%89%E6%98%8E/dp/4757102410%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4757102410" target="_blank">ウェブは菩薩である</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E3%81%AF%E8%8F%A9%E8%96%A9%E3%81%A7%E3%81%82%E3%82%8B-%E6%B7%B1%E8%A6%8B-%E5%98%89%E6%98%8E/dp/4757102410%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4757102410" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31qXPyX7reL._SL160_.jpg" border="0" alt="ウェブは菩薩である" /></a></td>
+<td valign="top"><span>深見 嘉明エヌティティ出版  2008-06-30
+
+<strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-3-5.gif" alt="star" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-2-0.gif" alt="star" />目新しさがない
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />メタデータ
+
+<a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E3%81%AF%E8%8F%A9%E8%96%A9%E3%81%A7%E3%81%82%E3%82%8B-%E6%B7%B1%E8%A6%8B-%E5%98%89%E6%98%8E/dp/4757102410%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4757102410" target="_blank">Amazonで詳しく</a>
+
+</span><span> </span></td>
+</tr>
+</tbody>
+</table>
+
+<p>グーグル・アマゾン、ニコニコ動画からmicroformatsまで幅広く、そして易しく解説されている本。</p>
+
+<p>うーん、物足りない。。。サブタイトルに『メタデータ』とか書いてあるから、てっきりオントロジー（実際なにかわかってない自分w）とかそういう系の話かと思いきや、web2.0復習みたいな本だった。Web2.0に関しては『グーグル・アマゾン化する社会』が個人的には好みだけど。</p>
+
+<p>この点は、amazonのレビューで同じ意見の人がいた。
+<blockquote>ところで、この本は誰が読むことを想定しているのだろう？
+タギングに関するノウハウの詳細な解説とか事例の掘り下げがあるわけではないので
+専門書というわけではないのだろうが、「ウェブは菩薩である｣という題名で
+サブタイトルがメタデータ云々では、まったく一般書には見えない。
+<div style="text-align: right;"><a href="http://www.amazon.co.jp/gp/pdp/profile/A1Q06LERNNAZMK/ref=cm_cr_dp_pdp"><span style="font-size: 85%;">何の本かわからん」と素通りされそうなのが惜しい, 2008/11/1 By どあーず</span></a></div></blockquote>
+だよなー。表紙は白地に黒でとてもシンプルでストイックな感じがするしね。もっとフレンドリーな表紙にすればいいのに。</p>
+
+<p>そういえば、うちの社長が『タグってなんじゃ？』って言ってたな。そういう人にとってコレほど適切な本もないなと思った。</p>
+
+<p>以下メモ
+<span style="font-size: 85%;"> </span>
+<blockquote><span style="font-size: 85%;"><span style="font-weight: bold;">コンピュータにおけるオントロジー</span>
+人工知能分野をはじめとするコンピュータの世界では、「概念化の明示的な仕様」と定義されることがある。
+ウェブをはじめとした文書検索において、従来の方法では単語単位での一致か、よくても類義語を含む文書を検索するのが限度であった。ここにオントロジーの概念を導入する。それぞれの文書の内容を説明する意味情報（メタデータ）を各文書に付加し、メタデータを記述する用語を定義する構造を構築する。この構造がオントロジーとなる。
+オントロジーを導入することにより、検索対象となる文書が単なる単語の集まりとしてではなく、文書全体で大きな意味を持ったデータとして扱われ、各文書について統一的な付加情報をもたせることができる。これにより、本当に必要な情報を的確に検索することが可能となる。
+このように、メタデータとオントロジーの技術を用い、文書の意味に即した処理を計算機が行うことが出来るウェブをセマンティックウェブと呼び、次世代の検索技術が実現されることなどで期待されている。
+</span>
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC">出典: フリー百科事典『ウィキペディア（Wikipedia）』</a></span></div></blockquote>
+<blockquote><span style="font-size: 85%;"><span style="font-weight: bold;">フォークソノミー</span>
+フォークソノミー(folksonomy)とは、インターネットのウェブサイト上の情報に、利用者自らが複数の「タグ」（tag,名札）を自由に付け加え、検索できるようにしていく分類の方法をいう。folks（民衆）とtaxonomy（分類法）を合わせた造語。
+サイトの管理者がコンテンツの分類を行い、利用者は関わることのできない、従来のディレクトリ（カテゴリ）分類やロボット検索とは、対照をなす。分類の作業が万人に開かれ、終わりのないオープンなものであること、ユーザーの共同作業によるものであることが特徴である。また検索に当たっては、図書館情報学で使われるあらかじめ定められた統制語彙の代わりに、ユーザーが自由に作成したキーワードが用いられる[1]。
+フォークソノミーによるタグ付けは、インターネット上の情報の集合体の中から、目指す情報や隣り合った情報を、より探しやすく、見つけやすく、たどり着きやすくするために考え出された方法である。フォークソノミーがよく発達したサイトでは、ユーザーにわかりやすいよう、ユーザー自身が考えた言葉による分類がなされ、情報へのアクセスがしやすいものとなっている。
+しばしば挙げられる例には、写真共有サイトのFlickr、ソーシャルブックマークのDel.icio.usやはてなブックマーク、動画共有サイトのニコニコ動画などがある[2]。Wikipediaもフォークソノミーに基づいている。
+</span>
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AF%E3%82%BD%E3%83%8E%E3%83%9F%E3%83%BC">出典: フリー百科事典『ウィキペディア（Wikipedia）』</a></span></div></blockquote></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2008-17-November" title="November 17, 2008">November 17, 2008</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/manga" rel="prefetch">マンガ 餃子屋と高級フレンチでは、どちらが儲かるか?</a></h2>
+            <p><p><table border="0" cellpadding="5"><tbody><tr><td colspan="2"><a href="http://www.amazon.co.jp/%E3%83%9E%E3%83%B3%E3%82%AC-%E9%A4%83%E5%AD%90%E5%B1%8B%E3%81%A8%E9%AB%98%E7%B4%9A%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%E3%81%A7%E3%81%AF%E3%80%81%E3%81%A9%E3%81%A1%E3%82%89%E3%81%8C%E5%84%B2%E3%81%8B%E3%82%8B%E3%81%8B-%E6%AD%A6%E4%BA%95-%E5%AE%8F%E6%96%87/dp/4478002355%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478002355" target="_blank">マンガ 餃子屋と高級フレンチでは、どちらが儲かるか?</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /></td></tr><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%83%9E%E3%83%B3%E3%82%AC-%E9%A4%83%E5%AD%90%E5%B1%8B%E3%81%A8%E9%AB%98%E7%B4%9A%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%E3%81%A7%E3%81%AF%E3%80%81%E3%81%A9%E3%81%A1%E3%82%89%E3%81%8C%E5%84%B2%E3%81%8B%E3%82%8B%E3%81%8B-%E6%AD%A6%E4%BA%95-%E5%AE%8F%E6%96%87/dp/4478002355%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478002355" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51vNthUSQcL._SL160_.jpg" alt="マンガ 餃子屋と高級フレンチでは、どちらが儲かるか?" border="0" /></a></td><td valign="top"><span style="">武井 宏文<br /><br />ダイヤモンド社  2008-04-18<br />売り上げランキング : 2122<br /><br /><strong>おすすめ平均  </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" /><br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />まあ、読め。そして小説版へ<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" />先輩から教えてもらうよりも良い。<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />不覚にもぐっときた<br /><br /><a href="http://www.amazon.co.jp/%E3%83%9E%E3%83%B3%E3%82%AC-%E9%A4%83%E5%AD%90%E5%B1%8B%E3%81%A8%E9%AB%98%E7%B4%9A%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%E3%81%A7%E3%81%AF%E3%80%81%E3%81%A9%E3%81%A1%E3%82%89%E3%81%8C%E5%84%B2%E3%81%8B%E3%82%8B%E3%81%8B-%E6%AD%A6%E4%BA%95-%E5%AE%8F%E6%96%87/dp/4478002355%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478002355" target="_blank">Amazonで詳しく見る</a></span><span style=""> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />これまた以前から気になってたので読了。といってもマンガだけど。。。<br />マンガといっても会計のお話なので文字量は多い。<br />これなら、小説版読んだほうがいいんじゃないかとは思うが、<br />初心者にとってはこれくらいがちょうど良いのではと、会計初心者の僕は思う。<br />事実、何回か読み直さないと分からないところもあり、苦労した。<br /><br />タイトルの餃子屋と高級フレンチどちらが儲かるのか？という疑問のほかにも<br />寿司屋のマグロとコハダどちらが儲かるのか？という問いもあり、<br />読み終わった後には、なるほど！っと思った。<br /><br />まだまだ詳しく知りたいので小説版も機会があれば読もうと思う。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2008-17-November" title="November 17, 2008">November 17, 2008</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/persona" rel="prefetch">Webサイト設計のためのペルソナ手法の教科書</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4839922349/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/51Pb-tTK9fL._SL160_.jpg" border="0" alt="Webサイト設計のためのペルソナ手法の教科書 ~ペルソナ活用によるユーザ中心ウェブサイト実践構築ガイド~ (DESIGN IT!BOOKS)" width="114" height="160" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/Web%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E8%A8%88%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%9A%E3%83%AB%E3%82%BD%E3%83%8A%E6%89%8B%E6%B3%95%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%7E%E3%83%9A%E3%83%AB%E3%82%BD%E3%83%8A%E6%B4%BB%E7%94%A8%E3%81%AB%E3%82%88%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E4%B8%AD%E5%BF%83%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E5%AE%9F%E8%B7%B5%E6%A7%8B%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89%7E-DESIGN-BOOKS-Yaar/dp/4839922349%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839922349" target="_blank">Webサイト設計のためのペルソナ手法の教科書
+~ペルソナ活用によるユーザ中心ウェブサイト実践構築ガイド~</a>
+佐藤 伸哉 </span><span> </span>
+
+<span>毎日コミュニケーションズ  2008-02-23
+おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="" /></span>
+
+<span><a href="http://www.amazon.co.jp/Web%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E8%A8%88%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%9A%E3%83%AB%E3%82%BD%E3%83%8A%E6%89%8B%E6%B3%95%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%7E%E3%83%9A%E3%83%AB%E3%82%BD%E3%83%8A%E6%B4%BB%E7%94%A8%E3%81%AB%E3%82%88%E3%82%8B%E3%83%A6%E3%83%BC%E3%82%B6%E4%B8%AD%E5%BF%83%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E5%AE%9F%E8%B7%B5%E6%A7%8B%E7%AF%89%E3%82%AC%E3%82%A4%E3%83%89%7E-DESIGN-BOOKS-Yaar/dp/4839922349%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839922349" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tool</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>前々からペルソナに興味があったので読了。読む前はペルソナってなんか胡散臭いイメージがあったけど、考えてみればペルソナを考えることって当たり前のことだよね。</p>
+
+<p>このデザインはユーザーは好きだろうとか、このシステムはユーザーが必要としてるに違いないとかなにかしら多かれ少なかれ考えながら、みんなモノを作ってると思うんだ。ただ、その制作者の考えたユーザーは、他者と共有されていないから、デザイナーはこう、プログラマはこう、ディレクターはこう思う、ってことになって意見は平行線のままなんてことがしばしばある。最悪、重役さんや社長さんのひどく狭い見解で決まっちゃうなんてことになりかねない。</p>
+
+<p>そこで、ペルソナってゆうユーザーモデルを作り共有することで、意思決定の精度を高めようってのがペルソナを作る意義。胡散臭いなーって思っちゃうのはペルソナ作成のフローや調査なんてものを知らなかったからだね。
+<ul>
+    <li>ユーザビリティテスト</li>
+    <li>アイトラッキング</li>
+    <li>トラフィック/ログ分析</li>
+    <li>比較テスト</li>
+    <li>サーベイ</li>
+    <li>カスタマーサポートデータ分析</li>
+    <li>グループインタビュー</li>
+    <li>ダイアリー調査</li>
+    <li>ユーザーインタビュー</li>
+    <li>カードソーティング</li>
+    <li>フィールドスタディー</li>
+</ul>
+以上のように、調査の種類でもざっと挙げただけでもこれだけある。（まぁ、予算やスケジュールの都合等で全部やる必要も無いが）この集まったデータをセグメントしていかなければならないけど、ここでは統計的な学問も必要とされ、そのように膨大なデータに基づいたモデルに息を吹き込んだのがペルソナであり、十分信用に値するものだと思う。少なくとも、各制作者が日頃の体験からイメージする顧客像なんかよりは外れがないと思う。
+<blockquote>Forrester ResearchのHarley Manningは「ユーザーの膨大なデータを見るための<strong>”ユーザーフレンドリーなインターフェイス”</strong>」とペルソナを称する。</blockquote>
+と述べられているように、ペルソナ作成のフローや調査を知らない人はこの『ユーザーフレンドリーな』部分だけに目に付き、胡散臭いと思ってしまうのではないだろうか。いや～僕ペルソナ( ・∀・)ﾉって突然言われても信じられない。</p>
+
+<p>この点は社内の理解をちゃんと得ていなければ、ペルソナは作ったけども機能しないってことになりかねないから、説明はちゃんとしてね、と本書で何度も述べられている点である。いかに皆をペルソナなってゆう偶像を信じ込ませるかってことが重要。じゃないと、『どうせ、マーケティング部がなんかわからもん作ってきたんだろ(　´Α｀)』や『デザイナーが最近Ｐなんとか言ってうるさいよ(　´∀｀)』ってなことになりかねない。戦略的な意思決定にペルソナを用いるのならなおさらだ。</p>
+
+<p>そんなわけで本書を読み終えての感想。一体誰がペルソナを作るんだ？と思った。デザイナーとか職種の問題ではなく、誰が調査するための予算を取ったり、システム的なログ解析をしたり、統計学的にデータをまとめたり、各部署とはいえ、丁寧にペルソナ作成から活用までのフローが説明されている本書を読めば、なんとか形になるのではないかと淡い期待も抱いたのも事実。</p>
+
+<p>うーん、やっぱお客さんの顔も見ずに商売するのっておかしいと思うよ。ペルソナ作らなー（´・ω・｀)の人に説明しまわったりするんだと。まぁ当然一人でできないけど、新規に部署、プロジェクト立ち上げるにしても骨の折れる仕事だなと。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2008-03-November" title="November 03, 2008">November 03, 2008</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page69" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page71" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page6/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page6/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/git-push-f" rel="prefetch">git push -f</a></h2>
+            <p><blockquote>ローカルのコミットを強制的に送信する
+
+普通は行ってはいけないので注意。 実行しても問題ないのは公開していない個人用のリモートリポジトリに対してくらい。
+
+リモートのコミットがローカルのコミットの祖先でない場合は リモートへの送信が拒否される。 これを無効にするには「-f」または「--force」オプションをつける。
+<pre><code>git push -f</code></pre>
+このとき、リモートリポジトリのコミットが失われる可能性がある。</blockquote>
+
+<ul>
+    <li><a href="http://transitive.info/article/git/command/push/">transitive.info - git push 使い方</a></li>
+</ul>
+
+<p><strong>このとき、リモートリポジトリのコミットが失われる可能性がある。</strong></p>
+
+<p><strong>このとき、リモートリポジトリのコミットが失われる可能性がある。</strong></p>
+
+<p><strong>このとき、リモートリポジトリのコミットが失われる可能性がある。</strong></p>
+
+<p>もう2度としない(´; ω ;`)</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-09-March" title="March 09, 2013">March 09, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/grunt-contrib" rel="prefetch">grunt-contribさえあればOK！</a></h2>
+            <p><p>世の中、Grunt0.4が出たって持ちきりでやんス。
+<ul>
+    <li><a href="http://gruntjs.com/blog/2013-02-18-grunt-0.4.0-released">Grunt 0.4.0 released - Grunt: The JavaScript Task Runner</a></li>
+</ul>
+今までビルトインタスクだった下記はことごとくgrunt-contrib-*シリーズと呼ばれるプラグインに置き換わってしまった。
+<ul>
+    <li><strong>concat</strong> → grunt-contrib-concat plugin</li>
+    <li><strong>init</strong> → stand-alone grunt-init utility</li>
+    <li><strong>lint</strong> → grunt-contrib-jshint plugin</li>
+    <li><strong>min</strong> → grunt-contrib-uglify plugin</li>
+    <li><strong>qunit</strong> → grunt-contrib-qunit plugin</li>
+    <li><strong>server</strong> → grunt-contrib-connect plugin</li>
+    <li><strong>test</strong> → grunt-contrib-nodeunit plugin</li>
+    <li><strong>watch</strong> → grunt-contrib-watch plugin</li>
+</ul>
+<div><a href="https://github.com/gruntjs/grunt/wiki/Upgrading-from-0.3-to-0.4">Upgrading from 0.3 to 0.4 · gruntjs/grunt Wiki </a></div>
+もし諸君がconcat、lint、minといったタスクをGrunt 0.4でも使いたい場合は、このように書いてないだろうか。
+<pre><code class="javascript">module.exports = function(grunt) {</p>
+
+<p>// Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON(&#39;package.json&#39;),
+    uglify: { .... },
+    min: { .... },
+    concat: { .... },
+    lint: { .... },
+    }
+  });</p>
+
+<p>// Load the plugins
+  grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;);
+  grunt.loadNpmTasks(&#39;grunt-contrib-min&#39;);
+  grunt.loadNpmTasks(&#39;grunt-contrib-concat&#39;);
+  grunt.loadNpmTasks(&#39;grunt-contrib-lint&#39;);</p>
+
+<p>// Default task.
+  grunt.registerTask(&#39;default&#39;, [&#39;uglify&#39;]);</p>
+
+<p>};</code></pre>
+contribシリーズのタスクを利用したいのなら、全部入りの<strong><a href="https://github.com/gruntjs/grunt-contrib">grunt-contrib</a></strong>をひとつ読みこむだけで利用できる。</p>
+
+<pre><code class="javascript">  // Load the plugin
+  grunt.loadNpmTasks('grunt-contrib');</code></pre>
+
+<p>grunt-contribなかに全部入ってるんだね。</p>
+
+<p><img src="http://t32k.me/mol/file/2013/03/ss.png" alt="" title="contrib" width="614" height="451" class="size-full wp-image-4753 fig" /></p>
+
+<p>※とはいえgrunt-contribだとアップデートはひとまとめになるので、各contribの最新版を使いたいのなら個別に管理したほうがいいかも</p>
+
+<p>そんだけ。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-05-March" title="March 05, 2013">March 05, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/grunt-scandium" rel="prefetch">Titanium もくもく会 Tokyo #5でLTしました</a></h2>
+            <p><script async class="speakerdeck-embed" data-id="5e65f51048bc01306b0e22000a1e9845" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<ul>
+    <li><a href="http://atnd.org/events/34307"><strong>Titanium もくもく会 #5 2013 : ATND </strong></a></li>
+</ul>
+
+<p>表題どおり、昨日喋ってきました。Titanium Studioを使わない、普段使い慣れている環境でTitaniumを触りたかったので、僕からはSublime Text2とGruntの開発環境について少し話しました。
+<h2>Code Completion</h2>
+<ul>
+    <li><a href="http://unbounded.io/post/28394170197/titanium-mobile-develpoment-with-sublime-text-2-and"><strong>Titanium Mobile Develpoment with Sublime Text 2 and Intellij IDEA | UNBOUNDED.IO </strong></a></li>
+</ul></p>
+
+<p>ここに書いてあるとおりだと、SublimeCodeIntelインストールして、 jsca2jsから対象のバージョンのJSファイルをダウンロードしてCodeIntelにパスを指定してあげればいいって書いてあるんだけど、動いてなかった＞ｍ＜だれか教えて下さい。
+<pre><code>// your home directory( ~/.codeintel/config
+{
+ &quot;JavaScript&quot;: {
+  &quot;javascriptExtraPaths&quot;:[&quot;add<em>your</em>path<em>here&quot;]
+  }
+}</code></pre>
+<h2>Build Command</h2>
+<ul>
+    <li><strong>&lt;a href=&quot;http://docs.appcelerator.com/titanium/latest/#!/guide/Titanium</em>Command-Line<em>Interface</em>Reference &quot;&gt;Titanium Command-Line Interface Reference - Titanium 3.0 - Appcelerator Docs</a></strong></li>
+</ul></p>
+
+<pre><code>brew install node
+npm install -g titanium
+npm install -g grunt-cli
+cd /your_porject_path
+npm install grunt@0.4.0rc7
+npm install grunt-scandium</code></pre>
+
+<p>Command-Line Interface が正式にリリースされたということで、これならGruntから動かせるということで<a href=" https://github.com/t32k/grunt-scandium">grunt-scandium</a>というのプラグイン作りました。npm install grunt-scandiumでインストールできるお。単に、GruntからTitanium CLIを叩いてるだけですが、かなりの数のBuild Optionを考えると細かいBuild設定などGruntfileでできるのでその点で便利かなと思っています。
+<pre><code>// Example Settings
+scandium: {
+    ios: {
+        platform : &#39;ios&#39;,
+        project<em>dir : &#39;/path/to/your</em>project&#39;,
+        force: true,
+        build<em>only: false,
+        options: {
+            device</em>family: &#39;iphone&#39;,
+            sim<em>version: &#39;6.0&#39;
+        }
+    },
+    android: {
+        platform : &#39;android&#39;,
+        project</em>dir : &#39;/path/to/your<em>project&#39;,
+        options: {
+            android</em>sdk: &#39;/path/to/android-sdk&#39;,
+            target: &#39;emulator&#39;,
+            avd_skin: &#39;HVGA&#39;
+        }
+    }
+}</code></pre></p>
+
+<p>grunt-titaniumにしなかったのは畏れ多かったからです(・ω&lt;)</p>
+
+<p>あと、AndroidはSDKのtargetが見当たらないぜって言われるんだけど、だれか教えて下さい。
+CODESTRONG!</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-26-January" title="January 26, 2013">January 26, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/frontrend-vol4" rel="prefetch">Frontrend Vol.4 powered by CyberAgent, Inc.</a></h2>
+            <p><p><a href="http://t32k.me/mol/file/2013/01/frontrend4.jpg"><img class="aligncenter size-full wp-image-4710" title="frontrend4" src="http://t32k.me/mol/file/2013/01/frontrend4.jpg" alt="" width="900" height="200" /></a></p>
+
+<p>サイバーエージェントが主催するFrontrend Vol.4で開催されます。今回は肉の日に開催されるということもあってJavaScript中心としたナウいラインナップとなっております。よろしくお願いします。当日僕はたぶん司会です、たぶん。
+<ul>
+    <li><strong><a href="http://atnd.org/events/35720">Frontrend（フロントレンド） Vol.4　powered by CyberAgent : ATND </a></strong></li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th>イベント名</th>
+<td>Frontrend（フロントレンド） Vol.4　powered by CyberAgent</td>
+</tr>
+<tr>
+<th>日時</th>
+<td>2013年2月9日（土） 14:00 – 18:00（開場13:30）</td>
+</tr>
+<tr>
+<th>会場</th>
+<td><a href="https://www.cyberagent.co.jp/company/access/tokyo.html">サイバーエージェント本社 13F セミナールーム</a></td>
+</tr>
+<tr>
+<th>定員</th>
+<td>200名</td>
+</tr>
+<tr>
+<th>講師</th>
+<td>平木 聡
+佐藤 歩 <a href="https://twitter.com/ahomu">@ahomu</a>
+水野 隼登 <a href="https://twitter.com/pocotan001">@pocotan001</a>
+斉藤 祐也 <a href="https://twitter.com/cssradar">@cssradar</a></td>
+</tr>
+<tr>
+<th>主催</th>
+<td>株式会社サイバーエージェント</td>
+</tr>
+<tr>
+<th>参加費</th>
+<td>無料</td>
+</tr>
+<tr>
+<th>事前登録</th>
+<td>必要（ATND）</td>
+</tr>
+<tr>
+<th>ハッシュタグ</th>
+<td><a href="https://twitter.com/search/%23frontrend_ca">#frontrend<em>ca</a></td>
+</tr>
+<tr>
+<th>備考</th>
+<td>スクール形式（机あり）</td>
+</tr>
+</tbody>
+</table>
+セッション概要については当人のhavelogさんのブログで書かれています。
+<ul>
+    <li>&lt;a href=&quot;http://havelog.ayumusato.com/news/e547-frontrend</em>vol4.html&quot;&gt;イベント告知 Frontrend Vol.4 powered by CyberAgent ::ハブろぐ </a></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-08-January" title="January 08, 2013">January 08, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/new-years-resolutions-2013" rel="prefetch">2013年の抱負</a></h2>
+            <p><p>書かないよりマシということで書いとく。
+<ol>
+    <li>海外カンファレンスに参加する</li>
+    <li>アプリをリリースする</li>
+    <li>kanazawa.jsを開催する</li>
+</ol>
+<h2>海外カンファレンスに参加する</h2>
+転職して、社内に外人さんがちらほらいたり、パイセンから否応なしに英語のリソースが送りつけられたりと、以前にも増して英語の必要性を感じている毎日です。まぁ単純なミーハー心もありますが、とりあえず、行ってみてなんにもわからない／(^o^)＼ってことを経験しとく必要があるかなと思うのです。幸い、SFOに行けるくらいのマイルも貯まったので、時は来た、それだけだ！
+<ul>
+    <li><a href="http://t32k.me/mol/log/velocity2013/">Velocity 2013に参加で達成！</a></li>
+</ul>
+<h2>アプリをリリースする</h2>
+転職してからプロジェクトと講演に忙しい状況で、プライベートでなにも作ってないことに気づいた。いや気づかぬふりをしていた。そろそろちゃんとJavaScriptを勉強しなきゃいけないし、Titanium Mobile/Sencha Touchとも戯れたい欲求が高まってきたので、時は来た、それだけだ！
+<h2>kanazawa.jsを開催する</h2>
+転職・引越しにより、これまでのコミュニティリソースが使えなくなり、また1からのはじまり。いったいどこの施設使えるのよ、いったいだれが集まってくれるのよ？という漠然とした不足と不安により、kanazawa.jsを開催できずにいた。チマタじゃkanazawa.js is dead.なんて言われる始末ですが、ちゃくちゃくと事は進めている。スモールスタートということで社内/社外勉強会の開催や、社外講師の招聘、社外コミュニティの勉強会誘致などノウハウを貯めているところだ。そろそろkanazawa.js@shibuyaを開催できるんじゃないかと思えるようになってきたので、時は来た、それだけだ！</p>
+
+<p>時は来た、それだけだ！</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2013-01-January" title="January 01, 2013">January 01, 2013</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page5" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page7" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

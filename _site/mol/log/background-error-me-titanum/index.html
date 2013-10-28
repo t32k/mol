@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バックグラウンド動作と実機転送エラーと私とタイタン!!!!! &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="バックグラウンド動作と実機転送エラーと私とタイタン!!!!! ">
+    <link rel="canonical" href="http://t32k.me//mol/log/background-error-me-titanum">
+     
+           
+    <meta property="og:title" content="バックグラウンド動作と実機転送エラーと私とタイタン!!!!! "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/background-error-me-titanum"/>
+    
+    
+    <!--meta property="og:description" content="<p><img class="fig" title="install" src="http://t32k.me/mol/file/2011/03/install.jpg" alt="" width="470" height="250" /></p>
+
+<p>みなさんタイタンしてますか？わたし？わたしタイタン(・∀・)ｲｲ!!</p>
+
+<p>今日は小ネタ的な感じで徒然なるままにかきつらねてみるとかしてみるとか。</p>
+
+<!--more-->
+
+<h3>バックグラウンド動作させない</h3>
+
+<blockquote>PROJECT_HOME/build/iphone/Info.plist を PROJECT_HOME/Info.plist にコピーして以下の設定を追加する
+<pre>&lt;key&gt;UIApplicationExitsOnSuspend&lt;/key&gt;
+&lt;true/&gt;</pre>
+<a href="http://d.hatena.ne.jp/bongole/20100902/p1">Titaniumメモ - tail -f bongole.current.log</a></blockquote>
+
+<p>まぁ、そのまんまな内容でどうすればいいのか、ちょっと悩んだのでメモ。</p>
+
+<p>例えば、あるタスクというか、そのアプリでゴールとするタスクが終わったときに、たいていのアプリって終了ボタンってないよな？ってことに気づきました。そりゃ、終わったら違うアプリ立ち上げるか、ホーム画面に戻るかして「終了」ってことになるんだろうけど、Titanium Mobileでアプリ作ってたらそのまま生きているというか、バックグラウンドで作動している。</p>
+
+<p>こっちとしては、アプリを閉じたらスタート画面に戻って欲しいし、バックグラウンドで処理することもないので閉じててほしいと思ったわけです。</p>
+
+<p>例えば、Twitterアプリで考えればツイートするってことも重要なタスクだろうけど、たいてはタイムラインを読むっていうループの作業だから、他のアプリ立ち上げても前回の画面などの状態は残っていてくれたほうがいいんだろうなーって思った。</p>
+
+<p>何が言いたいかといいますと、Webサイトを作ってる身としてはこうゆうアプリケーション制作の感覚が新鮮というか今までとは違った頭の部分使ってる感じがしておもしろいなと思ったのでした。あ、もちろんWebサイトでも大まかなユーザーの回遊パターンとか考えてるよ。なんかアプリの場合はそれがもっとダイレクトな感じがするの。
+<h3>実機転送エラー</h3>
+<blockquote>ファイル名の大文字・小文字の区別は…
+・iPhone実機では、 区別する。
+・シミュレータでは、区別しない。</p>
+
+<p><a href="http://hidden.vis.ne.jp/blog/?p=459">hIDDEN bLOG » iPhoneシミュレータと実機でファイル名の扱いがちょっと変わる件</a></blockquote>
+んで、もう一個のネタは、まさしくこれが問題でした。前回で晴れてiOS Developer Programに加入し実機転送できるようになったのですが、突然、転送エラーがでるようになってて小一時間悩みました。</p>
+
+<p>で、よーくよく調べてみたら、PROJECT_HOME/build/i<strong>p</strong>honeのところが、i<strong>P</strong>honeになってました....そういえば、なんかしらよくわからないエラーになったらbuildしたファイル全削除でOK戦法してたときにあやまってi<strong>p</strong>honeディレクトリごと消したんだった。。んで、再度ディレクトリに作るときにi<strong>P</strong>honeって作成したまま、シュミレータ動かしてたのだった。</p>
+
+<p>てか、ちゃんとTitanium Developerでエラーログだしてた（iPhoneフォルダは、iphoneフォルダだった、みたいな）。ちゃんと見なくてごめんなさい。Titanium側を疑ってましたすみません。ってことで、Titaniumを使わないiPhone制作ってゆうのも、ちょいちょいやっておかないとなーと思ったのでした。（基礎的な知識ね。）</p>
+
+<p>では、みなさんれっつたいたい！</p>
+"/>
+    <meta name="description" content="<p><img class="fig" title="install" src="http://t32k.me/mol/file/2011/03/install.jpg" alt="" width="470" height="250" /></p>
+
+<p>みなさんタイタンしてますか？わたし？わたしタイタン(・∀・)ｲｲ!!</p>
+
+<p>今日は小ネタ的な感じで徒然なるままにかきつらねてみるとかしてみるとか。</p>
+
+<!--more-->
+
+<h3>バックグラウンド動作させない</h3>
+
+<blockquote>PROJECT_HOME/build/iphone/Info.plist を PROJECT_HOME/Info.plist にコピーして以下の設定を追加する
+<pre>&lt;key&gt;UIApplicationExitsOnSuspend&lt;/key&gt;
+&lt;true/&gt;</pre>
+<a href="http://d.hatena.ne.jp/bongole/20100902/p1">Titaniumメモ - tail -f bongole.current.log</a></blockquote>
+
+<p>まぁ、そのまんまな内容でどうすればいいのか、ちょっと悩んだのでメモ。</p>
+
+<p>例えば、あるタスクというか、そのアプリでゴールとするタスクが終わったときに、たいていのアプリって終了ボタンってないよな？ってことに気づきました。そりゃ、終わったら違うアプリ立ち上げるか、ホーム画面に戻るかして「終了」ってことになるんだろうけど、Titanium Mobileでアプリ作ってたらそのまま生きているというか、バックグラウンドで作動している。</p>
+
+<p>こっちとしては、アプリを閉じたらスタート画面に戻って欲しいし、バックグラウンドで処理することもないので閉じててほしいと思ったわけです。</p>
+
+<p>例えば、Twitterアプリで考えればツイートするってことも重要なタスクだろうけど、たいてはタイムラインを読むっていうループの作業だから、他のアプリ立ち上げても前回の画面などの状態は残っていてくれたほうがいいんだろうなーって思った。</p>
+
+<p>何が言いたいかといいますと、Webサイトを作ってる身としてはこうゆうアプリケーション制作の感覚が新鮮というか今までとは違った頭の部分使ってる感じがしておもしろいなと思ったのでした。あ、もちろんWebサイトでも大まかなユーザーの回遊パターンとか考えてるよ。なんかアプリの場合はそれがもっとダイレクトな感じがするの。
+<h3>実機転送エラー</h3>
+<blockquote>ファイル名の大文字・小文字の区別は…
+・iPhone実機では、 区別する。
+・シミュレータでは、区別しない。</p>
+
+<p><a href="http://hidden.vis.ne.jp/blog/?p=459">hIDDEN bLOG » iPhoneシミュレータと実機でファイル名の扱いがちょっと変わる件</a></blockquote>
+んで、もう一個のネタは、まさしくこれが問題でした。前回で晴れてiOS Developer Programに加入し実機転送できるようになったのですが、突然、転送エラーがでるようになってて小一時間悩みました。</p>
+
+<p>で、よーくよく調べてみたら、PROJECT_HOME/build/i<strong>p</strong>honeのところが、i<strong>P</strong>honeになってました....そういえば、なんかしらよくわからないエラーになったらbuildしたファイル全削除でOK戦法してたときにあやまってi<strong>p</strong>honeディレクトリごと消したんだった。。んで、再度ディレクトリに作るときにi<strong>P</strong>honeって作成したまま、シュミレータ動かしてたのだった。</p>
+
+<p>てか、ちゃんとTitanium Developerでエラーログだしてた（iPhoneフォルダは、iphoneフォルダだった、みたいな）。ちゃんと見なくてごめんなさい。Titanium側を疑ってましたすみません。ってことで、Titaniumを使わないiPhone制作ってゆうのも、ちょいちょいやっておかないとなーと思ったのでした。（基礎的な知識ね。）</p>
+
+<p>では、みなさんれっつたいたい！</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-30-March" title="March 30, 2011">March 30, 2011</time>
+            </div>
+            <h1 class="title">バックグラウンド動作と実機転送エラーと私とタイタン!!!!!</h1>
+            
+        </header>
+
+        <section>
+            <p><img class="fig" title="install" src="http://t32k.me/mol/file/2011/03/install.jpg" alt="" width="470" height="250" /></p>
+
+<p>みなさんタイタンしてますか？わたし？わたしタイタン(・∀・)ｲｲ!!</p>
+
+<p>今日は小ネタ的な感じで徒然なるままにかきつらねてみるとかしてみるとか。</p>
+
+<!--more-->
+
+<h3>バックグラウンド動作させない</h3>
+
+<blockquote>PROJECT_HOME/build/iphone/Info.plist を PROJECT_HOME/Info.plist にコピーして以下の設定を追加する
+<pre>&lt;key&gt;UIApplicationExitsOnSuspend&lt;/key&gt;
+&lt;true/&gt;</pre>
+<a href="http://d.hatena.ne.jp/bongole/20100902/p1">Titaniumメモ - tail -f bongole.current.log</a></blockquote>
+
+<p>まぁ、そのまんまな内容でどうすればいいのか、ちょっと悩んだのでメモ。</p>
+
+<p>例えば、あるタスクというか、そのアプリでゴールとするタスクが終わったときに、たいていのアプリって終了ボタンってないよな？ってことに気づきました。そりゃ、終わったら違うアプリ立ち上げるか、ホーム画面に戻るかして「終了」ってことになるんだろうけど、Titanium Mobileでアプリ作ってたらそのまま生きているというか、バックグラウンドで作動している。</p>
+
+<p>こっちとしては、アプリを閉じたらスタート画面に戻って欲しいし、バックグラウンドで処理することもないので閉じててほしいと思ったわけです。</p>
+
+<p>例えば、Twitterアプリで考えればツイートするってことも重要なタスクだろうけど、たいてはタイムラインを読むっていうループの作業だから、他のアプリ立ち上げても前回の画面などの状態は残っていてくれたほうがいいんだろうなーって思った。</p>
+
+<p>何が言いたいかといいますと、Webサイトを作ってる身としてはこうゆうアプリケーション制作の感覚が新鮮というか今までとは違った頭の部分使ってる感じがしておもしろいなと思ったのでした。あ、もちろんWebサイトでも大まかなユーザーの回遊パターンとか考えてるよ。なんかアプリの場合はそれがもっとダイレクトな感じがするの。
+<h3>実機転送エラー</h3>
+<blockquote>ファイル名の大文字・小文字の区別は…
+・iPhone実機では、 区別する。
+・シミュレータでは、区別しない。</p>
+
+<p><a href="http://hidden.vis.ne.jp/blog/?p=459">hIDDEN bLOG » iPhoneシミュレータと実機でファイル名の扱いがちょっと変わる件</a></blockquote>
+んで、もう一個のネタは、まさしくこれが問題でした。前回で晴れてiOS Developer Programに加入し実機転送できるようになったのですが、突然、転送エラーがでるようになってて小一時間悩みました。</p>
+
+<p>で、よーくよく調べてみたら、PROJECT_HOME/build/i<strong>p</strong>honeのところが、i<strong>P</strong>honeになってました....そういえば、なんかしらよくわからないエラーになったらbuildしたファイル全削除でOK戦法してたときにあやまってi<strong>p</strong>honeディレクトリごと消したんだった。。んで、再度ディレクトリに作るときにi<strong>P</strong>honeって作成したまま、シュミレータ動かしてたのだった。</p>
+
+<p>てか、ちゃんとTitanium Developerでエラーログだしてた（iPhoneフォルダは、iphoneフォルダだった、みたいな）。ちゃんと見なくてごめんなさい。Titanium側を疑ってましたすみません。ってことで、Titaniumを使わないiPhone制作ってゆうのも、ちょいちょいやっておかないとなーと思ったのでした。（基礎的な知識ね。）</p>
+
+<p>では、みなさんれっつたいたい！</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="バックグラウンド動作と実機転送エラーと私とタイタン!!!!!" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

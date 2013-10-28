@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanium Mobile でjQuery的な、それTiFighter!!!!!!! &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Titanium Mobile でjQuery的な、それTiFighter!!!!!!! ">
+    <link rel="canonical" href="http://t32k.me//mol/log/titanium-fighter-js">
+     
+           
+    <meta property="og:title" content="Titanium Mobile でjQuery的な、それTiFighter!!!!!!! "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/titanium-fighter-js"/>
+    
+    
+    <!--meta property="og:description" content="<p><a href="http://www.imdb.com/title/tt0137523/"><img class="fig" title="『ファイト・クラブ』（Fight Club）は、1999年製作のアメリカ映画。日本では1999年12月11日に20世紀フォックス配給により、日比谷映画他、全国東宝洋画系にて公開された。チャック・パラニューク（Chuck Palahniuk）の同名小説の映画化。" src="http://t32k.me/mol/file/2011/03/fc.jpg" alt="Fight Club" width="470" height="250" /></a></p>
+
+<p>みなさんタイタンしてますか、わたし？わたしタイタイ(・∀・)！</p>
+
+<p>てことで、前回はCSS的な話でしたが今回はjQuery的なお話。デザイナーであれば、jQueryの便利さに狂喜乱舞し使用したことが一度はあるのではないでしょうか？というか、JavaScriptってjQueryのことじゃないの？っていう方もいるかもしれません。
+&lt;!--more--&gt;</p>
+
+<p>当然、jQuery大好きっこであれば、Titanium Mobileでも使いたいと思うのが当然の考えでしょう。でも、Titanium MobileでjQueryをインクルードしますと、ビルドエラーが起こります。はい、documentとかDOMってモデルがないからですね。なので、使えません。</p>
+
+<p>どうしても、使いたいという方は以下のリソースを参考にされると良いかも知れません。
+<ul>
+    <li><a href="http://higelog.brassworks.jp/?p=1148">TitaniumでjQueryを使う | ひげろぐ</a></li>
+</ul>
+個人的にはjQueryを使う利点はDOM操作のしやすさとクロスブラウザ対応を考えなくてよいことの2点だと考えています。Titanium Mobileにおいて、前者はそもそもDOM自体がないですし、後者はJavaScript 1.6に対応していますのでモダンブラウザ並の環境でクロスプラットフォームに関してはTitanium側がやってくれることですし、これまた特に考える必要がありません。</p>
+
+<p>てことで、jQueryを使う意味があまりないのですが、それでもjQueryに恋に恋焦がれ恋に泣いた方であれば、せめて、jQueryライクにコードを記述できればと思われるかもしれません。</p>
+
+<p><strong>あるよ(・∀・)！jQueryあるよ(・∀・)！それTiFighterでできるよ(・∀・)！</strong>
+<h3>TiFighter</h3>
+てことで、TiFighterの説明をします。<a href="http://twitter.com/#!/itspriddle">@itspriddle</a>さんが作ったti-helper.jsを自身でさらに拡張し、Titanium Mobile上でjQueryライクで記述可能にしたのがti-fighter.jsというライブラリです。
+<ul>
+    <li><strong><a href="https://github.com/itspriddle/ti-fighter">itspriddle/ti-fighter - GitHub</a></strong></li>
+</ul>
+<a href="https://github.com/itspriddle/ti-fighter"></a>
+Githubから落としてきて任意のディレクトリに配置
+<pre><span style="color: #888888;">// TiFighterの読み込み</span>
+Ti.include(&#39;lib/ti-fighter.js&#39;);</p>
+
+<p><span style="color: #888888;">// オブジェクトの生成とTiFighterのインスタンスを生成</span>
+var my<em>window = Ti.Ui.createWindow();
+var w = TiFighter(&#39;my</em>window&#39;);</p>
+
+<p><span style="color: #888888;">//TiFighterのメソッドで操作</span>
+w.attr(&#39;title&#39;, &#39;My Window&#39;);
+w.close();</pre>
+そのほかに、以下のようなメソッドが使えます。(* elはTiFighterのインスタンス)
+<ul style="column-count: 2;-webkit-column-count: 2;-moz-column-count: 2;">
+    <li>el.bind</li>
+    <li>el.unbind</li>
+    <li>el.trigger</li>
+    <li>el.click</li>
+    <li>el.focus</li>
+    <li>el.blur</li>
+    <li>el.add</li>
+    <li>el.remove</li>
+    <li>el.hide</li>
+    <li>el.show</li>
+    <li>el.animate</li>
+    <li>el.attr</li>
+    <li>el.text</li>
+</ul>
+ユーティリティ関数も豊富
+<ul style="column-count: 2;-webkit-column-count: 2;-moz-column-count: 2;">
+    <li>TiFighter.console</li>
+    <li>TiFighter.alert</li>
+    <li>TiFighter.each</li>
+    <li>TiFighter.map</li>
+    <li>TiFighter.extend</li>
+    <li>TiFighter.config</li>
+    <li>TiFighter.development</li>
+    <li>TiFighter.production</li>
+    <li>TiFighter.iphone</li>
+    <li>TiFighter.ipad</li>
+    <li>TiFighter.android</li>
+    <li>TiFighter.strftime</li>
+    <li>TiFighter.relatizeDate</li>
+    <li>TiFighter.trim</li>
+    <li>TiFighter.isset</li>
+    <li>TiFighter.ajax</li>
+    <li>TiFighter.get</li>
+    <li>TiFighter.post</li>
+    <li>TiFighter.put</li>
+    <li>TiFighter.del</li>
+    <li>TiFighter.rater</li>
+</ul>
+拡張も可能ってことで、jQueryのプラグインみたいに書けますね。
+<pre>TiFighter.fn.title = function(title) {
+  if (title) {
+    return this.attr(&#39;title&#39;, title);
+  } else {
+    return this.attr(&#39;title&#39;);
+  }
+};
+var label = Ti.UI.createLabel({ title: &quot;Hello!&quot; });
+<span style="color: #888888;">// Hello</span>
+TiFighter(my<em>label).title() ;
+<span style="color: #888888;">// label.title is now &#39;Goodbye&#39;</span>
+TiFighter(my</em>label).title(&#39;Goodbye&#39;);</pre>
+そんなわけで、僕はjQuery全然分からないので大した説明もできていないのですが、たぶん開発スピードが上がるのでしょう。</p>
+"/>
+    <meta name="description" content="<p><a href="http://www.imdb.com/title/tt0137523/"><img class="fig" title="『ファイト・クラブ』（Fight Club）は、1999年製作のアメリカ映画。日本では1999年12月11日に20世紀フォックス配給により、日比谷映画他、全国東宝洋画系にて公開された。チャック・パラニューク（Chuck Palahniuk）の同名小説の映画化。" src="http://t32k.me/mol/file/2011/03/fc.jpg" alt="Fight Club" width="470" height="250" /></a></p>
+
+<p>みなさんタイタンしてますか、わたし？わたしタイタイ(・∀・)！</p>
+
+<p>てことで、前回はCSS的な話でしたが今回はjQuery的なお話。デザイナーであれば、jQueryの便利さに狂喜乱舞し使用したことが一度はあるのではないでしょうか？というか、JavaScriptってjQueryのことじゃないの？っていう方もいるかもしれません。
+&lt;!--more--&gt;</p>
+
+<p>当然、jQuery大好きっこであれば、Titanium Mobileでも使いたいと思うのが当然の考えでしょう。でも、Titanium MobileでjQueryをインクルードしますと、ビルドエラーが起こります。はい、documentとかDOMってモデルがないからですね。なので、使えません。</p>
+
+<p>どうしても、使いたいという方は以下のリソースを参考にされると良いかも知れません。
+<ul>
+    <li><a href="http://higelog.brassworks.jp/?p=1148">TitaniumでjQueryを使う | ひげろぐ</a></li>
+</ul>
+個人的にはjQueryを使う利点はDOM操作のしやすさとクロスブラウザ対応を考えなくてよいことの2点だと考えています。Titanium Mobileにおいて、前者はそもそもDOM自体がないですし、後者はJavaScript 1.6に対応していますのでモダンブラウザ並の環境でクロスプラットフォームに関してはTitanium側がやってくれることですし、これまた特に考える必要がありません。</p>
+
+<p>てことで、jQueryを使う意味があまりないのですが、それでもjQueryに恋に恋焦がれ恋に泣いた方であれば、せめて、jQueryライクにコードを記述できればと思われるかもしれません。</p>
+
+<p><strong>あるよ(・∀・)！jQueryあるよ(・∀・)！それTiFighterでできるよ(・∀・)！</strong>
+<h3>TiFighter</h3>
+てことで、TiFighterの説明をします。<a href="http://twitter.com/#!/itspriddle">@itspriddle</a>さんが作ったti-helper.jsを自身でさらに拡張し、Titanium Mobile上でjQueryライクで記述可能にしたのがti-fighter.jsというライブラリです。
+<ul>
+    <li><strong><a href="https://github.com/itspriddle/ti-fighter">itspriddle/ti-fighter - GitHub</a></strong></li>
+</ul>
+<a href="https://github.com/itspriddle/ti-fighter"></a>
+Githubから落としてきて任意のディレクトリに配置
+<pre><span style="color: #888888;">// TiFighterの読み込み</span>
+Ti.include(&#39;lib/ti-fighter.js&#39;);</p>
+
+<p><span style="color: #888888;">// オブジェクトの生成とTiFighterのインスタンスを生成</span>
+var my<em>window = Ti.Ui.createWindow();
+var w = TiFighter(&#39;my</em>window&#39;);</p>
+
+<p><span style="color: #888888;">//TiFighterのメソッドで操作</span>
+w.attr(&#39;title&#39;, &#39;My Window&#39;);
+w.close();</pre>
+そのほかに、以下のようなメソッドが使えます。(* elはTiFighterのインスタンス)
+<ul style="column-count: 2;-webkit-column-count: 2;-moz-column-count: 2;">
+    <li>el.bind</li>
+    <li>el.unbind</li>
+    <li>el.trigger</li>
+    <li>el.click</li>
+    <li>el.focus</li>
+    <li>el.blur</li>
+    <li>el.add</li>
+    <li>el.remove</li>
+    <li>el.hide</li>
+    <li>el.show</li>
+    <li>el.animate</li>
+    <li>el.attr</li>
+    <li>el.text</li>
+</ul>
+ユーティリティ関数も豊富
+<ul style="column-count: 2;-webkit-column-count: 2;-moz-column-count: 2;">
+    <li>TiFighter.console</li>
+    <li>TiFighter.alert</li>
+    <li>TiFighter.each</li>
+    <li>TiFighter.map</li>
+    <li>TiFighter.extend</li>
+    <li>TiFighter.config</li>
+    <li>TiFighter.development</li>
+    <li>TiFighter.production</li>
+    <li>TiFighter.iphone</li>
+    <li>TiFighter.ipad</li>
+    <li>TiFighter.android</li>
+    <li>TiFighter.strftime</li>
+    <li>TiFighter.relatizeDate</li>
+    <li>TiFighter.trim</li>
+    <li>TiFighter.isset</li>
+    <li>TiFighter.ajax</li>
+    <li>TiFighter.get</li>
+    <li>TiFighter.post</li>
+    <li>TiFighter.put</li>
+    <li>TiFighter.del</li>
+    <li>TiFighter.rater</li>
+</ul>
+拡張も可能ってことで、jQueryのプラグインみたいに書けますね。
+<pre>TiFighter.fn.title = function(title) {
+  if (title) {
+    return this.attr(&#39;title&#39;, title);
+  } else {
+    return this.attr(&#39;title&#39;);
+  }
+};
+var label = Ti.UI.createLabel({ title: &quot;Hello!&quot; });
+<span style="color: #888888;">// Hello</span>
+TiFighter(my<em>label).title() ;
+<span style="color: #888888;">// label.title is now &#39;Goodbye&#39;</span>
+TiFighter(my</em>label).title(&#39;Goodbye&#39;);</pre>
+そんなわけで、僕はjQuery全然分からないので大した説明もできていないのですが、たぶん開発スピードが上がるのでしょう。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-01-April" title="April 01, 2011">April 01, 2011</time>
+            </div>
+            <h1 class="title">Titanium Mobile でjQuery的な、それTiFighter!!!!!!!</h1>
+            
+        </header>
+
+        <section>
+            <p><a href="http://www.imdb.com/title/tt0137523/"><img class="fig" title="『ファイト・クラブ』（Fight Club）は、1999年製作のアメリカ映画。日本では1999年12月11日に20世紀フォックス配給により、日比谷映画他、全国東宝洋画系にて公開された。チャック・パラニューク（Chuck Palahniuk）の同名小説の映画化。" src="http://t32k.me/mol/file/2011/03/fc.jpg" alt="Fight Club" width="470" height="250" /></a></p>
+
+<p>みなさんタイタンしてますか、わたし？わたしタイタイ(・∀・)！</p>
+
+<p>てことで、前回はCSS的な話でしたが今回はjQuery的なお話。デザイナーであれば、jQueryの便利さに狂喜乱舞し使用したことが一度はあるのではないでしょうか？というか、JavaScriptってjQueryのことじゃないの？っていう方もいるかもしれません。
+&lt;!--more--&gt;</p>
+
+<p>当然、jQuery大好きっこであれば、Titanium Mobileでも使いたいと思うのが当然の考えでしょう。でも、Titanium MobileでjQueryをインクルードしますと、ビルドエラーが起こります。はい、documentとかDOMってモデルがないからですね。なので、使えません。</p>
+
+<p>どうしても、使いたいという方は以下のリソースを参考にされると良いかも知れません。
+<ul>
+    <li><a href="http://higelog.brassworks.jp/?p=1148">TitaniumでjQueryを使う | ひげろぐ</a></li>
+</ul>
+個人的にはjQueryを使う利点はDOM操作のしやすさとクロスブラウザ対応を考えなくてよいことの2点だと考えています。Titanium Mobileにおいて、前者はそもそもDOM自体がないですし、後者はJavaScript 1.6に対応していますのでモダンブラウザ並の環境でクロスプラットフォームに関してはTitanium側がやってくれることですし、これまた特に考える必要がありません。</p>
+
+<p>てことで、jQueryを使う意味があまりないのですが、それでもjQueryに恋に恋焦がれ恋に泣いた方であれば、せめて、jQueryライクにコードを記述できればと思われるかもしれません。</p>
+
+<p><strong>あるよ(・∀・)！jQueryあるよ(・∀・)！それTiFighterでできるよ(・∀・)！</strong>
+<h3>TiFighter</h3>
+てことで、TiFighterの説明をします。<a href="http://twitter.com/#!/itspriddle">@itspriddle</a>さんが作ったti-helper.jsを自身でさらに拡張し、Titanium Mobile上でjQueryライクで記述可能にしたのがti-fighter.jsというライブラリです。
+<ul>
+    <li><strong><a href="https://github.com/itspriddle/ti-fighter">itspriddle/ti-fighter - GitHub</a></strong></li>
+</ul>
+<a href="https://github.com/itspriddle/ti-fighter"></a>
+Githubから落としてきて任意のディレクトリに配置
+<pre><span style="color: #888888;">// TiFighterの読み込み</span>
+Ti.include(&#39;lib/ti-fighter.js&#39;);</p>
+
+<p><span style="color: #888888;">// オブジェクトの生成とTiFighterのインスタンスを生成</span>
+var my<em>window = Ti.Ui.createWindow();
+var w = TiFighter(&#39;my</em>window&#39;);</p>
+
+<p><span style="color: #888888;">//TiFighterのメソッドで操作</span>
+w.attr(&#39;title&#39;, &#39;My Window&#39;);
+w.close();</pre>
+そのほかに、以下のようなメソッドが使えます。(* elはTiFighterのインスタンス)
+<ul style="column-count: 2;-webkit-column-count: 2;-moz-column-count: 2;">
+    <li>el.bind</li>
+    <li>el.unbind</li>
+    <li>el.trigger</li>
+    <li>el.click</li>
+    <li>el.focus</li>
+    <li>el.blur</li>
+    <li>el.add</li>
+    <li>el.remove</li>
+    <li>el.hide</li>
+    <li>el.show</li>
+    <li>el.animate</li>
+    <li>el.attr</li>
+    <li>el.text</li>
+</ul>
+ユーティリティ関数も豊富
+<ul style="column-count: 2;-webkit-column-count: 2;-moz-column-count: 2;">
+    <li>TiFighter.console</li>
+    <li>TiFighter.alert</li>
+    <li>TiFighter.each</li>
+    <li>TiFighter.map</li>
+    <li>TiFighter.extend</li>
+    <li>TiFighter.config</li>
+    <li>TiFighter.development</li>
+    <li>TiFighter.production</li>
+    <li>TiFighter.iphone</li>
+    <li>TiFighter.ipad</li>
+    <li>TiFighter.android</li>
+    <li>TiFighter.strftime</li>
+    <li>TiFighter.relatizeDate</li>
+    <li>TiFighter.trim</li>
+    <li>TiFighter.isset</li>
+    <li>TiFighter.ajax</li>
+    <li>TiFighter.get</li>
+    <li>TiFighter.post</li>
+    <li>TiFighter.put</li>
+    <li>TiFighter.del</li>
+    <li>TiFighter.rater</li>
+</ul>
+拡張も可能ってことで、jQueryのプラグインみたいに書けますね。
+<pre>TiFighter.fn.title = function(title) {
+  if (title) {
+    return this.attr(&#39;title&#39;, title);
+  } else {
+    return this.attr(&#39;title&#39;);
+  }
+};
+var label = Ti.UI.createLabel({ title: &quot;Hello!&quot; });
+<span style="color: #888888;">// Hello</span>
+TiFighter(my<em>label).title() ;
+<span style="color: #888888;">// label.title is now &#39;Goodbye&#39;</span>
+TiFighter(my</em>label).title(&#39;Goodbye&#39;);</pre>
+そんなわけで、僕はjQuery全然分からないので大した説明もできていないのですが、たぶん開発スピードが上がるのでしょう。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Titanium Mobile でjQuery的な、それTiFighter!!!!!!!" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

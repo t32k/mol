@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page20/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page20/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/coda-completion-for-jquery-mobile" rel="prefetch">Coda.appでjQuery Mobileをコード補完</a></h2>
+            <p><p><img class="alignnone size-full wp-image-3240" title="Coda.app" src="http://t32k.me/mol/file/2011/05/cj.png" alt="" width="470" height="120" /></p>
+
+<p>どもー全国数十万のCoda.appユーザーの皆さん、t32kでございます。</p>
+
+<p>MacBook AirにCSをインスコするのはちょっと気が引けたので円高もあって<strong><a href="http://www.panic.com/coda/">Coda.app</a></strong>を最近買いました。なんかいろいろ綺麗でたちまち好きになりました。どうせならこれでjQuery Mobileゴリゴリ書きたいなと思うようになりやんした。</p>
+
+<!--more-->
+
+<p><strong><a href="http://jquerymobile.com/">jQuery Mobile</a></strong>と言いますと、最近ではアルファ版（2011/6/1現在）でもあるにも関わらずDw CS 5.5で標準装備されるなど飛ぶ鳥落とす勢いでやんす。だからってCS5.5買いたくナイヨ！</p>
+
+<p>ってことで、Coda.appでコード補完色々いじくってみましたってのが今回のエントリの主旨。</p>
+
+<p>Coda.appでコード補完を司っているのが、<strong>CodaCompletion.plist</strong>です。これをいじって作成しました。ファイルの在り処は以下です。Coda.appを右クリックして「パッケージの内容を表示」を選択するとディレクトリを潜れます。</p>
+
+<p>[HTML]
+Coda.app/Contents/Resources/Modes/HTML.mode/Contents/Resources/CodaCompletion.plist
+[/HTML]</p>
+
+<p>CodaCompletion.plistをDLしたものに置き換えてあげるだけです。安全のために元のファイルはどっかにバックアップしておいたほうが良いですよ。
+<ul>
+    <li><a href="http://d.hatena.ne.jp/pikotea/20101019/1287484040">jQuery Mobile リファレンス的なもの - へっぽこプログラマーの日記</a></li>
+</ul>
+このページ見て作りました。
+<h2>Usage</h2>
+<iframe frameborder="0" height="264" src="http://player.vimeo.com/video/24462566?title=0&amp;byline=0&amp;portrait=0" width="470"></iframe></p>
+
+<p>上記、動画を見てもらえるとだいたい分かると思います。dataなんちゃらと属性を打つといろ色出てきます。
+(data-まで打つと途切れます。誰か回避方法教えてください＞＜)</p>
+
+<p>個人的にはdata-iconが覚えるのには値が多すぎるので便利かなと思ってますｗ</p>
+
+<p>コード補完ついでにクリップ（スニペット）的なものもちょっとだけ用意しました。<strong>jQuery Mobile.clips</strong>をダブルクリックすればインスコできます。
+<ul>
+    <li><strong>jqm + TAB</strong> でテンプレート挿入</li>
+    <li><strong>page + TAB</strong> でdata-role=&quot;page&quot;のコードを挿入</li>
+    <li><strong>lang + TAB</strong> でローカリゼーションのコード挿入</li>
+</ul>
+<h2>Download</h2>
+<a onclick="_gaq.push(['_trackEvent', 'DL', 'coda_jqm'])" href="https://github.com/t32k/Coda-Completion-for-jQuery-Mobile"><img class="alignnone size-full wp-image-3242" title="Download!" src="http://t32k.me/mol/file/2011/05/zip.png" alt="" width="128" height="128" /></a>
+(Coda Completion for jQuery Mobile - GitHub)</p>
+
+<p>問題がありましたらご指摘下さい。
+（時間あればアップデートしていきます...）
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 45px; top: 1090px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=la&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 226px; top: 1103px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=v1.1&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-01-June" title="June 01, 2011">June 01, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/mobitest-blaze" rel="prefetch">Mobitestでモバイルパフォーマンス計測!</a></h2>
+            <p><p><a href="http://www.blaze.io/mobile/"><img title="MOBITEST" src="http://t32k.me/mol/file/2011/05/mobitest.png" alt="" width="470" height="250" /></a></p>
+
+<p>今日はモバイルのパフォーマンス計測について書きたいと思います。パフォーマンスといえばPCなら分かってるつもりなのですが、ことモバイルになってくるとあんまり分かっておりません。「HTTPリクエストを減らす」って原則は変わらないのですが、PCとはいろいろ勝手が違うぜって話です。</p>
+
+<p>パフォーマンス対策に当たってまず始めることは、それをビジュアライズすることです。パフォーマンスというのは目には見えないものですから、なにか対策しても「なんか速くなった…じゃね？」じゃ、どうしようもないです。</p>
+
+<!--more-->
+
+<p>そこでPCサイトであれば、Firefox:Firebugのネットタブ、Chrome:開発者ツールのNetWorkなどのツールを使い、ウォーターフォールチャートというものが確認します。このチャートではページのコンポーネント（部品）の読み込まれ方が確認でき、どこがボトルネックなのかといったことが発見することができます。なんてクールなんざんしょ♪
+<h2>Mobitest</h2>
+はい、しかしiPhoneやAndroidのブラウザではこんな開発者ツール使うことできませんね。どしたらえーねん？ってゆーことで今回紹介する<a href="http://www.blaze.io/mobile/"><strong>Mobitest</strong></a>です。Mobitestは<a href="http://www.blaze.io/">Blaze</a>という会社のモバイルデバイス用のパフォーマンス計測ツールです。
+<ul>
+    <li><a href="http://www.blaze.io/mobile/">Mobitest – Mobile Web Performance Tool | Blaze.io </a></li>
+</ul>
+現在はベータ版ということですが、カナダのオタワからhigh-speed Wi-Fi connectionで、下記デバイスで計測ができます。
+<ul>
+    <li>iPhone 4.3 (iPhone 4)</li>
+    <li>Android 2.3 (Nexus S)</li>
+    <li>Android 2.2 (Samsung Galaxy S)</li>
+</ul>
+ということで、Android 2.3で<a href="http://kanazawajs.tumblr.com/v1-0/">kanazawa.js v1.0</a>のページを計測したこんな感じになりました。</p>
+
+<p><a href="http://www.blaze.io/mobile/result/?testid=110519_TW_JA&amp;vidid=110519_bd4c6d38a168cf5599410026d937f7df762a7eb4"><img class="alignnone size-full wp-image-3219" title="Performance Result" src="http://t32k.me/mol/file/2011/05/result1.png" alt="" width="470" height="250" /></a></p>
+
+<p>読み込み時間、読み込みサイズ。そしてこのページはこれまで計測されたページの50%より速いぜって言ってます。もちろん、ウォーターフォールチャートも確認できます。</p>
+
+<p><img class="alignnone size-full wp-image-3220" title="Waterfall Chart" src="http://t32k.me/mol/file/2011/05/chart.png" alt="" width="470" height="250" /></p>
+
+<p>各チャートの細かな段階（DNS LookupやWaitngなど）見たければ、<strong>View HAR file </strong>のリンクをクリックしましょう。</p>
+
+<p><img class="alignnone size-full wp-image-3221" title="HAR File" src="http://t32k.me/mol/file/2011/05/har.png" alt="" width="470" height="278" /></p>
+
+<p><a href="http://www.softwareishard.com/blog/har-viewer/">HAR viewer</a>で確認できます。
+<h2>WebPagetest</h2>
+はい、では同じページをPCで計測したらどうなるかというと今度は<a href="http://www.webpagetest.org/">WebPagetest</a>を使用します。MobitestもベースはWebPagetestで動いてます。条件をできるだけ同じようにするために、New York, NY - Chrome - DSLで計測した結果が以下です。</p>
+
+<p><a href="http://www.webpagetest.org/result/110519_GA_MXB3/1/details/"><img class="alignnone size-full wp-image-3224" title="WebPagetest" src="http://t32k.me/mol/file/2011/05/webpagetest.png" alt="" width="470" height="261" /></a></p>
+
+<p>先程のMobitestと比べてどうでしょうか？はい、なんか違うような気がします。
+<h2>Browserscope</h2>
+<img class="alignnone size-full wp-image-3225" title="browserscope" src="http://t32k.me/mol/file/2011/05/browserscope.png" alt="" width="470" height="252" />
+<ul>
+    <li><a href="http://www.browserscope.org/">Browserscope </a></li>
+</ul>
+ここでは各コンポーネントの読み込み時間は気にしていません。それよりもコンポーネントの読み込まれ方について比較しててみましょう。Browserscopeで調べてみると、どうやらMax Connectionsが違うらしいです。AndroidのBrowserはChromeのようでChromeではないということで、上記図よりAndroid2.3(2.2も)最大接続数が4つなっています。a.example.com, b.example.comとドメインが違っても同時に接続できるのが4つということです。つまり、Android2.x系は並列ダウンロードの恩恵があまり受けれない悲しいブラウザとなっていますね。代わって、Chromeは35と一杯接続可能です。同時に接続できる数が多ければそれだけ接続する待ち時間が少なくてよいので、読み込み完了が早くなるということですね。
+<h2>HTTP Archive mobile</h2>
+今回は、各ウォーターフォールチャートの違いからPC(Chrome)とモバイル(Android)のブラウザでは最大接続数が違うってことが分かりました。しかし、これだけでPCとモバイルブラウザの違いは説明できるとは思っていません。まだまだ知らなければいけないことがたくさんありそうです。</p>
+
+<p>ということで、モバイルサイトではどのようなリソースが使われているかなどの統計データが<strong><a href="http://mobile.httparchive.org/interesting.php">HTTP Archive mobile</a></strong>というところで確認できます。このデータはiPhone4.3で計測したMobitestのデータを収集したものになってますので、みなさんもじゃんじゃん計測してみてはどうでしょうか。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-20-May" title="May 20, 2011">May 20, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/confessions-of-a-public-speaker" rel="prefetch">パブリックスピーカーの告白―効果的な講演、プレゼンテーション、講義への心構えと話し方</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/487311473X/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/51OmfZs4PbL._SL160_.jpg" border="0" alt="パブリックスピーカーの告白　―効果的な講演、プレゼンテーション、講義への心構えと話し方" width="113" height="160" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%96%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%AE%E5%91%8A%E7%99%BD-%E2%80%95%E5%8A%B9%E6%9E%9C%E7%9A%84%E3%81%AA%E8%AC%9B%E6%BC%94%E3%80%81%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%80%81%E8%AC%9B%E7%BE%A9%E3%81%B8%E3%81%AE%E5%BF%83%E6%A7%8B%E3%81%88%E3%81%A8%E8%A9%B1%E3%81%97%E6%96%B9-Scott-Berkun/dp/487311473X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311473X" target="_blank">パブリックスピーカーの告白
+―効果的な講演、プレゼンテーション、講義への心構えと話し方</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
+Scott Berkun 酒匂 寛 </span>&nbsp;
+
+<span>オライリージャパン  2010-10-27</span>
+
+<span><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%96%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%AE%E5%91%8A%E7%99%BD-%E2%80%95%E5%8A%B9%E6%9E%9C%E7%9A%84%E3%81%AA%E8%AC%9B%E6%BC%94%E3%80%81%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%80%81%E8%AC%9B%E7%BE%A9%E3%81%B8%E3%81%AE%E5%BF%83%E6%A7%8B%E3%81%88%E3%81%A8%E8%A9%B1%E3%81%97%E6%96%B9-Scott-Berkun/dp/487311473X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311473X" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>プレゼンテーションがうまくなりたいのなら、<a href="http://t32k.me/mol/log/zen-design/">プレゼンテーションzenデザイン</a>を読んで、<a href="http://t32k.me/mol/log/prezentation-zen/">プレゼンテーションzen</a>を読めば、たぶんすべて事足りると思う。本書にもプレゼンにあたってのTipsは含まれているが、大半はプレゼンの周辺やバックグラウンドに関しての話に重きが置かれているので、少なくともプレゼンがうまくなりたいと思う人が最初に取るべき本ではないと思う。</p>
+
+<!--more-->
+
+<p>また、外国の方特有の分かりにくい喩え話や言い回しがほんと多くて理解しづらいし、体系的に書かれているわけではなく、トッピクスに合わせて何本かのエッセイがまとまっている感じなので必要なとこだけ読めばいいと思う。</p>
+
+<p>と、なんか批判ばかりであれだけど個人的には結構満足している。というのも、ありがたいことに最近は講演する機会が多くなっていろいろ話しているわけですが、聴講者の方は満足してもらったのだろうかってことがいつも気になっていて、不安だったりする。というかそもそもこの講演というスタイル自体、教えるという意味で適しているのかとか。</p>
+
+<p>そこらへんのモヤモヤは著者もパブリックスピーカー（講演家）と名乗るだけあってひと通り体験し持論を展開していて興味深い。例えば、アンケートの話。アンケートは普通5段階評価なわけだけど、たいていは皆、講演者の実際の評価に問わず5を付けたりする。それは聴講者が礼儀正しく振る舞おうとする結果らしい。確かに、せっかく時間をかけて用意してくれて一生懸命話してくれていたのなら、内容が乏しくても1なんて評価はつけたりしない。かと思えば、僕は滅多なことでは5は付けない人だったり、いつも1や2を付ける人が3と評価した場合、それは彼にとっては高い評価だったのかもしれない。と点数評価は必ずしも実際の評価を表していない。そこで著者は自由記入を増やすか質問形式にするなどの対応策も考えている。</p>
+
+<p>とまぁそんなかんじで、講演周りのこと知りたい方は読んでみるとよいかもしれません。</p>
+
+<p>で、著者の方は読んだ後に知ったのだけど、<a href="http://www.amazon.co.jp/gp/product/4873112990/ref=as_li_ss_tl?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=4873112990">アート・オブ・プロジェクトマネジメント</a> の著者でもある人なんですね。
+<blockquote><strong>Who is Scott Berkun?</strong>
+A best-selling author and kick-ass speaker. He writes books and essays, lectures @ Fortune 500 companies &amp; top universities on creativity, management and a fun mix of everything else.
+<ul>
+    <li><a href="http://www.scottberkun.com/">Scott Berkun</a></li>
+</ul>
+</blockquote></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-17-May" title="May 17, 2011">May 17, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/upgrade-japan" rel="prefetch">UPGRADE JAPAN!! #ugj201106</a></h2>
+            <p><p><a href="http://www.fisc.jp/ugj/"><img class="alignnone size-full wp-image-3196" title="UPGRADE JAPAN!! 2011.06" src="http://t32k.me/mol/file/2011/05/UPGRADE-JAPAN-2011.06.gif" alt="" width="244" height="204" /></a></p>
+
+<p>2011年6月4日（土）<a href="http://www.fisc.jp/ugj/">UPGRADE JAPAN!!</a>で喋ります。
+モバイルの世界っておもしろいぜってこと話します。
+みなさんぜひぜひキテミテミテネ。</p>
+
+<!--more-->
+
+<table id="event">
+<tbody>
+<tr>
+<th>イベント名</th>
+<td>UPGRADE JAPAN!!（アップグレードジャパン・略称：UGJ）</td>
+</tr>
+<tr>
+<th>日時</th>
+<td>2011年6月4日（土）12:50～17:30（受付開始12:20）
+セミナー／12:50～16:30、交流会／16:40～17:30
+※時間については、出演者数などにより変更する可能性がございます。</td>
+</tr>
+<tr>
+<th>会場</th>
+<td>福井県産業情報センター(坂井市丸岡町熊堂3-7-1-16)
+<a href="http://www.fisc.jp/aboutus/access.html" target="_blank">→交通アクセス</a></td>
+</tr>
+<tr>
+<th>定員</th>
+<td>150名</td>
+</tr>
+<tr>
+<th>参加費</th>
+<td>無料（交流会含む）</td>
+</tr>
+<tr>
+<th>主催</th>
+<td>（公財）ふくい産業支援センター</td>
+</tr>
+<tr>
+<th>協力</th>
+<td>
+<ul>
+    <li>WCAF（ウェブクリエイターズアソシエーションふくい／福井）</li>
+    <li>FITEA（福井情報技術者協会／福井）</li>
+    <li>kanazawa.js（石川）</li>
+    <li>WDF（Web Directors Forum／石川）</li>
+    <li>北陸エンジニアグループ</li>
+</ul>
+<a href="http://www.fisc.jp/ugj/#power-area">→その他の協力団体・企業さま</a></td>
+</tr>
+<tr>
+<th>出演</th>
+<td>石本 光司、いちがみ トモロヲ、伊藤 祥、井上 誠、中西 孝之、中村 文信、東 大樹、山越 崇裕 他</td>
+</tr>
+<tr>
+<th>公式アカウント</th>
+<td>twitter: <a href="http://twitter.com/#!/upgradejapan" target="_blank">@upgradejapan</a>
+facebook: <a href="http://www.facebook.com/upgradejapan" target="_blank">http://www.facebook.com/upgradejapan</a></td>
+</tr>
+<tr>
+<th>ハッシュタグ</th>
+<td><a href="http://twitter.com/#!/search?q=%23ugj201106" target="_blank">#ugj201106</a></td>
+</tr>
+<tr>
+<th>お問い合わせ</th>
+<td>（公財）ふくい産業支援センター
+担当：さとう　<a href="http://www.fisc.jp/contact/index.html?from=ugf&amp;to=ugf" target="_blank">→ウェブからのお問い合わせ</a>
+twitter: <a href="http://twitter.com/#!/upgradefukui" target="_blank">@upgradefukui</a>
+facebook: <a href="http://www.facebook.com/satoru.satoh" target="_blank">http://www.facebook.com/satoru.satoh</a></td>
+</tr>
+<tr>
+<th>その他</th>
+<td>当日お預かりする義援金につきましては、福井県を通じ全額を被災地支援のために寄付させていただきます。</td>
+</tr>
+</tbody>
+</table>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-16-May" title="May 16, 2011">May 16, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/ios-provisioning" rel="prefetch">Titanium MobileのKitchenSinkを実機(iPhone)にインストール</a></h2>
+            <p><p>KitchenSinkどうこうではなく、ほぼProvisioningに関するお話ですがお付き合いくださいませ。</p>
+
+<p>あ、ちなみに私の環境はXcode 4 + Titanium Developer 1.2.2 + Titanium SDK 1.6.2です。</p>
+
+<p><img class="fig" title="iOS Provisioning Portal - Apple Developer" src="http://t32k.me/mol/file/2011/05/ios.png" alt="iOS Provisioning Portal" width="470" height="240" /></p>
+
+<p>iPhoneアプリ公開で一番手をこまねいた作業といえばプログラミングでもなくデザインでもなく、プロビジョニングです。アプリを実機にインストールするのにもプロビジョニングファイルの作成が必須です。
+<ul>
+    <li><strong><a href="https://developer.apple.com/ios/manage/overview/index.action"> iOS Provisioning Portal - Apple Developer </a></strong></li>
+</ul>
+上記サイトから行うのですが、いやはや全く意味不明です。自分が何のために今どのような作業をしているのか分からず、Web上の記事を参考にとりあえず前に進んだという状況だったので、それじゃいかんじゃろということで自分なりにまとめて理解してみる。</p>
+
+<!--more-->
+
+<p>まずは、ぷろびじょにんぐってなんやねん？ってとこから、Wikipediaさんには以下のように書いてある。
+<blockquote>プロビジョニング（英: Provisioning）は、本来は「準備、提供」などの意味であり、現在では通常、音声通信やコンピュータなどの分野における、ユーザーや顧客へのサービス提供の仕組みを指す。</blockquote>
+はい、意味がわかりません。もうちょっと読み進めるとそれっぽいことが書いてありました。
+<blockquote>ユーザ・プロビジョニングとは、1つまたは複数のシステムやディレクトリやアプリケーションにおいて、ユーザアカウントの生成・保守・削除などを行うこと</blockquote>
+ははーん、つまり、iOS Provisioning Portalってとこはユーザーのアカウントとアプリの設定を管理するとこなのね、OK、余裕。</p>
+
+<p>てことで、iOS Provisioning Portalはだいたい以下の4つのメニューから構成されています。
+<ol>
+    <li><a href="#certificates"><strong>Certificates（証明書の取得）</strong></a></li>
+    <li><strong><a href="#devices">Devices（デバイスの登録）</a></strong></li>
+    <li><strong><a href="#appids">App IDs（App IDの登録）</a></strong></li>
+    <li><strong><a href="#provisioning">Provisioning（プロビジョニングファイルの作成）</a></strong></li>
+</ol>
+では、Titanium Mobile でKitchenSinkのアプリを実機に転送するまでをやってみましょう。
+<h2 id="certificates">Certificates</h2>
+まずは証明書の取得。証明書は開発用とアプリ公開用の2種類があります。
+<ul>
+    <li>Development Certificates（開発用）</li>
+    <li>Distribution Certificate（アプリ公開用）</li>
+</ul>
+DevelopmentもDistributionも基本同じ手順なので安心してください。今回はDevelopment用の証明書を作成します。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/keychain01.png"><img class="fig" title="キーチェーンアクセス" src="http://t32k.me/mol/file/2011/05/keychain01.png" alt="" width="470" height="281" /></a>
+<ol>
+    <li>キーチェーンアクセス.appを立ち上げる</li>
+    <li>証明書アシスタント &gt; <strong>認証局に証明証を要求...</strong>をクリック</li>
+    <li>ユーザーのメールアドレス：<strong>Apple Developer Centerで登録したアドレス</strong>
+通称：<strong>Apple Developer Centerで登録した名前</strong>
+CAのメールアドレス：<strong>無記入</strong>
+要求の処理：<strong>ディスクに保存</strong>、鍵<strong>ペア情報を指</strong>定にチェック</li>
+    <li>ファイルを適当な保存場所に指定</li>
+    <li>鍵のサイズ：<strong>2048ビット</strong>
+アルゴリズム：<strong>RSA </strong></li>
+    <li>できたCertificateSigningRequest.certSigningRequestを<a href="https://developer.apple.com/ios/manage/certificates/team/index.action  ">Certificates - iOS Provisioning Portal</a>にSubmit</li>
+    <li>送信すると状態がpendingになるのでリロードして証明書をダウンロード</li>
+    <li>
+<blockquote>*If you do not have the WWDR intermediate certificate installed, <span style="text-decoration: underline;">click here to download now</span></blockquote>
+って小さく書かれているリンクからAppleのデベロッパー証明書もついでにダウンロード</li>
+</ol>
+で、以下の2ファイルが取得できてダブルクリックすると晴れて証明書がインストールされます。
+<ul>
+    <li>AppleWWDRCA.cer （Apple World Wide Developer Relations Certification Authority）</li>
+    <li>developer<em>identity.cer （iPhone Developer: USER</em>NAME）</li>
+</ul>
+タブが違うだけでDistributionも同じ手順でOKだよ(・∀・)ｽﾝｽﾝｽｰﾝ♪
+<h3>複数のMacで開発を行いたい場合</h3>
+はい、ちょっと話はそれます。私はMac miniとMacBook Airを持ってまして両方の機器で作業したいわけです。そんなときは片方の機器で作成した証明書（developer_identity.cer）をクリックしても鍵が合わないのでうまく認識してくれません。そこで個人情報交換（Personal Information Exchange）フォーマットで書き出す必要がでてきます。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/keychain02.png"><img class="fig" title="キーチェーンアクセス.app" src="http://t32k.me/mol/file/2011/05/keychain02.png" alt="キーチェーンアクセス.app" width="470" height="182" /></a></p>
+
+<p>キーチェーンアクセス.appを立ち上げで、iPhone Developer: USER_NAMEの証明書を選択、右クリックして、<strong><em>証明書</em>を書き出す</strong>を選択する。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/keychain03.png"><img class="fig" title="個人情報交換(.p12)" src="http://t32k.me/mol/file/2011/05/keychain03.png" alt="個人情報交換(.p12)" width="470" height="180" /></a></p>
+
+<p>個人情報交換(.p12)を選択して保存。そして開発したいMacに持って行きダブルクリックしてインストール完了です。これで、複数台でのアプリケーション開発が可能となりました。</p>
+
+<p>詳しくは下記参照。
+<ul>
+    <li><a href="http://d.hatena.ne.jp/paella/20090218/1234948743">1アカウントのみで出来る、iPhoneアプリの開発を複数台のMacで行う方法 - Ni chicha, ni limona</a></li>
+</ul>
+<h2 id="devices">Devices</h2>
+次はテストしたいデバイスの登録です。これは簡単です。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/organizer.png"><img class="fig" title="Organizer" src="http://t32k.me/mol/file/2011/05/organizer.png" alt="" width="470" /></a></p>
+
+<p>iPhoneをMacに繋げて、XcodeのOrganizerを立ち上げて、<strong>Identifier</strong>の部分をメモっておきましょう。
+<ul>
+    <li><a href="http://developer.apple.com/ios/manage/devices/index.action">Devices - iOS Provisioning Portal - Apple Developer </a></li>
+</ul>
+上記ページからAdd Devicesをクリックして、<strong>Device Name</strong>にあなたの持ってるiPhone/iPod/iPadなど区別できる名前をつけて、<strong>Device ID (40 hex characters)</strong>に先ほどメモっておいた<strong>Identifier</strong>をコピペしSubmitボタンを押せばデバイスの登録完了です。ちなみに登録できるデバイスは100個までです。
+<h2 id="appids">App IDs</h2>
+はい、ここ重要です！テストに出ます！！ってことで、なんでこのパートが重要かと言いますと、これまでの証明書もデバイスも間違えて登録してしまったら削除してやり直せばいいんですけど、このApp IDはそれができません。つまり、あなたが出来心で作ったunkoといった名前のApp IDはずっと残ります。消せません。</p>
+
+<p>てことで、慎重にやっていきましょう。
+<ul>
+    <li><a href="http://developer.apple.com/ios/manage/bundles/index.action">App IDs - iOS Provisioning Portal - Apple Developer </a></li>
+</ul>
+上記ページからNew App IDをクリックして、項目を埋めていきます。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/create-app-id.png"><img class="fig" title="Create App ID" src="http://t32k.me/mol/file/2011/05/create-app-id.png" alt="Create App ID" width="470" /></a>
+<ol>
+    <li><strong>Description</strong>
+App IDの名前（説明文）です。</li>
+    <li><strong>Bundle Seed ID (App ID Prefix)</strong>
+新しく作るので、<strong>Generate New</strong> を選択します。</li>
+    <li><strong>Bundle Identifier (App ID Suffix)</strong>
+例にあるように、ドメインを逆から記入スタイルが推奨されてるっぽいです。
+ということで、私はとりあえず、 <strong>me.t32k.development </strong>にしました。</li>
+</ol>
+<blockquote>そこで，App IDを「<em>」とすることでどのようなBundle Identifierを持つアプリでも動作させることができるようになります。
+<span style="font-size: x-small;"><a href="http://gihyo.jp/dev/serial/01/iphone/0009">目指せ！iPhoneアプリ開発エキスパート：第9回　デバイスでアプリを動かす｜gihyo.jp</a></span></blockquote>
+上記ページには</em>アスタリスク使うといいぜ！って書いてあるのですが、実際にアスタリスクでやると、注意（Game Center使えないよ）っぽいこと言われるので、げんなりします。（下記図参照）</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/App-IDs.png"><img class="fig" title="App IDs" src="http://t32k.me/mol/file/2011/05/App-IDs.png" alt="App IDs" width="470" /></a></p>
+
+<p>てことで、Submit押せばApp IDの登録完了です。
+<h2 id="provisioning">Provisioning</h2>
+<a href="http://t32k.me/mol/file/2011/05/flow.png"><img class="fig" title="flow" src="http://t32k.me/mol/file/2011/05/flow.png" alt="" width="470" height="123" /></a></p>
+
+<p>ようやく最後のプロビジョニングファイルの作成です。プロビジョニングファイルっていうのはこれまで登録した情報（証明書、デバイス、App ID）を組み合わせて作成するもんです。下記のような感じですね。</p>
+
+<p><strong>開発用 Provisoning File </strong>
+= Development Certificate + Device ID + App ID</p>
+
+<p><strong>公開用 Provisoning File </strong>
+= Distribution Certificate + App ID</p>
+
+<p>要はこんなめんどくさいことをして、不正な経路でのアプリケーションのインストールを防止してるっちゅう話です。</p>
+
+<p>はい、では下記ページNew Profileをクリックして、項目を埋めていきます。
+<ul>
+    <li><a href="http://developer.apple.com/ios/manage/provisioningprofiles/index.action">Provisioning Profiles - iOS Provisioning Portal - Apple Developer </a></li>
+</ul>
+<a href="http://t32k.me/mol/file/2011/05/Create-iOS-Development-Provisioning-Profile.png"><img class="fig" title="Create iOS Development Provisioning Profile" src="http://t32k.me/mol/file/2011/05/Create-iOS-Development-Provisioning-Profile.png" alt="Create iOS Development Provisioning Profile" width="470" /></a>
+<ol>
+    <li>Profile Name：適当に</li>
+    <li>Certificates：チェックを付ける</li>
+    <li>App ID：選択する</li>
+    <li>Devices：チェックを付ける</li>
+</ol>
+Submitボタンを押せばプロビジョニングファイルの完成です。ダウンロードしてダブルクリックでXcodeにインストールしましょう。
+<h2 id="runondevice">Run on Device</h2>
+実機にインストールする前に、<strong><a href="https://github.com/appcelerator/KitchenSink">KitchenSinkをGitHubよりダウンロード</a></strong>して、プロジェクトをインポートしておきましょう。ちなみにKitchenSinkってゆうのはTitaniumの機能を全部載っけた見本アプリのようなものです。これを動かしてどのような動きをするのか確認して、パクリたいとこはソースを見てパクるという教科書みたいなものです。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/05/run_on-device.png"><img class="fig" title="Run on Device" src="http://t32k.me/mol/file/2011/05/run_on-device.png" alt="Run on Device" width="470" /></a></p>
+
+<p>はい、Titanium Developerをインスコした当初のRun on Deviceタブはこんな感じで、iOSプログラムに登録しろよーとかAppleから証明書もらってこいよーとか言われてるんですけども、プロビジョニングファイルを作成し終わればほとんどが埋まってしまいます。あとは、最後の項目にダウンロードをしてきたプロビジョニングファイルをUploadするだけです。</p>
+
+<p>Uploadが終われば、Install Now!!!!!!!!!!!!ってことでiTunes経由でアプリがインストールされます。</p>
+
+<p>ほらね、簡単でしょ？</p>
+
+<p><a title="DSC05392 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5707451600/"><img class="fig" title="KitchenShink" src="http://farm4.static.flickr.com/3005/5707451600_1725439671.jpg" alt="KitchenShink" width="470" /></a></p>
+
+<p>ってことでみんなもれっつたいたん！</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-11-May" title="May 11, 2011">May 11, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page19" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page21" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

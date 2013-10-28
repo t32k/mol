@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page49/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page49/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/wde-express" rel="prefetch">パフォーマンスアップのウェブ技術：WDE-Express</a></h2>
+            <p><p><img src="http://lh6.ggpht.com/_1drnogi3vdg/StHWY9u5e5I/AAAAAAAAAno/hd0S_BDebxw/wpo.jpg" alt="'" />
+<ul>
+    <li><a href="http://atnd.org/events/1412">パフォーマンスアップのウェブ技術：WDE-Express</a></li>
+</ul>
+<blockquote><span style="font-size: 85%;">不況下、企業はコスト削減を強いられるようになりました。人件費削減・広告/宣伝費はもとより、大手企業では、社内のアプリケーション費用・サーバーコストまで削減を求められます。
+また、ユーザーエクスペリエンス（UX）の側面から考えても、”ウェブサイトの表示が2秒以上の時間を要する”ことで、ページからの離脱率が高くなります。
+このセッションでは、ウェブサイトのパフォーマンスを向上させる必要性と方法をご紹介いたします。</span></blockquote>
+<img src="http://lh3.ggpht.com/_1drnogi3vdg/StLopxhZpqI/AAAAAAAAAns/VxjqP-aq5SU/WDE-ex-parform-200.jpg" alt="" /></p>
+
+<p><a href="http://warikiru.blogspot.com/2009/10/pecha-kucha-night-in-nagoya-vol2.html">前日の名古屋</a>から、10日は<a href="http://twitter.com/mantangs">菊池さん</a>のお話を聞きにApple Store 心斎橋に行ってきました。Apple Store 心斎橋は初めて入ったけど、とても広い空間で落ち着ける場所でした。以下、メモメモ。</p>
+
+<p>表示スピードを上げることで、CVやPVが増加するデータを紹介
+<ul>
+    <li><a href="http://money.aol.com/">AOL Money &amp; Finance</a></li>
+    <li><a href="http://shopping.aol.com/">AOL Shopping</a></li>
+    <li><a href="http://www.bing.com/">Bing</a></li>
+    <li><a href="http://www.google.co.jp/">Google</a></li>
+    <li><a href="http://www.shopzilla.com/">Shopzilla</a></li>
+</ul>
+<span style="font-weight: bold;">速いことは品質</span>
+ShopzillaではCVが2.5-3.5%UP、PVで25%UPというデータも。</p>
+
+<p>画像の最適化
+<a href="http://www.gracepointafterfive.com/punypng/">punypng</a>が一番使い勝手・圧縮率が良いと感じる
+（<a href="http://www.atmarkit.co.jp/news/200903/17/turbo.html">Opera Turbo</a>にも見られるように画像の最適化は重要）</p>
+
+<p>PNG8を使え(Fireworksがいろいろ便利)
+AlphaImageLoaderは最悪フリーズする可能性もあり危険</p>
+
+<p>JSとCSSはちゃんとおけ</p>
+
+<p>CSSファイル最適化
+CSSスプライトは<a href="http://spritegen.website-performance.org/">CSS Sprite Generator</a>が使い勝手が良い</p>
+
+<p>Data URI
+IE6/7はサポート外（コンディショナルコメントで回避）</p>
+
+<p>Web Fonts
+（ちょっと僕にはややこしかった＞＜）</p>
+
+<p>CSSセレクタを最適化
+短く、使えるコードはリユース</p>
+
+<p><a href="http://github.com/stubbornella/oocss/downloads">OOCSS</a> (Object Oriented CSS)
+<a href="http://east.webdirections.org/speaker/nicole-sullivan/">Nicole Sullivan</a>が開発
+YUI Grid.cssの半分のファイルサイズ
+<ul>
+    <li>モジュール化</li>
+    <li>構造と表現の分離</li>
+    <li>箱と中身の分離</li>
+</ul>
+（Demoは怖いなーと感じました。）</p>
+
+<p>プロファイリングツールを使え
+<ul>
+    <li><a href="http://sourceforge.net/apps/mediawiki/pagetest/index.php?title=Main_Page">AOL Pagetest</a></li>
+    <li><a href="http://www.fiddler2.com/fiddler2/">MS Fiddler</a></li>
+    <li><a href="http://validator.w3.org/checklink">W3C Link Checker</a>（実はファイル取得にかかった時間を表示してある）</li>
+</ul>
+<h3>感想</h3>
+OOCSSに関しては、Webサイトのパフォーマンスというよりかは、開発者のパフォーマンス向上に有効かと思った。クラス名を憶えなければならないコストもあるが、ページのレイアウト変更も容易にできるのは捨てがたいメリットだ。この辺はもうちょっと勉強せねば。。</p>
+
+<p>全体として、<a href="http://en.oreilly.com/velocity2009">Velocity</a>や<a href="http://www.amazon.co.jp/gp/product/0596522304?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=0596522304">Even Faster Web Sites</a>などからの情報が多く、まだまだ知らないところが多いなと感じた。また、画像圧縮・パフォーマンスツールなどの類が多く、それらの特性を理解するのにも時間がかかるなと。けれども、僕らの目的はツールを使いこなすことではなく、Webサイトのパフォーマンスを上げてユーザーにまた使ってもらおうということが本来の目的なのでそこのところを自覚せねばとも感じさせられたセミナーだった。
+<span style="font-size: 85%;"> </span></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-12-October" title="October 12, 2009">October 12, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/pecha-kucha-night-in-nagoya-vol-2" rel="prefetch">Pecha Kucha Night in Nagoya Vol.2</a></h2>
+            <p><p><img src="http://lh6.ggpht.com/_1drnogi3vdg/StHQy0FlISI/AAAAAAAAAng/7Lir6mIwQ6s/pechakuchanight.jpg" alt="" /><br /><br />プレゼンテーションZENの中でお薦めしていた<a href="http://www.pecha-kucha.org/">Pecha Kucha Night</a>ってイベントに有給とって名古屋まで行ってきた。Pecha Kucha Night（ぺちゃくちゃないと）とはなんぞ？って方はこちら↓<br /><blockquote><span style="font-size:85%;">2003年、クライン・ダイサム・アーキテクツによって始まったぺちゃくちゃないと。若いデザイナー、クリエイター達がアイディアを分かち合い、ネットワークを広げる場として始まった。<br />デザイナー（特に建築家）にいったんマイクをわたすと、話が長くなりがち．．．。そこで、考えついたのが20スライド×20秒というフォーマット。どのプレゼンターも20枚のスライドを各20秒ずつ見せる。合計6分40秒のプレゼンは明瞭で分かりやすく、多くの人がアイディアを紹介できるというわけだ。<br />遂に、このイベントの開催都市も全世界で100都市を突破、そして現在もその数は拡大中！　クリエイティブな仕事を気軽に紹介できる場所は、世界中で求められている。<br />あなたの近くの会場で、ぺちゃくちゃに加わろう！</span><br /><div style="text-align: right;"><span style="font-size:85%;"><a href="http://www.pecha-kucha.org/what">ぺちゃくちゃないととは？</a></span></div></blockquote><br />はい、まぁデザイナーの勉強会みたいなんもんです。いや、今回の名古屋のプレゼンターの顔ぶれはデザイナーだけでなく、陶芸家、彫刻家、バックパッカー、本好き、服飾バイヤー、能楽の人、都市計画の人などいろいろいましたね。聞きに来ている人らも学生からビジネスマン風の男性やらマダムっぽい人まで多種多様な感じでしたね。<br /><span style="font-size:85%;"><br /></span><ul><li><span style="font-size:85%;">Toshiaki Kawai : Kawai-Architects</span></li><li><span style="font-size:85%;"> Nobuyuki Inaba : Nagoya Design Week 2009 chairman</span></li><li><span style="font-size:85%;"> Shozo Michikawa : Ceramic artist</span></li><li><span style="font-size:85%;"> Yoko Shimizu : artist</span></li><li><span style="font-size:85%;"> Natsuko Hirota : cop10 adviser</span></li><li><span style="font-size:85%;"> Yoriyuki Yamada : Kajima Corporation</span></li><li><span style="font-size:85%;"> Toru Aoyama : insyoh jyutaku co.,ltd</span></li><li><span style="font-size:85%;"> Masayuki Matsubayashi : ＪＡＰＩＣ Chief researcher</span></li><li><span style="font-size:85%;"> Satomi Harada : ethical adviser,DAI-NAGOYA UNIVERSITY NETWORK</span></li><li><span style="font-size:85%;"> Gaku Kurahashi : DAI NAGOYA UNIVERSITY</span></li><li><span style="font-size:85%;"> Syunichiro Hisada : Noh music</span></li><li><span style="font-size:85%;"> Atsuko Maruyama : a travelar</span></li><li><span style="font-size:85%;"> Kiyoshi Sugiura : Sugiura &amp; Associates</span></li><li><span style="font-size:85%;"> Hironori Ohashi : Suzuhashi</span></li></ul><br />イベント自体は10数名のプレゼンターが一人一人プレゼンしていき、途中休憩挟んだりとかしていく。持ち時間が6分40秒ということでライトニングトークみたいな感じ。聞いている方も興味がないテーマだとしても我慢できる範囲。スライド操作が20秒経つと自動的に次のスライドに切り替わるので、ここらへんちょっと慣れが必要だなと思った。（早く喋りすぎて次のスライドが表示されるまで待たなければならないとか。その逆も然り。）会場は<a href="http://www.hotoris.jp/blog/2009/09/26/091729.html">レストラン</a>みたいな感じでイスも用意されてるけど、多くの人はドリンクを飲みながら立って話を聞いてる。ご飯も食べていてもいいので、まさにラフな感じ。途中（オーディエンスの）話がはずみすぎてるのか、ちょっとうるさくてプレゼンターの話が聞き取りづらかったのが残念だった。とはいえ、いろんな業種の人らが集まってコミュニケーションが活性化されるのはそれはそれでありだと思う。<br /><br /><img src="http://lh6.ggpht.com/_1drnogi3vdg/StHQyxBpm9I/AAAAAAAAAnk/hNY0U9W-N2w/pechakuchanight_01.jpg" alt="" /><br /><br />途中、建築系の人らのプレゼンが会社説明会みたいな内容（このプロジェクトがなになに賞受賞しましたなど）になってた以外は、興味深い話ばかりだった。個人的には堀川（名古屋中心部を流れる川）再生計画など素敵な宇宙船地球号系の話が面白かった。ミツバチの話とかも。<br /><br />結局、話題はなんでもいいんだよね、面白ければ。でも難しいね。自分の身に置き換えてWebデザイナーとしてWeb業界以外の人たちに何を伝えたいかと思ったとき、パッと出てこない。IE使うのやめてとか？Twitterおもしろいよとかかな。まぁなにせいろいろな人の話が聞けてよかったです。<br /><br />自分が属するWeb業界もいろいろ勉強会は開かれていますが、どちらかというとエンジニア系の人らが中心です。CSS Niteにしてもマークアップなどテクニカルな内容が多い。別にそれが悪いと言ってるわけではないけどやっぱりWebデザインというか純粋にデザインの話が聞きたいっていう欲求も自分の中にある。そういう系の話を聞こうと思うと、たまにどこかで開かれる大御所のデザイナーの講演などに行くしかない。もうちょっと、現場というか若い人らの話を気軽に聞けるという点ではこのPecha Kucha Nightっていうのは僕にとってドンピシャなイベントだと思った。<br /><br />今回行った名古屋以外にも日本では発祥の東京を中心に長野、浜松、大阪でも開催されているので、ぜひ金沢でもこうゆうのあれば良いなと思った。石川県内には陶芸家や伝統工芸の職人とか面白い人一杯いるし、プレゼンターに事欠かないと思う。僕は企画するよりも話す方が好きなので誰か企画してｗ<br />こうゆうのもあるみたいなので、素地はできあがってると思う。<br /><br /><ul><li><a href="http://www.tatemachidaigaku.jp/index.html">タテマチ大学</a></li></ul><br /><span style="font-size:85%;">関連エントリ<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2009/10/presentation-zen.html">プレゼンテーション Zen</a></span></li></ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-11-October" title="October 11, 2009">October 11, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/black-swan" rel="prefetch">ブラック・スワン—不確実性とリスクの本質</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td width="250" align="center" valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478001251/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/41TNK%2B8fr4L._SL160_.jpg" border="0" alt="ブラック・スワン[上]―不確実性とリスクの本質" /></a></td>
+<td width="250" align="center" valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478008884/warikiru-22/ref=nosim/" target="_blank"><img class="fig" style="border: 0pt none;" src="http://ecx.images-amazon.com/images/I/41wvOZMTryL._SL160_.jpg" border="0" alt="ブラック・スワン[下]―不確実性とリスクの本質" width="110" height="160" /></a></span></td>
+</tr>
+<tr>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%AF%E3%83%B3-%E4%B8%8A-%E2%80%95%E4%B8%8D%E7%A2%BA%E5%AE%9F%E6%80%A7%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E6%9C%AC%E8%B3%AA-%E3%83%8A%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%8B%E3%82%B3%E3%83%A9%E3%82%B9%E3%83%BB%E3%82%BF%E3%83%AC%E3%83%96/dp/4478001251%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478001251" target="_blank">ブラック・スワン[上]</a>
+<a href="http://www.amazon.co.jp/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%AF%E3%83%B3-%E4%B8%8A-%E2%80%95%E4%B8%8D%E7%A2%BA%E5%AE%9F%E6%80%A7%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E6%9C%AC%E8%B3%AA-%E3%83%8A%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%8B%E3%82%B3%E3%83%A9%E3%82%B9%E3%83%BB%E3%82%BF%E3%83%AC%E3%83%96/dp/4478001251%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478001251" target="_blank">―不確実性とリスクの本質</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+望月 衛ダイヤモンド社
+2009-06-19
+おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-3-5.gif" alt="" />
+<a href="http://www.amazon.co.jp/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%AF%E3%83%B3-%E4%B8%8A-%E2%80%95%E4%B8%8D%E7%A2%BA%E5%AE%9F%E6%80%A7%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E6%9C%AC%E8%B3%AA-%E3%83%8A%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%8B%E3%82%B3%E3%83%A9%E3%82%B9%E3%83%BB%E3%82%BF%E3%83%AC%E3%83%96/dp/4478001251%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478001251" target="_blank">Amazonで詳しく見る</a>
+
+</span><span style="font-size: 85%;"> </span></td>
+<td style="padding-left: 20px;" valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%AF%E3%83%B3-%E4%B8%8B-%E2%80%95%E4%B8%8D%E7%A2%BA%E5%AE%9F%E6%80%A7%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E6%9C%AC%E8%B3%AA-%E3%83%8A%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%8B%E3%82%B3%E3%83%A9%E3%82%B9%E3%83%BB%E3%82%BF%E3%83%AC%E3%83%96/dp/4478008884%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478008884" target="_blank">ブラック・スワン[下]</a>
+<a href="http://www.amazon.co.jp/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%AF%E3%83%B3-%E4%B8%8B-%E2%80%95%E4%B8%8D%E7%A2%BA%E5%AE%9F%E6%80%A7%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E6%9C%AC%E8%B3%AA-%E3%83%8A%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%8B%E3%82%B3%E3%83%A9%E3%82%B9%E3%83%BB%E3%82%BF%E3%83%AC%E3%83%96/dp/4478008884%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478008884" target="_blank">―不確実性とリスクの本質</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+望月 衛ダイヤモンド社
+2009-06-19
+おすすめ平均 <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="" />
+<a href="http://www.amazon.co.jp/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%BB%E3%82%B9%E3%83%AF%E3%83%B3-%E4%B8%8B-%E2%80%95%E4%B8%8D%E7%A2%BA%E5%AE%9F%E6%80%A7%E3%81%A8%E3%83%AA%E3%82%B9%E3%82%AF%E3%81%AE%E6%9C%AC%E8%B3%AA-%E3%83%8A%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%8B%E3%82%B3%E3%83%A9%E3%82%B9%E3%83%BB%E3%82%BF%E3%83%AC%E3%83%96/dp/4478008884%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478008884" target="_blank">Amazonで詳しく見る</a>
+
+</span><span style="font-size: 85%;"> </span></td>
+</tr>
+</tbody>
+</table>
+
+<p>なかなか読み応えのある本だった。上下巻で600ページ、といっても下巻の最後の100ページは用語解説や参考文献表記なので実質500ページか。</p>
+
+<p>ブラックスワンとは前例の無いもの、起こりうるはずのないもの、でも実際に起こるとそれ以降はそれが当たり前のように扱われる性質がある。わかりやすい例として、世界中から1000人のサンプルをランダムで抽出した場合、皆の体重はさほど変わりない。最大値として小錦レベルのような人がいても全体の0.何パーセントだろう。ところが年収で考えた場合、サンプルにビル・ゲイツがいた場合はどうだろう。彼一人がで全体の99.9999... %を占めることになる。前者は『月並みの国』、後者は『果ての国』と著者は比喩している。</p>
+
+<p>上巻はブラックスワンの例としていくつかのケースを紹介していて、純粋に読み物としておもしろかった。下巻は数字がちらほら出てきてちょっと難しいｗというか本書全体を通して、著者が頭がいいのか、哲学、文学、音楽、数学、経済学などバックグラウンドとした知識をバンバン出してくるので、下巻の用語解説は必須かな。時間がない人は下巻だけ読むといいよ。ブラック・スワンに対する対処法も書いてるし。</p>
+
+<p>最後に、ちょっと印象に残った言葉を引用して終わりにする。
+<blockquote>偉大なアイディア、言い換えると「ブランド・ネーム」は、点と点とを結びつけた人のものになる。なんとなく気づいていた人のものにならない。チャールズ・ダーウィンだってそうだ。わかってない科学者だと、ダーウィンが適者生存の法則を「発明した」なんていう。でも、適者生存の法則を口にしたのは彼が最初ではない。（中略）
+最終的に、アイディアから結論を導き出し、そのアイディアがどれだけ大事か気づき、本当の価値を見出した人が勝利をつかむのだ。アイディアについて語ることができるのは、そういう人たちである。
+<div style="text-align: right; font-style: italic;"><span style="font-size: 85%;">P.155 16章 まぐれの美学 ブラック・スワン下巻</span></div></blockquote></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-09-October" title="October 09, 2009">October 09, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/impact-of-css-selector" rel="prefetch">CSSセレクタのパフォーマンスへの影響</a></h2>
+            <p><ul>
+    <li><a href="http://ascii.jp/elem/000/000/457/457749/">ASCII.jp：30分でできる！Webサイトを高速化する6大原則</a></li>
+</ul>
+
+<p>高速化する6大原則として『4.CSS セレクターは短く最適化せよ！』とこの記事では挙げられているのですが、原則というのはちょっと言い過ぎではないかと。少なくとも『3.HTTPリクエストは最小にせよ！』などと同列に考えるのは避けた方が良いかもしれません。</p>
+
+<p>というのも、<a href="http://www.amazon.co.jp/gp/product/487311361X?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=487311361X">ハイパフォーマンスWebサイト</a>の著者である<a href="http://stevesouders.com/">Steve Souders</a>はこんなことを言っています。
+<blockquote>CSSセレクタを最適化するために時間を費やすのは価値のあることだとは思わない。もし、明日起きて世界中のサイトのCSSセレクタが奇跡的に最適化されていたのなら、私は遠くに行ってこう叫びたい。『誰も気づいてないですやん！！』
+<a href="http://www.stevesouders.com/blog/2009/03/10/performance-impact-of-css-selectors/">High Performance Web Sites :: Performance Impact of CSS Selectors</a></blockquote>
+Steve Soudersがなぜこう考えるのでしょうか？</p>
+
+<p>彼はセレクタの違い（ベースライン、タグ、クラス、子、子孫セレクタ）によってレンダリング速度に違いが出るかテストを行いました。<a href="http://stevesouders.com/tests/css-selectors/index.html">テストページ</a>には2000個のアンカーと2000個のCSSルールを含んでいます。</p>
+
+<p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SstjKcFzh2I/AAAAAAAAAnA/mcvVilvyBIg/css-selectors-top-ten-2000-color-513x497-revised.jpg" alt="CSS Selector Performance" />
+図；Performance Impact of CSS Selectors より</p>
+
+<p>上記のグラフのような結果になったのですが、ここではブラウザ毎の比較は考慮せずにCSSセレクタのパフォーマンスに対する影響に注目してみると、最も早いケースと最も遅いケースで平均で50ミリ秒しか違わないと言うことです。さらに（今日の70%のユーザーにあたる）IE 6&amp;7, Fx3に限って言えば、CSSセレクタ最適化をしても20ミリ秒しか改善されません。</p>
+
+<p>テストケースを見てもらえれば分かると思いますが、あり得ない量のCSSコードになってます。一応、これは考えられうる最悪なケース（米国の主な大規模サイトの平均のCSSルール数は1000）を想定して考えられたテストなので、実際のサイトはもっと少ないのは言わずもがなです。</p>
+
+<p>テストの結果を基にSteve Soudersはこう述べています。
+<blockquote>大半のサイトにとって、CSSセレクタを最適化することで得られるメリットは小さいし、コストに見合わない。ただ、CSSセレクタのいくつかの種類やJavaScriptと影響しあうものに関しては極めて遅くなることがある。このあたり(offsetWidth, :hoverなど)は今後調べていきたい。</blockquote>
+<h3>個人的雑感</h3>
+とまぁ、そんな感じで費用対効果が見えませんね。既存サイトのCSSセレクタを書き換えていくようなことはお薦めいたしません。ゼロの状態からサイト構築するときに頭の隅に置いておくぐらいが良いのではないでしょうか。</p>
+
+<p>また、子セレクタなり、子孫セレクタなり、適用範囲を狭めていくやり方は階層化されていて個人的には分かりやすいかなと思ったりもします。
+<pre><code>/* こっちの方が好き */</p>
+
+<h1>main .sentence {color:#000}</h1>
+
+<h1>sub  .sentence {color:#fff}</h1>
+
+<p>/* こっちの方がパフォ的に（程度は別として）良い */
+.main-sentence {color:#000}
+.sub-sentence {color:#fff}</code></pre>
+このあたりは各自のコーディングスタイルを尊重すれば良いかと思います。パフォーマンスとメンテナンス性はトレードオフなところがあるので<a href="http://www.suzukikenichi.com/blog/why-doesnt-google-validate/">どこかのGoogleみたい</a>に偏執狂な感じになるのもどうかなとも思います。</p>
+
+<p>あと、ユニバーサルセレクタもめんどくさいときは使いますね。全称セレクタも使うケースを考えたらmargin/paddingのリセットぐらいなもので、これも気にする程度ではないかなと思っています。（気になる人はテストしてみて＞＜）</p>
+
+<p>２年前の僕みたいに不安になって藁をもすがる思いで質問してしまう子もでてくるかもしれません。（ググレオレｗ）
+<ul>
+    <li><a href="http://standards.mitsue.co.jp/archives/001247.html">全称セレクタを用いたスタイルの正規化 | Web標準Blog | ミツエーリンクス</a></li>
+</ul>
+まぁそんなわけで、CSSセレクタで悩むぐらいならHTTPリクエストを減らしたほうが効果的なので、興味ある方は<a href="http://www.cssnite-ishikawa.jp/">CSS Nite ISHIKAWA</a>(終了しました)までお越しください。
+<h3>参考サイト</h3>
+<ul>
+    <li><a href="https://developer.mozilla.org/ja/Writing_Efficient_CSS">Writing Efficient CSS - MDC（邦訳）</a></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-07-October" title="October 07, 2009">October 07, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/html5-and-me" rel="prefetch">分かった気になるHTML5 ～開発者の視点から～ @shoito</a></h2>
+            <p><p><img src="http://lh3.ggpht.com/_1drnogi3vdg/SsyfyInGOSI/AAAAAAAAAnE/gvAdnyr4DTQ/html5.jpg" alt="" width="512" height="384"/></p>
+
+<p><a href="http://twitter.com/shoito">@shoito</a>さんが<a href="http://warikiru.blogspot.com/2009/10/hokurikulang.html">白川郷で聞けなかった</a>話を弊社まで来て講演されるということなので自分が会場など準備した。自社ってゆう完全ホームな環境、なおかつ一人の講師を招くだけなのに疲れた。精神的にね。スピーカーとはまた違った体験でしたね。ホスピタリティゼロです、次がんばりまっす。</p>
+
+<p>講演はWebデザイナーも知っておくべき内容だったと思うので、弊社デザイン部も満足度高かったぽいですね。HTML５に興味をもってもらえたようですし、大成功です。はい。</p>
+
+<p>感想としては社内で平日にこうゆうTech Talkみたいなことできて素敵だなと思いました。（それもデザイナーとエンジニアが肩を並べて。）Googleみたいにね、毎週？毎日？いたるところでなんか話してたら、そりゃ勉強になるし社員のモチベーションあがるなと思いました。次回もこうゆうことできたらなと思います。（shoitoさん次回は『デザイナーにも分かる正規表現』ですよｗ）</p>
+
+<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/2154536" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
+
+<div style="margin-bottom: 5px;"><strong> <a title="分かった気になるHTML5 〜開発者の視点から〜 " href="http://www.slideshare.net/shoito/html5-and-api" target="_blank">分かった気になるHTML5 〜開発者の視点から〜 </a> </strong> from <strong><a href="http://www.slideshare.net/shoito" target="_blank">Sho Ito</a></strong></div>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-07-October" title="October 07, 2009">October 07, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page48" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page50" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

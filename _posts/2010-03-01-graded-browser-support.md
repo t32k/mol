@@ -1,0 +1,198 @@
+---
+layout: post
+title: Graded Browser Support
+categories:
+- translate
+tags:
+- browser
+- yui
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  pvc_views: '3197'
+---
+今回も跳躍した超訳ですが...
+
+<cite style="display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文：<a href="http://developer.yahoo.com/yui/articles/gbs/">YUI Graded Browser Support</a>
+公開日：2010-03-01</cite>
+<h2><span style="color: #99cc00;">目次</span></h2>
+<ul class="grobalNav">
+	<li><a href="#gbschart">Aグレードブラウザサポート表</a></li>
+	<li><a href="#cgradelist">Cグレードブラウザリスト(草稿)</a></li>
+	<li><a href="#archive">GBS 更新アーカイブ</a></li>
+	<li><a href="#history">GBSとは何か、そしてなぜ必要なのか</a>
+<ul>
+	<li><a href="#define-support">サポートとは何を意味するのか？</a></li>
+	<li><a href="#progressive-enhancement">Progressive Enhancement vs. Graceful Degradation</a></li>
+	<li><a href="#what-are-grades">サポートのグレードとはなにか？</a></li>
+	<li><a href="#the-three-grades">3つのグレードサポート</a></li>
+</ul>
+</li>
+</ul>
+<!--more-->
+<h2 id="gbschart"><span style="color: #99cc00;">Aグレードブラウザサポート表</span></h2>
+この表にはGraded Browser Support(以下、GBS)によってAグレードサポートと認められたブラウザが記載されています。<a href="http://developer.yahoo.com/yui/2/">YUI2</a>,<a href="http://developer.yahoo.com/yui/3/">3</a>含めすべてのYUIプロジェクトはAグレードサポートブラウザに対して提供されます。
+<table>
+<tbody>
+<tr>
+<th style="background: #fafafa;" scope="col"></th>
+<th style="background: #fafafa; text-align: center;" scope="col"> Win XP</th>
+<th style="background: #fafafa; text-align: center;" scope="col"> Win 7</th>
+<th style="background: #fafafa; text-align: center;" scope="col">Mac 10.5.†</th>
+<th style="background: #fafafa; text-align: center;" scope="col">Mac 10.6.†</th>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;" scope="row">Firefox 3.0.†</th>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;" scope="row">Firefox 3.6.†</th>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td></td>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;" scope="row">Chrome 4.0.†</th>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;" scope="row">IE 8.0</th>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;" scope="row">IE 7.0</th>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;">IE 6.0</th>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th style="background: #fafafa; text-align: right;" scope="row">Safari 4.0.†</th>
+<td></td>
+<td></td>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+<td style="background: #cfc; text-align: center;">A-grade</td>
+</tr>
+</tbody>
+</table>
+<p class="note"><span style="color: #808080;">注意：</span></p>
+
+<ul>
+	<li>（"Firefox 3.6.†"のような）短剣のシンボルは最新かつβ版でないバージョンがサポートを受けられるという意味です。</li>
+	<li>コードが未知のDOCTYPE宣言で使用されるのならIE7quirksモードでテストしてください。</li>
+	<li>コードがもしIE8の"compatibility mode"で使用されるのなら、これは完全にIE7と同一ではないので明示的に後方互換モードとしてテストしてください。</li>
+</ul>
+<h2 id="cgradelist"><span style="color: #99cc00;">Cグレードブラウザリスト(草稿)</span></h2>
+このリストにはCSSとJavaScriptが適用外のブラウザが記載されています。このリストは草稿段階です。Cグレードリストの議論とAグレードの変更は最新のGBS updateのコメント欄に記載されています。
+<ul>
+	<li>IE &lt; 6 (Mac版含む)</li>
+	<li>Safari &lt; 3</li>
+	<li>Firefox &lt; 2</li>
+	<li>Opera &lt; 9.5</li>
+	<li>Netscape &lt; 8</li>
+</ul>
+Cグレードブラウザに対するテストは上記のブラウザか、CSSとJavaScriptをオフにした状態のモダンブラウザで行うこと薦めます。標準的なQAプロセスでは、上記のブラウザに対してCSSとJavaScriptを適用しない状態で検証します。
+<h2 id="archive"><span style="color: #99cc00;">GBS 更新アーカイブ</span></h2>
+このページはAグレード表のパーマネントページです。更新は<a href="http://yuiblog.com/">YUI Blog</a>でアナウンスされます。ブログ経由でいつでも過去の更新記録に参照できます。
+<ul>
+	<li><a href="http://yuiblog.com/blog/2010/02/16/gbs-update-2010q1/">GBS Update, 2010 Q1</a></li>
+	<li><a href="http://yuiblog.com/blog/2009/10/16/gbs-update-2009q4/">GBS Update, 2009 Q4</a></li>
+	<li><a href="http://yuiblog.com/blog/2009/07/02/gbs-update-20090702/">GBS Update, 2009 Q3</a></li>
+	<li><a href="http://yuiblog.com/blog/2009/01/28/gbs-update-20090128/">GBS Update, 2009 Q1</a></li>
+	<li><a href="http://yuiblog.com/blog/2008/07/03/gbs-update-20080703/">GBS Update, 2008 Q3</a></li>
+	<li><a href="http://yuiblog.com/blog/2008/02/19/gbs-update-20080219/">GBS Update, 2008 Q1</a></li>
+</ul>
+<h2 id="history"><span style="color: #99cc00;">GBS とは何か、そしてなぜ必要なのか</span></h2>
+Web開発の最初の10年間、つまり90年代前半、ブラウザサポートは0か1かのような状態（サポートするか、しないか）でした。特定のブラウザをサポートをするか、しないか。その答えはNOであり、サイトへのアクセスは頻繁にしかも積極的に阻害されました。IE5がリリースされた1998年、この年、プロフェッショナルなWebデザイナーとエンジニアは新規案件に際して、”このプロジェクトはNetscape 4.xをサポートするのかい？”という質問することに慣れてしまっていました。
+
+反対にモダンなWeb開発においては、すべてのブラウザをサポートしなければならなりません。サポート対象外となるユーザーを選ぶことは不適切であり、GBS戦略を理解すれば意味のないものです。
+
+GBSは2つの基本的な考えのもと定義されています。
+<ul>
+	<li>広範囲でより妥当な定義のサポート</li>
+	<li>サポートのグレードという考え</li>
+</ul>
+<h3 id="define-support"><span style="color: #ff9900;">「サポート」とは何を意味するのか？</span></h3>
+「サポート」とは皆が同じモノを手に入れるという意味でありません。異なるブラウザを使う2人のユーザーがまったく同じ体験しなければならないという考えは、Webが持つ多様性を否定することになります。実際、すべてのユーザーに同じ体験を要求することは、ユーザーに対して意図的に障害を作ってしまいます。コンテンツのアクセシビリティと可用性は私たちの最も優先させる課題でなければなりません。
+
+テレビを例にとれば、その本質的な目的は情報を配信することです。非常用の手回し式ラジオでもテレビの音声を聞くことが可能です。これは通常の使用法ではありませんが、だからといってラジオからのアクセスを拒むのは逆効果です。
+
+未だに白黒テレビを所有している視聴者もいます。（最小公約数として）白黒テレビ放送しか放送しないことは、確かに同じ経験を（白黒テレビを持っている人もカラーテレビを持っている人にも）提供しますが、そうするメリットもありません。白黒テレビの視聴者を切り捨てること（これに乗るためにはこの身長までないとダメというアプローチ）も言うまでもありません。
+
+適切なサポート戦略というのは、すべてのユーザーに対して各ブラウザが実装するレベルのビジュアル、リッチインタラクションを受けることを可能にします。このアプローチは一般的にプログレッシブ・エンハンスメントと言わていて、コンテンツへのアクセスを可能にしたままでリッチな体験を提供します。
+<p id="progressive-enhancement"><span style="color: #000000;"><strong>プログレッシブ・エンハンスメント（累進的拡張） vs. グレースフル・デグラデーション（優雅な劣化）</strong></span></p>
+プログレッシブ・エンハンスメントとグレースフル・デグラデーションの考え方はブラウザサポートの議論でよく引き合いに出されます。確かにこれらは“fault tolerance”（<a href="http://e-words.jp/w/E38395E382A9E383BCE383ABE38388E38388E383ACE383A9E383B3E382B9.html">耐障害性</a>）に密接に関係するアプローチです。
+
+この2つのコンセプトはブラウザサポート戦略を決定する要因となります。なぜなら、それらは異なる優先事項をもとに異なるサポート議論の上で考えられているからです。グレースフル・デグラデーションはプレゼンテーション層を優先し、普及率が低いブラウザほどより少ないものしか提供しません（ユーザーに対してもそれなりのものしか提供しません）。プログレッシブ・エンハンスメントはコンテンツを中心に考え、ほとんどのブラウザに対してできる限り多くのものを提供しようとします（ユーザーに対してもより多くのものを提供します）。同じような意味ですが、プログレッシブ・エンハンスメントの方がより前向きなアプローチと言えます。プログレッシブ・エンハンスメントはGBSの本質となる考え方です。
+<h3 id="what-are-grades"><span style="color: #ff9900;">サポートのグレードとはなにか？</span></h3>
+包括的なブラウザサポートを考なければなりませんが、デザイン・開発・テスト、そのすべての段階でサポートという概念が存在します。もし各段階で異なる考えのサポートを行えば、どの段階でユーザーエクスペリエンスに悪い影響を与えてしまったのか、分かるのでしょうか？その質問に答えるために、体系的な対応するためにも、私たちはサポートのグレードという考えを提案します。 グレードにはA, C, Xの3つのグレードがあります。
+
+各グレードをテストする前にサポートレベルを決定するための基準を紹介します。
+
+<span style="color: #993300;"><span style="color: #ff6600;"><em>有名であるか、そうでないか </em></span></span>10,000以上のブラウザとそのバージョンが存在し、その複雑性と数は増えるばかりです。有名なブラウザとして分けることが可能です。
+
+<span style="color: #ff6600;"><em>高性能であるか、そうでないか</em></span> 2つのブラウザがまったく同じ実装ということはありえません。しかしながらWeb標準の準拠度によってグループ分けすることが可能です。
+
+<span style="color: #ff6600;"><em>最新か、そうでないか</em></span> 新しいブラウザがリリースされるにつれて以前とのバージョンの関連性は低くなっていきます。
+
+<span style="color: #ff6600;"><em>普及しているか、そうでないか</em></span> 現在使用されているブラウザは数千種類とありますが、数十のブラウザしか広く使用されていません。
+<h3 id="the-three-grades"><span style="color: #ff9900;">3つのグレードサポート</span></h3>
+<strong>Cグレード</strong>
+
+Cグレードはサポートの基準で、必要不可欠な機能とコンテンツを提供します。コアサポートとも呼ばれています。セマンテックHTML以上のものを配信せず、コンテンツと体験は高いアクセス性を保ち、飾り付けや高機能化せず、前・後方互換性と保ちます。スタイルと振る舞いのレイヤーは実装されません。
+
+Cグレードサポートは<a href="#cgradelist">ブラックリスト</a>に記載されています。
+
+要約：Cグレードのブラウザは低機能で古く、普及していないブラウザと定義されています。QAテストはCグレードのブラウザから選び行われ、バグは最優先で報告されます。
+
+<strong>Aグレード</strong>
+
+Aグレードは上位のサポートレベルです。Web標準の可能性を最大限に引き出すことによって、Aグレードブラウザは高機能かつビジュアル面でも優れた体験を提供します。
+
+Aグレードブラウザはホワイトリストに記載されています。およそ96%のユーザーがAグレードの体験を享受することができます。
+
+要約：Aグレードブラウザは高性能かつ新しく、普及したブラウザと定義されます。QAテストはすべてのAグレードブラウザで行われ、バグは最優先で報告されます。
+
+<strong>Xグレード</strong>
+
+開発が停止したブラウザと同様に未知でマイナーなブラウザのためのサポートと定義されています。ブラウザがXグレードのサポートを受けるということは、そのブラウザが有能であると想定されます。（もし低機能であると知られているのなら、つまり、もし現代的な方法で提供されていない、または装飾や機能が省かれた状態で提供されていれば、それはCグレードとブラウザと見なされるからです。）
+
+XグレードはAでもCグレードでもない、すべてのブラウザです。
+
+<strong>要約</strong>：Xグレードブラウザは高機能かつモダンであると想定されます。QAテストは行われませんし、バグも報告されません。
+
+<strong>AとXグレードサポートの関係</strong>
+
+AとXグレードの関係についてもう少し説明すると、XグレードはAグレードの最新バージョンであるということ、Aグレードでは徹底的なQAテストが必須であるので、最新つまりテストされていないブラウザはAグレードの資格にないということです。この事例はGBSアプローチが合理的であることを強調しています。現実問題、AとXの違いは厳密なテストが行われているどうかでしかありません。
+
+HTMLしか受信しないCグレードとは違って、XグレードはAグレードと同様にCSSとJavaScriptすべてを受信します。リリースされた当初、最新ブラウザはXグレードブラウザと見なされますが、Aグレードと同様の体験を提供するチャンスがあります。
+<h3><span style="color: #ff9900;">品質保証（QA）テスト</span></h3>
+ブラウザに対してグレードをつけることによって、ターゲットを明確にし、QAテストのコストを抑制することができます。お気づきの通り、典型的なCグレードテストと体系的なAグレードテストで、ほとんどのユーザーに対して確かな体験を提供できます。Aグレードテストは徹底的で完璧でなければならないですが、Cグレードテストは1,2つの代表的なブラウザでテストするだけで十分です（例:Netscape 4.xと<a href="http://lynx.browser.org/">Lynx</a>）。もしくは、CSSとJavaScriptを切った状態のモダンブラウザで代用可能です。
+
+Xグレードブラウザにテストリソースを消費させないことは特筆すべき点です。
+
+典型なエクスペリエンステストは重要です。もしあなたのウェブアプリケーションに対してGBSを適用するのならば、あなたのサイトの最低限の機能・コンテンツは、画像、CSS、JavaScriptなしでもアクセスできるかどうか確認してください。キーボードでタスクを完了することが出来るかどうか、Cグレードブラウザでサイトにアクセスしたときに高機能な部分がすべて隠されているかどうか確認してください。
+<h3><span style="color: #ff9900;">結論</span></h3>
+GBSはサポートの包括的な定義と、拡大し続けるブラウザの世界とフロントエンド技術を扱いやすくするためのフレームワークを提供します。
+
+World Wide Webの発明者で<a href="http://www.w3.org/">W3C</a>のディレクターの<a href="http://www.w3.org/People/domain?domain=Management#timbl@w3.org">ティム・バーナーズ＝リー</a>は良いことを言っています。
+<blockquote>「このページはブラウザxxxで閲覧することが推奨されています」と書かれたページを見たらぶち切れてしまうような人なら、あの古き悪しき時代のことを懐かしく思うだろう。そうWeb以前。違うネットワーク、違うワードプロセッサ、違うコンピュータで記述されたドキュメントを読めるチャンスなんてほとんどどなかった時代をだ。</blockquote>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextMateをProcessingのエディタ代わりにする &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="TextMateをProcessingのエディタ代わりにする ">
+    <link rel="canonical" href="http://t32k.me//mol/log/textmate-loves-processing">
+     
+           
+    <meta property="og:title" content="TextMateをProcessingのエディタ代わりにする "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/textmate-loves-processing"/>
+    
+    
+    <!--meta property="og:description" content="<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SnrLKtoIT3I/AAAAAAAAAgc/3Q5un_J7fSU/pt.png" alt="" />
+<a href="http://warikiru.blogspot.com/2009/08/iamas-openhouse-2009.html">IAMASのオープンキャンパス</a>に行って以来、<a href="http://processing.org/download/index.html">Processing</a>をちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。</p>
+
+<p><img src="http://lh3.ggpht.com/_1drnogi3vdg/SoaiX-oRdpI/AAAAAAAAAhI/uc9llrJvJEc/editor.png" alt="" />
+<h3>高機能テキストエディタ：TextMate</h3>
+てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたら<a href="http://macromates.com/">TextMate</a>なるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScriptでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。</p>
+
+<p>早速、TextMateを使ってみる。TextMateは補完機能がハンパねぇと聞いていたので、どれほどのものかと期待していたが補完されない。。。　Aptanaみたいにfun..と入力したら勝手に補完するコードをリストアップして提示してくれるのかと思ったら、これはどうやらTabキーなど押さなきゃいけないらしい。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/Sn6SuzlosVI/AAAAAAAAAgk/uAjYAKfhJU0/t1.png9" alt="" />
+funと入力してTabキーを押すと（JavaScriptの場合）</p>
+
+<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/Sn6SvKAOAsI/AAAAAAAAAgo/wUsO7qFc1jA/t2.png" alt="" />
+補完されたコードが表示される。
+自動補完よりもこっちの方が慣れたら速いのかもね。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiYGy_mVI/AAAAAAAAAhM/e4DQ_GSWDU4/sc.png" alt="" />
+<span style="font-style: italic; color: #666666; font-size: 85%;">JavaScriptのBundle例</span>
+<h3>GetBundleをインストール</h3>
+てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
+<ul>
+    <li>Mac OS X <span style="font-style: italic;">10.5.8</span></li>
+    <li>TextMate <span style="font-style: italic;">1.5.8</span></li>
+    <li>Processing <span style="font-style: italic;">1.0.5</span></li>
+</ul>
+まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、<span style="font-weight: bold;">GetBundle</span>をまずインストールする。</p>
+
+<p>ターミナルを開いて以下のコマンドを打ち込む。
+<pre><span style="color: #999999;">$ </span>mkdir Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>cd Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</pre>
+ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、<span style="font-weight: bold;">cd</span>でそのディレクトリに移動、<span style="font-weight: bold;">svn co</span>でSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんこんな感じｗ</p>
+
+<p>そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！</p>
+
+<p>で動かなかった場合、
+Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; GetBundle &gt; Install BundleのBASE<em>URL部分を以下に変更。
+<pre>BASE</em>URL=http://svn.textmate.org/trunk/</pre>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SoWQhyEn9XI/AAAAAAAAAgw/IIk_x0lpycU/base.png" alt="" />
+<span style="font-family: monospace;">
+</span>で、再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiXxtQINI/AAAAAAAAAhE/izQJmsdpf7A/choose.png" alt="" />
+<h3>ProcessingのBundleをインストール</h3>
+ProcessingのBundleをインストールして、Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; Processing &gt; Run in ProcessingのCommands部分を以下に書き換え
+<pre>osascript  &lt;&lt;EOF
+tell application &quot;Processing&quot; to run
+tell application &quot;Processing&quot; to activate
+tell application &quot;Processing&quot; to open POSIX file &quot;${TM_FILEPATH}&quot;
+delay 1
+tell application &quot;System Events&quot; to tell process &quot;Processing&quot;</p>
+
+<p>keystroke &quot;r&quot; using command down
+end tell
+EOF</pre>
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SoWQhx3IxtI/AAAAAAAAAg4/hEepORHoY7w/pro.png" alt="" />
+<span style="font-family: monospace;">
+</span>これで設定完了♪
+TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すとProcessingが立ち上がります。</p>
+
+<p><span style="font-size: 85%;">参考サイト
+</span>
+<ul>
+    <li><span style="font-size: 85%;"><a href="http://mialweb.ddo.jp/jam/?p=69">Jam’s Blog » TextMate</a></span></li>
+    <li><span style="font-size: 85%;"><a href="http://blog.wozozo.jp/archives/144">TextMateでProcessing - ヲゾゾ wozozo ウンコプログラマー 〜綺麗なお姉さん〜</a></span></li>
+</ul>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41hpiWi3FxL._SL160_.jpg" border="0" alt="Textmate: Power Editing for the Mac (Pragmatic Programmers)" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Textmate: Power Editing for the Mac (Pragmatic Programmers)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></span></p>
+
+<p>Pragmatic Bookshelf  2007-02
+売り上げランキング : 30287</p>
+
+<p><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+"/>
+    <meta name="description" content="<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SnrLKtoIT3I/AAAAAAAAAgc/3Q5un_J7fSU/pt.png" alt="" />
+<a href="http://warikiru.blogspot.com/2009/08/iamas-openhouse-2009.html">IAMASのオープンキャンパス</a>に行って以来、<a href="http://processing.org/download/index.html">Processing</a>をちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。</p>
+
+<p><img src="http://lh3.ggpht.com/_1drnogi3vdg/SoaiX-oRdpI/AAAAAAAAAhI/uc9llrJvJEc/editor.png" alt="" />
+<h3>高機能テキストエディタ：TextMate</h3>
+てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたら<a href="http://macromates.com/">TextMate</a>なるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScriptでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。</p>
+
+<p>早速、TextMateを使ってみる。TextMateは補完機能がハンパねぇと聞いていたので、どれほどのものかと期待していたが補完されない。。。　Aptanaみたいにfun..と入力したら勝手に補完するコードをリストアップして提示してくれるのかと思ったら、これはどうやらTabキーなど押さなきゃいけないらしい。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/Sn6SuzlosVI/AAAAAAAAAgk/uAjYAKfhJU0/t1.png9" alt="" />
+funと入力してTabキーを押すと（JavaScriptの場合）</p>
+
+<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/Sn6SvKAOAsI/AAAAAAAAAgo/wUsO7qFc1jA/t2.png" alt="" />
+補完されたコードが表示される。
+自動補完よりもこっちの方が慣れたら速いのかもね。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiYGy_mVI/AAAAAAAAAhM/e4DQ_GSWDU4/sc.png" alt="" />
+<span style="font-style: italic; color: #666666; font-size: 85%;">JavaScriptのBundle例</span>
+<h3>GetBundleをインストール</h3>
+てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
+<ul>
+    <li>Mac OS X <span style="font-style: italic;">10.5.8</span></li>
+    <li>TextMate <span style="font-style: italic;">1.5.8</span></li>
+    <li>Processing <span style="font-style: italic;">1.0.5</span></li>
+</ul>
+まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、<span style="font-weight: bold;">GetBundle</span>をまずインストールする。</p>
+
+<p>ターミナルを開いて以下のコマンドを打ち込む。
+<pre><span style="color: #999999;">$ </span>mkdir Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>cd Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</pre>
+ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、<span style="font-weight: bold;">cd</span>でそのディレクトリに移動、<span style="font-weight: bold;">svn co</span>でSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんこんな感じｗ</p>
+
+<p>そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！</p>
+
+<p>で動かなかった場合、
+Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; GetBundle &gt; Install BundleのBASE<em>URL部分を以下に変更。
+<pre>BASE</em>URL=http://svn.textmate.org/trunk/</pre>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SoWQhyEn9XI/AAAAAAAAAgw/IIk_x0lpycU/base.png" alt="" />
+<span style="font-family: monospace;">
+</span>で、再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiXxtQINI/AAAAAAAAAhE/izQJmsdpf7A/choose.png" alt="" />
+<h3>ProcessingのBundleをインストール</h3>
+ProcessingのBundleをインストールして、Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; Processing &gt; Run in ProcessingのCommands部分を以下に書き換え
+<pre>osascript  &lt;&lt;EOF
+tell application &quot;Processing&quot; to run
+tell application &quot;Processing&quot; to activate
+tell application &quot;Processing&quot; to open POSIX file &quot;${TM_FILEPATH}&quot;
+delay 1
+tell application &quot;System Events&quot; to tell process &quot;Processing&quot;</p>
+
+<p>keystroke &quot;r&quot; using command down
+end tell
+EOF</pre>
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SoWQhx3IxtI/AAAAAAAAAg4/hEepORHoY7w/pro.png" alt="" />
+<span style="font-family: monospace;">
+</span>これで設定完了♪
+TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すとProcessingが立ち上がります。</p>
+
+<p><span style="font-size: 85%;">参考サイト
+</span>
+<ul>
+    <li><span style="font-size: 85%;"><a href="http://mialweb.ddo.jp/jam/?p=69">Jam’s Blog » TextMate</a></span></li>
+    <li><span style="font-size: 85%;"><a href="http://blog.wozozo.jp/archives/144">TextMateでProcessing - ヲゾゾ wozozo ウンコプログラマー 〜綺麗なお姉さん〜</a></span></li>
+</ul>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41hpiWi3FxL._SL160_.jpg" border="0" alt="Textmate: Power Editing for the Mac (Pragmatic Programmers)" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Textmate: Power Editing for the Mac (Pragmatic Programmers)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></span></p>
+
+<p>Pragmatic Bookshelf  2007-02
+売り上げランキング : 30287</p>
+
+<p><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2009-15-August" title="August 15, 2009">August 15, 2009</time>
+            </div>
+            <h1 class="title">TextMateをProcessingのエディタ代わりにする</h1>
+            
+        </header>
+
+        <section>
+            <p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SnrLKtoIT3I/AAAAAAAAAgc/3Q5un_J7fSU/pt.png" alt="" />
+<a href="http://warikiru.blogspot.com/2009/08/iamas-openhouse-2009.html">IAMASのオープンキャンパス</a>に行って以来、<a href="http://processing.org/download/index.html">Processing</a>をちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。</p>
+
+<p><img src="http://lh3.ggpht.com/_1drnogi3vdg/SoaiX-oRdpI/AAAAAAAAAhI/uc9llrJvJEc/editor.png" alt="" />
+<h3>高機能テキストエディタ：TextMate</h3>
+てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたら<a href="http://macromates.com/">TextMate</a>なるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScriptでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。</p>
+
+<p>早速、TextMateを使ってみる。TextMateは補完機能がハンパねぇと聞いていたので、どれほどのものかと期待していたが補完されない。。。　Aptanaみたいにfun..と入力したら勝手に補完するコードをリストアップして提示してくれるのかと思ったら、これはどうやらTabキーなど押さなきゃいけないらしい。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/Sn6SuzlosVI/AAAAAAAAAgk/uAjYAKfhJU0/t1.png9" alt="" />
+funと入力してTabキーを押すと（JavaScriptの場合）</p>
+
+<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/Sn6SvKAOAsI/AAAAAAAAAgo/wUsO7qFc1jA/t2.png" alt="" />
+補完されたコードが表示される。
+自動補完よりもこっちの方が慣れたら速いのかもね。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiYGy_mVI/AAAAAAAAAhM/e4DQ_GSWDU4/sc.png" alt="" />
+<span style="font-style: italic; color: #666666; font-size: 85%;">JavaScriptのBundle例</span>
+<h3>GetBundleをインストール</h3>
+てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
+<ul>
+    <li>Mac OS X <span style="font-style: italic;">10.5.8</span></li>
+    <li>TextMate <span style="font-style: italic;">1.5.8</span></li>
+    <li>Processing <span style="font-style: italic;">1.0.5</span></li>
+</ul>
+まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、<span style="font-weight: bold;">GetBundle</span>をまずインストールする。</p>
+
+<p>ターミナルを開いて以下のコマンドを打ち込む。
+<pre><span style="color: #999999;">$ </span>mkdir Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>cd Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</pre>
+ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、<span style="font-weight: bold;">cd</span>でそのディレクトリに移動、<span style="font-weight: bold;">svn co</span>でSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんこんな感じｗ</p>
+
+<p>そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！</p>
+
+<p>で動かなかった場合、
+Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; GetBundle &gt; Install BundleのBASE<em>URL部分を以下に変更。
+<pre>BASE</em>URL=http://svn.textmate.org/trunk/</pre>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SoWQhyEn9XI/AAAAAAAAAgw/IIk_x0lpycU/base.png" alt="" />
+<span style="font-family: monospace;">
+</span>で、再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiXxtQINI/AAAAAAAAAhE/izQJmsdpf7A/choose.png" alt="" />
+<h3>ProcessingのBundleをインストール</h3>
+ProcessingのBundleをインストールして、Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; Processing &gt; Run in ProcessingのCommands部分を以下に書き換え
+<pre>osascript  &lt;&lt;EOF
+tell application &quot;Processing&quot; to run
+tell application &quot;Processing&quot; to activate
+tell application &quot;Processing&quot; to open POSIX file &quot;${TM_FILEPATH}&quot;
+delay 1
+tell application &quot;System Events&quot; to tell process &quot;Processing&quot;</p>
+
+<p>keystroke &quot;r&quot; using command down
+end tell
+EOF</pre>
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SoWQhx3IxtI/AAAAAAAAAg4/hEepORHoY7w/pro.png" alt="" />
+<span style="font-family: monospace;">
+</span>これで設定完了♪
+TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すとProcessingが立ち上がります。</p>
+
+<p><span style="font-size: 85%;">参考サイト
+</span>
+<ul>
+    <li><span style="font-size: 85%;"><a href="http://mialweb.ddo.jp/jam/?p=69">Jam’s Blog » TextMate</a></span></li>
+    <li><span style="font-size: 85%;"><a href="http://blog.wozozo.jp/archives/144">TextMateでProcessing - ヲゾゾ wozozo ウンコプログラマー 〜綺麗なお姉さん〜</a></span></li>
+</ul>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41hpiWi3FxL._SL160_.jpg" border="0" alt="Textmate: Power Editing for the Mac (Pragmatic Programmers)" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Textmate: Power Editing for the Mac (Pragmatic Programmers)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></span></p>
+
+<p>Pragmatic Bookshelf  2007-02
+売り上げランキング : 30287</p>
+
+<p><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="TextMateをProcessingのエディタ代わりにする" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

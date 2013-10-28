@@ -1,0 +1,17 @@
+---
+layout: post
+title: 貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する
+categories:
+- books
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  pvc_views: '2253'
+  blogger_blog: warikiru.blogspot.com
+  blogger_author: t32khttp://www.blogger.com/profile/06797489791220082722noreply@blogger.com
+  blogger_permalink: /2009/11/poverty-is-rich.html
+  _edit_last: '1'
+---
+<table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4062153580/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51XQj7IEM3L._SL160_.jpg" alt="貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E8%B2%A7%E4%B9%8F%E3%81%AF%E3%81%8A%E9%87%91%E6%8C%81%E3%81%A1%E2%94%80%E2%94%80%E3%80%8C%E9%9B%87%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E7%94%9F%E3%81%8D%E6%96%B9%E3%80%8D%E3%81%A7%E6%A0%BC%E5%B7%AE%E7%A4%BE%E4%BC%9A%E3%82%92%E9%80%86%E8%BB%A2%E3%81%99%E3%82%8B-%E6%A9%98-%E7%8E%B2/dp/4062153580%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4062153580" target="_blank">貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />講談社  2009-06-04<br />売り上げランキング : 923<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/%E8%B2%A7%E4%B9%8F%E3%81%AF%E3%81%8A%E9%87%91%E6%8C%81%E3%81%A1%E2%94%80%E2%94%80%E3%80%8C%E9%9B%87%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E7%94%9F%E3%81%8D%E6%96%B9%E3%80%8D%E3%81%A7%E6%A0%BC%E5%B7%AE%E7%A4%BE%E4%BC%9A%E3%82%92%E9%80%86%E8%BB%A2%E3%81%99%E3%82%8B-%E6%A9%98-%E7%8E%B2/dp/4062153580%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4062153580" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />前回読んだ「<a href="http://warikiru.blogspot.com/2009/07/golden-feather-of-wealth.html">黄金の羽根の拾い方</a>」を肉付けしたような感じだ。言ってること自体も、1.出来る限り税金を払わない　2出来る限り.再分配はもらうの２つだけだ。ただ「黄金の羽根〜」に比べて、なぜそう考えるのか、雇用問題などの社会情勢の話も盛り込まれているので全部で300ページとちょっとお腹一杯な内容になっている。<br /><br />個人的に、やっぱり会計・ファイナンスの知識が弱い。。。たぶんかみ砕いて説明してあるんだけどもかなり飛ばし読みした。難しい。実際に練習してみるって言ってもそんなに簡単にできないよね？なんてこと考えながら、理解するのが億劫な分野だと認識している。なんか良い本ないですかね。。。<br /><br />本書ではマイクロ法人化することを薦めているわけだけど、別に独立しなくてもできるんだよね。今現在サラリーマンとしてお給料もらっているのなら、納税などややこしい事は会社が請け負ってくれている。それを法人化（サラリーマン法人化）することで、給料ではなく業務委託費としてもらうことで節税ができるという話。その代わり税金の様々な手続きを自分でやらなくてはいけない。<br /><br />奥さんとかいれば、扶養家族とかで控除できる金額が増えると思うけど、実際僕みたいな安月給の一人暮らしの男性がやったところでそんなにもメリットないだろうなと思う。しかし、今のうちから勉強として考えればやっといて損はないと思うけど怖いねｗなんか良い本ないかな。引き続き調査してみようと思う。<br /><br />最後にちょっと自分自身への戒めとして引用しておく。<br /><br /><blockquote>会社にしがみついていれば、会社とともに沈んでいくだけだ。会社を中心に人生を設計できる時代は、ずっとむかしに終わってしまったのだ。<br /><div style="text-align: right;"><span style="font-size:85%;">P.68 第1章 楽園を追われて</span><br /></div></blockquote><br />あと、フリーランスのデザイナーの台所事情（税金対策）なんて勉強会あれば是非とも参加したいところだｗ それとフリーランスというのは「自由な槍」ということで報酬次第でどの君主の味方にもなりますよっていう傭兵のことなんだね。完全に日本語処理してた。ちょっとした雑学でした。<br /><br /><br /><span style="font-size:85%;">関連エントリ<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2009/07/golden-feather-of-wealth.html">お金持ちになれる黄金の羽根の拾い方 - 知的人生設計入門</a></span></li></ul>

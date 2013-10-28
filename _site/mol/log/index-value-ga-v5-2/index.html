@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Googleアナリティクス v5 レポートで$インデックスを確認したい！（2ヶ月ぶり2度目） &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Googleアナリティクス v5 レポートで$インデックスを確認したい！（2ヶ月ぶり2度目） ">
+    <link rel="canonical" href="http://t32k.me//mol/log/index-value-ga-v5-2">
+     
+           
+    <meta property="og:title" content="Googleアナリティクス v5 レポートで$インデックスを確認したい！（2ヶ月ぶり2度目） "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/index-value-ga-v5-2"/>
+    
+    
+    <!--meta property="og:description" content="<p><a href="http://t32k.me/mol/log/index-value-ga-v5/">前回は私の勘違いで、誤った情報を流してしまい申し訳なく思ってます</a>。でもあきらめないで！（誰？</p>
+
+<p>ということで、私の間違いを<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さんが、<a href="http://susumukatachi.jp/archives/1930">懇切丁寧にブログで教えてくださいました</a>ので今回はなんとか解決できそうです。</p>
+
+<!--more-->
+
+<p>（僕にとって）重要だったのは以下です。
+<ol>
+    <li>$インデックスと平均目標値は違う</li>
+    <li>ベージの価値を知りたければ$インデックスを見る</li>
+    <li>$インデックスは <strong>(合計目標値+Eコマースの収益) / ページ別訪問数</strong> で導き出せる</li>
+</ol>
+特に重要なのは3番目ですね。あー$インデックスというのはそうゆう計算式で出るのねと良いことを知りました。Googleアナリティクス上では上記のような計算はできないので、CSVかなんかでローカルにダウンロードしてEXCELで計算すれば$インデックスを出すことできますけどめんどくさいですよね。ってことで、計算してくれるユーザースクリプト作りました。Chromeで確認しています。多分Firefoxでも動くと思います。</p>
+
+<p>極めて限定的な感じになって申し訳ないのですが、まずは以下のカスタムレポートを$インデックスを見たいプロファイルにコピーしてください。
+<ul>
+    <li><strong><a href="https://www.google.com/analytics/web/permalink?type=custom_report&amp;uid=fMTOTwpxTJisMbu_6h-Mdw">上位のコンテンツ（$インデックス含む）:カスタムレポート</a></strong></li>
+</ul>
+これだけだと、$インデックスは確認できないので、次のスクリプトをインストールしてください。view rawってとこクリックしたらインストールできると思います。</p>
+
+<script src="https://gist.github.com/1471956.js?file=calculate_index.user.js"></script>
+
+<p>そして先ほどのカスタムレポートにアクセスするとスクリプトが実行されてこんな感じになると思います。出力されないとか調子悪かったらリロードしてください。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/12/Google-Analytics.png"><img src="http://t32k.me/mol/file/2011/12/Google-Analytics.png" alt="" title="Google-Analytics" width="500" class="fig aligncenter size-medium wp-image-3810" /></a></p>
+
+<p>個人的には満足です。<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さん、ありがとうございますでした。</p>
+
+<p>というか、こんなスクリプトなくても新レポートで$インデックス確認できるようになるといいですね。</p>
+"/>
+    <meta name="description" content="<p><a href="http://t32k.me/mol/log/index-value-ga-v5/">前回は私の勘違いで、誤った情報を流してしまい申し訳なく思ってます</a>。でもあきらめないで！（誰？</p>
+
+<p>ということで、私の間違いを<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さんが、<a href="http://susumukatachi.jp/archives/1930">懇切丁寧にブログで教えてくださいました</a>ので今回はなんとか解決できそうです。</p>
+
+<!--more-->
+
+<p>（僕にとって）重要だったのは以下です。
+<ol>
+    <li>$インデックスと平均目標値は違う</li>
+    <li>ベージの価値を知りたければ$インデックスを見る</li>
+    <li>$インデックスは <strong>(合計目標値+Eコマースの収益) / ページ別訪問数</strong> で導き出せる</li>
+</ol>
+特に重要なのは3番目ですね。あー$インデックスというのはそうゆう計算式で出るのねと良いことを知りました。Googleアナリティクス上では上記のような計算はできないので、CSVかなんかでローカルにダウンロードしてEXCELで計算すれば$インデックスを出すことできますけどめんどくさいですよね。ってことで、計算してくれるユーザースクリプト作りました。Chromeで確認しています。多分Firefoxでも動くと思います。</p>
+
+<p>極めて限定的な感じになって申し訳ないのですが、まずは以下のカスタムレポートを$インデックスを見たいプロファイルにコピーしてください。
+<ul>
+    <li><strong><a href="https://www.google.com/analytics/web/permalink?type=custom_report&amp;uid=fMTOTwpxTJisMbu_6h-Mdw">上位のコンテンツ（$インデックス含む）:カスタムレポート</a></strong></li>
+</ul>
+これだけだと、$インデックスは確認できないので、次のスクリプトをインストールしてください。view rawってとこクリックしたらインストールできると思います。</p>
+
+<script src="https://gist.github.com/1471956.js?file=calculate_index.user.js"></script>
+
+<p>そして先ほどのカスタムレポートにアクセスするとスクリプトが実行されてこんな感じになると思います。出力されないとか調子悪かったらリロードしてください。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/12/Google-Analytics.png"><img src="http://t32k.me/mol/file/2011/12/Google-Analytics.png" alt="" title="Google-Analytics" width="500" class="fig aligncenter size-medium wp-image-3810" /></a></p>
+
+<p>個人的には満足です。<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さん、ありがとうございますでした。</p>
+
+<p>というか、こんなスクリプトなくても新レポートで$インデックス確認できるようになるといいですね。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-13-December" title="December 13, 2011">December 13, 2011</time>
+            </div>
+            <h1 class="title">Googleアナリティクス v5 レポートで$インデックスを確認したい！（2ヶ月ぶり2度目）</h1>
+            
+        </header>
+
+        <section>
+            <p><a href="http://t32k.me/mol/log/index-value-ga-v5/">前回は私の勘違いで、誤った情報を流してしまい申し訳なく思ってます</a>。でもあきらめないで！（誰？</p>
+
+<p>ということで、私の間違いを<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さんが、<a href="http://susumukatachi.jp/archives/1930">懇切丁寧にブログで教えてくださいました</a>ので今回はなんとか解決できそうです。</p>
+
+<!--more-->
+
+<p>（僕にとって）重要だったのは以下です。
+<ol>
+    <li>$インデックスと平均目標値は違う</li>
+    <li>ベージの価値を知りたければ$インデックスを見る</li>
+    <li>$インデックスは <strong>(合計目標値+Eコマースの収益) / ページ別訪問数</strong> で導き出せる</li>
+</ol>
+特に重要なのは3番目ですね。あー$インデックスというのはそうゆう計算式で出るのねと良いことを知りました。Googleアナリティクス上では上記のような計算はできないので、CSVかなんかでローカルにダウンロードしてEXCELで計算すれば$インデックスを出すことできますけどめんどくさいですよね。ってことで、計算してくれるユーザースクリプト作りました。Chromeで確認しています。多分Firefoxでも動くと思います。</p>
+
+<p>極めて限定的な感じになって申し訳ないのですが、まずは以下のカスタムレポートを$インデックスを見たいプロファイルにコピーしてください。
+<ul>
+    <li><strong><a href="https://www.google.com/analytics/web/permalink?type=custom_report&amp;uid=fMTOTwpxTJisMbu_6h-Mdw">上位のコンテンツ（$インデックス含む）:カスタムレポート</a></strong></li>
+</ul>
+これだけだと、$インデックスは確認できないので、次のスクリプトをインストールしてください。view rawってとこクリックしたらインストールできると思います。</p>
+
+<script src="https://gist.github.com/1471956.js?file=calculate_index.user.js"></script>
+
+<p>そして先ほどのカスタムレポートにアクセスするとスクリプトが実行されてこんな感じになると思います。出力されないとか調子悪かったらリロードしてください。</p>
+
+<p><a href="http://t32k.me/mol/file/2011/12/Google-Analytics.png"><img src="http://t32k.me/mol/file/2011/12/Google-Analytics.png" alt="" title="Google-Analytics" width="500" class="fig aligncenter size-medium wp-image-3810" /></a></p>
+
+<p>個人的には満足です。<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さん、ありがとうございますでした。</p>
+
+<p>というか、こんなスクリプトなくても新レポートで$インデックス確認できるようになるといいですね。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Googleアナリティクス v5 レポートで$インデックスを確認したい！（2ヶ月ぶり2度目）" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

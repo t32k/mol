@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanium.UI.iPhone.SystemButton &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Titanium.UI.iPhone.SystemButton ">
+    <link rel="canonical" href="http://t32k.me//mol/log/titanium-ui-iphone-systembutton">
+     
+           
+    <meta property="og:title" content="Titanium.UI.iPhone.SystemButton "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/titanium-ui-iphone-systembutton"/>
+    
+    
+    <!--meta property="og:description" content="<p><a href="http://t32k.me/mol/file/2011/04/Titanium.UI_.iPhone.SystemButton.png"><img class="alignleft size-medium wp-image-2818" title="Titanium.UI.iPhone.SystemButton" src="http://t32k.me/mol/file/2011/04/Titanium.UI_.iPhone.SystemButton-160x300.png" alt="" width="160" height="300"/></a></p>
+
+<p>みなさん、タイタンやってまっかぁ？わい？ わいタイタンやで(・∀・)ｲｲ!!</p>
+
+<p>てことで、先週 <a href="http://m2.cap-ut.co.jp/un/">Untitled!!!!!!!! </a>で講演してきたわけですが、Twitterでの反響を見てますとTitanium Mobileやってみたい！って声もちらほら見受けられて、僕も話して良かったと感じていますです。で、皆さんはこれからTitanium勉強して僕におしえてくっさい！</p>
+
+<p>そんなわけで、今回は自分的にメモ的なメモ。Titanium Mobile はネィティブなUIが使えますので、それをフル活用していこうぜってのが今回のエントリの主旨。</p>
+
+<!--more-->
+
+<p>ボタンとかアイコン作ったりするのめんどいので、システムボタン使おーぜってことす。そのほうが下記コードのような感じで、プロパティの部分が1行で定義できたり、組み込みのアプリと同じ振る舞いをするだろうとユーザーも理解しやすいだろうってことです。さて、そのシステムボタン、どんなのあるのか一覧にしてみた。文字だけじゃ分からないのでキャプチャ撮った。
+<pre><code>var button = Titanium.UI.createButton({
+       systemButton: Titanium.UI.iPhone.SystemButton.CAMERA
+});</code></pre>
+上記画像のコードはGistに貼っておいたので、シュミレータで確認してみるのOKかと。
+<ul>
+    <li><a href="https://gist.github.com/905474">A set of constants for the system button style for buttons. — Gist</a></li>
+</ul>
+<h2>Titanium.UI.iPhone.SystemButton</h2></p>
+
+<p><strong>ACTION</strong>
+<a href="http://t32k.me/mol/file/2011/04/ACTION.png"><img style="vertical-align: middle;" title="ACTION" src="http://t32k.me/mol/file/2011/04/ACTION.png" alt="" width="42" height="38"/></a> アクションアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>ACTIVITY</strong>
+<img style="vertical-align: middle;" title="ACTIVITY_SPINNER" src="http://t32k.me/mol/file/2011/04/ACTIVITY_SPINNER.png" alt="" width="42" height="38"/> アクティビティインディケーターを表す特別なスタイル。</p>
+
+<p><strong>ADD</strong>
+<img style="vertical-align: middle;" title="ADD" src="http://t32k.me/mol/file/2011/04/ADD.png" alt="" width="42" height="38"/> 追加アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>BOOKMARKS</strong>
+<img style="vertical-align: middle;" title="BOOKMARKS" src="http://t32k.me/mol/file/2011/04/BOOKMARKS.png" alt="" width="42" height="38"/> ブックマークアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CAMERA</strong>
+<img style="vertical-align: middle;" title="CAMERA" src="http://t32k.me/mol/file/2011/04/CAMERA.png" alt="" width="42" height="38"/> カメラアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CANCEL</strong>
+<img style="vertical-align: middle;" title="CANCEL" src="http://t32k.me/mol/file/2011/04/CANCEL.png" alt="" width="70" height="38"/> キャンセルアイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>COMPOSE</strong>
+<img style="vertical-align: middle;" title="COMPOSE" src="http://t32k.me/mol/file/2011/04/COMPOSE.png" alt="" width="42" height="38"/> 作成アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CONTACT<em>ADD</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;CONTACT</em>ADD&quot; src=&quot;http://t32k.me/mol/file/2011/04/CONTACT_ADD.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 青色のプラスアイコン。</p>
+
+<p><strong>DISCLOSURE</strong>
+<img style="vertical-align: middle;" title="DISCLOSURE" src="http://t32k.me/mol/file/2011/04/DISCLOSURE.png" alt="" width="42" height="38"/> 開示スタイルアイコン。</p>
+
+<p><strong>DONE</strong>
+<img style="vertical-align: middle;" title="DONE" src="http://t32k.me/mol/file/2011/04/DONE.png" alt="" width="70" height="38"/> 完了アイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>EDIT</strong>
+<img style="vertical-align: middle;" title="EDIT" src="http://t32k.me/mol/file/2011/04/EDIT.png" alt="" width="70" height="38"/> 編集アイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>FAST<em>FORWARD</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;FAST</em>FORWARD&quot; src=&quot;http://t32k.me/mol/file/2011/04/FAST_FORWARD.png&quot; alt=&quot;&quot;/&gt; 早送りアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>INFO<em>DARK</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;INFO</em>DARK&quot; src=&quot;http://t32k.me/mol/file/2011/04/INFO_DARK.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 暗めの情報アイコン。</p>
+
+<p><strong>INFO<em>LIGHT</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;INFO</em>LIGHT&quot; src=&quot;http://t32k.me/mol/file/2011/04/INFO_LIGHT.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 明るめの情報アイコン。</p>
+
+<p><strong>ORGANIZE</strong>
+<img style="vertical-align: middle;" title="ORGANIZE" src="http://t32k.me/mol/file/2011/04/ORGANIZE.png" alt="" width="42" height="38"/> オーガナイズアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>PAUSE</strong>
+<img style="vertical-align: middle;" title="PAUSE" src="http://t32k.me/mol/file/2011/04/PAUSE.png" alt="" width="42" height="38"/> 停止アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>PLAY</strong>
+<img style="vertical-align: middle;" title="PLAY" src="http://t32k.me/mol/file/2011/04/PLAY.png" alt="" width="42" height="38"/> 再生アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REFRESH</strong>
+<img style="vertical-align: middle;" title="REFRESH" src="http://t32k.me/mol/file/2011/04/REFRESH.png" alt="" width="42" height="38"/> 更新アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REPLY</strong>
+<img style="vertical-align: middle;" title="REPLY" src="http://t32k.me/mol/file/2011/04/REPLY.png" alt="" width="42" height="38"/> 返信アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REWIND</strong>
+<img style="vertical-align: middle;" title="REWIND" src="http://t32k.me/mol/file/2011/04/REWIND.png" alt="" width="42" height="38"/> 巻き戻しアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>SAVE</strong>
+<img style="vertical-align: middle;" title="SAVE" src="http://t32k.me/mol/file/2011/04/SAVE.png" alt="" width="70" height="38"/> 保存アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>SPINNER</strong>
+<img style="vertical-align: middle;" title="SPINNER" src="http://t32k.me/mol/file/2011/04/ACTIVITY_SPINNER.png" alt="" width="42" height="38"/> アクティビティと同じ。</p>
+
+<p><strong>STOP</strong>
+<img style="vertical-align: middle;" title="STOP" src="http://t32k.me/mol/file/2011/04/STOP.png" alt="" width="42" height="38"/> 中止アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>TRASH</strong>
+<img style="vertical-align: middle;" title="TRASH" src="http://t32k.me/mol/file/2011/04/TRASH.png" alt="" width="42" height="38"/> ゴミ箱アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>FIXED<em>SPACE,　FLEXIBLE</em>SPACE</strong>
+あとボタンじゃないけど、createButtonで生成する空白スペース。FIXEDが固定スペースで任意のWidthも指定。FLEXIBLEはええ感じに等間隔な感じで調整してくれるナイススペース。
+<pre><code>// 固定スペース
+var fixed = Titanium.UI.createButton({
+    systemButton: Titanium.UI.iPhone.SystemButton.FIXED_SPACE,
+    width: &#39;40&#39;
+});</p>
+
+<p>// 可変スペース
+var flexible = Titanium.UI.createButton({
+    systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+});</code></pre>
+<h3>参照</h3>
+<ul>
+    <li><a href="http://developer.appcelerator.com/apidoc/mobile/1.6.0/Titanium.UI.iPhone.SystemButton-object">Appcelerator Developer Center - API for Titanium.UI.iPhone.SystemButton (version 1.6.0)</a></li>
+</ul></p>
+"/>
+    <meta name="description" content="<p><a href="http://t32k.me/mol/file/2011/04/Titanium.UI_.iPhone.SystemButton.png"><img class="alignleft size-medium wp-image-2818" title="Titanium.UI.iPhone.SystemButton" src="http://t32k.me/mol/file/2011/04/Titanium.UI_.iPhone.SystemButton-160x300.png" alt="" width="160" height="300"/></a></p>
+
+<p>みなさん、タイタンやってまっかぁ？わい？ わいタイタンやで(・∀・)ｲｲ!!</p>
+
+<p>てことで、先週 <a href="http://m2.cap-ut.co.jp/un/">Untitled!!!!!!!! </a>で講演してきたわけですが、Twitterでの反響を見てますとTitanium Mobileやってみたい！って声もちらほら見受けられて、僕も話して良かったと感じていますです。で、皆さんはこれからTitanium勉強して僕におしえてくっさい！</p>
+
+<p>そんなわけで、今回は自分的にメモ的なメモ。Titanium Mobile はネィティブなUIが使えますので、それをフル活用していこうぜってのが今回のエントリの主旨。</p>
+
+<!--more-->
+
+<p>ボタンとかアイコン作ったりするのめんどいので、システムボタン使おーぜってことす。そのほうが下記コードのような感じで、プロパティの部分が1行で定義できたり、組み込みのアプリと同じ振る舞いをするだろうとユーザーも理解しやすいだろうってことです。さて、そのシステムボタン、どんなのあるのか一覧にしてみた。文字だけじゃ分からないのでキャプチャ撮った。
+<pre><code>var button = Titanium.UI.createButton({
+       systemButton: Titanium.UI.iPhone.SystemButton.CAMERA
+});</code></pre>
+上記画像のコードはGistに貼っておいたので、シュミレータで確認してみるのOKかと。
+<ul>
+    <li><a href="https://gist.github.com/905474">A set of constants for the system button style for buttons. — Gist</a></li>
+</ul>
+<h2>Titanium.UI.iPhone.SystemButton</h2></p>
+
+<p><strong>ACTION</strong>
+<a href="http://t32k.me/mol/file/2011/04/ACTION.png"><img style="vertical-align: middle;" title="ACTION" src="http://t32k.me/mol/file/2011/04/ACTION.png" alt="" width="42" height="38"/></a> アクションアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>ACTIVITY</strong>
+<img style="vertical-align: middle;" title="ACTIVITY_SPINNER" src="http://t32k.me/mol/file/2011/04/ACTIVITY_SPINNER.png" alt="" width="42" height="38"/> アクティビティインディケーターを表す特別なスタイル。</p>
+
+<p><strong>ADD</strong>
+<img style="vertical-align: middle;" title="ADD" src="http://t32k.me/mol/file/2011/04/ADD.png" alt="" width="42" height="38"/> 追加アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>BOOKMARKS</strong>
+<img style="vertical-align: middle;" title="BOOKMARKS" src="http://t32k.me/mol/file/2011/04/BOOKMARKS.png" alt="" width="42" height="38"/> ブックマークアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CAMERA</strong>
+<img style="vertical-align: middle;" title="CAMERA" src="http://t32k.me/mol/file/2011/04/CAMERA.png" alt="" width="42" height="38"/> カメラアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CANCEL</strong>
+<img style="vertical-align: middle;" title="CANCEL" src="http://t32k.me/mol/file/2011/04/CANCEL.png" alt="" width="70" height="38"/> キャンセルアイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>COMPOSE</strong>
+<img style="vertical-align: middle;" title="COMPOSE" src="http://t32k.me/mol/file/2011/04/COMPOSE.png" alt="" width="42" height="38"/> 作成アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CONTACT<em>ADD</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;CONTACT</em>ADD&quot; src=&quot;http://t32k.me/mol/file/2011/04/CONTACT_ADD.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 青色のプラスアイコン。</p>
+
+<p><strong>DISCLOSURE</strong>
+<img style="vertical-align: middle;" title="DISCLOSURE" src="http://t32k.me/mol/file/2011/04/DISCLOSURE.png" alt="" width="42" height="38"/> 開示スタイルアイコン。</p>
+
+<p><strong>DONE</strong>
+<img style="vertical-align: middle;" title="DONE" src="http://t32k.me/mol/file/2011/04/DONE.png" alt="" width="70" height="38"/> 完了アイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>EDIT</strong>
+<img style="vertical-align: middle;" title="EDIT" src="http://t32k.me/mol/file/2011/04/EDIT.png" alt="" width="70" height="38"/> 編集アイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>FAST<em>FORWARD</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;FAST</em>FORWARD&quot; src=&quot;http://t32k.me/mol/file/2011/04/FAST_FORWARD.png&quot; alt=&quot;&quot;/&gt; 早送りアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>INFO<em>DARK</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;INFO</em>DARK&quot; src=&quot;http://t32k.me/mol/file/2011/04/INFO_DARK.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 暗めの情報アイコン。</p>
+
+<p><strong>INFO<em>LIGHT</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;INFO</em>LIGHT&quot; src=&quot;http://t32k.me/mol/file/2011/04/INFO_LIGHT.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 明るめの情報アイコン。</p>
+
+<p><strong>ORGANIZE</strong>
+<img style="vertical-align: middle;" title="ORGANIZE" src="http://t32k.me/mol/file/2011/04/ORGANIZE.png" alt="" width="42" height="38"/> オーガナイズアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>PAUSE</strong>
+<img style="vertical-align: middle;" title="PAUSE" src="http://t32k.me/mol/file/2011/04/PAUSE.png" alt="" width="42" height="38"/> 停止アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>PLAY</strong>
+<img style="vertical-align: middle;" title="PLAY" src="http://t32k.me/mol/file/2011/04/PLAY.png" alt="" width="42" height="38"/> 再生アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REFRESH</strong>
+<img style="vertical-align: middle;" title="REFRESH" src="http://t32k.me/mol/file/2011/04/REFRESH.png" alt="" width="42" height="38"/> 更新アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REPLY</strong>
+<img style="vertical-align: middle;" title="REPLY" src="http://t32k.me/mol/file/2011/04/REPLY.png" alt="" width="42" height="38"/> 返信アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REWIND</strong>
+<img style="vertical-align: middle;" title="REWIND" src="http://t32k.me/mol/file/2011/04/REWIND.png" alt="" width="42" height="38"/> 巻き戻しアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>SAVE</strong>
+<img style="vertical-align: middle;" title="SAVE" src="http://t32k.me/mol/file/2011/04/SAVE.png" alt="" width="70" height="38"/> 保存アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>SPINNER</strong>
+<img style="vertical-align: middle;" title="SPINNER" src="http://t32k.me/mol/file/2011/04/ACTIVITY_SPINNER.png" alt="" width="42" height="38"/> アクティビティと同じ。</p>
+
+<p><strong>STOP</strong>
+<img style="vertical-align: middle;" title="STOP" src="http://t32k.me/mol/file/2011/04/STOP.png" alt="" width="42" height="38"/> 中止アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>TRASH</strong>
+<img style="vertical-align: middle;" title="TRASH" src="http://t32k.me/mol/file/2011/04/TRASH.png" alt="" width="42" height="38"/> ゴミ箱アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>FIXED<em>SPACE,　FLEXIBLE</em>SPACE</strong>
+あとボタンじゃないけど、createButtonで生成する空白スペース。FIXEDが固定スペースで任意のWidthも指定。FLEXIBLEはええ感じに等間隔な感じで調整してくれるナイススペース。
+<pre><code>// 固定スペース
+var fixed = Titanium.UI.createButton({
+    systemButton: Titanium.UI.iPhone.SystemButton.FIXED_SPACE,
+    width: &#39;40&#39;
+});</p>
+
+<p>// 可変スペース
+var flexible = Titanium.UI.createButton({
+    systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+});</code></pre>
+<h3>参照</h3>
+<ul>
+    <li><a href="http://developer.appcelerator.com/apidoc/mobile/1.6.0/Titanium.UI.iPhone.SystemButton-object">Appcelerator Developer Center - API for Titanium.UI.iPhone.SystemButton (version 1.6.0)</a></li>
+</ul></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-07-April" title="April 07, 2011">April 07, 2011</time>
+            </div>
+            <h1 class="title">Titanium.UI.iPhone.SystemButton</h1>
+            
+        </header>
+
+        <section>
+            <p><a href="http://t32k.me/mol/file/2011/04/Titanium.UI_.iPhone.SystemButton.png"><img class="alignleft size-medium wp-image-2818" title="Titanium.UI.iPhone.SystemButton" src="http://t32k.me/mol/file/2011/04/Titanium.UI_.iPhone.SystemButton-160x300.png" alt="" width="160" height="300"/></a></p>
+
+<p>みなさん、タイタンやってまっかぁ？わい？ わいタイタンやで(・∀・)ｲｲ!!</p>
+
+<p>てことで、先週 <a href="http://m2.cap-ut.co.jp/un/">Untitled!!!!!!!! </a>で講演してきたわけですが、Twitterでの反響を見てますとTitanium Mobileやってみたい！って声もちらほら見受けられて、僕も話して良かったと感じていますです。で、皆さんはこれからTitanium勉強して僕におしえてくっさい！</p>
+
+<p>そんなわけで、今回は自分的にメモ的なメモ。Titanium Mobile はネィティブなUIが使えますので、それをフル活用していこうぜってのが今回のエントリの主旨。</p>
+
+<!--more-->
+
+<p>ボタンとかアイコン作ったりするのめんどいので、システムボタン使おーぜってことす。そのほうが下記コードのような感じで、プロパティの部分が1行で定義できたり、組み込みのアプリと同じ振る舞いをするだろうとユーザーも理解しやすいだろうってことです。さて、そのシステムボタン、どんなのあるのか一覧にしてみた。文字だけじゃ分からないのでキャプチャ撮った。
+<pre><code>var button = Titanium.UI.createButton({
+       systemButton: Titanium.UI.iPhone.SystemButton.CAMERA
+});</code></pre>
+上記画像のコードはGistに貼っておいたので、シュミレータで確認してみるのOKかと。
+<ul>
+    <li><a href="https://gist.github.com/905474">A set of constants for the system button style for buttons. — Gist</a></li>
+</ul>
+<h2>Titanium.UI.iPhone.SystemButton</h2></p>
+
+<p><strong>ACTION</strong>
+<a href="http://t32k.me/mol/file/2011/04/ACTION.png"><img style="vertical-align: middle;" title="ACTION" src="http://t32k.me/mol/file/2011/04/ACTION.png" alt="" width="42" height="38"/></a> アクションアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>ACTIVITY</strong>
+<img style="vertical-align: middle;" title="ACTIVITY_SPINNER" src="http://t32k.me/mol/file/2011/04/ACTIVITY_SPINNER.png" alt="" width="42" height="38"/> アクティビティインディケーターを表す特別なスタイル。</p>
+
+<p><strong>ADD</strong>
+<img style="vertical-align: middle;" title="ADD" src="http://t32k.me/mol/file/2011/04/ADD.png" alt="" width="42" height="38"/> 追加アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>BOOKMARKS</strong>
+<img style="vertical-align: middle;" title="BOOKMARKS" src="http://t32k.me/mol/file/2011/04/BOOKMARKS.png" alt="" width="42" height="38"/> ブックマークアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CAMERA</strong>
+<img style="vertical-align: middle;" title="CAMERA" src="http://t32k.me/mol/file/2011/04/CAMERA.png" alt="" width="42" height="38"/> カメラアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CANCEL</strong>
+<img style="vertical-align: middle;" title="CANCEL" src="http://t32k.me/mol/file/2011/04/CANCEL.png" alt="" width="70" height="38"/> キャンセルアイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>COMPOSE</strong>
+<img style="vertical-align: middle;" title="COMPOSE" src="http://t32k.me/mol/file/2011/04/COMPOSE.png" alt="" width="42" height="38"/> 作成アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>CONTACT<em>ADD</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;CONTACT</em>ADD&quot; src=&quot;http://t32k.me/mol/file/2011/04/CONTACT_ADD.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 青色のプラスアイコン。</p>
+
+<p><strong>DISCLOSURE</strong>
+<img style="vertical-align: middle;" title="DISCLOSURE" src="http://t32k.me/mol/file/2011/04/DISCLOSURE.png" alt="" width="42" height="38"/> 開示スタイルアイコン。</p>
+
+<p><strong>DONE</strong>
+<img style="vertical-align: middle;" title="DONE" src="http://t32k.me/mol/file/2011/04/DONE.png" alt="" width="70" height="38"/> 完了アイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>EDIT</strong>
+<img style="vertical-align: middle;" title="EDIT" src="http://t32k.me/mol/file/2011/04/EDIT.png" alt="" width="70" height="38"/> 編集アイコン。ローカライズ。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>FAST<em>FORWARD</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;FAST</em>FORWARD&quot; src=&quot;http://t32k.me/mol/file/2011/04/FAST_FORWARD.png&quot; alt=&quot;&quot;/&gt; 早送りアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>INFO<em>DARK</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;INFO</em>DARK&quot; src=&quot;http://t32k.me/mol/file/2011/04/INFO_DARK.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 暗めの情報アイコン。</p>
+
+<p><strong>INFO<em>LIGHT</strong>
+&lt;img style=&quot;vertical-align: middle;&quot; title=&quot;INFO</em>LIGHT&quot; src=&quot;http://t32k.me/mol/file/2011/04/INFO_LIGHT.png&quot; alt=&quot;&quot; width=&quot;42&quot; height=&quot;38&quot;/&gt; 明るめの情報アイコン。</p>
+
+<p><strong>ORGANIZE</strong>
+<img style="vertical-align: middle;" title="ORGANIZE" src="http://t32k.me/mol/file/2011/04/ORGANIZE.png" alt="" width="42" height="38"/> オーガナイズアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>PAUSE</strong>
+<img style="vertical-align: middle;" title="PAUSE" src="http://t32k.me/mol/file/2011/04/PAUSE.png" alt="" width="42" height="38"/> 停止アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>PLAY</strong>
+<img style="vertical-align: middle;" title="PLAY" src="http://t32k.me/mol/file/2011/04/PLAY.png" alt="" width="42" height="38"/> 再生アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REFRESH</strong>
+<img style="vertical-align: middle;" title="REFRESH" src="http://t32k.me/mol/file/2011/04/REFRESH.png" alt="" width="42" height="38"/> 更新アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REPLY</strong>
+<img style="vertical-align: middle;" title="REPLY" src="http://t32k.me/mol/file/2011/04/REPLY.png" alt="" width="42" height="38"/> 返信アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>REWIND</strong>
+<img style="vertical-align: middle;" title="REWIND" src="http://t32k.me/mol/file/2011/04/REWIND.png" alt="" width="42" height="38"/> 巻き戻しアイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>SAVE</strong>
+<img style="vertical-align: middle;" title="SAVE" src="http://t32k.me/mol/file/2011/04/SAVE.png" alt="" width="70" height="38"/> 保存アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>SPINNER</strong>
+<img style="vertical-align: middle;" title="SPINNER" src="http://t32k.me/mol/file/2011/04/ACTIVITY_SPINNER.png" alt="" width="42" height="38"/> アクティビティと同じ。</p>
+
+<p><strong>STOP</strong>
+<img style="vertical-align: middle;" title="STOP" src="http://t32k.me/mol/file/2011/04/STOP.png" alt="" width="42" height="38"/> 中止アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>TRASH</strong>
+<img style="vertical-align: middle;" title="TRASH" src="http://t32k.me/mol/file/2011/04/TRASH.png" alt="" width="42" height="38"/> ゴミ箱アイコン。toolbarとnavbarでのみ使用可能。</p>
+
+<p><strong>FIXED<em>SPACE,　FLEXIBLE</em>SPACE</strong>
+あとボタンじゃないけど、createButtonで生成する空白スペース。FIXEDが固定スペースで任意のWidthも指定。FLEXIBLEはええ感じに等間隔な感じで調整してくれるナイススペース。
+<pre><code>// 固定スペース
+var fixed = Titanium.UI.createButton({
+    systemButton: Titanium.UI.iPhone.SystemButton.FIXED_SPACE,
+    width: &#39;40&#39;
+});</p>
+
+<p>// 可変スペース
+var flexible = Titanium.UI.createButton({
+    systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+});</code></pre>
+<h3>参照</h3>
+<ul>
+    <li><a href="http://developer.appcelerator.com/apidoc/mobile/1.6.0/Titanium.UI.iPhone.SystemButton-object">Appcelerator Developer Center - API for Titanium.UI.iPhone.SystemButton (version 1.6.0)</a></li>
+</ul></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Titanium.UI.iPhone.SystemButton" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

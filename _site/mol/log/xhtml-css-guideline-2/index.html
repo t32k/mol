@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(X)HTML+CSSガイドライン2 &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="(X)HTML+CSSガイドライン2 ">
+    <link rel="canonical" href="http://t32k.me//mol/log/xhtml-css-guideline-2">
+     
+           
+    <meta property="og:title" content="(X)HTML+CSSガイドライン2 "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/xhtml-css-guideline-2"/>
+    
+    
+    <!--meta property="og:description" content="<p>命名に関することで参考になったサイト<br /><ul><li><a href="http://www.hamashun.com/blog/2006/09/classid.html">Class名とID名の命名規則</a></li><li><a href="http://css-happylife.com/log/memo/000100.shtml">もう、class名やid名で悩まないんだからっ！！</a></li><li><a href="http://purpr.in/presentation/cssflight/">(X)HTML の id/class における命名規則</a></li><li><a href="http://code.google.com/webstats/2005-12/classes.html">Which class names are used on the most pages? </a></li></ul>ワイヤーフレームのID名の例が多くて、<br />その中のClassは一体どうゆう名前をつけたらいいんだ！<br /><br />って思いました。<br /><br />ということで、それっぽい英単語を英辞郎で調べてみました。<br /><br /><br /><p style="float: left; width: 250px;"><span style="font-weight: bold;">class名に使えそうな単語とか</span><br /><br />・canto / division　編/部<br />・chapter　章<br />・section　節<br />・paragraph　項<br />・item　目<br />・column　記事・欄<br />・article　記事・項目<br />・topic　題目・主題　<br />・lead　序文<br />・outline　輪郭・概要　<br />・epigraph　題辞<br />・remark　コメント<br />・sidenote　補足項目<br />・area　範囲・領域　<br />・spot　場所・点<br />・account　説明<br />・piece　記事・要素<br />・matter　事柄・内容<br />・report　記事・報告<br />・story　記事・物語<br />・bottom-line　結論<br />・conclusion　結論<br />・chart　表<br />・diagram　図<br />・figure　図<br />・graphic　図<br />・principal-text　主文<br />・sentence　文<br /></p><br /><p><br />・rank　階級・階層<br />・group　グループ<br />・category　カテゴリー<br />・cover　カバー<br />・construct　構造物・構図<br />・composition　構成・組織<br />・thumbnail　サムネイル<br />・data　データ<br />・logo　ロゴ<br />・topicpath　パンくずナビ<br />・external　外部<br />・feed　フィードなど<br />・ｍore　詳細<br />・datetime　日時<br />・message メッセージ<br />・ads　広告類<br />・banners　バナー類<br />・photos　写真類<br />・case　ケース・件<br />・search-box　検索ボックス<br />・key-point　主要な注釈<br />・example　例<br />・toc　目次（table of contents）<br />・index　索引・見出し<br />・selector‒inner<br />・selector‒first<br />・selector‒second<br />・selector‒third</p><span style="font-size:85%;"><br />関連エントリー<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2007/09/xhtmlcss.html">warikiru: (X)HTML+CSSガイドライン1</a></span></li><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2007/10/xhtmlcss3.html">warikiru: (X)HTML+CSSガイドライン3</a></span></li></ul></p>
+"/>
+    <meta name="description" content="<p>命名に関することで参考になったサイト<br /><ul><li><a href="http://www.hamashun.com/blog/2006/09/classid.html">Class名とID名の命名規則</a></li><li><a href="http://css-happylife.com/log/memo/000100.shtml">もう、class名やid名で悩まないんだからっ！！</a></li><li><a href="http://purpr.in/presentation/cssflight/">(X)HTML の id/class における命名規則</a></li><li><a href="http://code.google.com/webstats/2005-12/classes.html">Which class names are used on the most pages? </a></li></ul>ワイヤーフレームのID名の例が多くて、<br />その中のClassは一体どうゆう名前をつけたらいいんだ！<br /><br />って思いました。<br /><br />ということで、それっぽい英単語を英辞郎で調べてみました。<br /><br /><br /><p style="float: left; width: 250px;"><span style="font-weight: bold;">class名に使えそうな単語とか</span><br /><br />・canto / division　編/部<br />・chapter　章<br />・section　節<br />・paragraph　項<br />・item　目<br />・column　記事・欄<br />・article　記事・項目<br />・topic　題目・主題　<br />・lead　序文<br />・outline　輪郭・概要　<br />・epigraph　題辞<br />・remark　コメント<br />・sidenote　補足項目<br />・area　範囲・領域　<br />・spot　場所・点<br />・account　説明<br />・piece　記事・要素<br />・matter　事柄・内容<br />・report　記事・報告<br />・story　記事・物語<br />・bottom-line　結論<br />・conclusion　結論<br />・chart　表<br />・diagram　図<br />・figure　図<br />・graphic　図<br />・principal-text　主文<br />・sentence　文<br /></p><br /><p><br />・rank　階級・階層<br />・group　グループ<br />・category　カテゴリー<br />・cover　カバー<br />・construct　構造物・構図<br />・composition　構成・組織<br />・thumbnail　サムネイル<br />・data　データ<br />・logo　ロゴ<br />・topicpath　パンくずナビ<br />・external　外部<br />・feed　フィードなど<br />・ｍore　詳細<br />・datetime　日時<br />・message メッセージ<br />・ads　広告類<br />・banners　バナー類<br />・photos　写真類<br />・case　ケース・件<br />・search-box　検索ボックス<br />・key-point　主要な注釈<br />・example　例<br />・toc　目次（table of contents）<br />・index　索引・見出し<br />・selector‒inner<br />・selector‒first<br />・selector‒second<br />・selector‒third</p><span style="font-size:85%;"><br />関連エントリー<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2007/09/xhtmlcss.html">warikiru: (X)HTML+CSSガイドライン1</a></span></li><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2007/10/xhtmlcss3.html">warikiru: (X)HTML+CSSガイドライン3</a></span></li></ul></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2007-17-September" title="September 17, 2007">September 17, 2007</time>
+            </div>
+            <h1 class="title">(X)HTML+CSSガイドライン2</h1>
+            
+        </header>
+
+        <section>
+            <p>命名に関することで参考になったサイト<br /><ul><li><a href="http://www.hamashun.com/blog/2006/09/classid.html">Class名とID名の命名規則</a></li><li><a href="http://css-happylife.com/log/memo/000100.shtml">もう、class名やid名で悩まないんだからっ！！</a></li><li><a href="http://purpr.in/presentation/cssflight/">(X)HTML の id/class における命名規則</a></li><li><a href="http://code.google.com/webstats/2005-12/classes.html">Which class names are used on the most pages? </a></li></ul>ワイヤーフレームのID名の例が多くて、<br />その中のClassは一体どうゆう名前をつけたらいいんだ！<br /><br />って思いました。<br /><br />ということで、それっぽい英単語を英辞郎で調べてみました。<br /><br /><br /><p style="float: left; width: 250px;"><span style="font-weight: bold;">class名に使えそうな単語とか</span><br /><br />・canto / division　編/部<br />・chapter　章<br />・section　節<br />・paragraph　項<br />・item　目<br />・column　記事・欄<br />・article　記事・項目<br />・topic　題目・主題　<br />・lead　序文<br />・outline　輪郭・概要　<br />・epigraph　題辞<br />・remark　コメント<br />・sidenote　補足項目<br />・area　範囲・領域　<br />・spot　場所・点<br />・account　説明<br />・piece　記事・要素<br />・matter　事柄・内容<br />・report　記事・報告<br />・story　記事・物語<br />・bottom-line　結論<br />・conclusion　結論<br />・chart　表<br />・diagram　図<br />・figure　図<br />・graphic　図<br />・principal-text　主文<br />・sentence　文<br /></p><br /><p><br />・rank　階級・階層<br />・group　グループ<br />・category　カテゴリー<br />・cover　カバー<br />・construct　構造物・構図<br />・composition　構成・組織<br />・thumbnail　サムネイル<br />・data　データ<br />・logo　ロゴ<br />・topicpath　パンくずナビ<br />・external　外部<br />・feed　フィードなど<br />・ｍore　詳細<br />・datetime　日時<br />・message メッセージ<br />・ads　広告類<br />・banners　バナー類<br />・photos　写真類<br />・case　ケース・件<br />・search-box　検索ボックス<br />・key-point　主要な注釈<br />・example　例<br />・toc　目次（table of contents）<br />・index　索引・見出し<br />・selector‒inner<br />・selector‒first<br />・selector‒second<br />・selector‒third</p><span style="font-size:85%;"><br />関連エントリー<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2007/09/xhtmlcss.html">warikiru: (X)HTML+CSSガイドライン1</a></span></li><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2007/10/xhtmlcss3.html">warikiru: (X)HTML+CSSガイドライン3</a></span></li></ul></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="(X)HTML+CSSガイドライン2" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

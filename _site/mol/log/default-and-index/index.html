@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デフォルトページとindex.html &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="デフォルトページとindex.html ">
+    <link rel="canonical" href="http://t32k.me//mol/log/default-and-index">
+     
+           
+    <meta property="og:title" content="デフォルトページとindex.html "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/default-and-index"/>
+    
+    
+    <!--meta property="og:description" content="<p><a title="ga01 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3049307631/"><img src="http://farm4.static.flickr.com/3142/3049307631_82c30d6cfb.jpg" alt="ga01" width="500" height="239" /></a></p>
+
+<p>Google Analytics(以下、GA)でのプロファイル設定の『デフォルトのページ』に違和感、というかイマイチよくわかならない。</p>
+
+<p>『デフォルトのページ』に関してのGoogleヘルプページ内容はこちら↓
+<blockquote><span style="font-weight: bold;">デフォルトのページ</span>
+[デフォルトのページ] は、ドメイン上のページが指定されていない場合に、サーバーがデフォルトで返すウェブ ページのことです。 たとえば、「www.yourdomain.co.jp」と入力すると、サーバーから index.html ページが返される場合は、index.html がデフォルトのページとなります。
+Analytics の [プロファイル設定] ページには、デフォルトのページを指定する欄があります。 Google Analytics では、この情報を使用して www.yourdomain.co.jp と www.yourdomain.co.jp/index.html のヒットが実際には同じページであると判断します。デフォルトのページが指定されていない場合、これら 2 つのエントリは別のページとしてレポートに集計されます。
+<div style="text-align: right;"><a href="http://www.google.co.jp/support/googleanalytics/bin/answer.py?answer=32995&amp;useful=0&amp;show_useful=1&amp;comment="><span style="font-size: 85%;">デフォルトのページ - Google Analytics ヘルプ センター</span></a></div></blockquote>
+www.yourdomain.co.jp入力したらindex.html返すの当たり前じゃん、最初からそんなん指定しといてよと思った。だがそうでも、ないらしいのね。こんな記事見つけた↓
+<blockquote>何故、最初からデフォールトのページを「index.html」にしてしまわないのか。それは、ウェブサーバーの設定で、デフォールトのページを変えられるから。
+例えば、Apache のデフォールトは「index.html」だけど、IIS (Microsoft のウェブサーバー) のデフォールトは「Default.htm」だったり「index.htm」だったりする。「main.html」をデフォールトのページに設定してる人もいるかもしれないし、もっと変な名前をデフォールトにしてるかもしれない。若しくは、「○○/」と「○○/index.html」を同じとして数えたくない人もいるかもしれない。
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://at-aka.blogspot.com/2006/04/google-analytics.html">clmemo@aka: Google Analytics のデフォールト・ページ</a></span></div></blockquote>
+なるほど、そういうことか。合点がいったよ。で、GAで『デフォルトのページ』をindex.htmlにしたわけです。そしたら、GA上では、www.example.com/などスラッシュで終わってるURLはすべてwww.example.com/index.htmlという表記でカウントされるんですね。</p>
+
+<p>当たり前というか当たり前だけど。。。すべてのページをでディレクトリ作ってindex.htmlで作ったとしたら、おしりが全部index.htmlなので、見にくいじゃん。こんなふうに↓</p>
+
+<p><a title="ga02 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3050147092/"><img src="http://farm4.static.flickr.com/3188/3050147092_34fafc50c9.jpg" alt="ga02" width="500" height="232" /></a></p>
+
+<p>ということで、デフォルトのページは設定しないことにした。そしたらwww.example.com/とwww.example.com/index.htmlは、別々のURLで扱われるじゃないか！と思うけど。index.htmlでアクセスししてきた人は/にリダイレクトすればいいんだ。で.htaccessでこんなん見つけた↓
+<blockquote>Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.<em>/index.html
+RewriteRule ^(.</em>)index.html$ http://www.example.com/$1 [R=301,L]
+<span style="font-size: 85%;">※www.example.com内のすべてのディレクトリで、「/index.html」が「/」に正規化されます。</span>
+<div style="text-align: right;"><a href="http://www.suzukikenichi.com/blog/canonicalization-of-indexhtml-and-non-indexhtml/"><span style="font-size: 85%;">index.html「あり・なし」のURL正規化～301リダイレクト応用編 » 海外SEO情報ブログ・メルマガ</span></a></div></blockquote>
+ようやく、自分の思い通りになったけど、GAで表示する出力を変えるだけなら、<a href="http://www.google.com/support/analytics/bin/answer.py?hl=jp&amp;answer=55461">アドバンスフィルタ</a>とか使えば良かったのかな、フィルタ系全然分からないな。もっと勉強します。。。</p>
+"/>
+    <meta name="description" content="<p><a title="ga01 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3049307631/"><img src="http://farm4.static.flickr.com/3142/3049307631_82c30d6cfb.jpg" alt="ga01" width="500" height="239" /></a></p>
+
+<p>Google Analytics(以下、GA)でのプロファイル設定の『デフォルトのページ』に違和感、というかイマイチよくわかならない。</p>
+
+<p>『デフォルトのページ』に関してのGoogleヘルプページ内容はこちら↓
+<blockquote><span style="font-weight: bold;">デフォルトのページ</span>
+[デフォルトのページ] は、ドメイン上のページが指定されていない場合に、サーバーがデフォルトで返すウェブ ページのことです。 たとえば、「www.yourdomain.co.jp」と入力すると、サーバーから index.html ページが返される場合は、index.html がデフォルトのページとなります。
+Analytics の [プロファイル設定] ページには、デフォルトのページを指定する欄があります。 Google Analytics では、この情報を使用して www.yourdomain.co.jp と www.yourdomain.co.jp/index.html のヒットが実際には同じページであると判断します。デフォルトのページが指定されていない場合、これら 2 つのエントリは別のページとしてレポートに集計されます。
+<div style="text-align: right;"><a href="http://www.google.co.jp/support/googleanalytics/bin/answer.py?answer=32995&amp;useful=0&amp;show_useful=1&amp;comment="><span style="font-size: 85%;">デフォルトのページ - Google Analytics ヘルプ センター</span></a></div></blockquote>
+www.yourdomain.co.jp入力したらindex.html返すの当たり前じゃん、最初からそんなん指定しといてよと思った。だがそうでも、ないらしいのね。こんな記事見つけた↓
+<blockquote>何故、最初からデフォールトのページを「index.html」にしてしまわないのか。それは、ウェブサーバーの設定で、デフォールトのページを変えられるから。
+例えば、Apache のデフォールトは「index.html」だけど、IIS (Microsoft のウェブサーバー) のデフォールトは「Default.htm」だったり「index.htm」だったりする。「main.html」をデフォールトのページに設定してる人もいるかもしれないし、もっと変な名前をデフォールトにしてるかもしれない。若しくは、「○○/」と「○○/index.html」を同じとして数えたくない人もいるかもしれない。
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://at-aka.blogspot.com/2006/04/google-analytics.html">clmemo@aka: Google Analytics のデフォールト・ページ</a></span></div></blockquote>
+なるほど、そういうことか。合点がいったよ。で、GAで『デフォルトのページ』をindex.htmlにしたわけです。そしたら、GA上では、www.example.com/などスラッシュで終わってるURLはすべてwww.example.com/index.htmlという表記でカウントされるんですね。</p>
+
+<p>当たり前というか当たり前だけど。。。すべてのページをでディレクトリ作ってindex.htmlで作ったとしたら、おしりが全部index.htmlなので、見にくいじゃん。こんなふうに↓</p>
+
+<p><a title="ga02 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3050147092/"><img src="http://farm4.static.flickr.com/3188/3050147092_34fafc50c9.jpg" alt="ga02" width="500" height="232" /></a></p>
+
+<p>ということで、デフォルトのページは設定しないことにした。そしたらwww.example.com/とwww.example.com/index.htmlは、別々のURLで扱われるじゃないか！と思うけど。index.htmlでアクセスししてきた人は/にリダイレクトすればいいんだ。で.htaccessでこんなん見つけた↓
+<blockquote>Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.<em>/index.html
+RewriteRule ^(.</em>)index.html$ http://www.example.com/$1 [R=301,L]
+<span style="font-size: 85%;">※www.example.com内のすべてのディレクトリで、「/index.html」が「/」に正規化されます。</span>
+<div style="text-align: right;"><a href="http://www.suzukikenichi.com/blog/canonicalization-of-indexhtml-and-non-indexhtml/"><span style="font-size: 85%;">index.html「あり・なし」のURL正規化～301リダイレクト応用編 » 海外SEO情報ブログ・メルマガ</span></a></div></blockquote>
+ようやく、自分の思い通りになったけど、GAで表示する出力を変えるだけなら、<a href="http://www.google.com/support/analytics/bin/answer.py?hl=jp&amp;answer=55461">アドバンスフィルタ</a>とか使えば良かったのかな、フィルタ系全然分からないな。もっと勉強します。。。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2008-22-November" title="November 22, 2008">November 22, 2008</time>
+            </div>
+            <h1 class="title">デフォルトページとindex.html</h1>
+            
+        </header>
+
+        <section>
+            <p><a title="ga01 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3049307631/"><img src="http://farm4.static.flickr.com/3142/3049307631_82c30d6cfb.jpg" alt="ga01" width="500" height="239" /></a></p>
+
+<p>Google Analytics(以下、GA)でのプロファイル設定の『デフォルトのページ』に違和感、というかイマイチよくわかならない。</p>
+
+<p>『デフォルトのページ』に関してのGoogleヘルプページ内容はこちら↓
+<blockquote><span style="font-weight: bold;">デフォルトのページ</span>
+[デフォルトのページ] は、ドメイン上のページが指定されていない場合に、サーバーがデフォルトで返すウェブ ページのことです。 たとえば、「www.yourdomain.co.jp」と入力すると、サーバーから index.html ページが返される場合は、index.html がデフォルトのページとなります。
+Analytics の [プロファイル設定] ページには、デフォルトのページを指定する欄があります。 Google Analytics では、この情報を使用して www.yourdomain.co.jp と www.yourdomain.co.jp/index.html のヒットが実際には同じページであると判断します。デフォルトのページが指定されていない場合、これら 2 つのエントリは別のページとしてレポートに集計されます。
+<div style="text-align: right;"><a href="http://www.google.co.jp/support/googleanalytics/bin/answer.py?answer=32995&amp;useful=0&amp;show_useful=1&amp;comment="><span style="font-size: 85%;">デフォルトのページ - Google Analytics ヘルプ センター</span></a></div></blockquote>
+www.yourdomain.co.jp入力したらindex.html返すの当たり前じゃん、最初からそんなん指定しといてよと思った。だがそうでも、ないらしいのね。こんな記事見つけた↓
+<blockquote>何故、最初からデフォールトのページを「index.html」にしてしまわないのか。それは、ウェブサーバーの設定で、デフォールトのページを変えられるから。
+例えば、Apache のデフォールトは「index.html」だけど、IIS (Microsoft のウェブサーバー) のデフォールトは「Default.htm」だったり「index.htm」だったりする。「main.html」をデフォールトのページに設定してる人もいるかもしれないし、もっと変な名前をデフォールトにしてるかもしれない。若しくは、「○○/」と「○○/index.html」を同じとして数えたくない人もいるかもしれない。
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://at-aka.blogspot.com/2006/04/google-analytics.html">clmemo@aka: Google Analytics のデフォールト・ページ</a></span></div></blockquote>
+なるほど、そういうことか。合点がいったよ。で、GAで『デフォルトのページ』をindex.htmlにしたわけです。そしたら、GA上では、www.example.com/などスラッシュで終わってるURLはすべてwww.example.com/index.htmlという表記でカウントされるんですね。</p>
+
+<p>当たり前というか当たり前だけど。。。すべてのページをでディレクトリ作ってindex.htmlで作ったとしたら、おしりが全部index.htmlなので、見にくいじゃん。こんなふうに↓</p>
+
+<p><a title="ga02 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3050147092/"><img src="http://farm4.static.flickr.com/3188/3050147092_34fafc50c9.jpg" alt="ga02" width="500" height="232" /></a></p>
+
+<p>ということで、デフォルトのページは設定しないことにした。そしたらwww.example.com/とwww.example.com/index.htmlは、別々のURLで扱われるじゃないか！と思うけど。index.htmlでアクセスししてきた人は/にリダイレクトすればいいんだ。で.htaccessでこんなん見つけた↓
+<blockquote>Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.<em>/index.html
+RewriteRule ^(.</em>)index.html$ http://www.example.com/$1 [R=301,L]
+<span style="font-size: 85%;">※www.example.com内のすべてのディレクトリで、「/index.html」が「/」に正規化されます。</span>
+<div style="text-align: right;"><a href="http://www.suzukikenichi.com/blog/canonicalization-of-indexhtml-and-non-indexhtml/"><span style="font-size: 85%;">index.html「あり・なし」のURL正規化～301リダイレクト応用編 » 海外SEO情報ブログ・メルマガ</span></a></div></blockquote>
+ようやく、自分の思い通りになったけど、GAで表示する出力を変えるだけなら、<a href="http://www.google.com/support/analytics/bin/answer.py?hl=jp&amp;answer=55461">アドバンスフィルタ</a>とか使えば良かったのかな、フィルタ系全然分からないな。もっと勉強します。。。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="デフォルトページとindex.html" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

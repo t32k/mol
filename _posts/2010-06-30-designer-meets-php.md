@@ -1,0 +1,44 @@
+---
+layout: post
+title: 決してムズイもんじゃない 〜初めてのPHPプログラミング〜
+categories:
+- report
+tags:
+- dtt
+- php
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+  pvc_views: '4194'
+---
+<a title="決してムズイもんじゃない 〜初めてのPHPプログラミング〜 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4745764968/"><img class="fig" src="http://farm5.static.flickr.com/4100/4745764968_b85d0f21d3.jpg" alt="決してムズイもんじゃない　〜初めてのPHPプログラミング〜" width="470" height="313" /></a>
+
+昨日は第7回社内TechTalksを開催しました。今回は社内のシステム部の人に来てもらってPHPについて講義してもらいました！
+
+自分たちデザイン部はPHPが入ったファイルなどは触りますが、基本的にプログラム部分に関してはノータッチなので、初心者そのもの。そもそもプログラミング初心者といってもいいくらいです。なので、今回は基礎の部分から丁寧に教えてもらいました。
+
+<!--more-->
+
+変数とか演算子とか文とか基礎の部分はやっぱり小難しくてそんなにおもしろいものではないけれどもしっかり勉強したいところですね。ここはどうしようもできないっすよね。やらなきゃ次へ進めない。ローマは一日して成らずってことで。
+
+デザイナーとPHPについてというかプログラミングについての取り組む姿勢に関しては、以下のエントリーが超絶同意なので参照してもらうとして、
+<ul>
+	<li><a href="http://redline.hippy.jp/lab/php/php_9.php">﻿RedLine Magazine :  PHPを勉強する事についてデザイナが思う事。</a></li>
+</ul>
+「神」がいてくれたらがんばれるかもってのすごく分かります。右も左もわからないと、つまらないこと、あとで理解すればいいことにつまづいてそこでやめちゃうってことあります。そこで、「分からんくても全然問題ないよ」って言ってくれるだけでも十分続けるモチベーションになりますね。
+
+今回の講義でPHPが理解できたかというと、当たり前だけど１時間程度聞いたところで身につくはずもないわけで、PHPを学ぶキッカケになれば十分かなと思います。プラス、今回講師に来てくれたシステムさんをマイ神にして、いろいろ教えてもらえばいいんですよねｗ
+
+もらってばっかりでもあれなので、今度はデザイナー側からHTML/CSSとかについて講義できたらいいかなと思っています。BR連打とか無くしたいw
+
+ほんと長丁場お疲れ様でした！
+
+<a title="プレゼンタイマー by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4745769190/"><img class="fig" src="http://farm5.static.flickr.com/4143/4745769190_4945afb5b6.jpg" alt="プレゼンタイマー" width="470" height="313" /></a>
+
+<a title="DSC00063 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4745758152/"><img class="fig" src="http://farm5.static.flickr.com/4116/4745758152_3ed6f0a578.jpg" alt="DSC00063" width="470" height="313" /></a>
+
+あと、どうでいいけどiPadはタイマーに音響機器に大活躍でしたｗオサレ勉強会目指します！
+
+そんなわけで、社外のWeb関係者さんとも引き続き交流したいので、弊社で喋りたいって人は<a href="http://twitter.com/t32k">@t32k</a>ま で連絡くださいー♪

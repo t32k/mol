@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page12/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page12/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/dont-docwrite-scripts" rel="prefetch">document.writeでSCRIPTを書き出すなやで！</a></h2>
+            <p><p><cite>原文：<a href="http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/">Don’t docwrite scripts | High Performance Web Sites</a>
+投稿日：2012-4-10 by STEVE SOUDERS</cite></p>
+
+<p>昨日のブログ記事の<a href="http://www.stevesouders.com/blog/2012/04/09/making-the-http-archive-faster/">HTTP Archiveが速くなっている</a>、大きな要因の一つとしてはスクリプトローダーを<strong>使用しない</strong>ことです。そのスクリプトローダーとはスクリプトを動的に読み込むためにdocument.writeを使用しているものです。振り返れば、私は2009年4月の<a href="http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/">ブロッキングなしのスクリプト読み込み</a>、<a href="http://www.amazon.co.jp/dp/4873114462/">続・ハイパフォーマンスWebサイト(4章)</a>において、document.writeテクニックについて記述していました。それは以下のようなものです。
+&lt;!--more--&gt;
+<pre><code>document.write(&#39;&lt;script src=&quot;&#39; + src + &#39;&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;&#39;):</code></pre>
+document.writeを使ったスクリプトローダーの問題点：
+<ul>
+    <li>挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (<a href="http://stevesouders.com/cuzillion/?c0=bi1hfff0_0_f&amp;c1=bj1wfff4_0_f&amp;c2=bi1hfff0_0_f">example</a>).</li>
+    <li>また、ほかの動的読み込みもブロックします (<a title="document.write script blocks async script" href="http://stevesouders.com/cuzillion/?c0=hj1wfff2_0_f&amp;c1=bj1dfff2_0_f">example</a>)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(<a title="Two document.write scripts in one SCRIPT block" href="http://stevesouders.com/cuzillion/?c0=hj1wfff2_0_f&amp;c1=hj1wfff2_0_f">example</a>)。</li>
+</ul>
+document.writeを使用したスクリプトローダーのため、私が最適化しようとしたページのレンダリングは遅れ、同じページ内の他の非同期スクリプトに関しても読み込みに時間がかかるようになりました。私はこのスクリプトローダーをはずし、非同期にスクリプトを読み込むために代わりのコードを書きました。それはGoogle アナリティクスの非同期スニペットで有名になった createElement-insertBefore パターンです。
+<pre><code>var sNew = document.createElement(&quot;script&quot;);
+sNew.async = true;
+sNew.src = &quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;;
+var s0 = document.getElementsByTagName(&#39;script&#39;)[0];
+s0.parentNode.insertBefore(sNew, s0);</code></pre>
+なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？</p>
+
+<p>順を追って考えて見れば、そんなに不思議なことではありません。通常のマークアップによるSCRPT SRC=読み込みは後続のDOM要素のレンダリングを止めることを既に私たち知っています。また、スクリプト実行段階を抜ける前にdocument.writeは評価され、その後、ページのパースが再開されることも理解しています。したがって、通常のSCRPT SRC=をスニペットとした document.writeテクニックは残りのページのレンダリングをブロックしてしまいます。</p>
+
+<p>反対に、createElement-insertBeforeテクニックはレンダリングを<strong>ブロックしません</strong>。事実、document.writeでcreateElement-insertBefore スニペットを生成しても、そのときレンダリングはブロックされません。</p>
+
+<p><a href="http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/">ブロッキングなしのスクリプト読み込み</a>記事での私の結論はスクリプトロード手法を選択するための<a href="http://stevesouders.com/efws/images/0405-load-scripts-decision-tree-04.gif">決定木</a>を使用することです。そうすれば異なるシナリオにおいてどの非同期読み込みテクニックを選択するか困らないでしょう。また注意深く見れば、document.writeの使用は決して推奨されないこともお分かりになるでしょう。Webの世界はたいへん多くのものが移り変わりますが、私が2009年に出したアドバイスは今日においても正しいのです。</p>
+
+<p>-- [翻訳ここまで ] --</p>
+
+<p>改めて、続・ハイパフォーマンスWebサイトを読んでみるとdocument.writeテクニックはIEのときだけ並列ダウンロードされますと書いてある。しかもスクリプトのダウンロード中は他のリソースはブロックされるとも書いてあり、そもそも使う用途が限定的だなと印象。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-11-April" title="April 11, 2012">April 11, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/listy4dmm" rel="prefetch">Listy for DMM.com</a></h2>
+            <p><p style="text-align: center;"><a href="https://chrome.google.com/webstore/detail/hncbhkcefohejgnjadgbcjbgkbelnmlj"><img class="aligncenter size-full wp-image-4002 fig" title="Listy for DMM.com" src="http://t32k.me/mol/file/2012/04/header.jpg" alt="" width="500" height="250" /></a></p>
+
+<ul>
+    <li><strong><a href="https://chrome.google.com/webstore/detail/hncbhkcefohejgnjadgbcjbgkbelnmlj">Chrome ウェブストア - Listy for DMM.com </a></strong></li>
+</ul>
+
+<p>すごく個人的な感じのChromeエクステンション作った。</p>
+
+<p>以下のようなDなMなMなサイトの商品一覧ページ上で動作します。商品詳細ページを経ずに効率良くDVDパッケージ画像を拡大して見ることが可能です。あと「t」のボタンを押すとTumblrにも投稿できます。</p>
+
+<!--more-->
+
+<ul>
+    <li><a href="http://www.dmm.com/search/=/searchstr=%E5%8C%96%E7%89%A9%E8%AA%9E/analyze=V1EBC1YCUQU_/limit=30/n1=FgRCTw9VBA4GCF5WXA__/n2=Aw1fVhQKX19XC15nV0AC/sort=rankprofile/num=1/">化物語の検索結果 - DVD通販 - DMM.com </a></li>
+    <li><a href="http://www.dmm.com/mono/dvd/-/list/=/article=series/id=66198/">DMM.com [「化物語」] DVD通販 </a></li>
+</ul>
+
+<p>あとListy for DMM.comって名前だけどもdmm.co.jpでも動きます（それとなく</p>
+
+<p>あ、あと画像ビューワにfancyBox使ってます。
+<ul>
+    <li><a href="http://fancyapps.com/fancybox/">fancyBox - Fancy jQuery Lightbox Alternative</a></li>
+</ul>
+&nbsp;</p>
+
+<p>まぁ動画見てもらえれば分かるかと思います。</p>
+
+<iframe width="500" height="369" src="http://www.youtube.com/embed/CocP_5PdIho" frameborder="0" allowfullscreen></iframe>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-09-April" title="April 09, 2012">April 09, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/kanazawa-js-v1-7" rel="prefetch">kanazawa.js v1.7 - Back to Basics - 開催しました</a></h2>
+            <p><p style="text-align: center;"><a href="http://www.facebook.com/media/set/?set=a.314736818592584.73653.109048162494785&amp;type=1"><img class="aligncenter fig" src="http://t32k.me/mol/file/2012/04/kanaj.jpg" alt="" width="500" height="250" /></a></p>
+
+<ul>
+    <li><strong><a href="http://kanazawajs.tumblr.com/v1-7/">kanazawa.js v1.7 - Back to Basics -（2012年3月31日開催） </a></strong></li>
+</ul>
+
+<p>先週末、kanazawa.js v1.7を金沢歌劇座にて開催しました。今回はMozilla Japanさんの協力を得て、 - Back to Basics - をテーマに3人のメインセッションと4人にミニセッションという構成でした。</p>
+
+<p>kanazawa.jsは自分がデザイナーでもあるため、より多くのデザイナーの方に参加してもらいたいと思って開催しています。Designers Meets Engineersね♡ その甲斐もあってデザイナーの参加率も高く、kanazawa.jsの特色でもあるかと思います。</p>
+
+<p>しかし、JavaScriptはプログラミング言語であって、jQueryを簡単に使う程度であれば問題ありませんが、小難しい仕様の話とかになってくるとデザイナーさんがついてこれるかという不安があったのですが、今回のイベントはスピーカーさん達の配慮とわかりやすい資料もあって概ね参加者の満足度は高かったのではないかと思います。</p>
+
+<p>ほんと講演者の皆さん、参加してくれた皆様ありがとうございます。改めてこのコミュニティが大好きだと理解できました。</p>
+
+<p>んなこったで、早くも講演で使われたスライドが公開されております。参加できなかったもご覧いただければ幸いです。</p>
+
+<p>あと、イベントに参加された方はアンケートにご協力お願いします。
+<ul>
+    <li><strong><a href="https://docs.google.com/spreadsheet/viewform?formkey=dFdoMXQwYno3WUFUWHVNN2NfcW9OUWc6MQ#gid=0">kanazawa.js v1.7 - Back to Basics - アンケート </a></strong></li>
+</ul>
+<div>&lt;!--more--&gt;</div>
+<h2>JavaScript 小史</h2>
+<blockquote>今やフロントエンドのみならず、サーバサイドにおいても破竹の勢い。
+今回はそんな大人気となっている言語、JavaScriptの成り立ちとそれにまつわる悲喜こもごも、現在における状況までを取り上げます。
+<ul>
+    <li><strong><a href="http://speakerdeck.com/u/badatmath/p/javascript">JavaScript小史 // Speaker Deck</a></strong></li>
+</ul>
+</blockquote>
+<h2>JavaScript.Next</h2>
+<blockquote>&quot;HTML5&quot; や Node.js などの発達と共に、JavaScript の重要性は高まり続け、適用範囲も広がり続けています。それと同時に JavaScript 言語自体も進化を続けていることはご存じでしょうか？
+JavaScript 言語のコア部分は ECMAScript として標準化されていますが、最新のブラウザで広くサポートされるようになった ECMAScript 5th の新機能、そして更に次世代 JavaScript に向けて標準化が進められている最新機能をまとめてご紹介します。
+次世代 JavaScript について知り、楽しく JavaScript を使っていきましょう。(・・).
+<ul>
+    <li><strong><a href="http://speakerdeck.com/u/dynamis/p/kanazawajavascriptnext ">Kanazawa.JavaScript.Next // Speaker Deck </a></strong></li>
+</ul>
+</blockquote>
+<h2>JSTDD Intro</h2>
+<blockquote>TDD（テスト駆動開発：Test-Driven Developmen）とは何か。なぜTDDなのか。ここ数年開発者の間でとても熱いTDDを、できるだけ平易に、ノンプログラマにも実感できる形で紹介します。 JavaScriptのTDDを学ぶうえで最低限知っておきたい用語や分類を整理し、具体的なツールの紹介から開発の流れをお見せしたいと思います。 また実践においてぶつかりやすい課題や関連情報もある程度整理しますので、ぜひ持ち帰って実践へと繋いでいただければ幸いです。
+<ul>
+    <li><strong><a href="http://speakerdeck.com/u/wtnabe/p/jstdd-intro-for-every-javascripters-kanazawajs-v17-2012-03-31">JSTDD Intro for EVERY JavaScripters // Speaker Deck</a></strong></li>
+</ul>
+</blockquote>
+&nbsp;
+<h3>Firefox Developer Tools Mini</h3>
+<blockquote>Firefox には Web 開発者ツールが標準搭載されていることはご存じでしょうか？
+知らなかった方には驚きの機能を、知ってる方にはなかなか気づかない便利な機能をご紹介します。
+<ul>
+    <li><strong><a href="http://speakerdeck.com/u/dynamis/p/firefox-devtools">Firefox DevTools // Speaker Deck</a></strong></li>
+</ul>
+</blockquote>
+<h3>LESS楽しいれす（＾p＾）</h3>
+<blockquote>JavaScriptでCoffeeScriptのようなメタ言語が流行っているように、CSSでもLESSやSassのようなメタ言語が巷で流行ってきています。
+Sass、LESSとCSSメタ言語がありますが、今回はkanazawa.jsということで、JavaScriptで動いているLESSを取り上げます。
+LESSが使えると何がうれしいの？ということや、JavaScriptで動いているからこその利点などをご紹介できればと思います。
+<ul>
+    <li><strong><a href="http://www.slideshare.net/taiju/lessq">LESS楽しいれす(＾q＾)</a></strong></li>
+</ul>
+</blockquote>
+<h3>CoffeeScriptってなんぞ？</h3>
+<blockquote>CoffeeScriptはJavaScriptをより楽しく書くための簡易言語です。JavaScriptを書くことが億劫だとは思いませんが、CoffeeScriptを使ったほうがよりシンプルに書くことが出来ます。
+では、具体的にJavaScriptとはどう違うのでしょうか？シンタックスの話しを中心に、CoffeeScriptの面白さについてお伝え出来ればと思っています。
+<ul>
+    <li><strong><a href="http://www.slideshare.net/hayatomizuno/coffeescript-12241689">CoffeeScriptってなんぞ？</a></strong></li>
+</ul>
+</blockquote>
+<h3>Node.js 入門</h3>
+<blockquote>サーバサイドJavaScriptプラットフォームであるNode.js。昨今はかなり注目され、プロダクションでの運用も始まっています。
+でもまだ使っていない、そんなあなたに贈るキャッチアップ特別編。フロントエンドからバックエンドまでJavaScriptでガシガシ開発していきましょう。
+<ul>
+    <li><strong><a href="http://speakerdeck.com/u/badatmath/p/nodejs">Node.js入門 // Speaker Deck</a></strong></li>
+</ul></p>
+
+<h2></blockquote></h2>
+
+<p>とうぎゃったー
+<ul>
+    <li><strong><a href="http://togetter.com/li/281666">kanazawa.js v1.7 - Back to Basics - - Togetter</a></strong></li>
+</ul>
+&nbsp;</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-02-April" title="April 02, 2012">April 02, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/jsoff" rel="prefetch">jsoff：ワンクリックでJavaScriptをオフれるChrome拡張機能</a></h2>
+            <p><p style="text-align: center;"><a href="https://chrome.google.com/webstore/detail/kjhbibcocglfnpllfodaiabanmmegomm?hl=ja"><img class="aligncenter fig" title="jsoff" src="http://t32k.me/mol/file/2012/03/01.png" alt="" width="500" height="100" /></a></p>
+
+<p>ChromeってJavaScriptオフにしようと思うと、設定 &gt; 高度な設定 &gt; コンテンツ設定 と階層を降りないとできないからめんどくさいねーということをTwitterで見かけたので、Chrome Extensionの勉強も兼ねて作ってみた。
+<ul>
+    <li><strong><a href="https://chrome.google.com/webstore/detail/kjhbibcocglfnpllfodaiabanmmegomm?hl=ja">Chrome ウェブストア - jsoff </a></strong></li>
+</ul>
+<div></div>
+<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/03/00.png"><img class="aligncenter  fig" title="Contents Settings" src="http://t32k.me/mol/file/2012/03/00.png" alt="" width="500" height="355" /></a></p>
+インストールすると右上に<strong>サイ</strong>のアイコンが出てくるので、クッリクでオン・オフ切り替える事ができます。ただそれだけです。よかったら使ってくださしあ＞＜
+<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/03/02.png"><img class="aligncenter  fig" title="例" src="http://t32k.me/mol/file/2012/03/02.png" alt="" width="500" height="167" /></a></p></p>
+
+<h3>更新履歴</h3>
+
+<ul>
+    <li>2012/09/18: Manifest v2に対応。アイコン画像の軽量化</li>
+</ul>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-23-March" title="March 23, 2012">March 23, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/how-to-get-the-ios-version-with-google-analytics" rel="prefetch">Google アナリティクスでiOSのバージョンを確認する方法</a></h2>
+            <p><p>先日、同僚さんからGoogle アナリティクスでiOSのバージョン（5か4か）が確認できませんでした＞＜って報告を受けました。あれそうだっけかなと思って、【ユーザー】&gt;【ユーザーの環境】&gt;【ブラウザとOS】&gt;【オペレーティングシステム】とiPhoneをクリックしてドリルダウンしたら(not set)としか表示されてませんでした。</p>
+
+<p>iOS4をいつまでサポートするのかシェアを見ながら判断したいところですので、この状況はよろしくないです、ってことでGAで 確認する方法を考えてみた。
+<pre>var <em>gaq = _gaq || [];
+_gaq.push([&#39;</em>setAccount&#39;, &#39;UA-xxxxxxx-x&#39;]);
+(function () {
+    var ua = navigator.userAgent,
+        isIOS = /iP(?:hone|ad|od)/.test(ua);
+    if (isIOS) {
+        var device = ua.match(/iPhone|iPad|iPod/),
+            version = ua.match(/OS\s([\d<em>]+)/);
+        version = version &amp;&amp; version[1].replace(/</em>/g, &#39;.&#39;);
+        <em>gaq.push([&#39;</em>setCustomVar&#39;, 5, String(device), String(version), 2]);
+    }
+})();
+<em>gaq.push([&#39;</em>trackPageview&#39;]);</p>
+
+<p>(function () {
+    var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
+})();</pre>
+<ul>
+    <li><a href=" https://gist.github.com/2041381">How to get the iOS Version with Google Analytics. — Gist</a></li>
+</ul>
+上記のコードを_trackPageview メソッドの前で呼び出してあげればOKです。</p>
+
+<p>_setCustomVarの後の番号はどのカスタム変数のスロットを使うかってことなので、ご自身の空いてるとこ（1 - 5）の数値にしてください。UAにiPhone|iPad|iPodの文字列がなければなんにもしません。無害な子です。</p>
+
+<p>で、データが貯まると、【ユーザー】&gt;【ユーザーの分布】&gt;【カスタム変数】&gt;【カスタム変数（キー 5）】のレポートでデバイス（iPhone/iPad/iPod）＞バージョンの構造でレポートされます。iOSでOpera miniを使ってるとUA自体にOSのバージョン情報がないのでnull としてレポートされます。Firefox MobileはOKだった。
+<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/03/cv_key.png"><img class="aligncenter  wp-image-3973" title="カスタム変数　キー" src="http://t32k.me/mol/file/2012/03/cv_key.png" alt="" width="500" height="245" /></a></p>
+<p style="text-align: center;"><em>カスタム変数（キー5）:デバイス</p>
+<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/03/cv_value.png"><img class="aligncenter  wp-image-3972" title="カスタム変数　値" src="http://t32k.me/mol/file/2012/03/cv_value.png" alt="" width="500" /></a></p>
+<p style="text-align: center;"></em>カスタム変数（値5）:バージョン</p>
+&nbsp;</p>
+
+<p>iPhone/iPad/iPodブチヌキでバージョンシェアを見たい方は、<a href="https://www.google.com/analytics/web/permalink?type=custom_report&amp;uid=jJn51A65S9iFV9IL7T_SJA">こんな風にカスタムレポート</a>を作ればOKです。カスタム変数の値（設定したスロット番号）をディメンションに指標並べるだけ。</p>
+
+<p>軽く試してみたけど、自己責任でお願いします。なんかおかしいことあったら教えてください。</p>
+
+<p>※ ユーザー定義値にバージョン情報を記録して、フィルタでOSバージョン（not set）を置換する方法も考えたけどめんどくさいのでカスタム変数で取ることにした。確認できたら消せばいいし。後腐れもなし。</p>
+
+<p>Special Thanks pocotan001++</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-16-March" title="March 16, 2012">March 16, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page11" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page13" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビジネスにおけるウェブパフォーマンス &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="ビジネスにおけるウェブパフォーマンス ">
+    <link rel="canonical" href="http://t32k.me//mol/log/performance-business">
+     
+           
+    <meta property="og:title" content="ビジネスにおけるウェブパフォーマンス "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/performance-business"/>
+    
+    
+    <!--meta property="og:description" content="<p>前半部分かなり適当です...</p>
+
+<p><cite style="display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文：<a href="http://www.phpied.com/the-performance-business-pitch/">The performance business pitch / Stoyan&#39;s phpied.com</a>
+公開日：2010-03-29</cite></p>
+
+<p>この記事のアイデアは <a href="http://jeremyhubert.com/">Jeremy Hubert</a> というクールな男がいたおかげです。彼と出会ったのは Yahoo!  テックトークで講演した後で、互いの講演について話し合いました。ビジネス指標の年と言っていいでしょう今年の Velocity  でも講演しましたが、ビジネスの統計資料が導入部分に含まれていました。まさか誰もテックトークでビジネスの話を聞くとは思わなかったでしょう。開発者は当然パフォーマンスに興味があるように、上質で<a href="http://phpadvent.org/2009/unmaintainable-php-by-stoyan-stefanov">メンテナンス性の高いコード</a>を書くことに興味があると私は信じています。私たちは自分たちがすることだけあってそれをうまくやろうとします。講演にビジネスパートを付け加えた理由として、私は出席者にそのことを家に持ち帰り、彼らの上司を説得するためのプレゼントにして欲しかったのです。そこで Jeremy   は、代わりに、パフォーマンスに興味のある人のためにダウンロード可能なスライドを作成してみればとアドバイスをくれました。それで、フロントエンドパフォーマンスも含めたこの &quot;business pitch” ができたのです。</p>
+
+<!--more-->
+
+<p>≫ <a href="http://phpied.com/files/perfpitch/business-of-performance.ppt">business  pitch (PPT) のダウンロード </a></p>
+
+<p>スライドはわざと装飾を加えずにプレーンな状態のままにしてあります。あなたがこのスライドを見つけ、見た目を整え、マッシュアップして、あなたの上司もしくはクライアントにこれを届けパフォーマンスに投資することを納得させることを願っています。そしてパフォーマンスを改善するためのあなた自身のリソースを捻出してください。</p>
+
+<p>このスライドは <a href="http://www.slideshare.net/stoyan/the-business-of-performance">slideshare</a> にもあります。もし、クライアント先でパフォーマンスに熱心な方がいて、手元に &quot;business pitch”がなくても slideshare  を使えばフルスクリーンで説明できます。</p>
+
+<p>この記事の残りの部分はパワーポイント資料と同じです。各スライド下のテキストは &quot;business  pitch”のパワーポイントのコメント欄にも記入してあります。
+<h2>ビジネスにおけるウェブパフォーマンス</h2>
+<img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.001.png" alt="" /></p>
+
+<p>レジの行列で待つのが好きな人なんているでしょうか？たぶん、いないでしょう。同じようにのろまなページの読み込みを座って待っていることが好きな 人なんていないでしょう。</p>
+
+<p>問題は読み込み速度がサイトのビジネス指標とどれだけ関連性があるかということです。この場合、ビジネス指標というのは、収益や顧客満足度、再訪問 率といったものです。そして、なぜページの読み込み速度を改善するために投資をしなければならないのでしょうか？</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.002.png" alt="" /></p>
+
+<p>遅いページがビジネス指標に与える影響は、大抵、A/Bテスト検証されます。ユーザーはランダムに2つのグループに振り分けられます。片方は普通の ページ、もう片方は同じページですがサーバ側で意図的に遅く表示させたページです。そして、徐々に遅くしていきビジネス指標がどのように変化するか観察す るのです。</p>
+
+<p>このような実験をすると、遅いページは良くないということがすぐ理解できこれ以上ユーザーを失いたくがないために、実験をすぐに中止してしまうで しょう。その結果、たいていの実験は0.5秒遅くしたところで終了してしまいます。</p>
+
+<p>Bing.com (以前はLive.com)  勇敢にも2秒遅延テストの結果を公表しました。結果は計測したすべてのビジネス指標で急激な悪化が認められました。</p>
+
+<p>収益に関して言えば、1秒の遅延が2.8%の収益を低下させ、2秒になれば4.3%低下することが確認できるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.003.png" alt="" /></p>
+
+<p>検索結果ページを意図的に0.4秒遅くした同じような実験がGoogleでも行われました。この実験は新たな2つの事実を明らかにしました。
+<ul>
+    <li>ビジネス指標における悪影響は時間の経過とともにさらに悪化します。ユーザーは最初の数回はページの遅延に関しては寛容的ですが、徐々に検索数は 減少し、ついにはサイトを見捨てるでしょう。</li>
+    <li>2つ目のポイントは遅延を取り除いても通常の状態に戻らないということです。実験後も悪影響は続きます。ある人はこれを最後にサイトを去り、また ある人はライバル会社に乗り換えたりして2度と戻ってきませんでした。</li>
+</ul>
+<img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.004.png" alt="" /></p>
+
+<p>Yahoo  でも同様な実験が行われました。0.4秒遅くなると間もなくフルページトラフィックが減少したです。これはページが完全に読み込まれる前（onload  イベントが発生する前）にユーザーが去ってしまうことを意味します。つまり、ブラウザの「戻る」ボタンを押したのか、またはクリックでページから離れてし まったのでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.005.png" alt="" /></p>
+
+<p>AOL において、個々のページのパフォーマンスと訪問数との関連性を示した測定結果が存在します。</p>
+
+<p>結果は明確です。遅いページは訪問者を逃してしまいます。つまり、ユーザーは遅いページを避けるように学習しているのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.006.png" alt="" /></p>
+
+<p>これまでの事例はサイトが遅くなるにつれてビジネス指標がどのように悪化していくのかでしたが、Shopzilla  の事例ではサイトの高速化によってどのようにビジネス指標が改善するのか前向き考え方が紹介されています。</p>
+
+<p>Shopzilla  はサイトをリニューアル、し読み込み速度を6秒台から1.2秒まで高速化させました。その結果として、すべての指標に改善が見られました。収益は 7-12％ 増加し、25%  もページビューが増加しました。有料検索からのトラフィックも増加しました。最低限必要なインフラコストも半分に抑えることができ、収益増加とコスト抑制 を同時に実現させたのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.007.png" alt="" /></p>
+
+<p>他の Shopzilla  の統計では、ほんのわずかな変更でさえもポジティブな影響を与えること明らかにしています。フリークッキードメインから提供するために静的コンポーネント を移動しました。この小さな変化が0.5％の収益増加をもたらしたのです。</p>
+
+<p>Yahoo!のパフォーマンスベストプラクティスのリストにおいてこの改善は34個あるうちの24番目にリストされているものです。もっと重要で有 益な改善はありますが、小さな改善も大切だということが理解できるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.008.png" alt="" /></p>
+
+<p>コスト削減と節約に関して言えば、Netflix がプレーンテキストにgzip  圧縮（Yahoo!のベストプラクティスの4番目:これはかなり重要です。）した際の事例が適切でしょう。Netflix  突然の（アウトバンドの）転送量減少に気づきました。彼らは帯域幅のための予算を43%削減できたのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.009.png" alt="" /></p>
+
+<p>ビジネス指標と言えば、それぞれのサイトにそれぞれ成功指標があるでしょう。それが新規ユーザー登録数かもしれませんし、サイトの滞在時間かもしま せん。また別のサイトは売上高かもしれません。しかし、一般的にページを改善して期待できるものとは何でしょうか？再訪問数の増加、PV数の増加、コン バージョン率と収益の改善、ユーザーがハッピーになってくれること。それらすべてでもあり、その上インフラ・帯域幅を節約もしてくれます。</p>
+
+<p>検索エンジ経由のトラフィック増加もそうです。2008年の4月、Google は AdWords  のランキングを決める際にページの読み込み速度をを評価に付け加えました。Shopzilla の統計がその証拠です。さらに Google の  Matt Cutts はカンファレンスで、オーガニック検索でも読み込み時間をランキングアルゴリズムに加える活動がGoogle内部で存在すると<a href="http://searchengineland.com/site-speed-googles-next-ranking-factor-29793">言及しています</a>。これまでのところそのような現象は確認されていませんが、私たちは、将来においてより早いサイトが Google  のランキング結果において上位に位置し、より多くの新規ユーザーをサイトにもたらすだろうと考えることができます。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.010.png" alt="" /></p>
+
+<p>それでは高速サイトがビジネス的に重要だということは理解できましが、何から始めたら良いのでしょうか？</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.011.png" alt="" /></p>
+
+<p>その質問に答えるために、とあるページがどのように読み込まれて、どこがボトルネックなのか見てみましょう。 （この部分は違うページ、例えばあなたのページだったり、クライアントのページに置き換えることができます。そして、<a href="http://webpagetest.org/">WebPageTest.org</a> に通してウォーターフォールを次のスライドと置き換えるれば問題ないです。）</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.012.png" alt="" /></p>
+
+<p>これはウォーターフォールビューと言われていて、どのようにページが読み込まれているのか表しています。最初のバーはページそれ自体です。残りのすべてはページによって必要となるコンポーネント：画像、スクリプト、スタイシートが異なります。</p>
+
+<p>データベースのような異なるソースからページの構築にかかる時間は、読み込み総時間の10%でしかありません。私たちはこの部分をサーバサイドの時間と呼んでいます。サーバでページが構築されそれがブラウザに送られた時点で、残りの時間はブラウザの時間です。そして、この部分で90%の時間がすべて のコンポーネントをダウンロードするのに消費されいてるのです。私たちはこの部分をフロントエンドの時間と呼んでいます。</p>
+
+<p>多くの人達はフロントエンドの時間は大したことではないと思っています。なぜなら、画像や他のコンポーネントは1度ダウンロードすればキャッシュが可能だからと考えているのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.013.png" alt="" /></p>
+
+<p>しかし、フルキャッシュの状態での再訪問においても、いくつかのコンポーネントが読み込まれ、スクリプトとスタイシートはキャッシュから実行されます。この例の場合でもサーバーの時間は全体の38%でしかありません。</p>
+
+<p>Yahoo! のリサーチによると、すべてのセッションの50-60%はキャッシュが空の状態であり、これは総PVの20%に及びます。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.014.png" alt="" /></p>
+
+<p>フロントエンドは重要であり、この部分で時間が消費されています。最善のROIのために、フロントエンドパフォーマンス改善に集中しなければなりま せん。</p>
+
+<p>これは良い知らせでしょう。なぜならフロンエンドのパフォーマンス改善はバックエンドのシステム、データベース、インフラストラクチャ、またはサー バサイドのアプリケーションの再設計するより簡単だからです。</p>
+
+<p>フロンエンドの改善は簡単であり、得られる利益も大きいです。10% を半減しても大した変化ではありませんが、90%を半減すれば読み込み速度に有意な変化が見られ、ビジネス指標にもつながるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.015.png" alt="" /></p>
+
+<p>ありがとう！
+<h3>Credits</h3>
+<ul>
+    <li>Google, Bing: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/8523">http://en.oreilly.com/velocity2009/.../8523</a></li>
+    <li>Shopzilla: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7709">http://en.oreilly.com/velocity2009/.../7709</a></li>
+    <li>Netflix: <a href="http://en.oreilly.com/velocity2008/public/schedule/detail/3632">http://en.oreilly.com/velocity2008/.../3632</a></li>
+    <li>AOL: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7579">http://en.oreilly.com/velocity2009/.../7579</a></li>
+    <li>Yahoo!: <a href="http://www.slideshare.net/stoyan/yslow-20-presentation">http://www.slideshare.net/stoyan/yslow-20-presentation</a></li>
+    <li>Bing graphic: <a href="http://www.watchingwebsites.com/archives/proof-that-speeding-up-websites-improves-online-business">http://www.watchingwebsites.com/...-online-business</a></li>
+    <li>Steve Souders: <a href="http://stevesouders.com/">http://stevesouders.com</a></li>
+    <li>Stoyan Stefanov: <a href="http://phpied.com/">http://phpied.com</a></li>
+    <li>Sponsored search and speed: <a href="http://adwords.google.com/support/aw/bin/answer.py?hl=jp&amp;answer=87144">http://adwords.google.com/...=87144</a></li>
+</ul>
+てなわけで、僕がちょこっと日本語訳してスタイルも加えたスライドはこちらです。
+<div id="__ss_3575704" style="width: 425px;"><strong style="display: block; margin: 12px 0 4px;"><a title="ビジネスにおけるウェブパフォーマンス" href="http://www.slideshare.net/t32k/performance-business-pitch">ビジネスにおけるウェブパフォーマンス</a></strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancebusinesspitch-100328010037-phpapp01&amp;stripped_title=performance-business-pitch" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancebusinesspitch-100328010037-phpapp01&amp;stripped_title=performance-business-pitch" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/t32k">Koji Ishimoto</a>.</div>
+</div></p>
+"/>
+    <meta name="description" content="<p>前半部分かなり適当です...</p>
+
+<p><cite style="display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文：<a href="http://www.phpied.com/the-performance-business-pitch/">The performance business pitch / Stoyan&#39;s phpied.com</a>
+公開日：2010-03-29</cite></p>
+
+<p>この記事のアイデアは <a href="http://jeremyhubert.com/">Jeremy Hubert</a> というクールな男がいたおかげです。彼と出会ったのは Yahoo!  テックトークで講演した後で、互いの講演について話し合いました。ビジネス指標の年と言っていいでしょう今年の Velocity  でも講演しましたが、ビジネスの統計資料が導入部分に含まれていました。まさか誰もテックトークでビジネスの話を聞くとは思わなかったでしょう。開発者は当然パフォーマンスに興味があるように、上質で<a href="http://phpadvent.org/2009/unmaintainable-php-by-stoyan-stefanov">メンテナンス性の高いコード</a>を書くことに興味があると私は信じています。私たちは自分たちがすることだけあってそれをうまくやろうとします。講演にビジネスパートを付け加えた理由として、私は出席者にそのことを家に持ち帰り、彼らの上司を説得するためのプレゼントにして欲しかったのです。そこで Jeremy   は、代わりに、パフォーマンスに興味のある人のためにダウンロード可能なスライドを作成してみればとアドバイスをくれました。それで、フロントエンドパフォーマンスも含めたこの &quot;business pitch” ができたのです。</p>
+
+<!--more-->
+
+<p>≫ <a href="http://phpied.com/files/perfpitch/business-of-performance.ppt">business  pitch (PPT) のダウンロード </a></p>
+
+<p>スライドはわざと装飾を加えずにプレーンな状態のままにしてあります。あなたがこのスライドを見つけ、見た目を整え、マッシュアップして、あなたの上司もしくはクライアントにこれを届けパフォーマンスに投資することを納得させることを願っています。そしてパフォーマンスを改善するためのあなた自身のリソースを捻出してください。</p>
+
+<p>このスライドは <a href="http://www.slideshare.net/stoyan/the-business-of-performance">slideshare</a> にもあります。もし、クライアント先でパフォーマンスに熱心な方がいて、手元に &quot;business pitch”がなくても slideshare  を使えばフルスクリーンで説明できます。</p>
+
+<p>この記事の残りの部分はパワーポイント資料と同じです。各スライド下のテキストは &quot;business  pitch”のパワーポイントのコメント欄にも記入してあります。
+<h2>ビジネスにおけるウェブパフォーマンス</h2>
+<img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.001.png" alt="" /></p>
+
+<p>レジの行列で待つのが好きな人なんているでしょうか？たぶん、いないでしょう。同じようにのろまなページの読み込みを座って待っていることが好きな 人なんていないでしょう。</p>
+
+<p>問題は読み込み速度がサイトのビジネス指標とどれだけ関連性があるかということです。この場合、ビジネス指標というのは、収益や顧客満足度、再訪問 率といったものです。そして、なぜページの読み込み速度を改善するために投資をしなければならないのでしょうか？</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.002.png" alt="" /></p>
+
+<p>遅いページがビジネス指標に与える影響は、大抵、A/Bテスト検証されます。ユーザーはランダムに2つのグループに振り分けられます。片方は普通の ページ、もう片方は同じページですがサーバ側で意図的に遅く表示させたページです。そして、徐々に遅くしていきビジネス指標がどのように変化するか観察す るのです。</p>
+
+<p>このような実験をすると、遅いページは良くないということがすぐ理解できこれ以上ユーザーを失いたくがないために、実験をすぐに中止してしまうで しょう。その結果、たいていの実験は0.5秒遅くしたところで終了してしまいます。</p>
+
+<p>Bing.com (以前はLive.com)  勇敢にも2秒遅延テストの結果を公表しました。結果は計測したすべてのビジネス指標で急激な悪化が認められました。</p>
+
+<p>収益に関して言えば、1秒の遅延が2.8%の収益を低下させ、2秒になれば4.3%低下することが確認できるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.003.png" alt="" /></p>
+
+<p>検索結果ページを意図的に0.4秒遅くした同じような実験がGoogleでも行われました。この実験は新たな2つの事実を明らかにしました。
+<ul>
+    <li>ビジネス指標における悪影響は時間の経過とともにさらに悪化します。ユーザーは最初の数回はページの遅延に関しては寛容的ですが、徐々に検索数は 減少し、ついにはサイトを見捨てるでしょう。</li>
+    <li>2つ目のポイントは遅延を取り除いても通常の状態に戻らないということです。実験後も悪影響は続きます。ある人はこれを最後にサイトを去り、また ある人はライバル会社に乗り換えたりして2度と戻ってきませんでした。</li>
+</ul>
+<img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.004.png" alt="" /></p>
+
+<p>Yahoo  でも同様な実験が行われました。0.4秒遅くなると間もなくフルページトラフィックが減少したです。これはページが完全に読み込まれる前（onload  イベントが発生する前）にユーザーが去ってしまうことを意味します。つまり、ブラウザの「戻る」ボタンを押したのか、またはクリックでページから離れてし まったのでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.005.png" alt="" /></p>
+
+<p>AOL において、個々のページのパフォーマンスと訪問数との関連性を示した測定結果が存在します。</p>
+
+<p>結果は明確です。遅いページは訪問者を逃してしまいます。つまり、ユーザーは遅いページを避けるように学習しているのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.006.png" alt="" /></p>
+
+<p>これまでの事例はサイトが遅くなるにつれてビジネス指標がどのように悪化していくのかでしたが、Shopzilla  の事例ではサイトの高速化によってどのようにビジネス指標が改善するのか前向き考え方が紹介されています。</p>
+
+<p>Shopzilla  はサイトをリニューアル、し読み込み速度を6秒台から1.2秒まで高速化させました。その結果として、すべての指標に改善が見られました。収益は 7-12％ 増加し、25%  もページビューが増加しました。有料検索からのトラフィックも増加しました。最低限必要なインフラコストも半分に抑えることができ、収益増加とコスト抑制 を同時に実現させたのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.007.png" alt="" /></p>
+
+<p>他の Shopzilla  の統計では、ほんのわずかな変更でさえもポジティブな影響を与えること明らかにしています。フリークッキードメインから提供するために静的コンポーネント を移動しました。この小さな変化が0.5％の収益増加をもたらしたのです。</p>
+
+<p>Yahoo!のパフォーマンスベストプラクティスのリストにおいてこの改善は34個あるうちの24番目にリストされているものです。もっと重要で有 益な改善はありますが、小さな改善も大切だということが理解できるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.008.png" alt="" /></p>
+
+<p>コスト削減と節約に関して言えば、Netflix がプレーンテキストにgzip  圧縮（Yahoo!のベストプラクティスの4番目:これはかなり重要です。）した際の事例が適切でしょう。Netflix  突然の（アウトバンドの）転送量減少に気づきました。彼らは帯域幅のための予算を43%削減できたのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.009.png" alt="" /></p>
+
+<p>ビジネス指標と言えば、それぞれのサイトにそれぞれ成功指標があるでしょう。それが新規ユーザー登録数かもしれませんし、サイトの滞在時間かもしま せん。また別のサイトは売上高かもしれません。しかし、一般的にページを改善して期待できるものとは何でしょうか？再訪問数の増加、PV数の増加、コン バージョン率と収益の改善、ユーザーがハッピーになってくれること。それらすべてでもあり、その上インフラ・帯域幅を節約もしてくれます。</p>
+
+<p>検索エンジ経由のトラフィック増加もそうです。2008年の4月、Google は AdWords  のランキングを決める際にページの読み込み速度をを評価に付け加えました。Shopzilla の統計がその証拠です。さらに Google の  Matt Cutts はカンファレンスで、オーガニック検索でも読み込み時間をランキングアルゴリズムに加える活動がGoogle内部で存在すると<a href="http://searchengineland.com/site-speed-googles-next-ranking-factor-29793">言及しています</a>。これまでのところそのような現象は確認されていませんが、私たちは、将来においてより早いサイトが Google  のランキング結果において上位に位置し、より多くの新規ユーザーをサイトにもたらすだろうと考えることができます。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.010.png" alt="" /></p>
+
+<p>それでは高速サイトがビジネス的に重要だということは理解できましが、何から始めたら良いのでしょうか？</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.011.png" alt="" /></p>
+
+<p>その質問に答えるために、とあるページがどのように読み込まれて、どこがボトルネックなのか見てみましょう。 （この部分は違うページ、例えばあなたのページだったり、クライアントのページに置き換えることができます。そして、<a href="http://webpagetest.org/">WebPageTest.org</a> に通してウォーターフォールを次のスライドと置き換えるれば問題ないです。）</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.012.png" alt="" /></p>
+
+<p>これはウォーターフォールビューと言われていて、どのようにページが読み込まれているのか表しています。最初のバーはページそれ自体です。残りのすべてはページによって必要となるコンポーネント：画像、スクリプト、スタイシートが異なります。</p>
+
+<p>データベースのような異なるソースからページの構築にかかる時間は、読み込み総時間の10%でしかありません。私たちはこの部分をサーバサイドの時間と呼んでいます。サーバでページが構築されそれがブラウザに送られた時点で、残りの時間はブラウザの時間です。そして、この部分で90%の時間がすべて のコンポーネントをダウンロードするのに消費されいてるのです。私たちはこの部分をフロントエンドの時間と呼んでいます。</p>
+
+<p>多くの人達はフロントエンドの時間は大したことではないと思っています。なぜなら、画像や他のコンポーネントは1度ダウンロードすればキャッシュが可能だからと考えているのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.013.png" alt="" /></p>
+
+<p>しかし、フルキャッシュの状態での再訪問においても、いくつかのコンポーネントが読み込まれ、スクリプトとスタイシートはキャッシュから実行されます。この例の場合でもサーバーの時間は全体の38%でしかありません。</p>
+
+<p>Yahoo! のリサーチによると、すべてのセッションの50-60%はキャッシュが空の状態であり、これは総PVの20%に及びます。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.014.png" alt="" /></p>
+
+<p>フロントエンドは重要であり、この部分で時間が消費されています。最善のROIのために、フロントエンドパフォーマンス改善に集中しなければなりま せん。</p>
+
+<p>これは良い知らせでしょう。なぜならフロンエンドのパフォーマンス改善はバックエンドのシステム、データベース、インフラストラクチャ、またはサー バサイドのアプリケーションの再設計するより簡単だからです。</p>
+
+<p>フロンエンドの改善は簡単であり、得られる利益も大きいです。10% を半減しても大した変化ではありませんが、90%を半減すれば読み込み速度に有意な変化が見られ、ビジネス指標にもつながるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.015.png" alt="" /></p>
+
+<p>ありがとう！
+<h3>Credits</h3>
+<ul>
+    <li>Google, Bing: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/8523">http://en.oreilly.com/velocity2009/.../8523</a></li>
+    <li>Shopzilla: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7709">http://en.oreilly.com/velocity2009/.../7709</a></li>
+    <li>Netflix: <a href="http://en.oreilly.com/velocity2008/public/schedule/detail/3632">http://en.oreilly.com/velocity2008/.../3632</a></li>
+    <li>AOL: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7579">http://en.oreilly.com/velocity2009/.../7579</a></li>
+    <li>Yahoo!: <a href="http://www.slideshare.net/stoyan/yslow-20-presentation">http://www.slideshare.net/stoyan/yslow-20-presentation</a></li>
+    <li>Bing graphic: <a href="http://www.watchingwebsites.com/archives/proof-that-speeding-up-websites-improves-online-business">http://www.watchingwebsites.com/...-online-business</a></li>
+    <li>Steve Souders: <a href="http://stevesouders.com/">http://stevesouders.com</a></li>
+    <li>Stoyan Stefanov: <a href="http://phpied.com/">http://phpied.com</a></li>
+    <li>Sponsored search and speed: <a href="http://adwords.google.com/support/aw/bin/answer.py?hl=jp&amp;answer=87144">http://adwords.google.com/...=87144</a></li>
+</ul>
+てなわけで、僕がちょこっと日本語訳してスタイルも加えたスライドはこちらです。
+<div id="__ss_3575704" style="width: 425px;"><strong style="display: block; margin: 12px 0 4px;"><a title="ビジネスにおけるウェブパフォーマンス" href="http://www.slideshare.net/t32k/performance-business-pitch">ビジネスにおけるウェブパフォーマンス</a></strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancebusinesspitch-100328010037-phpapp01&amp;stripped_title=performance-business-pitch" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancebusinesspitch-100328010037-phpapp01&amp;stripped_title=performance-business-pitch" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/t32k">Koji Ishimoto</a>.</div>
+</div></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-29-March" title="March 29, 2010">March 29, 2010</time>
+            </div>
+            <h1 class="title">ビジネスにおけるウェブパフォーマンス</h1>
+            
+        </header>
+
+        <section>
+            <p>前半部分かなり適当です...</p>
+
+<p><cite style="display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文：<a href="http://www.phpied.com/the-performance-business-pitch/">The performance business pitch / Stoyan&#39;s phpied.com</a>
+公開日：2010-03-29</cite></p>
+
+<p>この記事のアイデアは <a href="http://jeremyhubert.com/">Jeremy Hubert</a> というクールな男がいたおかげです。彼と出会ったのは Yahoo!  テックトークで講演した後で、互いの講演について話し合いました。ビジネス指標の年と言っていいでしょう今年の Velocity  でも講演しましたが、ビジネスの統計資料が導入部分に含まれていました。まさか誰もテックトークでビジネスの話を聞くとは思わなかったでしょう。開発者は当然パフォーマンスに興味があるように、上質で<a href="http://phpadvent.org/2009/unmaintainable-php-by-stoyan-stefanov">メンテナンス性の高いコード</a>を書くことに興味があると私は信じています。私たちは自分たちがすることだけあってそれをうまくやろうとします。講演にビジネスパートを付け加えた理由として、私は出席者にそのことを家に持ち帰り、彼らの上司を説得するためのプレゼントにして欲しかったのです。そこで Jeremy   は、代わりに、パフォーマンスに興味のある人のためにダウンロード可能なスライドを作成してみればとアドバイスをくれました。それで、フロントエンドパフォーマンスも含めたこの &quot;business pitch” ができたのです。</p>
+
+<!--more-->
+
+<p>≫ <a href="http://phpied.com/files/perfpitch/business-of-performance.ppt">business  pitch (PPT) のダウンロード </a></p>
+
+<p>スライドはわざと装飾を加えずにプレーンな状態のままにしてあります。あなたがこのスライドを見つけ、見た目を整え、マッシュアップして、あなたの上司もしくはクライアントにこれを届けパフォーマンスに投資することを納得させることを願っています。そしてパフォーマンスを改善するためのあなた自身のリソースを捻出してください。</p>
+
+<p>このスライドは <a href="http://www.slideshare.net/stoyan/the-business-of-performance">slideshare</a> にもあります。もし、クライアント先でパフォーマンスに熱心な方がいて、手元に &quot;business pitch”がなくても slideshare  を使えばフルスクリーンで説明できます。</p>
+
+<p>この記事の残りの部分はパワーポイント資料と同じです。各スライド下のテキストは &quot;business  pitch”のパワーポイントのコメント欄にも記入してあります。
+<h2>ビジネスにおけるウェブパフォーマンス</h2>
+<img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.001.png" alt="" /></p>
+
+<p>レジの行列で待つのが好きな人なんているでしょうか？たぶん、いないでしょう。同じようにのろまなページの読み込みを座って待っていることが好きな 人なんていないでしょう。</p>
+
+<p>問題は読み込み速度がサイトのビジネス指標とどれだけ関連性があるかということです。この場合、ビジネス指標というのは、収益や顧客満足度、再訪問 率といったものです。そして、なぜページの読み込み速度を改善するために投資をしなければならないのでしょうか？</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.002.png" alt="" /></p>
+
+<p>遅いページがビジネス指標に与える影響は、大抵、A/Bテスト検証されます。ユーザーはランダムに2つのグループに振り分けられます。片方は普通の ページ、もう片方は同じページですがサーバ側で意図的に遅く表示させたページです。そして、徐々に遅くしていきビジネス指標がどのように変化するか観察す るのです。</p>
+
+<p>このような実験をすると、遅いページは良くないということがすぐ理解できこれ以上ユーザーを失いたくがないために、実験をすぐに中止してしまうで しょう。その結果、たいていの実験は0.5秒遅くしたところで終了してしまいます。</p>
+
+<p>Bing.com (以前はLive.com)  勇敢にも2秒遅延テストの結果を公表しました。結果は計測したすべてのビジネス指標で急激な悪化が認められました。</p>
+
+<p>収益に関して言えば、1秒の遅延が2.8%の収益を低下させ、2秒になれば4.3%低下することが確認できるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.003.png" alt="" /></p>
+
+<p>検索結果ページを意図的に0.4秒遅くした同じような実験がGoogleでも行われました。この実験は新たな2つの事実を明らかにしました。
+<ul>
+    <li>ビジネス指標における悪影響は時間の経過とともにさらに悪化します。ユーザーは最初の数回はページの遅延に関しては寛容的ですが、徐々に検索数は 減少し、ついにはサイトを見捨てるでしょう。</li>
+    <li>2つ目のポイントは遅延を取り除いても通常の状態に戻らないということです。実験後も悪影響は続きます。ある人はこれを最後にサイトを去り、また ある人はライバル会社に乗り換えたりして2度と戻ってきませんでした。</li>
+</ul>
+<img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.004.png" alt="" /></p>
+
+<p>Yahoo  でも同様な実験が行われました。0.4秒遅くなると間もなくフルページトラフィックが減少したです。これはページが完全に読み込まれる前（onload  イベントが発生する前）にユーザーが去ってしまうことを意味します。つまり、ブラウザの「戻る」ボタンを押したのか、またはクリックでページから離れてし まったのでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.005.png" alt="" /></p>
+
+<p>AOL において、個々のページのパフォーマンスと訪問数との関連性を示した測定結果が存在します。</p>
+
+<p>結果は明確です。遅いページは訪問者を逃してしまいます。つまり、ユーザーは遅いページを避けるように学習しているのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.006.png" alt="" /></p>
+
+<p>これまでの事例はサイトが遅くなるにつれてビジネス指標がどのように悪化していくのかでしたが、Shopzilla  の事例ではサイトの高速化によってどのようにビジネス指標が改善するのか前向き考え方が紹介されています。</p>
+
+<p>Shopzilla  はサイトをリニューアル、し読み込み速度を6秒台から1.2秒まで高速化させました。その結果として、すべての指標に改善が見られました。収益は 7-12％ 増加し、25%  もページビューが増加しました。有料検索からのトラフィックも増加しました。最低限必要なインフラコストも半分に抑えることができ、収益増加とコスト抑制 を同時に実現させたのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.007.png" alt="" /></p>
+
+<p>他の Shopzilla  の統計では、ほんのわずかな変更でさえもポジティブな影響を与えること明らかにしています。フリークッキードメインから提供するために静的コンポーネント を移動しました。この小さな変化が0.5％の収益増加をもたらしたのです。</p>
+
+<p>Yahoo!のパフォーマンスベストプラクティスのリストにおいてこの改善は34個あるうちの24番目にリストされているものです。もっと重要で有 益な改善はありますが、小さな改善も大切だということが理解できるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.008.png" alt="" /></p>
+
+<p>コスト削減と節約に関して言えば、Netflix がプレーンテキストにgzip  圧縮（Yahoo!のベストプラクティスの4番目:これはかなり重要です。）した際の事例が適切でしょう。Netflix  突然の（アウトバンドの）転送量減少に気づきました。彼らは帯域幅のための予算を43%削減できたのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.009.png" alt="" /></p>
+
+<p>ビジネス指標と言えば、それぞれのサイトにそれぞれ成功指標があるでしょう。それが新規ユーザー登録数かもしれませんし、サイトの滞在時間かもしま せん。また別のサイトは売上高かもしれません。しかし、一般的にページを改善して期待できるものとは何でしょうか？再訪問数の増加、PV数の増加、コン バージョン率と収益の改善、ユーザーがハッピーになってくれること。それらすべてでもあり、その上インフラ・帯域幅を節約もしてくれます。</p>
+
+<p>検索エンジ経由のトラフィック増加もそうです。2008年の4月、Google は AdWords  のランキングを決める際にページの読み込み速度をを評価に付け加えました。Shopzilla の統計がその証拠です。さらに Google の  Matt Cutts はカンファレンスで、オーガニック検索でも読み込み時間をランキングアルゴリズムに加える活動がGoogle内部で存在すると<a href="http://searchengineland.com/site-speed-googles-next-ranking-factor-29793">言及しています</a>。これまでのところそのような現象は確認されていませんが、私たちは、将来においてより早いサイトが Google  のランキング結果において上位に位置し、より多くの新規ユーザーをサイトにもたらすだろうと考えることができます。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.010.png" alt="" /></p>
+
+<p>それでは高速サイトがビジネス的に重要だということは理解できましが、何から始めたら良いのでしょうか？</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.011.png" alt="" /></p>
+
+<p>その質問に答えるために、とあるページがどのように読み込まれて、どこがボトルネックなのか見てみましょう。 （この部分は違うページ、例えばあなたのページだったり、クライアントのページに置き換えることができます。そして、<a href="http://webpagetest.org/">WebPageTest.org</a> に通してウォーターフォールを次のスライドと置き換えるれば問題ないです。）</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.012.png" alt="" /></p>
+
+<p>これはウォーターフォールビューと言われていて、どのようにページが読み込まれているのか表しています。最初のバーはページそれ自体です。残りのすべてはページによって必要となるコンポーネント：画像、スクリプト、スタイシートが異なります。</p>
+
+<p>データベースのような異なるソースからページの構築にかかる時間は、読み込み総時間の10%でしかありません。私たちはこの部分をサーバサイドの時間と呼んでいます。サーバでページが構築されそれがブラウザに送られた時点で、残りの時間はブラウザの時間です。そして、この部分で90%の時間がすべて のコンポーネントをダウンロードするのに消費されいてるのです。私たちはこの部分をフロントエンドの時間と呼んでいます。</p>
+
+<p>多くの人達はフロントエンドの時間は大したことではないと思っています。なぜなら、画像や他のコンポーネントは1度ダウンロードすればキャッシュが可能だからと考えているのです。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.013.png" alt="" /></p>
+
+<p>しかし、フルキャッシュの状態での再訪問においても、いくつかのコンポーネントが読み込まれ、スクリプトとスタイシートはキャッシュから実行されます。この例の場合でもサーバーの時間は全体の38%でしかありません。</p>
+
+<p>Yahoo! のリサーチによると、すべてのセッションの50-60%はキャッシュが空の状態であり、これは総PVの20%に及びます。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.014.png" alt="" /></p>
+
+<p>フロントエンドは重要であり、この部分で時間が消費されています。最善のROIのために、フロントエンドパフォーマンス改善に集中しなければなりま せん。</p>
+
+<p>これは良い知らせでしょう。なぜならフロンエンドのパフォーマンス改善はバックエンドのシステム、データベース、インフラストラクチャ、またはサー バサイドのアプリケーションの再設計するより簡単だからです。</p>
+
+<p>フロンエンドの改善は簡単であり、得られる利益も大きいです。10% を半減しても大した変化ではありませんが、90%を半減すれば読み込み速度に有意な変化が見られ、ビジネス指標にもつながるでしょう。</p>
+
+<p><img class="fig" src="http://t32k.me/mol/wp-content/uploads/2010/03/wp.015.png" alt="" /></p>
+
+<p>ありがとう！
+<h3>Credits</h3>
+<ul>
+    <li>Google, Bing: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/8523">http://en.oreilly.com/velocity2009/.../8523</a></li>
+    <li>Shopzilla: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7709">http://en.oreilly.com/velocity2009/.../7709</a></li>
+    <li>Netflix: <a href="http://en.oreilly.com/velocity2008/public/schedule/detail/3632">http://en.oreilly.com/velocity2008/.../3632</a></li>
+    <li>AOL: <a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7579">http://en.oreilly.com/velocity2009/.../7579</a></li>
+    <li>Yahoo!: <a href="http://www.slideshare.net/stoyan/yslow-20-presentation">http://www.slideshare.net/stoyan/yslow-20-presentation</a></li>
+    <li>Bing graphic: <a href="http://www.watchingwebsites.com/archives/proof-that-speeding-up-websites-improves-online-business">http://www.watchingwebsites.com/...-online-business</a></li>
+    <li>Steve Souders: <a href="http://stevesouders.com/">http://stevesouders.com</a></li>
+    <li>Stoyan Stefanov: <a href="http://phpied.com/">http://phpied.com</a></li>
+    <li>Sponsored search and speed: <a href="http://adwords.google.com/support/aw/bin/answer.py?hl=jp&amp;answer=87144">http://adwords.google.com/...=87144</a></li>
+</ul>
+てなわけで、僕がちょこっと日本語訳してスタイルも加えたスライドはこちらです。
+<div id="__ss_3575704" style="width: 425px;"><strong style="display: block; margin: 12px 0 4px;"><a title="ビジネスにおけるウェブパフォーマンス" href="http://www.slideshare.net/t32k/performance-business-pitch">ビジネスにおけるウェブパフォーマンス</a></strong><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancebusinesspitch-100328010037-phpapp01&amp;stripped_title=performance-business-pitch" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=performancebusinesspitch-100328010037-phpapp01&amp;stripped_title=performance-business-pitch" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/t32k">Koji Ishimoto</a>.</div>
+</div></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="ビジネスにおけるウェブパフォーマンス" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

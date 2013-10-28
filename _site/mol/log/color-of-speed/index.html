@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色のスピード &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="色のスピード ">
+    <link rel="canonical" href="http://t32k.me//mol/log/color-of-speed">
+     
+           
+    <meta property="og:title" content="色のスピード "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/color-of-speed"/>
+    
+    
+    <!--meta property="og:description" content="<p style="text-align: center;"><a title="Macro of sharpened colored pencils aranged in a circle by Horia Varlan, on Flickr" href="http://www.flickr.com/photos/horiavarlan/4268864706/"><img class="fig aligncenter" src="http://t32k.me/mol/file/2010/12/color.jpg" alt="Macro of sharpened colored pencils aranged in a circle" width="470" height="260" /></a><strong> <span style="font-size: x-small;"><span style="color: #888888;">By <a href="http://www.flickr.com/photos/horiavarlan/">Horia Varlan</a></span></span></strong></p>
+
+<p>色とWebパフォーマンスという奇妙な組み合わせの面白い記事を見つけたので紹介をば。</p>
+
+<p><cite>原文：<a href="http://timkadlec.com/2010/12/the-color-of-speed/">The Color of Speed | TimKadlec.com</a>
+投稿日：2010-12-2 by <a href="http://twitter.com/#!/tkadlec">Tim Kadlec</a></cite></p>
+
+<p>3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。</p>
+
+<!--more-->
+
+<p>そのような1つの要因として色が挙げられる。様々な色相・明度・彩度は人間の体感時間に関わるすべてに影響する。一般的に、ユーザーが待ち時間の間にいかにストレスになっていたか、リラックスしていたのかと関係してくる。リラックスした状態になればなるほど待ち時間は短く感じられる。これは、ストレスを感じているユーザーがまるで遅いサイトと感じている一方で、リラックスしたユーザーは同じサイトだけれども反応が良いと感じる可能性がある。</p>
+
+<p>それで、私たちはリラックした状態を色を使ってどのように引き起こしたらよいのだろうか？まず第一に、ユーザーの最もリラックスした状態を引き出すために青系の色を選ぶことができる。対照的に、黄、赤系の色は刺激を与えるので、ストレスにつながる。特に赤色は逃避や失敗といった感情を引き起こし、さらに強いレベルでのストレスとにつながる。</p>
+
+<p>他の考慮すべきこととして、彩度が挙げられる。低彩度な色を見たユーザーは高彩度を見たユーザーよりもリラックスした状態が観察された。この効果は、コントラストが強い環境（コンピュータ画面のような）において、より顕著になる。</p>
+
+<p>最後に、明度について私たちは考えなければならない、パステルカラー（高明度）はリラックスした状態をもたらすので、低明度（暗い色）な色よりも体感時間を短くすることができる。</p>
+
+<p>これらの知識を使えば、私たちは本質的に速さをほのめかすデザインができ、反応のよい体験をユーザーに提供できる。決して、これはサイトのパフォーマンスをチューニングする作業に置き換わるものではない。しかしながら、もしこれらの知識をパフォーマンス最適化の技術と一緒に利用すれば、実測値と同じくらい速く感じるサイトを作成可能で、ユーザーの体験をより最適化できるだろう。</p>
+
+<p><span style="color: #888888;">-- 翻訳ここまで --</span></p>
+
+<p>実験データなどの参照元が明記されてなかったので、鵜呑みにするのはちょっと抵抗ありますが、本文自体も、あくまで色だけで速くできるのではなく、HTTPリクエストを減らすとかそういった基本的なパフォーマンス対策をおこなった上でのさらなる対策として提示していますので、青色にしたからといって万事OKなわけではありませんｗ</p>
+
+<p>色とスピードに関しては、Yahoo!のエンジニアでパフォーマンスについても講演している <a href="http://twitter.com/#!/stoyanstefanov">@stoyanstefanov</a> もブログで以下のようなことを記述しています。
+<blockquote>
+<h3>White is fast</h3>
+Google Reader used to have this blue background on the left hand side menu (where the list of feeds is), but it&#39;s now white. Turns out they made a user study to ask people what they think given the two options and nothing else changed in the app. People consistently said that the version with the white background was faster, although it&#39;s the same page. How crazy is this?</p>
+
+<p><span style="font-size: x-small;"><a href="http://www.phpied.com/psychology-of-performance/">Psychology of performance / Stoyan&#39;s phpied.com</a></span></blockquote>
+Google Readerで青背景から白背景に変更した例を挙げています。なぜ白い色にしたのかというとユーザーが白色のほうが速いと感じたからそうです。青系の色はリラックスさせるのでパフォーマンス的に有効だと翻訳した記事には書いてありましたが、まぁ白色は明度は高いですし、背景以外のバーなど青色基調ですし、理にかなっているかなと思います。</p>
+
+<p>そうでなくても、Googleは全体を通して白地にブルーのイメージがあります。あ、<a href="http://t32k.me/mol/2010/10/facebook-and-flow/">速いと噂の Facebook</a> もそういえば青色基調ですね。彼らはそういった点も気づいているのかもしれませんね。</p>
+
+<p>個人的な考えを述べるのであれば、Webパフォーマンスは数年前と比べて改善されてきています。以前はサイトの応答速度の8秒ルールといったものがありましたが、現在では4秒、3秒といったことが言われおり、どんどん0に近づいてきています。つまり、これ以上ない限界が見えはじめてきた現在では、他のサイトとパフォーマンス（秒数）を競いあっても数百、数十ミリ秒の違いしか出せなくなってきています。そういった面からみれば、こういった人間の心理・知覚から考えて差別化するのも重要なパフォーマンス対策になってくるのかなと考えます。（この辺に関しては、こちらを参照：<a href="http://t32k.me/mol/log/long-life-web-performance-optimization/">心理学から考えるWebパフォーマンス</a>）</p>
+
+<p>そうゆうわけで、Webデザイナーさんは制作しているサイトのブランドイメージにこれらの知識が応用できるのであれば採用すれば良いと思いますよ。（ブランドイメージをねじ曲げてまで対応する必要はないと思いますけど）</p>
+"/>
+    <meta name="description" content="<p style="text-align: center;"><a title="Macro of sharpened colored pencils aranged in a circle by Horia Varlan, on Flickr" href="http://www.flickr.com/photos/horiavarlan/4268864706/"><img class="fig aligncenter" src="http://t32k.me/mol/file/2010/12/color.jpg" alt="Macro of sharpened colored pencils aranged in a circle" width="470" height="260" /></a><strong> <span style="font-size: x-small;"><span style="color: #888888;">By <a href="http://www.flickr.com/photos/horiavarlan/">Horia Varlan</a></span></span></strong></p>
+
+<p>色とWebパフォーマンスという奇妙な組み合わせの面白い記事を見つけたので紹介をば。</p>
+
+<p><cite>原文：<a href="http://timkadlec.com/2010/12/the-color-of-speed/">The Color of Speed | TimKadlec.com</a>
+投稿日：2010-12-2 by <a href="http://twitter.com/#!/tkadlec">Tim Kadlec</a></cite></p>
+
+<p>3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。</p>
+
+<!--more-->
+
+<p>そのような1つの要因として色が挙げられる。様々な色相・明度・彩度は人間の体感時間に関わるすべてに影響する。一般的に、ユーザーが待ち時間の間にいかにストレスになっていたか、リラックスしていたのかと関係してくる。リラックスした状態になればなるほど待ち時間は短く感じられる。これは、ストレスを感じているユーザーがまるで遅いサイトと感じている一方で、リラックスしたユーザーは同じサイトだけれども反応が良いと感じる可能性がある。</p>
+
+<p>それで、私たちはリラックした状態を色を使ってどのように引き起こしたらよいのだろうか？まず第一に、ユーザーの最もリラックスした状態を引き出すために青系の色を選ぶことができる。対照的に、黄、赤系の色は刺激を与えるので、ストレスにつながる。特に赤色は逃避や失敗といった感情を引き起こし、さらに強いレベルでのストレスとにつながる。</p>
+
+<p>他の考慮すべきこととして、彩度が挙げられる。低彩度な色を見たユーザーは高彩度を見たユーザーよりもリラックスした状態が観察された。この効果は、コントラストが強い環境（コンピュータ画面のような）において、より顕著になる。</p>
+
+<p>最後に、明度について私たちは考えなければならない、パステルカラー（高明度）はリラックスした状態をもたらすので、低明度（暗い色）な色よりも体感時間を短くすることができる。</p>
+
+<p>これらの知識を使えば、私たちは本質的に速さをほのめかすデザインができ、反応のよい体験をユーザーに提供できる。決して、これはサイトのパフォーマンスをチューニングする作業に置き換わるものではない。しかしながら、もしこれらの知識をパフォーマンス最適化の技術と一緒に利用すれば、実測値と同じくらい速く感じるサイトを作成可能で、ユーザーの体験をより最適化できるだろう。</p>
+
+<p><span style="color: #888888;">-- 翻訳ここまで --</span></p>
+
+<p>実験データなどの参照元が明記されてなかったので、鵜呑みにするのはちょっと抵抗ありますが、本文自体も、あくまで色だけで速くできるのではなく、HTTPリクエストを減らすとかそういった基本的なパフォーマンス対策をおこなった上でのさらなる対策として提示していますので、青色にしたからといって万事OKなわけではありませんｗ</p>
+
+<p>色とスピードに関しては、Yahoo!のエンジニアでパフォーマンスについても講演している <a href="http://twitter.com/#!/stoyanstefanov">@stoyanstefanov</a> もブログで以下のようなことを記述しています。
+<blockquote>
+<h3>White is fast</h3>
+Google Reader used to have this blue background on the left hand side menu (where the list of feeds is), but it&#39;s now white. Turns out they made a user study to ask people what they think given the two options and nothing else changed in the app. People consistently said that the version with the white background was faster, although it&#39;s the same page. How crazy is this?</p>
+
+<p><span style="font-size: x-small;"><a href="http://www.phpied.com/psychology-of-performance/">Psychology of performance / Stoyan&#39;s phpied.com</a></span></blockquote>
+Google Readerで青背景から白背景に変更した例を挙げています。なぜ白い色にしたのかというとユーザーが白色のほうが速いと感じたからそうです。青系の色はリラックスさせるのでパフォーマンス的に有効だと翻訳した記事には書いてありましたが、まぁ白色は明度は高いですし、背景以外のバーなど青色基調ですし、理にかなっているかなと思います。</p>
+
+<p>そうでなくても、Googleは全体を通して白地にブルーのイメージがあります。あ、<a href="http://t32k.me/mol/2010/10/facebook-and-flow/">速いと噂の Facebook</a> もそういえば青色基調ですね。彼らはそういった点も気づいているのかもしれませんね。</p>
+
+<p>個人的な考えを述べるのであれば、Webパフォーマンスは数年前と比べて改善されてきています。以前はサイトの応答速度の8秒ルールといったものがありましたが、現在では4秒、3秒といったことが言われおり、どんどん0に近づいてきています。つまり、これ以上ない限界が見えはじめてきた現在では、他のサイトとパフォーマンス（秒数）を競いあっても数百、数十ミリ秒の違いしか出せなくなってきています。そういった面からみれば、こういった人間の心理・知覚から考えて差別化するのも重要なパフォーマンス対策になってくるのかなと考えます。（この辺に関しては、こちらを参照：<a href="http://t32k.me/mol/log/long-life-web-performance-optimization/">心理学から考えるWebパフォーマンス</a>）</p>
+
+<p>そうゆうわけで、Webデザイナーさんは制作しているサイトのブランドイメージにこれらの知識が応用できるのであれば採用すれば良いと思いますよ。（ブランドイメージをねじ曲げてまで対応する必要はないと思いますけど）</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-09-December" title="December 09, 2010">December 09, 2010</time>
+            </div>
+            <h1 class="title">色のスピード</h1>
+            
+        </header>
+
+        <section>
+            <p style="text-align: center;"><a title="Macro of sharpened colored pencils aranged in a circle by Horia Varlan, on Flickr" href="http://www.flickr.com/photos/horiavarlan/4268864706/"><img class="fig aligncenter" src="http://t32k.me/mol/file/2010/12/color.jpg" alt="Macro of sharpened colored pencils aranged in a circle" width="470" height="260" /></a><strong> <span style="font-size: x-small;"><span style="color: #888888;">By <a href="http://www.flickr.com/photos/horiavarlan/">Horia Varlan</a></span></span></strong></p>
+
+<p>色とWebパフォーマンスという奇妙な組み合わせの面白い記事を見つけたので紹介をば。</p>
+
+<p><cite>原文：<a href="http://timkadlec.com/2010/12/the-color-of-speed/">The Color of Speed | TimKadlec.com</a>
+投稿日：2010-12-2 by <a href="http://twitter.com/#!/tkadlec">Tim Kadlec</a></cite></p>
+
+<p>3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。</p>
+
+<!--more-->
+
+<p>そのような1つの要因として色が挙げられる。様々な色相・明度・彩度は人間の体感時間に関わるすべてに影響する。一般的に、ユーザーが待ち時間の間にいかにストレスになっていたか、リラックスしていたのかと関係してくる。リラックスした状態になればなるほど待ち時間は短く感じられる。これは、ストレスを感じているユーザーがまるで遅いサイトと感じている一方で、リラックスしたユーザーは同じサイトだけれども反応が良いと感じる可能性がある。</p>
+
+<p>それで、私たちはリラックした状態を色を使ってどのように引き起こしたらよいのだろうか？まず第一に、ユーザーの最もリラックスした状態を引き出すために青系の色を選ぶことができる。対照的に、黄、赤系の色は刺激を与えるので、ストレスにつながる。特に赤色は逃避や失敗といった感情を引き起こし、さらに強いレベルでのストレスとにつながる。</p>
+
+<p>他の考慮すべきこととして、彩度が挙げられる。低彩度な色を見たユーザーは高彩度を見たユーザーよりもリラックスした状態が観察された。この効果は、コントラストが強い環境（コンピュータ画面のような）において、より顕著になる。</p>
+
+<p>最後に、明度について私たちは考えなければならない、パステルカラー（高明度）はリラックスした状態をもたらすので、低明度（暗い色）な色よりも体感時間を短くすることができる。</p>
+
+<p>これらの知識を使えば、私たちは本質的に速さをほのめかすデザインができ、反応のよい体験をユーザーに提供できる。決して、これはサイトのパフォーマンスをチューニングする作業に置き換わるものではない。しかしながら、もしこれらの知識をパフォーマンス最適化の技術と一緒に利用すれば、実測値と同じくらい速く感じるサイトを作成可能で、ユーザーの体験をより最適化できるだろう。</p>
+
+<p><span style="color: #888888;">-- 翻訳ここまで --</span></p>
+
+<p>実験データなどの参照元が明記されてなかったので、鵜呑みにするのはちょっと抵抗ありますが、本文自体も、あくまで色だけで速くできるのではなく、HTTPリクエストを減らすとかそういった基本的なパフォーマンス対策をおこなった上でのさらなる対策として提示していますので、青色にしたからといって万事OKなわけではありませんｗ</p>
+
+<p>色とスピードに関しては、Yahoo!のエンジニアでパフォーマンスについても講演している <a href="http://twitter.com/#!/stoyanstefanov">@stoyanstefanov</a> もブログで以下のようなことを記述しています。
+<blockquote>
+<h3>White is fast</h3>
+Google Reader used to have this blue background on the left hand side menu (where the list of feeds is), but it&#39;s now white. Turns out they made a user study to ask people what they think given the two options and nothing else changed in the app. People consistently said that the version with the white background was faster, although it&#39;s the same page. How crazy is this?</p>
+
+<p><span style="font-size: x-small;"><a href="http://www.phpied.com/psychology-of-performance/">Psychology of performance / Stoyan&#39;s phpied.com</a></span></blockquote>
+Google Readerで青背景から白背景に変更した例を挙げています。なぜ白い色にしたのかというとユーザーが白色のほうが速いと感じたからそうです。青系の色はリラックスさせるのでパフォーマンス的に有効だと翻訳した記事には書いてありましたが、まぁ白色は明度は高いですし、背景以外のバーなど青色基調ですし、理にかなっているかなと思います。</p>
+
+<p>そうでなくても、Googleは全体を通して白地にブルーのイメージがあります。あ、<a href="http://t32k.me/mol/2010/10/facebook-and-flow/">速いと噂の Facebook</a> もそういえば青色基調ですね。彼らはそういった点も気づいているのかもしれませんね。</p>
+
+<p>個人的な考えを述べるのであれば、Webパフォーマンスは数年前と比べて改善されてきています。以前はサイトの応答速度の8秒ルールといったものがありましたが、現在では4秒、3秒といったことが言われおり、どんどん0に近づいてきています。つまり、これ以上ない限界が見えはじめてきた現在では、他のサイトとパフォーマンス（秒数）を競いあっても数百、数十ミリ秒の違いしか出せなくなってきています。そういった面からみれば、こういった人間の心理・知覚から考えて差別化するのも重要なパフォーマンス対策になってくるのかなと考えます。（この辺に関しては、こちらを参照：<a href="http://t32k.me/mol/log/long-life-web-performance-optimization/">心理学から考えるWebパフォーマンス</a>）</p>
+
+<p>そうゆうわけで、Webデザイナーさんは制作しているサイトのブランドイメージにこれらの知識が応用できるのであれば採用すれば良いと思いますよ。（ブランドイメージをねじ曲げてまで対応する必要はないと思いますけど）</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="色のスピード" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

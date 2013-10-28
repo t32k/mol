@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Technology Days その2 &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Future Technology Days その2 ">
+    <link rel="canonical" href="http://t32k.me//mol/log/future-technology-days-part2">
+     
+           
+    <meta property="og:title" content="Future Technology Days その2 "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/future-technology-days-part2"/>
+    
+    
+    <!--meta property="og:description" content="<p><h4 id="section06">IE8描画モードに関して<br /></h4><h5>DOCTYPEによる描画モードの切り替え</h5><table class="mode"><tbody><tr><th scope="col">META</th><th scope="col">DOCTYPE</th><th scope="col">システム識別子</th><th scope="col">レンダリングモード</th></tr><tr><td rowspan="13">なし</td><td>なし</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML (no version)</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 2.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 3.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 </td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td rowspan="2">HTML 4.0 Frameset </td><td>システム識別子あり </td><td class="mode8">IE8 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td rowspan="2">HTML 4.0 Transitional </td><td>システム識別子あり </td><td class="mode8">IE8 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 Strict </td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>XHTML</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>XML</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>Unrecognaized DOCTYPE</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr></tbody></table><br /><br /><h5>サーバー側　HTTPヘッダによる指定</h5><p><b>&quot;X-UA-Compatible: IE=EmulateIE7&quot;</b></p><br /><h5>コンテンツ側　METAタグによる指定</h5><p><b>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EmulateIE7&quot;&gt;</b></p><table class="mode"><tbody><tr><th scope="col">META</th><th scope="col">DOCTYPE</th><th scope="col">システム識別子</th><th scope="col">レンダリングモード</th></tr><tr><td>IE=8</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>IE=7</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>IE=5</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>IE=Edge</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td rowspan="13">IE=<br />Emulate IE7</td><td>なし</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML (no version)</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 2.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 3.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 </td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td rowspan="2">HTML 4.0 Frameset </td><td>システム識別子あり </td><td class="mode7">IE7 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td rowspan="2">HTML 4.0 Transitional </td><td>システム識別子あり </td><td class="mode7">IE7 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 Strict </td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>XHTML</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>XML</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>Unrecognaized DOCTYPE</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr></tbody></table><br /><br /><h5>互換モードスイッチによる切り替え</h5><p class="figure"><img src="http://lh3.ggpht.com/_1drnogi3vdg/SYa5jVcTCbI/AAAAAAAAAP0/5HvExnmWNm8/fig_12.png" alt="" /><br /></p><p class="figure"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYa5jskkG8I/AAAAAAAAAP8/s2XchzC8oXY/fig_13.png" alt="" /><br /><br /><br /></p><h5>開発者ツールによる切り替え</h5><p class="figure"><img src="http://lh6.ggpht.com/_1drnogi3vdg/SYa5jlGBwqI/AAAAAAAAAQE/ytMfUlHycCU/fig_14.png" alt="" /><br /><br /></p><p><b>描画モードの判定方法</b><br /><br />ex.) javascript:alert(document.documentMode)<br /></p><br /><br /><h5>モード判定の優先順位</h5><p class="figure"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYa5jqqQ1QI/AAAAAAAAAQM/37D4kHRc59s/fig_15.png" alt="" /></p><div><br /></div><br /><h5>要点</h5><ul><li>（開発者ツールを除けば）METAタグによる指定が一番強い</li><li>IE8にはIE6標準モードのレンダリングモードは存在しない</li><li>ページ単位で描画モードを切り替えるのなら、META。サイト全体ならHTTPヘッダで指定したほうが無難</li></ul><br /><br /><span class="Apple-style-span"  style="font-size:small;">関連エントリー<br /></span><ul><li><span class="Apple-style-span"  style="font-size:small;"><a href="http://warikiru.blogspot.com/2009/02/internet-explorer-8-beta-2-overview.html">warikiru: [レポ] Future Technology Days その１</a></span><br /></li></ul></p>
+"/>
+    <meta name="description" content="<p><h4 id="section06">IE8描画モードに関して<br /></h4><h5>DOCTYPEによる描画モードの切り替え</h5><table class="mode"><tbody><tr><th scope="col">META</th><th scope="col">DOCTYPE</th><th scope="col">システム識別子</th><th scope="col">レンダリングモード</th></tr><tr><td rowspan="13">なし</td><td>なし</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML (no version)</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 2.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 3.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 </td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td rowspan="2">HTML 4.0 Frameset </td><td>システム識別子あり </td><td class="mode8">IE8 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td rowspan="2">HTML 4.0 Transitional </td><td>システム識別子あり </td><td class="mode8">IE8 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 Strict </td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>XHTML</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>XML</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>Unrecognaized DOCTYPE</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr></tbody></table><br /><br /><h5>サーバー側　HTTPヘッダによる指定</h5><p><b>&quot;X-UA-Compatible: IE=EmulateIE7&quot;</b></p><br /><h5>コンテンツ側　METAタグによる指定</h5><p><b>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EmulateIE7&quot;&gt;</b></p><table class="mode"><tbody><tr><th scope="col">META</th><th scope="col">DOCTYPE</th><th scope="col">システム識別子</th><th scope="col">レンダリングモード</th></tr><tr><td>IE=8</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>IE=7</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>IE=5</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>IE=Edge</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td rowspan="13">IE=<br />Emulate IE7</td><td>なし</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML (no version)</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 2.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 3.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 </td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td rowspan="2">HTML 4.0 Frameset </td><td>システム識別子あり </td><td class="mode7">IE7 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td rowspan="2">HTML 4.0 Transitional </td><td>システム識別子あり </td><td class="mode7">IE7 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 Strict </td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>XHTML</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>XML</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>Unrecognaized DOCTYPE</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr></tbody></table><br /><br /><h5>互換モードスイッチによる切り替え</h5><p class="figure"><img src="http://lh3.ggpht.com/_1drnogi3vdg/SYa5jVcTCbI/AAAAAAAAAP0/5HvExnmWNm8/fig_12.png" alt="" /><br /></p><p class="figure"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYa5jskkG8I/AAAAAAAAAP8/s2XchzC8oXY/fig_13.png" alt="" /><br /><br /><br /></p><h5>開発者ツールによる切り替え</h5><p class="figure"><img src="http://lh6.ggpht.com/_1drnogi3vdg/SYa5jlGBwqI/AAAAAAAAAQE/ytMfUlHycCU/fig_14.png" alt="" /><br /><br /></p><p><b>描画モードの判定方法</b><br /><br />ex.) javascript:alert(document.documentMode)<br /></p><br /><br /><h5>モード判定の優先順位</h5><p class="figure"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYa5jqqQ1QI/AAAAAAAAAQM/37D4kHRc59s/fig_15.png" alt="" /></p><div><br /></div><br /><h5>要点</h5><ul><li>（開発者ツールを除けば）METAタグによる指定が一番強い</li><li>IE8にはIE6標準モードのレンダリングモードは存在しない</li><li>ページ単位で描画モードを切り替えるのなら、META。サイト全体ならHTTPヘッダで指定したほうが無難</li></ul><br /><br /><span class="Apple-style-span"  style="font-size:small;">関連エントリー<br /></span><ul><li><span class="Apple-style-span"  style="font-size:small;"><a href="http://warikiru.blogspot.com/2009/02/internet-explorer-8-beta-2-overview.html">warikiru: [レポ] Future Technology Days その１</a></span><br /></li></ul></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2009-02-February" title="February 02, 2009">February 02, 2009</time>
+            </div>
+            <h1 class="title">Future Technology Days その2</h1>
+            
+        </header>
+
+        <section>
+            <p><h4 id="section06">IE8描画モードに関して<br /></h4><h5>DOCTYPEによる描画モードの切り替え</h5><table class="mode"><tbody><tr><th scope="col">META</th><th scope="col">DOCTYPE</th><th scope="col">システム識別子</th><th scope="col">レンダリングモード</th></tr><tr><td rowspan="13">なし</td><td>なし</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML (no version)</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 2.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 3.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 </td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td rowspan="2">HTML 4.0 Frameset </td><td>システム識別子あり </td><td class="mode8">IE8 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td rowspan="2">HTML 4.0 Transitional </td><td>システム識別子あり </td><td class="mode8">IE8 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 Strict </td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>XHTML</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>XML</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>Unrecognaized DOCTYPE</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr></tbody></table><br /><br /><h5>サーバー側　HTTPヘッダによる指定</h5><p><b>&quot;X-UA-Compatible: IE=EmulateIE7&quot;</b></p><br /><h5>コンテンツ側　METAタグによる指定</h5><p><b>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EmulateIE7&quot;&gt;</b></p><table class="mode"><tbody><tr><th scope="col">META</th><th scope="col">DOCTYPE</th><th scope="col">システム識別子</th><th scope="col">レンダリングモード</th></tr><tr><td>IE=8</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td>IE=7</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>IE=5</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>IE=Edge</td><td>DOCTYPE関係なく</td><td>いずれの場合も</td><td class="mode8">IE8 Standard mode</td></tr><tr><td rowspan="13">IE=<br />Emulate IE7</td><td>なし</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML (no version)</td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 2.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 3.0 </td><td>いずれの場合も</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 </td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td rowspan="2">HTML 4.0 Frameset </td><td>システム識別子あり </td><td class="mode7">IE7 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td rowspan="2">HTML 4.0 Transitional </td><td>システム識別子あり </td><td class="mode7">IE7 Standard mode</td></tr><tr><td>システム識別子なし</td><td class="mode5">Quirks mode</td></tr><tr><td>HTML 4.0 Strict </td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>XHTML</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>XML</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr><tr><td>Unrecognaized DOCTYPE</td><td>いずれの場合も</td><td class="mode7">IE7 Standard mode</td></tr></tbody></table><br /><br /><h5>互換モードスイッチによる切り替え</h5><p class="figure"><img src="http://lh3.ggpht.com/_1drnogi3vdg/SYa5jVcTCbI/AAAAAAAAAP0/5HvExnmWNm8/fig_12.png" alt="" /><br /></p><p class="figure"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYa5jskkG8I/AAAAAAAAAP8/s2XchzC8oXY/fig_13.png" alt="" /><br /><br /><br /></p><h5>開発者ツールによる切り替え</h5><p class="figure"><img src="http://lh6.ggpht.com/_1drnogi3vdg/SYa5jlGBwqI/AAAAAAAAAQE/ytMfUlHycCU/fig_14.png" alt="" /><br /><br /></p><p><b>描画モードの判定方法</b><br /><br />ex.) javascript:alert(document.documentMode)<br /></p><br /><br /><h5>モード判定の優先順位</h5><p class="figure"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SYa5jqqQ1QI/AAAAAAAAAQM/37D4kHRc59s/fig_15.png" alt="" /></p><div><br /></div><br /><h5>要点</h5><ul><li>（開発者ツールを除けば）METAタグによる指定が一番強い</li><li>IE8にはIE6標準モードのレンダリングモードは存在しない</li><li>ページ単位で描画モードを切り替えるのなら、META。サイト全体ならHTTPヘッダで指定したほうが無難</li></ul><br /><br /><span class="Apple-style-span"  style="font-size:small;">関連エントリー<br /></span><ul><li><span class="Apple-style-span"  style="font-size:small;"><a href="http://warikiru.blogspot.com/2009/02/internet-explorer-8-beta-2-overview.html">warikiru: [レポ] Future Technology Days その１</a></span><br /></li></ul></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Future Technology Days その2" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

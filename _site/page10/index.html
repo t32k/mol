@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOL &mdash; Designing for a Mobile World!</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="MOL">
+    <link rel="canonical" href="http://t32k.me//page10/index.html">
+     
+           
+    <meta property="og:title" content="MOL"/>
+    <meta property="og:url" content="http://t32k.me//page10/index.html"/>
+    
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+    
+    <section>
+        <div class="container">
+            <h1>MOL</h1>
+            <h3>Designing for a Mobile World!</h3>
+        
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/referencing-parent-selectors" rel="prefetch">Sassの親セレクタ参照&について</a></h2>
+            <p><p><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_">Sassの親セレクター参照の<strong>&amp;</strong></a>の話。</p>
+
+<p>Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。</p>
+
+<!--more-->
+
+<pre><code>// SCSS
+#main {
+  color: black;
+  a {
+    font-weight: bold;
+    &amp;:hover { color: red; }
+    &amp;:visited { color: blue; }
+  }
+}</code></pre>
+
+<p>↑上がコンパイルされて↓こんな風になります。
+<pre><code>/* CSS */</p>
+
+<h1>main {</h1>
+
+<p>color: black;}</p>
+
+<h1>main a {</h1>
+
+<p>font-weight: bold;}</p>
+
+<h1>main a:hover {</h1>
+
+<p>color: red;}</p>
+
+<h1>main a:visited {</h1>
+
+<p>color: blue;}</code></pre>
+Sassのコードだと、aのセレクタの下層にリンクの擬似クラスのスタイルがまとまり、コードが見やすくなってますね。この例だと<strong>&amp;</strong>の部分が#main aに置き換わるわけです。はい。</p>
+
+<p>ほかには、モジュールごとでスタイルを変えたい時とか。
+<pre><code>// SCSS
+.mod {
+　color: black;
+　font-weight: bold;
+　&amp;.hoge { color: red; }
+　&amp;.fuga { color: blue; }
+}</code></pre>
+.modでひとつのモジュールの基本的なスタイルを記述して、.mod.hogeといった感じでclassの複数づけしたときに、基本スタイルから微妙に変化をつけるみたいなやりかたのときとかも便利です。たぶん。</p>
+
+<p>これもまた、.modのブロックの中に派生するスタイルが１つにまとまっていてナイスな気がします。</p>
+
+<p>んで、調子こいてこんな風にも&amp;を使うようになりました。
+<pre><code>// local.scss
+.kanazawa {
+　color: blue;
+　.ishikawa &amp; {
+　　color: red;
+　}
+}</code></pre>
+親が違う親を持っていた時のスタイルみたいな。なんか文字にすると複雑な家庭事情ですね。心中お察しします。
+<pre><code>/* CSS */
+.kanazawa {
+　color: blue;}
+.ishikawa .kanazawa {
+　color: red;}</code></pre>
+展開するとなんてことのない感じです。.kanazawaだと横浜の金沢なのか、石川の金沢なのわかんねーから、石川の金沢のときは文字を赤くしましょうよって思想です。たぶん。しらんけど。</p>
+
+<p>んで、このCSSを流用したい。北陸で流用したいという欲情に駆られたのがこんな感じのHTML。
+<pre><code>&lt;div class=&quot;hokuriku&quot;&gt;
+ 北陸良いとこ～♪
+ &lt;div class=&quot;ishikawa&quot;&gt;
+  細長い県なの～♪
+  &lt;div class=&quot;kanazawa&quot;&gt;
+   そこの県庁所在地なの～♪
+  &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;kanazawa&quot;&gt;
+  どこの金沢よ～。それどこ情報よ～。俺が寝てないってどこ情報よ～。
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+今まで地方レベルで考えてこなかったんだけど、急に、.hokuriku（北陸地方）という上位概念がでてきて、この中でさっきのlocal.scssを流用したい場合。こんな感じなると思う。
+<pre><code>// SCSS
+.hokuriku {
+ @import &quot;local.scss&quot;;
+}
+// つまり↑これは↓これということ。
+.hokuriku {
+　.kanazawa {
+　　color: blue;
+　　.ishikawa &amp; {
+　　　color: red;
+　　}
+　}
+}</code></pre>
+んで、コンパイル。
+<pre><code>.hokuriku .kanazawa {
+  color: blue;
+}
+.ishikawa .hokuriku .kanazawa {
+  color: red;
+}</code></pre>
+問題は2個めのやつですよね。親参照使ったやつ。石川県北陸地方金沢市になっててイミフｗｗｗｗウケるｗｗｗｗｗ</p>
+
+<p>HTML内では.hokurikuが最も祖先なので、この場合の.ishikawa .hokuriku .kanazawaのスタイルは有効になりませんね。実際のこの問題に出くわしたときは。もっとコード量が多くてなおかつ複雑で、この親参照の仕様をちゃんと理解せずにいたので、理解に時間がかかりました（スタイルがなぜか効かないので!importantしたりとか...）。なんでメモがてら書いておきました。</p>
+
+<p>だからといって、<strong>&amp;</strong>使うなよってことはないです。最初に紹介したリンクパターンやモジュールパターンのような単純に<strong>”親”</strong>を参照しているものであれば、特に問題ないかと思います。親の更に親が〜といったような使い方も環境（HTML）が変わるようなことがないかぎり、特に問題無いと思うけど、いざ流用したいってなったとき（人生なにが起きるかわかりません）ネストの仕方によっては今回のようなことが起きてしまうなーって。て！</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-06-September" title="September 06, 2012">September 06, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/sumire-september-love" rel="prefetch">転職してから3ヶ月が経った</a></h2>
+            <p><p><a href="http://t32k.me/mol/log/joining-cyberagent/">転職</a>してから3ヶ月が経った。一応試用期間が終わったということで出社したら僕のデスクもちゃんとあった。どうやらクビではないようだ。ひとまずよかった。</p>
+
+<p>この3ヶ月間、がむしゃらに働いてしんどかったけど、自分のしたいことはできているので概ね満足している。転職する際に、今の会社のイメージなんてただのチャラい会社というイメージしかなく、転職先の候補にもなかったんだけど、縁あって中の人のひとりと話す機会を持てた。それでそのイメージは変わったわけだけど、そもそも、<a href="http://css.studiomohawk.com/about/">その人のブログ</a>は読んでいて、技術者としても尊敬していたので、その人が良いと言うのならそうだと決めて転職した（結局、会社名とか年収とかじゃなくて誰と働きたいかだったと思う僕の場合）。</p>
+
+<p>実際入ってみると、エンジニアというか<strong>”つくる人”</strong>が優遇・大切にされているなと感じているし（それはそれで責任重大）、大きな企業の割にはフラットでスピーディーな会社だと働いてて思う。そうゆうこともあってか、はたまた新規事業の部署ということもあってか、毎月単位でフロントもバックエンドも<a href="http://havelog.ayumusato.com/news/e512-hello_cyberagent.html">優秀な人</a>がどんどん入ってくる。冒頭にクビにならなくてよかったと言ったけど、これは謙遜や冗談でもなく本心から言っている。若くて優秀な人を見てると本気で僕なんかいなくてもいいんじゃないかと危機感で不安になってくる。そうゆう状況だからこそ自分を追い込んで成長できているし、しなければならない。それが健全な状態かどうかは別として、選択したのは僕だ。</p>
+
+<p>パーフェクトな選択というのは難しいかもしれないけど、とりあえずデベロッパーとしてもう一回ちゃんとしたいと思っていた僕にとって、今回の選択は限りなくベストな選択だったと考えている。人生スパンで見れば大きな選択だったと言えるけど、その選択ができるまで自分を持ってこれたのも日々の小さな選択の結果であると思っているので、これからも自分にとって厳しい方を選択していきたい。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-02-September" title="September 02, 2012">September 02, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/summer-of-love" rel="prefetch">Webパフォーマンス改善のためのChrome開発者ツール</a></h2>
+            <p><p>気づいたら夏終わってたわー、俺の夏が一番最初に終わったわー、t32kだよ。
+<h2>Webパフォーマンス改善のためのChrome開発者ツール</h2>
+この前社内勉強会したスライド公開しとくよ。「パフォーマンス改善のためのChrome開発者ツール」と題して、簡単なDevToolの紹介と、拡張機能PageSpeedの使い方の説明したよ。</p>
+
+<p>ほとんどデモでスライドにはあまり意味が無いんだけど、せっかくなので、
+<a href="https://developers.google.com/speed/docs/best-practices/rules_intro">Web Performance Best Practices — Google Developers</a>ココ訳したやつも載っけておくね。まだ全部訳しきれてないんだけど、一応、PageSpeedで提案される対策に関しては訳してあると思う（意味わからん日本語もあるけど）。</p>
+
+<p>あとで追記する、多分。</p>
+
+<script async class="speakerdeck-embed" data-id="503cd1bede4a4f0002052f08" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p><a href="https://speakerdeck.com/u/t32k/p/improve-web-performance-with-chrome-dev-tools">Improve web performance with chrome dev tools // Speaker Deck</a>
+<h2>すべての人に知っておいてほしい スマートフォンサイトデザインの基本原則</h2>
+あと、ムック本だけど本書いたよ。よかったら買ってね。
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%AB%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%84%E3%81%A6%E3%81%BB%E3%81%97%E3%81%84-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%88%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%89%87-%E7%9F%B3%E6%9C%AC%E5%85%89%E5%8F%B8/dp/4844362844%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844362844" target="_blank">すべての人に知っておいてほしい スマートフォンサイトデザインの基本原則</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%AB%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%84%E3%81%A6%E3%81%BB%E3%81%97%E3%81%84-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%88%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%89%87-%E7%9F%B3%E6%9C%AC%E5%85%89%E5%8F%B8/dp/4844362844%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844362844" target="_blank"><img class="fig" style="border: 0px;" src="http://ecx.images-amazon.com/images/I/51bIbmljsJL._SL160_.jpg" alt="すべての人に知っておいてほしい スマートフォンサイトデザインの基本原則" width="118" height="160" border="0" /></a></td>
+<td valign="top"><span>石本光司 いちがみトモロヲ 外間かおり 矢野りん 加藤善規 小林信次 斉藤祐也 境 祐司 谷 拓樹 豊沢泰尚 古籏一浩 </span>エムディエヌコーポレーション 2012-08-27売り上げランキング : 2410</p>
+
+<p><a href="http://www.amazon.co.jp/%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E4%BA%BA%E3%81%AB%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%84%E3%81%A6%E3%81%BB%E3%81%97%E3%81%84-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%88%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%89%87-%E7%9F%B3%E6%9C%AC%E5%85%89%E5%8F%B8/dp/4844362844%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844362844" target="_blank">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-29-August" title="August 29, 2012">August 29, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/compass-ie-hex-str-function" rel="prefetch">パフォーマンスからみるSass/Compass 番外編：MSは青かった</a></h2>
+            <p><p>2回も続いてないのにまさかの番外編！ここぞ変化球！キエル消える魔球！！</p>
+
+<p>ってことで、最近Androidの相手ばかりしていて、「IE... そんな女もいたよね」って感じでしたが、ちょっとハマったので忘備録。グラデーションを使ったデザインをCSSで再現しようとした話。ということでCSSグラデーションのスニペットを<a href="http://www.colorzilla.com/gradient-editor/">Ultimate CSS Gradient Generator</a>で吐き出してみたんですわ。
+<pre><code>/* CSS */
+.gradient {
+ background: -moz-linear-gradient(top, #000 0%, #595959 100%);
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000), color-stop(100%,#595959));
+ background: -webkit-linear-gradient(top, #000 0%,#595959 100%);
+ background: -o-linear-gradient(top, #000 0%,#595959 100%);
+ background: -ms-linear-gradient(top, #000 0%,#595959 100%);
+ background: linear-gradient(to bottom, #000 0%,#595959 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&#39;#000&#39;, endColorstr=&#39;#595959&#39;,GradientType=0 );
+}</code></pre>
+&lt;!--more--&gt;</p>
+
+<p>まぁ、こんな感じなのができますわな。で、意気揚々とIEでチェックしてみたらグラデーションが青かったんですよ！黒色のグラデーションが青かったんですよ！びっくりデスヨ！</p>
+
+<p>同僚の<a href="https://twitter.com/hiloki/">@hiloki</a>さん曰く、どうやら僕が<em>startColorstr</em>の部分のHEXカラーを#000000ではなく、#000であとで修正したらからイケなかったらしいです。ちゃんと6バイトで記述したらイケました。どうやらこうゆうことらしいですよ↓
+<blockquote>IE does recognize hex colors, but not the kind you&#39;re using. Only those with 6 hexadecimals (#RRGGBB) or 8 hexadecimals (#AARRGGBB; only works in the gradient filter!) will work. It will also accept named colors.
+<p style="text-align: right;"><a href="http://stackoverflow.com/questions/4737477/why-does-this-css-gradient-show-up-with-the-wrong-colours-in-ie-7">Why does this CSS gradient show up with the wrong colours in IE 7? - Stack Overflow</a></p>
+</blockquote>
+短縮コード理解できないってどんだけ◯◯なんだよ！ったく！そんな！#000000とか見たら#000にしたくなっちゃうだろ！それが人の性ってもんでしょうに！って同僚に言ったら、そうでもないらしいですね....</p>
+
+<p>まぁ今回は僕の手癖が悪かったからしょうが無いとしても、縮小化ツールによっては短縮しちゃうものもあるでしょ？というか<a href="http://sass-lang.com/docs/yardoc/file.SASS_CHANGELOG.html#_style">Sassの:compressedにしたら短縮</a>してしまうやん（v3.1.20はしなかったけど）どーしたらいいですかね...
+<h2>Compass: ie-hex-str()</h2>
+まぁ<a href="https://github.com/nex3/sass/issues/280">同じような問題にぶち当たった人</a>も多く、回避策としてはどうやらie-hex-str()ってCompassの関数を使えば良いとのこと。
+<ul>
+    <li><a href="http://kuroir.com/post/14557689480/compass-ie-hex-str  ">Compass: ie-hex-str() | Mario &quot;Kuroir&quot; Ricalde</a></li>
+</ul>
+これを使うと、#000やblackと指定しても
+<pre><code>// SASS
+@import &quot;compass&quot;;
+.ms-gradient {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&#39;#{ie-hex-str(#000)}&#39;, endColorstr=&#39;#595959&#39;,GradientType=0 );
+}</code></pre>
+このようにコンパイルされます。
+<pre><code>/* CSS */
+.ms-gradient {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#FF000000&#39;, endColorstr=&#39;#595959&#39;,GradientType=0 );
+}</code></pre>
+8バイトになってるのは、#AARRGGBBってことで、最初の2バイトはアルファ値でFFだから不透明度100%ってことですね。これはIEさん認識できるらしいです。いやしかしですよ、IEごときで、なにゆえCompassをインストールしなきゃならんのか！面倒くさい！ってことで、ブライトネス1%上げて短縮されないように#010101にしました。</p>
+
+<p>そもそも画像でやれよ！って言うのは無しね！HTTPリクエスト減らしてなんぼだかんね！</p>
+
+<p>んで、最初のバグに戻るけどなんで黒いのグラデーションが青色になったのかというと、startColorが#000で認識できなかったので、Default Color が青だからそれが適用されたんだね！
+<blockquote>
+<p style="text-align: left;">Default. Blue.</p>
+<p style="text-align: right;"><a href="http://msdn.microsoft.com/en-us/library/ms532930(v=VS.85).aspx">StartColorStr Property (Gradient) </a></p>
+</blockquote></p>
+
+<p>なるほど！バイバイ！</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-08-August" title="August 08, 2012">August 08, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/social-button-bffs" rel="prefetch">ソーシャルボタンはお友達さ(・ω</a></h2>
+            <p><p>ども、実兄からFacebook友達申請きて承認を見送るt32kです。そんなソーシャル時代ですけどみなさんいかがお過ごしか？みなさんはこうは思わないだろうか？いいね！ボタンなどのソーシャルボタンはいっぱいあるけど、どうゆうふうに実装すればいいのよ！スニペット、コピペでいいの？ってね。そんなこと考えていたら、いい記事があったので翻訳してみたよの巻。</p>
+
+<p><cite>原文：<a href="http://www.phpied.com/social-button-bffs/">Social button BFFs / Stoyan&#39;s phpied.com</a>
+投稿日：2011-9-27 by <a href="https://twitter.com/stoyanstefanov">@stoyanstefanov</a></cite></p>
+
+<p>長すぎる、読んでない：JavaScriptの非同期読み込みはWebアプリのパフォーマンスにおいて重要な問題だ。以降に書かれている内容は一般的なソーシャルボタンに共通する取り扱い方についての記事であり、ソーシャルボタンに残りのコンテンツ読み込みをブロックさせないことを学べるだろう。結局のところ、ユーザーはあなたの<strong>コンテンツを最初</strong>に見たいのであって、それから、そのコンテンツがシェアする価値があるのか決めるのである。</p>
+
+<!--more-->
+
+<p>現在、FacebookはJavaScript SDKを読み込むための新しい非同期スニペットを提供している。そのSDKとは<a href="https://developers.facebook.com/docs/reference/javascript/">とてもパワフルな</a>ソーシャルプラグイン（例：いいね！ボタン）を利用するのために必要なものだ。</p>
+
+<p>これまでもJS SDKは非同期読み込みできたが、最近このパターンがデフォルトになった。そのスニペットは極めてナイスでチクショーな（知ってる、正解！）感じだが、ここではどのようになってるか見てみるとする。（<a href="https://developers.facebook.com/docs/reference/plugins/like/">コードはここから入手</a>）
+<pre><code>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = &quot;//connect.facebook.net/en_US/all.js#xfbml=1&quot;;
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));</code></pre>
+私の<a href="http://www.jspatterns.com/">JavaScriptパターン</a>からナイスなとこを抜き出してみる。
+<ul>
+  <li>即時（自己呼び出し）関数なので、グローバル変数を汚さない</li>
+  <li>よく使う(<em>document</em>)オブジェクトと文字列（&quot;scripts&quot;, &quot;Facebook-jssdk&quot;）はその即時関数の引数として渡される。可読性を保ちながらできる初歩的な縮小化テクニックである</li>
+  <li>生成したscriptノードはドキュメントで使用されている最初の<em>script</em>要素を利用することによって追加される。あなたのコードが<em>body load=&quot;...&quot;</em>や、img onload、もしくはそれ同様（ぶっ飛んだ方法を私は知っていますが、とりあえずは0.01%くらい寛大に受け止めよう）のパターンで呼び出されない限り、99.99%確実に動作することを保証できる</li>
+  <li>追加したノードにはidが割り当てられることで2回同じScriptを読み込むのを防止する（例：ヘッダーや、フッター、記事でいいね！ボタンが使用されているとか）</li>
+</ul>
+<h2>ソーシャルボタンのJSファイルすべて</h2>
+他のソーシャルボタンも存在する。有名なところで<a href="https://twitter.com/about/resources/buttons#tweet">Twitter</a>と<a href="http://www.google.com/intl/en/webmasters/+1/button/index.html">Google +1</a> ボタンだ。これら両方のボタンは、デフォルトかどうか分からないが、各々の設定次第で非同期読み込みが可能だ。</p>
+
+<p>それではなぜすべてうまいことやってけないのか、そしてfacebookの即時関数中に全部収めることがきないのか？私たちはHTMLのバイト数を少しでも削りたいし、余計なscriptタグなんていらないのだ。Google+やTwitterなどのすべてのソーシャルボタンのために新しいscriptノードが必要だ。Google+のスニペットには<em>type</em>や<em>async</em>などの属性を持っているが、実際これらは必要ないのだ。なぜなら<em>type</em>は常に <em>text/javascript</em>だし、<em>async</em>はいつも<em>true</em>だから。加えて今async部分をいじってるのだから。</p>
+
+<p>結果がこれだ。
+<pre><code>  &lt;div id=&quot;fb-root&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;(function(d, s, id) {
+    // fb + common
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = &quot;//connect.facebook.net/en_US/all.js#xfbml=1&quot;;
+    fjs.parentNode.insertBefore(js, fjs);
+    // +1
+    js = d.createElement(s);
+    js.src = &#39;https://apis.google.com/js/plusone.js&#39;;
+    fjs.parentNode.insertBefore(js, fjs);
+    // tweet
+    js = d.createElement(s);
+    js.src = &#39;//platform.twitter.com/widgets.js&#39;;
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));&lt;/script&gt;</code></pre>
+これは3つのボタン・プラグインで必要な3つのJSファイルを読み込んでいる。</p>
+
+<p>追加で、ノードの生成・追加部分は関数でラッピングができ、コードが引き締まった。最終的なスニペットはこれだ。
+<pre><code>&lt;div id=&quot;fb-root&quot;&gt;&lt;/div&gt;&lt;!-- fb needs this --&gt;
+&lt;script&gt;(function(d, s) {
+  var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.src = url; js.id = id;
+    fjs.parentNode.insertBefore(js, fjs);
+  };
+  load(&#39;//connect.facebook.net/en_US/all.js#xfbml=1&#39;, &#39;fbjssdk&#39;);
+  load(&#39;https://apis.google.com/js/plusone.js&#39;, &#39;gplus1js&#39;);
+  load(&#39;//platform.twitter.com/widgets.js&#39;, &#39;tweetjs&#39;);
+}(document, &#39;script&#39;));&lt;/script&gt;</code></pre>
+<h2>ソーシャルボタンのマークアップすべて</h2>
+次は実際にウィジェットがレンダリングされ箇所についてアドバイスする。Facebookは&lt;fb:like&gt;のようなXFBMLシンタックスでのスニペット提供をしているが、data-*属性を用いた純粋なHTML(5)のスニペットも提供しており、ラッキーなことに他のボタンもそうだ。</p>
+
+<p>これが例である。
+<pre><code>&lt;!-- facebook like --&gt;
+&lt;div class=&quot;fb-like&quot; data-send=&quot;false&quot; data-width=&quot;280&quot;&gt;&lt;/div&gt;
+&lt;!-- twitter --&gt;
+&lt;a class=&quot;twitter-share-button&quot; data-count=&quot;horizontal&quot;&gt;Tweet&lt;/a&gt;
+&lt;!-- g+ --&gt;
+&lt;div class=&quot;g-plusone&quot; data-size=&quot;medium&quot;&gt;&lt;/div&gt;</code></pre>
+Google+は<em>g-plusone</em>クラス属性がついた<em>div</em>要素が必須であり、Twitterは<em>twitter-share-buttonク</em>ラス属性の<em>a</em>要素が必須である。Facebookはいいね！なら<em>fb-like</em>クラス属性がついたどの要素を扱でも使用できる（もしくは<em>fb-comments</em>、<em>fb-recommendations</em>、または君の使いたい<a href="https://developers.facebook.com/docs/plugins/">ソーシャルプラグイン</a>名で）</p>
+
+<p>最も重要なことはJSファイルは一回だけ読み込みさえすれば良いことであり、そうすべきだ。読み込めばすべての異なるボタンがレンダリングされる。Facebookのケースにおいても全てのプラグインがレンダリングされる。いいね！ボタンだけでない。JSファイルの容量を考えて効率良く使おう。
+<h2>まとめ</h2>
+ではこれがソーシャルボタンを読み込むためのベストプラクティスだ。
+<ol>
+  <li> JSスニペットをページの下部、ちょうど&lt;/body&gt;の直前にコピーする。念の為にね。（Google+はJSファイルの後にマークアップがあった時失敗する）これはまた読み込みのためのJSがひとつにまとまり確認しやくすなっている。スニペットの重複・排除の手間はあるとはいえ。</li>
+  <li>適切な設定値をdata-＊属性に付与し、ページの好きなところにボタン・プラグインを撒き散らしちゃいな！</li>
+  <li>ソーシャルトラフィックの恩恵に預かっちゃいな！</li>
+</ol>
+動作に関しては以前の私のブログ <a href="http://phonydev.com/">phonydev.com</a> で確認できる。そうだね、どのボタンもナイスな感じでモバイルでも動いてる。</p>
+
+<p>--　[翻訳ここまで]　--</p>
+
+<p>だいたい、最近のソーシャルボタンのスニペットは非同期化してるから個別の非同期化処理がオーバヘッドする。それが解消できるのは良いかと。あとこのボタンのscriptどこよ？ってこともまとめることでなくなると思うので便利かなと思いました。</p>
+
+<p>てことで、mixiとhatenaも加えた日本語バージョンのサンプル置いておきますね。
+<ul>
+  <li><strong><a href="http://t32k.github.io/test/social-button-bffs/">Loading Social Buttons JavaScript  </a></strong></li>
+</ul>
+<div>あとGoogle アナリティクスのスニペットもまとめられるけど、個人的には分けておいてもいいかなと思う（管理的に）。</div>
+<div></div>
+<div></div>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114888/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/51ZoMJ%2BrLhL._SL160_.jpg" alt="JavaScriptパターン ―優れたアプリケーションのための作法" width="125" height="160" border="0" /></a></td>
+<td valign="top"><span><span><a href="http://www.amazon.co.jp/JavaScript%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E2%80%95%E5%84%AA%E3%82%8C%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E4%BD%9C%E6%B3%95-Stoyan-Stefanov/dp/4873114888%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114888" target="_blank">JavaScriptパターン ―優れたアプリケーションのための作法
+</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span></span>Stoyan Stefanov 豊福 剛</p>
+
+<p>オライリージャパン 2011-02-16
+売り上げランキング : 16826
+<a href="http://www.amazon.co.jp/JavaScript%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E2%80%95%E5%84%AA%E3%82%8C%E3%81%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E4%BD%9C%E6%B3%95-Stoyan-Stefanov/dp/4873114888%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114888" target="_blank">Amazonで詳しく見る</a> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-06-August" title="August 06, 2012">August 06, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
+    <section class="pagination" style="text-align:center">
+      
+        
+        <a href="/page9" class="btn btn-outline">‹ Newer</a>
+        
+      
+      
+        <a href="/page11" class="btn btn-outline">Older ›</a>
+      
+    </section>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

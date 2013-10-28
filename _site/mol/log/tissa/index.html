@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanium Meetup Tokyo #14 でLTしてきた &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Titanium Meetup Tokyo #14 でLTしてきた ">
+    <link rel="canonical" href="http://t32k.me//mol/log/tissa">
+     
+           
+    <meta property="og:title" content="Titanium Meetup Tokyo #14 でLTしてきた "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/tissa"/>
+    
+    
+    <!--meta property="og:description" content="<p><a title="Jeff Haynie at Titnaium Meetup Tokyo #14 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/6288459224/"><img class="fig" src="http://farm7.static.flickr.com/6042/6288459224_6fc710fd94.jpg" alt="Jeff Haynie at Titnaium Meetup Tokyo #14" width="500" height="280" /></a>
+<ul>
+    <li><a href="http://atnd.org/events/21071">Appcelerator CEO Jeff Haynie 来日記念 Meetup!! : ATND </a></li>
+    <li><a href="http://www.ustream.tv/channel/titanium-meetup-tokyo">USTREAM: Titanium Meetup Tokyo</a></li>
+    <li><a href="http://togetter.com/li/206550">Titanium Meetup Tokyo #14 - Togetter </a></li>
+</ul>
+金沢から4時間かけて行ってきた。Titanium Meetup Tokyo #14. うん行って良かった。肝心のJeffの講演は英語が難しくてよく分からなかったけど、Layout APIが今後UI作る上で重要になってきそうなので、要チェッキしていきます。</p>
+
+<p>とりあえず、まぁTokyoのTitansはみんな英語喋れるのかと思うほど、英語だった。勉強しないと...</p>
+
+<p>ライトニングトークも皆おもしろかった。特に印象的だったのが、<a href="https://twitter.com/#!/atsusy">@atsusy</a>さんの画像加工フィルターがすごかった。リアルタイムで効果が反映され、しかもユーザー側でJSでフィルターのパラメータを調整することもできていろいろ夢が広がります。欲しいぞこのモジュール！また、<a href="https://twitter.com/#!/naoya_ito">@naoya_ito</a>さんのInstruments を使ったパフォーマンスチューニングもぜんぜん知らなかった分野なので参考になりました。あと、僕がTitaniumを始めたのも<a href="http://d.hatena.ne.jp/naoya/20101011/1286799669">naoyaさんの記事</a>でその存在を知り、<a href="https://twitter.com/#!/astronaughts">@astronaughts</a>に肩を押され始めた経緯があるので、そのnaoyaさんと3分のLTとはいえ同じ舞台に立てたのは感慨ひとしおです。</p>
+
+<p>まぁ、僕のLTの方は 3分と短いのが初めてで案の定タイムオーバーでした...もっと練習しないなとなーってことで以下LT内容。</p>
+
+<!--more-->
+
+<h2>tissa - Clock &amp; Stopwatch &amp; Timer for iOS</h2>
+
+<div id="__ss_9915981" style="width: 500px;">
+
+<strong style="display: block; margin: 12px 0 4px;"><a title="tissa for iOS" href="http://www.slideshare.net/t32k/tissa-for-ios" target="_blank">tissa for iOS</a></strong> <iframe frameborder="0" height="426" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/9915981" width="510"></iframe>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/t32k" target="_blank">Koji Ishimoto</a></div>
+</div>
+
+<p><span style="color: #888888;"><em>※ Version1.1からticktockだったアプリ名がtissaに変更になりました。まだ、AppStoreではticktockと表示されていますが、インストールすればtissaとして表示されます。Version1.1.1で修正済</em></span></p>
+
+<p><a href="http://tissa.t32k.me/">tissa</a>という有料のタイマーアプリについて紹介します。自己紹介、石本光司、Webデザイナーをしております。Twitter IDは<a href="https://twitter.com/t32k">t32k</a>です。</p>
+
+<p>今日は460km離れた金沢から4時間と150ドルかけて東京にきました。それも赤いテーシャツを頂くためです。嘘です。まだ見ぬタイタンたちと仲良くなりたかったからです。プライスレス。（言わせんな、恥ずかしい///）</p>
+
+<p>地元では<a href="http://kanazawajs.tumblr.com/">kanazawa.js</a>というJSのユーザーコミュニティを運営しています。前回の<a href="http://kanazawajs.tumblr.com/v1-5/">Version 1.5</a>では増井さんに講演して頂けました。ということもあって、Titanium Mobileは結構好きです。</p>
+
+<p>以前にも<a href="http://t32k.me/mol/log/nyars/">Nyars</a>というネコミミが撮れるカメラアプリを作りました。そもそもなんでWebデザイナーがiPhoneアプリを作ろうかと思ったかと言いますと、まぁモテたかったんですね。iPhoneアプリであれば合コンとかでキャッキャッウフフできるかなと思った次第です。</p>
+
+<p>しかし、蓋をあけてみれば、特に彼女もできないまま終わりました。ちょっと方向性を間違えたと感じましてましたのでもっと正攻法でモテようと思い、いろいろな文献を調べていますと、このような文献がみつかりました。&quot;<em>月一で5万円以上のプレゼントあげる。</em>&quot; あ、彼女って月5万でできるのかと理解しました。OK, OK!</p>
+
+<p>しかし、お金はないです。というのも、アプリ貧乏です。iOSのデベロッパー登録に99ドル、Titaniumのインディサポートに399ドル既に払っています。5万円かけるどころか5万円マイナスですので、今回は有料アプリで儲けようと思いました。</p>
+
+<p>まぁ売れるアプリってなんなのかなと考えると、ソーシャルやゲームなど思い浮かびますが、私はデザイナーなのでこーゆのをプログラムするのは難しいです＞＜ はい、分かりません。</p>
+
+<p>ということで、プログラムで勝負するのではなくデザインで勝負すればまだ勝ち目はあるのかなと考えました。そして、自分の作れるもので、欲しい物をつくろうと考えました。なにが欲しいか考えるとタイマーが欲しいとおもいました。とゆうのも金沢から東京の勉強会にでるほど勉強会が好きで自分で主催するほどです。そのような場面でよく使わうからですね。</p>
+
+<p>で、既存のタイマーアプリを見てみますと、ただ時間を測るだけなのにもかかわらずボタンなどの画面上の要素が多すぎるように感じました。はい、Less is Moreです。</p>
+
+<p>こういったものはぜんぶタッチジェスチャーで置き換えれるんじゃないかと。考えました。ボタンををタップするのではなく数字や画面をジェスチャー操作するのです。</p>
+
+<p>そうなると、画面上に残るのは数字のみとなりますので、そこは一からこのアプリのためにオリジナルフォントを作りました。ぼくが作ったわけではないですけど。（<a href="http://www.dotcolon.net/blog/?p=64">created by dot colon</a>）</p>
+
+<p>できたのがtissaというアプリです。クロック、タイマー、ストップウォッチをスクローラブルビュー配置することでモードの切替をスワイプ操作することができます。また、スタート＆ストップは数字をタップすれば可能です。シンプルです。また設定画面は画面上を上にフリックすることで呼び出せます。もちろんユニバーサルアプリなのでiPadでも動きます！</p>
+
+<p>2011年まで170円のところ85円で売っていますので皆さん買ってください。5万円とは言いませんが、来年のiOSのデベロッパー登録料金ぐらいは稼ぎたいです。よろしくお願いします。</p>
+
+<p>ありがとうございました。 CODESTORONG!
+<blockquote><strong><a href="http://tissa.t32k.me/">tissa - Clock &amp; Stopwatch &amp; Timer for iOS </a></strong></blockquote>
+Photo Credit
+<ul>
+    <li><a href="http://www.flickr.com/photos/nattu/895220635/">Creative independence | Flickr - Photo Sharing!</a></li>
+</ul></p>
+"/>
+    <meta name="description" content="<p><a title="Jeff Haynie at Titnaium Meetup Tokyo #14 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/6288459224/"><img class="fig" src="http://farm7.static.flickr.com/6042/6288459224_6fc710fd94.jpg" alt="Jeff Haynie at Titnaium Meetup Tokyo #14" width="500" height="280" /></a>
+<ul>
+    <li><a href="http://atnd.org/events/21071">Appcelerator CEO Jeff Haynie 来日記念 Meetup!! : ATND </a></li>
+    <li><a href="http://www.ustream.tv/channel/titanium-meetup-tokyo">USTREAM: Titanium Meetup Tokyo</a></li>
+    <li><a href="http://togetter.com/li/206550">Titanium Meetup Tokyo #14 - Togetter </a></li>
+</ul>
+金沢から4時間かけて行ってきた。Titanium Meetup Tokyo #14. うん行って良かった。肝心のJeffの講演は英語が難しくてよく分からなかったけど、Layout APIが今後UI作る上で重要になってきそうなので、要チェッキしていきます。</p>
+
+<p>とりあえず、まぁTokyoのTitansはみんな英語喋れるのかと思うほど、英語だった。勉強しないと...</p>
+
+<p>ライトニングトークも皆おもしろかった。特に印象的だったのが、<a href="https://twitter.com/#!/atsusy">@atsusy</a>さんの画像加工フィルターがすごかった。リアルタイムで効果が反映され、しかもユーザー側でJSでフィルターのパラメータを調整することもできていろいろ夢が広がります。欲しいぞこのモジュール！また、<a href="https://twitter.com/#!/naoya_ito">@naoya_ito</a>さんのInstruments を使ったパフォーマンスチューニングもぜんぜん知らなかった分野なので参考になりました。あと、僕がTitaniumを始めたのも<a href="http://d.hatena.ne.jp/naoya/20101011/1286799669">naoyaさんの記事</a>でその存在を知り、<a href="https://twitter.com/#!/astronaughts">@astronaughts</a>に肩を押され始めた経緯があるので、そのnaoyaさんと3分のLTとはいえ同じ舞台に立てたのは感慨ひとしおです。</p>
+
+<p>まぁ、僕のLTの方は 3分と短いのが初めてで案の定タイムオーバーでした...もっと練習しないなとなーってことで以下LT内容。</p>
+
+<!--more-->
+
+<h2>tissa - Clock &amp; Stopwatch &amp; Timer for iOS</h2>
+
+<div id="__ss_9915981" style="width: 500px;">
+
+<strong style="display: block; margin: 12px 0 4px;"><a title="tissa for iOS" href="http://www.slideshare.net/t32k/tissa-for-ios" target="_blank">tissa for iOS</a></strong> <iframe frameborder="0" height="426" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/9915981" width="510"></iframe>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/t32k" target="_blank">Koji Ishimoto</a></div>
+</div>
+
+<p><span style="color: #888888;"><em>※ Version1.1からticktockだったアプリ名がtissaに変更になりました。まだ、AppStoreではticktockと表示されていますが、インストールすればtissaとして表示されます。Version1.1.1で修正済</em></span></p>
+
+<p><a href="http://tissa.t32k.me/">tissa</a>という有料のタイマーアプリについて紹介します。自己紹介、石本光司、Webデザイナーをしております。Twitter IDは<a href="https://twitter.com/t32k">t32k</a>です。</p>
+
+<p>今日は460km離れた金沢から4時間と150ドルかけて東京にきました。それも赤いテーシャツを頂くためです。嘘です。まだ見ぬタイタンたちと仲良くなりたかったからです。プライスレス。（言わせんな、恥ずかしい///）</p>
+
+<p>地元では<a href="http://kanazawajs.tumblr.com/">kanazawa.js</a>というJSのユーザーコミュニティを運営しています。前回の<a href="http://kanazawajs.tumblr.com/v1-5/">Version 1.5</a>では増井さんに講演して頂けました。ということもあって、Titanium Mobileは結構好きです。</p>
+
+<p>以前にも<a href="http://t32k.me/mol/log/nyars/">Nyars</a>というネコミミが撮れるカメラアプリを作りました。そもそもなんでWebデザイナーがiPhoneアプリを作ろうかと思ったかと言いますと、まぁモテたかったんですね。iPhoneアプリであれば合コンとかでキャッキャッウフフできるかなと思った次第です。</p>
+
+<p>しかし、蓋をあけてみれば、特に彼女もできないまま終わりました。ちょっと方向性を間違えたと感じましてましたのでもっと正攻法でモテようと思い、いろいろな文献を調べていますと、このような文献がみつかりました。&quot;<em>月一で5万円以上のプレゼントあげる。</em>&quot; あ、彼女って月5万でできるのかと理解しました。OK, OK!</p>
+
+<p>しかし、お金はないです。というのも、アプリ貧乏です。iOSのデベロッパー登録に99ドル、Titaniumのインディサポートに399ドル既に払っています。5万円かけるどころか5万円マイナスですので、今回は有料アプリで儲けようと思いました。</p>
+
+<p>まぁ売れるアプリってなんなのかなと考えると、ソーシャルやゲームなど思い浮かびますが、私はデザイナーなのでこーゆのをプログラムするのは難しいです＞＜ はい、分かりません。</p>
+
+<p>ということで、プログラムで勝負するのではなくデザインで勝負すればまだ勝ち目はあるのかなと考えました。そして、自分の作れるもので、欲しい物をつくろうと考えました。なにが欲しいか考えるとタイマーが欲しいとおもいました。とゆうのも金沢から東京の勉強会にでるほど勉強会が好きで自分で主催するほどです。そのような場面でよく使わうからですね。</p>
+
+<p>で、既存のタイマーアプリを見てみますと、ただ時間を測るだけなのにもかかわらずボタンなどの画面上の要素が多すぎるように感じました。はい、Less is Moreです。</p>
+
+<p>こういったものはぜんぶタッチジェスチャーで置き換えれるんじゃないかと。考えました。ボタンををタップするのではなく数字や画面をジェスチャー操作するのです。</p>
+
+<p>そうなると、画面上に残るのは数字のみとなりますので、そこは一からこのアプリのためにオリジナルフォントを作りました。ぼくが作ったわけではないですけど。（<a href="http://www.dotcolon.net/blog/?p=64">created by dot colon</a>）</p>
+
+<p>できたのがtissaというアプリです。クロック、タイマー、ストップウォッチをスクローラブルビュー配置することでモードの切替をスワイプ操作することができます。また、スタート＆ストップは数字をタップすれば可能です。シンプルです。また設定画面は画面上を上にフリックすることで呼び出せます。もちろんユニバーサルアプリなのでiPadでも動きます！</p>
+
+<p>2011年まで170円のところ85円で売っていますので皆さん買ってください。5万円とは言いませんが、来年のiOSのデベロッパー登録料金ぐらいは稼ぎたいです。よろしくお願いします。</p>
+
+<p>ありがとうございました。 CODESTORONG!
+<blockquote><strong><a href="http://tissa.t32k.me/">tissa - Clock &amp; Stopwatch &amp; Timer for iOS </a></strong></blockquote>
+Photo Credit
+<ul>
+    <li><a href="http://www.flickr.com/photos/nattu/895220635/">Creative independence | Flickr - Photo Sharing!</a></li>
+</ul></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-28-October" title="October 28, 2011">October 28, 2011</time>
+            </div>
+            <h1 class="title">Titanium Meetup Tokyo #14 でLTしてきた</h1>
+            
+        </header>
+
+        <section>
+            <p><a title="Jeff Haynie at Titnaium Meetup Tokyo #14 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/6288459224/"><img class="fig" src="http://farm7.static.flickr.com/6042/6288459224_6fc710fd94.jpg" alt="Jeff Haynie at Titnaium Meetup Tokyo #14" width="500" height="280" /></a>
+<ul>
+    <li><a href="http://atnd.org/events/21071">Appcelerator CEO Jeff Haynie 来日記念 Meetup!! : ATND </a></li>
+    <li><a href="http://www.ustream.tv/channel/titanium-meetup-tokyo">USTREAM: Titanium Meetup Tokyo</a></li>
+    <li><a href="http://togetter.com/li/206550">Titanium Meetup Tokyo #14 - Togetter </a></li>
+</ul>
+金沢から4時間かけて行ってきた。Titanium Meetup Tokyo #14. うん行って良かった。肝心のJeffの講演は英語が難しくてよく分からなかったけど、Layout APIが今後UI作る上で重要になってきそうなので、要チェッキしていきます。</p>
+
+<p>とりあえず、まぁTokyoのTitansはみんな英語喋れるのかと思うほど、英語だった。勉強しないと...</p>
+
+<p>ライトニングトークも皆おもしろかった。特に印象的だったのが、<a href="https://twitter.com/#!/atsusy">@atsusy</a>さんの画像加工フィルターがすごかった。リアルタイムで効果が反映され、しかもユーザー側でJSでフィルターのパラメータを調整することもできていろいろ夢が広がります。欲しいぞこのモジュール！また、<a href="https://twitter.com/#!/naoya_ito">@naoya_ito</a>さんのInstruments を使ったパフォーマンスチューニングもぜんぜん知らなかった分野なので参考になりました。あと、僕がTitaniumを始めたのも<a href="http://d.hatena.ne.jp/naoya/20101011/1286799669">naoyaさんの記事</a>でその存在を知り、<a href="https://twitter.com/#!/astronaughts">@astronaughts</a>に肩を押され始めた経緯があるので、そのnaoyaさんと3分のLTとはいえ同じ舞台に立てたのは感慨ひとしおです。</p>
+
+<p>まぁ、僕のLTの方は 3分と短いのが初めてで案の定タイムオーバーでした...もっと練習しないなとなーってことで以下LT内容。</p>
+
+<!--more-->
+
+<h2>tissa - Clock &amp; Stopwatch &amp; Timer for iOS</h2>
+
+<div id="__ss_9915981" style="width: 500px;">
+
+<strong style="display: block; margin: 12px 0 4px;"><a title="tissa for iOS" href="http://www.slideshare.net/t32k/tissa-for-ios" target="_blank">tissa for iOS</a></strong> <iframe frameborder="0" height="426" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/9915981" width="510"></iframe>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/t32k" target="_blank">Koji Ishimoto</a></div>
+</div>
+
+<p><span style="color: #888888;"><em>※ Version1.1からticktockだったアプリ名がtissaに変更になりました。まだ、AppStoreではticktockと表示されていますが、インストールすればtissaとして表示されます。Version1.1.1で修正済</em></span></p>
+
+<p><a href="http://tissa.t32k.me/">tissa</a>という有料のタイマーアプリについて紹介します。自己紹介、石本光司、Webデザイナーをしております。Twitter IDは<a href="https://twitter.com/t32k">t32k</a>です。</p>
+
+<p>今日は460km離れた金沢から4時間と150ドルかけて東京にきました。それも赤いテーシャツを頂くためです。嘘です。まだ見ぬタイタンたちと仲良くなりたかったからです。プライスレス。（言わせんな、恥ずかしい///）</p>
+
+<p>地元では<a href="http://kanazawajs.tumblr.com/">kanazawa.js</a>というJSのユーザーコミュニティを運営しています。前回の<a href="http://kanazawajs.tumblr.com/v1-5/">Version 1.5</a>では増井さんに講演して頂けました。ということもあって、Titanium Mobileは結構好きです。</p>
+
+<p>以前にも<a href="http://t32k.me/mol/log/nyars/">Nyars</a>というネコミミが撮れるカメラアプリを作りました。そもそもなんでWebデザイナーがiPhoneアプリを作ろうかと思ったかと言いますと、まぁモテたかったんですね。iPhoneアプリであれば合コンとかでキャッキャッウフフできるかなと思った次第です。</p>
+
+<p>しかし、蓋をあけてみれば、特に彼女もできないまま終わりました。ちょっと方向性を間違えたと感じましてましたのでもっと正攻法でモテようと思い、いろいろな文献を調べていますと、このような文献がみつかりました。&quot;<em>月一で5万円以上のプレゼントあげる。</em>&quot; あ、彼女って月5万でできるのかと理解しました。OK, OK!</p>
+
+<p>しかし、お金はないです。というのも、アプリ貧乏です。iOSのデベロッパー登録に99ドル、Titaniumのインディサポートに399ドル既に払っています。5万円かけるどころか5万円マイナスですので、今回は有料アプリで儲けようと思いました。</p>
+
+<p>まぁ売れるアプリってなんなのかなと考えると、ソーシャルやゲームなど思い浮かびますが、私はデザイナーなのでこーゆのをプログラムするのは難しいです＞＜ はい、分かりません。</p>
+
+<p>ということで、プログラムで勝負するのではなくデザインで勝負すればまだ勝ち目はあるのかなと考えました。そして、自分の作れるもので、欲しい物をつくろうと考えました。なにが欲しいか考えるとタイマーが欲しいとおもいました。とゆうのも金沢から東京の勉強会にでるほど勉強会が好きで自分で主催するほどです。そのような場面でよく使わうからですね。</p>
+
+<p>で、既存のタイマーアプリを見てみますと、ただ時間を測るだけなのにもかかわらずボタンなどの画面上の要素が多すぎるように感じました。はい、Less is Moreです。</p>
+
+<p>こういったものはぜんぶタッチジェスチャーで置き換えれるんじゃないかと。考えました。ボタンををタップするのではなく数字や画面をジェスチャー操作するのです。</p>
+
+<p>そうなると、画面上に残るのは数字のみとなりますので、そこは一からこのアプリのためにオリジナルフォントを作りました。ぼくが作ったわけではないですけど。（<a href="http://www.dotcolon.net/blog/?p=64">created by dot colon</a>）</p>
+
+<p>できたのがtissaというアプリです。クロック、タイマー、ストップウォッチをスクローラブルビュー配置することでモードの切替をスワイプ操作することができます。また、スタート＆ストップは数字をタップすれば可能です。シンプルです。また設定画面は画面上を上にフリックすることで呼び出せます。もちろんユニバーサルアプリなのでiPadでも動きます！</p>
+
+<p>2011年まで170円のところ85円で売っていますので皆さん買ってください。5万円とは言いませんが、来年のiOSのデベロッパー登録料金ぐらいは稼ぎたいです。よろしくお願いします。</p>
+
+<p>ありがとうございました。 CODESTORONG!
+<blockquote><strong><a href="http://tissa.t32k.me/">tissa - Clock &amp; Stopwatch &amp; Timer for iOS </a></strong></blockquote>
+Photo Credit
+<ul>
+    <li><a href="http://www.flickr.com/photos/nattu/895220635/">Creative independence | Flickr - Photo Sharing!</a></li>
+</ul></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Titanium Meetup Tokyo #14 でLTしてきた" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

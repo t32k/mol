@@ -1,0 +1,38 @@
+---
+layout: post
+title: マークアップエンジニアってなによ？
+categories:
+- blog
+- markup
+tags:
+- ME
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: warikiru.blogspot.com
+  blogger_author: t32khttp://www.blogger.com/profile/06797489791220082722noreply@blogger.com
+  blogger_permalink: /2008/01/blog-post_22.html
+  _edit_last: '1'
+  pvc_views: '3541'
+---
+この言葉を作った人の会社の募集要項では、
+<blockquote><span style="font-weight: bold;">マークアップデザインエンジニア</span>
+<ul>
+	<li>HTML/XHTMLのマークアップ</li>
+	<li>情報設計および文書構造のデザイン</li>
+	<li>エンタープライズCMSのテンプレート設計・開発</li>
+	<li>CSSの設計およびコーディング</li>
+	<li>JavaScriptのライブラリ設計・開発・実装</li>
+</ul>
+以下の技術に関する研究・設計・開発
+<ul>
+	<li>XMLをはじめとする多様なウェブフロントエンド技術全般</li>
+	<li>アクセシビリティ</li>
+	<li>ユーザビリティ</li>
+	<li>各種オーサリングツールや開発プラットフォーム</li>
+</ul>
+<span style="font-size: 85%;"><a href="http://www.b-architects.com/careers/jobs">[bA] 募集要項より</a></span></blockquote>
+以上のことすべてできないと名乗っちゃいけないかと言われるとそうではないと思うけど、少なくともこうゆうことができるひとがマークアップエンジニアでしょ？言うてみれば、フロントエンドエンジニアとかデザインエンジニアと呼ばれるひとであって、場合によっちゃインタラクションデザインやインフォメーションアーキテクチャとかの知識も必要なわけであって、マークアップエンジニアはHTMLとＣＳＳだけのコーダーとは別次元の職種だと自分的には理解しているのですが。
+
+なんかそれで、マークアップエンジニアには将来が無いみたいなこと言われると、おかしいだろと、違和感を覚える今日この頃。

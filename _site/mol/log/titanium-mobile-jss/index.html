@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanium Mobile でCSS的な、それJSS!!!!!! &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Titanium Mobile でCSS的な、それJSS!!!!!! ">
+    <link rel="canonical" href="http://t32k.me//mol/log/titanium-mobile-jss">
+     
+           
+    <meta property="og:title" content="Titanium Mobile でCSS的な、それJSS!!!!!! "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/titanium-mobile-jss"/>
+    
+    
+    <!--meta property="og:description" content="<p><a href="http://en.wikipedia.org/wiki/CSS_(band)"><img title="CSSとは、サンパウロ出身のブラジリアンロックバンドです。" src="http://t32k.me/mol/file/2011/03/css.jpg" alt="" width="470" height="270" /></a></p>
+
+<p>Titanium Mobile での開発は当然JavaScriptオンリーですので、愛も憎しみもすべてこの中にではなくて、コンテンツであったり見た目の情報であったり振る舞いであったり全てJavaScript の中に書かれているわけです。</p>
+
+<p>Webサイト制作ではあれば、HTML(content) + CSS(presentation) + JavaScript (behavior)のように役割を分けて制作するのが良いと言われております。JavaScriptオンリーのTitaniumでも然りです。せめてロジックとUIが分けることができれば、エンジニアさんとデザイナーさんが分業できるってもんです。</p>
+
+<!--more-->
+
+<p><strong>あるよ(・∀・)！CSSあるよ(・∀・)！それJSSでできるよ(・∀・)！</strong>
+<h3>JavaScript Stylesheets</h3>
+てことで、Titanium Mobile 1.5以上の環境でなら、JavaScript StylesheetsなるJSSというものがありまして、CSSプロパティを使った、CSSライクな記述で任意の要素に対してスタイルを当てることが可能です。スタイルを分離したいJSファイル名と同名のJSSファイルに記述すれば勝手に認識してくれます。</p>
+
+<p>app.js  &lt;--&gt; app.jss</p>
+
+<p>hoge.js &lt;--&gt; hoge.jss</p>
+
+<p>fuga.js  &lt;--&gt; fuga.jss</p>
+
+<p>↑こんな感じの対応になってますので、わざわざ、&lt;link rel=&quot;stylesheet&quot;  href=&quot;app.jss&quot;&gt;とか読み込みのための記述を書く必要はないです。
+<pre><code>//----------------- app.js
+var window = Ti.UI.createWindow({
+   id:&quot;w&quot;
+});
+var button = Ti.UI.createButton({
+   id:&quot;b&quot;,
+   title:&quot;Hello&quot;
+});
+window.add(button);
+window.open();</code></pre>
+↑このJSファイルに対して↓このJSSファイルのスタイルがききます。
+<pre><code>/*----------------- app.jss */</p>
+
+<h1>w {</h1>
+
+<p>background-color:&quot;red&quot;;
+}
+button {
+  width:100px;
+  height:40px;
+}</code></pre>
+app.android.jssやapp.iphone,.jssのようにAndroid/iPhone用にJSSファイルを切り分けることができます。</p>
+
+<p>また、global.jssのように全てのJSファイルにスタイルを当てることができます。</p>
+
+<p>おー素晴らしいねって思ったけど、本当のCSSのような動きを期待すると結構意図せぬ挙動が多くてゲンナリします。</p>
+
+<p>以下、とりとめなくかきつらねてみるとかしてみるとか。
+<h3>Titanium Mobile 1.6.1 + iOS SDK 4.3 での検証</h3>
+<ul>
+    <li>global.jssが動かない（ <a href="https://appcelerator.lighthouseapp.com/projects/32238-titanium-mobile/tickets/3011">3011 iOS: JSS global.jss not supporrted</a> ）</li>
+    <li>Resources/lib/app.jssのように、対象のJSファイルが同一ディレクトリになくても動く</li>
+    <li>text-alignがtextAlignでも動く</li>
+    <li>空のスタイル（プロパティと値のないセレクタ EX. #hoge{}）を書くとそれ以降のスタイルが適用されない</li>
+    <li>単一セレクタしか認識しない（button.barとか無理）</li>
+    <li>ショートハンド無理っぽい</li>
+    <li>CSS以外のものも動く（EX. text: &quot;iPhone!&quot;）</li>
+    <li>同一セレクタの場合、iphone.jssの方が強い。でもなんか微妙。。(下記表参照)</li>
+    <li>ドキュメント少ない（サンプル少ない）</li>
+    <li>というかサンプルのコードが正しく動かない</li>
+    <li>CSSプロパティの値は文字列なのか数値でクオーテーションで囲まないといけないのかそうでないのかよくわからない。</li>
+    <li>JSSファイルをダブルクリックするとVLCプレイヤーが立ち上がってイラっとする。</li>
+    <li>JSとJSS絶対ごっちゃになる、空目率隆史。</li>
+    <li>とにかく信じられない。</li>
+</ul>
+<table border="0" width="370">
+<tbody>
+<tr>
+<th style="background-color: #aaa;" scope="col">app.jss</th>
+<th style="background-color: #aaa;" scope="col">app.iphone.jss</th>
+</tr>
+<tr>
+<td>× type-based</td>
+<td>◯ type-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ class-based</td>
+</tr>
+<tr>
+<td>× id-based</td>
+<td>◯ id-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ type-based</td>
+</tr>
+<tr>
+<td>◯ id-based</td>
+<td>× type-based</td>
+</tr>
+<tr>
+<td>◯ id-based</td>
+<td>× class-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ id-based</td>
+</tr>
+</tbody>
+</table>
+とまぁ、そんなかんじで、現時点ではJSSは使いこなすには難があるなーといった印象ですな。1.7,1.8くらいまで待つか。。。
+それか独自UIボタンなどはあきらめて、ネィティブのシステムボタンをフルに使って記述量減らすとか。</p>
+
+<p><a href="http://higelog.brassworks.jp/?p=1144">ひげろぐさんのよう</a>にスタイル用のJSファイルを必要に応じてincludeするやり方が今のところの現実解なのかもしれません。。
+<ul>
+    <li><a href="http://higelog.brassworks.jp/?p=1307">TitaniumのJSSという機能 | ひげろ</a>ぐ</li>
+    <li><a href="http://wiki.appcelerator.org/display/guides/Designing+the+User+Interface#DesigningtheUserInterface-CrossplatformlayoutusingJSS">Designing the User Interface - Documentation Guides - Appcelerator Wiki</a></li>
+</ul>
+英語だけどここの質問にJSS関連の情報がいっぱいあるような。。
+<ul>
+    <li><a href="http://fx-gp.seesaa.net/article/179363988.html">第２回ウェブセミナー What&#39;s New in #Titanium Mobile 1.5 まとめ | 開発</a></li>
+</ul>
+そんなわけで、みんなもれっつたいたん！</p>
+"/>
+    <meta name="description" content="<p><a href="http://en.wikipedia.org/wiki/CSS_(band)"><img title="CSSとは、サンパウロ出身のブラジリアンロックバンドです。" src="http://t32k.me/mol/file/2011/03/css.jpg" alt="" width="470" height="270" /></a></p>
+
+<p>Titanium Mobile での開発は当然JavaScriptオンリーですので、愛も憎しみもすべてこの中にではなくて、コンテンツであったり見た目の情報であったり振る舞いであったり全てJavaScript の中に書かれているわけです。</p>
+
+<p>Webサイト制作ではあれば、HTML(content) + CSS(presentation) + JavaScript (behavior)のように役割を分けて制作するのが良いと言われております。JavaScriptオンリーのTitaniumでも然りです。せめてロジックとUIが分けることができれば、エンジニアさんとデザイナーさんが分業できるってもんです。</p>
+
+<!--more-->
+
+<p><strong>あるよ(・∀・)！CSSあるよ(・∀・)！それJSSでできるよ(・∀・)！</strong>
+<h3>JavaScript Stylesheets</h3>
+てことで、Titanium Mobile 1.5以上の環境でなら、JavaScript StylesheetsなるJSSというものがありまして、CSSプロパティを使った、CSSライクな記述で任意の要素に対してスタイルを当てることが可能です。スタイルを分離したいJSファイル名と同名のJSSファイルに記述すれば勝手に認識してくれます。</p>
+
+<p>app.js  &lt;--&gt; app.jss</p>
+
+<p>hoge.js &lt;--&gt; hoge.jss</p>
+
+<p>fuga.js  &lt;--&gt; fuga.jss</p>
+
+<p>↑こんな感じの対応になってますので、わざわざ、&lt;link rel=&quot;stylesheet&quot;  href=&quot;app.jss&quot;&gt;とか読み込みのための記述を書く必要はないです。
+<pre><code>//----------------- app.js
+var window = Ti.UI.createWindow({
+   id:&quot;w&quot;
+});
+var button = Ti.UI.createButton({
+   id:&quot;b&quot;,
+   title:&quot;Hello&quot;
+});
+window.add(button);
+window.open();</code></pre>
+↑このJSファイルに対して↓このJSSファイルのスタイルがききます。
+<pre><code>/*----------------- app.jss */</p>
+
+<h1>w {</h1>
+
+<p>background-color:&quot;red&quot;;
+}
+button {
+  width:100px;
+  height:40px;
+}</code></pre>
+app.android.jssやapp.iphone,.jssのようにAndroid/iPhone用にJSSファイルを切り分けることができます。</p>
+
+<p>また、global.jssのように全てのJSファイルにスタイルを当てることができます。</p>
+
+<p>おー素晴らしいねって思ったけど、本当のCSSのような動きを期待すると結構意図せぬ挙動が多くてゲンナリします。</p>
+
+<p>以下、とりとめなくかきつらねてみるとかしてみるとか。
+<h3>Titanium Mobile 1.6.1 + iOS SDK 4.3 での検証</h3>
+<ul>
+    <li>global.jssが動かない（ <a href="https://appcelerator.lighthouseapp.com/projects/32238-titanium-mobile/tickets/3011">3011 iOS: JSS global.jss not supporrted</a> ）</li>
+    <li>Resources/lib/app.jssのように、対象のJSファイルが同一ディレクトリになくても動く</li>
+    <li>text-alignがtextAlignでも動く</li>
+    <li>空のスタイル（プロパティと値のないセレクタ EX. #hoge{}）を書くとそれ以降のスタイルが適用されない</li>
+    <li>単一セレクタしか認識しない（button.barとか無理）</li>
+    <li>ショートハンド無理っぽい</li>
+    <li>CSS以外のものも動く（EX. text: &quot;iPhone!&quot;）</li>
+    <li>同一セレクタの場合、iphone.jssの方が強い。でもなんか微妙。。(下記表参照)</li>
+    <li>ドキュメント少ない（サンプル少ない）</li>
+    <li>というかサンプルのコードが正しく動かない</li>
+    <li>CSSプロパティの値は文字列なのか数値でクオーテーションで囲まないといけないのかそうでないのかよくわからない。</li>
+    <li>JSSファイルをダブルクリックするとVLCプレイヤーが立ち上がってイラっとする。</li>
+    <li>JSとJSS絶対ごっちゃになる、空目率隆史。</li>
+    <li>とにかく信じられない。</li>
+</ul>
+<table border="0" width="370">
+<tbody>
+<tr>
+<th style="background-color: #aaa;" scope="col">app.jss</th>
+<th style="background-color: #aaa;" scope="col">app.iphone.jss</th>
+</tr>
+<tr>
+<td>× type-based</td>
+<td>◯ type-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ class-based</td>
+</tr>
+<tr>
+<td>× id-based</td>
+<td>◯ id-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ type-based</td>
+</tr>
+<tr>
+<td>◯ id-based</td>
+<td>× type-based</td>
+</tr>
+<tr>
+<td>◯ id-based</td>
+<td>× class-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ id-based</td>
+</tr>
+</tbody>
+</table>
+とまぁ、そんなかんじで、現時点ではJSSは使いこなすには難があるなーといった印象ですな。1.7,1.8くらいまで待つか。。。
+それか独自UIボタンなどはあきらめて、ネィティブのシステムボタンをフルに使って記述量減らすとか。</p>
+
+<p><a href="http://higelog.brassworks.jp/?p=1144">ひげろぐさんのよう</a>にスタイル用のJSファイルを必要に応じてincludeするやり方が今のところの現実解なのかもしれません。。
+<ul>
+    <li><a href="http://higelog.brassworks.jp/?p=1307">TitaniumのJSSという機能 | ひげろ</a>ぐ</li>
+    <li><a href="http://wiki.appcelerator.org/display/guides/Designing+the+User+Interface#DesigningtheUserInterface-CrossplatformlayoutusingJSS">Designing the User Interface - Documentation Guides - Appcelerator Wiki</a></li>
+</ul>
+英語だけどここの質問にJSS関連の情報がいっぱいあるような。。
+<ul>
+    <li><a href="http://fx-gp.seesaa.net/article/179363988.html">第２回ウェブセミナー What&#39;s New in #Titanium Mobile 1.5 まとめ | 開発</a></li>
+</ul>
+そんなわけで、みんなもれっつたいたん！</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-31-March" title="March 31, 2011">March 31, 2011</time>
+            </div>
+            <h1 class="title">Titanium Mobile でCSS的な、それJSS!!!!!!</h1>
+            
+        </header>
+
+        <section>
+            <p><a href="http://en.wikipedia.org/wiki/CSS_(band)"><img title="CSSとは、サンパウロ出身のブラジリアンロックバンドです。" src="http://t32k.me/mol/file/2011/03/css.jpg" alt="" width="470" height="270" /></a></p>
+
+<p>Titanium Mobile での開発は当然JavaScriptオンリーですので、愛も憎しみもすべてこの中にではなくて、コンテンツであったり見た目の情報であったり振る舞いであったり全てJavaScript の中に書かれているわけです。</p>
+
+<p>Webサイト制作ではあれば、HTML(content) + CSS(presentation) + JavaScript (behavior)のように役割を分けて制作するのが良いと言われております。JavaScriptオンリーのTitaniumでも然りです。せめてロジックとUIが分けることができれば、エンジニアさんとデザイナーさんが分業できるってもんです。</p>
+
+<!--more-->
+
+<p><strong>あるよ(・∀・)！CSSあるよ(・∀・)！それJSSでできるよ(・∀・)！</strong>
+<h3>JavaScript Stylesheets</h3>
+てことで、Titanium Mobile 1.5以上の環境でなら、JavaScript StylesheetsなるJSSというものがありまして、CSSプロパティを使った、CSSライクな記述で任意の要素に対してスタイルを当てることが可能です。スタイルを分離したいJSファイル名と同名のJSSファイルに記述すれば勝手に認識してくれます。</p>
+
+<p>app.js  &lt;--&gt; app.jss</p>
+
+<p>hoge.js &lt;--&gt; hoge.jss</p>
+
+<p>fuga.js  &lt;--&gt; fuga.jss</p>
+
+<p>↑こんな感じの対応になってますので、わざわざ、&lt;link rel=&quot;stylesheet&quot;  href=&quot;app.jss&quot;&gt;とか読み込みのための記述を書く必要はないです。
+<pre><code>//----------------- app.js
+var window = Ti.UI.createWindow({
+   id:&quot;w&quot;
+});
+var button = Ti.UI.createButton({
+   id:&quot;b&quot;,
+   title:&quot;Hello&quot;
+});
+window.add(button);
+window.open();</code></pre>
+↑このJSファイルに対して↓このJSSファイルのスタイルがききます。
+<pre><code>/*----------------- app.jss */</p>
+
+<h1>w {</h1>
+
+<p>background-color:&quot;red&quot;;
+}
+button {
+  width:100px;
+  height:40px;
+}</code></pre>
+app.android.jssやapp.iphone,.jssのようにAndroid/iPhone用にJSSファイルを切り分けることができます。</p>
+
+<p>また、global.jssのように全てのJSファイルにスタイルを当てることができます。</p>
+
+<p>おー素晴らしいねって思ったけど、本当のCSSのような動きを期待すると結構意図せぬ挙動が多くてゲンナリします。</p>
+
+<p>以下、とりとめなくかきつらねてみるとかしてみるとか。
+<h3>Titanium Mobile 1.6.1 + iOS SDK 4.3 での検証</h3>
+<ul>
+    <li>global.jssが動かない（ <a href="https://appcelerator.lighthouseapp.com/projects/32238-titanium-mobile/tickets/3011">3011 iOS: JSS global.jss not supporrted</a> ）</li>
+    <li>Resources/lib/app.jssのように、対象のJSファイルが同一ディレクトリになくても動く</li>
+    <li>text-alignがtextAlignでも動く</li>
+    <li>空のスタイル（プロパティと値のないセレクタ EX. #hoge{}）を書くとそれ以降のスタイルが適用されない</li>
+    <li>単一セレクタしか認識しない（button.barとか無理）</li>
+    <li>ショートハンド無理っぽい</li>
+    <li>CSS以外のものも動く（EX. text: &quot;iPhone!&quot;）</li>
+    <li>同一セレクタの場合、iphone.jssの方が強い。でもなんか微妙。。(下記表参照)</li>
+    <li>ドキュメント少ない（サンプル少ない）</li>
+    <li>というかサンプルのコードが正しく動かない</li>
+    <li>CSSプロパティの値は文字列なのか数値でクオーテーションで囲まないといけないのかそうでないのかよくわからない。</li>
+    <li>JSSファイルをダブルクリックするとVLCプレイヤーが立ち上がってイラっとする。</li>
+    <li>JSとJSS絶対ごっちゃになる、空目率隆史。</li>
+    <li>とにかく信じられない。</li>
+</ul>
+<table border="0" width="370">
+<tbody>
+<tr>
+<th style="background-color: #aaa;" scope="col">app.jss</th>
+<th style="background-color: #aaa;" scope="col">app.iphone.jss</th>
+</tr>
+<tr>
+<td>× type-based</td>
+<td>◯ type-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ class-based</td>
+</tr>
+<tr>
+<td>× id-based</td>
+<td>◯ id-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ type-based</td>
+</tr>
+<tr>
+<td>◯ id-based</td>
+<td>× type-based</td>
+</tr>
+<tr>
+<td>◯ id-based</td>
+<td>× class-based</td>
+</tr>
+<tr>
+<td>× class-based</td>
+<td>◯ id-based</td>
+</tr>
+</tbody>
+</table>
+とまぁ、そんなかんじで、現時点ではJSSは使いこなすには難があるなーといった印象ですな。1.7,1.8くらいまで待つか。。。
+それか独自UIボタンなどはあきらめて、ネィティブのシステムボタンをフルに使って記述量減らすとか。</p>
+
+<p><a href="http://higelog.brassworks.jp/?p=1144">ひげろぐさんのよう</a>にスタイル用のJSファイルを必要に応じてincludeするやり方が今のところの現実解なのかもしれません。。
+<ul>
+    <li><a href="http://higelog.brassworks.jp/?p=1307">TitaniumのJSSという機能 | ひげろ</a>ぐ</li>
+    <li><a href="http://wiki.appcelerator.org/display/guides/Designing+the+User+Interface#DesigningtheUserInterface-CrossplatformlayoutusingJSS">Designing the User Interface - Documentation Guides - Appcelerator Wiki</a></li>
+</ul>
+英語だけどここの質問にJSS関連の情報がいっぱいあるような。。
+<ul>
+    <li><a href="http://fx-gp.seesaa.net/article/179363988.html">第２回ウェブセミナー What&#39;s New in #Titanium Mobile 1.5 まとめ | 開発</a></li>
+</ul>
+そんなわけで、みんなもれっつたいたん！</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Titanium Mobile でCSS的な、それJSS!!!!!!" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

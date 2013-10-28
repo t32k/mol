@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics カスタム変数、パート2：コードぜよ！ &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="Google Analytics カスタム変数、パート2：コードぜよ！ ">
+    <link rel="canonical" href="http://t32k.me//mol/log/google-analytics-custom-variables-part2">
+     
+           
+    <meta property="og:title" content="Google Analytics カスタム変数、パート2：コードぜよ！ "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/google-analytics-custom-variables-part2"/>
+    
+    
+    <!--meta property="og:description" content="<p><cite>原文： <a href="http://www.lunametrics.com/blog/2010/04/23/custom-variables-part-ii-code/">Custom Variables, Part II: The Code</a>
+投稿日：2010-4-23 by Jonathan</cite></p>
+
+<p><a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">前回の記事</a>において、なぜカスタム変数に関心を持つべきか話してきた。今回は君のサイトでの実装方法について見てみよう。
+<h3>カスタム変数を設定する</h3>
+カスタム変数のコードはとても簡単でひとつの関数だけで済むんだ。（もし、以前にユーザー定義の<em>setVar関数を使っていたのなら、いくつかのパラメータを除いて実装は極めて似ている。） こんな感じだよ。
+<pre></em>gaq.push([&#39;_setCustomVar&#39;, index, name, value, scope]);</pre>
+4つのパラメータの意味は以下の通り</p>
+
+<!--more-->
+
+<ul>
+    <li>インデックス（index）は変数を格納するスロット、なぜなら複数のカスタム変数を持てるからね。これは1から5の数字である。スロットの使用方法は少々難しくなるので、より深い考察は後日するよ。</li>
+    <li>変数名（name）と値（value）は、カスタム変数を識別するのに一緒に機能するんだ。"eyes" と "blue", "member" と "yes", "section" と "yes"のような変数名と値を持つことになるだろう。変数名は変数について特定し、値は適用するラベルだ。変数名と値を合わせた文字列は最大で64バイトまでに抑えなければならない。</li>
+    <li>スコープ（scope）は変数がビジター、セッション、ページレベルのいずれかに適用されていることを表す。（<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/#scopes_and_how_to_use_them">パート1のスコープについて</a>を参照してくれ）スコープは1がビジター、2がセッション、3がページビューレベルです。もし設定し忘れたら、デフォルトは1になるよ。</li>
+</ul>
+
+<p>では、例を見てみよう
+<pre><em>gaq.push([&#39;</em>setCustomVar&#39;, 1, &#39;eyes&#39;, &#39;value&#39;, 1]);</pre>
+このメソッドは、スロット1にeyes=blueを、ビジターレベルでカスタム変数を設定するってことだ。で合ってるよね？
+<h3>どこで値を知るんだい？</h3>
+_setVarとsetCustomVar の値をどのように書き込めばいいのか、ということは最も一般的な疑問の１つだ。あるケースに置いて、値はそれが適用されるすべての人にとって同じものだ（&quot;member&quot;=&quot;yes&quot;のような）。しかし、瞳の色に関して言えば、青い目の人と茶色の目の人をどのように動的に区別するのだろうか？</p>
+
+<p>そうだね、まず第一に君はすでにどうにかする方法知っているんだ。彼らの目の色を尋ねた時の調査票や、サイトの登録もしくは購入したときに情報を埋め込んだ質問フォームなど君は持っているだろう。値がいつ発生しようとも、それがどこであろうとも格納することができる、たぶんクッキーだったりデータベースだったり。</p>
+
+<p>それから、カスタム変数のコードに動的に記入したいだろう。しかし、詳しい記述の仕方は値を呼び出す場所や、ページがどのようなシステム（ASP、PHPなど）で構成されているか次第なんだけど、基本的なアプローチは以下のような感じ。
+<pre><em>gaq.push([&#39;</em>setCustomVar&#39;, 1, &#39;eyes&#39;, &lt;&lt; 動的に瞳の色を記述 &gt;&gt;, 1]）；</pre>
+<h3>コードはどこに設置すべきか？</h3>
+OK、コードを理解したらどこに設置したらいいんだい？</p>
+
+<p>これには２つのガイドラインがある。まず最初は、取得したい情報を得るために適したページに置くことだ。　もし、”メンバー”カスタム変数ならば、ログイン後にメンバーが踏むページにコードを設置すればいいだろう。もし、”セクション”カスタム変数ならば、それぞれ個別のセクションページにコードを設置する（&quot;widgets&quot;や&quot;about us&quot;や&quot;find a store&quot;などのセクションを見た人を記録する）。もしそれが瞳の色だったら、その情報を取得したページに置くのがもっとも簡単だろう。</p>
+
+<p>2番目に、_trackPageview (もしくは _trackEvent）よりも前にコードを設置することは重要なことだ。なぜならば、カスタム変数の情報はページビューの情報と一緒に送られるからね。
+<h3>僕らは真ん中にいる</h3>
+これでカスタム変数を記録するに必要な情報は全部だ。しかし、まだスロットについて話してないね。それはパート3におあずけだ。なぜならちょっと複雑だからね。</p>
+
+<h2></h2>
+
+<p><span style="color: #888888;">※コード例は非同期版に変更しました。</span></p>
+"/>
+    <meta name="description" content="<p><cite>原文： <a href="http://www.lunametrics.com/blog/2010/04/23/custom-variables-part-ii-code/">Custom Variables, Part II: The Code</a>
+投稿日：2010-4-23 by Jonathan</cite></p>
+
+<p><a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">前回の記事</a>において、なぜカスタム変数に関心を持つべきか話してきた。今回は君のサイトでの実装方法について見てみよう。
+<h3>カスタム変数を設定する</h3>
+カスタム変数のコードはとても簡単でひとつの関数だけで済むんだ。（もし、以前にユーザー定義の<em>setVar関数を使っていたのなら、いくつかのパラメータを除いて実装は極めて似ている。） こんな感じだよ。
+<pre></em>gaq.push([&#39;_setCustomVar&#39;, index, name, value, scope]);</pre>
+4つのパラメータの意味は以下の通り</p>
+
+<!--more-->
+
+<ul>
+    <li>インデックス（index）は変数を格納するスロット、なぜなら複数のカスタム変数を持てるからね。これは1から5の数字である。スロットの使用方法は少々難しくなるので、より深い考察は後日するよ。</li>
+    <li>変数名（name）と値（value）は、カスタム変数を識別するのに一緒に機能するんだ。"eyes" と "blue", "member" と "yes", "section" と "yes"のような変数名と値を持つことになるだろう。変数名は変数について特定し、値は適用するラベルだ。変数名と値を合わせた文字列は最大で64バイトまでに抑えなければならない。</li>
+    <li>スコープ（scope）は変数がビジター、セッション、ページレベルのいずれかに適用されていることを表す。（<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/#scopes_and_how_to_use_them">パート1のスコープについて</a>を参照してくれ）スコープは1がビジター、2がセッション、3がページビューレベルです。もし設定し忘れたら、デフォルトは1になるよ。</li>
+</ul>
+
+<p>では、例を見てみよう
+<pre><em>gaq.push([&#39;</em>setCustomVar&#39;, 1, &#39;eyes&#39;, &#39;value&#39;, 1]);</pre>
+このメソッドは、スロット1にeyes=blueを、ビジターレベルでカスタム変数を設定するってことだ。で合ってるよね？
+<h3>どこで値を知るんだい？</h3>
+_setVarとsetCustomVar の値をどのように書き込めばいいのか、ということは最も一般的な疑問の１つだ。あるケースに置いて、値はそれが適用されるすべての人にとって同じものだ（&quot;member&quot;=&quot;yes&quot;のような）。しかし、瞳の色に関して言えば、青い目の人と茶色の目の人をどのように動的に区別するのだろうか？</p>
+
+<p>そうだね、まず第一に君はすでにどうにかする方法知っているんだ。彼らの目の色を尋ねた時の調査票や、サイトの登録もしくは購入したときに情報を埋め込んだ質問フォームなど君は持っているだろう。値がいつ発生しようとも、それがどこであろうとも格納することができる、たぶんクッキーだったりデータベースだったり。</p>
+
+<p>それから、カスタム変数のコードに動的に記入したいだろう。しかし、詳しい記述の仕方は値を呼び出す場所や、ページがどのようなシステム（ASP、PHPなど）で構成されているか次第なんだけど、基本的なアプローチは以下のような感じ。
+<pre><em>gaq.push([&#39;</em>setCustomVar&#39;, 1, &#39;eyes&#39;, &lt;&lt; 動的に瞳の色を記述 &gt;&gt;, 1]）；</pre>
+<h3>コードはどこに設置すべきか？</h3>
+OK、コードを理解したらどこに設置したらいいんだい？</p>
+
+<p>これには２つのガイドラインがある。まず最初は、取得したい情報を得るために適したページに置くことだ。　もし、”メンバー”カスタム変数ならば、ログイン後にメンバーが踏むページにコードを設置すればいいだろう。もし、”セクション”カスタム変数ならば、それぞれ個別のセクションページにコードを設置する（&quot;widgets&quot;や&quot;about us&quot;や&quot;find a store&quot;などのセクションを見た人を記録する）。もしそれが瞳の色だったら、その情報を取得したページに置くのがもっとも簡単だろう。</p>
+
+<p>2番目に、_trackPageview (もしくは _trackEvent）よりも前にコードを設置することは重要なことだ。なぜならば、カスタム変数の情報はページビューの情報と一緒に送られるからね。
+<h3>僕らは真ん中にいる</h3>
+これでカスタム変数を記録するに必要な情報は全部だ。しかし、まだスロットについて話してないね。それはパート3におあずけだ。なぜならちょっと複雑だからね。</p>
+
+<h2></h2>
+
+<p><span style="color: #888888;">※コード例は非同期版に変更しました。</span></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2010-05-October" title="October 05, 2010">October 05, 2010</time>
+            </div>
+            <h1 class="title">Google Analytics カスタム変数、パート2：コードぜよ！</h1>
+            
+        </header>
+
+        <section>
+            <p><cite>原文： <a href="http://www.lunametrics.com/blog/2010/04/23/custom-variables-part-ii-code/">Custom Variables, Part II: The Code</a>
+投稿日：2010-4-23 by Jonathan</cite></p>
+
+<p><a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">前回の記事</a>において、なぜカスタム変数に関心を持つべきか話してきた。今回は君のサイトでの実装方法について見てみよう。
+<h3>カスタム変数を設定する</h3>
+カスタム変数のコードはとても簡単でひとつの関数だけで済むんだ。（もし、以前にユーザー定義の<em>setVar関数を使っていたのなら、いくつかのパラメータを除いて実装は極めて似ている。） こんな感じだよ。
+<pre></em>gaq.push([&#39;_setCustomVar&#39;, index, name, value, scope]);</pre>
+4つのパラメータの意味は以下の通り</p>
+
+<!--more-->
+
+<ul>
+    <li>インデックス（index）は変数を格納するスロット、なぜなら複数のカスタム変数を持てるからね。これは1から5の数字である。スロットの使用方法は少々難しくなるので、より深い考察は後日するよ。</li>
+    <li>変数名（name）と値（value）は、カスタム変数を識別するのに一緒に機能するんだ。"eyes" と "blue", "member" と "yes", "section" と "yes"のような変数名と値を持つことになるだろう。変数名は変数について特定し、値は適用するラベルだ。変数名と値を合わせた文字列は最大で64バイトまでに抑えなければならない。</li>
+    <li>スコープ（scope）は変数がビジター、セッション、ページレベルのいずれかに適用されていることを表す。（<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/#scopes_and_how_to_use_them">パート1のスコープについて</a>を参照してくれ）スコープは1がビジター、2がセッション、3がページビューレベルです。もし設定し忘れたら、デフォルトは1になるよ。</li>
+</ul>
+
+<p>では、例を見てみよう
+<pre><em>gaq.push([&#39;</em>setCustomVar&#39;, 1, &#39;eyes&#39;, &#39;value&#39;, 1]);</pre>
+このメソッドは、スロット1にeyes=blueを、ビジターレベルでカスタム変数を設定するってことだ。で合ってるよね？
+<h3>どこで値を知るんだい？</h3>
+_setVarとsetCustomVar の値をどのように書き込めばいいのか、ということは最も一般的な疑問の１つだ。あるケースに置いて、値はそれが適用されるすべての人にとって同じものだ（&quot;member&quot;=&quot;yes&quot;のような）。しかし、瞳の色に関して言えば、青い目の人と茶色の目の人をどのように動的に区別するのだろうか？</p>
+
+<p>そうだね、まず第一に君はすでにどうにかする方法知っているんだ。彼らの目の色を尋ねた時の調査票や、サイトの登録もしくは購入したときに情報を埋め込んだ質問フォームなど君は持っているだろう。値がいつ発生しようとも、それがどこであろうとも格納することができる、たぶんクッキーだったりデータベースだったり。</p>
+
+<p>それから、カスタム変数のコードに動的に記入したいだろう。しかし、詳しい記述の仕方は値を呼び出す場所や、ページがどのようなシステム（ASP、PHPなど）で構成されているか次第なんだけど、基本的なアプローチは以下のような感じ。
+<pre><em>gaq.push([&#39;</em>setCustomVar&#39;, 1, &#39;eyes&#39;, &lt;&lt; 動的に瞳の色を記述 &gt;&gt;, 1]）；</pre>
+<h3>コードはどこに設置すべきか？</h3>
+OK、コードを理解したらどこに設置したらいいんだい？</p>
+
+<p>これには２つのガイドラインがある。まず最初は、取得したい情報を得るために適したページに置くことだ。　もし、”メンバー”カスタム変数ならば、ログイン後にメンバーが踏むページにコードを設置すればいいだろう。もし、”セクション”カスタム変数ならば、それぞれ個別のセクションページにコードを設置する（&quot;widgets&quot;や&quot;about us&quot;や&quot;find a store&quot;などのセクションを見た人を記録する）。もしそれが瞳の色だったら、その情報を取得したページに置くのがもっとも簡単だろう。</p>
+
+<p>2番目に、_trackPageview (もしくは _trackEvent）よりも前にコードを設置することは重要なことだ。なぜならば、カスタム変数の情報はページビューの情報と一緒に送られるからね。
+<h3>僕らは真ん中にいる</h3>
+これでカスタム変数を記録するに必要な情報は全部だ。しかし、まだスロットについて話してないね。それはパート3におあずけだ。なぜならちょっと複雑だからね。</p>
+
+<h2></h2>
+
+<p><span style="color: #888888;">※コード例は非同期版に変更しました。</span></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="Google Analytics カスタム変数、パート2：コードぜよ！" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

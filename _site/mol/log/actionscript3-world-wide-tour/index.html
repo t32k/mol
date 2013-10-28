@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今から始める ActionScript 3.0 - WORLD WIDE TOUR &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="今から始める ActionScript 3.0 - WORLD WIDE TOUR ">
+    <link rel="canonical" href="http://t32k.me//mol/log/actionscript3-world-wide-tour">
+     
+           
+    <meta property="og:title" content="今から始める ActionScript 3.0 - WORLD WIDE TOUR "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/actionscript3-world-wide-tour"/>
+    
+    
+    <!--meta property="og:description" content="<p>Adobe Presents コリン・ムックの「<a id="xbah" title="今から始める ActionScript 3.0 - WORLD WIDE TOUR" href="http://www.event-web.net/as3/">今から始める ActionScript 3.0 - WORLD WIDE TOUR</a> 」コリン・ムックの『コ』の字も知らない自分が、AS1,2さえも書いたことがない自分が行ってきたよ。そんな自分が今回のセミナーでクラスやオブジェクトについて理解できるわけもなく、さっぱりな印象。</p>
+
+<p>とはいえ、夜行バスではるばる石川からの参戦だったので一応メモっておく。
+<h2>序章</h2>
+コリン・ムックは知らなかったが、WenDesigningかなにかの雑誌で日本のすごいFlasherが尊敬している人物に彼の名前を挙げていたので、記憶に残ってた。そんな折、<a id="td6e" title="セミナー情報共有カレンダー" href="http://blog.woopsdez.jp/2007/11/post_264.php">セミナー情報共有カレンダー</a>で今回のセミナーがあるのを知る。すでに定員オーバーの受付終了だったがブログレポーター枠なら残ってたので早速申し込む（07/12/12）。
+さすがにノー勉ではあれなので予習をしておく。
+<ul>
+    <li><a id="weut" title="はじめてのActionScript3.0プログラミング" href="http://zapanet.info/blog/item/882">はじめてのActionScript3.0プログラミング</a></li>
+    <li><a id="h8n1" title="3月22日の技術勉強会 - ActionScript3 / Flex / Apollo 勉強会" href="http://hatena.g.hatena.ne.jp/hatenatech/20070324/1174713674">3月22日の技術勉強会 - ActionScript3 / Flex / Apollo 勉強会</a></li>
+    <li><a id="r1uv" title="8月17日の技術勉強会 - Flexレイアウト手書き勉強会" href="http://hatena.g.hatena.ne.jp/hatenatech/20070821/1187670828">8月17日の技術勉強会 - Flexレイアウト手書き勉強会</a></li>
+    <li><a id="e5_b" title="ActionScript for JavaScript(er)." href="http://amachang.art-code.org/usrb.in/amachang/static/shibuyaes/">ActionScript for JavaScript(er).</a> [<a href="http://mp.i-revo.jp/user.php/hpjckqhw/attach/24">動画</a>]</li>
+    <li><a id="fhbd" title="AS 3.0 勉強会資料" href="http://amachang.art-code.org/usrb.in/amachang/static/as3study20070408/">AS 3.0 勉強会資料</a></li>
+    <li><a id="ppn6" title="WCAN mini vol.1 - ActionScript 3.0 + CUI" href="http://amachang.art-code.org/usrb.in/amachang/static/wcan200701/">WCAN mini vol.1 - ActionScript 3.0 + CUI</a></li>
+    <li><a id="dx7s" title="ActionScript 勉強会資料 in Nagoya" href="http://amachang.art-code.org/usrb.in/amachang/static/unknown/">ActionScript 勉強会資料 in Nagoya</a></li>
+</ul>
+流し読み程度ですけどね。
+<h2>いざ会場へ</h2>
+行きの夜行バスで一睡もできず、眠たさマックスでセミナー会場である<a id="eiy8" title="ゲートシティホール" href="http://www.gatecity.jp/floor/in.html?floor=3">ゲートシティホール</a> に到着。会場の印象、で、でかい！しかも、後から申し込んだにも関わらず、ブログレポーターということで、一番前で机まで用意されてあるのはラッキーだった♪
+<h2><a href="http://1.bp.blogspot.com/_1drnogi3vdg/R5NeGyF04-I/AAAAAAAAACw/bpSg18aqCQI/s1600-h/080115_0940.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157569468887786466" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://1.bp.blogspot.com/_1drnogi3vdg/R5NeGyF04-I/AAAAAAAAACw/bpSg18aqCQI/s320/080115_0940.jpg" border="0" alt="" /></a>
+コリン・ムック登場</h2>
+まず、このセミナーを開いてくれた関係者の皆さんに感謝の意を表す。
+年末にも東京でFlashのカンファレンスを予定しているらしい。</p>
+
+<p>当日のセミナーでの講演内容はここです。
+↓
+<a onclick="return top.js.OpenExtLink(window,event,this)" href="http://moock.org/lectures/groundUpAS3/" target="_blank">http://moock.org/lectures/groundUpAS3/</a></p>
+
+<p>セミナーの流れとしては、たまごっちのようなプログラム
+（時間が経つにつれ体力が減るペットに、エサを与えるようなプログラム）を
+9時間かけて懇切丁寧に説明してくれた。</p>
+
+<p>//overview
+プログラムをしたことない人でも気負う必要はない。
+全部分からなくてもいい、やりたいことからやればいい。
+プログラムに終わりはない、1日や1年、10年続けたってダメ、大事なのは毎日続けること。
+今回のセミナーはクラスを作ったことがない人が対象だよ。</p>
+
+<p>//ActionScript programming tools
+ノートパッド
+Flash
+flex builder
+(今回のセミナーでコリンは、Mac付属のテキストエディタとFlex3を使ってコードを書いてた。)</p>
+
+<p>//Flash client runtime environments
+Flash Player
+Adobe AIR
+Flash Lite</p>
+
+<p>//what is an ActionScript program?
+コードと.flaファイルを合わせたもの。
+今回はコードだけのオブジェクト指向プログラミングについて説明する。
+AS3ファイルのなかでAS1やAS2のコードも書けるのでそこんとこ勘違いしないでねと。</p>
+
+<p>//building an airplane
+飛行機を作ることを想像してほしい。
+最初に必要なのは青写真だ。
+パーツ（車輪や翼）としてつかえる汎用的な青写真</p>
+
+<p>//objects
+objectとはプログラムの中の「モノ」</p>
+
+<p>//classes
+クラスとは青写真と考えればよい
+クラスとはオブジェクトの振る舞いや特徴を描写する</p>
+
+<p>//create an object-oriented program
+OOPとよく言われる
+カスタムクラスをつくる
+オブジェクトに何をすべきか伝える
+（オブジェクトがプログラムの中でどのように振る舞うか決定する）</p>
+
+<p>//main class
+すべてのプログラムはメインクラスをもっている</p>
+
+<p>//the virtual zoo
+たまごっちのようなプログラムをつくりながら説明する。
+細かな設定とかじゃなくロジックを主に説明する。</p>
+
+<p>//packages
+クラスを作るにあたりビルトインクラスとコンフリクトする可能性があるので、
+packageで包む必要がある。</p>
+
+<p>//classes in packages
+パッケージの中のクラスはパッケージの名前とドットでつなげる。
+例えば、gameと言うパッケージのなかのクラスPlayerなら
+game.Playerのように</p>
+
+<p>//creating a package
+&quot;define&quot; とは定義するという意味でここではパッケージを&quot;作る&quot;と考えてよい</p>
+
+<p>//package definition directive
+definition directive　定義指令</p>
+
+<p>//the zoo package
+&quot;zoo&quot;パッケージを作る</p>
+
+<p>ここらへんでなんか眠たさが極限、
+あと30分でお昼休憩だからそこまでがまんしよう。あと20分。。あと10分。。。
+次の瞬間、目を開いたら目の前にコリン・ムック先生が！
+「このひとはたぶん疲れてるんでしょうね、そんな人にはこの無料チケットを」
+みたいなことを言って、オライリーの本が1冊無料でゲットできるチケットをもらう。。。</p>
+
+<p><a href="http://3.bp.blogspot.com/_1drnogi3vdg/R5NepSF05AI/AAAAAAAAADA/hahwhraO5Og/s1600-h/080120_2334.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157570061593273346" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://3.bp.blogspot.com/_1drnogi3vdg/R5NepSF05AI/AAAAAAAAADA/hahwhraO5Og/s320/080120_2334.jpg" border="0" alt="" /></a>
+さすがに、通訳越しに言われるのはとても恥ずかしかったッス。
+とはいえ、はるばる日本まで来て9時間みっちり教えてるのに、
+来てみたら真ん前の席の奴が寝てるってどやねん！って
+感じっすよねコリン先生からしちゃ。ほんますみませんでした。</p>
+
+<p>んなかんじでお昼休憩。
+休憩中はコリン先生のMacからレディオヘッドが流れてました。
+<h2><a href="http://2.bp.blogspot.com/_1drnogi3vdg/R5NebCF04_I/AAAAAAAAAC4/_SsnJxCqQz8/s1600-h/080115_1217.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157569816780137458" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://2.bp.blogspot.com/_1drnogi3vdg/R5NebCF04_I/AAAAAAAAAC4/_SsnJxCqQz8/s320/080115_1217.jpg" border="0" alt="" /></a>
+後半はなされるがまま</h2>
+//the public attribute   //the internal attribute
+パブリック　公開できる、参照できる
+インターナル　パッケージ内のクラス（デフォルトはインターナルだがちゃんと書いたほうがよい）</p>
+
+<p>//constructor method
+オブジェクトを使うには初期化(initialize)する</p>
+
+<p>//variables and values
+ローカル変数
+インスタンス変数</p>
+
+<p>//variable access-control modifiers
+変数の4つのレベル
+パブリック、インターナル、プロテクト、プライベート
+どれ指定したらよいか分からなかったら、プライベートにしとけ</p>
+
+<p>//assiging one variable another&#39;s value
+このへんからthisとかでてきてよーわからんくなってくる＞＜</p>
+
+<p>セミナー後半はただコリン先生が書くコードを見てるだけでした。
+というわけで、後は印象に残ったことを箇条書き
+<ul>
+    <li>変数はコンテナという考えは捨てろ！変数はオブジェクトとして参照できる名前だよ。</li>
+    <li>public APIは変えるな！</li>
+    <li>オブジェクト指向ってのは人間のために書かれたコードだよ。</li>
+    <li>オブジェクトは生き物なんだよ！</li>
+    <li>MVCとかデザインパターンは便利だよ。</li>
+    <li>んで、今回9時間書けてつくったプログラムだけどFlashだったら30分でできるよ。</li>
+    <li>でも、コードで書く方がクライアントの急な変更にも対応できる、つまり拡張と変更が簡単なんだ。</li>
+</ul>
+ここからはコリン先生ネタw
+<ul>
+    <li>音楽聞きながらプログラミングできないよー。</li>
+    <li>女の子プログラマーがもっと増えればいいなーとおもってる。</li>
+    <li>コーラが好きだ。</li>
+    <li>Flexのコード編集コマンドがギガ/メガお気に入りです。</li>
+    <li>MacもWinも制作環境としてはどちらも嫌い</li>
+    <li>でも、Winにはボイスデクテーション?という音声文字入力アプリがあるからwin使ってる。</li>
+    <li>タイプしたくない！</li>
+</ul>
+コリン先生のマック
+MacBook Black
+OS X 10.5 Leopard
+text editor : <a id="xzyj" title="Smultron" href="http://smultron.sourceforge.net/">Smultron</a>
+music player : <a id="d4d8" title="Cog" href="http://cogx.org/">Cog</a>
+launcher : QuickSilver
+あとは確認できたのは
+Flash CS3 Flex3とかで、あんましメインでは使ってない感じ。</p>
+
+<p>そんな感じで、なんかもっと勉強してくれば、もっとタメになったんだろうなと思いました。</p>
+
+<p>帰りも夜行バスで帰りました。
+朝6時に金沢駅に着いたので、そのまま家に帰るのもあれだなと思い、
+近くの<a id="nx0u" title="アパホテルの温泉" href="http://www.apahotel.com/hotel/hokuriku/06_kanazawa-ekimae/facilities.html#spa">アパホテルの温泉</a> でくつろいでそのまま会社に出社しました。</p>
+
+<p>だもんで、金沢に夜行バスで観光に来る人は朝方着いて何もお店開いてないから、
+温泉入りながら時間つぶせばいいと思うよ。3時間1000円だよ。
+金沢駅周辺にはマンガ喫茶とかないから時間が潰せないんだよ。
+とローカルネタも今後書いていこうと思ったりして。</p>
+
+<p>&nbsp;</p>
+
+<p>最後にコリン先生居眠りしてごめんなさい。
+もらった無料チケットでEssential ActionScript 3.0は買わず、JavaScript 第5版を買わせていただきます。Essentialは翻訳版が春か夏ごろ出るとおっしゃっていたので、それまでJS勉強して、もう一度ASに再挑戦したいと思います。
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank">JavaScript 第5版</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank"><img class="fig" style="border: 0px initial initial;" src="http://ecx.images-amazon.com/images/I/413amOWGgvL._SL160_.jpg" border="0" alt="JavaScript 第5版" width="123" height="160" /></a></td>
+<td valign="top">村上 列&nbsp;</p>
+
+<p><strong>おすすめ平均</strong> <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="stars" />買って良かった
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="stars" />多少冗長な感じがします
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="stars" />翻訳が上手です
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="stars" />文書が多くサンプルコードが少ない本です</p>
+
+<p><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank">詳説 ActionScript 3.0</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/514SnR1V4yL._SL160_.jpg" border="0" alt="詳説 ActionScript 3.0" width="125" height="160" /></a></td>
+<td valign="top">永井 勝則&nbsp;</p>
+
+<p>オライリージャパン  2008-11-22
+売り上げランキング : 17072</p>
+
+<p><strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />ActionScript3.0言語仕様の解説書です</p>
+
+<p><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table></p>
+"/>
+    <meta name="description" content="<p>Adobe Presents コリン・ムックの「<a id="xbah" title="今から始める ActionScript 3.0 - WORLD WIDE TOUR" href="http://www.event-web.net/as3/">今から始める ActionScript 3.0 - WORLD WIDE TOUR</a> 」コリン・ムックの『コ』の字も知らない自分が、AS1,2さえも書いたことがない自分が行ってきたよ。そんな自分が今回のセミナーでクラスやオブジェクトについて理解できるわけもなく、さっぱりな印象。</p>
+
+<p>とはいえ、夜行バスではるばる石川からの参戦だったので一応メモっておく。
+<h2>序章</h2>
+コリン・ムックは知らなかったが、WenDesigningかなにかの雑誌で日本のすごいFlasherが尊敬している人物に彼の名前を挙げていたので、記憶に残ってた。そんな折、<a id="td6e" title="セミナー情報共有カレンダー" href="http://blog.woopsdez.jp/2007/11/post_264.php">セミナー情報共有カレンダー</a>で今回のセミナーがあるのを知る。すでに定員オーバーの受付終了だったがブログレポーター枠なら残ってたので早速申し込む（07/12/12）。
+さすがにノー勉ではあれなので予習をしておく。
+<ul>
+    <li><a id="weut" title="はじめてのActionScript3.0プログラミング" href="http://zapanet.info/blog/item/882">はじめてのActionScript3.0プログラミング</a></li>
+    <li><a id="h8n1" title="3月22日の技術勉強会 - ActionScript3 / Flex / Apollo 勉強会" href="http://hatena.g.hatena.ne.jp/hatenatech/20070324/1174713674">3月22日の技術勉強会 - ActionScript3 / Flex / Apollo 勉強会</a></li>
+    <li><a id="r1uv" title="8月17日の技術勉強会 - Flexレイアウト手書き勉強会" href="http://hatena.g.hatena.ne.jp/hatenatech/20070821/1187670828">8月17日の技術勉強会 - Flexレイアウト手書き勉強会</a></li>
+    <li><a id="e5_b" title="ActionScript for JavaScript(er)." href="http://amachang.art-code.org/usrb.in/amachang/static/shibuyaes/">ActionScript for JavaScript(er).</a> [<a href="http://mp.i-revo.jp/user.php/hpjckqhw/attach/24">動画</a>]</li>
+    <li><a id="fhbd" title="AS 3.0 勉強会資料" href="http://amachang.art-code.org/usrb.in/amachang/static/as3study20070408/">AS 3.0 勉強会資料</a></li>
+    <li><a id="ppn6" title="WCAN mini vol.1 - ActionScript 3.0 + CUI" href="http://amachang.art-code.org/usrb.in/amachang/static/wcan200701/">WCAN mini vol.1 - ActionScript 3.0 + CUI</a></li>
+    <li><a id="dx7s" title="ActionScript 勉強会資料 in Nagoya" href="http://amachang.art-code.org/usrb.in/amachang/static/unknown/">ActionScript 勉強会資料 in Nagoya</a></li>
+</ul>
+流し読み程度ですけどね。
+<h2>いざ会場へ</h2>
+行きの夜行バスで一睡もできず、眠たさマックスでセミナー会場である<a id="eiy8" title="ゲートシティホール" href="http://www.gatecity.jp/floor/in.html?floor=3">ゲートシティホール</a> に到着。会場の印象、で、でかい！しかも、後から申し込んだにも関わらず、ブログレポーターということで、一番前で机まで用意されてあるのはラッキーだった♪
+<h2><a href="http://1.bp.blogspot.com/_1drnogi3vdg/R5NeGyF04-I/AAAAAAAAACw/bpSg18aqCQI/s1600-h/080115_0940.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157569468887786466" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://1.bp.blogspot.com/_1drnogi3vdg/R5NeGyF04-I/AAAAAAAAACw/bpSg18aqCQI/s320/080115_0940.jpg" border="0" alt="" /></a>
+コリン・ムック登場</h2>
+まず、このセミナーを開いてくれた関係者の皆さんに感謝の意を表す。
+年末にも東京でFlashのカンファレンスを予定しているらしい。</p>
+
+<p>当日のセミナーでの講演内容はここです。
+↓
+<a onclick="return top.js.OpenExtLink(window,event,this)" href="http://moock.org/lectures/groundUpAS3/" target="_blank">http://moock.org/lectures/groundUpAS3/</a></p>
+
+<p>セミナーの流れとしては、たまごっちのようなプログラム
+（時間が経つにつれ体力が減るペットに、エサを与えるようなプログラム）を
+9時間かけて懇切丁寧に説明してくれた。</p>
+
+<p>//overview
+プログラムをしたことない人でも気負う必要はない。
+全部分からなくてもいい、やりたいことからやればいい。
+プログラムに終わりはない、1日や1年、10年続けたってダメ、大事なのは毎日続けること。
+今回のセミナーはクラスを作ったことがない人が対象だよ。</p>
+
+<p>//ActionScript programming tools
+ノートパッド
+Flash
+flex builder
+(今回のセミナーでコリンは、Mac付属のテキストエディタとFlex3を使ってコードを書いてた。)</p>
+
+<p>//Flash client runtime environments
+Flash Player
+Adobe AIR
+Flash Lite</p>
+
+<p>//what is an ActionScript program?
+コードと.flaファイルを合わせたもの。
+今回はコードだけのオブジェクト指向プログラミングについて説明する。
+AS3ファイルのなかでAS1やAS2のコードも書けるのでそこんとこ勘違いしないでねと。</p>
+
+<p>//building an airplane
+飛行機を作ることを想像してほしい。
+最初に必要なのは青写真だ。
+パーツ（車輪や翼）としてつかえる汎用的な青写真</p>
+
+<p>//objects
+objectとはプログラムの中の「モノ」</p>
+
+<p>//classes
+クラスとは青写真と考えればよい
+クラスとはオブジェクトの振る舞いや特徴を描写する</p>
+
+<p>//create an object-oriented program
+OOPとよく言われる
+カスタムクラスをつくる
+オブジェクトに何をすべきか伝える
+（オブジェクトがプログラムの中でどのように振る舞うか決定する）</p>
+
+<p>//main class
+すべてのプログラムはメインクラスをもっている</p>
+
+<p>//the virtual zoo
+たまごっちのようなプログラムをつくりながら説明する。
+細かな設定とかじゃなくロジックを主に説明する。</p>
+
+<p>//packages
+クラスを作るにあたりビルトインクラスとコンフリクトする可能性があるので、
+packageで包む必要がある。</p>
+
+<p>//classes in packages
+パッケージの中のクラスはパッケージの名前とドットでつなげる。
+例えば、gameと言うパッケージのなかのクラスPlayerなら
+game.Playerのように</p>
+
+<p>//creating a package
+&quot;define&quot; とは定義するという意味でここではパッケージを&quot;作る&quot;と考えてよい</p>
+
+<p>//package definition directive
+definition directive　定義指令</p>
+
+<p>//the zoo package
+&quot;zoo&quot;パッケージを作る</p>
+
+<p>ここらへんでなんか眠たさが極限、
+あと30分でお昼休憩だからそこまでがまんしよう。あと20分。。あと10分。。。
+次の瞬間、目を開いたら目の前にコリン・ムック先生が！
+「このひとはたぶん疲れてるんでしょうね、そんな人にはこの無料チケットを」
+みたいなことを言って、オライリーの本が1冊無料でゲットできるチケットをもらう。。。</p>
+
+<p><a href="http://3.bp.blogspot.com/_1drnogi3vdg/R5NepSF05AI/AAAAAAAAADA/hahwhraO5Og/s1600-h/080120_2334.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157570061593273346" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://3.bp.blogspot.com/_1drnogi3vdg/R5NepSF05AI/AAAAAAAAADA/hahwhraO5Og/s320/080120_2334.jpg" border="0" alt="" /></a>
+さすがに、通訳越しに言われるのはとても恥ずかしかったッス。
+とはいえ、はるばる日本まで来て9時間みっちり教えてるのに、
+来てみたら真ん前の席の奴が寝てるってどやねん！って
+感じっすよねコリン先生からしちゃ。ほんますみませんでした。</p>
+
+<p>んなかんじでお昼休憩。
+休憩中はコリン先生のMacからレディオヘッドが流れてました。
+<h2><a href="http://2.bp.blogspot.com/_1drnogi3vdg/R5NebCF04_I/AAAAAAAAAC4/_SsnJxCqQz8/s1600-h/080115_1217.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157569816780137458" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://2.bp.blogspot.com/_1drnogi3vdg/R5NebCF04_I/AAAAAAAAAC4/_SsnJxCqQz8/s320/080115_1217.jpg" border="0" alt="" /></a>
+後半はなされるがまま</h2>
+//the public attribute   //the internal attribute
+パブリック　公開できる、参照できる
+インターナル　パッケージ内のクラス（デフォルトはインターナルだがちゃんと書いたほうがよい）</p>
+
+<p>//constructor method
+オブジェクトを使うには初期化(initialize)する</p>
+
+<p>//variables and values
+ローカル変数
+インスタンス変数</p>
+
+<p>//variable access-control modifiers
+変数の4つのレベル
+パブリック、インターナル、プロテクト、プライベート
+どれ指定したらよいか分からなかったら、プライベートにしとけ</p>
+
+<p>//assiging one variable another&#39;s value
+このへんからthisとかでてきてよーわからんくなってくる＞＜</p>
+
+<p>セミナー後半はただコリン先生が書くコードを見てるだけでした。
+というわけで、後は印象に残ったことを箇条書き
+<ul>
+    <li>変数はコンテナという考えは捨てろ！変数はオブジェクトとして参照できる名前だよ。</li>
+    <li>public APIは変えるな！</li>
+    <li>オブジェクト指向ってのは人間のために書かれたコードだよ。</li>
+    <li>オブジェクトは生き物なんだよ！</li>
+    <li>MVCとかデザインパターンは便利だよ。</li>
+    <li>んで、今回9時間書けてつくったプログラムだけどFlashだったら30分でできるよ。</li>
+    <li>でも、コードで書く方がクライアントの急な変更にも対応できる、つまり拡張と変更が簡単なんだ。</li>
+</ul>
+ここからはコリン先生ネタw
+<ul>
+    <li>音楽聞きながらプログラミングできないよー。</li>
+    <li>女の子プログラマーがもっと増えればいいなーとおもってる。</li>
+    <li>コーラが好きだ。</li>
+    <li>Flexのコード編集コマンドがギガ/メガお気に入りです。</li>
+    <li>MacもWinも制作環境としてはどちらも嫌い</li>
+    <li>でも、Winにはボイスデクテーション?という音声文字入力アプリがあるからwin使ってる。</li>
+    <li>タイプしたくない！</li>
+</ul>
+コリン先生のマック
+MacBook Black
+OS X 10.5 Leopard
+text editor : <a id="xzyj" title="Smultron" href="http://smultron.sourceforge.net/">Smultron</a>
+music player : <a id="d4d8" title="Cog" href="http://cogx.org/">Cog</a>
+launcher : QuickSilver
+あとは確認できたのは
+Flash CS3 Flex3とかで、あんましメインでは使ってない感じ。</p>
+
+<p>そんな感じで、なんかもっと勉強してくれば、もっとタメになったんだろうなと思いました。</p>
+
+<p>帰りも夜行バスで帰りました。
+朝6時に金沢駅に着いたので、そのまま家に帰るのもあれだなと思い、
+近くの<a id="nx0u" title="アパホテルの温泉" href="http://www.apahotel.com/hotel/hokuriku/06_kanazawa-ekimae/facilities.html#spa">アパホテルの温泉</a> でくつろいでそのまま会社に出社しました。</p>
+
+<p>だもんで、金沢に夜行バスで観光に来る人は朝方着いて何もお店開いてないから、
+温泉入りながら時間つぶせばいいと思うよ。3時間1000円だよ。
+金沢駅周辺にはマンガ喫茶とかないから時間が潰せないんだよ。
+とローカルネタも今後書いていこうと思ったりして。</p>
+
+<p>&nbsp;</p>
+
+<p>最後にコリン先生居眠りしてごめんなさい。
+もらった無料チケットでEssential ActionScript 3.0は買わず、JavaScript 第5版を買わせていただきます。Essentialは翻訳版が春か夏ごろ出るとおっしゃっていたので、それまでJS勉強して、もう一度ASに再挑戦したいと思います。
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank">JavaScript 第5版</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank"><img class="fig" style="border: 0px initial initial;" src="http://ecx.images-amazon.com/images/I/413amOWGgvL._SL160_.jpg" border="0" alt="JavaScript 第5版" width="123" height="160" /></a></td>
+<td valign="top">村上 列&nbsp;</p>
+
+<p><strong>おすすめ平均</strong> <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="stars" />買って良かった
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="stars" />多少冗長な感じがします
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="stars" />翻訳が上手です
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="stars" />文書が多くサンプルコードが少ない本です</p>
+
+<p><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank">詳説 ActionScript 3.0</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/514SnR1V4yL._SL160_.jpg" border="0" alt="詳説 ActionScript 3.0" width="125" height="160" /></a></td>
+<td valign="top">永井 勝則&nbsp;</p>
+
+<p>オライリージャパン  2008-11-22
+売り上げランキング : 17072</p>
+
+<p><strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />ActionScript3.0言語仕様の解説書です</p>
+
+<p><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table></p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2008-20-January" title="January 20, 2008">January 20, 2008</time>
+            </div>
+            <h1 class="title">今から始める ActionScript 3.0 - WORLD WIDE TOUR</h1>
+            
+        </header>
+
+        <section>
+            <p>Adobe Presents コリン・ムックの「<a id="xbah" title="今から始める ActionScript 3.0 - WORLD WIDE TOUR" href="http://www.event-web.net/as3/">今から始める ActionScript 3.0 - WORLD WIDE TOUR</a> 」コリン・ムックの『コ』の字も知らない自分が、AS1,2さえも書いたことがない自分が行ってきたよ。そんな自分が今回のセミナーでクラスやオブジェクトについて理解できるわけもなく、さっぱりな印象。</p>
+
+<p>とはいえ、夜行バスではるばる石川からの参戦だったので一応メモっておく。
+<h2>序章</h2>
+コリン・ムックは知らなかったが、WenDesigningかなにかの雑誌で日本のすごいFlasherが尊敬している人物に彼の名前を挙げていたので、記憶に残ってた。そんな折、<a id="td6e" title="セミナー情報共有カレンダー" href="http://blog.woopsdez.jp/2007/11/post_264.php">セミナー情報共有カレンダー</a>で今回のセミナーがあるのを知る。すでに定員オーバーの受付終了だったがブログレポーター枠なら残ってたので早速申し込む（07/12/12）。
+さすがにノー勉ではあれなので予習をしておく。
+<ul>
+    <li><a id="weut" title="はじめてのActionScript3.0プログラミング" href="http://zapanet.info/blog/item/882">はじめてのActionScript3.0プログラミング</a></li>
+    <li><a id="h8n1" title="3月22日の技術勉強会 - ActionScript3 / Flex / Apollo 勉強会" href="http://hatena.g.hatena.ne.jp/hatenatech/20070324/1174713674">3月22日の技術勉強会 - ActionScript3 / Flex / Apollo 勉強会</a></li>
+    <li><a id="r1uv" title="8月17日の技術勉強会 - Flexレイアウト手書き勉強会" href="http://hatena.g.hatena.ne.jp/hatenatech/20070821/1187670828">8月17日の技術勉強会 - Flexレイアウト手書き勉強会</a></li>
+    <li><a id="e5_b" title="ActionScript for JavaScript(er)." href="http://amachang.art-code.org/usrb.in/amachang/static/shibuyaes/">ActionScript for JavaScript(er).</a> [<a href="http://mp.i-revo.jp/user.php/hpjckqhw/attach/24">動画</a>]</li>
+    <li><a id="fhbd" title="AS 3.0 勉強会資料" href="http://amachang.art-code.org/usrb.in/amachang/static/as3study20070408/">AS 3.0 勉強会資料</a></li>
+    <li><a id="ppn6" title="WCAN mini vol.1 - ActionScript 3.0 + CUI" href="http://amachang.art-code.org/usrb.in/amachang/static/wcan200701/">WCAN mini vol.1 - ActionScript 3.0 + CUI</a></li>
+    <li><a id="dx7s" title="ActionScript 勉強会資料 in Nagoya" href="http://amachang.art-code.org/usrb.in/amachang/static/unknown/">ActionScript 勉強会資料 in Nagoya</a></li>
+</ul>
+流し読み程度ですけどね。
+<h2>いざ会場へ</h2>
+行きの夜行バスで一睡もできず、眠たさマックスでセミナー会場である<a id="eiy8" title="ゲートシティホール" href="http://www.gatecity.jp/floor/in.html?floor=3">ゲートシティホール</a> に到着。会場の印象、で、でかい！しかも、後から申し込んだにも関わらず、ブログレポーターということで、一番前で机まで用意されてあるのはラッキーだった♪
+<h2><a href="http://1.bp.blogspot.com/_1drnogi3vdg/R5NeGyF04-I/AAAAAAAAACw/bpSg18aqCQI/s1600-h/080115_0940.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157569468887786466" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://1.bp.blogspot.com/_1drnogi3vdg/R5NeGyF04-I/AAAAAAAAACw/bpSg18aqCQI/s320/080115_0940.jpg" border="0" alt="" /></a>
+コリン・ムック登場</h2>
+まず、このセミナーを開いてくれた関係者の皆さんに感謝の意を表す。
+年末にも東京でFlashのカンファレンスを予定しているらしい。</p>
+
+<p>当日のセミナーでの講演内容はここです。
+↓
+<a onclick="return top.js.OpenExtLink(window,event,this)" href="http://moock.org/lectures/groundUpAS3/" target="_blank">http://moock.org/lectures/groundUpAS3/</a></p>
+
+<p>セミナーの流れとしては、たまごっちのようなプログラム
+（時間が経つにつれ体力が減るペットに、エサを与えるようなプログラム）を
+9時間かけて懇切丁寧に説明してくれた。</p>
+
+<p>//overview
+プログラムをしたことない人でも気負う必要はない。
+全部分からなくてもいい、やりたいことからやればいい。
+プログラムに終わりはない、1日や1年、10年続けたってダメ、大事なのは毎日続けること。
+今回のセミナーはクラスを作ったことがない人が対象だよ。</p>
+
+<p>//ActionScript programming tools
+ノートパッド
+Flash
+flex builder
+(今回のセミナーでコリンは、Mac付属のテキストエディタとFlex3を使ってコードを書いてた。)</p>
+
+<p>//Flash client runtime environments
+Flash Player
+Adobe AIR
+Flash Lite</p>
+
+<p>//what is an ActionScript program?
+コードと.flaファイルを合わせたもの。
+今回はコードだけのオブジェクト指向プログラミングについて説明する。
+AS3ファイルのなかでAS1やAS2のコードも書けるのでそこんとこ勘違いしないでねと。</p>
+
+<p>//building an airplane
+飛行機を作ることを想像してほしい。
+最初に必要なのは青写真だ。
+パーツ（車輪や翼）としてつかえる汎用的な青写真</p>
+
+<p>//objects
+objectとはプログラムの中の「モノ」</p>
+
+<p>//classes
+クラスとは青写真と考えればよい
+クラスとはオブジェクトの振る舞いや特徴を描写する</p>
+
+<p>//create an object-oriented program
+OOPとよく言われる
+カスタムクラスをつくる
+オブジェクトに何をすべきか伝える
+（オブジェクトがプログラムの中でどのように振る舞うか決定する）</p>
+
+<p>//main class
+すべてのプログラムはメインクラスをもっている</p>
+
+<p>//the virtual zoo
+たまごっちのようなプログラムをつくりながら説明する。
+細かな設定とかじゃなくロジックを主に説明する。</p>
+
+<p>//packages
+クラスを作るにあたりビルトインクラスとコンフリクトする可能性があるので、
+packageで包む必要がある。</p>
+
+<p>//classes in packages
+パッケージの中のクラスはパッケージの名前とドットでつなげる。
+例えば、gameと言うパッケージのなかのクラスPlayerなら
+game.Playerのように</p>
+
+<p>//creating a package
+&quot;define&quot; とは定義するという意味でここではパッケージを&quot;作る&quot;と考えてよい</p>
+
+<p>//package definition directive
+definition directive　定義指令</p>
+
+<p>//the zoo package
+&quot;zoo&quot;パッケージを作る</p>
+
+<p>ここらへんでなんか眠たさが極限、
+あと30分でお昼休憩だからそこまでがまんしよう。あと20分。。あと10分。。。
+次の瞬間、目を開いたら目の前にコリン・ムック先生が！
+「このひとはたぶん疲れてるんでしょうね、そんな人にはこの無料チケットを」
+みたいなことを言って、オライリーの本が1冊無料でゲットできるチケットをもらう。。。</p>
+
+<p><a href="http://3.bp.blogspot.com/_1drnogi3vdg/R5NepSF05AI/AAAAAAAAADA/hahwhraO5Og/s1600-h/080120_2334.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157570061593273346" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://3.bp.blogspot.com/_1drnogi3vdg/R5NepSF05AI/AAAAAAAAADA/hahwhraO5Og/s320/080120_2334.jpg" border="0" alt="" /></a>
+さすがに、通訳越しに言われるのはとても恥ずかしかったッス。
+とはいえ、はるばる日本まで来て9時間みっちり教えてるのに、
+来てみたら真ん前の席の奴が寝てるってどやねん！って
+感じっすよねコリン先生からしちゃ。ほんますみませんでした。</p>
+
+<p>んなかんじでお昼休憩。
+休憩中はコリン先生のMacからレディオヘッドが流れてました。
+<h2><a href="http://2.bp.blogspot.com/_1drnogi3vdg/R5NebCF04_I/AAAAAAAAAC4/_SsnJxCqQz8/s1600-h/080115_1217.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img id="BLOGGER_PHOTO_ID_5157569816780137458" style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; font-size: 24px;" src="http://2.bp.blogspot.com/_1drnogi3vdg/R5NebCF04_I/AAAAAAAAAC4/_SsnJxCqQz8/s320/080115_1217.jpg" border="0" alt="" /></a>
+後半はなされるがまま</h2>
+//the public attribute   //the internal attribute
+パブリック　公開できる、参照できる
+インターナル　パッケージ内のクラス（デフォルトはインターナルだがちゃんと書いたほうがよい）</p>
+
+<p>//constructor method
+オブジェクトを使うには初期化(initialize)する</p>
+
+<p>//variables and values
+ローカル変数
+インスタンス変数</p>
+
+<p>//variable access-control modifiers
+変数の4つのレベル
+パブリック、インターナル、プロテクト、プライベート
+どれ指定したらよいか分からなかったら、プライベートにしとけ</p>
+
+<p>//assiging one variable another&#39;s value
+このへんからthisとかでてきてよーわからんくなってくる＞＜</p>
+
+<p>セミナー後半はただコリン先生が書くコードを見てるだけでした。
+というわけで、後は印象に残ったことを箇条書き
+<ul>
+    <li>変数はコンテナという考えは捨てろ！変数はオブジェクトとして参照できる名前だよ。</li>
+    <li>public APIは変えるな！</li>
+    <li>オブジェクト指向ってのは人間のために書かれたコードだよ。</li>
+    <li>オブジェクトは生き物なんだよ！</li>
+    <li>MVCとかデザインパターンは便利だよ。</li>
+    <li>んで、今回9時間書けてつくったプログラムだけどFlashだったら30分でできるよ。</li>
+    <li>でも、コードで書く方がクライアントの急な変更にも対応できる、つまり拡張と変更が簡単なんだ。</li>
+</ul>
+ここからはコリン先生ネタw
+<ul>
+    <li>音楽聞きながらプログラミングできないよー。</li>
+    <li>女の子プログラマーがもっと増えればいいなーとおもってる。</li>
+    <li>コーラが好きだ。</li>
+    <li>Flexのコード編集コマンドがギガ/メガお気に入りです。</li>
+    <li>MacもWinも制作環境としてはどちらも嫌い</li>
+    <li>でも、Winにはボイスデクテーション?という音声文字入力アプリがあるからwin使ってる。</li>
+    <li>タイプしたくない！</li>
+</ul>
+コリン先生のマック
+MacBook Black
+OS X 10.5 Leopard
+text editor : <a id="xzyj" title="Smultron" href="http://smultron.sourceforge.net/">Smultron</a>
+music player : <a id="d4d8" title="Cog" href="http://cogx.org/">Cog</a>
+launcher : QuickSilver
+あとは確認できたのは
+Flash CS3 Flex3とかで、あんましメインでは使ってない感じ。</p>
+
+<p>そんな感じで、なんかもっと勉強してくれば、もっとタメになったんだろうなと思いました。</p>
+
+<p>帰りも夜行バスで帰りました。
+朝6時に金沢駅に着いたので、そのまま家に帰るのもあれだなと思い、
+近くの<a id="nx0u" title="アパホテルの温泉" href="http://www.apahotel.com/hotel/hokuriku/06_kanazawa-ekimae/facilities.html#spa">アパホテルの温泉</a> でくつろいでそのまま会社に出社しました。</p>
+
+<p>だもんで、金沢に夜行バスで観光に来る人は朝方着いて何もお店開いてないから、
+温泉入りながら時間つぶせばいいと思うよ。3時間1000円だよ。
+金沢駅周辺にはマンガ喫茶とかないから時間が潰せないんだよ。
+とローカルネタも今後書いていこうと思ったりして。</p>
+
+<p>&nbsp;</p>
+
+<p>最後にコリン先生居眠りしてごめんなさい。
+もらった無料チケットでEssential ActionScript 3.0は買わず、JavaScript 第5版を買わせていただきます。Essentialは翻訳版が春か夏ごろ出るとおっしゃっていたので、それまでJS勉強して、もう一度ASに再挑戦したいと思います。
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank">JavaScript 第5版</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank"><img class="fig" style="border: 0px initial initial;" src="http://ecx.images-amazon.com/images/I/413amOWGgvL._SL160_.jpg" border="0" alt="JavaScript 第5版" width="123" height="160" /></a></td>
+<td valign="top">村上 列&nbsp;</p>
+
+<p><strong>おすすめ平均</strong> <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="stars" />買って良かった
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="stars" />多少冗長な感じがします
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="stars" />翻訳が上手です
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="stars" />文書が多くサンプルコードが少ない本です</p>
+
+<p><a href="http://www.amazon.co.jp/JavaScript-%E7%AC%AC5%E7%89%88-David-Flanagan/dp/4873113296%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113296" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank">詳説 ActionScript 3.0</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/514SnR1V4yL._SL160_.jpg" border="0" alt="詳説 ActionScript 3.0" width="125" height="160" /></a></td>
+<td valign="top">永井 勝則&nbsp;</p>
+
+<p>オライリージャパン  2008-11-22
+売り上げランキング : 17072</p>
+
+<p><strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />ActionScript3.0言語仕様の解説書です</p>
+
+<p><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%AA%AC-ActionScript-3-0-Colin-Moock/dp/4873113873%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113873" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table></p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="今から始める ActionScript 3.0 - WORLD WIDE TOUR" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>

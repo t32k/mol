@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UIRequiredDeviceCapabilities &mdash; MOL</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
+    <meta name="title" content="UIRequiredDeviceCapabilities ">
+    <link rel="canonical" href="http://t32k.me//mol/log/uirequireddevicecapabilities">
+     
+           
+    <meta property="og:title" content="UIRequiredDeviceCapabilities "/>
+    <meta property="og:url" content="http://t32k.me//mol/log/uirequireddevicecapabilities"/>
+    
+    
+    <!--meta property="og:description" content="<p><img class="alignnone size-full wp-image-2988" title="still-camera" src="http://t32k.me/mol/file/2011/04/still-camera.png" alt="still-camera" width="470" height="105" /></p>
+
+<p>初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！</p>
+
+<p>その理由はAppleさん律儀なコでして、ちゃんとどこが嫌なのか言ってくれます。そこを修正してもう一度トライすればいいんですよ。</p>
+
+<!--more-->
+
+<p>ってことで、今回は簡単に意訳すると、「テメーのアプリ、カメラ使うのにカメラが必要って書いてないじゃん！無理じゃん！！UIRequiredDeviceCapabilitiesでググッたらいいんじゃないの！？こんなサービスめったにしないんだからねっ！！！」ってな感じなことがrりんごちゃんの返答メールの行間から読み取れました。</p>
+
+<p>はい、メチャいい子です。早速、UIRequiredDeviceCapabilitieでググってみるといっぱい出てきました。みんな必ずぶち当たる登竜門みたいなもんですかね。
+<blockquote><span style="color: #000000;">Key: </span>UIRequiredDeviceCapabilities
+<span style="color: #000000;">Xcode name: </span>&quot;Required device capabilities”
+<span style="color: #000000;">Summary: </span>Specifies the device-related features required for the application to run. See “UIRequiredDeviceCapabilities” for details.
+<span style="color: #000000;">Availability: </span>iOS 3.0 and later</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html">Information Property List Key Reference</a></span></blockquote>
+はい、<a href="http://t32k.me/mol/log/ios-prerendered-icon/">アイコンのテカリを無くしたい時にも出ててきましたね</a>、Info.plistです。そのKeyにUIRequiredDeviceCapabilitieって書いて必要な機能埋めちゃいなよって書いてあります。</p>
+
+<p>その機能のリストが以下です。いろいろありますなー。</p>
+
+<p><strong><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">Dictionary keys for the UIRequiredDeviceCapabilities key</a></strong>
+<ul>
+    <li>telephony</li>
+    <li>wifi</li>
+    <li>sms</li>
+    <li>still-camera</li>
+    <li>auto-focus-camera</li>
+    <li>front-facing-camera</li>
+    <li>camera-flash</li>
+    <li>video-camera</li>
+    <li>accelerometer</li>
+    <li>gyroscope</li>
+    <li>location-services</li>
+    <li>gps</li>
+    <li>magnetometer</li>
+    <li>gamekit</li>
+    <li>microphone</li>
+    <li>opengles-1</li>
+    <li>opengles-2</li>
+    <li>armv6</li>
+    <li>armv7</li>
+</ul>
+今回のアプリでrequireな機能といえば、カメラ機能なのでstill-cameraを選択しました。スチールカメラね、写真撮る方のカメラね。
+<blockquote>Copy the info.plist to the root of your project and edit it from there. It will be copied over to the complied project from there.</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.appcelerator.com/question/43711/any-way-to-edit-the-uirequireddevicecapabilities-key-in-infoplist">Appcelerator Developer Center - Any way to edit the UIRequiredDeviceCapabilities key in Info.plist?</a></span></blockquote></p>
+
+<p><img class="fig" title="UIRequiredDeviceCapabilitie" src="http://t32k.me/mol/file/2011/04/UIRequiredDeviceCapabilitie.png" alt="Required device capabilitie" width="470" height="108" /></p>
+
+<p>んで、TItanium Mobile のプロジェクトフォルダの、buid/iphone/Info.plistをルートディレクトリにコピーして、そのファイルでRequired device capabilitieの項目を作って必要な機能を記入してけばいいよ。2つも3つでも必要なだけ書けばいいお！</p>
+
+<blockquote>Custom Info.plist
+
+To use a custom Info.plist, copy the Info.plist from the build/iphone folder. If this folder does not exist, run your application in the simulator once and it should be created automatically. You'll want to copy the Info.plist file into the root directory of your project (at the same level as tiapp.xml). Whatever values are placed in your custom Info.plist will be used as-is by the Titanium compiler.
+
+<span style="font-size: x-small;"><a href="http://wiki.appcelerator.org/display/guides/The+Application+Project+Structure#TheApplicationProjectStructure-CustomInfo.plist">The Application Project Structure - Documentation Guides - Appcelerator Wiki</a></span></blockquote>
+
+<p>Info.plistをルートに持ってくるのは、そのままだとビルドするときに上書きしちゃって消えちゃうからしい。</p>
+
+<blockquote>tiapps.xmlでrequires要素を用いて、デバイス機能によるインストール制限に対応した。(UIRequiredDeviceCapabilities)
+
+<span style="font-size: x-small;"><a href="http://d.hatena.ne.jp/donayama/20110224/ti160released ">Titanium Mobile 1.6.0がリリースされました - JP::HSJ::Junknews::HatenaSide</a></span></blockquote>
+
+<p>んなことしなくても、どうやらTitanium Mobile 1.6からはtiapp.xmlで指定するっぽい。</p>
+
+<p>[xml]
+&lt;iphone&gt;
+　&lt;requires&gt;
+　　&lt;feature&gt;still-camera&lt;/feature&gt;
+　&lt;/requires&gt;
+&lt;/iphone&gt;
+[/xml]</p>
+
+<p>多分こんな感じでうまくいった、iphone要素なかにネストでrequires要素を作ってその中に必要なfeature(機能)を記述していく感じ。</p>
+
+<p>はい、そんなこんなで再申請しました。今度は通るといいな。</p>
+"/>
+    <meta name="description" content="<p><img class="alignnone size-full wp-image-2988" title="still-camera" src="http://t32k.me/mol/file/2011/04/still-camera.png" alt="still-camera" width="470" height="105" /></p>
+
+<p>初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！</p>
+
+<p>その理由はAppleさん律儀なコでして、ちゃんとどこが嫌なのか言ってくれます。そこを修正してもう一度トライすればいいんですよ。</p>
+
+<!--more-->
+
+<p>ってことで、今回は簡単に意訳すると、「テメーのアプリ、カメラ使うのにカメラが必要って書いてないじゃん！無理じゃん！！UIRequiredDeviceCapabilitiesでググッたらいいんじゃないの！？こんなサービスめったにしないんだからねっ！！！」ってな感じなことがrりんごちゃんの返答メールの行間から読み取れました。</p>
+
+<p>はい、メチャいい子です。早速、UIRequiredDeviceCapabilitieでググってみるといっぱい出てきました。みんな必ずぶち当たる登竜門みたいなもんですかね。
+<blockquote><span style="color: #000000;">Key: </span>UIRequiredDeviceCapabilities
+<span style="color: #000000;">Xcode name: </span>&quot;Required device capabilities”
+<span style="color: #000000;">Summary: </span>Specifies the device-related features required for the application to run. See “UIRequiredDeviceCapabilities” for details.
+<span style="color: #000000;">Availability: </span>iOS 3.0 and later</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html">Information Property List Key Reference</a></span></blockquote>
+はい、<a href="http://t32k.me/mol/log/ios-prerendered-icon/">アイコンのテカリを無くしたい時にも出ててきましたね</a>、Info.plistです。そのKeyにUIRequiredDeviceCapabilitieって書いて必要な機能埋めちゃいなよって書いてあります。</p>
+
+<p>その機能のリストが以下です。いろいろありますなー。</p>
+
+<p><strong><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">Dictionary keys for the UIRequiredDeviceCapabilities key</a></strong>
+<ul>
+    <li>telephony</li>
+    <li>wifi</li>
+    <li>sms</li>
+    <li>still-camera</li>
+    <li>auto-focus-camera</li>
+    <li>front-facing-camera</li>
+    <li>camera-flash</li>
+    <li>video-camera</li>
+    <li>accelerometer</li>
+    <li>gyroscope</li>
+    <li>location-services</li>
+    <li>gps</li>
+    <li>magnetometer</li>
+    <li>gamekit</li>
+    <li>microphone</li>
+    <li>opengles-1</li>
+    <li>opengles-2</li>
+    <li>armv6</li>
+    <li>armv7</li>
+</ul>
+今回のアプリでrequireな機能といえば、カメラ機能なのでstill-cameraを選択しました。スチールカメラね、写真撮る方のカメラね。
+<blockquote>Copy the info.plist to the root of your project and edit it from there. It will be copied over to the complied project from there.</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.appcelerator.com/question/43711/any-way-to-edit-the-uirequireddevicecapabilities-key-in-infoplist">Appcelerator Developer Center - Any way to edit the UIRequiredDeviceCapabilities key in Info.plist?</a></span></blockquote></p>
+
+<p><img class="fig" title="UIRequiredDeviceCapabilitie" src="http://t32k.me/mol/file/2011/04/UIRequiredDeviceCapabilitie.png" alt="Required device capabilitie" width="470" height="108" /></p>
+
+<p>んで、TItanium Mobile のプロジェクトフォルダの、buid/iphone/Info.plistをルートディレクトリにコピーして、そのファイルでRequired device capabilitieの項目を作って必要な機能を記入してけばいいよ。2つも3つでも必要なだけ書けばいいお！</p>
+
+<blockquote>Custom Info.plist
+
+To use a custom Info.plist, copy the Info.plist from the build/iphone folder. If this folder does not exist, run your application in the simulator once and it should be created automatically. You'll want to copy the Info.plist file into the root directory of your project (at the same level as tiapp.xml). Whatever values are placed in your custom Info.plist will be used as-is by the Titanium compiler.
+
+<span style="font-size: x-small;"><a href="http://wiki.appcelerator.org/display/guides/The+Application+Project+Structure#TheApplicationProjectStructure-CustomInfo.plist">The Application Project Structure - Documentation Guides - Appcelerator Wiki</a></span></blockquote>
+
+<p>Info.plistをルートに持ってくるのは、そのままだとビルドするときに上書きしちゃって消えちゃうからしい。</p>
+
+<blockquote>tiapps.xmlでrequires要素を用いて、デバイス機能によるインストール制限に対応した。(UIRequiredDeviceCapabilities)
+
+<span style="font-size: x-small;"><a href="http://d.hatena.ne.jp/donayama/20110224/ti160released ">Titanium Mobile 1.6.0がリリースされました - JP::HSJ::Junknews::HatenaSide</a></span></blockquote>
+
+<p>んなことしなくても、どうやらTitanium Mobile 1.6からはtiapp.xmlで指定するっぽい。</p>
+
+<p>[xml]
+&lt;iphone&gt;
+　&lt;requires&gt;
+　　&lt;feature&gt;still-camera&lt;/feature&gt;
+　&lt;/requires&gt;
+&lt;/iphone&gt;
+[/xml]</p>
+
+<p>多分こんな感じでうまくいった、iphone要素なかにネストでrequires要素を作ってその中に必要なfeature(機能)を記述していく感じ。</p>
+
+<p>はい、そんなこんなで再申請しました。今度は通るといいな。</p>
+"/-->
+    
+    <meta property="og:site_name" content="MOL">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            <a href="https://github.com/t32k/maple">Maple</a>
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+    </header>
+</section>
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a> &mdash;
+                <time pubdate datetime="2011-27-April" title="April 27, 2011">April 27, 2011</time>
+            </div>
+            <h1 class="title">UIRequiredDeviceCapabilities</h1>
+            
+        </header>
+
+        <section>
+            <p><img class="alignnone size-full wp-image-2988" title="still-camera" src="http://t32k.me/mol/file/2011/04/still-camera.png" alt="still-camera" width="470" height="105" /></p>
+
+<p>初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！</p>
+
+<p>その理由はAppleさん律儀なコでして、ちゃんとどこが嫌なのか言ってくれます。そこを修正してもう一度トライすればいいんですよ。</p>
+
+<!--more-->
+
+<p>ってことで、今回は簡単に意訳すると、「テメーのアプリ、カメラ使うのにカメラが必要って書いてないじゃん！無理じゃん！！UIRequiredDeviceCapabilitiesでググッたらいいんじゃないの！？こんなサービスめったにしないんだからねっ！！！」ってな感じなことがrりんごちゃんの返答メールの行間から読み取れました。</p>
+
+<p>はい、メチャいい子です。早速、UIRequiredDeviceCapabilitieでググってみるといっぱい出てきました。みんな必ずぶち当たる登竜門みたいなもんですかね。
+<blockquote><span style="color: #000000;">Key: </span>UIRequiredDeviceCapabilities
+<span style="color: #000000;">Xcode name: </span>&quot;Required device capabilities”
+<span style="color: #000000;">Summary: </span>Specifies the device-related features required for the application to run. See “UIRequiredDeviceCapabilities” for details.
+<span style="color: #000000;">Availability: </span>iOS 3.0 and later</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html">Information Property List Key Reference</a></span></blockquote>
+はい、<a href="http://t32k.me/mol/log/ios-prerendered-icon/">アイコンのテカリを無くしたい時にも出ててきましたね</a>、Info.plistです。そのKeyにUIRequiredDeviceCapabilitieって書いて必要な機能埋めちゃいなよって書いてあります。</p>
+
+<p>その機能のリストが以下です。いろいろありますなー。</p>
+
+<p><strong><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">Dictionary keys for the UIRequiredDeviceCapabilities key</a></strong>
+<ul>
+    <li>telephony</li>
+    <li>wifi</li>
+    <li>sms</li>
+    <li>still-camera</li>
+    <li>auto-focus-camera</li>
+    <li>front-facing-camera</li>
+    <li>camera-flash</li>
+    <li>video-camera</li>
+    <li>accelerometer</li>
+    <li>gyroscope</li>
+    <li>location-services</li>
+    <li>gps</li>
+    <li>magnetometer</li>
+    <li>gamekit</li>
+    <li>microphone</li>
+    <li>opengles-1</li>
+    <li>opengles-2</li>
+    <li>armv6</li>
+    <li>armv7</li>
+</ul>
+今回のアプリでrequireな機能といえば、カメラ機能なのでstill-cameraを選択しました。スチールカメラね、写真撮る方のカメラね。
+<blockquote>Copy the info.plist to the root of your project and edit it from there. It will be copied over to the complied project from there.</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.appcelerator.com/question/43711/any-way-to-edit-the-uirequireddevicecapabilities-key-in-infoplist">Appcelerator Developer Center - Any way to edit the UIRequiredDeviceCapabilities key in Info.plist?</a></span></blockquote></p>
+
+<p><img class="fig" title="UIRequiredDeviceCapabilitie" src="http://t32k.me/mol/file/2011/04/UIRequiredDeviceCapabilitie.png" alt="Required device capabilitie" width="470" height="108" /></p>
+
+<p>んで、TItanium Mobile のプロジェクトフォルダの、buid/iphone/Info.plistをルートディレクトリにコピーして、そのファイルでRequired device capabilitieの項目を作って必要な機能を記入してけばいいよ。2つも3つでも必要なだけ書けばいいお！</p>
+
+<blockquote>Custom Info.plist
+
+To use a custom Info.plist, copy the Info.plist from the build/iphone folder. If this folder does not exist, run your application in the simulator once and it should be created automatically. You'll want to copy the Info.plist file into the root directory of your project (at the same level as tiapp.xml). Whatever values are placed in your custom Info.plist will be used as-is by the Titanium compiler.
+
+<span style="font-size: x-small;"><a href="http://wiki.appcelerator.org/display/guides/The+Application+Project+Structure#TheApplicationProjectStructure-CustomInfo.plist">The Application Project Structure - Documentation Guides - Appcelerator Wiki</a></span></blockquote>
+
+<p>Info.plistをルートに持ってくるのは、そのままだとビルドするときに上書きしちゃって消えちゃうからしい。</p>
+
+<blockquote>tiapps.xmlでrequires要素を用いて、デバイス機能によるインストール制限に対応した。(UIRequiredDeviceCapabilities)
+
+<span style="font-size: x-small;"><a href="http://d.hatena.ne.jp/donayama/20110224/ti160released ">Titanium Mobile 1.6.0がリリースされました - JP::HSJ::Junknews::HatenaSide</a></span></blockquote>
+
+<p>んなことしなくても、どうやらTitanium Mobile 1.6からはtiapp.xmlで指定するっぽい。</p>
+
+<p>[xml]
+&lt;iphone&gt;
+　&lt;requires&gt;
+　　&lt;feature&gt;still-camera&lt;/feature&gt;
+　&lt;/requires&gt;
+&lt;/iphone&gt;
+[/xml]</p>
+
+<p>多分こんな感じでうまくいった、iphone要素なかにネストでrequires要素を作ってその中に必要なfeature(機能)を記述していく感じ。</p>
+
+<p>はい、そんなこんなで再申請しました。今度は通るといいな。</p>
+
+            
+<div class="social">
+    <div>
+        <a href="https://twitter.com/share" class="twitter-share-button"  data-text="UIRequiredDeviceCapabilities" data-related="t32k">Tweet</a>
+    </div>
+    
+    
+    <div>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    </div>
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+</div>
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2013 
+        
+        <nav>
+            <a href="http://t32k.me/">MOL</a> &middot;
+            <a href="/">Blog</a> &middot;
+            <a href="https://github.com/t32k/maple">Maple</a> &middot; 
+            <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
+        </nav>
+        
+        <nav class="social">
+            
+            <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/t32k" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=253595308025739";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
