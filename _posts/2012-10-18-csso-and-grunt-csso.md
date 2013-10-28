@@ -23,8 +23,6 @@ aa
 
 普段はSassの:compressed出力で最後デプロイしてるんだけど、もっとマシなものはないかなーと特には探してはないけど、<a href="https://twitter.com/cssradar">@cssradar</a>パイセンがCSSOがいいって言ったとか言わないとかあったので調べてみた。
 
-<!--more-->
-
 ちなみにSassの:compressedはこんな感じで出力しているらしい。
 <blockquote>Compressed style takes up the minimum amount of space possible, having no whitespace except that necessary to separate selectors and a newline at the end of the file. It also includes some other minor compressions, such as choosing the smallest representation for colors. It’s not meant to be human-readable.
 <p style="text-align: right;"><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id17 ">http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id17 </a></p>
