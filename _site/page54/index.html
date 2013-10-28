@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,236 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/javascript-in-web-browesers" rel="prefetch">第13章 Webブラウザに組み込まれたJavaScript</a></h2>
-            <p><p>クライアントサイドJavaScript
-Webサーバに対するWebブラウザ（クライアント）で使われるJS
-<h2>13.1　Webブラウザ環境</h2>
-Webブラウザのプログラミング環境について大事なこと
-Windowオブジェクト。グローバルオブジェクトの役目
-クライアントサイドオブジェクトの階層構造と、この階層構造に含まれるドキュメントオブジェクトモデル
-イベント駆動型のプログラミングモデル
-<h3>13.1.1　グローバル実行コンテキストとなるWindowオブジェクト</h3>
-Documentオブジェクト　HTMLドキュメントに対応する
-Windowオブジェクト ドキュメントを表示するウィンドウ（フレーム）に対応する
-Windowオブジェクトのプロパティがグローバル変数（以下のコードは同じ意味）
-var answer = 42;　　　　　//グローバル変数を宣言し、初期化
-window.answer = 42;　　//Windowオブジェクトにプロパティを作成
-各ウィンドウまたはフレームにはそれぞれ別個のWindowオブジェクトがある
-<h3>13.1.2　クライアントサイドオブジェクトの階層構造とDOM</h3>
-クライアントサイドJavaScriptオブジェクトの階層構造で最上位に位置するのがWindowオブジェクト
-<ul>
-    <li>self,window,parentなど</li>
-    <li>navigator</li>
-    <li>frames[]</li>
-    <li>location</li>
-    <li>history</li>
-    <li>document</li>
-    <li>screen</li>
-</ul>
-Documentオブジェクトから下位の階層のことをDOMと呼ぶ
-<h3>13.1.3　イベント駆動型のプログラミングモデル</h3>
-クライアントサイドJavaScriptでもイベント駆動型のプログラミングモデルを採用
-ユーザからの入力があるとWebブラウザがイベントを生成
-イベントが発生するとブラウザは対応するイベントハンドラを呼び出す
-最初から最後まで通して実行される静的なコードブロックと
-システムによって非同期に呼び出されるイベントハンドラがある
-<h3>13.1.4　WebにおけるJavaScriptの役割</h3>
-HTMLがコンテンツを指定し、CSSが表示方法を指定し、JSはそれに対して振る舞いを追加する
-JSの役割は、ユーザの利便性を向上し、簡単に情報を取得したり送信したりできるようにすること
-JSがなければ操作できないようなインターフェイスは作るべきではない
-<h3>13.1.5　控えめなJavaScript</h3>
-HTMLとJSを分離する
-JSは外部ファイル化してインクルード
-イベントハンドラ属性には記述せず、イベントハンドらを各要素に登録する
-モジュール化する
-正常に機能を停止する
-JSコードがなくても使えるように機能テストする
-JSのせいでHTMLのアクセサビリティを低下させない
-<h2>13.2　HTMLドキュメントへのJavaScriptコードの埋め込み</h2>
-SCRIPT要素内に記述
-SCRIPT要素のsrc属性で外部ファイルから読み込む
-イベントハンドラの場合、onclickやonmouseoverなどのHTML属性値として記述
-javascript: URL という形式でURL部分に記述
-<h3>13.2.1　&lt;script&gt;タグ</h3>
-<pre>&lt;script type=&quot;text/javascript&quot;&gt;// ここにコードを記述&lt;/script&gt;</pre>
-XHTMLの場合、「&lt;」「&amp;」などがXMLマークアップと見なされるのでCDATAセクション内に記述
-<pre>&lt;script type=&quot;text/javascript&quot;&gt;&lt;![CDATA[// ここにコードを記述]]&gt;&lt;/script&gt;</pre>
-SCRIPT要素はHTMLに現れる順に実行される
-あるスクリプトで定義された関数や変数は同じHTMLファイル内で後続するすべてのスクリプトで参照
-つまり実行コンテキストはHTMLページ単位
-<h3>13.2.2　外部ファイルのスクリプト</h3>
-src属性にて外部ファイルを指定</p>
-
-<p>SCRIPT要素内に記述したマークアップ、コードは無性される
-<pre>&lt;script src=&quot;../js/utility.js&quot;&gt;&lt;/script&gt;</pre>
-コンテンツと振る舞いを分離できる
-コードの保守性が高くなる
-キャッシュによる時間の節約
-ほかのWebサーバーからもインクルードできる</p>
-
-<p>スクリプトをインクルードするということは、そのスクリプトの作者と、スクリプトの配布元のWeb管理者、自身のWebページの制御を完全に委ねることになる
-<h3>13.2.3　スクリプト言語の指定</h3>
-JS以外のスクリプト言語としてIEでサポートされているMSのVisual Basic Scripting Edition (VBScript)しかない。
-つまり、スクリプト言語が2種類以上存在することになるのでどちらか指定する必要がある
-<pre>&lt;meta http-equiv=&quot;Content-Script-Type&quot; content=&quot;text/javascript&quot;&gt;&lt;script type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</pre>
-「text/javascript」はJSプログラム用のMIMEタイプ
-「application/x-javascript」というのもある（「x-」から始まるMIMEタイプは実験用つまり非標準を表す）</p>
-
-<p>将来的には「application/javascript」を使うことになるが現時点ではあまりサポートされていない。
-<h3>13.2.4　defer属性</h3>
-HTMLドキュメントを解析中のブラウザに対してスクリプトの実行を延期してもドキュメントの解析を実行しても問題ないことを教える
-IEだけ対応（ドキュメントの解析が終了するまで実行が延期）
-<pre>&lt;script defer=&quot;defer&quot;&gt;&lt;/script&gt;</pre>
-<h3>13.2.5　&lt;noscript&gt;タグ</h3>
-ブラウザでJSがオフになっている場合のみに表示されるコンテンツ
-ただし、JSが使えなくてもページが利用できるようにしておく。
-<h3>13.2.6　&lt;/script&gt;タグ</h3>
-HTMLパーサ自体はJSコードを理解しないので『&lt;/script&gt;』の文字列を見つけると、処理を停止する。
-&quot;&lt;/&quot; + &quot;script&gt;&quot;のように記述するか、バックスラッシュでエスケープ（&quot;&lt;\/script&gt;&quot;）しなければならない
-XHTMLではCDATAセクション内に記述するので上記のような問題は発生しない
-<h3>13.2.7　古いブラウザからスクリプトを見えないようにする</h3>
-古いブラウザだと&lt;script&gt;タグを認識しないためタグ内のテキストを表示してしまう問題がある
-<pre>&lt;script&gt;&lt;!--//ここにコードを記述//--&gt;&lt;/script&gt;</pre>
-上記のようにすれば問題ないが、そのような対策をする必要のあるブラウザがもうないので、このようなテクニックは必要ない
-<h3>13.2.8　&lt;script&gt;タグの非標準属性</h3>
-IEでの独自実装にevent属性とfor属性ってのがあるけど、使わないで！
-<h2>13.3　HTMLドキュメント内のイベントハンドラ</h2>
-onclick : A要素やAREA要素、ボタンタイプのフォーム要素でサポート。
-onmousedown, onmouseup : マウスカーソルがある要素の上に移動したとき、上から離れたとき
-onchange : INPUT,SELECT,TEXTAREA要素でサポート。値を変更した時や、フォーカスを移動したときに呼び出される
-onload : BODY要素のみサポート。onloadイベントが発生したということはドキュメントが完全に読み込まれた状態が安定しドキュメントが変更可能という意味
-控え目なJavaScriptという考えではイベントハンドラを属性で使用するのではなく、JS側から指定することが望ましい。
-<h2>13.4　URLへのJavaScriptの記述</h2>
-javascript:疑似プロトコルという形式
-コメントは「//」ではなく「/* */」を使う
-<pre>javascript:var now = new Date(); &quot;&lt;h1&gt;The time is : &lt;/h1&gt;&quot; + now;</pre>
-値を返すと現在のドキュメントを上書きすることもあるので、それを避けたい場合
-void 0;をつけることで、undefined値を返すようにする
-javascript:window.open(&quot;about:blank&quot;); void 0;
-JavaScript URL とイベントハンドラはほとんど同じ
-<h3>13.4.1　ブックマークレット</h3>
-ブックマーク中にJavaScript URL を使って小さなJavaScriptプログラムを記述したもの
-JavaScript URL は複数行に分けて記述してもHTMLパーサは1行として扱う
-<h2>13.5　JavaScriptプログラムの実行方法</h2>
-<h3>13.5.1　スクリプトの実行</h3>
-&lt;script&gt;タグと&lt;/script&gt;タグとの間に記述された純に実行される
-1つのファイルに複数のスクリプトがある場合ファイルに記述された順に実行
-スクリプトはHEAD要素やBODY要素にも記述できる
-一般的にHEAD部では関数の定義や変数の宣言と初期化を行うのが普通
-<h3>13.5.2　onloadイベントハンドラ</h3>
-ドキュメントの解析が完了し、すべてのスクリプトが実行され、画像などの外部コンテンツがすべて読みこまれるとブラウザはonloadイベントを生成
-ドキュメントの内容を変更するようなJSモジュールをイベントハンドらに指定するのが普通
-onloadイベントハンドラでdocument.write()を呼び出すと新しいドキュメントで上書きしてしまう
-<h3>13.5.3　イベントハンドラとJavaScript URL</h3>
-ドキュメントロードと解析が終了するとJavaScriptはイベント駆動型に切り替わる
-&lt;script&gt;要素で関数を定義して、ユーザーの入力に応じてイベントハンドラからこの関数を呼び出すのが一般的
-<h3>13.5.4　onunloadイベントハンドラ</h3>
-ユーザーがあるページから移動しようとするときにブラウザからonunloadイベントハンドラが呼び出される
-onunloadイベントハンドラに時間のかかる処理をいれないように。
-<h3>13.5.5　実行コンテキストとしてのWindowオブジェクト</h3>
-スクリプト中の変数や関数の寿命はドキュメントが新しいドキュメントに置き換わるまで
-<h3>13.5.6　クライアントサイドJavaScriptのスレッドモデル</h3>
-JavaScriptのコア言語にはスレッド機構は存在しない
-クライアントサイドJavaScriptはシングルスレッド
-スクリプトがロードされ実行される間はドキュメントの解析を停止するし、イベントハンドラが実行される間、ブラウザはユーザの入力に対して応答しない
-2つのイベントハンドラが同時に実行されないという前提
-時間のかかる処理をすればドキュメントのロードに遅延が生じる可能性がある
-可能ならば、setTimeout()やsetInterval()のメソッドを使ってバックグラウンドで少しづつ処理を実行し、実行状況をユーザに提示したほうがよい
-<h3>13.5.7　ロード時のドキュメントの操作</h3>
-経験豊かなJavaScriptプログラマの間では&lt;script&gt;タグ中でドキュメントを操作すると問題が発生するかもしれないという漠然とした不安が依然として存在している
-onloadイベントが発生した後であればドキュメントを安全に操作できる
-ドキュメント操作用のコードをドキュメントの最後に記述する方法（IEのdefer属性注意）
-<h2>13.6　クライアントサイドJavaScriptの互換性</h2>
-Windows/Mac OS/Linux, Internet Exploer/Firefox/Safari/Operaなどプラットフォーームの組み合わせは27種類にも及ぶ
-ベンダ間、バージョン間、、プラットフォーム間で互換性のあるプログラムを作るには非互換性を学ばなくてはならない
-<h3>13.6.1　非互換性の歴史</h3>
-Microsoft VS Netscape
-Microsoftが市場を独占し、DOMやＣＳＳなどWeb標準を確立
-WHATWGなどまた新たな対立の雰囲気がないわけでもない
-<h3>13.6.2　「最近のブラウザ」の意味するもの</h3>
-本書でゆう『最近のブラウザ』が意味するのものは、Fx1.0,1.5, IE5.5,6.0, Safari2.0, Opera8,8.5
-<h3>13.6.3　機能テスト</h3>
-能力テストとも呼ばれる
-すべてのブラウザでサポートされているわけでない機能を使う場合はその機能がサポートされているかどうかテストするコードを追加する
-addEventListenerやXMLHttpRequestなど
-ただし、機能テストがうまく動作するには、完全に機能しないプロパティやメソッドをブラウザが定義しないということが前提
-<h3>13.6.4　ブラウザテスト</h3>
-機能テストはある関数グループがサポートされているかどうかチェックするのに向いている
-ある特定のブラウザ特有のバグが存在するかどうかテストする方法は難しい
-Ｎａｖｉｇａｔｉｏｎオブジェクトなど利用して、ブラウザのベンダやバージョンを判定するコードをブラウザスニファやクライアントスニファと呼ぶ
-クライアントの判定はサーバ側でもできる（User-Agentヘッダ）
-<h3>13.6.5　Internet Explorerの条件付きコメント</h3>
-<pre>&lt;!--[if IE]&gt;この部分は、実際にはHTMLコメントの中。IEでのみ表示される。&lt;![endif]--&gt;</p>
-
-<p>&lt;!--[if gte IE 6]&gt;この部分は、IE6以降でのみ表示される。&lt;![endif]--&gt;</p>
-
-<p>&lt;!--[if !IE]&gt; &lt;--&gt;この部分は、通常のHTMLの内容。ただし、IEではコメント中に含まれる。&lt;!--&gt; &lt;![endif]--&gt;</pre>
-IEのJavaScriptインタプリタでも条件付きコメントはサポートされている。
-/<em>@cc_onと@</em>/の間に記述
-<h2>13.7　アクセサビリティ</h2>
-音声読み上げツールの対応は？
-マウスが使えなくてもＯＫ？
-キーボードが使えなくてもＯＫ？
-JavaScriptをオフのときもうまく動作し、装置に依存しないイベントを使うことが望ましい
-<h2>13.8　JavaScriptのセキュリティ</h2>
-<h3>13.8.1　JavaScriptではできないこと</h3>
-コンピュータ上のファイルやディレクトリに対して、読み出し、書き込み、作成、削除、表示ができない。
-JavaScript自体はネットワークをサポートしていないのでソケットを開いたり、ほかのホストからの接続を受け付けたりはできない</p>
-
-<p>マウスクリックなどのユーザ操作に応答するときしかブラウザウィンドウを新規にオープンできない
-JSプログラムがクローズできるのはそのプログラムがオープンしたウィンドウだけ。
-ステータス行に表示されるリンクの飛び先はJSから変更できない
-１辺が100px未満のウィンドウをオープンしたり、ウィンドウサイズを100px未満に変更できない
-HTMLのFileUpload要素のvalueプロパティには値を設定できない
-スクリプトを含んでいるドキュメントをロードしたサーバとは異なるサーバからロードされたドキュメントの内容をを、そのスクリプトから読みだすことはできない
-<h3>13.8.2　同一出身ポリシー</h3>
-Webコンテンツにアクセスする際に適用されるセキュリティ機構
-同一出身ポリシーはあるウィンドウ（フレーム）のJSコードと別のウィンドウ（フレーム）のコード間のやり取りを管理
-つまり、あるスクリプトはそのスクリプトを含むドキュメントと同じ出身のウィンドウやドキュメントのプロパティしか読み出せない
-ドキュメントの『出身』とはそのドキュメントがロードされたURLのプロトコルとホストとポート番号を組み合わせたもの
-http:とhttps:では出身が異なる
-同一出身ポリシーで関係するのはスクリプトが埋め込まれているドキュメントの出身
-同一出身ポリシーはスクリプトを使って機密情報を盗めないようにする機構
-サブドメインなど利用する大規模サイトではDocumentオブジェクトのdomainプロパティをつかってデフォルトの値を変更する
-（設定できるのはドメインサフィックスを表す文字列だけ）
-<h3>13.8.3　プラグインやActive Xコントロールの制御</h3>
-クライアイントサイドJSはファイルシステム機能やネットワーク機能がないため悪意のあるコードはかけない
-しかし、Active Xやプラグインを介することでセキュリティの問題がでてくるかも
-<h3>13.8.4　クロスサイトスクリプティング</h3>
-攻撃者が攻撃対象のWebサイトに対してHTMLタグやスクリプトを注入することで発生するセキュリティ問題の総称
-HTMLタグを削除する処理のことをサニタイズ（無害化）と呼ぶ
-<h3>13.8.5　DoS攻撃</h3>
-DoS(denial-of-service:サービス不能)
-無限ループや意味のない計算を行うことでCPUを機能停止に追い込む攻撃
-<h2>13.9　そのほかのWeb関連の組み込みJavaScript</h2>
-<strong>ユーザスクリプティング</strong>
-有名な例にFirefoxのGreasemonkey拡張がある</p>
-
-<p><strong>SVG（Scalable Vector Graphics）</strong>
-XMLベースのグラフィックフォーマット
-ＳＶＧファイル内にJSを埋め込むことでXMLを操作できる</p>
-
-<p><strong>XUL</strong>
-ユーザインタフェースを記述するためのXMLベースの書式
-FirefoxのＧＵＩもXULで定義されている</p>
-
-<p><strong>ActionScript</strong>
-Flashムービー中に使われるJSに似た言語</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2009-18-August" title="August 18, 2009">August 18, 2009</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/technical-writing-science" rel="prefetch">理科系の作文技術 - 木下 是雄</a></h2>
+            <h2 class="title"><a href="/mol/log/technical-writing-science/" rel="prefetch">理科系の作文技術 - 木下 是雄</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -366,7 +137,7 @@ Flashムービー中に使われるJSに似た言語</p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/textmate-loves-processing" rel="prefetch">TextMateをProcessingのエディタ代わりにする</a></h2>
+            <h2 class="title"><a href="/mol/log/textmate-loves-processing/" rel="prefetch">TextMateをProcessingのエディタ代わりにする</a></h2>
             <p><p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SnrLKtoIT3I/AAAAAAAAAgc/3Q5un_J7fSU/pt.png" alt="" />
 <a href="http://warikiru.blogspot.com/2009/08/iamas-openhouse-2009.html">IAMASのオープンキャンパス</a>に行って以来、<a href="http://processing.org/download/index.html">Processing</a>をちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。</p>
 
@@ -459,7 +230,7 @@ TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すと
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/hokuriku-engineer-group" rel="prefetch">北陸エンジニアグループ</a></h2>
+            <h2 class="title"><a href="/mol/log/hokuriku-engineer-group/" rel="prefetch">北陸エンジニアグループ</a></h2>
             <p><p><div style="width: 425px; margin-left: 50px; text-align: left;" id="__ss_1795776"><a style="margin: 12px 0pt 3px; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; display: block; text-decoration: underline;" href="http://www.slideshare.net/shoito/introduce-of-hokuriku-it-1795776" title="Introduce of Hokuriku Engineer Group">Introduce of Hokuriku Engineer Group</a><object style="margin: 0px;" height="355" width="425"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=hokurikuit-090731102309-phpapp02&amp;stripped_title=introduce-of-hokuriku-it-1795776"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=hokurikuit-090731102309-phpapp02&amp;stripped_title=introduce-of-hokuriku-it-1795776" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="355" width="425"></embed></param></object><div style="font-size: 11px; font-family: tahoma,arial; height: 26px; padding-top: 2px;">View more <a style="text-decoration: underline;" href="http://www.slideshare.net/">documents</a> from <a style="text-decoration: underline;" href="http://www.slideshare.net/shoito">Sho Ito</a>.</div></div><br />昨今の北陸での勉強会の開催具合ときたらハンパねぇものがあります。<br />これは偏に北陸エンジニアグループの関係者の功が大きいものと思われます。<br />そんなわけで、<a href="http://blog.air-life.net/">@shoito</a>さんが<a href="http://groups.google.co.jp/group/hokuriku_engineer">北陸エンジニアグループ</a>の紹介スライド作ってくれた！<br />オサレです！<br /><br />個人的にはもっと絡んでいきたいのですが、デザイナーにはちょっと敷居の高い感じがして、イマイチ参加できてません。が、10月3日のHokuriku.lang楽しみです。langってJavaScriptもOKなんですよね。わくわくもんです。開催地にあやかって世界遺産級の勉強会にしてほしいですね。あー遺跡になっちゃだめか（笑）</p>
 </p>
             <div class="meta">
@@ -475,7 +246,7 @@ TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すと
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/plus-minus-zero-fans" rel="prefetch">±0 Fan プラスマイナスゼロ ファン</a></h2>
+            <h2 class="title"><a href="/mol/log/plus-minus-zero-fans/" rel="prefetch">±0 Fan プラスマイナスゼロ ファン</a></h2>
             <p><p><img src="http://lh6.ggpht.com/_1drnogi3vdg/Snb5WPZPJ6I/AAAAAAAAAgA/lcUq3UD3saI/head.jpg" alt="±0 扇風機" /><br />我ながらアサましいエントリを書いてみようと思う。<br />というか、自慢したいだけですv(￣Д￣)v ｲｴｰｲ<br /><br /><blockquote>品名 : ファン Fan  XQS-SO10<br />運転モード : 弱・リズム・中・強<br />OFFタイマー : 1・2・4時間 / おやすみ運転<br />首振り角度 : 約70度<br />電源 : AC100V 50/60Hz<br />回転数rpm（強） : 1030<br />風速 m/分 : 190<br />外形寸法 : H427×W367×D272mm<br />コード長 : 1.8m<br />質量 : 3.2kg<br />付属品 : リモコン、リチウム電池。取扱説明書、保証書<br />製造国 : CHINA</blockquote><br />住んでる部屋が6畳と狭いので、できる限りモノはなくす方向で考えてるのですが、さすがに扇風機がないと夏は生きていけないので、これまでは普通の扇風機を使ってました。でもこの部屋にもっと適切な扇風機が必要だと思い、エイヤ！の勢いで買ってしまった。<br /><br />第1印象はやはり小さい！というか絶妙サイズ。あんどデザイン良す！扇風機なんてものは生活家電ですからね、どーしても生活臭がにじみでるもんですが、こいつは違う。いつもお高くとまってる感が素敵（背は小さいけどね）以下、褒めて褒めてみる。<br /><br /><br /><a href="http://www.flickr.com/photos/t32k/3785195284/"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Snb2eBsTqYI/AAAAAAAAAew/vXRNd-cdf18/s1.jpg" alt="±0 扇風機 佇まい" /></a><br />見よ！この凛とした佇まい！<br /><br /><a href="http://www.blogger.com/post-create.g?blogID=1533537395474955628"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Snb2eYYQfjI/AAAAAAAAAe0/q0xm8hAqbjE/s2.jpg" alt="±0 扇風機 正面" /></a><br />正面のルックスが一番大事だね、人間も扇風機も。<br /><br /><a href="http://www.flickr.com/photos/t32k/3784385793/"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Snb2eQ3yU0I/AAAAAAAAAe4/-KDORAUr99E/s3.jpg" alt="±0 扇風機 正面 回転" /></a><br />回転！回転！回転！ε≡≡ﾍ( ´∀`)ﾉ<br /><br /><a href="http://www.flickr.com/photos/t32k/3784386211/"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Snb2eaFYbBI/AAAAAAAAAe8/RFOV1Cq33Pw/s4.jpg" alt="±0 扇風機 斜め横" /></a><br />斜め45度。クリステルゾーンも良い感じ(ﾉ´∀｀<em>)<br /><br /><a href="http://www.flickr.com/photos/t32k/3785196074/"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Snb2eesLEDI/AAAAAAAAAfA/f35Wt0XpCko/s5.jpg" alt="±0 扇風機 側面" /></a><br />この流線型ときたら、あんた。ヨダレもんだぁ！<br /><br /><a href="http://www.flickr.com/photos/t32k/3785196276//"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Snb5F-t12NI/AAAAAAAAAfI/sSseJZbfZfc/s6.jpg" alt="±0 扇風機 後頭部" /></a><br />後頭部もこんなにオシャレなやつ見たことねっす。<br /><br /><a href="http://www.flickr.com/photos/t32k/3785196424/"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Snb5FyDLFDI/AAAAAAAAAfM/pnCso0St-DA/s7.jpg" alt="±0 扇風機 受信部" /></a><br />リモコン受光部。黒に黒だから目立たない！<br /><br /><a href="http://www.flickr.com/photos/t32k/3784386849/"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Snb5F-31ZWI/AAAAAAAAAfQ/nrD4dU9YtXo/s8.jpg" alt="±0 扇風機 ボタン類" /></a><br />ぼけてますけど、本体ボタン類。<br /><br /><a href="http://farm3.static.flickr.com/2658/3785196646_9309d49122_m.jpg"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Snb5GIVCfeI/AAAAAAAAAfU/lsTL4_gotQ0/s9.jpg" alt="±0 扇風機 おしりロゴ" /></a><br />続：ぼけてますけど、おしりのロゴです。<br /><br /><a href="http://www.flickr.com/photos/t32k/3784387109/"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Snb5GK3flVI/AAAAAAAAAfY/oz5meqCP7YU/s10.jpg" alt="±0 扇風機 裏面" /></a><br />ひっくり返しても、手を抜いてないぞ！<br /><br /><a href="http://www.flickr.com/photos/t32k/3784387247/"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Snb5NNXENWI/AAAAAAAAAfc/xHPym6ae6xI/s11.jpg" alt="±0 扇風機 ジョイント部分" /></a><br />接合フェチにはたまらない角度だ〜<br /><br /><a href="http://www.flickr.com/photos/t32k/3785197202/"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Snb5NOm-mAI/AAAAAAAAAfg/LsLYvSeCGzw/s12.jpg" alt="±0 扇風機 つむじ" /></a><br />つむじも綺麗。<br /><br /><a href="http://www.flickr.com/photos/t32k/3784387591/"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Snb5NDTDNEI/AAAAAAAAAfk/hvP8eyhs04k/s13.jpg" alt="±0 扇風機 リモコン" /></a><br />これ以上ないほどシンプル！<br /><br /><a href="http://www.flickr.com/photos/t32k/3785197546/"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Snb5Ne1cldI/AAAAAAAAAfo/f0A0zCZj0z4/s14.jpg" alt="±0 扇風機 5枚羽" /></a><br />君の素顔が見たかったから、カバー外してみた。美しい5枚羽。<br /><br /><a href="http://www.flickr.com/photos/t32k/3785197786/"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Snb5NftRaII/AAAAAAAAAfs/grAg7sPSrNA/s15.jpg" alt="±0 扇風機 軸" /></a><br />ええぃ羽もとっぱらっちまえ！軸丸出しだ(´∀｀</em>)ﾉｼ<br /><br /><a href="http://www.flickr.com/photos/t32k/3785197974/"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Snb5V9AOIiI/AAAAAAAAAfw/VmGsw69sbvA/s16.jpg" alt="±0 扇風機 比較" /></a><br />比較、チビっこ扇風機だけど、羽自体の大きさはあんま変わらんのね。<br /><br /><a href="http://www.flickr.com/photos/t32k/3784388389/"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Snb5V_2AUwI/AAAAAAAAAf0/d1Qf-GMTWeo/s17.jpg" alt="±0 扇風機 比較 側面" /></a><br />比較したらわかりやすい流線型ぐあい。<br /><br /><a href="http://www.flickr.com/photos/t32k/3784388537/"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Snb5V6JdybI/AAAAAAAAAf4/Ibk1DficIcQ/s18.jpg" alt="±0 扇風機 比較 バック" /></a><br />後ろ姿美人でもあります。<br /><br /><a href="http://www.flickr.com/photos/t32k/3784388737/"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Snb5WFrS4dI/AAAAAAAAAf8/Zr3k7L0vaRk/a19.jpg" alt="±0 扇風機とブーちゃん" /></a><br />この夏、この美人と一緒に過ごしてみませんか？<br /><span style="color: rgb(102, 102, 102);font-size:85%;">（ぶーちゃんは商品にはついてこないからね。）</span><br /><br /><object style="margin-left: 20px;" height="385" width="480"><param name="movie" value="http://www.youtube.com/v/3dGR3h-J6iU&amp;hl=ja&amp;fs=1&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/3dGR3h-J6iU&amp;hl=ja&amp;fs=1&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="385" width="480"></embed></param></object><br />動画も撮ってしまった。最初にボコボコッゆうのは僕の手元の迷いから生じているものなので、扇風機が出す音自体は静かなものです。<br /><br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0018CN7NQ/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51Bu5EyI9IL._SL160_.jpg" alt="±0 プラスマイナスゼロ ファン （ブラック）  XQS-S010 (B)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%C2%B10-%E3%83%97%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%8A%E3%82%B9%E3%82%BC%E3%83%AD-%E3%83%95%E3%82%A1%E3%83%B3-%EF%BC%88%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%89-XQS-S010/dp/B0018CN7NQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0018CN7NQ" target="_blank">±0 プラスマイナスゼロ ファン （ブラック）  XQS-S010 (B)</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /><br /><br />±0 プラスマイナスゼロ<br />売り上げランキング : 7249<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/%C2%B10-%E3%83%97%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%8A%E3%82%B9%E3%82%BC%E3%83%AD-%E3%83%95%E3%82%A1%E3%83%B3-%EF%BC%88%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%89-XQS-S010/dp/B0018CN7NQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0018CN7NQ" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table></p>
 </p>
             <div class="meta">
@@ -487,14 +258,76 @@ TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すと
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/web-analytics-roi/" rel="prefetch">ウェブ解析力 ROI(投資対効果)を最大化するアクセス解析の実践的ノウハウ90</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4798119563/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/51h5gEV22DL._SL160_.jpg" border="0" alt="ウェブ解析力 ROI(投資対効果)を最大化するアクセス解析の実践的ノウハウ90" /></a></td>
+<td valign="top"><span><a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E8%A7%A3%E6%9E%90%E5%8A%9B-ROI-%E6%8A%95%E8%B3%87%E5%AF%BE%E5%8A%B9%E6%9E%9C-%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%81%AE%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%83%8E%E3%82%A6%E3%83%8F%E3%82%A690-%E6%9D%91%E4%B8%8A/dp/4798119563%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798119563" target="_blank">ウェブ解析力 ROI(投資対効果)を最大化するアクセス解析の実践的ノウハウ90</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+
+翔泳社  2009-06-18
+売り上げランキング : 2287
+おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="" />
+
+<a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E8%A7%A3%E6%9E%90%E5%8A%9B-ROI-%E6%8A%95%E8%B3%87%E5%AF%BE%E5%8A%B9%E6%9E%9C-%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96%E3%81%99%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A7%A3%E6%9E%90%E3%81%AE%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%83%8E%E3%82%A6%E3%83%8F%E3%82%A690-%E6%9D%91%E4%B8%8A/dp/4798119563%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798119563" target="_blank">Amazonで詳しく見る</a> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span>
+
+</span></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+    <li><a href="http://japan.internet.com/busnews/20090702/8.html">アクセス解析エキスパートここだけの話、Web コンシェルジュの“勉強法”こっそり教えます</a></li>
+</ul>
+
+<p>と、もったいつけた感じで薦められていたので読んでみた。
+<blockquote>
+<ul>
+    <li>序章：ウェブ解析力とは何か</li>
+    <li>第1章：アクセス解析の基礎知識とツールを知る</li>
+    <li>第2章：解析データの読み方を知る</li>
+    <li>第3章：コーポレートサイトのアクセスデータを読む</li>
+    <li>第4章：ECサイトのアクセスデータを読む</li>
+    <li>第5章：サービスサイトのアクセスデータを読む</li>
+    <li>第6章：携帯サイトのアクセスデータを読む</li>
+    <li>第7章：解析データの伝え方を工夫する</li>
+</ul>
+</blockquote>
+印象として手広くまとめられている感じ。『できる100ワザ Google Analytics』のように、こうしたいときどはうすればよいのかを90例ほど説明してある。できる～と違う点は特定のベンダーツールに依存しないという点だろう。それゆえ、Google Analyticsではできない（がんばってカスタマイズしたらできるかもしれないけど。。）アクセス解析の手法とか（SiteCatalystを用いた）説明してあるので、そうゆうやり方があるのね、と気付かされた。もちろんGoogle Analyticsでの設定の仕方も書いてあるので心配しなくてもよい。ただ、手広くまとめられているので、個々の解説は浅いのは仕方ないかなと。</p>
+
+<p>個人的には『第6章：携帯サイトのアクセスデータを読む』が興味深かった。携帯サイトに関しては無知なので、そろそろ勉強しなければならないかなと思ったり、また『第7章：解析データの伝え方を工夫する』もアクセス解析の本としては珍しいかなと思った。<a href="http://ibukuro.blogspot.com/">衣袋さん</a>がWeb担当者Forumで<a href="http://web-tan.forum.impressrd.jp/l/2852">データをざくざく処理するためのグラフの読み方、使い方</a>で連載してたにも通じるけど、アクセス解析イコール数字の羅列、小難しいと思われているのは事実なので、どうやってアクセス解析で発見した原因を他部署に分かりやすく伝えて改善してもらうか、もしくは承認してもらうかは重要なことだと思うので、第7章は必読かな。</p>
+
+<p>とりあえず、『<a href="http://www.amazon.co.jp/gp/product/4798117897?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=4798117897"><span style="font-weight: bold;">Webアナリスト養成講座</span></a>』と『<a href="http://www.amazon.co.jp/gp/product/4798119563?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=4798119563"><span style="font-weight: bold;">ウェブ解析力</span></a>』はマストバイブルですね。
+<ul></ul>
+<span style="font-size: 85%;">
+参考サイト
+</span>
+<ul>
+    <li><span style="font-size: 85%;"><a href="http://ibukuro.blogspot.com/2009/06/blog-post_1901.html">Insight for WebAnalytics: ウェブ解析力を読みました</a></span></li>
+    <li><span style="font-size: 85%;"><a href="http://makitani.com/2009/07/web_kaisekiryoku.html">『ウェブ解析力』を読んだ｜makitani.com</a></span></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-05-August" title="August 05, 2009">August 05, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page53" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page53" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page55" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page55" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -506,7 +339,7 @@ TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すと
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -522,12 +355,12 @@ TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すと
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

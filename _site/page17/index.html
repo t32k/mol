@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,47 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/tips-for-duplicating-label-properties" rel="prefetch">おんなじラベル何回も作るのめんどくさい</a></h2>
-            <p><p>あいかわらず、TItanium Mobileでもごもごしてる@t32kでございます。</p>
-
-<p>アプリ作っていると、同じスタイルのLabelだけど、文言だけ違ってその度に、Titanium.UI.createLabelして同じプロパティ毎回書き連ねることが何回かあって、これめんどくさいなと。以下のように。
-&lt;!--more--&gt;
-<script src="https://gist.github.com/1180418.js?file=gistfile1.js"></script></p>
-
-<p>最初は根性やで！と書いていたのですが6回くらい続いて、ようやくなんか違うって思いました@t32k</p>
-
-<p>そこで向かいの向かいの人に聞いたら、関数でまとめればいんじゃね？って言われました。こんな具合に。</p>
-
-<script src="https://gist.github.com/1180421.js?file=gistfile1.js"></script>
-
-<p>素敵！抱いて！！ってなるほどーって思ったのですが、
-<ul>
-    <li><a href="http://developer.appcelerator.com/question/18731/tips-for-duplicating-label-properties">Tips for Duplicating Label Properties » Community Q&amp;A » Appcelerator Developer Center </a></li>
-</ul>
-上記のQ&amp;Aにも似たような感じのことが書いてありましたが、なんか違う方法のようです。</p>
-
-<script src="https://gist.github.com/1180423.js?file=gistfile1.txt"></script>
-
-<p>なるほど、in演算子使って、あらかじめ指定したプロパティに後から書いたプロパティを追加して、そのオブジェクトを返してるんすかね。こっちのほうが汎用性高いですな。</p>
-
-<p>ちなみに、Object.extendに代入してある関数はprototype.jsから拝借してるっぽい。</p>
-
-<p>とまぁ、さも分かったようなこと書いてあるのですが、ぜんぶpocotanせんせに教えてもらいました。ありがとございました。</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2011-30-August" title="August 30, 2011">August 30, 2011</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/javascript-bibliography" rel="prefetch">JavaScriptを学ぶために役立つ本 85選</a></h2>
+            <h2 class="title"><a href="/mol/log/javascript-bibliography/" rel="prefetch">JavaScriptを学ぶために役立つ本 85選</a></h2>
             <p><p><a href="http://t32k.me/mol/log/why-valley-wants-designers-can-code/">前の翻訳記事</a>でも述べらているけど、やっぱりデザイナーもプログラミングはある程度書けたほうがいいと思う。んで、<a href="http://t32k.me/mol/log/you-must-learn-javascript/">その言語はJavaScript！</a></p>
 
 <p>O&#39;ReillyさんからJavaScriptを学ぶうえで役立つ本をまとめた電子書籍（JavaScript Bibliography）が公開されているのを教えてもらったのでAmazonリンクを張ってみるポスト。こう見てみると、翻訳されていないJS本いっぱいですね（気づいてないのもありそう...）。原書の方はKindle版も売ってますので、円高のアレもあるのでYOU買っちゃったらいいんじゃないの！
@@ -292,7 +252,7 @@ Jonathan Stark 増井 俊之（監訳）</span></p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/why-valley-wants-designers-can-code" rel="prefetch">なぜシリコンバレーはコードの書けるデザイナーを求めているのか？</a></h2>
+            <h2 class="title"><a href="/mol/log/why-valley-wants-designers-can-code/" rel="prefetch">なぜシリコンバレーはコードの書けるデザイナーを求めているのか？</a></h2>
             <p><p><cite>原文：<a href="http://www.uie.com/brainsparks/2011/05/31/why-the-valley-wants-designers-that-can-code/">Why The Valley Wants Designers That Can Code</a>
 投稿日：2011-5-31 by Jared Spool</cite></p>
 
@@ -367,7 +327,7 @@ Jonathan Stark 増井 俊之（監訳）</span></p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/titanium-studio-font" rel="prefetch">TitaniumStudioのフォント設定</a></h2>
+            <h2 class="title"><a href="/mol/log/titanium-studio-font/" rel="prefetch">TitaniumStudioのフォント設定</a></h2>
             <p><p>TitaniumStudioになってから全然触ってない、@t32kでございます。何が気に食わないのだろうかと思ったらこれ文字ちっさいんだ。そうだ。文字おっきくしたらやる気も起きるんじゃね？ってことで変えてみる。</p>
 
 <p><img class="fig" title="Before" src="http://t32k.me/mol/file/2011/08/b4.png" alt="" width="420" height="420" /></p>
@@ -400,7 +360,7 @@ Jonathan Stark 増井 俊之（監訳）</span></p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/strategic-shift" rel="prefetch">戦略シフト</a></h2>
+            <h2 class="title"><a href="/mol/log/strategic-shift/" rel="prefetch">戦略シフト</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -434,14 +394,56 @@ Jonathan Stark 増井 俊之（監訳）</span></p>
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/global-career/" rel="prefetch">グローバルキャリア ― ユニークな自分のみつけ方</a></h2>
+            <p><table border="0" cellpadding="10">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2-%E2%80%95%E3%83%A6%E3%83%8B%E3%83%BC%E3%82%AF%E3%81%AA%E8%87%AA%E5%88%86%E3%81%AE%E3%81%BF%E3%81%A4%E3%81%91%E6%96%B9-%E7%9F%B3%E5%80%89%E6%B4%8B%E5%AD%90/dp/4492532846%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4492532846"><img class="fig" src="http://ecx.images-amazon.com/images/I/41YhQo02DWL._SL160_.jpg" alt="グローバルキャリア ―ユニークな自分のみつけ方" width="110" height="160" border="0" /></a></td>
+<td valign="top"><span><span><a href="http://www.amazon.co.jp/%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2-%E2%80%95%E3%83%A6%E3%83%8B%E3%83%BC%E3%82%AF%E3%81%AA%E8%87%AA%E5%88%86%E3%81%AE%E3%81%BF%E3%81%A4%E3%81%91%E6%96%B9-%E7%9F%B3%E5%80%89%E6%B4%8B%E5%AD%90/dp/4492532846%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4492532846" target="_top">グローバルキャリア ―ユニークな自分のみつけ方</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span></span>
+
+石倉洋子東洋経済新報社 2011-04-08
+売り上げランキング : 4944
+
+<a href="http://www.amazon.co.jp/%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2-%E2%80%95%E3%83%A6%E3%83%8B%E3%83%BC%E3%82%AF%E3%81%AA%E8%87%AA%E5%88%86%E3%81%AE%E3%81%BF%E3%81%A4%E3%81%91%E6%96%B9-%E7%9F%B3%E5%80%89%E6%B4%8B%E5%AD%90/dp/4492532846%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4492532846" target="_top">Amazonで詳しく見る</a><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>久しぶりに技術書以外の本を読んだ。
+<ul>
+    <li>オープン化</li>
+    <li>ORをANDにする</li>
+    <li>ユニークさ</li>
+</ul>
+の3点を軸に海外などで活躍する日本人のキャリア形成に関して解説している。正直、「留学」や「MBA」といった単語が多く出てきてちょっと飽きてくる面もあったが全体的に優しい言葉づかいで書かれているので非常に読みやすかった。</p>
+
+<p>あと、事例に出てくる華やかな経歴の人達もすべてが順風満帆ということでもなく、なんか違うなと思ったらすぐに軌道修正して次のキャリアへと進んでいる点が共通していて興味深かった。臨機応変にいかなきゃね。</p>
+
+<p>個人的にはPART5の著者の自伝が面白かった。大学3年時に交換留学したのに、帰国してもう1年あると勘違いして就職活動に出遅れてそのままフリーターのような通訳で生活していくなど、おっちょこちょいで人間味あふれる感じ（でもすごい人）がすごく好感がもてて面白かった。</p>
+
+<p>とりあえず読んでみて、ここで出てくる人達のアグレッシブさと比べてみたら自分なんて屁みたいなもので、もうちっと大きく出たいと思う今日この頃です。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-31-July" title="July 31, 2011">July 31, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page16" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page16" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page18" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page18" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -453,7 +455,7 @@ Jonathan Stark 増井 俊之（監訳）</span></p>
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -469,12 +471,12 @@ Jonathan Stark 増井 俊之（監訳）</span></p>
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

@@ -60,7 +60,7 @@ pygments:    true
 
 relative_permalinks: true
 
-permalink:     /log/:title
+permalink:     /log/:title/
 paginate_path: 'page:num'
 paginate: 5
 
@@ -73,7 +73,7 @@ excerpt_separator: "<!-- more -->"
 safe:        false
 host:        0.0.0.0
 port:        4000
-baseurl:     /
+baseurl:     /mol/
 lsi:         false
 
 maruku:
@@ -114,7 +114,7 @@ redcloth:
 assets:
 
   dirname: assets
-  baseurl: /assets/
+  baseurl: /mol/assets/
   sources:
     - _assets/javascripts
     - _assets/stylesheets

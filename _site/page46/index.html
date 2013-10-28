@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,255 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/introduction-to-web-performance" rel="prefetch">ウェブサイトパフォーマンス入門 - ニコール・サリバン</a></h2>
-            <p><p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SxEtcjQFk1I/AAAAAAAAAt4/aoCs08yfz4E/head.jpg" alt="'''" /></p>
-
-<p><a href="http://east.webdirections.org/wde/2009/workshop/#nicole-sullivan">Web Directions East 2009 ワークショップ</a> 11月12日
-ウェブサイトパフォーマンス入門 ニコール・サリバン</p>
-
-<p>通訳は<a href="http://www.yasuhisa.com/could/">could</a>の<a href="http://twitter.com/yhassy">長谷川さん</a>だよ。
-<h3>Nicole Sullivan （ニコール・サリバン）</h3>
-3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。</p>
-
-<p><span style="font-weight: bold;">Contacts</span>
-<ul>
-    <li> <a href="http://www.stubbornella.org/content/">Stubbornella - Blog</a></li>
-    <li><a href="http://twitter.com/stubbornella">Nicole Sullivan (stubbornella) on Twitter</a></li>
-    <li><a href="http://www.slideshare.net/stubbornella">Nicole Sullivan | SlideShare</a></li>
-</ul>
-<h3>なぜパフォーマンスについて話すのか？</h3>
-<h4>1. 速い方が良い！</h4>
-速くて困ることは特にない
-<h4>2. サイトは年々巨大化している</h4>
-現在のサイトはWebページというよりもアプリケーション化していて複雑になってきている2003年頃に比べ、ページサイズは3倍になっている
-<span style="font-size: 85%;"><a href="http://www.websiteoptimization.com/speed/tweak/average-web-page/">Average Web Page Size Triples Since 2003 - web page statistics and survey trends for page size and web objects</a></span></p>
-
-<p>ユーザーにとってはWebアプリケーションもDesktopアプリケーションも同じ。
-どちらも同じ性能を求められる
-<h4>3. 時は金なり</h4>
-<ul>
-    <li><span style="font-weight: bold;">Amazon</span> : +100ms 売上が1%落ちる
-<span style="font-weight: bold;"> </span></li>
-    <li><span style="font-weight: bold;">Yahoo! </span>: +400ms 完全にページをローディング（full-page traffic）するユーザーが5-9%減る
-<span style="font-weight: bold;"> </span></li>
-    <li><span style="font-weight: bold;">Google</span> : +500ms 検索数が20%落ちる</li>
-</ul>
-<img src="http://lh5.ggpht.com/_1drnogi3vdg/SxEtWcsKK8I/AAAAAAAAAtg/GaFlZ8tBOgE/1.png" alt="shopzilla performance summary" /></p>
-
-<p><span style="font-weight: bold;">Shopzilla</span> : -3.5sec CVは7-12%, PVは25%アップした
-<span style="font-size: 85%;"><a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7709">Shopzilla&#39;s Site Redo - You Get What You Measure: Velocity 2009</a></span></p>
-
-<p><span style="font-size: 85%;">
-</span></p>
-
-<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SxEtWopKSJI/AAAAAAAAAtk/u1i8Iinfxt8/2.png" alt="average page views per visit" /></p>
-
-<p><span style="font-weight: bold;">AOL Money &amp; Finance</span>（テスト数は10万人規模）</p>
-
-<p>パフォーマンスが良いと思うユーザーほどページを多く見る(つまり広告収入への影響が大きい)
-<span style="font-size: 85%;">(最も遅く感じているユーザーでPVが多いのはなぜ？　Nicole見解：ダイアルアップ接続ユーザーでもともと遅いのに慣れているのかも)</span>
-<span style="font-size: 85%;"><a href="http://en.oreilly.com/velocity2009/public/schedule/detail/7579">The Secret Weapons of the AOL Optimization Team Presentation</a></span></p>
-
-<p><span style="font-weight: bold;">Bing and Google Test</span></p>
-
-<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SxEtWoKer2I/AAAAAAAAAto/16mFXkk_s38/3.png" alt="" /></p>
-
-<p>50ms, 200ms, 500ms, 1000ms で遅くする実験
-左からユーザー当たりのクエリ数、クエリを変えて検索した数、ユーザー当たりの収益、ページをクリックしたかどうか、満足度、クリックするまでの時間
-50msでは統計的な違いは出なかった
-遅延時間が長いほど満足などの指標は減少する
-遅くなれば遅くなるほど思考が止まる（自分が何をしたかったのか、いちいち思い起こす必要がある）</p>
-
-<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SxEtWs2dxCI/AAAAAAAAAts/w2m3Rv71YbU/4.png" alt="" /></p>
-
-<p>レンダリングの見せ方による影響について
-ヘッダーだけでもいいから何か見せておくことでユーザーに安心感を与える
-（検索を多くするユーザーほど効果的）</p>
-
-<p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SxEyI3CrcAI/AAAAAAAAAuA/OffhhGN_Nes/5.png" alt="" /></p>
-
-<p>パフォーマンスの悪さが続けば、UX低下に深刻なダメージを与える。
-（7週間目に元に戻すが4週間立っても元のレベルに回復していない）
-<span style="font-size: 85%;"><a href="http://radar.oreilly.com/2009/06/bing-and-google-agree-slow-pag.html">Bing and Google Agree: Slow Pages Lose Users - O&#39;Reilly Radar</a></span>
-<div style="text-align: left;"><span style="font-weight: bold;">パフォーマンスについてユーザケアする必要がある</span></div>
-<div style="text-align: left;"><span style="font-weight: bold;">
-</span></div>
-<h3>開発理念　Web Dev Philosophy</h3>
-フロントエンドエンジニアとデザイナーのコミュニケーションをいかに円滑にするか重要
-（エンジニア、デザイナー双方が歩み寄って理解する必要がある）
-<h3>9つのベストプラクティス</h3>
-<h4>1. コンポーネント化する</h4>
-PSDファイルのコンポーネント化、ライブラリ化する(デザイナーが辞めても他のデザイナー対応できる)</p>
-
-<p>コンポーネントはレゴに似てる
-コンポーネントの利点：再利用でき、ブラウザキャッシュを利用できる
-ページ全体からデザインするのではなく、コンポーネントからデザインしてそれを組み立てるのが良いのではないか
-（この考え方は海外でも新しい）</p>
-
-<p>Facebookコンサルの話：
-Facebookは既存サイトで、最初からコンポーネントを意識して開発したわけではない
-要素をカタログ化することから始めた</p>
-
-<p>細かいデザインの違いによるパフォーマンス低下は極力避ける
-レゴ化して見比べる
-もし、同じページに2つの似たようなモジュールがあるのならば、ひとつにまとめる
-<h4>2. サイト全体で一貫性を保つ</h4>
-<span style="font-weight: bold;">Consistency（一貫性）</span>
-ルールが多ければ多いほどデザインは崩れていく
-長期スパンでパフォーマンスはゆるやかに落ちていく（危険性を感じないので厄介）
-<h4>3. 透過デザインモジュールを使う</h4>
-<img src="http://lh6.ggpht.com/_1drnogi3vdg/SxEtWwyxh7I/AAAAAAAAAtw/IXDBkJqmwtE/6.png" alt="" /></p>
-
-<p>利点：拡張性に対応できる、コンポーネントを組み合わせることができる
-弱点：複数の背景だと使えない、それ専用のモジュールを別途作らなければならない
-<h4>4. 画像とCSSスプライトの最適化</h4>
-Yahoo!の例：<a href="http://a.l.yimg.com/a/i/us/sch/gr4/srp_metro_20090910.png">http://a.l.yimg.com/a/i/us/sch/gr4/srp<em>metro</em>20090910.png</a>
-ページ内の全ての画像をスプライト化
-デザインパターンが１つだけだから可能（検索画面だけ）</p>
-
-<p>スプライトするためには以下の3つから2つしかとれない</p>
-
-<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SxEtckIao6I/AAAAAAAAAt0/cQcfpjtcXJ0/7.png" alt="" /></p>
-
-<p><span style="font-weight: bold;">ページ数</span>、<span style="font-weight: bold;">メンテナンス性</span>、<span style="font-weight: bold;">最適化</span>
-（ex：より多くのページ数を最適化したければメンテナンス性はあきらめるしかない）</p>
-
-<p>拡張性を考えてスプライトする
-ボタンは背景画像にして中身をテキストで変更
-（日本語は汚くなるから考えもの）</p>
-
-<p><span style="font-weight: bold;">パフォーマンスで重要な3つのこと</span>
-<ul>
-    <li>HTTP requests</li>
-    <li>Size of image</li>
-    <li>Size of the CSS</li>
-</ul>
-角丸を表現するためにはHTTPリクエストが4つ必要
-リクエストが2倍になれば、CSSコードも2倍に</p>
-
-<p><strong>9 画像の最適化</strong>
-<ol>
-    <li><span style="font-size: 85%;">似たような色でまとめる（スプライトの話）</span></li>
-    <li><span style="font-size: 85%;">スキマを詰める（モバイル環境を見越すと、ちょっとでもダメ）</span></li>
-    <li><span style="font-size: 85%;">CSSスプライトの画像は縦より横に並べるの方がほんのちょっとだけいい(横に読み込んでいくらしい)</span></li>
-    <li><span style="font-size: 85%;">等倍で見たときの色を減色</span></li>
-    <li><span style="font-size: 85%;">個々の画像を最適化してからスプライトする</span></li>
-    <li><span style="font-size: 85%;">アンチエイリアスは避ける（平行四辺形はきつい）</span></li>
-    <li><span style="font-size: 85%;">斜めのグラデーション画像は避ける（パフォーマンス的というよりモジュールの拡張性がない）</span></li>
-    <li><span style="font-size: 85%;">アルファフィルターは避ける</span></li>
-    <li><span style="font-size: 85%;">グラデーションの色は2-3px毎に変更していく</span></li>
-</ol>
-ロゴ画像のサイズ縮小だけは慎重に（無意識下で刷り込まれているので）
-マクドナルドのロゴは大統領よりも有名</p>
-
-<p>フィルタはやめてよ！
-ブラウザがフリーズする、メモリを大量消費する
-どうしても使いたければアンダースコアハックでIE6分岐</p>
-
-<p>Alpha Image Loaderやめただけで100ms速くなったよ  by Yahoo! Search</p>
-
-<p>Progressively enhanced PNG8
-より良いPNG画像を作るにはPhotoshopよりもFireworksが良い</p>
-
-<p><span style="font-weight: bold;">画像圧縮の流れ</span>
-Step1: デザイナーが『Web用に保存』などで減色する
-Step2: 画像のメタ情報を取り除く（画像のクオリティはそのまま）
-<ul>
-    <li><a href="http://developer.yahoo.com/yslow/smushit/">Smush.it | Yahoo! Developer NetWork</a></li>
-    <li><a href="http://www.gracepointafterfive.com/punypng">punypng - PNG Compression and Image Optimization</a></li>
-</ul>
-<h4>5. ブラウザに搭載されないフォントの使用は避ける</h4>
-sIFR（Scalable Inman Flash Replacement）やJSで無理やり表現すればその分HTTPリクエストが増える
-<h4>6. 縦で考える</h4>
-コンテンツは増えていくものなので仕方がない
-横に合わせるのは難しい（jQueryなどJSで制御する必要があるため）
-<h4>7. ギラギラなデザインは慎重に</h4>
-画像などを使って目立せることでコスト（パフォーマンス低下）がかかっていることを理解する
-<h4>8. フレキシブルに</h4>
-拡張性を考えてデザインする
-コンテンツは横にも縦にも伸びる
-横はグリッドでコントロール（縦は仕方ない）
-<h4>９。グリッドは重要です</h4>
-上記に同じ
-<h3>アクティビティ</h3>
-各自が選んだサイトがどのように改善できるか考えるワークショップ
-<h4>パフォーマンスツールの紹介</h4>
-<ul>
-    <li><a href="http://www.alphaworks.ibm.com/tech/pagedetailer">IBM Page Detailer : Overview</a></li>
-    <li><a href="http://www.webpagetest.org/">Pagetest - where web sites go to get FAST!</a></li>
-    <li><a href="http://www.gomez.co.jp/business/gpn/index.html">Webサイトパフォーマンス測定：ゴメス・コンサルティング株式会社</a></li>
-    <li><a href="https://addons.mozilla.org/ja/firefox/addon/1843">Firebug :: Add-ons for Firefox</a></li>
-</ul>
-今回はFirebugを使う</p>
-
-<p>Firebugの弱点
-キャッシュしたのは計測しない（キャッシュクリアして使う）
-ブラウザのイベントモデルが表示される（実際のネットワークの流れではない）</p>
-
-<p><span style="font-weight: bold;">最初からツールを使うのではなく、まずぺージ全体を見て考える</span></p>
-
-<p>Flashの良い点：ユーザーの注意を引かせる
-Flashの悪い点：ロードには時間がかかる
-ユーザーの視点から考える</p>
-
-<p>ページ下部のリクエストは遅延ロードで</p>
-
-<p><span style="font-weight: bold;">パフォーマンス改善に当たっての考え方</span>
-<ul>
-    <li>どれくらい改善されるのか？</li>
-    <li>コストはどれくらいなのか？</li>
-</ul>
-<h3>ワークショップを通して</h3>
-パフォーマンスについての小手先の技術を覚えたというよりも、パフォーマンスに対しての考え方が身につけられた一日ではないかと思う。Nicoleはエンジニア畑の人だけれども、デザインについて物を言うエンジニアだ。そのグラフィックは本当に必要なのか？そのデザインはほかのモジュールと似ているけれども１つにまとめられないのかなど問い正してくる。</p>
-
-<p>実際、アクティビティの時間では自分が制作したサイトを元にどのように改善できるのか指摘してもらった。Nicoleから見ればJSファイル容量の割にはJSの効果が見えないとのこと。（ページ内リンクにスムーススクロールとか使ってた）</p>
-
-<p>Nicoleが考えるに、大半のユーザーはその機能を使わないだろう（使えなくても問題ない）し、目に見えない面でコストをかける必要性があるのかと聞かれた。確かに、そのサイトの大半のページがそれほど長くないのでマウススクロールで事足りるし、ページ内リンクを押す必要性もあまり感じられない。もし、気になるのならアクセス解析ツールなど使って実際に使われているのか調査してみれば良いと言われたので調査中。（たぶん外すと思う）</p>
-
-<p>結局は重要なのは自分が行ったデザインの費用対効果がどうなのかという問題だ。Webページは気軽に修正・追加されがちだけど、その１枚のバナー画像を追加することでHTTPリクエストは増えるのだから確実にパフォーマンスコストがかかっていることを理解する必要性がある。そういったコストを超えるメリットが得られるのなら追加すれば良いが、何の考えもなしにあれやこれやとページの要素を追加していくことは非常に危険だと思う。</p>
-
-<p>開発方法においても、最初から細かいチューニングをするよりも、まずページ全体を見て不必要なものがないか確認する方が効果的だということも覚えておかなければならない。フロントエンドのパフォーマンスについては昨年あたりから注目され始めてきてまだ成熟していない分野だと思うので、あまり瑣末なことにリソースを割かれるのも賢明ではない。
-<div id="__ss_658403" style="width: 425px; text-align: left;"><a style="margin: 12px 0pt 3px; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; display: block; text-decoration: underline;" title="Design Fast Websites" href="http://www.slideshare.net/stubbornella/designing-fast-websites-presentation">Design Fast Websites</a><object style="margin: 0px;" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=designingfastwebsites-1224025689783608-8&amp;stripped_title=designing-fast-websites-presentation" /><param name="allowfullscreen" value="true" /><embed style="margin: 0px;" type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=designingfastwebsites-1224025689783608-8&amp;stripped_title=designing-fast-websites-presentation" allowscriptaccess="always" allowfullscreen="true"></embed></object></p>
-
-<p></div>
-スライドはほぼこれと一緒で、収益に関するデータが新たに追加されてた感じだった。
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/51apDotzVxL._SL160_.jpg" border="0" alt="続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス" width="125" height="160" /></a></td>
-<td valign="top"><span><a href="http://www.amazon.co.jp/%E7%B6%9A%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E3%82%A6%E3%82%A7%E3%83%96%E9%AB%98%E9%80%9F%E5%8C%96%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9-Steve-Souders/dp/4873114462%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114462" target="_blank">続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
-Steve Souders 武舎 広幸 </span></p>
-
-<p><span>オライリージャパン  2010-04-10
-売り上げランキング : 24938
-おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-3-0.gif" alt="" /></span></p>
-
-<p><span><a href="http://www.amazon.co.jp/%E7%B6%9A%E3%83%BB%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E3%82%A6%E3%82%A7%E3%83%96%E9%AB%98%E9%80%9F%E5%8C%96%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9-Steve-Souders/dp/4873114462%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873114462" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
-NicoleはChapter10のOptimizing Imagesを<a href="http://www.phpied.com/">Stoyan Stefanov</a>と担当しています。</p>
-
-<p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SxEtcgToPTI/AAAAAAAAAt8/lycFxE15vtM/room.jpg" alt="" /></p>
-
-<p>こんな感じのところでワークワークしました。当日は<a href="http://search.twitter.com/search?q=%23wde09">#wde09</a>のハッシュタグで<a href="http://twitter.com/boblet">@boblet</a>と<a href="http://twitter.com/Zazie">@Zazie</a>と<a href="http://twitter.com/t32k">@t32k</a>がNicoleのワークショップを実況してました。にしても最後まで<a href="http://twitter.com/Zazie">@Zazie</a>さんがどなたか分かりませんでした。たぶん横にいた方だと思うのですがもっと喋りかけていけば良かったと後悔。
-あと、Nicoleに話しかけられてよく分からんからOK,OK連発する典型的な日本人になりましたw あとからGoogle先生で翻訳した文をTwitterで返信するなど時間差コミュニケーションとなりました。
-日本語、英語ともにコミュニケーション能力を鍛えたいなと思いました。</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2009-29-November" title="November 29, 2009">November 29, 2009</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/hackers-and-painters" rel="prefetch">ハッカーと画家 コンピュータ時代の創造者たち</a></h2>
+            <h2 class="title"><a href="/mol/log/hackers-and-painters/" rel="prefetch">ハッカーと画家 コンピュータ時代の創造者たち</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4274065979/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/511SV9NXW2L._SL160_.jpg" alt="ハッカーと画家 コンピュータ時代の創造者たち" border="0" /></a></span></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E3%83%8F%E3%83%83%E3%82%AB%E3%83%BC%E3%81%A8%E7%94%BB%E5%AE%B6-%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E6%99%82%E4%BB%A3%E3%81%AE%E5%89%B5%E9%80%A0%E8%80%85%E3%81%9F%E3%81%A1-%E3%83%9D%E3%83%BC%E3%83%AB-%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%A0/dp/4274065979%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4274065979" target="_blank">ハッカーと画家 コンピュータ時代の創造者たち</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" width="'1'" border="'0'" height="'1'" /><br />Paul Graham<br /><br />オーム社  2005-01<br />売り上げランキング : 7961<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" /><br /><br /><a href="http://www.amazon.co.jp/%E3%83%8F%E3%83%83%E3%82%AB%E3%83%BC%E3%81%A8%E7%94%BB%E5%AE%B6-%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E6%99%82%E4%BB%A3%E3%81%AE%E5%89%B5%E9%80%A0%E8%80%85%E3%81%9F%E3%81%A1-%E3%83%9D%E3%83%BC%E3%83%AB-%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%A0/dp/4274065979%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4274065979" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />ノンエンジニアがハッカーの人（悪いことするプログラマーちゃうよ）を理解するには良い本だと思う。ハッカーがどのように考え、何が嫌いなのか分かると思う。またプログラミング言語についての説明も比較的平易に書かれているので、デザイナーでもなんとなく掴めるんじゃないかな。「100年後の言語」などは考えただけでワクワクしてくる。<br /><br />全体としてハッカーに関するエッセイをまとめたものなので、おもしろいとこだけ掻い摘んで読むのも良いかと思う。個人的に最初の方のオタクはなぜもてないのかの章などはちょっとアメリカ的な文化でよくわからなかった。<br /><br />まぁ、そんなわけでハッカーに興味ある人は読んでおいた方がいいぞ。<br /><br /><br /><span style="font-size:85%;">関連リソース<br /></span><ul><li><span style="font-size:85%;"><a href="http://d.hatena.ne.jp/lionfan/">らいおんの隠れ家</a></span></li><li><span style="font-size:85%;"><a href="http://cruel.org/freeware/hacker.html">How To Become A Hacker: Japanese</a></span></li></ul></p>
 </p>
             <div class="meta">
@@ -325,7 +77,7 @@ NicoleはChapter10のOptimizing Imagesを<a href="http://www.phpied.com/">Stoyan
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/high-performance-web-design" rel="prefetch">High Performance Web Design ~デザインから考えるハイパフォーマンスWebサイト~</a></h2>
+            <h2 class="title"><a href="/mol/log/high-performance-web-design/" rel="prefetch">High Performance Web Design ~デザインから考えるハイパフォーマンスWebサイト~</a></h2>
             <p><p><a href="http://www.cssnite-ishikawa.jp/">CSS Nite in ISHIKAWA</a>で話をしてから1ヶ月経ったので、薄れゆく記憶の復習も兼ねて思いの丈を綴ってみたｗ
 <div id="__ss_2352987" style="width: 425px; text-align: left;"><a style="margin: 12px 0pt 3px; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; display: block; text-decoration: underline;" title="High Performance Web Design" href="http://www.slideshare.net/t32k/high-performance-web-design">High Performance Web Design</a><object style="margin: 0px;" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="355" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=wpo-091026191440-phpapp02&amp;rel=0&amp;stripped_title=high-performance-web-design" /><param name="allowfullscreen" value="true" /><embed style="margin: 0px;" type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=wpo-091026191440-phpapp02&amp;rel=0&amp;stripped_title=high-performance-web-design" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>
 <h3>1. What&#39;s High Performance?</h3>
@@ -509,7 +261,7 @@ Thank you!</p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/design-at-facebook" rel="prefetch">Design at Facebook</a></h2>
+            <h2 class="title"><a href="/mol/log/design-at-facebook/" rel="prefetch">Design at Facebook</a></h2>
             <p><p><img title="Facebook" src="http://t32k.me/mol/file/2009/11/fb.png" alt="Facebook" width="500" height="40" /></p>
 
 <p><cite>原文：<a href="http://www.lukew.com/ff/entry.asp?879">Functioning Form - Design at Facebook</a>
@@ -583,7 +335,7 @@ Thank you!</p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/money-talk" rel="prefetch">この世でいちばん大事な「カネ」の話</a></h2>
+            <h2 class="title"><a href="/mol/log/money-talk/" rel="prefetch">この世でいちばん大事な「カネ」の話</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4652078404/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/61uUuMJjPRL._SL160_.jpg" alt="この世でいちばん大事な「カネ」の話 (よりみちパン!セ)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E3%81%93%E3%81%AE%E4%B8%96%E3%81%A7%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E5%A4%A7%E4%BA%8B%E3%81%AA%E3%80%8C%E3%82%AB%E3%83%8D%E3%80%8D%E3%81%AE%E8%A9%B1-%E3%82%88%E3%82%8A%E3%81%BF%E3%81%A1%E3%83%91%E3%83%B3-%E3%82%BB-%E8%A5%BF%E5%8E%9F-%E7%90%86%E6%81%B5%E5%AD%90/dp/4652078404%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4652078404" target="_blank">この世でいちばん大事な「カネ」の話 (よりみちパン!セ)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" width="'1'" border="'0'" height="'1'" /><br /><br />理論社  2008-12-11<br />売り上げランキング : 1300<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" /><br /><br /><a href="http://www.amazon.co.jp/%E3%81%93%E3%81%AE%E4%B8%96%E3%81%A7%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E5%A4%A7%E4%BA%8B%E3%81%AA%E3%80%8C%E3%82%AB%E3%83%8D%E3%80%8D%E3%81%AE%E8%A9%B1-%E3%82%88%E3%82%8A%E3%81%BF%E3%81%A1%E3%83%91%E3%83%B3-%E3%82%BB-%E8%A5%BF%E5%8E%9F-%E7%90%86%E6%81%B5%E5%AD%90/dp/4652078404%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4652078404" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />前回読んだ「貧乏はお金持ち」つながりで借りたと思う。というのも、図書館でこの本を予約したら予約順位が58番目だったので借りるまで半年くらいかかった。<br /><br />てっきり株とか節税とかそういったお金儲けのTips本かと思いきや、著者の西原理恵子氏のお金にまつわる自伝だったので拍子抜けした。読んでみた感想だが、うん、内容的にあまりスカッとした話ではないし、むしろお金がないことによる人間の嫌な部分を見せつけられた感じでちょっとブルーになった。<br /><br />西原氏自身、ギャンブル癖がひどい父親のもとで暮らしたり、上京してきてイラストレーターを志すも自分の才能のなさを痛感し、なりふり構わずバイトしたりとお金に苦労したようだ。そして、自分が親になったとき、そういったお金がないことによる心の貧しい家庭にしないと思うが、気づいたら自分も嫌だった親のようになっていることに気づく。<br /><br />けれども、西原氏はその負のループを抜け出したようだが、その辺の負のループの抜け出し方に関しての記述がグラミン銀行を例に出したぐらいだったのでちょっと消化不良。<br /><br />とはいえ、ロビンソン・クルーソーの無人島漂流記をあんなのリアルじゃないとこき下ろすように、この本で書かれているの内容は実にリアルだ。リアルだからこそ、あんまり現実を見たくないと気持ちにさせられたのかもしれない。まぁ、がむしゃらにがんばるしかないのかな。。。</p>
 </p>
             <div class="meta">
@@ -595,14 +347,30 @@ Thank you!</p>
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/google-analytics-other-entry/" rel="prefetch">Google Analyticsの(other)とはなんぞや？</a></h2>
+            <p><p>アクセス解析してたら、どうもデータの取れていないページがある事に気づいた。確かに該当のページは他のページと比べてあまり見られてなさそうなページなので、もしかして、はしょられているの？なんて思いながらGoogle Analyticsのそこらへんの仕様について調べてみた。<br /><br />というのも、データが取れていないのなら取れていないでいいんだけど、こっちとしてはなぜ取れていないのか説明できないとアクセス解析ツールを使う他部署の皆さんが不信感を抱いてしまう。｢こんなうさんくさいツール信用できっかよ｣なんて事になったら困りものだ。<br /><br />そうゆことで、最初に目をつけたのが<b>トラッキングコードがおかしくないか</b>。うん、基本ですね。目視でちゃんと正しいトラッキングコードになっていることを確認。てか、テンプレートページに入れてあるので、該当のページだけおかしくなるというのは考えられない。<br /><br />続いて、HTTPヘッダーでGIFリクエストされていることも確認。<b>GAサーバーに情報は送られているのは確か</b>なようだ。<br /><br />つまり、情報が送られて表示するまでの間が問題かと思い、次にフィルタに着目。フィルタはほんとうに怖いね。試しに何にもフィルタをかけていないプロファイルを新しく作成し、該当のページにアクセスしてみた。一日後、うん記録されてないね。<b>フィルタが原因ではなかった</b>。<br /><br />困った。だいぶ困った。そしたらこんなヘルプ記事見つけた。<br /><br /><blockquote><span style="font-size: 85%;"><span style="font-weight: bold;">一日で50,000ページ（または仮想ページ）以上をトラッキングしていませんか？</span></span><span style="font-size: 85%;"><br />Google AnalyticsはWebサイトの全ての情報を収集し、一日つき50,000ページまでページビューで分類されたレポートを表示します。残りのページはレポート上では (other) という名前のエントリに集約されます。トラフィックの少ないページの詳細なレポートを見るためには、トラフィックの多いページを除くフィルタをかけた新しいプロファイルを作成する必要があります。こうすることで、効果的に残ったページを50,000URLs内に含めておけます。<br /></span><br /><div style="text-align: right;"><span style="font-size: 85%;"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting the Tracking Code - Google Analytics - Google Code</a></span><br /></div></blockquote><br />そんなん知らないよ〜＞＜<br />試しに1日分のデータ見たら確かに49,999ページ分しかなかった。<br /><br /><img alt="" class="fig" src="http://lh4.ggpht.com/_1drnogi3vdg/SwaejT6swYI/AAAAAAAAAsk/jFQRXDaLHlI/other.png" /><br /><br /><span style="font-weight: bold;">(other)</span>は前々から気になってたけど、こんなところで理解するとは思わなかった。つまり、今回の現象はPV数が少ないページが記録される前に、他のPVの多いページが50,000ページ記録されて、それ以降は<span style="font-weight: bold;">(other)</span>にまとめられちゃったから、｢上位のコンテンツ｣から該当のURLで検索してもひっかからなかったってことね。<br /><br />ということは、50,000ページ記録される前に該当のページにアクセスすれば記録されるんじゃねと思ったので、日付が変わる12時過ぎにアクセスしたけど、記録されなかった。たぶん、50,000ページのリセットのタイミングが日付と違うのか、それともPV数の多いページから優先的に処理されるのかもね。<br /><br />ともかく、PV数の少ないページのレポートを見るためにフィルタで細分化されたプロファイルから確認しないといけないって他部署の人には説明すれば良いと言うわけだ、てかその前にそんなトラフィックあるんなら有償ツール使えってことですね。。。はい、SiteCatalyst使いたいです＞＜<br /><br /><span style="font-size: 85%;">関連リソース<br /></span><br /><ul><li><a href="http://d.hatena.ne.jp/kahze/20090318/1237350495"><span style="font-size: 85%;">PV制限なしでGoogle Analyticsを使っているのに&quot;(other)&quot;が出てくる件 - ジブログ2</span></a></li></ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-20-November" title="November 20, 2009">November 20, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page45" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page45" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page47" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page47" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -614,7 +382,7 @@ Thank you!</p>
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -630,12 +398,12 @@ Thank you!</p>
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

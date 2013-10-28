@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,97 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/data-uri-scheme" rel="prefetch">データURIスキーム</a></h2>
-            <p><p>今回の記事の主題はデータURIスキームとはなんぞいねってことなんですが、簡単に言いますと、このスキームを使うとサーバにリクエストすることなく、ページ内のコードに画像を埋め込むことができるという話です。スキームといえば、このほかにもhttp:、ftp:、mailto:なんてものがありますね。</p>
-
-<p>ウェブパフォーマンスにとって高コストなものといえば、HTTPリクエストですから、それを使わず画像を表示できるということはこのスキームを使う最大のメリットと言えるでしょう。</p>
-
-<!--more-->
-
-<p>てなわけで、実際にどんなものか見てみましょう。例えば、隣にあるこのフィードアイコン<img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="" /> はHTMLソースの中ではこんな感じでに記述されています。
-<pre><code>&lt;img src=&quot;http://www.feedburner.com/fb/images/pub/feed-icon16x16.png&quot; /&gt;</code></pre>
-これをデータURIスキームを使って表現するとこんな感じになります↓
-<pre><code>&lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=&quot; /&gt;</code></pre>
-なんかわかりませんが、わっさー長くなりましたねw これは画像のバイナリデータをBase64で表現したものになります。はい、よくわからんですね... バイナリというのは<a href="http://e-words.jp/w/E38390E382A4E3838AE383AA.html">文字データ以外のデータ形式全般のこと</a>と書かれていますが、映画のマトリックスに出てくる数字の羅列みたいな感じを個人的には想像しています。まぁ、それをBase64ってゆう形式で表現し直しているって感じでしょうか。Base64に関してはこちらを参照↓
-<blockquote>Base64は、データを64種類の印字可能な英数字のみを用いて、それ以外の文字を扱うことの出来ない通信環境にてマルチバイト文字やバイナリデータを扱うためのエンコード方式である。
-<a href="http://ja.wikipedia.org/wiki/Base64">Base64 - Wikipedia</a></blockquote>
-そういうわけで、より大きな画像をBase64に変換すればそれだけ結果も長く、容量が大きいものになります。例えば、先程のアイコンよりも大きいこのCSS Niteのバナーを変換してみましょう。
-<img src="http://t32k.me/mol/wp-content/uploads/2010/03/lp9.png" alt="" />
-<pre><code>&lt;img src=&quot;data:image/png;base64,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&quot; /&gt;</code></pre>
-ちょっとここでは分かりにくいですが、コピペしてテキストエディタで表示してみると差は歴然でしょう。</p>
-
-<p>そんなわけで、データURIスキームの書式はこんな感じです。
-<pre><code>data:[メディアタイプ][;base64],データ</code></pre>
-まぁ変換ツールを使えば一発ですw
-<h4>オンライン変換ツール</h4>
-<ul>
-    <li><a href="http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/">Image To Data URI  Convertor - webSemantics</a></li>
-    <li><a href="http://sveinbjorn.org/dataurlmaker">DataURLMaker | Sveinbjorn  Thordarson</a></li>
-    <li><a href="http://www.scalora.org/projects/uriencoder/">data: URI image  encoder</a></li>
-    <li><a href="http://software.hixie.ch/utilities/cgi/data/data">The data:  URI  kitchen</a></li>
-</ul>
-PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使うと、画像修正の度にツールで変換することもなくなります。
-<pre><code><span style="color: #888888;">&lt;img src=&quot;data:image/png;base64,</span>&lt;?php echo base64<em>encode(file</em>get_contents(&quot;../images/feed-icon16x16.png&quot;)) ?&gt;<span style="color: #888888;">&quot;&gt;</span></code></pre>
-<h3>容量の肥大化</h3>
-ただ、問題点もちらほらあります。Base64で表現しますと、元のバイナリデータより30~40%大きくなってしまうことです。</p>
-
-<p><a href="http://t32k.me/mol/wp-content/uploads/2010/04/base64.png"><img class="fig" title="base64" src="http://t32k.me/mol/wp-content/uploads/2010/04/base64.png" alt="" width="470" height="270" /></a>
-<em><span style="color: #808080;">Image To Data URI Convertor - webSemantics より</span></em></p>
-
-<p>上記のように、先程のフィードアイコンも元が764バイトに対して、Base64にエンコードした結果は1020バイトと約36%の増加となっています。というか、そもそもそのような長いコードをHTML内に記述すれば、フィードアイコンのある全てのページでHTML容量が増加してしまうことが考えられます。</p>
-
-<p>そのような時は、外部CSSファイル内に記述し、キャッシュを効かすのがよいかなと考えます。こんな具合に↓
-<pre><code>.hoge {
-　width: 16px;　height: 16px;
-　background-repeat: no-repeat;
-　background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=);
-}</code></pre>
-さらに欲をいえば、肥大化したCSSファイルをgzip圧縮すれば、Base64で増加した分など微々たるものと言えるでしょう。</p>
-
-<p>とはいえ、<a href="http://www.ietf.org/rfc/rfc2397">RFC2397</a> (<a href="http://www.darts.jp/reference/rfc/rfc2397-jp.txt">邦訳</a>)では、一応1024バイトまでと書いてあるし、Operaも4100バイトまでとのことなのでデータURIを適用する画像はアイコンなどの小さな画像に止めたほうが良いでしょう。
-<h4>対応ブラウザ</h4>
-<ul>
-    <li>Firefox2+ (100KBまで)</li>
-    <li>Safari</li>
-    <li>Chrome</li>
-    <li>Opera7.2+ (4100Bまで)</li>
-    <li>IE8 (32KBまで)</li>
-</ul>
-そういうわけで、長々とデータURIについて説明してきたわけだけど、これって<strong>IE5-7が対応してない</strong>んですよね...orz で、これらのブラウザにはどう対処しましょうかと考えたところ、JavaScriptで適用するというやり方もあるみたいだけど、なんだか難しいね...
-<ul>
-    <li><a href="http://www.yomotsu.net/lab/javascripts/ie6_data-cheme">IE 7  以下で data スキームを URI 利用する | ヨモツネット</a></li>
-    <li><a href="http://d.hatena.ne.jp/uupaa/20080904/1220462674">IE5〜IE7でも、 RFC2397(Dataスキーム, DataURI)を使えるようにした! - latest log</a></li>
-</ul>
-単純にCSSハックでIE7以下には通常の画像を読み込ませるので良いかなと<span style="text-decoration: line-through;">あきらめたり</span>考えたり...
-<pre><code>.hoge {
-　width: 16px;　height: 16px;
-　background-repeat: no-repeat;
-　background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=);
-<span style="color: #888888;">  /* IE7 and below <em>/  </span>
-　</em>background-image: url(http://www.feedburner.com/fb/images/pub/feed-icon16x16.png);
-}</code></pre>
-まぁ、iPhone用サイトや、Firefoxのアドオンで使う画像など限定的な環境ならば全然使えると思うので試してはどうでしょうか。
-<h3>参考サイト</h3>
-<ul>
-    <li><a href="http://www.websiteoptimization.com/speed/tweak/inline-images/">Inline Images with Data URLs - embed graphics inline with data uri scheme</a></li>
-    <li><a href="http://www.nczonline.net/blog/2009/10/27/data-uris-explained/">Data URIs explained | NCZOnline</a></li>
-    <li><a href="http://en.wikipedia.org/wiki/Data:_URI_scheme">data URI scheme - Wikipedia, the free encyclopedia</a></li>
-</ul></p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2010-07-April" title="April 07, 2010">April 07, 2010</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/a2i-summit" rel="prefetch">アクセス解析サミット2010に行くのだ</a></h2>
+            <h2 class="title"><a href="/mol/log/a2i-summit/" rel="prefetch">アクセス解析サミット2010に行くのだ</a></h2>
             <p><p><img class="alignnone size-full wp-image-940" title="a2isummit" src="http://t32k.me/mol/wp-content/uploads/2010/04/a2isummit.jpg" alt="" width="120" height="197" />
 <a href="http://markezine.jp/a2i_summit/2010/">「今年は本気でPDCA」アクセス解析サミット2010</a>
 これに行けることになったので嬉しいの書きます。正直言って、ここ最近で一番ワクワクしてるのはなぜなんだろうかｗ　やっぱり、自分が一番知りたいものが学べそうな気がするからだろうか。</p>
@@ -179,7 +89,7 @@ PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/introduction-to-hypertext-transferprotocol" rel="prefetch">今夜わかるHTTP (Network)</a></h2>
+            <h2 class="title"><a href="/mol/log/introduction-to-hypertext-transferprotocol/" rel="prefetch">今夜わかるHTTP (Network)</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -305,7 +215,7 @@ PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/performance-business" rel="prefetch">ビジネスにおけるウェブパフォーマンス</a></h2>
+            <h2 class="title"><a href="/mol/log/performance-business/" rel="prefetch">ビジネスにおけるウェブパフォーマンス</a></h2>
             <p><p>前半部分かなり適当です...</p>
 
 <p><cite style="display: block; border: 1px #eee solid; padding: 6px; background: #fafafa;">原文：<a href="http://www.phpied.com/the-performance-business-pitch/">The performance business pitch / Stoyan&#39;s phpied.com</a>
@@ -441,7 +351,7 @@ PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/http-and-web" rel="prefetch">HTTP & Web (基礎から身につくネットワーク技術シリーズ)</a></h2>
+            <h2 class="title"><a href="/mol/log/http-and-web/" rel="prefetch">HTTP & Web (基礎から身につくネットワーク技術シリーズ)</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -471,14 +381,375 @@ PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使�
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/measuring-education/" rel="prefetch">はじめての教育効果測定 ―教育研修の質を高めるために</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4817192151/warikiru-22/ref=nosim/" target="_blank"><img class="fig" style="border: 0px initial initial;" src="http://ecx.images-amazon.com/images/I/41sJP7trINL._SL160_.jpg" border="0" alt="はじめての教育効果測定―教育研修の質を高めるために" width="116" height="160" /></a></td>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AE%E6%95%99%E8%82%B2%E5%8A%B9%E6%9E%9C%E6%B8%AC%E5%AE%9A%E2%80%95%E6%95%99%E8%82%B2%E7%A0%94%E4%BF%AE%E3%81%AE%E8%B3%AA%E3%82%92%E9%AB%98%E3%82%81%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-%E5%A0%A4-%E5%AE%87%E4%B8%80/dp/4817192151%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4817192151" target="_blank">はじめての教育効果測定
+―教育研修の質を高めるために</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+
+日科技連出版社  2007-06
+売り上げランキング : 52297
+おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="" />
+
+<a href="http://www.amazon.co.jp/%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6%E3%81%AE%E6%95%99%E8%82%B2%E5%8A%B9%E6%9E%9C%E6%B8%AC%E5%AE%9A%E2%80%95%E6%95%99%E8%82%B2%E7%A0%94%E4%BF%AE%E3%81%AE%E8%B3%AA%E3%82%92%E9%AB%98%E3%82%81%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-%E5%A0%A4-%E5%AE%87%E4%B8%80/dp/4817192151%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4817192151" target="_blank">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>多くの経営者にとって教育研修はコストとしか認識されていないかもしれないが、適切な<a href="http://ja.wikipedia.org/wiki/インストラクショナルデザイン">インストラクショナルデザイン</a>（てか、初めて聞いた言葉）と効果測定を行えば、それが価値のある投資だと理解できるだろう、とこの本では書かれている（たぶん）。</p>
+
+<!--more-->
+
+<p>最近、社内勉強会に興味が出てきたというか、まぁやってるんですけど、今後、勉強会のさらなる拡大・拡充を望めば会社の援助が当然必要になってくる（東京から有名な人呼んでみたりとか）。お偉いさんを納得させるためには、かけた費用以上の効果を提示しなければならない。でも実際、勉強会を開催したからといって、すぐに社の売上に影響するかといえばそうではないし、もっと社内の雰囲気とか活気とかそうゆうのも評価しなければならないかもしれない。</p>
+
+<p>そんな教育効果測定のためのヒントがいっぱい詰まった本。ちょうど欲していた知識だったので、先人たちの知恵って素晴らしい！ということで、以下引用に次ぐ引用。結論を言えば効果測定はコストがかかるので明確な目的を持って計画しよう！</p>
+
+<hr>
+
+<h3><span style="color: #008000;">HRD サイクルモデル</span></h3>
+
+<p><a href="http://t32k.me/mol/wp-content/uploads/2010/03/hrd.png"><img class="alignnone size-full wp-image-730" title="hrd" src="http://t32k.me/mol/wp-content/uploads/2010/03/hrd.png" alt="" width="468" height="417" /></a>
+<ul>
+    <li><strong>分析</strong>：経営戦略に基づいて教育研修のニーズを正しく理解、把握する機能（Plan）</li>
+    <li><strong>実施</strong>：経営戦略に基づいて教育研修をデザイン、運営する機能（Do）</li>
+    <li><strong>評価</strong>：教育研修が期待通りの成果を上げているかを評価する機能（See）</li>
+</ul>
+<h3><span style="color: #008000;">ゲリー・ラムラーとアラン・ブレーシュの「人材の行動を強化させる有効な因子」</span></h3>
+<ul>
+    <li>明確な行動基準：Performance specifications</li>
+    <li>職場内の必要な支援：Task support</li>
+    <li>行動から予測できる結果の明解性：Consequences</li>
+    <li>適切なフィードバック：Feedback</li>
+    <li>個人の特徴に合わせた適材適所：Individual capacity</li>
+    <li>必要なスキルや知識の付与：Skills and Knowledge</li>
+</ul>
+<h3><span style="color: #008000;">教育効果測定のため収集すべきデータ</span></h3>
+<strong>ハードデータ</strong>（金額換算が容易で客観的な指標）
+<table>
+<tbody>
+<tr>
+<th scope="row">アウトプット</th>
+<td>生産個数、売上高、在庫回転率、顧客数、契約件数など</td>
+</tr>
+<tr>
+<th scope="row">時間</th>
+<td>サイクルタイム、設備の寿命、加工時間、会議時間など</td>
+</tr>
+<tr>
+<th scope="row">コスト</th>
+<td>製造コスト、変動費、固定費、管理コスト、事故コストなど</td>
+</tr>
+<tr>
+<th scope="row">品質</th>
+<td>不良欠陥率、手直し数、事故数、基準からのずれ、クレームなど</td>
+</tr>
+</tbody>
+</table>
+<strong>ソフトデータ</strong>（測定が難しく主観的な指標）
+<table>
+<tbody>
+<tr>
+<th scope="row">満足</th>
+<td>職務満足、信頼感の向上、ロイヤリティ、顧客満足など</td>
+</tr>
+<tr>
+<th scope="row">勤怠</th>
+<td>欠勤率、遅刻、安全規則違反、セクハラ件数など</td>
+</tr>
+<tr>
+<th scope="row">風土・環境</th>
+<td>不平・不満人数、差別告発、退職率、職務満足など</td>
+</tr>
+<tr>
+<th scope="row">スキル</th>
+<td>意志決定・問題解決スキル、新スキル活用率、習熟率など</td>
+</tr>
+<tr>
+<th scope="row">育成</th>
+<td>昇進率、合格率、研修への参加人数など</td>
+</tr>
+<tr>
+<th scope="row">モラル</th>
+<td>プロジェクトの成功件数、提案件数、アイディア実行数など</td>
+</tr>
+</tbody>
+</table>
+<h3><span style="color: #008000;">教育効果測定のため方法</span></h3>
+<ul>
+    <li>質問紙調査</li>
+    <li>理解度確認テスト</li>
+    <li>パフォーマンステスト（演習などでスキル習熟度を確認）</li>
+    <li>シミュレーション</li>
+    <li>エクササイズ、演習</li>
+    <li>行動観察</li>
+    <li>個人インタビュー</li>
+    <li>グループインタビュー</li>
+    <li>アクションプラン、改善計画</li>
+</ul>
+<h3><span style="color: #008000;">ジャック・フィリップスの「ROI モデル」</span></h3>
+<table>
+<tbody>
+<tr>
+<th scope="col"></th>
+<th scope="col">名称</th>
+<th scope="col">概要</th>
+</tr>
+<tr>
+<td>1</td>
+<td>リアクション＆プランドアクション
+Reaction &amp; Planned Action</td>
+<td>プログラム参加者の反応を測定
+◇参加者はそのプログラムを気に入ったか</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ラーニング
+Learning</td>
+<td>プログラム参加者の知識やスキル習得状態を測定
+◇参加者は目的の能力を身につけたか</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ジョブアプリケーション
+Job Application</td>
+<td>プログラム参加者の学習内容の活用状況を測定
+◇参加者は実際に職場で活用しているか（行動変容）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ビジネスリゾルト
+Business Results</td>
+<td>プログラム参加者の行動変容によって得られた組織貢献度を測定
+◇参加者はビジネス成果を向上させたか</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ROI
+Return on Investments</td>
+<td>投資としての有効性を測定
+◇ビジネス成果は投資コストに見合ったものか</td>
+</tr>
+<tr>
+<td>6</td>
+<td>インタンジブル
+Intagible</td>
+<td>非金銭的な価値
+◇組織内の雰囲気や社員の気持ちなど改善されたか</td>
+</tr>
+</tbody>
+</table>
+<h3><span style="color: #008000;">HRD サイクルストーリー</span></h3>
+<ol>
+    <li>問題の明確化と現状分析</li>
+    <li>教育研修プログラムと効果測定の設計</li>
+    <li>教育研修プログラムと効果測定の実施</li>
+    <li>教育研修プログラムの評価</li>
+    <li>教育研修プログラムと効果測定ツールの改善</li>
+</ol>
+<h3><span style="color: #008000;">レベルごとの活用目的と測定ツール</span></h3>
+<strong>レベル1：リアクション</strong>
+研修プログラムの改善、研修プログラムの品質管理上の判断
+<ul>
+    <li> リアクションアンケート</li>
+    <li> インタビューなど</li>
+</ul>
+<strong>レベル2：ラーニング</strong>
+研修プログラムの改善、研修ツールの改善、インストラクションの巧拙の評価
+<ul>
+    <li> 理解度テスト</li>
+    <li> 演習を通じての視察</li>
+    <li> シミュレーションテストなど</li>
+</ul>
+<strong>レベル3：ビヘイビア</strong>
+スキルや知識の活用度の把握、職場でのスキル活用の促進要因や阻害要因の把握 、研修の寄与度の評価
+<ul>
+    <li> アクションプラン</li>
+    <li> フォローアップアンケート</li>
+    <li> 個人インタビュー</li>
+    <li> 職場での行動考察</li>
+    <li> フォーカスグループ</li>
+    <li> 業績指標など</li>
+</ul>
+<strong>レベル4：リゾルト</strong>
+教育研修の業績貢献度の把握、研修の総括的評価
+<ul>
+    <li>フォローアップアンケート</li>
+    <li> アクションプラン</li>
+    <li> フォーカスグループ</li>
+    <li> 実験群と統制群のデータ比較</li>
+    <li> 業績指標など</li>
+</ul>
+<h3><span style="color: #008000;">ニーズ・アセスメント一覧</span></h3>
+種類：<strong>戦略的ニーズ・アセスメント</strong>
+狙い：組織戦略を実現するための人事的施策を明らかにする
+特徴：長期的な解決策を得ることができる
+時間的観点：長期的観点に立った調査</p>
+
+<p>種類：<strong>コンピテンシーにもとづくニーズ・アセスメント</strong>
+狙い：特定の職種において成果をあげることができる人材群を明らかにする
+特徴：手本とすべき行動を知ることができる
+時間的観点：中期的観点に立った調査</p>
+
+<p>種類：<strong>職務・職業分析</strong>
+狙い：特定の職務・業務を遂行するための技能をもたった人材群を明らかにする
+特徴：特定の職務を遂行するために必要な能力をしることができる
+時間的観点：短期的観点に立った調査
+<h3><span style="color: #008000;">5つのコンピテンシーとコンピテンシー・アイテム</span></h3>
+<span style="color: #008000;"><span style="color: #000000;">コンピテンシーとは、1950年代にロバート・ホワイトとデビッド・マクレランドの二人の心理学者により提唱された概念であり、「高業績をあげる人に特徴的に見られる、行動・考え方」と定義されている。</span>
+</span></p>
+
+<p><strong>事実にもとづく思考・行動</strong>
+<ul>
+    <li>不具合は、表面的な現象ではなく、真の原因を追及している</li>
+    <li>不具合発生のときには、周囲の状況・環境を確認する</li>
+    <li>可能な限り、定量的データをとるようにしている</li>
+    <li>定量的なデータがとれない場合、工夫した定性データをとっている</li>
+</ul>
+<strong>多角的なものの見方</strong>
+<ul>
+    <li>短期的な目標達成だけでなく、長期的な視点ももっている</li>
+    <li>緊急の問題に取り組むときも、将来の課題を考えている</li>
+    <li>与えられた仕事の範囲だけでなく、全体を見通している</li>
+    <li>自部門だけでなく、他部門のことも考慮して仕事を進めている</li>
+</ul>
+<strong>充実した計画</strong>
+<ul>
+    <li>目標達成のための概要計画と詳細計画をたてている</li>
+    <li>行き詰まったときに、最初からやり直しにならないよう代替案をもっている</li>
+    <li>計画との差が出た場合には、すぐに対策をとっている</li>
+    <li>可能な限り前倒しした計画をたてている</li>
+</ul>
+<strong>情報の共有化</strong>
+<ul>
+    <li>報告書にまとめるだけでなく、口頭で詳細説明ができるように整理している</li>
+    <li>いつでも利用できるよう、使えそうな情報を整理している</li>
+    <li>関係のない展示会やセミナーにも参加し、将来のための情報を収集している</li>
+    <li>発表会では、積極的に発表を行っている</li>
+</ul>
+<h3><span style="color: #008000;">研修満足に影響を与える要因（サンプル事例）</span></h3>
+<strong>○ マインドセット</strong>
+研修参加に際し、学習者への事前説明や動機付けが十分になされ、研修への前向きな気持ちが芽生えているかどうかを見極める尺度</p>
+
+<p><strong>○ 研修総合満足</strong>
+研修を受講し、学習者は研修に満足度をおぼえているかどうかを見極める尺度</p>
+
+<p><strong>○ 講師</strong>
+担当講師は学習者の学習支援と動機づけを行い、学習目標の達成と同時に職場活用への橋渡しを行ったかどうかを見極める尺度</p>
+
+<p><strong>○ 研修教材</strong>
+使用教材・配布資料は学習者の内容理解を助長するための効果的ツールであったかどうかを見極める尺度</p>
+
+<p><strong>○ 事務運営</strong>
+研修選定、申込み、受講通知等の受け取りから受講会場を去るまでの一連の過程で、学習者にストレスを感じさせることなくスムーズなオペレーションが実行されたかどうか見極める尺度</p>
+
+<p><strong>○ 研修企画</strong>
+明示された学習目標を達成するために、論理的かつ整合性のとれた内容や流れに研修が設計されたかどうかを見極める尺度</p>
+
+<p><strong>○ 研修環境</strong>
+学習者への学習意欲を維持、促進し、集中力を持続させる適切な環境であったかどうかを見極める尺度</p>
+
+<p><strong>○ 参加者のネットワーク</strong>
+他事業部やグループ各社に関する理解や人脈形成の機会として、また相互啓発の場として本研修が機能したかどうかを見極める尺度</p>
+
+<p><strong>○ 学習内容の理解度（自己認知）</strong>
+学習者は研修内容にどの程度の納得感と理解の手応えを認識しているかどうかを見極める尺度</p>
+
+<p><strong>○ 職場への活用意識</strong>
+学習内容の職場活用意識や活用の見通し感が学習者に芽生え、活用環境の状況認識が認められるかどうか見極める尺度
+<h3><span style="color: #008000;">教育研修プログラムの改訂事項の例</span></h3>
+<strong> 加える（Add）</strong>
+<ul>
+    <li>表や図を加える</li>
+    <li>演習を加える</li>
+    <li>資料を追加する</li>
+    <li>事前課題を付加する</li>
+    <li>例示を加える</li>
+    <li>フィードバックを加える</li>
+    <li>参加者の役割を増やす</li>
+    <li>不足している学習内容を加える</li>
+</ul>
+<strong>削る（Delete）</strong>
+<ul>
+    <li>学習目標と関係の薄い情報を削除する</li>
+    <li>学習目標と関係のない例や演習を削る</li>
+    <li>多すぎる情報を削る</li>
+    <li>参加人数を絞り込む</li>
+    <li>学習項目を削る</li>
+</ul>
+<strong>取り替える（Move）</strong>
+<ul>
+    <li>教える順番を変える</li>
+    <li>研修環境を変える</li>
+    <li>講師を変える</li>
+    <li>開催日程を変える</li>
+    <li>学習目標を変える</li>
+    <li>受講対象者を変える</li>
+    <li>前半部分と後半部分の2回に分けて実施する</li>
+</ul>
+<strong>修正する（Modify）</strong>
+<ul>
+    <li>平易な言い回しにする</li>
+    <li>慣れ親しんだケースに修正する</li>
+    <li>慣れ親しんだ場面設定に修正する</li>
+    <li>実務で使用しているフォームを使う</li>
+    <li>演習スタイルや方法を変える</li>
+    <li>時間を延長するあるいは短縮する</li>
+    <li>馴染みのある比喩を用いる</li>
+</ul>
+<h3><span style="color: #008000;">HRDスタッフが認識する5つの課題</span></h3>
+<strong>関係者の考え方に対する問題</strong>（人材育成に対する経営幹部、参加者上司、参加者等の考え方に対する問題
+<ul>
+    <li>研修に対する参加者上司の無理解</li>
+    <li>参加者の意識の低さ、経営層の関心が薄い</li>
+    <li>教育に対する過度な期待など</li>
+</ul>
+<strong>プログラム開発における問題</strong> （プログラム開発・運営上における問題
+<ul>
+    <li>研修テーマと参加者のミスマッチ</li>
+    <li>ニーズ分析技術の不足</li>
+    <li>教育効果の把握画布十分</li>
+</ul>
+<strong>制度関連上の問題</strong> （人事育成方針や人事諸制度における問題
+<ul>
+    <li>人材育成ポリシーの不在</li>
+    <li>他人事制度とのリンクが少ない</li>
+    <li>教育受講機会の不足</li>
+</ul>
+<strong>人材育成風土</strong>（人材育成に対する組織風土
+<ul>
+    <li>教育は本部がやるもので現場は関係ない</li>
+    <li>教育優先度が低い文化</li>
+    <li>教育対する参加者の無理解</li>
+</ul>
+<strong>HRD部門が抱える問題</strong> （HRDスタッフの不足
+<ul>
+    <li>企画書と参加者意識のギャップが大きい</li>
+    <li>教育予算の減少</li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2010-10-March" title="March 10, 2010">March 10, 2010</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page37" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page37" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page39" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page39" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -490,7 +761,7 @@ PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使�
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -506,12 +777,12 @@ PHPが使える環境ならば、 file<em>get</em>contents関数ってのを使�
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

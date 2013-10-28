@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,51 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/index-value-ga-v5-2" rel="prefetch">Googleアナリティクス v5 レポートで$インデックスを確認したい！（2ヶ月ぶり2度目）</a></h2>
-            <p><p><a href="http://t32k.me/mol/log/index-value-ga-v5/">前回は私の勘違いで、誤った情報を流してしまい申し訳なく思ってます</a>。でもあきらめないで！（誰？</p>
-
-<p>ということで、私の間違いを<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さんが、<a href="http://susumukatachi.jp/archives/1930">懇切丁寧にブログで教えてくださいました</a>ので今回はなんとか解決できそうです。</p>
-
-<!--more-->
-
-<p>（僕にとって）重要だったのは以下です。
-<ol>
-    <li>$インデックスと平均目標値は違う</li>
-    <li>ベージの価値を知りたければ$インデックスを見る</li>
-    <li>$インデックスは <strong>(合計目標値+Eコマースの収益) / ページ別訪問数</strong> で導き出せる</li>
-</ol>
-特に重要なのは3番目ですね。あー$インデックスというのはそうゆう計算式で出るのねと良いことを知りました。Googleアナリティクス上では上記のような計算はできないので、CSVかなんかでローカルにダウンロードしてEXCELで計算すれば$インデックスを出すことできますけどめんどくさいですよね。ってことで、計算してくれるユーザースクリプト作りました。Chromeで確認しています。多分Firefoxでも動くと思います。</p>
-
-<p>極めて限定的な感じになって申し訳ないのですが、まずは以下のカスタムレポートを$インデックスを見たいプロファイルにコピーしてください。
-<ul>
-    <li><strong><a href="https://www.google.com/analytics/web/permalink?type=custom_report&amp;uid=fMTOTwpxTJisMbu_6h-Mdw">上位のコンテンツ（$インデックス含む）:カスタムレポート</a></strong></li>
-</ul>
-これだけだと、$インデックスは確認できないので、次のスクリプトをインストールしてください。view rawってとこクリックしたらインストールできると思います。</p>
-
-<script src="https://gist.github.com/1471956.js?file=calculate_index.user.js"></script>
-
-<p>そして先ほどのカスタムレポートにアクセスするとスクリプトが実行されてこんな感じになると思います。出力されないとか調子悪かったらリロードしてください。</p>
-
-<p><a href="http://t32k.me/mol/file/2011/12/Google-Analytics.png"><img src="http://t32k.me/mol/file/2011/12/Google-Analytics.png" alt="" title="Google-Analytics" width="500" class="fig aligncenter size-medium wp-image-3810" /></a></p>
-
-<p>個人的には満足です。<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さん、ありがとうございますでした。</p>
-
-<p>というか、こんなスクリプトなくても新レポートで$インデックス確認できるようになるといいですね。</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2011-13-December" title="December 13, 2011">December 13, 2011</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/html5shim-vs-html5shiv" rel="prefetch">html5shim vs html5shiv</a></h2>
+            <h2 class="title"><a href="/mol/log/html5shim-vs-html5shiv/" rel="prefetch">html5shim vs html5shiv</a></h2>
             <p><p><a href="http://atnd.org/events/21980">JavaScript Advent Calendar 2011 (オレ標準コース) </a>12日目の id:t32k です。去年も参加しましたがなんでもありと聞いて今年も懲りずに参加！
 <a href="http://keycss.com/html5/html5shim-vs-html5shiv.html"><img title="Don’t lose any more time." src="http://t32k.me/mol/file/2011/12/same.png" alt="Don’t lose any more time. html5shim and html5shiv are exactly the same thing." />
 </a>はじめに言っておきますが、html5shimもhtml5shivどっちもまったく同じです。違いなんて無いので、こんなことに頭を悩ませる暇があったらさっさとコードでも書いてろ！以上！うんこ(・∀・)!!</p>
@@ -241,7 +197,7 @@ html5shimの方が意味的に分かりやすいし一応こっちも作っと�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/titanium-advent-calendar-2011-01" rel="prefetch">【Titanium Advent Calendar 2011：一日目】既にリリースしたアプリ名の変更（AppStore編）</a></h2>
+            <h2 class="title"><a href="/mol/log/titanium-advent-calendar-2011-01/" rel="prefetch">【Titanium Advent Calendar 2011：一日目】既にリリースしたアプリ名の変更（AppStore編）</a></h2>
             <p><p><img class="alignnone size-full wp-image-3734" title="rename" src="http://t32k.me/mol/file/2011/11/rename.png" alt="" width="500" height="200" />
 <blockquote><strong><a href="http://atnd.org/events/21951">Titanium Advent Calendar 2011 </a></strong>
 ありがとう、2011。ありがとう、Titanium。</blockquote>
@@ -299,7 +255,7 @@ AppStoreで表示されるアプリ名を変えなければなりません。僕
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/titanium-meetup-osaka" rel="prefetch">年の瀬にTitanium!</a></h2>
+            <h2 class="title"><a href="/mol/log/titanium-meetup-osaka/" rel="prefetch">年の瀬にTitanium!</a></h2>
             <p><p>いやー気づいたらもう12月はすぐそこっすよ！びっくりっすよ！ってことで年の瀬はほっこりTitaniumで暖まりたいものですね。
 <ul>
     <li>12/01 - 12/25 <strong><a href="http://atnd.org/events/21951">Titanium Advent Calendar 2011 : ATND</a></strong></li>
@@ -341,7 +297,7 @@ AppStoreで表示されるアプリ名を変えなければなりません。僕
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/kanazawajs-is-one-year-old" rel="prefetch">おかげさまでkanazawa.jsは1歳になりました。</a></h2>
+            <h2 class="title"><a href="/mol/log/kanazawajs-is-one-year-old/" rel="prefetch">おかげさまでkanazawa.jsは1歳になりました。</a></h2>
             <p><p><a href="http://www.flickr.com/photos/mrs_logic/3799729875/"><img class="fig" title="kanazawa.js" src="http://t32k.me/mol/file/2011/11/one_year.jpg" alt="kanazawa.js" width="500" height="250" /></a>
 <div style="text-align: right;"><span style="color: #888888; font-size: x-small;"><em>By Mrs Logic</em></span></div></p>
 
@@ -369,14 +325,87 @@ AppStoreで表示されるアプリ名を変えなければなりません。僕
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/tissa/" rel="prefetch">Titanium Meetup Tokyo #14 でLTしてきた</a></h2>
+            <p><p><a title="Jeff Haynie at Titnaium Meetup Tokyo #14 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/6288459224/"><img class="fig" src="http://farm7.static.flickr.com/6042/6288459224_6fc710fd94.jpg" alt="Jeff Haynie at Titnaium Meetup Tokyo #14" width="500" height="280" /></a>
+<ul>
+    <li><a href="http://atnd.org/events/21071">Appcelerator CEO Jeff Haynie 来日記念 Meetup!! : ATND </a></li>
+    <li><a href="http://www.ustream.tv/channel/titanium-meetup-tokyo">USTREAM: Titanium Meetup Tokyo</a></li>
+    <li><a href="http://togetter.com/li/206550">Titanium Meetup Tokyo #14 - Togetter </a></li>
+</ul>
+金沢から4時間かけて行ってきた。Titanium Meetup Tokyo #14. うん行って良かった。肝心のJeffの講演は英語が難しくてよく分からなかったけど、Layout APIが今後UI作る上で重要になってきそうなので、要チェッキしていきます。</p>
+
+<p>とりあえず、まぁTokyoのTitansはみんな英語喋れるのかと思うほど、英語だった。勉強しないと...</p>
+
+<p>ライトニングトークも皆おもしろかった。特に印象的だったのが、<a href="https://twitter.com/#!/atsusy">@atsusy</a>さんの画像加工フィルターがすごかった。リアルタイムで効果が反映され、しかもユーザー側でJSでフィルターのパラメータを調整することもできていろいろ夢が広がります。欲しいぞこのモジュール！また、<a href="https://twitter.com/#!/naoya_ito">@naoya_ito</a>さんのInstruments を使ったパフォーマンスチューニングもぜんぜん知らなかった分野なので参考になりました。あと、僕がTitaniumを始めたのも<a href="http://d.hatena.ne.jp/naoya/20101011/1286799669">naoyaさんの記事</a>でその存在を知り、<a href="https://twitter.com/#!/astronaughts">@astronaughts</a>に肩を押され始めた経緯があるので、そのnaoyaさんと3分のLTとはいえ同じ舞台に立てたのは感慨ひとしおです。</p>
+
+<p>まぁ、僕のLTの方は 3分と短いのが初めてで案の定タイムオーバーでした...もっと練習しないなとなーってことで以下LT内容。</p>
+
+<!--more-->
+
+<h2>tissa - Clock &amp; Stopwatch &amp; Timer for iOS</h2>
+
+<div id="__ss_9915981" style="width: 500px;">
+
+<strong style="display: block; margin: 12px 0 4px;"><a title="tissa for iOS" href="http://www.slideshare.net/t32k/tissa-for-ios" target="_blank">tissa for iOS</a></strong> <iframe frameborder="0" height="426" marginheight="0" marginwidth="0" scrolling="no" src="http://www.slideshare.net/slideshow/embed_code/9915981" width="510"></iframe>
+<div style="padding: 5px 0 12px;">View more <a href="http://www.slideshare.net/" target="_blank">presentations</a> from <a href="http://www.slideshare.net/t32k" target="_blank">Koji Ishimoto</a></div>
+</div>
+
+<p><span style="color: #888888;"><em>※ Version1.1からticktockだったアプリ名がtissaに変更になりました。まだ、AppStoreではticktockと表示されていますが、インストールすればtissaとして表示されます。Version1.1.1で修正済</em></span></p>
+
+<p><a href="http://tissa.t32k.me/">tissa</a>という有料のタイマーアプリについて紹介します。自己紹介、石本光司、Webデザイナーをしております。Twitter IDは<a href="https://twitter.com/t32k">t32k</a>です。</p>
+
+<p>今日は460km離れた金沢から4時間と150ドルかけて東京にきました。それも赤いテーシャツを頂くためです。嘘です。まだ見ぬタイタンたちと仲良くなりたかったからです。プライスレス。（言わせんな、恥ずかしい///）</p>
+
+<p>地元では<a href="http://kanazawajs.tumblr.com/">kanazawa.js</a>というJSのユーザーコミュニティを運営しています。前回の<a href="http://kanazawajs.tumblr.com/v1-5/">Version 1.5</a>では増井さんに講演して頂けました。ということもあって、Titanium Mobileは結構好きです。</p>
+
+<p>以前にも<a href="http://t32k.me/mol/log/nyars/">Nyars</a>というネコミミが撮れるカメラアプリを作りました。そもそもなんでWebデザイナーがiPhoneアプリを作ろうかと思ったかと言いますと、まぁモテたかったんですね。iPhoneアプリであれば合コンとかでキャッキャッウフフできるかなと思った次第です。</p>
+
+<p>しかし、蓋をあけてみれば、特に彼女もできないまま終わりました。ちょっと方向性を間違えたと感じましてましたのでもっと正攻法でモテようと思い、いろいろな文献を調べていますと、このような文献がみつかりました。&quot;<em>月一で5万円以上のプレゼントあげる。</em>&quot; あ、彼女って月5万でできるのかと理解しました。OK, OK!</p>
+
+<p>しかし、お金はないです。というのも、アプリ貧乏です。iOSのデベロッパー登録に99ドル、Titaniumのインディサポートに399ドル既に払っています。5万円かけるどころか5万円マイナスですので、今回は有料アプリで儲けようと思いました。</p>
+
+<p>まぁ売れるアプリってなんなのかなと考えると、ソーシャルやゲームなど思い浮かびますが、私はデザイナーなのでこーゆのをプログラムするのは難しいです＞＜ はい、分かりません。</p>
+
+<p>ということで、プログラムで勝負するのではなくデザインで勝負すればまだ勝ち目はあるのかなと考えました。そして、自分の作れるもので、欲しい物をつくろうと考えました。なにが欲しいか考えるとタイマーが欲しいとおもいました。とゆうのも金沢から東京の勉強会にでるほど勉強会が好きで自分で主催するほどです。そのような場面でよく使わうからですね。</p>
+
+<p>で、既存のタイマーアプリを見てみますと、ただ時間を測るだけなのにもかかわらずボタンなどの画面上の要素が多すぎるように感じました。はい、Less is Moreです。</p>
+
+<p>こういったものはぜんぶタッチジェスチャーで置き換えれるんじゃないかと。考えました。ボタンををタップするのではなく数字や画面をジェスチャー操作するのです。</p>
+
+<p>そうなると、画面上に残るのは数字のみとなりますので、そこは一からこのアプリのためにオリジナルフォントを作りました。ぼくが作ったわけではないですけど。（<a href="http://www.dotcolon.net/blog/?p=64">created by dot colon</a>）</p>
+
+<p>できたのがtissaというアプリです。クロック、タイマー、ストップウォッチをスクローラブルビュー配置することでモードの切替をスワイプ操作することができます。また、スタート＆ストップは数字をタップすれば可能です。シンプルです。また設定画面は画面上を上にフリックすることで呼び出せます。もちろんユニバーサルアプリなのでiPadでも動きます！</p>
+
+<p>2011年まで170円のところ85円で売っていますので皆さん買ってください。5万円とは言いませんが、来年のiOSのデベロッパー登録料金ぐらいは稼ぎたいです。よろしくお願いします。</p>
+
+<p>ありがとうございました。 CODESTORONG!
+<blockquote><strong><a href="http://tissa.t32k.me/">tissa - Clock &amp; Stopwatch &amp; Timer for iOS </a></strong></blockquote>
+Photo Credit
+<ul>
+    <li><a href="http://www.flickr.com/photos/nattu/895220635/">Creative independence | Flickr - Photo Sharing!</a></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-28-October" title="October 28, 2011">October 28, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page13" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page13" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page15" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page15" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -388,7 +417,7 @@ AppStoreで表示されるアプリ名を変えなければなりません。僕
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -404,12 +433,12 @@ AppStoreで表示されるアプリ名を変えなければなりません。僕
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

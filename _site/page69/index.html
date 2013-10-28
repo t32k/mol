@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,23 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/understanding-progressive-enhancement" rel="prefetch">Understanding Progressive Enhancement</a></h2>
-            <p><p><a href="http://warikiru.blogspot.com/2008/11/web-directions-east-08.html">WDE</a>に行ってから個人的にProgressive Enhancementがブーム（謎）なので訳してみた。<br /><br /><cite>原文: <a href="http://www.alistapart.com/articles/understandingprogressiveenhancement">Understanding Progressive Enhancement</a><br />著者: <a href="http://www.alistapart.com/authors/g/aarongustafson">Aaron Gustafson</a></cite><span style="font-size:130%;"><br /></span><div style="text-align: center;"><span style="font-size:130%;">2008年10月7日</span><br /><span style="font-size:180%;">Understanding Progressive Enhancement</span><br /><span style="font-size:130%;">by Aaron Gustafson</span><br /></div><br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_1drnogi3vdg/SUbtr_VxLUI/AAAAAAAAALE/UlHC0h5B4Jo/s1600-h/progressive-enhancement.jpg"><img style="margin: 0pt 0pt 10px 10px; float: right; cursor: pointer; width: 239px; height: 400px;" src="http://1.bp.blogspot.com/_1drnogi3vdg/SUbtr_VxLUI/AAAAAAAAALE/UlHC0h5B4Jo/s400/progressive-enhancement.jpg" alt="" id="BLOGGER_PHOTO_ID_5280168953131380034" border="0" /></a>1994年の頃からウェブ開発者のコミュニティは<a href="http://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E3%83%88%E3%83%88%E3%83%AC%E3%83%A9%E3%83%B3%E3%83%88%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0">Graceful Degradation</a><span style="color: rgb(153, 153, 153);">（以下、GD）</span>を主張してきた。エンジニア業界から持たされたこのコンセプトの核心は、最新かつ高機能なブラウザを使う人にはフルコースの料理を振舞われたかのような体験を提供するとともに、 Netscape 4で満足している悲しくも不幸な人たちには残飯を与えるようなものだった。それは確かに機能したが、ティム・バーナーズ・リーが提唱した「世界中の誰もがアクセスできるウェブ」の理念にはそぐわないものだった。<br /><br />10年後、幾人かの頭の良い人たちがGDに対して疑問を持ち始め、多くのレベルで欠けていることを理解した。コンテンツの<a href="http://e-words.jp/w/E58FAFE794A8E680A7.html">可用性</a>、全体としてのアクセシビリティ、携帯ブラウザの将来性を考慮した結果、彼らは新しいウェブ開発の方法を模索した。その方法とはコンテンツに焦点を当てたもので、ただの口先だけではない古いデバイスへの対応だ。<br /><br />2003年のSXSWで、Steve ChampeonとNick Finck が“<a href="http://www.hesketh.com/publications/inclusive_web_design_for_the_future/">Inclusive Web Design For the Future</a>（<a href="http://www.anc-tv.ne.jp/%7Epeanuts1/Translation/Inclusive_Web_Design/Inclusive_Web_Design.j.html">将来のための包括的なウェブデザイン</a>）”と題してプレゼンテーションを行った。そこで、彼らは新しいウェブ開発の青写真を公開した。Steveはまたこの開発手法に<a href="http://en.wikipedia.org/wiki/Progressive_enhancement">Progressive Enhancement</a><span style="color: rgb(153, 153, 153);">(以下、PE)</span>と名をつけた。<br /><br /><br /><span style="font-size:130%;"><span style="font-weight: bold;">GDとPEのわずかな違い</span></span><br />両者の違いについて理解しようとすれば、君は頭をもがくことになるだろう。私はこのように答えるだろう、それは観点の違いだと。GDもPEも多種多様なブラウザ、デバイス環境でいかにうまくサイトを機能させるか考慮されている。ポイントはそれらがどこに焦点を置き、どのような影響をワークフローに与えるかだ。<br /><br /><span style="font-weight: bold;">GDの観点</span><br />GDはもっとも新しく高機能なブラウザのためのウェブサイト構築に焦点が置かれている。古い、もしくは機能の劣ったブラウザのテストは開発サイクルの最終工程でよく行われるし、（IEやMozillaなどの）主要なブラウザの前のバージョンについては、しょっちゅうテストが省かれる。<br /><br />この実例に基づくと、古いブラウザを使用する人々は貧しいけれどもそれなりの体験をすると思われる。<br />小さな修正は特定のブラウザだけに施されるだろう。なぜなら、危機的なエラーの対応に手一杯で些細な修正には気にも留めていられないからだ。<br /><br /><span style="font-weight: bold;">PEの観点</span><br />PEはコンテンツに焦点が置かれている。違いについて気づいただろう、ブラウザにさえ私は言及していない。<br />コンテンツはウェブサイトを制作する上での動機だ。あるサイトはコンテンツ広めたり、収集したり、要求したり、操作したりもする、もしくは先に挙げた全てを行うサイトかもしれないが、要はコンテンツありきなのだ。つまり、PEとはより適切なパラダイムにするということ。だからこそ、Yahoo!は、迅速にこの考えを導入し、<a href="http://developer.yahoo.com/yui/articles/gbs/">Graded Browser Support</a>戦略に応用したのだ。<br /><br /><br /><span style="font-size:130%;"><span style="font-weight: bold;">つまり、どういうこと？</span></span><br />PEの設計思考を導入することは非常にシンプルだ。コンテンツの外から考えればよいのだ。コンテンツは中心のコアを元に、その上にスタイルやインタラクティビティが層を成している。もし、君がキャンディが好きならM&amp;Mを思い浮かべればよいだろう。<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://3.bp.blogspot.com/_1drnogi3vdg/SUbuAlNIRqI/AAAAAAAAALM/xWLeKQ5DWb4/s1600-h/m-m.jpg"><img style="margin: 0px auto 10px; display: block; text-align: center; cursor: pointer; width: 400px; height: 185px;" src="http://3.bp.blogspot.com/_1drnogi3vdg/SUbuAlNIRqI/AAAAAAAAALM/xWLeKQ5DWb4/s400/m-m.jpg" alt="" id="BLOGGER_PHOTO_ID_5280169306893076130" border="0" /></a><br /><span style="font-size:85%;">PEのチョコレートの層（Illustration by <a href="http://www.alistapart.com/authors/c/kevincornell">Kevin Cornell</a>）</span><br /><br />まず始めにコンテンツであるピーナッツはリッチでセマンティックな(X)HTMLでマークアップされている。コンテンツをコーティングするリッチな層はクリーミーなCSSだ。そして最後に、おいしいお菓子にするためにJavaScriptのハードキャンディの殻を施す(君の手の中で溶けないために)。<br /><br />もし、君がウェブ標準のスローガン ―分離、分離、分離―について詳しいなら、これは完全に理にかなっているだろう。ウェブ標準に基づいた制作はよく、<a href="http://www.flickr.com/photos/aarongustafson/83123599/">レイヤーケーキ</a>に例えられる（もっと豪華にしたかったら<a href="http://www.stuffandnonsense.co.uk/archives/web_standards_trifle.html">トライフル</a><span style="color: rgb(153, 153, 153);">（イギリスのお菓子）</span>だ）。<br /><br />私はM&amp;Mのピーナッツの例えが好きだ、なぜなら、スタイルやスクリプトがコンテンツを覆うのと同じようにコンテンツが完全にレイヤーに包まれているからだ。<br /><br />もうちょっとだけ、この食べ物の例を続けさせてくれるなら（君がお腹をすかせなければいいんだけど）、なぜこのアプローチが良いのか、PEにおいてレイヤーがどのように作用するのか説明する。<br /><br /><br /><span style="font-size:130%;"><span style="font-weight: bold;">ピーナッツ</span></span><br />ある人はピーナッツが好きだ。いや、むしろピーナッツよりもM&amp;Mのピーナッツの方が好きにな人もいる。それと同じように、ある人（とクローラーなど）はコンテンツだけを求めている。<br /><br />そのとき、ピーナッツの上のチョコレートやキャンディが食べられない人もいる、糖尿病の人とかね。彼らと同じように、モバイルデバイス、古いブラウザを使っている人は、君のすてきなデザインやカッコいいAjaxのインターフェイスを体験できないかもしれない。<br /><br />コンテンツの周りを包んでいるものも含めて、最大限に伝わるようにマークアップすることは、彼らに最低限の体験を提供するために必要なことだ。<br /><br /><br /><span style="font-size:130%;"> <span style="font-weight: bold;">チョコレートコーティング</span></span><br />次に、君はコンテンツを芳しく溶けたCSSで繊細にディップすることができる。しかし、ハードキャンディで殻をする前に考えなければいけないこともある。<br /><br />チョコレートに包まれたピーナッツを好きな人もいる。彼らは、ある程度のCSSはサポートしているが、JavaScriptに関しては適切にサポートされていないといった、中間層のユーザーに似ている。もしくは、彼らは、過度なJavaScript恐怖症のセキュリティ担当者がいる会社で働いているかもしれない。そのため、JavaScriptは完全に機能してないかもしれない。<br /><br /><a href="http://en.wikipedia.org/wiki/Chocolate-coated_peanut">グーバー</a><span style="color: rgb(153, 153, 153);">（チョコでコーティングされたピーナッツ）</span>好きだろうが、グーバーしか食べない人であろうが、彼らも同様に素晴らしい体験をするにふさわしい。コンテンツにスタイルを適用するPE的方法はいくつかあって、これはPEシリーズの2番目の記事で紹介する。<br /><br /><br /><span style="font-size:130%;"> <span style="font-weight: bold;">ハードキャンディの殻</span></span><br />最後にやっと、JavaScriptを構成に取り入れることができる。JavaScriptはリッチインタラクションの可能性を提供することはもちろん、コンテンツとスタイルを自由に操作することも可能で、ウェブサイトの体験を提供するために本当に必要なものだ。<br /><br />M&amp;Mにハードキャンデを施す方法は知らないけど（たぶん、違う種類のものにディップするのだろう）、PE的に考えるならば、機能性とインタラクティビティに基づいたJavaScriptを君のサイトに追加することは、簡単なことだろう。M&amp;Mがいろんな色があるように、JavaScriptの体験は使用するブラウザやデバイスの能力に応じて違うだろう。<br /><br />君も知っての通り、このタイプの開発手法はunobtrusive（でしゃばらない）JavaScriptと言われている。これらのテクニックや実践はPEシリーズの最後に取り上げている。<br /><br /><br /><span style="font-size:130%;"> <span style="font-weight: bold;">これらすべてまとめると</span></span><br />ひとたびコンセプト理解し実践に取り入れれば、PE的思考の開発はきわめてシンプルだ。たぶんキャンディをつくるよりも。このシリーズの次の2つの記事によって、君はさらにCSSとJavaScriptを用いたPE的開発スキルを身につけることができるだろう、そしてこの考えがどのようにコードに置き換わるのか理解するだろう。<br /><br /><br /><br /><span style="font-size:85%;">関連リンク<br /></span><ul><li><span style="font-size:85%;"><a href="http://standards.mitsue.co.jp/archives/001354.html">A List ApartからProressive Enhancementに関する記事が公開 | Web標準Blog | ミツエーリンクス</a></span></li><li><span style="font-size:85%;"><a href="http://www.mitsue.co.jp/column/backnum/20080822.html">「おまけつき」からはじめる新しいWeb標準 | コラム | ミツエーリンクス</a></span></li><li><span style="font-size:85%;"><a href="http://journal.mycom.co.jp/news/2008/10/15/032/">Webサイト構築手法、累進的拡張を知る | エンタープライズ | マイコミジャーナル</a></span></li><li><span style="font-size:85%;"><a href="http://withd.jp/web/tips/standard/3585.html">WDEレポートあとがき - Progressive Enhancementについて | クリエイティブ・タブロイド withD（ウィズ・ディー</a>）</span></li><li><span class="Apple-style-span"  style="font-size:12;"><a href="http://admn.air-nifty.com/monkeyish_studio/2008/11/web-directions-.html">monkeyish studio: Web Directions East | Progressive Enhancement</a><br /></span></li></ul></p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2008-16-December" title="December 16, 2008">December 16, 2008</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/helvetica" rel="prefetch">ヘルベチカ ~世界を魅了する書体~ (DVD)</a></h2>
+            <h2 class="title"><a href="/mol/log/helvetica/" rel="prefetch">ヘルベチカ ~世界を魅了する書体~ (DVD)</a></h2>
             <p><p style="text-align: center;"><img src="http://lh6.ggpht.com/_1drnogi3vdg/ST_Len5gthI/AAAAAAAAAK0/zowrajFQnTI/helvetica.png" alt="ヘルベチカ ~世界を魅了する書 [DVD]のキャプチャ画像" /></p>
 
 <p>のっけからやられたよ、ほんと!学生の頃はタイポグラフィは好きなほうだったけど、Ｗebデザイナーになってからは、fontなんて制作者が制御できるものでもないしするべきでもないと思ったり、かといってテキストをimg画像にするくらいならそのままテキストで使うよ、SEO的にも。。。なんて具合に悪い意味であきらめてた。</p>
@@ -154,7 +138,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/blue-ocean" rel="prefetch">ブルー・オーシャン戦略 競争のない世界を創造する</a></h2>
+            <h2 class="title"><a href="/mol/log/blue-ocean/" rel="prefetch">ブルー・オーシャン戦略 競争のない世界を創造する</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4270000708/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51QD4635Z6L._SL160_.jpg" alt="ブルー・オーシャン戦略 競争のない世界を創造する (Harvard business school press)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%BB%E3%82%AA%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%B3%E6%88%A6%E7%95%A5-%E7%AB%B6%E4%BA%89%E3%81%AE%E3%81%AA%E3%81%84%E4%B8%96%E7%95%8C%E3%82%92%E5%89%B5%E9%80%A0%E3%81%99%E3%82%8B-Harvard-business-school/dp/4270000708%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4270000708" target="_blank">ブルー・オーシャン戦略 競争のない世界を創造する (Harvard business school press)</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /><br />有賀 裕子<br /><br />ランダムハウス講談社  2005-06-21<br />売り上げランキング : 736<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%BB%E3%82%AA%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%B3%E6%88%A6%E7%95%A5-%E7%AB%B6%E4%BA%89%E3%81%AE%E3%81%AA%E3%81%84%E4%B8%96%E7%95%8C%E3%82%92%E5%89%B5%E9%80%A0%E3%81%99%E3%82%8B-Harvard-business-school/dp/4270000708%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4270000708" target="_blank">Amazonで詳しく見る</a> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />う〜ん、ポジショニング戦略とどうちがうブルーオーシャン。。。<br />どうでも良いけど、事例に挙げられている<a href="http://www.zed.co.jp/home.php">シルク・ドゥ・ソレイユ</a>がすごく見たくなった。</p>
 </p>
             <div class="meta">
@@ -170,7 +154,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/web-directions-east-08" rel="prefetch">Web Directions East 08 カンファレンス</a></h2>
+            <h2 class="title"><a href="/mol/log/web-directions-east-08/" rel="prefetch">Web Directions East 08 カンファレンス</a></h2>
             <p><p>なんとか11月中に書けた。。。イベントに行ったらレポはすぐ書くべきですね（；^ω^）
 ということで、<a href="http://east08.webdirections.org/program/">Web Directions East 08</a>に行ってきたー
 当日の写真はこちらで共有されてる <a href="http://www.flickr.com/photos/tags/wde08/">flickt  tag: wde08</a></p>
@@ -425,7 +409,7 @@ Slide : <a href="http://www.slideshare.net/mantangs/wde08-visualizing-web-of-dat
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/marketing" rel="prefetch">マーケティング10の大罪</a></h2>
+            <h2 class="title"><a href="/mol/log/marketing/" rel="prefetch">マーケティング10の大罪</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -469,14 +453,56 @@ Slide : <a href="http://www.slideshare.net/mantangs/wde08-visualizing-web-of-dat
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/default-and-index/" rel="prefetch">デフォルトページとindex.html</a></h2>
+            <p><p><a title="ga01 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3049307631/"><img src="http://farm4.static.flickr.com/3142/3049307631_82c30d6cfb.jpg" alt="ga01" width="500" height="239" /></a></p>
+
+<p>Google Analytics(以下、GA)でのプロファイル設定の『デフォルトのページ』に違和感、というかイマイチよくわかならない。</p>
+
+<p>『デフォルトのページ』に関してのGoogleヘルプページ内容はこちら↓
+<blockquote><span style="font-weight: bold;">デフォルトのページ</span>
+[デフォルトのページ] は、ドメイン上のページが指定されていない場合に、サーバーがデフォルトで返すウェブ ページのことです。 たとえば、「www.yourdomain.co.jp」と入力すると、サーバーから index.html ページが返される場合は、index.html がデフォルトのページとなります。
+Analytics の [プロファイル設定] ページには、デフォルトのページを指定する欄があります。 Google Analytics では、この情報を使用して www.yourdomain.co.jp と www.yourdomain.co.jp/index.html のヒットが実際には同じページであると判断します。デフォルトのページが指定されていない場合、これら 2 つのエントリは別のページとしてレポートに集計されます。
+<div style="text-align: right;"><a href="http://www.google.co.jp/support/googleanalytics/bin/answer.py?answer=32995&amp;useful=0&amp;show_useful=1&amp;comment="><span style="font-size: 85%;">デフォルトのページ - Google Analytics ヘルプ センター</span></a></div></blockquote>
+www.yourdomain.co.jp入力したらindex.html返すの当たり前じゃん、最初からそんなん指定しといてよと思った。だがそうでも、ないらしいのね。こんな記事見つけた↓
+<blockquote>何故、最初からデフォールトのページを「index.html」にしてしまわないのか。それは、ウェブサーバーの設定で、デフォールトのページを変えられるから。
+例えば、Apache のデフォールトは「index.html」だけど、IIS (Microsoft のウェブサーバー) のデフォールトは「Default.htm」だったり「index.htm」だったりする。「main.html」をデフォールトのページに設定してる人もいるかもしれないし、もっと変な名前をデフォールトにしてるかもしれない。若しくは、「○○/」と「○○/index.html」を同じとして数えたくない人もいるかもしれない。
+<div style="text-align: right;"><span style="font-size: 85%;"><a href="http://at-aka.blogspot.com/2006/04/google-analytics.html">clmemo@aka: Google Analytics のデフォールト・ページ</a></span></div></blockquote>
+なるほど、そういうことか。合点がいったよ。で、GAで『デフォルトのページ』をindex.htmlにしたわけです。そしたら、GA上では、www.example.com/などスラッシュで終わってるURLはすべてwww.example.com/index.htmlという表記でカウントされるんですね。</p>
+
+<p>当たり前というか当たり前だけど。。。すべてのページをでディレクトリ作ってindex.htmlで作ったとしたら、おしりが全部index.htmlなので、見にくいじゃん。こんなふうに↓</p>
+
+<p><a title="ga02 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/3050147092/"><img src="http://farm4.static.flickr.com/3188/3050147092_34fafc50c9.jpg" alt="ga02" width="500" height="232" /></a></p>
+
+<p>ということで、デフォルトのページは設定しないことにした。そしたらwww.example.com/とwww.example.com/index.htmlは、別々のURLで扱われるじゃないか！と思うけど。index.htmlでアクセスししてきた人は/にリダイレクトすればいいんだ。で.htaccessでこんなん見つけた↓
+<blockquote>Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.<em>/index.html
+RewriteRule ^(.</em>)index.html$ http://www.example.com/$1 [R=301,L]
+<span style="font-size: 85%;">※www.example.com内のすべてのディレクトリで、「/index.html」が「/」に正規化されます。</span>
+<div style="text-align: right;"><a href="http://www.suzukikenichi.com/blog/canonicalization-of-indexhtml-and-non-indexhtml/"><span style="font-size: 85%;">index.html「あり・なし」のURL正規化～301リダイレクト応用編 » 海外SEO情報ブログ・メルマガ</span></a></div></blockquote>
+ようやく、自分の思い通りになったけど、GAで表示する出力を変えるだけなら、<a href="http://www.google.com/support/analytics/bin/answer.py?hl=jp&amp;answer=55461">アドバンスフィルタ</a>とか使えば良かったのかな、フィルタ系全然分からないな。もっと勉強します。。。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2008-22-November" title="November 22, 2008">November 22, 2008</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page68" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page68" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page70" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page70" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -488,7 +514,7 @@ Slide : <a href="http://www.slideshare.net/mantangs/wde08-visualizing-web-of-dat
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -504,12 +530,12 @@ Slide : <a href="http://www.slideshare.net/mantangs/wde08-visualizing-web-of-dat
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,23 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/google-analytics-other-entry" rel="prefetch">Google Analyticsの(other)とはなんぞや？</a></h2>
-            <p><p>アクセス解析してたら、どうもデータの取れていないページがある事に気づいた。確かに該当のページは他のページと比べてあまり見られてなさそうなページなので、もしかして、はしょられているの？なんて思いながらGoogle Analyticsのそこらへんの仕様について調べてみた。<br /><br />というのも、データが取れていないのなら取れていないでいいんだけど、こっちとしてはなぜ取れていないのか説明できないとアクセス解析ツールを使う他部署の皆さんが不信感を抱いてしまう。｢こんなうさんくさいツール信用できっかよ｣なんて事になったら困りものだ。<br /><br />そうゆことで、最初に目をつけたのが<b>トラッキングコードがおかしくないか</b>。うん、基本ですね。目視でちゃんと正しいトラッキングコードになっていることを確認。てか、テンプレートページに入れてあるので、該当のページだけおかしくなるというのは考えられない。<br /><br />続いて、HTTPヘッダーでGIFリクエストされていることも確認。<b>GAサーバーに情報は送られているのは確か</b>なようだ。<br /><br />つまり、情報が送られて表示するまでの間が問題かと思い、次にフィルタに着目。フィルタはほんとうに怖いね。試しに何にもフィルタをかけていないプロファイルを新しく作成し、該当のページにアクセスしてみた。一日後、うん記録されてないね。<b>フィルタが原因ではなかった</b>。<br /><br />困った。だいぶ困った。そしたらこんなヘルプ記事見つけた。<br /><br /><blockquote><span style="font-size: 85%;"><span style="font-weight: bold;">一日で50,000ページ（または仮想ページ）以上をトラッキングしていませんか？</span></span><span style="font-size: 85%;"><br />Google AnalyticsはWebサイトの全ての情報を収集し、一日つき50,000ページまでページビューで分類されたレポートを表示します。残りのページはレポート上では (other) という名前のエントリに集約されます。トラフィックの少ないページの詳細なレポートを見るためには、トラフィックの多いページを除くフィルタをかけた新しいプロファイルを作成する必要があります。こうすることで、効果的に残ったページを50,000URLs内に含めておけます。<br /></span><br /><div style="text-align: right;"><span style="font-size: 85%;"><a href="http://code.google.com/intl/en/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html">Troubleshooting the Tracking Code - Google Analytics - Google Code</a></span><br /></div></blockquote><br />そんなん知らないよ〜＞＜<br />試しに1日分のデータ見たら確かに49,999ページ分しかなかった。<br /><br /><img alt="" class="fig" src="http://lh4.ggpht.com/_1drnogi3vdg/SwaejT6swYI/AAAAAAAAAsk/jFQRXDaLHlI/other.png" /><br /><br /><span style="font-weight: bold;">(other)</span>は前々から気になってたけど、こんなところで理解するとは思わなかった。つまり、今回の現象はPV数が少ないページが記録される前に、他のPVの多いページが50,000ページ記録されて、それ以降は<span style="font-weight: bold;">(other)</span>にまとめられちゃったから、｢上位のコンテンツ｣から該当のURLで検索してもひっかからなかったってことね。<br /><br />ということは、50,000ページ記録される前に該当のページにアクセスすれば記録されるんじゃねと思ったので、日付が変わる12時過ぎにアクセスしたけど、記録されなかった。たぶん、50,000ページのリセットのタイミングが日付と違うのか、それともPV数の多いページから優先的に処理されるのかもね。<br /><br />ともかく、PV数の少ないページのレポートを見るためにフィルタで細分化されたプロファイルから確認しないといけないって他部署の人には説明すれば良いと言うわけだ、てかその前にそんなトラフィックあるんなら有償ツール使えってことですね。。。はい、SiteCatalyst使いたいです＞＜<br /><br /><span style="font-size: 85%;">関連リソース<br /></span><br /><ul><li><a href="http://d.hatena.ne.jp/kahze/20090318/1237350495"><span style="font-size: 85%;">PV制限なしでGoogle Analyticsを使っているのに&quot;(other)&quot;が出てくる件 - ジブログ2</span></a></li></ul></p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2009-20-November" title="November 20, 2009">November 20, 2009</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/web-directions-east-2009" rel="prefetch">Web Directions East 2009</a></h2>
+            <h2 class="title"><a href="/mol/log/web-directions-east-2009/" rel="prefetch">Web Directions East 2009</a></h2>
             <p><p><div><a href="http://east.webdirections.org/wde/2009/"><img src="http://lh5.ggpht.com/_1drnogi3vdg/SvkkJRR6SqI/AAAAAAAAAqw/7AjWcAUK_pY/wde.jpg" alt="Web Directions East 2009" /></a></div><br />明日から<a href="http://east.webdirections.org/wde/2009/"><span style="font-weight: bold;">Web Directions East 2009</span></a>が開催されます。<a href="http://warikiru.blogspot.com/2008/11/web-directions-east-08.html">WDEは去年も参加しました</a>けど、まぁ世界的なイベントですw 去年もすごかったけど今年も以下のようなスピーカー陣。ワクワクしてきますね♪<br /><br /><br /><span class="Apple-style-span"  style="font-size:large;">Cameron Adams</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">キャメロン・アダムス</span><br /><span class="Apple-style-span"  style="font-size:small;">Google wave のインターフェースデザイン・ディレクターが裏舞台をご紹介</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Andy Clarke</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">アンディー・クラーク</span><br /><span class="Apple-style-span"  style="font-size:small;">世界的ベストセラーの著名Webデザイナーが教える、美しいデザイン＆コード</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Christian Crumlish</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">クリスチャン・クルミッシュ</span><br /><span class="Apple-style-span"  style="font-size:small;">Yahoo! DPL制作者が語る、人と人とを繋げるユーザーエクスペリエンスの実現</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Douglas Crockford</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">ダグラス・クロックフォード</span><br /><span class="Apple-style-span"  style="font-size:small;">JSONの父が語る、プログラムとして使うJavaScript の使い方</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Nicole Sullivan</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">ニコール・サリバン</span><br /><span class="Apple-style-span"  style="font-size:small;">1ミリ秒でも早いWebサイトの設計者が語るビジネスに繋がるパフォーマンス最適化</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Phillip Rubel</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">フィリップ・ルベル</span><br /><span class="Apple-style-span"  style="font-size:small;">大手企業を成功に導いた実力者が語る、コンテンツをWeb戦略に活かす方法</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Belinda Hobbs</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">ベリンダ・ホブス</span><br /><span class="Apple-style-span"  style="font-size:small;">1秒間に5.5冊の書籍販売を成功させた出版会社専務が語るウェブの成功秘話</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Peter Sedivy</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">ペーター・セディビー</span><br /><span class="Apple-style-span"  style="font-size:small;">未来を見据えたＥコマースのエキスパート</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Brent Reichow</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">ブレント・ライコー</span><br /><span class="Apple-style-span"  style="font-size:small;">クラウドコンピューティングと災害からの復旧；実用例と最新のアプローチ</span><br /><br /><span class="Apple-style-span"  style="font-size:large;">Deborah Schultz</span> <span class="Apple-style-span" style="color: rgb(102, 102, 102);">デボラ・シュルツ</span><br /><span class="Apple-style-span"  style="font-size:small;">ビジネスアドバイザーが語る、ソーシャルメディアを利用したビジネス戦略の提案</span><br /><br /><br />僕は12日のNicole Sullivanさんのワークショップと13日のカンファレンスに参加予定です。ちなみに11日にはオープニングパーティみたいな感じで、<a href="http://www.tokyo2point0.net/events/tokyo-20-30-web-directions">PechaKucha Nightと協同でなんかするっぽい</a>です。Christian Crumlishさんは<a href="https://twitter.com/mediajunkie/status/5577872936">ギークのためのウクレレについて話す</a>らしい。楽しそうですな。こちらは2,000円で参加できるので東京の皆さんはじゃんじゃん参加したらよろしいよ。</p>
 </p>
             <div class="meta">
@@ -93,7 +77,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/google-analytics-management-strategy" rel="prefetch">ECサイト4モデル式 Google Analytics経営戦略</a></h2>
+            <h2 class="title"><a href="/mol/log/google-analytics-management-strategy/" rel="prefetch">ECサイト4モデル式 Google Analytics経営戦略</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -136,7 +120,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/poor-is-rich" rel="prefetch">貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する</a></h2>
+            <h2 class="title"><a href="/mol/log/poor-is-rich/" rel="prefetch">貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4062153580/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51XQj7IEM3L._SL160_.jpg" alt="貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E8%B2%A7%E4%B9%8F%E3%81%AF%E3%81%8A%E9%87%91%E6%8C%81%E3%81%A1%E2%94%80%E2%94%80%E3%80%8C%E9%9B%87%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E7%94%9F%E3%81%8D%E6%96%B9%E3%80%8D%E3%81%A7%E6%A0%BC%E5%B7%AE%E7%A4%BE%E4%BC%9A%E3%82%92%E9%80%86%E8%BB%A2%E3%81%99%E3%82%8B-%E6%A9%98-%E7%8E%B2/dp/4062153580%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4062153580" target="_blank">貧乏はお金持ち──「雇われない生き方」で格差社会を逆転する</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />講談社  2009-06-04<br />売り上げランキング : 923<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/%E8%B2%A7%E4%B9%8F%E3%81%AF%E3%81%8A%E9%87%91%E6%8C%81%E3%81%A1%E2%94%80%E2%94%80%E3%80%8C%E9%9B%87%E3%82%8F%E3%82%8C%E3%81%AA%E3%81%84%E7%94%9F%E3%81%8D%E6%96%B9%E3%80%8D%E3%81%A7%E6%A0%BC%E5%B7%AE%E7%A4%BE%E4%BC%9A%E3%82%92%E9%80%86%E8%BB%A2%E3%81%99%E3%82%8B-%E6%A9%98-%E7%8E%B2/dp/4062153580%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4062153580" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />前回読んだ「<a href="http://warikiru.blogspot.com/2009/07/golden-feather-of-wealth.html">黄金の羽根の拾い方</a>」を肉付けしたような感じだ。言ってること自体も、1.出来る限り税金を払わない　2出来る限り.再分配はもらうの２つだけだ。ただ「黄金の羽根〜」に比べて、なぜそう考えるのか、雇用問題などの社会情勢の話も盛り込まれているので全部で300ページとちょっとお腹一杯な内容になっている。<br /><br />個人的に、やっぱり会計・ファイナンスの知識が弱い。。。たぶんかみ砕いて説明してあるんだけどもかなり飛ばし読みした。難しい。実際に練習してみるって言ってもそんなに簡単にできないよね？なんてこと考えながら、理解するのが億劫な分野だと認識している。なんか良い本ないですかね。。。<br /><br />本書ではマイクロ法人化することを薦めているわけだけど、別に独立しなくてもできるんだよね。今現在サラリーマンとしてお給料もらっているのなら、納税などややこしい事は会社が請け負ってくれている。それを法人化（サラリーマン法人化）することで、給料ではなく業務委託費としてもらうことで節税ができるという話。その代わり税金の様々な手続きを自分でやらなくてはいけない。<br /><br />奥さんとかいれば、扶養家族とかで控除できる金額が増えると思うけど、実際僕みたいな安月給の一人暮らしの男性がやったところでそんなにもメリットないだろうなと思う。しかし、今のうちから勉強として考えればやっといて損はないと思うけど怖いねｗなんか良い本ないかな。引き続き調査してみようと思う。<br /><br />最後にちょっと自分自身への戒めとして引用しておく。<br /><br /><blockquote>会社にしがみついていれば、会社とともに沈んでいくだけだ。会社を中心に人生を設計できる時代は、ずっとむかしに終わってしまったのだ。<br /><div style="text-align: right;"><span style="font-size:85%;">P.68 第1章 楽園を追われて</span><br /></div></blockquote><br />あと、フリーランスのデザイナーの台所事情（税金対策）なんて勉強会あれば是非とも参加したいところだｗ それとフリーランスというのは「自由な槍」ということで報酬次第でどの君主の味方にもなりますよっていう傭兵のことなんだね。完全に日本語処理してた。ちょっとした雑学でした。<br /><br /><br /><span style="font-size:85%;">関連エントリ<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2009/07/golden-feather-of-wealth.html">お金持ちになれる黄金の羽根の拾い方 - 知的人生設計入門</a></span></li></ul></p>
 </p>
             <div class="meta">
@@ -152,7 +136,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/lenovo-thinkpad-usb-trackpoint-keyboard" rel="prefetch">レノボ・ジャパン ThinkPad USB トラックポイントキーボード(英語)</a></h2>
+            <h2 class="title"><a href="/mol/log/lenovo-thinkpad-usb-trackpoint-keyboard/" rel="prefetch">レノボ・ジャパン ThinkPad USB トラックポイントキーボード(英語)</a></h2>
             <p><h2>Apple Wireless Keyboard (US)</h2>
 
 <table border="0" cellpadding="5">
@@ -215,14 +199,66 @@
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/macbook-late-2006-memory-3gb/" rel="prefetch">MacBook Late 2006 メモリ増設 (3GB編)</a></h2>
+            <p><p>Twitterをぼーっと眺めてたらどうやらうちの<a style="font-weight: bold;" href="http://kakaku.com/spec/00209015296/">MacBook Late 2006</a>（白いやつ）のメモリ搭載が2GBまでではなく、3GBまでいけることが判明した。マックメムさんのサイト見てもそう書いてあるので早速載っけてみた。
+<ul>
+    <li><a href="http://www.macmem.com/mb.shtml#macbook">MacBook | マックメモリー専門店マックメム</a></li>
+</ul>
+2GB + 2GBにしても結局は3GBまでしか認識しないので、現状(1GB + 1GB)に2GBのメモリを1つ買うことにした。1GBの方もトランセンドだったので統一するためにも同じメーカーを買うことにした。</p>
+
+<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/Su1zZOGbCVI/AAAAAAAAAps/9OXqjQbn1P0/1.jpg" alt="macbook メモリ" />
+2GBで3500円くらいですか、安いですね！</p>
+
+<p><img src="http://lh3.ggpht.com/_1drnogi3vdg/Su1zZUccEsI/AAAAAAAAApw/CeKMSh_Y_gQ/2.jpg" alt="macbook メモリ挿入口" />
+MacBookを裏返しにして、バッテリーを外せばメモリはすぐそこです。iBookの頃に比べれば本当に簡単になった。
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/Su1zZV-eMSI/AAAAAAAAAp0/oSjpQzmoRfo/3.jpg" alt="macbook メモリ挿入口その２" />
+精密ドライバーでL字型のパーツを外してレバーを引っ張れば出てくるので、しっかり根本まで差し込みましょう。
+<div><img src="http://lh6.ggpht.com/_1drnogi3vdg/Su2PkgLio2I/AAAAAAAAAp4/zGzXS-IFnF4/4.png" alt="MacBook 3GB" /></div>
+3GBちゃんと認識されていますね。なんか速くなったような気がしますｗ</p>
+
+<p>しかし、このMacBook買ってもう2年半経ちますがまだまだ現役でいけますね。あと2年くらいはスペック的に余裕な気がしてきたぞ。物欲的には今すぐでも新モデルが欲しいです！
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000Y9KLTW/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51GfT4B6pIL._SL160_.jpg" border="0" alt="Transcend JetRam ノートPC用増設メモリ DDR2-667 2GB 永久保証 JM667QSU-2G" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Transcend-JetRam-%E3%83%8E%E3%83%BC%E3%83%88PC%E7%94%A8%E5%A2%97%E8%A8%AD%E3%83%A1%E3%83%A2%E3%83%AA-DDR2-667-JM667QSU-2G/dp/B000Y9KLTW%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000Y9KLTW" target="_blank">Transcend JetRam ノートPC用増設メモリ DDR2-667 2GB 永久保証 JM667QSU-2G</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></span></p>
+
+<p>トランセンド・ジャパン
+売り上げランキング : 707
+おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="" /></p>
+
+<p><a href="http://www.amazon.co.jp/Transcend-JetRam-%E3%83%8E%E3%83%BC%E3%83%88PC%E7%94%A8%E5%A2%97%E8%A8%AD%E3%83%A1%E3%83%A2%E3%83%AA-DDR2-667-JM667QSU-2G/dp/B000Y9KLTW%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000Y9KLTW" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> </span><span style="font-size: 85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<span style="font-size: 85%;">
+参考サイト
+</span>
+<ul>
+    <li><span style="font-size: 85%;"><a href="http://support.apple.com/kb/HT1651?viewlocale=ja_JP">MacBook：メモリの取り外しおよび取り付け方法</a></span></li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-03-November" title="November 03, 2009">November 03, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page46" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page46" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page48" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page48" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -234,7 +270,7 @@
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -250,12 +286,12 @@
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

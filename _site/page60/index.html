@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,23 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/objects-and-arrays" rel="prefetch">JavaScript 第5版 7章 オブジェクトと配列</a></h2>
-            <p><p>オブジェクトと配列はデータ型<br /><br /><h5>7.1 オブジェクトの生成</h5>オブジェクトとは順序付けされていないプロパティの集合<br />それぞれのプロパティは名前と値を持つ<br /><br />オブジェクトの生成はオブジェクトリテラルが便利<br /><br /><pre>var empty = {}; // 空のオブジェクトを生成<br />var point = { x:0, y:0 };<br />var homer = {<br />　&quot;name&quot; : &quot;Homer Simpson&quot;,<br />　&quot;age&quot; : 34<br />};</pre><br /><br />オブジェクトリテラルは新しいオブジェクトを生成し初期化する式<br />ループ中にオブジェクトリテラルを書くとたくさんのオブジェクトを生成しちゃう<br /><br />new演算子でも生成できる<br /><br /><pre>var a = new Array();<br />var d = new Date();  // 現在の日付と時刻を表すオブジェクトを生成</pre><br /><br /><br /><h5>7.2 オブジェクトのプロパティ</h5>オブジェクトのプロパティにアクセスするにはドット演算子を仕様<br /><br />オブジェクトに評価される式.プロパティの名前<br /><br /><pre>var book = {}; //オブジェクトを生成<br /><br />//オブジェクトのプロパティに値を設定<br />book.title = &quot;javascript - warikiru&quot; ;<br /><br />//オブジェクトの入れ子もＯＫ<br />book.chapter1 = new Object();<br />book.chapter1.title = &quot;Introduction to warikiru&quot;;<br />book.chapter1.pages = 11;<br /><br />//オブジェクトリテラルでもおｋ<br />book.chapter2 = { title: &quot;History of warikiru&quot;, pages: 6};</pre><br /><br />変数はvarキーワードで宣言するけど、プロパティはその必要はない<br />新しい値を代入すればプロパティの値を変更できる<br /><br /><br /><br />オブジェクトプロパティの調査<br /><pre>function display<em>property</em>names(obj) {<br />var names = &quot;&quot;;<br />for(var name in obj) {<br />names += name + &quot;\n&quot;;<br />}<br />alert(names);<br />}</pre><br />指定したオブジェクトのプロパティ名をアラート<br />組み込み系のオブジェクトは調べられないものもある<br /><br />プロパティの存在確認<br />in演算子を使って、プロパティが存在するかどうか調べる<br /><br />in演算子の左側はプロパティの文字列、右側には確認対象となるオブジェクト<br /><br /><pre>//オブジェクトobjがxというプロパティを持つ場合、プロパティに値を設定<br />if(&quot;x&quot; in obj) obj.x =1; </pre><br /><br /><pre>//プロパティがxが存在し、未定義値ではない場合は値を設定<br />if(obj.x !== undefined) obj.x = 1;</pre><br /><br />プロパティの削除<br />delete book.chapter2;<br />プロパティに未定義値が代入されるだけでなく本当に削除される<br /><br /><h5>7.3 連想配列としてのオブジェクト</h5><br /><pre>object.property<br />object[&quot;property&quot;]</pre><br />上記のコードは同じこと<br /><br />配列表記の方が柔軟性が高い<br />なぜなら識別子は静的で文字列は動的でプログラムの実行中に生成することも可能<br /><br />ユーザが株の銘柄と持ち株数を入力した後に株の総額を計算する場合<br /><pre>var value = 0;<br />for (stock in portfolio) {<br />value += get<em>share</em>value(stock) * portfolio[stock];<br />}</pre><br />オブジェクトportfolioのプロパティ名が株の銘柄、値に株数<br />get<em>share</em>value関数で株価を取得<br />このようなオブジェクトの使い方を連想配列とも呼ぶ<br />『文字列（プロパティ名）を値にマップ（関連付け）する』<br /><br /><br /><h5>7.4 Objectのプロパティとメッソド</h5>JSのすべてのオブジェクトはObjectクラスを継承する。<br /><br /><b>constructor プロパティ</b><br />オブジェクトの初期化で使用されたコンストラクタ関数を参照<br /><br /><b>toString() メソッド</b><br />呼び出したオブジェクトの値を表す文字列を返す（引数をとらない）<br /><br /><b>toLocaleString() メソッド</b><br />toString() メソッドと違いがよく分からん＞＜<br /><br /><b>valueOf() メソッド</b><br />指定されたオブジェクトのプリミティブな値を返す（文字列じゃない）<br /><br /><b>hasOwnProperty() メソッド</b><br />呼び出しで使用したオブジェクトが、引数で指定した名前のプロパティ（継承したものではない）を持つ場合はtrueを返す<br /><br /><pre>var o = {};<br />o.hasOwnProperty(&quot;undef&quot;);　//定義されていないのでfalse<br />o.hasOwnProperty(&quot;toString&quot;);　//継承されたプロパティなのでfalse<br />Math.hasOwnProperty(&quot;cos&quot;);　//Mathオブジェクトはcosプロパティを持つのでtrue</pre><br /><br /><b>propertyisEnumerable() メソッド</b><br />呼び出しで使用したオブジェクトが、引数で指定した名前の継承したものではないプロパティを持ち、かつそのプロパティがfor/inループで調べられる場合trueを返す<br /><br /><pre>var o = {x:1};<br />o.propertyisEnumerabl(&quot;x&quot;);　//定義されfor/inループで調べられるのでtrue<br />o.propertyisEnumerabl(&quot;y&quot;);　//存在しないのでfalse<br />o.propertyisEnumerabl(&quot;valueOf&quot;);　//継承されたものなのでfalse</pre><br />あまり使いどこがわからん＞＜<br />英単語【enumerable：可算の】<br /><br /><b>isPrototypeOf() メソッド</b><br />呼び出したオブジェクトが、引数で指定したオブジェクトのプロトタイプオブジェクトである場合にtrueを返す<br /><br /><br /><h5>7.5 配列</h5><b>配列</b>：値を順序付けてまためたもの<br /><b>要素</b>：配列の個々の値<br /><b>インデックス</b>：各要素に割り当てる番号<br /><br />配列の配列なんてこともできる<br /><br />配列リテラルの簡単<br /><pre>var empty = [];  // 空の配列を生成<br />var primes = [2, 3, 5, 7, 11];  // 5個の数値を持つ配列を生成<br />var misc = [ 1.1, true, &#39;a&#39;]　// 3個のさまざまな型の値を持つ配列を生成<br /><br />// 任意の式も記述可能<br />var base = 1024;<br />var table = [base, base+1, base+2];<br /><br />// オブジェクトリテラルやほかの配列リテラルも記述可能<br />var b = [ [1, {x:1, y:2}], [2, {x:3, y:4}]];<br /><br />var count = [1,,3] // 3個の要素の配列、真ん中は未定義<br />var undef = [,,] // 2個の要素をも配列、全部未定義</pre><br /><br />Arrayコンストラクタ<br /><br /><b>引数なしで呼び出す方法</b><br /><pre>var a = new Array();<br />var a = [];</pre><br />上記は同じ意味<br /> <br /><b>配列の要素の値を明示的に指定して呼び出す方法</b><br /><pre>var a = new Array(5, 4, 3, 2, &quot;testing&quot;);</pre><br />この場合、配列リテラルの方が便利<br /><br /><b>1個の数値を引数として指定して呼び出す方法</b><br /><pre>var a = new Array(10);</pre><br />このように記述すると、指定された個数の要素を持つ配列が生成されます。<br />この場合、Arrayコンストラクタの方が便利<br /><br /><h5>7.6配列要素の読み書き</h5><br />配列の先頭要素のインデックスは0<br />配列のインデックスは0以上2の32乗-1未満の整数しか使えない<br />負数、浮動小数点数、論理値、オブジェクトなどをインデックスとして使うと文字列にしてオブジェクトのプロパティとして使う<br /><br />配列の要素の追加<br /><pre>a[0] = 1;<br />a[10000] = &quot;this is element&quot;;</pre><br />この場合、インデックス0と10000の2つの要素だけにメモリを割り当てるだけ<br /><br /><pre>var c = new Circle(1, 2, 3);<br />c[0] = &quot;this is element&quot;;</pre><br />この場合、「0」と言う名前のプロパティをオブジェクトに追加しただけ<br /><br />配列の要素の削除<br />delete演算子を使うと要素に未定義値を設定するだけで要素自体は削除されない<br />削除したい場合、shift(), pop(), splice()メソッドえ使う<br /><br />配列の長さ<br />配列は特別なlengthプロパティを持つ<br />配列に新しい要素が追加されるたびにlengthプロパティも自動的に更新される<br /><pre>var a = new Array(); // a.length == 0<br />a = new Array(10); // a.length == 10<br />a = new Array(1, 2, 3); // a.length == 3<br />a = [4, 5]; // a.length == 2<br />a = [5] = -1;  // a.length == 6<br />a = [49] = 0;  // a.length == 50</pre><br /><br />配列の要素の巡回<br /><pre>var fruits = [&quot;mango&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;pear&quot;];<br />for(var i = 0; i &lt; fruits.length; i++);<br />    alert(fruits[i]);<br />lengthプロパティをよく使う<br /><br />for(var i = 0; i &lt; fruits.length; i++)<br />    if (fruits[i]) alert(fruits[i]);</pre><br />    配列の要素に0から始まる連続した番号が振られていなくて、確かめる場合<br /><br /><pre>var lookup<em>table = new Array(1024);<br />for (var i = 0; i &lt; lookup</em>table.length; i++)<br />    lookup_table[i] = i * 512;</pre><br />このようなループを使えば配列要素の初期化もできる<br /><br />配列の長さの変更<br />現在値より小さな値をlengthプロパティに設定すれば切り詰められる<br />現在値より大きな値を設定すれば指定された長さになるまで未定義値が追加される<br /><br />多次元配列<br />配列の配列を使えばそれっぽいことができる<br /><br /><h5>7.7 配列のメソッド</h5><b>join() メソッド</b><br />配列のすべての要素を文字列に変換し連結する<br />各要素を区切るための文字を指定することも可能<br /><pre>var a = [1, 2, 3];<br />var s = a.join(); // s == &quot;1,2,3&quot;</pre><br /><br />区切り文字は引数で指定<br /><pre>s = a.join(&quot;, &quot;); // s == &quot;1, 2, 3&quot;</pre><br /><br /><b>reverse() メソッド</b><br />配列の要素の順番を逆にするときに使用、既存の配列の中で並べ替え<br /><pre>var a = new Array(1,2,3);<br />a.reverse(); // 並びは(3,2,1)</pre><br /><br /><b>sort() メソッド</b><br />配列の要素をソートするときに使用、既存の配列の中でソート<br />引数をしていないとアルファベット順になる<br />必要に応じて要素を文字列に変換して比較してくれる<br />未定義値は最後にソートされる<br /><br /><pre>var a = [&quot;banana&quot;, &quot;cherry&quot;, &quot;apple&quot;];<br />a.sort(); //  &quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;<br />sort() メソッドの引数には比較関数を指定<br /><br />var a = [33, 4, 1111, 222];<br />a.sort(function(a,b) { //  数値順：4, 33, 222, 1111<br />                        return a-b;<br />                    });</pre><br /><br /><b>concat() メソッド</b><br />配列に要素を追加して新たな配列を生成<br /><pre>var a = [1,2,3];<br />a.concat(4, 5);  // [1, 2, 3, 4, 5]になる<br />a.concat([4, 5], [6, 7]);  // [1, 2, 3, 4, 5, 6, 7]になる</pre><br /><br /><b>slice() メソッド</b><br />指定された配列のサブ配列（スライス）を返す<br />スライス配列には1番目の引数で指定された要素から、2番目の引数で指定された要素（この要素は含まれない）までが格納。引数が1つしか指定されなかった場合、配列の最後の要素までが格納。指定された引数のどちらかが負数の場合、配列の最後からの相対位置で配列の要素が指定されたと解釈。<br /><pre>var a = [1,2,3,4,5];<br />a.slice(0,3); // [1,2,3];<br />a.slice(3); // [4,5];<br />a.slice(1,-1); // [2,3,4];<br />a.slice(-3,-2); // [3];</pre><br /><br /><b>splice() メソッド</b><br />配列に要素を挿入したり、配列から要素を削除したりする汎用的なメソッド<br />slice(), concat()と違って新たに配列を生成しない<br />挿入や削除を開始する位置を１番目の引数で指定、配列から削除する要素の個数を２番目の引数に指定。省略すると最後の要素まで全て削除<br />splice() メソッドを実行すると削除された要素の配列が返る<br /><br /><pre>var a = [1,2,3,4,5,6,7,8];<br />a.splice(4); //  [5,6,7,8]が返され、aは[1,2,3,4]になる<br />a.splice(1,2); //  [2,3]が返され、aは[1,4]になる<br />a.splice(1,1); //  [4]が返され、aは[1]になる</pre><br /><br />3つ目以降の引数は挿入する要素になる<br /><pre>var a = [1,2,3,4,5];<br />a.splice(2,0,&#39;a&#39;,&#39;b&#39;); // []が返され、aは [1,2,&#39;a&#39;,&#39;b&#39;,3,4,5]になる<br />a.splice(2,2,[1,2],3); // [&#39;a&#39;,&#39;b&#39;]が返され、aは [1,2,[1,2],3,3,4,5]になる</pre><br /><br /><b>push() メソッドとpop() メソッド</b><br />push() メソッドは配列の最後に１個または複数の要素を付加し付加したあとの配列の長さを返す<br />pop() メソッド配列の最後の要素を削除し、配列の長さを減らし削除した要素の値を返す<br />どちらも配列そのものを操作する<br /><br /><pre>var stack = [];<br />stack.push(1,2);  // [1,2]　2が返される<br />stack.pop();  // [1]　2が返される<br />stack.push(3);  // [1,3]　2が返される<br />stack.pop();  // [1]　3が返される<br />stack.push([4,5]);  // [1,[4,5]]　2が返される<br />stack.pop();  // [1]　[4,5]が返される<br />stack.pop();  // []　1が返される</pre><br /><br /><b>unshift() メソッドとshift() メソッド</b><br />push() メソッドとpop() メソッドとは逆に先頭の要素を出し入れ<br /><pre>var a = [];<br />a.unshift(1);  // [1]  1が返される<br />a.unshift(22);  // [22,1]  2が返される<br />a.shift();  // [1]  22が返される<br />a.unshift(3,[4,5]);  // [3,[4,5],1]  3が返される<br />a.shift();  // [[4,5],1]  3が返される<br />a.shift();  // [1]  [4,5]が返される<br />a.shift();  // []  1が返される</pre><br /><br /><b>toString() メソッドとtoLocaleString() メソッド</b><br />オブジェクトと同じ配列にもtoString() メソッドあり<br />join() メソッドと一緒、toString() とtoLocaleString()の違いがよくわからん<br /><br /><b>JavaScript1.6で追加されたメソッド</b><br />indexOf(), lastIndexOf(), forEach(), filter()などなど<br /><br /><h5>7.8 配列のようなオブジェクト</h5>配列に新しい要素が追加されると、lengthプロパティが自動的に更新される<br />lengthプロパティに値を設定することで、配列の長さを変更できる<br /><br /><pre>var a = {};<br /><br />//プロパティを追加して『配列』のようにする<br />var i = 0;<br />while(i &lt; 10) {<br /> a[i] = i*i;<br /> i++l<br />}<br />a.length = i;<br /><br />// 通常の配列のようにループを使って要素を利用する<br />var  total = 0;<br />for(var j = 0; j &lt; a.length; j++)<br />total += a[j];</pre><br />lengthプロパティが肝か。。</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2009-18-May" title="May 18, 2009">May 18, 2009</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/law-of-web-usability" rel="prefetch">ウェブユーザビリティの法則 改訂第2版</a></h2>
+            <h2 class="title"><a href="/mol/log/law-of-web-usability/" rel="prefetch">ウェブユーザビリティの法則 改訂第2版</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4797339098/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51uraZ6CddL._SL160_.jpg" alt="ウェブユーザビリティの法則 改訂第2版" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E6%B3%95%E5%89%87-%E6%94%B9%E8%A8%82%E7%AC%AC2%E7%89%88-%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%96%E3%83%BB%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%B0/dp/4797339098%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4797339098" target="_blank">ウェブユーザビリティの法則 改訂第2版</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /><br />中野 恵美子<br /><br />ソフトバンククリエイティブ  2007-03-01<br />売り上げランキング : 78056<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><a href="http://www.amazon.co.jp/%E3%82%A6%E3%82%A7%E3%83%96%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E6%B3%95%E5%89%87-%E6%94%B9%E8%A8%82%E7%AC%AC2%E7%89%88-%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%96%E3%83%BB%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%B0/dp/4797339098%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4797339098" target="_blank"><br /></a></span><span style="font-size:85%;"><a href="http://www.goodpic.com/mt/aws/index.html"></a></span></td></tr></tbody></table><br />最近よく見かけるので、読んでみた。『ウェブユーザビリティの<span style="font-weight: bold;">法則</span>』というタイトルから堅いイメージかと思いきや、どちらかというと、『ウェブユーザビリティの<span style="font-weight: bold;">心構え</span>』的な、読み物タイプの本です。なので、<span style="font-style: italic;">～の時は～すべきである</span>みたいな厳格な法則とそれを裏付けるデータなどはほとんど出てこないです。むしろ、親しみやすく分かりやすい、かつ短時間で読めるように推敲がなされ余分なものはそぎ落とされています。<br /><br />自分はどちらかというと、売り上げ重視の経営層に対して、もっとユーザビリティの大切さを知ってもらうために説得材料となる数字を期待してたので、ちょっと肩透かしを食らった感じ。とはいえ、プルダウンの導入の是非についてのプロマネ、マーケ、プログラマ、デザイナーのいざこざは実際に自分も似たようなことは体験していたので、「あるある」とうなづいてしまったｗ<br /><br />上記の例ではほとんど個人の好みや、ユーザーはこうだろうという憶測でしか議論なされず、宗教論争と同じようなものなので、その解決策として本書はユーザーテストを行うことを勧めている。<br /><br /><blockquote>ユーザーの好みについて議論するのは時間の無駄であり、チームのエネルギーの浪費である。しかし、テストを行えば議論の緊張がやわらぐし、何が正しくて何が間違っているかという、個々の信念レベルではなく、何がうまくいき何がうまくいかないかという、実際的なレベルに議論を移すことができ、袋小路から抜け出せることが多い。<br /><div style="text-align: right;"><span style="font-size:85%;">P153 宗教論争に対する解決策</span></div></blockquote><br />また、ユーザーテストに関しても肩の力を抜いて気楽にやればいいよとのこと。これは勇気づけられたというか、ちょっと安心した。『<a href="http://warikiru.blogspot.com/2008/11/web.html">Webサイト設計のためのペルソナ手法の教科書</a>』を読んだ時は、いろいろなテストがあってこんなん誰ができるんやろかと思ったけど（ペルソナとユーザビリティは違うけどね）、グダグダ言ってないでビデオカメラもってユーザーを呼んで撮ればいいんだよと言ってた。この点は<a href="http://warikiru.blogspot.com/2008/11/web-directions-east-08.html">Web Directions East 08 カンファレンス</a>でGuerilla Userbility Testingのセッションを担当したAndy Buddも同じようなことを言ってた。事実、Guerilla Userbility Testingの題名の通り彼らが開発した<a href="http://silverbackapp.com/">Silverback</a>というアプリケーションはMacBookさえあればすぐに、どこでもユーザーテストができちゃう代物だ。まさにゲリラテストｗ<br /><br />そんなわけで、ユーザーテストの重要さを気づかせてくれる良い本だと思ったので、ぜひデザイナー以外も読んでいただきたい1冊だ。</p>
 </p>
             <div class="meta">
@@ -93,7 +77,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/graceful-english-bawdy-english" rel="prefetch">上品な英語・下品な英語、ふつうの英語。</a></h2>
+            <h2 class="title"><a href="/mol/log/graceful-english-bawdy-english/" rel="prefetch">上品な英語・下品な英語、ふつうの英語。</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4384026382/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51P359SBHML._SL160_.jpg" alt="上品な英語・下品な英語、ふつうの英語。 (タテのことばをヨコにするシリーズ)" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E4%B8%8A%E5%93%81%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%83%BB%E4%B8%8B%E5%93%81%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%80%81%E3%81%B5%E3%81%A4%E3%81%86%E3%81%AE%E8%8B%B1%E8%AA%9E%E3%80%82-%E3%82%BF%E3%83%86%E3%81%AE%E3%81%93%E3%81%A8%E3%81%B0%E3%82%92%E3%83%A8%E3%82%B3%E3%81%AB%E3%81%99%E3%82%8B%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E3%83%87%E3%82%A4%E3%83%B4%E3%82%A3%E3%83%83%E3%83%89-%E3%82%BB%E3%82%A4%E3%83%B3/dp/4384026382%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4384026382" target="_blank">上品な英語・下品な英語、ふつうの英語。 (タテのことばをヨコにするシリーズ)</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /><br />A to Z David A. Thayne<br /><br />三修社  2001-05<br />売り上げランキング : 613661<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/%E4%B8%8A%E5%93%81%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%83%BB%E4%B8%8B%E5%93%81%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%80%81%E3%81%B5%E3%81%A4%E3%81%86%E3%81%AE%E8%8B%B1%E8%AA%9E%E3%80%82-%E3%82%BF%E3%83%86%E3%81%AE%E3%81%93%E3%81%A8%E3%81%B0%E3%82%92%E3%83%A8%E3%82%B3%E3%81%AB%E3%81%99%E3%82%8B%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E3%83%87%E3%82%A4%E3%83%B4%E3%82%A3%E3%83%83%E3%83%89-%E3%82%BB%E3%82%A4%E3%83%B3/dp/4384026382%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4384026382" target="_blank">Amazonで詳しく見る</a> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />最近、Twitterで外国の方をfollowするようになって、何かしら英語の発言もしといたほうが良かろうと思い手に取ってみた。これはなかなか良い感じ。タイトル通り、場面に応じて、上品・普通・下品な受け答えの３通りを紹介している。<br /><br /><blockquote>☆　本当にお久しぶりね。あなた、お元気でした？<br /><span style="color: rgb(102, 102, 102);font-size:85%;" >【有名な映画女優が、故郷の級友に１０年ぶりに再会して】</span><br /><br />◎　久しぶり。さみしかったよ。<br />○　久しぶり。元気だった？<br /><br />◇　よう！まだ生きてたのかよ。<br /><span style="color: rgb(102, 102, 102);font-size:85%;" >【口の悪い男、高校の同級生に、数年ぶりに偶然出会った】</span><br />□　おう、どこに汚いケツ隠してたんだよ？<br /><br />☆　It&#39;s been so many years. How have you been, darling?<br /><br />◎　It&#39;s good to see you again. I&#39;ve missed you.<br />○　It&#39;s been years. How have you been doing?<br /><br />◇　Hey man, how ya been?<br />□　Hey, where have you been hiding your sorry ass?</blockquote><br />こんな感じで下品な英語はほんとひどいねｗどうも下品な言葉になるとケツって単語多くなるのはこの著者の癖か（でけぇケツ動かせよ等）あと、【】内の設定もおもしろい。（刑務所の屋外作業中、ふと空を見上げた元凶悪犯が等）最後の方は英語は見ずにどういう日本語の言い回しかだけ見てたしｗ しかしこんなんTwiiterで発言できませんね。逆に上品な方も冗長な感じがするし140文字の制限じゃ使いづらいかも。てな感じで使える使えないは別として、いろいろな表現があるので楽しめます。あと文法的な説明は皆無です。英語を楽しみたい方どうぞ。</p>
 </p>
             <div class="meta">
@@ -109,7 +93,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/dom-scripting" rel="prefetch">DOMから始めるJavaScriptモダン・スクリプティング　6 〜9回まで</a></h2>
+            <h2 class="title"><a href="/mol/log/dom-scripting/" rel="prefetch">DOMから始めるJavaScriptモダン・スクリプティング　6 〜9回まで</a></h2>
             <p><p><a href="http://itpro.nikkeibp.co.jp/article/COLUMN/20070626/275913/">DOMから始めるJavaScriptモダン・スクリプティング</a> より
 サイ本はちょっと休憩
 <h5>イベントハンドラ</h5>
@@ -405,7 +389,7 @@ JavaScriptが動作しないブラウザに対しては固定的ではあるも�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/thinking-of-ichiro" rel="prefetch">イチロー思考—孤高を貫き、成功をつかむ77の工夫</a></h2>
+            <h2 class="title"><a href="/mol/log/thinking-of-ichiro/" rel="prefetch">イチロー思考—孤高を貫き、成功をつかむ77の工夫</a></h2>
             <p><p><table border="0" cellpadding="5"><tbody><tr><td colspan="2"><a href="http://www.amazon.co.jp/%E3%82%A4%E3%83%81%E3%83%AD%E3%83%BC%E6%80%9D%E8%80%83%E2%80%95%E5%AD%A4%E9%AB%98%E3%82%92%E8%B2%AB%E3%81%8D%E3%80%81%E6%88%90%E5%8A%9F%E3%82%92%E3%81%A4%E3%81%8B%E3%82%8077%E3%81%AE%E5%B7%A5%E5%A4%AB-%E5%85%90%E7%8E%89-%E5%85%89%E9%9B%84/dp/4809404129%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4809404129" target="_blank">イチロー思考―孤高を貫き、成功をつかむ77の工夫</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /></td></tr><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%82%A4%E3%83%81%E3%83%AD%E3%83%BC%E6%80%9D%E8%80%83%E2%80%95%E5%AD%A4%E9%AB%98%E3%82%92%E8%B2%AB%E3%81%8D%E3%80%81%E6%88%90%E5%8A%9F%E3%82%92%E3%81%A4%E3%81%8B%E3%82%8077%E3%81%AE%E5%B7%A5%E5%A4%AB-%E5%85%90%E7%8E%89-%E5%85%89%E9%9B%84/dp/4809404129%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4809404129" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51FSYYYBPPL._SL160_.jpg" alt="イチロー思考―孤高を貫き、成功をつかむ77の工夫" border="0" /></a></td><td valign="top"><span style="font-size:85%;">児玉 光雄<br />東邦出版  2004-12<br />売り上げランキング : 10636<br /><br /><strong>おすすめ平均  </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="star" /><br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />分かりやすく身近な例で解説してくれる<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />本当はもっとも私たちに近い人なのかもしれない<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-3-0.gif" alt="star" />目標が定まっていない人には不向きかも<br /></span><span style="font-size:85%;"><br /></span></td></tr></tbody></table>草野球をやってる友達に勧められて読んでみた。感想としてはイチローは小さいこらからイチローだったんだと。<br /><br />本書の構成は見開き右側にイチローの名言、左側に著者の解説が77個掲載されている。ざっと見た感じ、2004年のシスラーのシーズン通算安打257安打の記録を破った試合後のインタビューからの引用が多い。まぁたしかに、あのときはえらく饒舌にインタビューに答えてたなと記憶に残ってる。そのほか気になった言葉をチョイス。<br /><br /><blockquote>僕の夢は一流のプロ野球選手になることです。<br />そのためには、中学、高校で全国大会へ出て、活躍しなければなりません。<br />活躍できるようになるには、練習が必要です。<br />ぼくは、その練習にはじしんがあります。<br />ぼくは３歳のときから練習を始めています。<br />３歳〜７歳まではんとしくらやっていましたが、<br />３年生の時からは今まで３６５日中、３６０日は<br />はげしい練習をやっています。<br />だから一週間中、友達と遊べる時間は、５時〜６時間の間です。<br />そんなに、練習をやっているんだから、<br />必ずプロ野球選手になれると思います<br /><div style="text-align: right; color: rgb(102, 102, 102);"><span style="font-size:85%;">小学６年生のときにイチローがかいた「夢」という作文の冒頭の部分（原文のまま）</span></div></blockquote><br />なんというか、まさしく『イチロー』だよね。僕が小６の時に書いた夢なんて『サラリーマン』ですよ。ほんとごめんなさいって感じです。こんなに小さい頃から目標（夢）を選択して自分のリソースを集中させているんだから、完全な戦略ですね。すごいです。それで結果もちゃんと残している。<br /><br /><blockquote>結局は細かいことの積み重ねることでしかなか頂上には行けない。<br />それ以外に方法はないということですね。<br /><div style="text-align: right; color: rgb(102, 102, 102);"><span style="font-size:85%;">年間最多安打記録を樹立した後のインタビューで「その秘訣はなにか？」と聞かれて</span></div></blockquote><br />うん、この人が言うからこそ重みがある。このような類の言葉は今までの人生何度も言われてきたがこの人が言うこの言葉は半端なく重い。そのほかにもイチローならではのコメントがたくさん載っているのでかなり刺激的だった。ぜひとも、昨今のWBCなどの時の名言も含めてこの本の第２弾、第３弾を期待したい。</p>
 </p>
             <div class="meta">
@@ -417,14 +401,113 @@ JavaScriptが動作しないブラウザに対しては固定的ではあるも�
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/ipod-touch/" rel="prefetch">iPod Touchと過ごした半年 (アクセサリ編)</a></h2>
+            <p><table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB-MB528J-A-Apple-touch/dp/B0016AN68G%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0016AN68G" target="_blank"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Sf1umZAr69I/AAAAAAAAAXk/rg0Hk5d5Hl4/41Aj4kUP2uL._AA280_.jpg" border="0" alt="Apple iPod touch 8GB" /></a></td>
+<td valign="top"><span>
+</span><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB-MB528J-A-Apple-touch/dp/B0016AN68G%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0016AN68G" target="_blank">Apple iPod touch 8GB</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+</span><span style="font-size: 85%;">アップル  2008-09-10
+売り上げランキング : 350
+
+<strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" />
+
+<a href="http://www.amazon.co.jp/%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB-MB528J-A-Apple-touch/dp/B0016AN68G%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0016AN68G" target="_blank">Amazonで詳しく見る</a>
+
+</span><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+
+<p>iPhoneが欲しくてたまらなかったけど、我慢できずにiPod Touch 2Gを買ってしまった年末。これで俺もiPhone Developerの仲間入りだーなんて思ってたけど結局なんにも勉強していないObjective-C。すみません、僕が欲しかったのはiPod Touchでタッチタッチしている俺かっけーみたいなステータスだったのかもしれません。ってことでアプリ系はよくわかんないけど、アクセサリ系は結構満足してるので紹介。
+<h5>BOSE Bose on-ear headphones オーディオヘッドホン</h5>
+<a href="http://www.flickr.com/photos/t32k/3496829572/" target="_blank"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Sf1uma31CII/AAAAAAAAAXs/P9lyYhmGJEI/RIMG0024.jpg" alt="" /></a>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><a href="http://www.amazon.co.jp/BOSE-Bose-on-ear-headphones-%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3/dp/B000KTD81O%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000KTD81O" target="_top">BOSE Bose on-ear headphones オーディオヘッドホン</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td><a href="http://www.amazon.co.jp/BOSE-Bose-on-ear-headphones-%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3/dp/B000KTD81O%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000KTD81O" target="_top"><img src="http://ecx.images-amazon.com/images/I/41lh5ktC7cL._SL160_.jpg" border="0" alt="BOSE Bose on-ear headphones オーディオヘッドホン" /></a></td>
+<td valign="top"><span><span style="font-size: 85%;">BOSE  2006-12-01</span>
+<span style="font-size: 85%;">売り上げランキング : 11919<strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="star" />
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" />微妙です
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />音質はかなり良い　電車通勤に
+<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />なんで</p>
+
+<p><a href="http://www.amazon.co.jp/BOSE-Bose-on-ear-headphones-%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%98%E3%83%83%E3%83%89%E3%83%9B%E3%83%B3/dp/B000KTD81O%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000KTD81O" target="_top">Amazonで詳しく見る</a></p>
+
+<p></span></span><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+iPod Touchに合わせて買ったものではないので恐縮です。当たり前だけどiPod TouchはiPhoneではないので主要機能といったらやっぱり音楽です。このヘッドホンは折りたたんで小さく収納もできて、なおかつ音もいい。低音はかなり魅惑的です。夏はちょっと耳が蒸れるのが残念ですが。
+<h5>Belkin Etched Vector touch 2G</h5>
+<a href="http://www.flickr.com/photos/t32k/3496829708/" target="_blank"><img src="http://lh6.ggpht.com/_1drnogi3vdg/Sf1umVo7R_I/AAAAAAAAAX0/urrMWVF22ws/RIMG0027.jpg" alt="" /></a>
+<a href="http://www.flickr.com/photos/t32k/3496013237/" target="_blank"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Sf1umfW51JI/AAAAAAAAAX8/lH5KYoGG1DU/RIMG0028.jpg" alt="" /></a>
+<span style="font-size: 85%;"><a href="http://store.apple.com/jp/product/TU179LL/A?mco=NDY5NzYzMQ">Belkin Etched Vector touch 2G（ブラック/ピンク）</a></span></p>
+
+<p>つるつるiPod Touchには傷はつけたくないですよね。これはアップルストアで買ったのですが最高に気に入ってます。ハードケースだと分厚くなりすぎずてやっかい、フィルムだと指紋はつかないのですが衝撃が気になるところ。これはちょうど良い具合に僕の要望に答えてくれた商品です。紫のようなピンクと黒の相性も渋くて好きです。中は真っピンクだけど装着したら見えませんw
+<h5>アンチグレアフィルムセット for iPod touch 2nd</h5>
+<a href="http://www.flickr.com/photos/t32k/3496829826/" target="_blank"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Sf1umvytxdI/AAAAAAAAAYE/zpUAfzU0bl0/RIMG0029.jpg" alt="" /></a>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%BB%E3%83%83%E3%83%88-iPod-touch-PTX-02/dp/B001GIPZXW%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001GIPZXW" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31pCYtduC6L._SL160_.jpg" border="0" alt="パワーサポート アンチグレアフィルムセット for iPod touch 2nd PTX-02" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%BB%E3%83%83%E3%83%88-iPod-touch-PTX-02/dp/B001GIPZXW%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001GIPZXW" target="_blank">パワーサポート アンチグレアフィルムセット</a>
+<a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%BB%E3%83%83%E3%83%88-iPod-touch-PTX-02/dp/B001GIPZXW%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001GIPZXW" target="_blank">for iPod touch 2nd PTX-02</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+パワーサポート  2008-10-07
+売り上げランキング : 2509<a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%BB%E3%83%83%E3%83%88-iPod-touch-PTX-02/dp/B001GIPZXW%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001GIPZXW" target="_blank">Amazonで詳しく見る</a></p>
+
+<p></span><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+これも指紋つかなくて気に入ってますｗ iPod Touchはやっぱりタッチタッチしなくちゃなんないんで、そうしても指紋でベタベタなんてことになりますね。これはフィルムを張ることで液晶も守られて一挙両得。手触りもサラサラしててかなり良いです。<a href="http://d.hatena.ne.jp/shi3z/20081128/1227852454">shi3zさんもお薦め</a>してたので購入しました。
+<h5>SANWA SUPPLY デスクトップスタンド ブラック</h5>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001JIRVVI/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31vtWdZQ3zL._SL160_.jpg" border="0" alt="SANWA SUPPLY PDA-STN2BK デスクトップスタンド ブラック" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/SANWA-SUPPLY-PDA-STN2BK-%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B001JIRVVI%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001JIRVVI" target="_blank">SANWA SUPPLY PDA-STN2BK</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
+サンワサプライ  2008-11-07
+売り上げランキング : 559
+おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="" /></p>
+
+<p><a href="http://www.amazon.co.jp/SANWA-SUPPLY-PDA-STN2BK-%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B001JIRVVI%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001JIRVVI" target="_blank">Amazonで詳しく見る</a></p>
+
+<p></span><span style="font-size: 85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table>
+<span style="color: #330099;">(追記) </span>最近、買ったもの。他のスタンド系は微妙に凝った奴ばっかりでお値段も高いのが多いのですが、これは潔いシンプルさで価格も1000円弱と気に入ってます。これでPCで作業しながらiPod TouchでYouTubeを流し見なんてことができますね。</p>
+
+<p>そんなわけで、これがiPhoneだったら絶対TV&amp;バッテリーも買っているんだろうなー。やはり無い物ねだりでカメラとGPS機能があればもっと楽しいだろうな。でも結局、iPhoneにしたところでパケ放題もったいないなーと思い3G回線使わないんだろうな。いやでも次のiPhone出たら絶対買うんだ。うん。ドコモやめる。</p>
+
+<p>てな感じで、最後にiPod Touchでもっとも起動させるアプリを紹介して終わります。『ひなちゃんの日常』を読むためだけの<span style="font-weight: bold;">産経新聞</span>です。以上！</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-04-May" title="May 04, 2009">May 04, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page59" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page59" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page61" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page61" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -436,7 +519,7 @@ JavaScriptが動作しないブラウザに対しては固定的ではあるも�
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -452,12 +535,12 @@ JavaScriptが動作しないブラウザに対しては固定的ではあるも�
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

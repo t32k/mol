@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,90 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/cfbundleversion" rel="prefetch">Version Number (iTunes Connect) と Bundle version (CFBundleVersion)</a></h2>
-            <p><p>ちょっとハマったので、メモ。</p>
-
-<p>こないだNyarsのバージョンを1.2から1.2.1にアップデートしました。アップデート理由は文言修正など細かな修正だったので1.0, 1.1, 1.2 ときたバージョンアップですが、今回はマイナーアップデートてことで、1.2.1にし申請を出してみました。</p>
-
-<p>んが、しかし、拒否られたくさい。（こんなん言われた＞＜）
-<blockquote>The binary you uploaded was invalid. The key CFBundleVersion in the Info.plist file must contain a higher version than that of the previously uploaded version.</blockquote>
-前出したバージョンより、CFBundleVersionが低いからダメってことよね？1.2から1.2.1ってどーみても上がってんじゃん！てめぇ数字数えられねーのかよ!?てことで調べてみた。</p>
-
-<!--more-->
-
-<h2>Version (tiapp.xml)</h2>
-
-<p>バージョンに関して記入するところと言えば、</p>
-
-<p><img class="fig" title="Titanium Developer 1.2.2" src="http://t32k.me/mol/file/2011/06/tidev.png" alt="Titanium Developer 1.2.2" width="470" height="340" /></p>
-
-<p>Titanium Developer 1.2.2では↑ここ。</p>
-
-<p><img class="fig" title="Titanium Studio" src="http://t32k.me/mol/file/2011/06/tistudio.png" alt="Titanium Studio" width="470" height="340" /></p>
-
-<p>Titanium Studioでは↑ここですね。</p>
-
-<p>この部分がtiapp.xmlに反映されるわけですね。</p>
-
-<p>[html]
-&lt;version&gt;1.0&lt;/version&gt;
-[/html]
-<h2>Bundle version (CFBundleVersion)</h2>
-で、このtiapp.xmlの内容が、/<em>APPLICATION_PROJECT</em>/build/iphone/Info.plist のBundle version (CFBundleVersion)に反映されます。</p>
-
-<p><img class="fig" title="Bundle version (CFBundleVersion)" src="http://t32k.me/mol/file/2011/06/info.png" alt="Bundle version (CFBundleVersion)" width="470" height="340" /></p>
-
-<p>上記はXcodeで確認した場合になります。通常のテキストエディタでInfo.plistを開いてみると</p>
-
-<p>[html]
-&lt;key&gt;CFBundleVersion&lt;/key&gt;
-&lt;string&gt;1.0&lt;/string&gt;
-[/html]</p>
-
-<p>こんな感じになってるかと思います。試しにテストアプリを作ってバージョンはどの段階においても1.0です。問題有りません。
-<h2>Build Number</h2>
-はい、でこのアプリを実機にインストールもしくはパッケージ化し、Info.plistのBundle Versionを確認してみましょう。なんということでしょう。こんなんになってた！
-<pre>1.0.1308740503</pre>
-1.0以降に変な数字でてるやないですか！たぶんこれBuild Numberってゆうやつだと思われます（なんかググってみてそんな感じのようなことが書かれてた）。これなんか勝手に生成されるようです。</p>
-
-<p>ってことで、今回のNyarsマイナーアップデート申請がなぜ却下されたのか考えてみますと、前回のバージョンが1.2で今回出したバージョンが1.2.1てことで、それらにBuild Numberをくっつけたのを比較してみますと
-<pre>1.2.BUILD<em>NUMBER
-1.2.1.BUILD</em>NUMBER</pre>
-ってことなので、3番目の値で比較（Build Numberと1）され却下されたのではないかと結論づけました。
-<h2>Version Number (iTunes Connect)</h2>
-ということで今回は、1.2.0って最初から出しとけば問題なかったわけですな。けどもVersion1.2.0でたぜ！ってゆうのもアレだと思った方、心配ご無用です。CFBundleVersionはいわゆる内部バージョン番号みたいなものなので、iTunes Connect（お店に並ぶときのバージョン）に出すのは別でよいのでそこは1.2って提出しときましょう。</p>
-
-<p><a href="http://t32k.me/mol/file/2011/06/itunes.png"><img class="fig" title="iTunes Connect" src="http://t32k.me/mol/file/2011/06/itunes.png" alt="iTunes Connect" width="470" /></a></p>
-
-<p><a href="http://ja.wikipedia.org/wiki/Microsoft_Windows_7">Windows7の内部的なバージョン番号が 6.1</a>のようなものです。てことで今回僕は、1.2.1では通らなかったのでCFBundleVersionは1.3.0で提出してiTunes Conectには1.2.1を提出して無事アップデートできました。</p>
-
-<p>めでたしめでたし。</p>
-
-<p>めんどくさかったらこの人みたいに最初から整数値でアップデートしていくのも手かと。
-<ul>
-    <li><a href="http://vivacocoa.jp/cocoaApp/cocoaApp10.cgi">viva Cocoa / Cocoa GUI App no.10 </a></li>
-</ul>
-<h2>参考</h2>
-<ul>
-    <li><a href="http://basuke.blogspot.com/2010/02/appstore.html">Basuke&#39;s Blog: AppStoreのバージョン番号ではまる</a></li>
-    <li><a href="http://www.dribin.org/dave/blog/archives/2006/08/02/versioning_os_x_apps/">Versioning Mac OS X Applications Best Practicies - Dave Dribin&#39;s Blog </a></li>
-</ul>
-&nbsp;</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2011-22-June" title="June 22, 2011">June 22, 2011</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/js-girl-01" rel="prefetch">JS Girl #1 開催しました！</a></h2>
+            <h2 class="title"><a href="/mol/log/js-girl-01/" rel="prefetch">JS Girl #1 開催しました！</a></h2>
             <p><p><a href="http://kanazawajs.tumblr.com/jsgirl/"><img class="fig" title="JS Girl #1" src="http://t32k.me/mol/file/2011/06/jsgirl.jpg" alt="" width="470" height="263" /></a></p>
 
 <p><a href="http://kanazawajs.tumblr.com/jsgirl/">JS Girl 〜Modernな彼女のScript〜 </a></p>
@@ -199,7 +116,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/javascript-coding-best-practice-book" rel="prefetch">JavaScriptコーディング ベストプラクティス</a></h2>
+            <h2 class="title"><a href="/mol/log/javascript-coding-best-practice-book/" rel="prefetch">JavaScriptコーディング ベストプラクティス</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -237,7 +154,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/ugj201106" rel="prefetch">UPGRADE JAPAN!! で講演しました。</a></h2>
+            <h2 class="title"><a href="/mol/log/ugj201106/" rel="prefetch">UPGRADE JAPAN!! で講演しました。</a></h2>
             <p><div id="__ss_8197966" style="width: 425px;">
 
 <object id="__sse8197966" width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=mobilefirst-110603093851-phpapp02&amp;stripped_title=mobile-first-8197966&amp;userName=t32k" /><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><embed type="application/x-shockwave-flash" width="425" height="355" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=mobilefirst-110603093851-phpapp02&amp;stripped_title=mobile-first-8197966&amp;userName=t32k" name="__sse8197966" allowscriptaccess="always" allowfullscreen="true"></embed></object> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/t32k">Koji Ishimoto</a>
@@ -273,7 +190,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/jsgirl" rel="prefetch">JS Girl ハジマリマシタ！</a></h2>
+            <h2 class="title"><a href="/mol/log/jsgirl/" rel="prefetch">JS Girl ハジマリマシタ！</a></h2>
             <p><p><a href="http://kanazawajs.tumblr.com/jsgirl/"><img class="fig" title="JS Girl" src="http://t32k.me/mol/file/2011/06/js-girl.png" alt="" width="470" height="226" /></a></p>
 
 <p>kanazawa.js（代表：てぃーさーてぃとぅーけー　本部：石川県金沢市）は、女子JSer増加を促進するために、女子の女子による女子のためのJS Girlを開催いたします。</p>
@@ -323,14 +240,74 @@
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/coda-completion-for-jquery-mobile/" rel="prefetch">Coda.appでjQuery Mobileをコード補完</a></h2>
+            <p><p><img class="alignnone size-full wp-image-3240" title="Coda.app" src="http://t32k.me/mol/file/2011/05/cj.png" alt="" width="470" height="120" /></p>
+
+<p>どもー全国数十万のCoda.appユーザーの皆さん、t32kでございます。</p>
+
+<p>MacBook AirにCSをインスコするのはちょっと気が引けたので円高もあって<strong><a href="http://www.panic.com/coda/">Coda.app</a></strong>を最近買いました。なんかいろいろ綺麗でたちまち好きになりました。どうせならこれでjQuery Mobileゴリゴリ書きたいなと思うようになりやんした。</p>
+
+<!--more-->
+
+<p><strong><a href="http://jquerymobile.com/">jQuery Mobile</a></strong>と言いますと、最近ではアルファ版（2011/6/1現在）でもあるにも関わらずDw CS 5.5で標準装備されるなど飛ぶ鳥落とす勢いでやんす。だからってCS5.5買いたくナイヨ！</p>
+
+<p>ってことで、Coda.appでコード補完色々いじくってみましたってのが今回のエントリの主旨。</p>
+
+<p>Coda.appでコード補完を司っているのが、<strong>CodaCompletion.plist</strong>です。これをいじって作成しました。ファイルの在り処は以下です。Coda.appを右クリックして「パッケージの内容を表示」を選択するとディレクトリを潜れます。</p>
+
+<p>[HTML]
+Coda.app/Contents/Resources/Modes/HTML.mode/Contents/Resources/CodaCompletion.plist
+[/HTML]</p>
+
+<p>CodaCompletion.plistをDLしたものに置き換えてあげるだけです。安全のために元のファイルはどっかにバックアップしておいたほうが良いですよ。
+<ul>
+    <li><a href="http://d.hatena.ne.jp/pikotea/20101019/1287484040">jQuery Mobile リファレンス的なもの - へっぽこプログラマーの日記</a></li>
+</ul>
+このページ見て作りました。
+<h2>Usage</h2>
+<iframe frameborder="0" height="264" src="http://player.vimeo.com/video/24462566?title=0&amp;byline=0&amp;portrait=0" width="470"></iframe></p>
+
+<p>上記、動画を見てもらえるとだいたい分かると思います。dataなんちゃらと属性を打つといろ色出てきます。
+(data-まで打つと途切れます。誰か回避方法教えてください＞＜)</p>
+
+<p>個人的にはdata-iconが覚えるのには値が多すぎるので便利かなと思ってますｗ</p>
+
+<p>コード補完ついでにクリップ（スニペット）的なものもちょっとだけ用意しました。<strong>jQuery Mobile.clips</strong>をダブルクリックすればインスコできます。
+<ul>
+    <li><strong>jqm + TAB</strong> でテンプレート挿入</li>
+    <li><strong>page + TAB</strong> でdata-role=&quot;page&quot;のコードを挿入</li>
+    <li><strong>lang + TAB</strong> でローカリゼーションのコード挿入</li>
+</ul>
+<h2>Download</h2>
+<a onclick="_gaq.push(['_trackEvent', 'DL', 'coda_jqm'])" href="https://github.com/t32k/Coda-Completion-for-jQuery-Mobile"><img class="alignnone size-full wp-image-3242" title="Download!" src="http://t32k.me/mol/file/2011/05/zip.png" alt="" width="128" height="128" /></a>
+(Coda Completion for jQuery Mobile - GitHub)</p>
+
+<p>問題がありましたらご指摘下さい。
+（時間あればアップデートしていきます...）
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 45px; top: 1090px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=la&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
+<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 226px; top: 1103px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=v1.1&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-01-June" title="June 01, 2011">June 01, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page18" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page18" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page20" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page20" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -342,7 +319,7 @@
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -358,12 +335,12 @@
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

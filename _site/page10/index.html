@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,125 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/referencing-parent-selectors" rel="prefetch">Sassの親セレクタ参照&について</a></h2>
-            <p><p><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_">Sassの親セレクター参照の<strong>&amp;</strong></a>の話。</p>
-
-<p>Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。</p>
-
-<!--more-->
-
-<pre><code>// SCSS
-#main {
-  color: black;
-  a {
-    font-weight: bold;
-    &amp;:hover { color: red; }
-    &amp;:visited { color: blue; }
-  }
-}</code></pre>
-
-<p>↑上がコンパイルされて↓こんな風になります。
-<pre><code>/* CSS */</p>
-
-<h1>main {</h1>
-
-<p>color: black;}</p>
-
-<h1>main a {</h1>
-
-<p>font-weight: bold;}</p>
-
-<h1>main a:hover {</h1>
-
-<p>color: red;}</p>
-
-<h1>main a:visited {</h1>
-
-<p>color: blue;}</code></pre>
-Sassのコードだと、aのセレクタの下層にリンクの擬似クラスのスタイルがまとまり、コードが見やすくなってますね。この例だと<strong>&amp;</strong>の部分が#main aに置き換わるわけです。はい。</p>
-
-<p>ほかには、モジュールごとでスタイルを変えたい時とか。
-<pre><code>// SCSS
-.mod {
-　color: black;
-　font-weight: bold;
-　&amp;.hoge { color: red; }
-　&amp;.fuga { color: blue; }
-}</code></pre>
-.modでひとつのモジュールの基本的なスタイルを記述して、.mod.hogeといった感じでclassの複数づけしたときに、基本スタイルから微妙に変化をつけるみたいなやりかたのときとかも便利です。たぶん。</p>
-
-<p>これもまた、.modのブロックの中に派生するスタイルが１つにまとまっていてナイスな気がします。</p>
-
-<p>んで、調子こいてこんな風にも&amp;を使うようになりました。
-<pre><code>// local.scss
-.kanazawa {
-　color: blue;
-　.ishikawa &amp; {
-　　color: red;
-　}
-}</code></pre>
-親が違う親を持っていた時のスタイルみたいな。なんか文字にすると複雑な家庭事情ですね。心中お察しします。
-<pre><code>/* CSS */
-.kanazawa {
-　color: blue;}
-.ishikawa .kanazawa {
-　color: red;}</code></pre>
-展開するとなんてことのない感じです。.kanazawaだと横浜の金沢なのか、石川の金沢なのわかんねーから、石川の金沢のときは文字を赤くしましょうよって思想です。たぶん。しらんけど。</p>
-
-<p>んで、このCSSを流用したい。北陸で流用したいという欲情に駆られたのがこんな感じのHTML。
-<pre><code>&lt;div class=&quot;hokuriku&quot;&gt;
- 北陸良いとこ～♪
- &lt;div class=&quot;ishikawa&quot;&gt;
-  細長い県なの～♪
-  &lt;div class=&quot;kanazawa&quot;&gt;
-   そこの県庁所在地なの～♪
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&quot;kanazawa&quot;&gt;
-  どこの金沢よ～。それどこ情報よ～。俺が寝てないってどこ情報よ～。
- &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-今まで地方レベルで考えてこなかったんだけど、急に、.hokuriku（北陸地方）という上位概念がでてきて、この中でさっきのlocal.scssを流用したい場合。こんな感じなると思う。
-<pre><code>// SCSS
-.hokuriku {
- @import &quot;local.scss&quot;;
-}
-// つまり↑これは↓これということ。
-.hokuriku {
-　.kanazawa {
-　　color: blue;
-　　.ishikawa &amp; {
-　　　color: red;
-　　}
-　}
-}</code></pre>
-んで、コンパイル。
-<pre><code>.hokuriku .kanazawa {
-  color: blue;
-}
-.ishikawa .hokuriku .kanazawa {
-  color: red;
-}</code></pre>
-問題は2個めのやつですよね。親参照使ったやつ。石川県北陸地方金沢市になっててイミフｗｗｗｗウケるｗｗｗｗｗ</p>
-
-<p>HTML内では.hokurikuが最も祖先なので、この場合の.ishikawa .hokuriku .kanazawaのスタイルは有効になりませんね。実際のこの問題に出くわしたときは。もっとコード量が多くてなおかつ複雑で、この親参照の仕様をちゃんと理解せずにいたので、理解に時間がかかりました（スタイルがなぜか効かないので!importantしたりとか...）。なんでメモがてら書いておきました。</p>
-
-<p>だからといって、<strong>&amp;</strong>使うなよってことはないです。最初に紹介したリンクパターンやモジュールパターンのような単純に<strong>”親”</strong>を参照しているものであれば、特に問題ないかと思います。親の更に親が〜といったような使い方も環境（HTML）が変わるようなことがないかぎり、特に問題無いと思うけど、いざ流用したいってなったとき（人生なにが起きるかわかりません）ネストの仕方によっては今回のようなことが起きてしまうなーって。て！</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2012-06-September" title="September 06, 2012">September 06, 2012</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/sumire-september-love" rel="prefetch">転職してから3ヶ月が経った</a></h2>
+            <h2 class="title"><a href="/mol/log/sumire-september-love/" rel="prefetch">転職してから3ヶ月が経った</a></h2>
             <p><p><a href="http://t32k.me/mol/log/joining-cyberagent/">転職</a>してから3ヶ月が経った。一応試用期間が終わったということで出社したら僕のデスクもちゃんとあった。どうやらクビではないようだ。ひとまずよかった。</p>
 
 <p>この3ヶ月間、がむしゃらに働いてしんどかったけど、自分のしたいことはできているので概ね満足している。転職する際に、今の会社のイメージなんてただのチャラい会社というイメージしかなく、転職先の候補にもなかったんだけど、縁あって中の人のひとりと話す機会を持てた。それでそのイメージは変わったわけだけど、そもそも、<a href="http://css.studiomohawk.com/about/">その人のブログ</a>は読んでいて、技術者としても尊敬していたので、その人が良いと言うのならそうだと決めて転職した（結局、会社名とか年収とかじゃなくて誰と働きたいかだったと思う僕の場合）。</p>
@@ -201,7 +83,7 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/summer-of-love" rel="prefetch">Webパフォーマンス改善のためのChrome開発者ツール</a></h2>
+            <h2 class="title"><a href="/mol/log/summer-of-love/" rel="prefetch">Webパフォーマンス改善のためのChrome開発者ツール</a></h2>
             <p><p>気づいたら夏終わってたわー、俺の夏が一番最初に終わったわー、t32kだよ。
 <h2>Webパフォーマンス改善のためのChrome開発者ツール</h2>
 この前社内勉強会したスライド公開しとくよ。「パフォーマンス改善のためのChrome開発者ツール」と題して、簡単なDevToolの紹介と、拡張機能PageSpeedの使い方の説明したよ。</p>
@@ -243,7 +125,7 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/compass-ie-hex-str-function" rel="prefetch">パフォーマンスからみるSass/Compass 番外編：MSは青かった</a></h2>
+            <h2 class="title"><a href="/mol/log/compass-ie-hex-str-function/" rel="prefetch">パフォーマンスからみるSass/Compass 番外編：MSは青かった</a></h2>
             <p><p>2回も続いてないのにまさかの番外編！ここぞ変化球！キエル消える魔球！！</p>
 
 <p>ってことで、最近Androidの相手ばかりしていて、「IE... そんな女もいたよね」って感じでしたが、ちょっとハマったので忘備録。グラデーションを使ったデザインをCSSで再現しようとした話。ということでCSSグラデーションのスニペットを<a href="http://www.colorzilla.com/gradient-editor/">Ultimate CSS Gradient Generator</a>で吐き出してみたんですわ。
@@ -309,7 +191,7 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/social-button-bffs" rel="prefetch">ソーシャルボタンはお友達さ(・ω</a></h2>
+            <h2 class="title"><a href="/mol/log/social-button-bffs/" rel="prefetch">ソーシャルボタンはお友達さ(・ω</a></h2>
             <p><p>ども、実兄からFacebook友達申請きて承認を見送るt32kです。そんなソーシャル時代ですけどみなさんいかがお過ごしか？みなさんはこうは思わないだろうか？いいね！ボタンなどのソーシャルボタンはいっぱいあるけど、どうゆうふうに実装すればいいのよ！スニペット、コピペでいいの？ってね。そんなこと考えていたら、いい記事があったので翻訳してみたよの巻。</p>
 
 <p><cite>原文：<a href="http://www.phpied.com/social-button-bffs/">Social button BFFs / Stoyan&#39;s phpied.com</a>
@@ -429,14 +311,136 @@ Google+は<em>g-plusone</em>クラス属性がついた<em>div</em>要素が必�
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/sass-nesting-and-import/" rel="prefetch">パフォーマンスからみるSass/Compass 第1回：Nestingと@import</a></h2>
+            <p><p>タイトルは釣り、かつ第2回以降は未定ですがコンチワ！t32kです。メモがてら残していこうと思います。</p>
+
+<p><a href="http://sass-lang.com/">Sass</a>とかいろんな機能ありますよね、でもぶっちゃけそんなにいっぱい機能あっても使わないし( ･´ω･｀)　案外、//ダブスラでコメントアウトできるのが一番嬉しかったりもします今日このごろです。</p>
+
+<!--more-->
+
+<h2>@import</h2>
+
+<p>というわけで、そんな僕がSassを使うと思ったのも@importを使いたかったからという至極単純な動機によるものです。@import自体は普通のCSSでも使えますが、パフォーマンス的に難がありまして、あんまり使う気になれない、かといってファイル管理はページ単位やコンポーネント単位でちゃんとやらないと後々めんどいなというジレンマもあります。</p>
+
+<p>そうゆうわけで、なんで普通の@importがダメなのか説明します。
+<blockquote>IEにおいて@importはページ下部に置いた&lt;link&gt;タグのような挙動をします。</p>
+
+<p><a href="http://developer.yahoo.com/performance/rules.html/rules.html#csslink">Best Practices for Speeding Up Your Web Site </a></blockquote>
+Yahoo!のパフォーマンスベスト・プラクティスにおいて、上記のような記述がありました。Styleの情報というのはできる限りページ上部に置いてレンダリングを早く開始させる必要があるのでこれは頂けませぬ。</p>
+
+<p>まぁ基本的に@importのパフォーマンス的問題はIE以外ならOKであれば使ってもいいのかなと思ってたんですけど、よくよく調べてみるとそうでもなかったですという話。
+<pre><code>/* first.css */
+@import url(&quot;second.css&quot;)</code></pre>
+まぁ上記のような&lt;link&gt;で読み込んだfirst.cssでsecond.cssを@importするといった例があるとします。これがどのような挙動をするのかと言いますと、
+<blockquote>ブラウザーはsecond.cssをダウンロード可能と発見する前に、必ずfirst.cssのダウンロード、パース、実行をする。</p>
+
+<p><a href="https://developers.google.com/speed/docs/best-practices/rtt#AvoidCssImport">Minimize round-trip times - Make the Web Faster — Google Developers</a></blockquote>
+Googleの方には上記のようなことが書かれていました。つまり、first.cssを読み込み完了してからsecond.cssを読み込みに行くので並列ダウンロードができないってことです。これってIEに限ったことではなくてすべてのブラウザーで起こりうることらしいです。マジかいや！てことで、<a href="http://stevesouders.com/tests/atimport/link-with-import.php">Steve Soudersセンセのテストケース</a>を最新のChromeのNetworkパネルで見てみると本当にそうでした。さーせん！ということで、やっぱり普通の@importは使うべきではないですな。</p>
+
+<p>詳しくは下記ブログ読むと良いよ。
+<ul>
+    <li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don’t use @import | High Performance Web Sites </a></li>
+</ul>
+まぁ、そうゆうわけでSassの@importですよ。基本ローカル環境でコンパイルして一つのCSSファイルにまとめるので、読み込むのは実質1ファイルだけになるんですね。それでいて、ページ単位やコンポーネント単位でファイル分割できるのでコードの見通しも悪くならない、素敵です。sass --watchとか<a href="http://mhs.github.com/scout-app/">Scout</a>とか使えば毎回手動でコンパイルしなくても更新があれば自動的にコンパイルしてくれます。
+<pre><code>// Sass
+ @import &quot;<em>reset&quot;;
+ @import &quot;</em>common&quot;;
+ @import &quot;<em>header&quot;;
+ @import &quot;</em>main&quot;;
+ @import &quot;_footer&quot;;</code></pre>
+これだけのためにでもSass導入してもいいんじゃないかと個人的には思っています。
+<h2>Nesting</h2>
+あと、便利っちゃー便利なのがネストです。下記のようにセレクタ、プロパティの重複する部分ってのを省略して書けます。
+<pre><code>// Sass
+table.hl {
+  margin: 2em 0;
+  td.ln {
+    text-align: right;
+  }
+}
+li {
+  font: {
+    family: serif;
+    weight: bold;
+    size: 1.2em;
+  }
+}</code></pre>
+上記は下記のようにコンパイルされます。
+<pre><code>/* CSS */
+table.hl {
+  margin: 2em 0;
+}
+table.hl td.ln {
+  text-align: right;
+}
+li {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}</code></pre>
+子孫セレクタとか何回も同じセレクタを宣言するのはめんどいですよね。あとモジュール単位で、例えば.module{}以下に必要なスタイルをネストしておけば、そのモジュールが要らなくなったりとか修正が必要になった時とか対応が楽です。</p>
+
+<p>とは言いつつも、そのモジュールの見通しが甘くて案外複雑なことをやらないとだめになりネストが3階層、4階層となってしまう時があります。そうなるとコンパイルされたCSSというのは子孫セレクタとかでつながった長いセレクタになってしまいます。</p>
+
+<p>これってどーなのよ？って話ですよね。はじめに言っておきますが気にしなくてもいい。</p>
+
+<p>世の中には<a href="https://developer.mozilla.org/ja/Writing_Efficient_CSS">CSSセレクタの最適化</a>というものがありまして、要はCSSセレクタの解釈というのは<strong>右から左へ</strong>とされていくわけでして、セレクタが長ければ長いほど解釈するのに時間がかかるので、単一のクラスセレクタとかにしたらいいよーみたいな話です。</p>
+
+<p>これってどんだけの程度なのよ！？ってことが気になります。詳しくは下記翻訳でまとめられています。
+<ul>
+    <li><a href="http://t32k.me/mol/log/impact-of-css-selector/">CSSセレクタのパフォーマンスへの影響 | MOL </a></li>
+</ul>
+1000個のCSSセレクタを改善しても20msくらいしか変わらなかったという結論です。これは2009年の話でして、世の中進歩しています。
+<ul>
+    <li><a href="http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">Performance Calendar » CSS Selector Performance has changed! (For the better) </a></li>
+</ul>
+2011年の年末に書かれた上記の記事ではwebkitに関してですが、CSSセレクタのマッチング処理ってのはブラウザ側で最適化されているという話です。
+<ol>
+    <li>Style Sharing</li>
+    <li>Rule Hashes</li>
+    <li>Ancestor Filters</li>
+    <li>Fast Path</li>
+</ol>
+上記のような改善がされていてるとのことでして、詳しいことは日本語で解説されてる以下のブログで（素敵！）
+<ul>
+    <li><a href=" http://memolog.org/2012/05/css_selector_performance.php  ">CSS Selector Performance - メモログ</a></li>
+</ul>
+まぁ要するに2009年段階でも気にしなくてもいいレベルだったのにそれから2年経ってさらに気にしなくてもいいレベルになってきた感じです。
+<pre><code>/* Baseline 
+　コード量の差をなくすためにマッチングしないセレクタが記述されている*/
+.noclass0001 { background: #CFD; }</p>
+
+<p>/* Descendant*/
+DIV DIV DIV P A.class0001 { background: #CFD; }</code></pre>
+<ul>
+    <li><a href="http://stevesouders.com/tests/css-selectors/baseline.php">CSS Selectors: Baseline </a>（ベースライン）</li>
+    <li><a href="http://stevesouders.com/tests/css-selectors/descendant.php">CSS Selectors: Descendant </a>（子孫セレクタ）</li>
+</ul>
+試しに、最新のChromeで上記のSoudersセンセのテストケースをもう一度やってみると、数ミリ秒しか変わんなかったです。1000個のセレクタ改善しても数ミリ秒しか違わないのは費用対効果悪すぎです。</p>
+
+<p>ってことで、Sassでネストしまくって、それによるセレクタの解釈遅延ってのは気にしなくてもいいのかなという個人的結論。もちろん、ネストしまくったら何がなんだかわからないCSSになってしまうので、可読性のために、2,3階層程度でとどめておくほうが良いでしょう。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-12-July" title="July 12, 2012">July 12, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page9" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page9" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page11" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page11" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -448,7 +452,7 @@ Google+は<em>g-plusone</em>クラス属性がついた<em>div</em>要素が必�
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -464,12 +468,12 @@ Google+は<em>g-plusone</em>クラス属性がついた<em>div</em>要素が必�
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

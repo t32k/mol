@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,67 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/coda-completion-for-jquery-mobile" rel="prefetch">Coda.appでjQuery Mobileをコード補完</a></h2>
-            <p><p><img class="alignnone size-full wp-image-3240" title="Coda.app" src="http://t32k.me/mol/file/2011/05/cj.png" alt="" width="470" height="120" /></p>
-
-<p>どもー全国数十万のCoda.appユーザーの皆さん、t32kでございます。</p>
-
-<p>MacBook AirにCSをインスコするのはちょっと気が引けたので円高もあって<strong><a href="http://www.panic.com/coda/">Coda.app</a></strong>を最近買いました。なんかいろいろ綺麗でたちまち好きになりました。どうせならこれでjQuery Mobileゴリゴリ書きたいなと思うようになりやんした。</p>
-
-<!--more-->
-
-<p><strong><a href="http://jquerymobile.com/">jQuery Mobile</a></strong>と言いますと、最近ではアルファ版（2011/6/1現在）でもあるにも関わらずDw CS 5.5で標準装備されるなど飛ぶ鳥落とす勢いでやんす。だからってCS5.5買いたくナイヨ！</p>
-
-<p>ってことで、Coda.appでコード補完色々いじくってみましたってのが今回のエントリの主旨。</p>
-
-<p>Coda.appでコード補完を司っているのが、<strong>CodaCompletion.plist</strong>です。これをいじって作成しました。ファイルの在り処は以下です。Coda.appを右クリックして「パッケージの内容を表示」を選択するとディレクトリを潜れます。</p>
-
-<p>[HTML]
-Coda.app/Contents/Resources/Modes/HTML.mode/Contents/Resources/CodaCompletion.plist
-[/HTML]</p>
-
-<p>CodaCompletion.plistをDLしたものに置き換えてあげるだけです。安全のために元のファイルはどっかにバックアップしておいたほうが良いですよ。
-<ul>
-    <li><a href="http://d.hatena.ne.jp/pikotea/20101019/1287484040">jQuery Mobile リファレンス的なもの - へっぽこプログラマーの日記</a></li>
-</ul>
-このページ見て作りました。
-<h2>Usage</h2>
-<iframe frameborder="0" height="264" src="http://player.vimeo.com/video/24462566?title=0&amp;byline=0&amp;portrait=0" width="470"></iframe></p>
-
-<p>上記、動画を見てもらえるとだいたい分かると思います。dataなんちゃらと属性を打つといろ色出てきます。
-(data-まで打つと途切れます。誰か回避方法教えてください＞＜)</p>
-
-<p>個人的にはdata-iconが覚えるのには値が多すぎるので便利かなと思ってますｗ</p>
-
-<p>コード補完ついでにクリップ（スニペット）的なものもちょっとだけ用意しました。<strong>jQuery Mobile.clips</strong>をダブルクリックすればインスコできます。
-<ul>
-    <li><strong>jqm + TAB</strong> でテンプレート挿入</li>
-    <li><strong>page + TAB</strong> でdata-role=&quot;page&quot;のコードを挿入</li>
-    <li><strong>lang + TAB</strong> でローカリゼーションのコード挿入</li>
-</ul>
-<h2>Download</h2>
-<a onclick="_gaq.push(['_trackEvent', 'DL', 'coda_jqm'])" href="https://github.com/t32k/Coda-Completion-for-jQuery-Mobile"><img class="alignnone size-full wp-image-3242" title="Download!" src="http://t32k.me/mol/file/2011/05/zip.png" alt="" width="128" height="128" /></a>
-(Coda Completion for jQuery Mobile - GitHub)</p>
-
-<p>問題がありましたらご指摘下さい。
-（時間あればアップデートしていきます...）
-<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 45px; top: 1090px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=la&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div>
-<div id="extensionsWeblioEjBx" style="position: absolute; z-index: 2147483647; left: 226px; top: 1103px; display: none;"><iframe frameborder="0" height="205" name="weblioExtensionsFrame" scrolling="no" src="http://api.weblio.jp/act/quote/v_1_0/e/?q=v1.1&amp;type=elarge&amp;opul=chrome-extension%3A%2F%2Foingodpdjohhkelnginmkagmkbplgema%2Foptions.html" width="320"></iframe></div></p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2011-01-June" title="June 01, 2011">June 01, 2011</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/mobitest-blaze" rel="prefetch">Mobitestでモバイルパフォーマンス計測!</a></h2>
+            <h2 class="title"><a href="/mol/log/mobitest-blaze/" rel="prefetch">Mobitestでモバイルパフォーマンス計測!</a></h2>
             <p><p><a href="http://www.blaze.io/mobile/"><img title="MOBITEST" src="http://t32k.me/mol/file/2011/05/mobitest.png" alt="" width="470" height="250" /></a></p>
 
 <p>今日はモバイルのパフォーマンス計測について書きたいと思います。パフォーマンスといえばPCなら分かってるつもりなのですが、ことモバイルになってくるとあんまり分かっておりません。「HTTPリクエストを減らす」って原則は変わらないのですが、PCとはいろいろ勝手が違うぜって話です。</p>
@@ -185,7 +125,7 @@ Coda.app/Contents/Resources/Modes/HTML.mode/Contents/Resources/CodaCompletion.pl
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/confessions-of-a-public-speaker" rel="prefetch">パブリックスピーカーの告白―効果的な講演、プレゼンテーション、講義への心構えと話し方</a></h2>
+            <h2 class="title"><a href="/mol/log/confessions-of-a-public-speaker/" rel="prefetch">パブリックスピーカーの告白―効果的な講演、プレゼンテーション、講義への心構えと話し方</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -234,7 +174,7 @@ A best-selling author and kick-ass speaker. He writes books and essays, lectures
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/upgrade-japan" rel="prefetch">UPGRADE JAPAN!! #ugj201106</a></h2>
+            <h2 class="title"><a href="/mol/log/upgrade-japan/" rel="prefetch">UPGRADE JAPAN!! #ugj201106</a></h2>
             <p><p><a href="http://www.fisc.jp/ugj/"><img class="alignnone size-full wp-image-3196" title="UPGRADE JAPAN!! 2011.06" src="http://t32k.me/mol/file/2011/05/UPGRADE-JAPAN-2011.06.gif" alt="" width="244" height="204" /></a></p>
 
 <p>2011年6月4日（土）<a href="http://www.fisc.jp/ugj/">UPGRADE JAPAN!!</a>で喋ります。
@@ -324,7 +264,7 @@ facebook: <a href="http://www.facebook.com/satoru.satoh" target="_blank">http:/
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/ios-provisioning" rel="prefetch">Titanium MobileのKitchenSinkを実機(iPhone)にインストール</a></h2>
+            <h2 class="title"><a href="/mol/log/ios-provisioning/" rel="prefetch">Titanium MobileのKitchenSinkを実機(iPhone)にインストール</a></h2>
             <p><p>KitchenSinkどうこうではなく、ほぼProvisioningに関するお話ですがお付き合いくださいませ。</p>
 
 <p>あ、ちなみに私の環境はXcode 4 + Titanium Developer 1.2.2 + Titanium SDK 1.6.2です。</p>
@@ -484,14 +424,79 @@ Submitボタンを押せばプロビジョニングファイルの完成です�
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/nyars/" rel="prefetch">WebデザイナーだけどiPhoneカメラアプリ、リリースできました！</a></h2>
+            <p><p><a href="http://itunes.apple.com/jp/app/nyars/id433610083?mt=8"></a><a href="http://itunes.apple.com/jp/app/nyars/id433610083?mt=8"><img class="alignleft size-medium wp-image-3120" title="icon" src="http://t32k.me/mol/file/2011/05/icon-187x300.png" alt="" height="280" /></a>あたしWebデザイナーだけど、制作期間実質1週間（コードだけなら3日）でiPhoneカメラアプリを制作して、今日リリースまでこぎつけることができました。</p>
+
+<p>単にネコミミ画像をオーバーレイして写真が撮れるだけのアプリだけど、Objective-Cなにそれ？おいしいの？ってくらいの認識しかなかったデザイナーになにゆえ作れたか？</p>
+
+<!--more-->
+
+<h2>Titanium Mobile!</h2>
+
+<p>はい、ひとえに <a href="http://www.appcelerator.com/">Titanium Mobile</a> 様様でございます。</p>
+
+<p>思いおこせば、iPhoneアプリ開発できたらカッコイイだろうなと思ってObjective-Cの本を何冊か買ったのが1年前。当然、全く分かることもなくすぐさま放置でした。それからiPhoneアプリ開発の情熱は消えつつあったのですが、今年の2月に<a href="https://twitter.com/#!/astronaughts">@astronaughts</a>に「<a href="http://astronaughts.net/?p=204">JavaScriptでiPhoneアプリ開発できるTitaniumえーわーめっちゃえーわー！</a>」と言われて、本腰を入れて勉強したらすぐさまカメラなど起動させることができて楽しかったっす。ほんとスピーディーに、それこそグリモンのユーザースクリプトを作ってるような感覚でiPhoneアプリを制作できたことはまさに感動です。</p>
+
+<p>手間取るのは、アプリの認証とか開発者登録だけでコード書く分にはJavaScriptある程度分かってたらホント楽しいよ！これで僕も肩書きだけはiPhoneアプリデベロッパーだ！（あ、ごめんなさい。もの投げないで(/ω＼)ｲﾔﾝ）</p>
+
+<p>ってことで、Webでべろっぱーのみんなもれっつたいたん！
+<h3>参考リソース</h3>
+<ul>
+    <li><a href="https://github.com/t32k/Nyars">アプリのソースコード（GitHub）</a></li>
+    <li><a href="http://t32k.me/mol/log/untitled/">開発に当たってハマった記事まとめ</a></li>
+</ul>
+<iframe frameborder="0" height="264" src="http://player.vimeo.com/video/23317105?title=0&amp;byline=0&amp;portrait=0" width="470"></iframe></p>
+
+<p><a href="http://itunes.apple.com/jp/app/nyars/id433610083?mt=8"><img title="App Store" src="http://t32k.me/mol/file/2011/05/badge_appstore-lrg.gif" alt="" width="116" height="40" /></a>
+<ul>
+    <li><a href="http://itunes.apple.com/jp/app/nyars/id433610083?mt=8">Nyars（無料）</a></li>
+</ul>
+<h3>リリース情報</h3>
+<h4>Ver 1.2.1（6/10/2011）</h4>
+<ul>
+    <li>キャンセル時の誤作動修正</li>
+    <li>文言修正</li>
+</ul>
+<h4>Ver 1.2（5/10/2011）</h4>
+<ul>
+    <li>アスペクト比の修正（画像が縦長になる件）</li>
+    <li>新色（茶トラ）の追加</li>
+</ul>
+<h4>Ver 1.1（5/6/2011）</h4>
+<ul>
+    <li>iPhone4撮影時の上部黒い隙間の削除</li>
+    <li>カメラコントロール系のボタンを使用可能</li>
+    <li>Retina対応</li>
+    <li>多言語化対応（日本語、英語）</li>
+    <li>アイコンの微調整</li>
+    <li>アプリ容量の削減（7.8MB→4.1MB）</li>
+</ul>
+<h4>Ver 1.0（4/30/2011）</h4>
+<ul>
+    <li>アプリ公開</li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-02-May" title="May 02, 2011">May 02, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page19" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page19" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page21" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page21" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -503,7 +508,7 @@ Submitボタンを押せばプロビジョニングファイルの完成です�
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -519,12 +524,12 @@ Submitボタンを押せばプロビジョニングファイルの完成です�
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,86 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/wde-express" rel="prefetch">パフォーマンスアップのウェブ技術：WDE-Express</a></h2>
-            <p><p><img src="http://lh6.ggpht.com/_1drnogi3vdg/StHWY9u5e5I/AAAAAAAAAno/hd0S_BDebxw/wpo.jpg" alt="'" />
-<ul>
-    <li><a href="http://atnd.org/events/1412">パフォーマンスアップのウェブ技術：WDE-Express</a></li>
-</ul>
-<blockquote><span style="font-size: 85%;">不況下、企業はコスト削減を強いられるようになりました。人件費削減・広告/宣伝費はもとより、大手企業では、社内のアプリケーション費用・サーバーコストまで削減を求められます。
-また、ユーザーエクスペリエンス（UX）の側面から考えても、”ウェブサイトの表示が2秒以上の時間を要する”ことで、ページからの離脱率が高くなります。
-このセッションでは、ウェブサイトのパフォーマンスを向上させる必要性と方法をご紹介いたします。</span></blockquote>
-<img src="http://lh3.ggpht.com/_1drnogi3vdg/StLopxhZpqI/AAAAAAAAAns/VxjqP-aq5SU/WDE-ex-parform-200.jpg" alt="" /></p>
-
-<p><a href="http://warikiru.blogspot.com/2009/10/pecha-kucha-night-in-nagoya-vol2.html">前日の名古屋</a>から、10日は<a href="http://twitter.com/mantangs">菊池さん</a>のお話を聞きにApple Store 心斎橋に行ってきました。Apple Store 心斎橋は初めて入ったけど、とても広い空間で落ち着ける場所でした。以下、メモメモ。</p>
-
-<p>表示スピードを上げることで、CVやPVが増加するデータを紹介
-<ul>
-    <li><a href="http://money.aol.com/">AOL Money &amp; Finance</a></li>
-    <li><a href="http://shopping.aol.com/">AOL Shopping</a></li>
-    <li><a href="http://www.bing.com/">Bing</a></li>
-    <li><a href="http://www.google.co.jp/">Google</a></li>
-    <li><a href="http://www.shopzilla.com/">Shopzilla</a></li>
-</ul>
-<span style="font-weight: bold;">速いことは品質</span>
-ShopzillaではCVが2.5-3.5%UP、PVで25%UPというデータも。</p>
-
-<p>画像の最適化
-<a href="http://www.gracepointafterfive.com/punypng/">punypng</a>が一番使い勝手・圧縮率が良いと感じる
-（<a href="http://www.atmarkit.co.jp/news/200903/17/turbo.html">Opera Turbo</a>にも見られるように画像の最適化は重要）</p>
-
-<p>PNG8を使え(Fireworksがいろいろ便利)
-AlphaImageLoaderは最悪フリーズする可能性もあり危険</p>
-
-<p>JSとCSSはちゃんとおけ</p>
-
-<p>CSSファイル最適化
-CSSスプライトは<a href="http://spritegen.website-performance.org/">CSS Sprite Generator</a>が使い勝手が良い</p>
-
-<p>Data URI
-IE6/7はサポート外（コンディショナルコメントで回避）</p>
-
-<p>Web Fonts
-（ちょっと僕にはややこしかった＞＜）</p>
-
-<p>CSSセレクタを最適化
-短く、使えるコードはリユース</p>
-
-<p><a href="http://github.com/stubbornella/oocss/downloads">OOCSS</a> (Object Oriented CSS)
-<a href="http://east.webdirections.org/speaker/nicole-sullivan/">Nicole Sullivan</a>が開発
-YUI Grid.cssの半分のファイルサイズ
-<ul>
-    <li>モジュール化</li>
-    <li>構造と表現の分離</li>
-    <li>箱と中身の分離</li>
-</ul>
-（Demoは怖いなーと感じました。）</p>
-
-<p>プロファイリングツールを使え
-<ul>
-    <li><a href="http://sourceforge.net/apps/mediawiki/pagetest/index.php?title=Main_Page">AOL Pagetest</a></li>
-    <li><a href="http://www.fiddler2.com/fiddler2/">MS Fiddler</a></li>
-    <li><a href="http://validator.w3.org/checklink">W3C Link Checker</a>（実はファイル取得にかかった時間を表示してある）</li>
-</ul>
-<h3>感想</h3>
-OOCSSに関しては、Webサイトのパフォーマンスというよりかは、開発者のパフォーマンス向上に有効かと思った。クラス名を憶えなければならないコストもあるが、ページのレイアウト変更も容易にできるのは捨てがたいメリットだ。この辺はもうちょっと勉強せねば。。</p>
-
-<p>全体として、<a href="http://en.oreilly.com/velocity2009">Velocity</a>や<a href="http://www.amazon.co.jp/gp/product/0596522304?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=0596522304">Even Faster Web Sites</a>などからの情報が多く、まだまだ知らないところが多いなと感じた。また、画像圧縮・パフォーマンスツールなどの類が多く、それらの特性を理解するのにも時間がかかるなと。けれども、僕らの目的はツールを使いこなすことではなく、Webサイトのパフォーマンスを上げてユーザーにまた使ってもらおうということが本来の目的なのでそこのところを自覚せねばとも感じさせられたセミナーだった。
-<span style="font-size: 85%;"> </span></p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2009-12-October" title="October 12, 2009">October 12, 2009</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/pecha-kucha-night-in-nagoya-vol-2" rel="prefetch">Pecha Kucha Night in Nagoya Vol.2</a></h2>
+            <h2 class="title"><a href="/mol/log/pecha-kucha-night-in-nagoya-vol-2/" rel="prefetch">Pecha Kucha Night in Nagoya Vol.2</a></h2>
             <p><p><img src="http://lh6.ggpht.com/_1drnogi3vdg/StHQy0FlISI/AAAAAAAAAng/7Lir6mIwQ6s/pechakuchanight.jpg" alt="" /><br /><br />プレゼンテーションZENの中でお薦めしていた<a href="http://www.pecha-kucha.org/">Pecha Kucha Night</a>ってイベントに有給とって名古屋まで行ってきた。Pecha Kucha Night（ぺちゃくちゃないと）とはなんぞ？って方はこちら↓<br /><blockquote><span style="font-size:85%;">2003年、クライン・ダイサム・アーキテクツによって始まったぺちゃくちゃないと。若いデザイナー、クリエイター達がアイディアを分かち合い、ネットワークを広げる場として始まった。<br />デザイナー（特に建築家）にいったんマイクをわたすと、話が長くなりがち．．．。そこで、考えついたのが20スライド×20秒というフォーマット。どのプレゼンターも20枚のスライドを各20秒ずつ見せる。合計6分40秒のプレゼンは明瞭で分かりやすく、多くの人がアイディアを紹介できるというわけだ。<br />遂に、このイベントの開催都市も全世界で100都市を突破、そして現在もその数は拡大中！　クリエイティブな仕事を気軽に紹介できる場所は、世界中で求められている。<br />あなたの近くの会場で、ぺちゃくちゃに加わろう！</span><br /><div style="text-align: right;"><span style="font-size:85%;"><a href="http://www.pecha-kucha.org/what">ぺちゃくちゃないととは？</a></span></div></blockquote><br />はい、まぁデザイナーの勉強会みたいなんもんです。いや、今回の名古屋のプレゼンターの顔ぶれはデザイナーだけでなく、陶芸家、彫刻家、バックパッカー、本好き、服飾バイヤー、能楽の人、都市計画の人などいろいろいましたね。聞きに来ている人らも学生からビジネスマン風の男性やらマダムっぽい人まで多種多様な感じでしたね。<br /><span style="font-size:85%;"><br /></span><ul><li><span style="font-size:85%;">Toshiaki Kawai : Kawai-Architects</span></li><li><span style="font-size:85%;"> Nobuyuki Inaba : Nagoya Design Week 2009 chairman</span></li><li><span style="font-size:85%;"> Shozo Michikawa : Ceramic artist</span></li><li><span style="font-size:85%;"> Yoko Shimizu : artist</span></li><li><span style="font-size:85%;"> Natsuko Hirota : cop10 adviser</span></li><li><span style="font-size:85%;"> Yoriyuki Yamada : Kajima Corporation</span></li><li><span style="font-size:85%;"> Toru Aoyama : insyoh jyutaku co.,ltd</span></li><li><span style="font-size:85%;"> Masayuki Matsubayashi : ＪＡＰＩＣ Chief researcher</span></li><li><span style="font-size:85%;"> Satomi Harada : ethical adviser,DAI-NAGOYA UNIVERSITY NETWORK</span></li><li><span style="font-size:85%;"> Gaku Kurahashi : DAI NAGOYA UNIVERSITY</span></li><li><span style="font-size:85%;"> Syunichiro Hisada : Noh music</span></li><li><span style="font-size:85%;"> Atsuko Maruyama : a travelar</span></li><li><span style="font-size:85%;"> Kiyoshi Sugiura : Sugiura &amp; Associates</span></li><li><span style="font-size:85%;"> Hironori Ohashi : Suzuhashi</span></li></ul><br />イベント自体は10数名のプレゼンターが一人一人プレゼンしていき、途中休憩挟んだりとかしていく。持ち時間が6分40秒ということでライトニングトークみたいな感じ。聞いている方も興味がないテーマだとしても我慢できる範囲。スライド操作が20秒経つと自動的に次のスライドに切り替わるので、ここらへんちょっと慣れが必要だなと思った。（早く喋りすぎて次のスライドが表示されるまで待たなければならないとか。その逆も然り。）会場は<a href="http://www.hotoris.jp/blog/2009/09/26/091729.html">レストラン</a>みたいな感じでイスも用意されてるけど、多くの人はドリンクを飲みながら立って話を聞いてる。ご飯も食べていてもいいので、まさにラフな感じ。途中（オーディエンスの）話がはずみすぎてるのか、ちょっとうるさくてプレゼンターの話が聞き取りづらかったのが残念だった。とはいえ、いろんな業種の人らが集まってコミュニケーションが活性化されるのはそれはそれでありだと思う。<br /><br /><img src="http://lh6.ggpht.com/_1drnogi3vdg/StHQyxBpm9I/AAAAAAAAAnk/hNY0U9W-N2w/pechakuchanight_01.jpg" alt="" /><br /><br />途中、建築系の人らのプレゼンが会社説明会みたいな内容（このプロジェクトがなになに賞受賞しましたなど）になってた以外は、興味深い話ばかりだった。個人的には堀川（名古屋中心部を流れる川）再生計画など素敵な宇宙船地球号系の話が面白かった。ミツバチの話とかも。<br /><br />結局、話題はなんでもいいんだよね、面白ければ。でも難しいね。自分の身に置き換えてWebデザイナーとしてWeb業界以外の人たちに何を伝えたいかと思ったとき、パッと出てこない。IE使うのやめてとか？Twitterおもしろいよとかかな。まぁなにせいろいろな人の話が聞けてよかったです。<br /><br />自分が属するWeb業界もいろいろ勉強会は開かれていますが、どちらかというとエンジニア系の人らが中心です。CSS Niteにしてもマークアップなどテクニカルな内容が多い。別にそれが悪いと言ってるわけではないけどやっぱりWebデザインというか純粋にデザインの話が聞きたいっていう欲求も自分の中にある。そういう系の話を聞こうと思うと、たまにどこかで開かれる大御所のデザイナーの講演などに行くしかない。もうちょっと、現場というか若い人らの話を気軽に聞けるという点ではこのPecha Kucha Nightっていうのは僕にとってドンピシャなイベントだと思った。<br /><br />今回行った名古屋以外にも日本では発祥の東京を中心に長野、浜松、大阪でも開催されているので、ぜひ金沢でもこうゆうのあれば良いなと思った。石川県内には陶芸家や伝統工芸の職人とか面白い人一杯いるし、プレゼンターに事欠かないと思う。僕は企画するよりも話す方が好きなので誰か企画してｗ<br />こうゆうのもあるみたいなので、素地はできあがってると思う。<br /><br /><ul><li><a href="http://www.tatemachidaigaku.jp/index.html">タテマチ大学</a></li></ul><br /><span style="font-size:85%;">関連エントリ<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2009/10/presentation-zen.html">プレゼンテーション Zen</a></span></li></ul></p>
 </p>
             <div class="meta">
@@ -156,7 +77,7 @@ OOCSSに関しては、Webサイトのパフォーマンスというよりかは
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/black-swan" rel="prefetch">ブラック・スワン—不確実性とリスクの本質</a></h2>
+            <h2 class="title"><a href="/mol/log/black-swan/" rel="prefetch">ブラック・スワン—不確実性とリスクの本質</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -208,7 +129,7 @@ OOCSSに関しては、Webサイトのパフォーマンスというよりかは
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/impact-of-css-selector" rel="prefetch">CSSセレクタのパフォーマンスへの影響</a></h2>
+            <h2 class="title"><a href="/mol/log/impact-of-css-selector/" rel="prefetch">CSSセレクタのパフォーマンスへの影響</a></h2>
             <p><ul>
     <li><a href="http://ascii.jp/elem/000/000/457/457749/">ASCII.jp：30分でできる！Webサイトを高速化する6大原則</a></li>
 </ul>
@@ -271,7 +192,7 @@ Steve Soudersがなぜこう考えるのでしょうか？</p>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/html5-and-me" rel="prefetch">分かった気になるHTML5 ～開発者の視点から～ @shoito</a></h2>
+            <h2 class="title"><a href="/mol/log/html5-and-me/" rel="prefetch">分かった気になるHTML5 ～開発者の視点から～ @shoito</a></h2>
             <p><p><img src="http://lh3.ggpht.com/_1drnogi3vdg/SsyfyInGOSI/AAAAAAAAAnE/gvAdnyr4DTQ/html5.jpg" alt="" width="512" height="384"/></p>
 
 <p><a href="http://twitter.com/shoito">@shoito</a>さんが<a href="http://warikiru.blogspot.com/2009/10/hokurikulang.html">白川郷で聞けなかった</a>話を弊社まで来て講演されるということなので自分が会場など準備した。自社ってゆう完全ホームな環境、なおかつ一人の講師を招くだけなのに疲れた。精神的にね。スピーカーとはまた違った体験でしたね。ホスピタリティゼロです、次がんばりまっす。</p>
@@ -293,14 +214,151 @@ Steve Soudersがなぜこう考えるのでしょうか？</p>
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/google-analytics-report/" rel="prefetch">Google Analytics レポートメニュー</a></h2>
+            <p><p>よく忘れるんでメモメモ。
+<h3>マイレポート - Dashboards</h3>
+<h3>ユーザー - Visitors</h3>
+<ul>
+    <li>概要 - Overview</li>
+    <li>ベンチマーク - Benchmarking</li>
+    <li>地図上のデータ表示 - Map Overlay</li>
+    <li>新規ユーザーとリピーター - New vs. Returning</li>
+    <li>言語 - Languages</li>
+    <li>ユーザーの傾向 - Visitor Trending
+<ul>
+    <li><span>セッション数 - Visits</span></li>
+    <li><span>ユニークユーザー数 - Absolute Unique Visitors</span></li>
+    <li><span>ページビュー数 - Pageviews</span></li>
+    <li><span>平均ページビュー数 - Average Pageviews</span></li>
+    <li><span>サイト滞在時間 - Time on Site</span></li>
+    <li><span>直帰率 - Bounce Rate</span></li>
+</ul>
+</li>
+    <li>リピート訪問数 - Visitor Loyalty
+<ul>
+    <li><span>リピートセッション数 - Loyalty</span></li>
+    <li><span>訪問頻度 - Recency</span></li>
+    <li><span>滞在時間 - Length of Visit</span></li>
+    <li><span>滞在中のページビュー数 - Depth of Visit</span></li>
+</ul>
+</li>
+    <li>PC環境 - Browser Capabilities
+<ul>
+    <li><span>ブラウザ - Browsers</span></li>
+    <li><span>OS - Operating Systems</span></li>
+    <li><span>ブラウザとOS - Browsers and OS</span></li>
+    <li><span>画面の色 - Screen Colors</span></li>
+    <li><span>画面の解像度 - Screen Resolutions</span></li>
+    <li><span>Flashのバージョン - Flash Versions</span></li>
+    <li><span>Javaサポート - Java Support</span></li>
+</ul>
+</li>
+    <li>ネットワーク環境 - Network Properties
+<ul>
+    <li><span>利用ネットワーク - Network Location</span></li>
+    <li><span>ホスト名 - Hostnames</span></li>
+    <li><span>接続速度 - Connections Speeds</span></li>
+</ul>
+</li>
+    <li>ユーザー定義 - User Defined</li>
+</ul>
+<h3>トラフィック - Traffic Sources</h3>
+<ul>
+    <li>概要 - Overview</li>
+    <li>ノーリファラー - Direct Traffic</li>
+    <li>参照サイト - Referring Sites</li>
+    <li>検索位置 - Search Engines</li>
+    <li>全ての参照元 - All Traffic Sources
+<ul>
+    <li><span>AdWords - AdWords</span></li>
+    <li><span>AdWords広告キャンペーン - AdWords Campaigns</span></li>
+    <li><span>AdWords掲載順位 - Keywords Positions</span></li>
+</ul>
+</li>
+    <li>キーワード - Keywords</li>
+    <li>キャンペーン - Campaigns</li>
+    <li>広告の種類 - Ad Versions</li>
+</ul>
+<h3>コンテンツ - Content</h3>
+<ul>
+    <li>概要 - Overview</li>
+    <li>上位のコンテンツ - Top Content</li>
+    <li>タイトル別のコンテンツ - Content by Title</li>
+    <li>コンテンツの詳細 - Content Drilldown</li>
+    <li>閲覧開始ページ - Top Landing Pages</li>
+    <li>離脱ページ - Top Exit Pages</li>
+    <li>サイト上のデータ - 表示Site Overlay</li>
+    <li>サイト内検索 - Site Search
+<ul>
+    <li><span>概要 - Overviews</span></li>
+    <li><span>利用状況 - Usage</span></li>
+    <li><span>検索キーワード - Search Terms</span></li>
+    <li><span>検索開始ページ - Start Pages</span></li>
+    <li><span>到達ページ - Desitination Pages</span></li>
+    <li><span>カテゴリ - Categories</span></li>
+    <li><span>傾向 - Trending</span></li>
+</ul>
+</li>
+    <li>イベントのトラッキング - Event Tracking
+<ul>
+    <li><span>カテゴリ - Categories</span></li>
+    <li><span>アクション - Actions</span></li>
+    <li><span>ラベル - Labels</span></li>
+    <li><span>傾向 - Trending</span></li>
+    <li><span>ホスト名 - Hostnames</span></li>
+</ul>
+</li>
+</ul>
+<h3>コンバージョン - Goals</h3>
+<ul>
+    <li>概要 - Overview</li>
+    <li>コンバージョン率 - Total Conversions</li>
+    <li>コンバージョン率 - Conversion Rate</li>
+    <li>目標の確認 - Goal Verification</li>
+    <li>目標到達遷移 - Reverse Goal Path</li>
+    <li>コンバージョンバリュー - Goal Value</li>
+    <li>目標到達プロセスの放棄数 - Goal Abandoned Funnels</li>
+    <li>目標到達プロセス - Funnel Visualization</li>
+</ul>
+<h3>eコマース - Ecommerce</h3>
+<ul>
+    <li>概要 - Overview</li>
+    <li>合計収益 - Total Revenue</li>
+    <li>コンバージョン率 - Conversion Rate</li>
+    <li>平均注文額 - Average Order Value</li>
+    <li>商品の販売状況 - Product Performance
+<ul>
+    <li><span>商品のサマリー - Product Overview</span></li>
+    <li><span>商品のSKU - Product SKUs</span></li>
+    <li><span>カテゴリ - Categories</span></li>
+</ul>
+</li>
+    <li>トランザクション数 - Transactions</li>
+    <li>購入までのセッション数 - Visits to Purchase</li>
+    <li>購入までの日数 - Days to Purchase</li>
+</ul></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2009-05-October" title="October 05, 2009">October 05, 2009</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page48" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page48" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page50" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page50" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -312,7 +370,7 @@ Steve Soudersがなぜこう考えるのでしょうか？</p>
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -328,12 +386,12 @@ Steve Soudersがなぜこう考えるのでしょうか？</p>
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

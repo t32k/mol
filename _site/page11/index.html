@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,129 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/sass-nesting-and-import" rel="prefetch">パフォーマンスからみるSass/Compass 第1回：Nestingと@import</a></h2>
-            <p><p>タイトルは釣り、かつ第2回以降は未定ですがコンチワ！t32kです。メモがてら残していこうと思います。</p>
-
-<p><a href="http://sass-lang.com/">Sass</a>とかいろんな機能ありますよね、でもぶっちゃけそんなにいっぱい機能あっても使わないし( ･´ω･｀)　案外、//ダブスラでコメントアウトできるのが一番嬉しかったりもします今日このごろです。</p>
-
-<!--more-->
-
-<h2>@import</h2>
-
-<p>というわけで、そんな僕がSassを使うと思ったのも@importを使いたかったからという至極単純な動機によるものです。@import自体は普通のCSSでも使えますが、パフォーマンス的に難がありまして、あんまり使う気になれない、かといってファイル管理はページ単位やコンポーネント単位でちゃんとやらないと後々めんどいなというジレンマもあります。</p>
-
-<p>そうゆうわけで、なんで普通の@importがダメなのか説明します。
-<blockquote>IEにおいて@importはページ下部に置いた&lt;link&gt;タグのような挙動をします。</p>
-
-<p><a href="http://developer.yahoo.com/performance/rules.html/rules.html#csslink">Best Practices for Speeding Up Your Web Site </a></blockquote>
-Yahoo!のパフォーマンスベスト・プラクティスにおいて、上記のような記述がありました。Styleの情報というのはできる限りページ上部に置いてレンダリングを早く開始させる必要があるのでこれは頂けませぬ。</p>
-
-<p>まぁ基本的に@importのパフォーマンス的問題はIE以外ならOKであれば使ってもいいのかなと思ってたんですけど、よくよく調べてみるとそうでもなかったですという話。
-<pre><code>/* first.css */
-@import url(&quot;second.css&quot;)</code></pre>
-まぁ上記のような&lt;link&gt;で読み込んだfirst.cssでsecond.cssを@importするといった例があるとします。これがどのような挙動をするのかと言いますと、
-<blockquote>ブラウザーはsecond.cssをダウンロード可能と発見する前に、必ずfirst.cssのダウンロード、パース、実行をする。</p>
-
-<p><a href="https://developers.google.com/speed/docs/best-practices/rtt#AvoidCssImport">Minimize round-trip times - Make the Web Faster — Google Developers</a></blockquote>
-Googleの方には上記のようなことが書かれていました。つまり、first.cssを読み込み完了してからsecond.cssを読み込みに行くので並列ダウンロードができないってことです。これってIEに限ったことではなくてすべてのブラウザーで起こりうることらしいです。マジかいや！てことで、<a href="http://stevesouders.com/tests/atimport/link-with-import.php">Steve Soudersセンセのテストケース</a>を最新のChromeのNetworkパネルで見てみると本当にそうでした。さーせん！ということで、やっぱり普通の@importは使うべきではないですな。</p>
-
-<p>詳しくは下記ブログ読むと良いよ。
-<ul>
-    <li><a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don’t use @import | High Performance Web Sites </a></li>
-</ul>
-まぁ、そうゆうわけでSassの@importですよ。基本ローカル環境でコンパイルして一つのCSSファイルにまとめるので、読み込むのは実質1ファイルだけになるんですね。それでいて、ページ単位やコンポーネント単位でファイル分割できるのでコードの見通しも悪くならない、素敵です。sass --watchとか<a href="http://mhs.github.com/scout-app/">Scout</a>とか使えば毎回手動でコンパイルしなくても更新があれば自動的にコンパイルしてくれます。
-<pre><code>// Sass
- @import &quot;<em>reset&quot;;
- @import &quot;</em>common&quot;;
- @import &quot;<em>header&quot;;
- @import &quot;</em>main&quot;;
- @import &quot;_footer&quot;;</code></pre>
-これだけのためにでもSass導入してもいいんじゃないかと個人的には思っています。
-<h2>Nesting</h2>
-あと、便利っちゃー便利なのがネストです。下記のようにセレクタ、プロパティの重複する部分ってのを省略して書けます。
-<pre><code>// Sass
-table.hl {
-  margin: 2em 0;
-  td.ln {
-    text-align: right;
-  }
-}
-li {
-  font: {
-    family: serif;
-    weight: bold;
-    size: 1.2em;
-  }
-}</code></pre>
-上記は下記のようにコンパイルされます。
-<pre><code>/* CSS */
-table.hl {
-  margin: 2em 0;
-}
-table.hl td.ln {
-  text-align: right;
-}
-li {
-  font-family: serif;
-  font-weight: bold;
-  font-size: 1.2em;
-}</code></pre>
-子孫セレクタとか何回も同じセレクタを宣言するのはめんどいですよね。あとモジュール単位で、例えば.module{}以下に必要なスタイルをネストしておけば、そのモジュールが要らなくなったりとか修正が必要になった時とか対応が楽です。</p>
-
-<p>とは言いつつも、そのモジュールの見通しが甘くて案外複雑なことをやらないとだめになりネストが3階層、4階層となってしまう時があります。そうなるとコンパイルされたCSSというのは子孫セレクタとかでつながった長いセレクタになってしまいます。</p>
-
-<p>これってどーなのよ？って話ですよね。はじめに言っておきますが気にしなくてもいい。</p>
-
-<p>世の中には<a href="https://developer.mozilla.org/ja/Writing_Efficient_CSS">CSSセレクタの最適化</a>というものがありまして、要はCSSセレクタの解釈というのは<strong>右から左へ</strong>とされていくわけでして、セレクタが長ければ長いほど解釈するのに時間がかかるので、単一のクラスセレクタとかにしたらいいよーみたいな話です。</p>
-
-<p>これってどんだけの程度なのよ！？ってことが気になります。詳しくは下記翻訳でまとめられています。
-<ul>
-    <li><a href="http://t32k.me/mol/log/impact-of-css-selector/">CSSセレクタのパフォーマンスへの影響 | MOL </a></li>
-</ul>
-1000個のCSSセレクタを改善しても20msくらいしか変わらなかったという結論です。これは2009年の話でして、世の中進歩しています。
-<ul>
-    <li><a href="http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/">Performance Calendar » CSS Selector Performance has changed! (For the better) </a></li>
-</ul>
-2011年の年末に書かれた上記の記事ではwebkitに関してですが、CSSセレクタのマッチング処理ってのはブラウザ側で最適化されているという話です。
-<ol>
-    <li>Style Sharing</li>
-    <li>Rule Hashes</li>
-    <li>Ancestor Filters</li>
-    <li>Fast Path</li>
-</ol>
-上記のような改善がされていてるとのことでして、詳しいことは日本語で解説されてる以下のブログで（素敵！）
-<ul>
-    <li><a href=" http://memolog.org/2012/05/css_selector_performance.php  ">CSS Selector Performance - メモログ</a></li>
-</ul>
-まぁ要するに2009年段階でも気にしなくてもいいレベルだったのにそれから2年経ってさらに気にしなくてもいいレベルになってきた感じです。
-<pre><code>/* Baseline 
-　コード量の差をなくすためにマッチングしないセレクタが記述されている*/
-.noclass0001 { background: #CFD; }</p>
-
-<p>/* Descendant*/
-DIV DIV DIV P A.class0001 { background: #CFD; }</code></pre>
-<ul>
-    <li><a href="http://stevesouders.com/tests/css-selectors/baseline.php">CSS Selectors: Baseline </a>（ベースライン）</li>
-    <li><a href="http://stevesouders.com/tests/css-selectors/descendant.php">CSS Selectors: Descendant </a>（子孫セレクタ）</li>
-</ul>
-試しに、最新のChromeで上記のSoudersセンセのテストケースをもう一度やってみると、数ミリ秒しか変わんなかったです。1000個のセレクタ改善しても数ミリ秒しか違わないのは費用対効果悪すぎです。</p>
-
-<p>ってことで、Sassでネストしまくって、それによるセレクタの解釈遅延ってのは気にしなくてもいいのかなという個人的結論。もちろん、ネストしまくったら何がなんだかわからないCSSになってしまうので、可読性のために、2,3階層程度でとどめておくほうが良いでしょう。</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2012-12-July" title="July 12, 2012">July 12, 2012</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/livereload-2" rel="prefetch">LiveReload 2入れてみた</a></h2>
+            <h2 class="title"><a href="/mol/log/livereload-2/" rel="prefetch">LiveReload 2入れてみた</a></h2>
             <p><p style="text-align: center;"><a href="http://livereload.com/"><img class="aligncenter fig" title="LiveReload 2" src="http://t32k.me/mol/file/2012/07/lr.png" alt="LiveReload 2" width="520" /></a></p>
 
 <ul>
@@ -219,7 +97,7 @@ DIV DIV DIV P A.class0001 { background: #CFD; }</code></pre>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/sublime-text-2" rel="prefetch">Sublime Text 2にしてみた</a></h2>
+            <h2 class="title"><a href="/mol/log/sublime-text-2/" rel="prefetch">Sublime Text 2にしてみた</a></h2>
             <p><p>こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。</p>
 
 <p>心機一転、HTMLコーダーとしてがんばるのでまずは形から入る男t32kとしては、テキストエディタを決めたいところです。Dreamweaverなんぞは論外でして、Codaもなんかシンタックスハイライト重いし（2になってどーなったかわんないけど）、TextMateは相変わらず日本語入力に難があるし…と思ってたら世の中はSublime Textが流行らしいです。乗るっきゃないこのビッグウェーブに！
@@ -258,7 +136,7 @@ DIV DIV DIV P A.class0001 { background: #CFD; }</code></pre>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/joining-cyberagent" rel="prefetch">サイバーエージェントにジョインしました！</a></h2>
+            <h2 class="title"><a href="/mol/log/joining-cyberagent/" rel="prefetch">サイバーエージェントにジョインしました！</a></h2>
             <p><p>このスマホ移行期の時代に、渋谷というIT企業が多く集まる場所で、CAの優秀な技術者たちと一緒に働けることを誇りに思います。</p>
 
 <!--more-->
@@ -284,7 +162,7 @@ DIV DIV DIV P A.class0001 { background: #CFD; }</code></pre>
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/sencha-touch2" rel="prefetch">Sencha Touch ちょっと触ってみた所感2</a></h2>
+            <h2 class="title"><a href="/mol/log/sencha-touch2/" rel="prefetch">Sencha Touch ちょっと触ってみた所感2</a></h2>
             <p><p>ちっす、無職のt32kです。今日は<a href="http://www.sencha.com/products/touch/">Sencha Touch2</a>触ってみた感想など綴っていくよ。久しぶりのブログだからキャラ掴めてないよ。</p>
 
 <p>事の発端は、愛しの<a href="http://tumblrgear.tumblr.com/">tumblr gear</a>さんが立ち上げるとすぐシャットダウンしてしまう不具合（v1.6.4で治りました：）が長らく続いておりまして、なんとか打開策がないもんかと考えた結果、自分で作ろうぜってことになって作ってみた（デモアプリだけど）。Titanium Mobileでもありかと思ったけど、Webアプリも作ってみたいと考えていたのでjQuery Mobileの紹介時によく引き合いに出されるだけ出されてそれっきりのSencha Touchで作ってみることにした。</p>
@@ -366,14 +244,57 @@ Sencha Touchはそれとは別にxtypeで指定するだけの方法もありま
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/dont-docwrite-scripts/" rel="prefetch">document.writeでSCRIPTを書き出すなやで！</a></h2>
+            <p><p><cite>原文：<a href="http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/">Don’t docwrite scripts | High Performance Web Sites</a>
+投稿日：2012-4-10 by STEVE SOUDERS</cite></p>
+
+<p>昨日のブログ記事の<a href="http://www.stevesouders.com/blog/2012/04/09/making-the-http-archive-faster/">HTTP Archiveが速くなっている</a>、大きな要因の一つとしてはスクリプトローダーを<strong>使用しない</strong>ことです。そのスクリプトローダーとはスクリプトを動的に読み込むためにdocument.writeを使用しているものです。振り返れば、私は2009年4月の<a href="http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/">ブロッキングなしのスクリプト読み込み</a>、<a href="http://www.amazon.co.jp/dp/4873114462/">続・ハイパフォーマンスWebサイト(4章)</a>において、document.writeテクニックについて記述していました。それは以下のようなものです。
+&lt;!--more--&gt;
+<pre><code>document.write(&#39;&lt;script src=&quot;&#39; + src + &#39;&quot; type=&quot;text/javascript&quot;&gt;&lt;\/script&gt;&#39;):</code></pre>
+document.writeを使ったスクリプトローダーの問題点：
+<ul>
+    <li>挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (<a href="http://stevesouders.com/cuzillion/?c0=bi1hfff0_0_f&amp;c1=bj1wfff4_0_f&amp;c2=bi1hfff0_0_f">example</a>).</li>
+    <li>また、ほかの動的読み込みもブロックします (<a title="document.write script blocks async script" href="http://stevesouders.com/cuzillion/?c0=hj1wfff2_0_f&amp;c1=bj1dfff2_0_f">example</a>)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(<a title="Two document.write scripts in one SCRIPT block" href="http://stevesouders.com/cuzillion/?c0=hj1wfff2_0_f&amp;c1=hj1wfff2_0_f">example</a>)。</li>
+</ul>
+document.writeを使用したスクリプトローダーのため、私が最適化しようとしたページのレンダリングは遅れ、同じページ内の他の非同期スクリプトに関しても読み込みに時間がかかるようになりました。私はこのスクリプトローダーをはずし、非同期にスクリプトを読み込むために代わりのコードを書きました。それはGoogle アナリティクスの非同期スニペットで有名になった createElement-insertBefore パターンです。
+<pre><code>var sNew = document.createElement(&quot;script&quot;);
+sNew.async = true;
+sNew.src = &quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&quot;;
+var s0 = document.getElementsByTagName(&#39;script&#39;)[0];
+s0.parentNode.insertBefore(sNew, s0);</code></pre>
+なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？</p>
+
+<p>順を追って考えて見れば、そんなに不思議なことではありません。通常のマークアップによるSCRPT SRC=読み込みは後続のDOM要素のレンダリングを止めることを既に私たち知っています。また、スクリプト実行段階を抜ける前にdocument.writeは評価され、その後、ページのパースが再開されることも理解しています。したがって、通常のSCRPT SRC=をスニペットとした document.writeテクニックは残りのページのレンダリングをブロックしてしまいます。</p>
+
+<p>反対に、createElement-insertBeforeテクニックはレンダリングを<strong>ブロックしません</strong>。事実、document.writeでcreateElement-insertBefore スニペットを生成しても、そのときレンダリングはブロックされません。</p>
+
+<p><a href="http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/">ブロッキングなしのスクリプト読み込み</a>記事での私の結論はスクリプトロード手法を選択するための<a href="http://stevesouders.com/efws/images/0405-load-scripts-decision-tree-04.gif">決定木</a>を使用することです。そうすれば異なるシナリオにおいてどの非同期読み込みテクニックを選択するか困らないでしょう。また注意深く見れば、document.writeの使用は決して推奨されないこともお分かりになるでしょう。Webの世界はたいへん多くのものが移り変わりますが、私が2009年に出したアドバイスは今日においても正しいのです。</p>
+
+<p>-- [翻訳ここまで ] --</p>
+
+<p>改めて、続・ハイパフォーマンスWebサイトを読んでみるとdocument.writeテクニックはIEのときだけ並列ダウンロードされますと書いてある。しかもスクリプトのダウンロード中は他のリソースはブロックされるとも書いてあり、そもそも使う用途が限定的だなと印象。</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2012-11-April" title="April 11, 2012">April 11, 2012</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page10" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page10" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page12" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page12" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -385,7 +306,7 @@ Sencha Touchはそれとは別にxtypeで指定するだけの方法もありま
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -401,12 +322,12 @@ Sencha Touchはそれとは別にxtypeで指定するだけの方法もありま
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,98 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/hello-titanium-mobile" rel="prefetch">Titanium Mobile で Hello World!</a></h2>
-            <p><p>先月の<a href="http://kanazawajs.tumblr.com/v1-0/">kanaj</a>で大阪の<a href="http://twitter.com/#!/astronaughts">@astronaughts</a>さんが、「Titanium Mobileえ〜よ。え〜わ〜。くるで！これくるで！！」と言ってたので、勉強してみるよの巻。彼もTitanium情報をまとめてくれてたりもします。
-<ul>
-    <li><a href="http://astronaughts.net/?p=204">Titanium mobile で開発を始める時に役立つ情報のまとめ | astronaughts.net</a></li>
-</ul>
-Titanium Mobileというのは、JavaScriptで書いたコードをうまいことして、iPhoneやAndroidでも動くようにしてくれるものです。つまり、JavaScriptさえできれば、iPhoneアプリ作れちゃうってことですよ！！（Android持ってないので、今後はiPhoneアプリ制作でがんばってきます）</p>
-
-<p>Titaniumをインストール前にSDK(Software Development Kit)インスールしといてね。
-<ul>
-    <li><a href="https://developer.apple.com/xcode/index.php">Download Xcode + iOS SDK - Apple Developer</a> (iPhone)</li>
-    <li><a href="http://developer.android.com/sdk/index.html">Android SDK | Android Developers</a> (Android)</li>
-</ul>
-iOS SDKのほうはインストールされていたらTitaniumが勝手に認識してくれるのですが、Androidのほうはそうもいかないみたいでちょっとめんどくさいです。でもここ見たらなんとかイケマシタ！
-<ul>
-    <li><a href="http://d.hatena.ne.jp/r_kurain/20110306/1299393778">Android SDK+Titaniumのインストール方法復習 - kurainの壺</a></li>
-</ul>
-<h3>Titanium Developer のインストール</h3>
-てことで<a href="http://www.appcelerator.com/">公式サイト</a>より、<a href="http://www.appcelerator.com/products/download/">DOWNLOAD TITANIUM</a>！！</p>
-
-<p>あ、そうそう、私の環境ですが、Mac OS X 10.6.7でiOS SDK 4.3でがんばってます。</p>
-
-<p>で、dmgをダウンロードしたらだぼーくりっくでインストールだ！で、Titanium Developerを起動！</p>
-
-<p>あ、そうそう、Titaniumって、タイタニウムって読むらしいですよ。で、タイタンの野郎が勝手にTitanium SDKなど最新バージョンにアップデートせいや！って要求してくるので最新のものにしておきましょう。
-<h3>Titanium Mobile で Hello World!</h3>
-<iframe src="http://player.vimeo.com/video/21389746?byline=0&amp;portrait=0&amp;color=ffffff" width="470" height="264" frameborder="0"></iframe></p>
-
-<p>で、ここから本番。初心者の基本「Hello World！」してみましょう。動画を見てくれれば分かると思うんだけど5分もかからずにできちゃう。ほんとかんたんにできちゃう！ほらできった！</p>
-
-<p>とりあえず、Test&amp;Package &gt; Run Emulator &gt; iPhone からLaunch(ビルド)してみると、タブが2個あるアプリが生成されますんで、I am Window1ってとこをHello World!に置き換えて再度ビルドしてあげるだけですお。</p>
-
-<p>最初のテンプレがあるからじゃん！って言われるかもしれないけど、全く見たことないobjective-cのコードからがんばるよりは、JavaScriptなら普段見慣れているので格段にとっつきやすいですよね。
-<h4>New Project 記入項目</h4>
-<ul>
-    <li><strong>Project type:</strong> iPhone app作りたいのでMobileでおｋ</li>
-    <li><strong>Name:</strong> アプリの名前（英数字にしときましょう）</li>
-    <li><strong>App Id</strong>: 一意であればなんでもいいのですが、確実するためにはドメイン反対にした感じで。</li>
-    <li><strong>Directory</strong>: プロジェクトを保存するところ。</li>
-    <li><strong>Company /Personal URL</strong>: 自分のWebサイトとかそのまんまで</li>
-    <li><strong>Titanium SDK version</strong>: デフォルトのいっちゃん新しいやつで</li>
-    <li><strong>Installed Mobile Platformns</strong>: ちゃんとSDKがインスコされてば緑のチェックが表示されます。</li>
-</ul>
-正直、単にHello Worldして動きを確かめたいだけなら、全部の項目UNKOでも問題ないです！
-<h3>プロジェクトのファイル構成</h3>
-<img class="alignnone size-full wp-image-2592" title="proj" src="http://t32k.me/mol/file/2011/03/proj.png" alt="" width="390" height="247" /></p>
-
-<p>プロジェクトフォルダ直下が上記のような構成をしておりますんで、これをもとに開発していくのだ。</p>
-
-<p>いっちゃん重要なのはResources以下のapp.jsです。「全てのJSファイルはapp.jsに帰結する」の言葉はもはや言うまでもありませんが、Titanium Mobile において、このapp.jsが最初に起動するファイルになってます。HTMLでゆうindex.htmlみたいな感じでしょうか。
-<h3>コード</h3>
-今回変えた部分はここです。createLabelしてるtextの値を書き換えたわけです。
-<pre><code>var win1 = Titanium.UI.createWindow({
- title:&#39;Tab 1&#39;,
- backgroundColor:&#39;#fff&#39;
-});
-var label1 = Titanium.UI.createLabel({
- color:&#39;#999&#39;,
- text:&#39;Hello World!&#39;,
- font:{fontSize:20,fontFamily:&#39;Helvetica Neue&#39;},
- textAlign:&#39;center&#39;,
- width:&#39;auto&#39;
-});
-win1.add(label1);</code></pre>
-これって、言ってることはWebサイトで言えば以下のコードみたいなことですよね。要素を作ってそれ挿入してるわけですよ。メソッドなどがTitaniumから始まってるだけでほんとJavaScriptです。ありがとうございますってかんじです。うん。これなら僕でもできそうだ！
-<pre><code>var element = document.createElement(&#39;p&#39;);
-var text = document.createTextNode(&#39;hello unko&#39;);
-element.appendChild(&#39;text&#39;);
-document.body.appendChild(element);</code></pre>
-iOSシュミレータでの確認ですが、1回目のビルドは2,3分かかることもあるんですけど、2回目以降は普通にブラウザ立ち上げるのと変わらないほどのスピードで起動してくれますので、開発スピードもかなり早めることができて嬉しいかぎりです。
-<h3>参考リソース</h3>
-基本的に<a href="http://twitter.com/#!/donayama">@donayama</a>さんが作ってくれている、ti-mo-jaとPDFが最強っす。ここから始めれば問題ねっす！ちょっとできるようになってきたら、gihyoさんでやってる連載記事を見れば、Twitterとの連携とか高度なことが出来る感じです。
-<ul>
-    <li><a href="http://code.google.com/p/titanium-mobile-doc-ja/">titanium-mobile-doc-ja</a></li>
-    <li><a href="http://code.google.com/p/titanium-mobile-doc-ja/downloads/detail?name=20100314.pdf&amp;can=2&amp;q=">Appcelerator Titanium MobileではじめるiPhoneアプリケーション開発</a></li>
-    <li><a href="http://gihyo.jp/dev/serial/01/titanium">Titanium Mobileで作る！ iPhone／Androidアプリ｜gihyo.jp … 技術評論社</a></li>
-</ul>
-んなわけでみんなも、れっつ、たいたん！</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2011-24-March" title="March 24, 2011">March 24, 2011</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/atnd-manager" rel="prefetch">ATND Manager</a></h2>
+            <h2 class="title"><a href="/mol/log/atnd-manager/" rel="prefetch">ATND Manager</a></h2>
             <p><p><object width="470" height="294"><param name="movie" value="http://www.youtube.com/v/4yCubC9btn4?fs=1&amp;hl=ja_JP" /><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><embed type="application/x-shockwave-flash" width="470" height="294" src="http://www.youtube.com/v/4yCubC9btn4?fs=1&amp;hl=ja_JP" allowfullscreen="true" allowscriptaccess="always"></embed></object></p>
 
 <p><a href="http://atnd.org/" target="_blank">ATND</a>がリニューアルしましたね、最近。そのせいで、前回作った <a href="http://t32k.me/mol/2011/01/atnder-list-maker/" target="_blank">ATNDer’s List Maker</a> が動かなくったじゃないか！って声が...まぁそんな声なかったんですけどね。誰も使ってませんね。Twitterのリンクリストを作るだけですからね。うん。別に。全然。気にしてないから。とりあえず、動くようにするもん。こうゆうことがないかぎりコード書かないですから。</p>
@@ -182,7 +91,7 @@ iOSシュミレータでの確認ですが、1回目のビルドは2,3分かか�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/kanazawa-js-v1-0-1" rel="prefetch">kanazawa.js v1.0.1 開催報告</a></h2>
+            <h2 class="title"><a href="/mol/log/kanazawa-js-v1-0-1/" rel="prefetch">kanazawa.js v1.0.1 開催報告</a></h2>
             <p><p><img class="fig" title="k1" src="http://t32k.me/mol/file/2011/03/k1.jpg" alt="" width="470" height="250" /></p>
 
 <p>とき既にお寿司ってことで、kanazawa.js v1.0.1 開催しました。</p>
@@ -233,7 +142,7 @@ iOSシュミレータでの確認ですが、1回目のビルドは2,3分かか�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/statistical-significance" rel="prefetch">施策前後のCV率に有意差はあるのか？</a></h2>
+            <h2 class="title"><a href="/mol/log/statistical-significance/" rel="prefetch">施策前後のCV率に有意差はあるのか？</a></h2>
             <p><p><a href="http://www.flickr.com/photos/joost-ijmuiden/4768350290/"><img class="fig" title="Untitled" src="http://t32k.me/mol/file/2011/02/statics.jpg" alt="" width="470" height="260" /></a></p>
 
 <p><span style="font-size: x-small;"><span style="color: #888888;"><strong>By <a href="http://www.flickr.com/photos/joost-ijmuiden/">Joost J. Bakker IJmuiden</a></strong></span></span></p>
@@ -509,7 +418,7 @@ df1, df2の自由度はどちらも8-1で、7となり、F分布表より、7×7
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/zen-design" rel="prefetch">プレゼンテーションzenデザイン</a></h2>
+            <h2 class="title"><a href="/mol/log/zen-design/" rel="prefetch">プレゼンテーションzenデザイン</a></h2>
             <p><table border="0" cellpadding="5">
 <tbody>
 <tr>
@@ -546,14 +455,72 @@ df1, df2の自由度はどちらも8-1で、7となり、F分布表より、7×7
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/dame-dame-amazon/" rel="prefetch">ダメ！絶対！</a></h2>
+            <p><ul>
+    <li><strong><a href="http://rocketnews24.com/?p=74595">30本分のカルピスから1個しか作れない幻の『カルピスバター』が死ぬほどウマイ！ – ロケットニュース24（β）</a></strong></li>
+</ul>
+
+<p>はい、これ見て「おお！カルピスバター食いてぇ！」と思った人、んでamazonで検索した人、先生怒らないから手上げてごらんなさい。</p>
+
+<!--more-->
+
+<p>かく言う、私ものそのひとりでね(<em>´ω｀</em>)</p>
+
+<p>で、カートに入れる手前で悟ったわけだよ、「あ、俺メディアに踊らされてる！？」って。</p>
+
+<p>それでなくても、毎月のamazonさんへの上納金が半端ない額になってきたので、ここいらでちょっと距離を置いてみようと思ってつくったスクリプト。</p>
+
+<script src="https://gist.github.com/833725.js?file=dda.user.js"></script>
+
+<p>↑view raw クリックしたらインストールできるよ。</p>
+
+<p>最初はamazon入ったら強制的にリダイレクトさせようと思ったけど、それじゃWeb関係の本のレビューとか見れなくなるから困るなぁと思ったので、単に購入ボタン削除するスクリプトです。</p>
+
+<p>来月の上納金が減れば嬉しい。
+<h4>[追記]</h4>
+v0.0.2あぷでーと
+<ul>
+    <li>link要素でCSS読むことにした</li>
+</ul>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td colspan="2"><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%82%AB%E3%83%AB%E3%83%94%E3%82%B9-%E3%82%AB%E3%83%AB%E3%83%94%E3%82%B9-%E3%83%90%E3%82%BF%E3%83%BC-%E9%A3%9F%E5%A1%A9%E4%B8%8D%E4%BD%BF%E7%94%A8450%EF%BD%87-%E3%80%90%E7%89%B9%E5%88%A5%E3%81%8A%E5%8F%96%E5%AF%84%E3%81%9B%E3%80%91%E3%80%90%E5%86%B7%E8%94%B5%E3%82%AF%E3%83%BC%E3%83%AB%E4%BE%BF%E3%80%91/dp/B004ER9Y2A%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004ER9Y2A" target="_blank"><img src="http://ecx.images-amazon.com/images/I/317PVty3dvL._SL160_.jpg" border="0" alt="カルピス　バター　食塩不使用450ｇ　【特別お取寄せ】【冷蔵クール便】" /></a></td>
+<td valign="top"><a href="http://www.amazon.co.jp/%E3%82%AB%E3%83%AB%E3%83%94%E3%82%B9-%E3%82%AB%E3%83%AB%E3%83%94%E3%82%B9-%E3%83%90%E3%82%BF%E3%83%BC-%E9%A3%9F%E5%A1%A9%E4%B8%8D%E4%BD%BF%E7%94%A8450%EF%BD%87-%E3%80%90%E7%89%B9%E5%88%A5%E3%81%8A%E5%8F%96%E5%AF%84%E3%81%9B%E3%80%91%E3%80%90%E5%86%B7%E8%94%B5%E3%82%AF%E3%83%BC%E3%83%AB%E4%BE%BF%E3%80%91/dp/B004ER9Y2A%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004ER9Y2A" target="_blank">カルピス　バター　食塩不使用450ｇ
+【特別お取寄せ】【冷蔵クール便】
+</a>
+<span> カルピス
+売り上げランキング : 40</span></p>
+
+<p><span><a href="http://www.amazon.co.jp/%E3%82%AB%E3%83%AB%E3%83%94%E3%82%B9-%E3%82%AB%E3%83%AB%E3%83%94%E3%82%B9-%E3%83%90%E3%82%BF%E3%83%BC-%E9%A3%9F%E5%A1%A9%E4%B8%8D%E4%BD%BF%E7%94%A8450%EF%BD%87-%E3%80%90%E7%89%B9%E5%88%A5%E3%81%8A%E5%8F%96%E5%AF%84%E3%81%9B%E3%80%91%E3%80%90%E5%86%B7%E8%94%B5%E3%82%AF%E3%83%BC%E3%83%AB%E4%BE%BF%E3%80%91/dp/B004ER9Y2A%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004ER9Y2A" target="_blank">Amazonで詳しく見る</a></span><span> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-18-February" title="February 18, 2011">February 18, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page23" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page23" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page25" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page25" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -565,7 +532,7 @@ df1, df2の自由度はどちらも8-1で、7となり、F分布表より、7×7
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -581,12 +548,12 @@ df1, df2の自由度はどちらも8-1で、7となり、F分布表より、7×7
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

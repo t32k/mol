@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOL &mdash; Designing for a Mobile World!</title>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/mol/assets/main.css">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/images/logo.png"/>
     <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="MOL" />
@@ -24,17 +24,17 @@
 <section class="site-nav">
     <header>
         <nav id="navigation">
-            <a class="brand" href="/">
-                <img src="/images/logo.png" alt="Inc">
+            <a class="brand" href="/mol/">
+                <img src="/mol/images/logo.png" alt="Inc">
             </a>
-            <a href="/" class="home">Blog</a>
+            <a href="/mol/" class="home">Blog</a>
             <a href="https://github.com/t32k/maple">Maple</a>
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
     </header>
 </section>
 
-<div class="blog-cover" style="background-image:url(/images/blog-cover.jpg);">
+<div class="blog-cover" style="background-image:url(/mol/images/blog-cover.jpg);">
     
     <section>
         <div class="container">
@@ -45,7 +45,7 @@
             <a href="https://twitter.com/t32k" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
             
             
-            <a href="http://facebook.com/t32k" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            <a href="https://github.com/t32k" title="Follow on GitHub" target="_blank"><i class="icon icon-facebook"></i></a>
             
             <a href="/feed.xml" title="RSS Feed">
                 <i class="icon icon-rss"></i>
@@ -61,135 +61,7 @@
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/titanium-mobile-jss" rel="prefetch">Titanium Mobile でCSS的な、それJSS!!!!!!</a></h2>
-            <p><p><a href="http://en.wikipedia.org/wiki/CSS_(band)"><img title="CSSとは、サンパウロ出身のブラジリアンロックバンドです。" src="http://t32k.me/mol/file/2011/03/css.jpg" alt="" width="470" height="270" /></a></p>
-
-<p>Titanium Mobile での開発は当然JavaScriptオンリーですので、愛も憎しみもすべてこの中にではなくて、コンテンツであったり見た目の情報であったり振る舞いであったり全てJavaScript の中に書かれているわけです。</p>
-
-<p>Webサイト制作ではあれば、HTML(content) + CSS(presentation) + JavaScript (behavior)のように役割を分けて制作するのが良いと言われております。JavaScriptオンリーのTitaniumでも然りです。せめてロジックとUIが分けることができれば、エンジニアさんとデザイナーさんが分業できるってもんです。</p>
-
-<!--more-->
-
-<p><strong>あるよ(・∀・)！CSSあるよ(・∀・)！それJSSでできるよ(・∀・)！</strong>
-<h3>JavaScript Stylesheets</h3>
-てことで、Titanium Mobile 1.5以上の環境でなら、JavaScript StylesheetsなるJSSというものがありまして、CSSプロパティを使った、CSSライクな記述で任意の要素に対してスタイルを当てることが可能です。スタイルを分離したいJSファイル名と同名のJSSファイルに記述すれば勝手に認識してくれます。</p>
-
-<p>app.js  &lt;--&gt; app.jss</p>
-
-<p>hoge.js &lt;--&gt; hoge.jss</p>
-
-<p>fuga.js  &lt;--&gt; fuga.jss</p>
-
-<p>↑こんな感じの対応になってますので、わざわざ、&lt;link rel=&quot;stylesheet&quot;  href=&quot;app.jss&quot;&gt;とか読み込みのための記述を書く必要はないです。
-<pre><code>//----------------- app.js
-var window = Ti.UI.createWindow({
-   id:&quot;w&quot;
-});
-var button = Ti.UI.createButton({
-   id:&quot;b&quot;,
-   title:&quot;Hello&quot;
-});
-window.add(button);
-window.open();</code></pre>
-↑このJSファイルに対して↓このJSSファイルのスタイルがききます。
-<pre><code>/*----------------- app.jss */</p>
-
-<h1>w {</h1>
-
-<p>background-color:&quot;red&quot;;
-}
-button {
-  width:100px;
-  height:40px;
-}</code></pre>
-app.android.jssやapp.iphone,.jssのようにAndroid/iPhone用にJSSファイルを切り分けることができます。</p>
-
-<p>また、global.jssのように全てのJSファイルにスタイルを当てることができます。</p>
-
-<p>おー素晴らしいねって思ったけど、本当のCSSのような動きを期待すると結構意図せぬ挙動が多くてゲンナリします。</p>
-
-<p>以下、とりとめなくかきつらねてみるとかしてみるとか。
-<h3>Titanium Mobile 1.6.1 + iOS SDK 4.3 での検証</h3>
-<ul>
-    <li>global.jssが動かない（ <a href="https://appcelerator.lighthouseapp.com/projects/32238-titanium-mobile/tickets/3011">3011 iOS: JSS global.jss not supporrted</a> ）</li>
-    <li>Resources/lib/app.jssのように、対象のJSファイルが同一ディレクトリになくても動く</li>
-    <li>text-alignがtextAlignでも動く</li>
-    <li>空のスタイル（プロパティと値のないセレクタ EX. #hoge{}）を書くとそれ以降のスタイルが適用されない</li>
-    <li>単一セレクタしか認識しない（button.barとか無理）</li>
-    <li>ショートハンド無理っぽい</li>
-    <li>CSS以外のものも動く（EX. text: &quot;iPhone!&quot;）</li>
-    <li>同一セレクタの場合、iphone.jssの方が強い。でもなんか微妙。。(下記表参照)</li>
-    <li>ドキュメント少ない（サンプル少ない）</li>
-    <li>というかサンプルのコードが正しく動かない</li>
-    <li>CSSプロパティの値は文字列なのか数値でクオーテーションで囲まないといけないのかそうでないのかよくわからない。</li>
-    <li>JSSファイルをダブルクリックするとVLCプレイヤーが立ち上がってイラっとする。</li>
-    <li>JSとJSS絶対ごっちゃになる、空目率隆史。</li>
-    <li>とにかく信じられない。</li>
-</ul>
-<table border="0" width="370">
-<tbody>
-<tr>
-<th style="background-color: #aaa;" scope="col">app.jss</th>
-<th style="background-color: #aaa;" scope="col">app.iphone.jss</th>
-</tr>
-<tr>
-<td>× type-based</td>
-<td>◯ type-based</td>
-</tr>
-<tr>
-<td>× class-based</td>
-<td>◯ class-based</td>
-</tr>
-<tr>
-<td>× id-based</td>
-<td>◯ id-based</td>
-</tr>
-<tr>
-<td>× class-based</td>
-<td>◯ type-based</td>
-</tr>
-<tr>
-<td>◯ id-based</td>
-<td>× type-based</td>
-</tr>
-<tr>
-<td>◯ id-based</td>
-<td>× class-based</td>
-</tr>
-<tr>
-<td>× class-based</td>
-<td>◯ id-based</td>
-</tr>
-</tbody>
-</table>
-とまぁ、そんなかんじで、現時点ではJSSは使いこなすには難があるなーといった印象ですな。1.7,1.8くらいまで待つか。。。
-それか独自UIボタンなどはあきらめて、ネィティブのシステムボタンをフルに使って記述量減らすとか。</p>
-
-<p><a href="http://higelog.brassworks.jp/?p=1144">ひげろぐさんのよう</a>にスタイル用のJSファイルを必要に応じてincludeするやり方が今のところの現実解なのかもしれません。。
-<ul>
-    <li><a href="http://higelog.brassworks.jp/?p=1307">TitaniumのJSSという機能 | ひげろ</a>ぐ</li>
-    <li><a href="http://wiki.appcelerator.org/display/guides/Designing+the+User+Interface#DesigningtheUserInterface-CrossplatformlayoutusingJSS">Designing the User Interface - Documentation Guides - Appcelerator Wiki</a></li>
-</ul>
-英語だけどここの質問にJSS関連の情報がいっぱいあるような。。
-<ul>
-    <li><a href="http://fx-gp.seesaa.net/article/179363988.html">第２回ウェブセミナー What&#39;s New in #Titanium Mobile 1.5 まとめ | 開発</a></li>
-</ul>
-そんなわけで、みんなもれっつたいたん！</p>
-</p>
-            <div class="meta">
-                Written By <address></a> &mdash;
-                <time pubdate datetime="2011-31-March" title="March 31, 2011">March 31, 2011</time>
-            </div>
-        </div>
-        <hr>
-    </section>
-    
-    
-  
-    <section class="index">
-        <!-- -->
-        <div>
-            <h2 class="title"><a href="/mol/log/background-error-me-titanum" rel="prefetch">バックグラウンド動作と実機転送エラーと私とタイタン!!!!!</a></h2>
+            <h2 class="title"><a href="/mol/log/background-error-me-titanum/" rel="prefetch">バックグラウンド動作と実機転送エラーと私とタイタン!!!!!</a></h2>
             <p><p><img class="fig" title="install" src="http://t32k.me/mol/file/2011/03/install.jpg" alt="" width="470" height="250" /></p>
 
 <p>みなさんタイタンしてますか？わたし？わたしタイタン(・∀・)ｲｲ!!</p>
@@ -241,7 +113,7 @@ app.android.jssやapp.iphone,.jssのようにAndroid/iPhone用にJSSファイル
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/ios-developer-program" rel="prefetch">iOS Developer Program に登録!!!!</a></h2>
+            <h2 class="title"><a href="/mol/log/ios-developer-program/" rel="prefetch">iOS Developer Program に登録!!!!</a></h2>
             <p><p><img class="alignnone size-full wp-image-2653" title="activationcode" src="http://t32k.me/mol/file/2011/03/activationcode.png" alt="" width="470" height="369" /></p>
 
 <p>有料プログラム的な意味でってことです。
@@ -329,7 +201,7 @@ Activation Codeでつまづいたら、すぐにコールコール♪
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/ios-prerendered-icon" rel="prefetch">お願いだから輝かないでくれ!!!</a></h2>
+            <h2 class="title"><a href="/mol/log/ios-prerendered-icon/" rel="prefetch">お願いだから輝かないでくれ!!!</a></h2>
             <p><p><img class="alignnone size-full wp-image-2673" title="ipon" src="http://t32k.me/mol/file/2011/03/ipon.png" alt="" width="470" height="250" /></p>
 
 <p>アイコン的な意味でってことです。</p>
@@ -413,7 +285,7 @@ Info.plist（プロパティリスト）というのは、設定ファイルみ�
     <section class="index">
         <!-- -->
         <div>
-            <h2 class="title"><a href="/mol/log/titanium-mobile-meets-textmate" rel="prefetch">TextMate で Titanium Mobile!!</a></h2>
+            <h2 class="title"><a href="/mol/log/titanium-mobile-meets-textmate/" rel="prefetch">TextMate で Titanium Mobile!!</a></h2>
             <p><p><img class="alignnone size-full wp-image-2575" title="tt" src="http://t32k.me/mol/file/2011/03/tt.png" alt="" width="468" height="135" /></p>
 
 <p><a href="http://t32k.me/mol/2011/03/hello-titanium-mobile/">前回</a>、インストールしました<a href="http://www.appcelerator.com/">Titanium Developer</a> 1.2.2ですがこれはIDE（統合開発環境）ではないです。ただビルドしてくれるだけですので、エディタは自前で用意しなければなりません。</p>
@@ -483,14 +355,105 @@ Info.plist（プロパティリスト）というのは、設定ファイルみ�
     </section>
     
     
+  
+    <section class="index">
+        <!-- -->
+        <div>
+            <h2 class="title"><a href="/mol/log/hello-titanium-mobile/" rel="prefetch">Titanium Mobile で Hello World!</a></h2>
+            <p><p>先月の<a href="http://kanazawajs.tumblr.com/v1-0/">kanaj</a>で大阪の<a href="http://twitter.com/#!/astronaughts">@astronaughts</a>さんが、「Titanium Mobileえ〜よ。え〜わ〜。くるで！これくるで！！」と言ってたので、勉強してみるよの巻。彼もTitanium情報をまとめてくれてたりもします。
+<ul>
+    <li><a href="http://astronaughts.net/?p=204">Titanium mobile で開発を始める時に役立つ情報のまとめ | astronaughts.net</a></li>
+</ul>
+Titanium Mobileというのは、JavaScriptで書いたコードをうまいことして、iPhoneやAndroidでも動くようにしてくれるものです。つまり、JavaScriptさえできれば、iPhoneアプリ作れちゃうってことですよ！！（Android持ってないので、今後はiPhoneアプリ制作でがんばってきます）</p>
+
+<p>Titaniumをインストール前にSDK(Software Development Kit)インスールしといてね。
+<ul>
+    <li><a href="https://developer.apple.com/xcode/index.php">Download Xcode + iOS SDK - Apple Developer</a> (iPhone)</li>
+    <li><a href="http://developer.android.com/sdk/index.html">Android SDK | Android Developers</a> (Android)</li>
+</ul>
+iOS SDKのほうはインストールされていたらTitaniumが勝手に認識してくれるのですが、Androidのほうはそうもいかないみたいでちょっとめんどくさいです。でもここ見たらなんとかイケマシタ！
+<ul>
+    <li><a href="http://d.hatena.ne.jp/r_kurain/20110306/1299393778">Android SDK+Titaniumのインストール方法復習 - kurainの壺</a></li>
+</ul>
+<h3>Titanium Developer のインストール</h3>
+てことで<a href="http://www.appcelerator.com/">公式サイト</a>より、<a href="http://www.appcelerator.com/products/download/">DOWNLOAD TITANIUM</a>！！</p>
+
+<p>あ、そうそう、私の環境ですが、Mac OS X 10.6.7でiOS SDK 4.3でがんばってます。</p>
+
+<p>で、dmgをダウンロードしたらだぼーくりっくでインストールだ！で、Titanium Developerを起動！</p>
+
+<p>あ、そうそう、Titaniumって、タイタニウムって読むらしいですよ。で、タイタンの野郎が勝手にTitanium SDKなど最新バージョンにアップデートせいや！って要求してくるので最新のものにしておきましょう。
+<h3>Titanium Mobile で Hello World!</h3>
+<iframe src="http://player.vimeo.com/video/21389746?byline=0&amp;portrait=0&amp;color=ffffff" width="470" height="264" frameborder="0"></iframe></p>
+
+<p>で、ここから本番。初心者の基本「Hello World！」してみましょう。動画を見てくれれば分かると思うんだけど5分もかからずにできちゃう。ほんとかんたんにできちゃう！ほらできった！</p>
+
+<p>とりあえず、Test&amp;Package &gt; Run Emulator &gt; iPhone からLaunch(ビルド)してみると、タブが2個あるアプリが生成されますんで、I am Window1ってとこをHello World!に置き換えて再度ビルドしてあげるだけですお。</p>
+
+<p>最初のテンプレがあるからじゃん！って言われるかもしれないけど、全く見たことないobjective-cのコードからがんばるよりは、JavaScriptなら普段見慣れているので格段にとっつきやすいですよね。
+<h4>New Project 記入項目</h4>
+<ul>
+    <li><strong>Project type:</strong> iPhone app作りたいのでMobileでおｋ</li>
+    <li><strong>Name:</strong> アプリの名前（英数字にしときましょう）</li>
+    <li><strong>App Id</strong>: 一意であればなんでもいいのですが、確実するためにはドメイン反対にした感じで。</li>
+    <li><strong>Directory</strong>: プロジェクトを保存するところ。</li>
+    <li><strong>Company /Personal URL</strong>: 自分のWebサイトとかそのまんまで</li>
+    <li><strong>Titanium SDK version</strong>: デフォルトのいっちゃん新しいやつで</li>
+    <li><strong>Installed Mobile Platformns</strong>: ちゃんとSDKがインスコされてば緑のチェックが表示されます。</li>
+</ul>
+正直、単にHello Worldして動きを確かめたいだけなら、全部の項目UNKOでも問題ないです！
+<h3>プロジェクトのファイル構成</h3>
+<img class="alignnone size-full wp-image-2592" title="proj" src="http://t32k.me/mol/file/2011/03/proj.png" alt="" width="390" height="247" /></p>
+
+<p>プロジェクトフォルダ直下が上記のような構成をしておりますんで、これをもとに開発していくのだ。</p>
+
+<p>いっちゃん重要なのはResources以下のapp.jsです。「全てのJSファイルはapp.jsに帰結する」の言葉はもはや言うまでもありませんが、Titanium Mobile において、このapp.jsが最初に起動するファイルになってます。HTMLでゆうindex.htmlみたいな感じでしょうか。
+<h3>コード</h3>
+今回変えた部分はここです。createLabelしてるtextの値を書き換えたわけです。
+<pre><code>var win1 = Titanium.UI.createWindow({
+ title:&#39;Tab 1&#39;,
+ backgroundColor:&#39;#fff&#39;
+});
+var label1 = Titanium.UI.createLabel({
+ color:&#39;#999&#39;,
+ text:&#39;Hello World!&#39;,
+ font:{fontSize:20,fontFamily:&#39;Helvetica Neue&#39;},
+ textAlign:&#39;center&#39;,
+ width:&#39;auto&#39;
+});
+win1.add(label1);</code></pre>
+これって、言ってることはWebサイトで言えば以下のコードみたいなことですよね。要素を作ってそれ挿入してるわけですよ。メソッドなどがTitaniumから始まってるだけでほんとJavaScriptです。ありがとうございますってかんじです。うん。これなら僕でもできそうだ！
+<pre><code>var element = document.createElement(&#39;p&#39;);
+var text = document.createTextNode(&#39;hello unko&#39;);
+element.appendChild(&#39;text&#39;);
+document.body.appendChild(element);</code></pre>
+iOSシュミレータでの確認ですが、1回目のビルドは2,3分かかることもあるんですけど、2回目以降は普通にブラウザ立ち上げるのと変わらないほどのスピードで起動してくれますので、開発スピードもかなり早めることができて嬉しいかぎりです。
+<h3>参考リソース</h3>
+基本的に<a href="http://twitter.com/#!/donayama">@donayama</a>さんが作ってくれている、ti-mo-jaとPDFが最強っす。ここから始めれば問題ねっす！ちょっとできるようになってきたら、gihyoさんでやってる連載記事を見れば、Twitterとの連携とか高度なことが出来る感じです。
+<ul>
+    <li><a href="http://code.google.com/p/titanium-mobile-doc-ja/">titanium-mobile-doc-ja</a></li>
+    <li><a href="http://code.google.com/p/titanium-mobile-doc-ja/downloads/detail?name=20100314.pdf&amp;can=2&amp;q=">Appcelerator Titanium MobileではじめるiPhoneアプリケーション開発</a></li>
+    <li><a href="http://gihyo.jp/dev/serial/01/titanium">Titanium Mobileで作る！ iPhone／Androidアプリ｜gihyo.jp … 技術評論社</a></li>
+</ul>
+んなわけでみんなも、れっつ、たいたん！</p>
+</p>
+            <div class="meta">
+                Written By <address></a> &mdash;
+                <time pubdate datetime="2011-24-March" title="March 24, 2011">March 24, 2011</time>
+            </div>
+        </div>
+        <hr>
+    </section>
+    
+    
     <section class="pagination" style="text-align:center">
       
         
-        <a href="/page22" class="btn btn-outline">‹ Newer</a>
+        <a href="/mol/page22" class="btn btn-outline">‹ Newer</a>
         
       
       
-        <a href="/page24" class="btn btn-outline">Older ›</a>
+        <a href="/mol/page24" class="btn btn-outline">Older ›</a>
       
     </section>
 </article>
@@ -502,7 +465,7 @@ Info.plist（プロパティリスト）というのは、設定ファイルみ�
         
         <nav>
             <a href="http://t32k.me/">MOL</a> &middot;
-            <a href="/">Blog</a> &middot;
+            <a href="/mol/">Blog</a> &middot;
             <a href="https://github.com/t32k/maple">Maple</a> &middot; 
             <a href="https://github.com/t32k/t32k.github.io/blob/master/README.md">About</a>
         </nav>
@@ -518,12 +481,12 @@ Info.plist（プロパティリスト）というのは、設定ファイルみ�
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/mol/assets/main.js"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
