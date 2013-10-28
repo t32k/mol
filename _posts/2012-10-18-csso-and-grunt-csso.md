@@ -4,15 +4,19 @@ title: CSSOとgrunt-csso
 categories:
 - css
 - performance
-tags: []
 status: publish
 type: post
 published: true
-meta:
-  _edit_last: '1'
-  pvc_views: '4285'
+author:
+  name: Koji Ishimoto
+  twitter: t32k
+  gplus: 104886596569728254273 
+  bio: Front-end Developer
+  image: t32k.png
 ---
-<p style="text-align: center;"><a href="http://css.github.com/csso/"><img class="aligncenter size-full fig" title="CSSO" src="http://t32k.me/mol/file/2012/10/csso.png" alt="" width="520" height="260" /></a></p>
+aa
+<a href="http://css.github.com/csso/"><img class="aligncenter size-full fig" title="CSSO" src="http://t32k.me/mol/file/2012/10/csso.png" alt="" width="520" height="260" /></a>
+
 読書の秋、ご勉学の方はいかがでしょうか。 I'm your <a href="https://twitter.com/t32k">@t32k.</a>
 
 今日は<strong><a href="http://css.github.com/csso/">CSSO (CSS Optimizer) – A CSS minimizer unlike others</a></strong>の紹介だ。<a href="http://t32k.me/mol/log/csscomb/">前回のCSSComb</a>は単純にプロパティのソートをしてくれるものだったが、今回のはminimizerだ。
@@ -77,6 +81,5 @@ CSSOが他のminimizerとどのへんがunlikeなのかというと、上の対�
 元が14Kあるのに対して、CSSOでmiifyしたほうが8,979 byteで、YUIの9,342 byteよりも400byteほど軽くなっています。うん、素敵！
 <h2>grunt-csso</h2>
 んで、CSSOはCSSCombみたいにテキストエディタでのプラグインが配布されていない、くまったです(･ω･)。毎回コマンドライン打つのもめんぞい。そんなところに最近、<a href="http://havelog.ayumusato.com/develop/others/e495-grunt_initialize.html">同僚さんがgruntエバンジェリスト</a>なので、ついついそそのかされて<a href="https://npmjs.org/package/grunt-csso">grunt-csso</a>なるものを作ってみました。これで、Gruntfile(grunt.js)に設定しておけば、簡単にminifyできますね。
-<ul>
-	<li><a href="http://en.t32k.me/2012/10/14/grunt-csso.html">CSSO of grunt plugin | en.t32k.me </a></li>
-</ul>
+
++ <a href="http://en.t32k.me/2012/10/14/grunt-csso.html">CSSO of grunt plugin | en.t32k.me </a>
