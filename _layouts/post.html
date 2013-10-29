@@ -4,16 +4,15 @@ layout: base
 {% if page.cover_image %}
 <div class="article-cover">
     <div>
-        <img src="/mol/images/{{ page.cover_image }}" class="image">
+        <img src="/mol/images{{ page.cover_image }}" class="image">
     </div>
 </div>
 {% endif %}
-<article>
-
+<article>            
     <div class="container">
         <header>
             <div class="meta">
-                By <address><a rel="author" href="{{ page.author.link }}" title="{{ page.author.name }}" target="_blank">{{ page.author.name }}</a> &mdash;
+                By <address><a rel="author" href="" title="Koji Ishimoto" target="_blank">Koji Ishimoto</a></address> &mdash;
                 <time pubdate datetime="{{ page.date | date: "%Y-%d-%B" }}" title="{{ page.date | date: "%B %d, %Y" }}">{{ page.date | date: "%B %d, %Y" }}</time>
             </div>
             <h1 class="title">{{ page.title }}</h1>
@@ -27,12 +26,10 @@ layout: base
 
         <footer>
             <address>
-               {% if page.author.image %}<img src="/mol/images/{{ page.author.image }}">{% endif %}
-                <p>Written by <strong><a rel="author" href="https://twitter.com/{{ page.author.twitter }}" title="{{ page.author_name }}" target="_blank">{{ page.author.name }}</a></strong><br>
-                <span class="muted">{{ page.author.bio }}</span>
-                </p>
+               <img src="/mol/images/t32k.png" alt="">
+                <p>Written by <strong><a rel="author" href="https://twitter.com/t32k" title="" target="_blank">Koji Ishimoto</a></strong><br>
+                <span class="muted">Front-end Developer</span></p>
             </address>
-
         </footer>
 
         {% if site.inc.disqus.shortname %}

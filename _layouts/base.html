@@ -1,30 +1,28 @@
-<!DOCTYPE html>
+<!doctype html> 
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} &mdash; {{ site.inc.title }}{% else %}{{ site.inc.title }} &mdash; {{ site.inc.subtitle }}{% endif %}</title>
-    {% if site.inc.google_font %}<link href="http://fonts.googleapis.com/css?family={{ site.inc.google_font }}" rel="stylesheet" type="text/css">{% endif %}
+    {% if site.inc.google_font %}<link href="http://fonts.googleapis.com/css?family={{ site.inc.google_font }}" rel="stylesheet">{% endif %}
     {% stylesheet main %}
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/images/{{ site.inc.logo }}"/>
-    <link href="{{ site_url }}/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.inc.title }}" />
-    <meta name="title" content="{% if page.title %}{{ page.title }} {% else %}{{ site.inc.title }}{% endif %}">
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <link rel="shortcut icon" href="/mol/favicon.ico">
+    <link href="{{ site_url }}/mol/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.inc.title }}">
+    <link rel="canonical" href="{{ site.url }}mol{{ page.url }}">
     {% if page.site.gplus %}<link rel="publisher" href="https://plus.google.com/{{ site.inc.gplus }}">{% endif %} 
     {% if page.author.gplus %}<link rel="author" href="https://plus.google.com/{{ page.author.gplus }}">{% endif %}       
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} {% else %}{{ site.inc.title }}{% endif %}"/>
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} {% else %}{{ site.inc.title }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}mol/{{ page.url }}">
     {% if page.cover_image %}
-    <meta property="og:image" content="{{ site.url }}/images/{{ page.cover_image }}"/>
+    <meta property="og:image" content="{{ site.url }}mol/images/{{ page.cover_image }}">
     {% if page.main_image %}
-    <meta property="og:image" content="{{ site.url }}/images/{{ page.main_image }}"/>  
+    <meta property="og:image" content="{{ site.url }}mol/images/{{ page.main_image }}">  
     {% endif %}
-    <meta property="og:image" content="{{ site.url }}/images/{{ site.inc.logo }}"/>   
+    <meta property="og:image" content="{{ site.url }}mol/images/{{ site.inc.logo }}">   
     {% endif %}
     {% if page.excerpt %}
-    <!--meta property="og:description" content="{{ page.excerpt }}"/>
-    <meta name="description" content="{{ page.excerpt }}"/-->
+    <!--meta property="og:description" content="{{ page.excerpt }}">
+    <meta name="description" content="{{ page.excerpt }}"-->
     {% endif %}
     <meta property="og:site_name" content="{{ site.inc.title }}">     
 </head>
@@ -67,7 +65,6 @@
                 <i class="icon icon-rss black"></i>
             </a>
         </nav>
-        <!--p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p-->
     </div>
 </footer>
 

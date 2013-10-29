@@ -6,12 +6,6 @@ status: publish
 type: post
 published: true
 excerpt: "通称、ビニ本もといピンク本をご恵贈いただきましたので書評をば。"
-author:
-  name: Koji Ishimoto
-  twitter: t32k
-  gplus: 104886596569728254273 
-  bio: Front-end Developer
-  image: t32k.png
 ---
 
 通称、ビニ本もといピンク本をご恵贈いただきましたので書評をば。
