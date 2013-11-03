@@ -12,7 +12,7 @@ layout: base
     <div class="container">
         <header>
             <div class="meta">
-                By <address><a rel="author" href="" title="Koji Ishimoto" target="_blank">Koji Ishimoto</a></address> &mdash;
+                By <address><a rel="author" href="/" title="Koji Ishimoto" target="_blank">Koji Ishimoto</a></address> &mdash;
                 <time pubdate datetime="{{ page.date | date: "%Y-%d-%B" }}" title="{{ page.date | date: "%B %d, %Y" }}">{{ page.date | date: "%B %d, %Y" }}</time>
             </div>
             <h1 class="title">{{ page.title }}</h1>
@@ -31,6 +31,8 @@ layout: base
                 <span class="muted">Front-end Developer</span></p>
             </address>
         </footer>
+
+        <div class="fb-comments" data-href="{{ site.url }}mol{{ page.url }}" data-numposts="5" data-width="640" style="margin: 0 5em"></div>
 
         {% if site.inc.disqus.shortname %}
         <section>
