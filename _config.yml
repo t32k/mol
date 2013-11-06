@@ -34,7 +34,7 @@ inc:
   analytics:
     google: 
       # eg. 'UA-123-12'
-      id:       'UA-2317436-26'
+      id: 'UA-2317436-26'
       
       
   # Google Fonts
