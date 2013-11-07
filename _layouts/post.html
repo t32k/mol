@@ -32,12 +32,9 @@ layout: base
             </address>
         </footer>
 
-        <div class="fb-comments" data-href="{{ site.url }}mol{{ page.url }}" data-numposts="5" data-width="640" style="margin: 0 5em"></div>
-
-        {% if site.inc.disqus.shortname %}
         <section>
-            {% include _disqus.html %}
-        </section>
-        {% endif %}
+            <div class="fb-comments" data-href="{{ site.url }}mol{{ page.url }}" data-numposts="5"></div>
+        <section>
+
     </div>
 </article>
