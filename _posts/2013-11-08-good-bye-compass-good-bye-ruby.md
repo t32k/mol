@@ -10,7 +10,7 @@ excerpt: "「部屋とYシャツと私」は、平松愛理の8枚目のシン�
 
 部屋とYシャツと私、AutoprefixerとSpritesmithとLibsassの話。
 
-愛しの[Maple](https://github.com/t32k/maple)フレームワークというか、Grunt詰め合わせセットですが、GruntはNode.js依存で、使っているCSSプリプロセッサはSassなのでRuby依存で、なんだかキメラみたいで気持ち悪い。いっそのこと、StylusにしてNode.jsで統一しようか、むしろ[Middleman](http://middlemanapp.com/)みたいにRubyで統一するか、考えものだ。とりあえずはCompassを辞めてみようという結論に至ったので代替案を探る。
+愛しの[Maple](https://github.com/t32k/maple)は、フレームワークというかGrunt詰め合わせセットなのですが、Grunt自体はNode.js依存で、使っているCSSプリプロセッサはSassでRuby依存なので、なんだかキメラみたいで気持ち悪い。いっそのこと、プリプロセッサはStylusにしてNode.jsで統一しようか、むしろ[Middleman](http://middlemanapp.com/)みたいにRubyで統一するか、考えものだ。とりあえずはCompassを辞めてみようという結論に至ったので代替案を探る。
 
 
 MapleでCompassを使っている理由は2つ。
@@ -91,14 +91,14 @@ sprite: {
 ```
 各画像のオフセット値が分かるので`binary-tree`という、単純に縦並べ、横並べじゃなくてCompassの`Smart`みたいな、詰め込んだ並べ方ができるのも良さげ。
 
-Gruntでの設定がややめんどいし、キャッシュバスターのために`Date.now()`の値をファイル名に入れてるけど、タスクが実行される度に画像に変更がなくても新たにスプライト画像を生成してしまうし、以前のスプライト画像もCompassみたいに勝手に削除されない。この辺、もうちょっと頑張ってみる必要性がある。
+Gruntでの設定がややめんどいし、キャッシュバスターのために`Date.now()`の値をファイル名に入れてるけど、タスクが実行される度に画像に変更がなくても新たにスプライト画像を生成してしまうし、以前のスプライト画像もCompassみたいに勝手に削除されない。この辺もうちょっと頑張ってみる必要性がある。
 
 
 ## Libsass
 
 + [sindresorhus/grunt-sass](https://github.com/sindresorhus/grunt-sass)
 
-ということで、Compassの呪縛からはとりあえず解放されたのでSassもC実装の[Libsass](http://libsass.org/)にしてみた。LibsassはRubyで書かれていたSassのコンパイラーをCで書きなおしたもの。それをNode.jsから利用できるにしたのが[node-sass](https://github.com/andrew/node-sass)で、それのGruntプラグインが[grunt-sass](https://github.com/sindresorhus/grunt-sass)。要はSassだけどRubyがいらないシロモノ。
+ということで、Compassの呪縛からはとりあえず解放されたのでSassもC実装の[Libsass](http://libsass.org/)にしてみた。LibsassはRubyで書かれていたSassのコンパイラをCで書きなおしたもの。それをNode.jsから利用できるようにしたのが[node-sass](https://github.com/andrew/node-sass)で、それのGruntプラグインが[grunt-sass](https://github.com/sindresorhus/grunt-sass)。ややこいけど要はSassだけどRubyがいらないシロモノ。
 
 
 しかもCで書かれているので、[爆速でコンパイルされるらしい](http://www.damln.com/log/sassc-and-bourbon-it-works/)よ（まだ大きいファイルで試してないけど）とりあえず今んとこ絶賛開発中でSCSSファイルしかコンパイルできてないし、RubySassでうまくコンパイルされるけど、Libsassではコンパイルできないってバグもあるし、ご利用は慎重にって感じ。個人的にはそんなにSassっぽいというかCSSプリプロセッサ全開！な書き方してないし、変数使えたらいいなぁ程度なので、そこまで困らないはず。。。
