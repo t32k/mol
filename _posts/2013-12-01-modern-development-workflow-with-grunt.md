@@ -37,6 +37,8 @@ Gruntの使い方としてはこのように黒い画面に`grunt`といった�
 
 ### Complexity
 
+私達はWeb __ドキュメント__ を作っているわけではない。Web __アプリケーション__ を作っている。そのため以前よりもましてWeb制作は複雑性を増している。 
+
 #### GUI Apps
 
 + [CodeKit — THE Mac App For Web Developers](http://incident57.com/codekit/)
@@ -44,6 +46,8 @@ Gruntの使い方としてはこのように黒い画面に`grunt`といった�
 + [Prepros :: Compile Sass, less or any preprocessing language](http://alphapixels.com/prepros/)
 
 別にSassとかのコンパイルや画像最適化処理などであったら、黒い画面(Grunt)を使わなくても上記のようなGUIアプリを使うことができます。デザイナーにとっては分かりやすいかもしれないGUIアプリですが、エンジニアさんが『ちょっとSass修正したいんだけど。。。』って言われた時に、これらのGUIアプリの使い方を説明するにあたって『ここのボタンを押して、、ここのメニューからhogeを選択して、、、』といったまどろっこしい説明をしなければなりません。Gruntであれば後述するPackage.jsonとGruntfile.jsを渡して、任意のGruntタスクコマンドを打つだけです。
+
+またカスタマイズ性においても、私達は唯一無二のWebアプリケーションを制作しているわけですから、当然、最大公約数をターゲットとしているGUIアプリでは都合が悪い時があります（ウチの開発環境ではこれが使えない、これしたいんだけど負の遺産が。。など）。そんな時はGUIアプリではその機能や設定が実装されるまで指を加えて待たないといけません。しかし、Gruntなら、タスクを組み合わせたりすることで、ある程度柔軟に対応することができます。
 
 余談ですが、弊社でGitHub Enterpriseを導入した時に私は『やったーこれでGitが使えるお！』と思い、喜び勇んで[Tower](http://www.git-tower.com/)というGUIのGitクライアントアプリ購入しました。それでエンジニアさんにTowerのGit設定をやってもらおうと思ったのですが、『いや俺、Towerの使い方わかんねーし、コマンドラインなら教えますよ』って言われたので、僕はコマンドラインでGit使ってます(ヽ´ω`)
 
@@ -172,7 +176,7 @@ $ grunt-init gruntplugin
 
 ### Maple 
 
-__[t32k/maple](https://github.com/t32k/maple)__
++ __[t32k/maple](https://github.com/t32k/maple)__
 
 さて最後は僕のGruntfileの設定を紹介しておきます。この一年スマホのWebアプリを制作してきてた集大成をCSSフレームワーク:Mapleとして公開しています。CSSフレームワークといいながら今は全然CSSの部分作ってないですが、ベターなHTML/CSSを書く、パフォーマンス性の高いアプリを作成するために必要なGrunt設定ある程度できていますのでぜひ参考にしてみてください。
 
@@ -180,13 +184,21 @@ __[t32k/maple](https://github.com/t32k/maple)__
 
 基本的なことはコード読めば分かるかと思います。MapleのGruntfileはCoffeeScriptで書いてあります。っていいても全然CoffeeScript分かんないですけど、Gruntfileってほぼ設定ファイルのようなものなので、コーフィーで書いたほうがシンプルで見やすいかなと思ってます。
 
+
+ + __default__: ['develop']
+ + __develop__: ['connect', 'watch']
+ + __stylesheet__: ['sass', 'autoprefixer', 'csscomb', 'csslint']
+ + __typeset__: ['webfont', 'stylesheet']
+ + __publish__: ['stylesheet', 'kss']
+ + __build__: ['stylesheet', 'csso', 'imageoptim']
+
 タスクの設定の詳しいことは過去のブログ読んで下さいまし！
 
 + [CSScomb — MOL](http://t32k.me/mol/log/csscomb/)
 + [CSSOとGRUNT-CSSO — MOL](http://t32k.me/mol/log/csso-and-grunt-csso/)
 + [部屋とYシャツと私 — MOL](http://t32k.me/mol/log/good-bye-compass-good-bye-ruby/)
-+ [HTTPリクエストを減らすために【CSS Sprite編】スプライト地獄からの解放 — MOL](http://t32k.me/mol/log/reduce-http-requests-css-sprite/)
-+ [HTTPリクエストを減らすために【WebFont編】ドラッグ＆ドロップ — MOL](http://t32k.me/mol/log/reduce-http-requests-webfont/)
++ [【CSS Sprite編】スプライト地獄からの解放 — MOL](http://t32k.me/mol/log/reduce-http-requests-css-sprite/)
++ [【WebFont編】ドラッグ＆ドロップでウェ～イ — MOL](http://t32k.me/mol/log/reduce-http-requests-webfont/)
 + [grunt-initとYeoman — MOL](http://t32k.me/mol/log/grunt-init-yo/)
 
 
