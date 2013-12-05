@@ -228,6 +228,12 @@ $ grunt
 
 ありがとうございました。
 
+### 追記
+
+普段使ってるGruntプラグインまとめてみました。
+
++ __[CSSを書くために必要なGruntプルギン集！！ — MOL](http://t32k.me/mol/log/modern-coder/)__
+
 ---
 
 この記事は[Frontrend Advent Calendar 2013](http://www.adventar.org/calendars/62)の1日目に寄稿した記事です。
