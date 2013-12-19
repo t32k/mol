@@ -8,12 +8,6 @@ status: publish
 type: post
 published: true
 excerpt: "このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。"
-author:
-  name: Koji Ishimoto
-  twitter: t32k
-  gplus: 104886596569728254273 
-  bio: Front-end Developer
-  image: t32k.png
 ---
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。
 <ul>
@@ -57,7 +51,7 @@ t32k.meのネットワークにかかる情報をまとめたHARファイルに�
 
 どうでしょう、見た感じで、紫色のバーが多いことに気づきますよね。つまりWatitingに多くの時間がかかっていることが理解出来ます。これは、単純にサーバーの処理が遅くて時間がかかっているのではなく（かかっていることもありますが）、たいていはホスト名ごとの同時接続数に起因するものです。
 
-ひとつの完全修飾ドメイン名 (FQDN: Fully Qualified Domain Name)に対して、同時接続できる数はたいてい6つまでです。これを超える数のリクエストがくると、7つ目のリクエストは、最初の6つのリクエスト処理がどれかが完了される間、待たなければなりません。この時間もWatitngにあたります。
+ひとつの完全修飾ドメイン名 (FQDN: Fully Qualified Domain Name)に対して、同時接続できる数はたいてい6つまでです。これを超える数のリクエストがくると、7つ目のリクエストは、最初の6つのリクエスト処理がどれかが完了される間、待たなければなりません。この時間も<del>Watitng</del>待ち時間になります。
 
 <a href="http://www.browserscope.org/?category=network&amp;v=top-m&amp;ua=Android%202.3%2CAndroid%204%2CiPhone%205"><img class="aligncenter size-full wp-image-5138" alt="connections" src="http://t32k.me/mol/file/2013/08/connections.png" width="640" height="225" /></a>
 
@@ -72,8 +66,9 @@ t32k.meのネットワークにかかる情報をまとめたHARファイルに�
 <tbody>
 <tr>
 <td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/" target="_blank"><img alt="ハイパフォーマンスWebサイト ―高速サイトを実現する14のルール" src="http://ecx.images-amazon.com/images/I/51hIDIWHmYL._SL160_.jpg" border="0" /></a></td>
-<td valign="top"><span><span><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E9%AB%98%E9%80%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B14%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-Steve-Souders/dp/487311361X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311361X" target="_blank">ハイパフォーマンスWebサイト</a>
-Steve Souders </span></span>オライリージャパン2008-04-11
+<td valign="top"><span><span><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E9%AB%98%E9%80%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B14%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-Steve-Souders/dp/487311361X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311361X" target="_blank">ハイパフォーマンスWebサイト</a>  
+Steve Souders </span></span>オライリージャパン  
+2008-04-11
 
 <a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E9%AB%98%E9%80%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B14%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-Steve-Souders/dp/487311361X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311361X" target="_blank">Amazonで詳しく見る</a>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
 </tr>
