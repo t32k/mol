@@ -12,7 +12,7 @@ meta:
   _edit_last: '1'
   pvc_views: '3770'
 ---
-<p style="text-align: center;"><a href="http://www.facebook.com/media/set/?set=a.314736818592584.73653.109048162494785&amp;type=1"><img class="aligncenter fig" src="http://t32k.me/mol/file/2012/04/kanaj.jpg" alt="" width="500" height="250" /></a></p>
+<p style="text-align: center;"><a href="http://www.facebook.com/media/set/?set=a.314736818592584.73653.109048162494785&amp;type=1"><img class="aligncenter fig" src="/static/blog/2012/04/kanaj.jpg" alt="" width="500" height="250" /></a></p>
 
 <ul>
 	<li><strong><a href="http://kanazawajs.tumblr.com/v1-7/">kanazawa.js v1.7 - Back to Basics -（2012年3月31日開催） </a></strong></li>

@@ -17,7 +17,7 @@ Sublime Text 2に関することであれば何でもOKです。</blockquote>
 ということで、Advent Calendarでは与えられたテーマから外れた内容で記事を書くことに定評のある<a href="https://twitter.com/t32k">@t32k</a>がラストを飾ってやんよ(o°3°b)b
 
 私、恥ずかしながらSublime Textのプラグインを作ろうと思ってもPythonもかけない最下級サブライムテキスター<span style="color: #888888;">(戦闘力・たったの５か・・ゴミめ・・・)</span>でして、そんな僕でもいつかはPythonとかRubyとかSublime Textで書きたいと思うわけです。そこで今はその悔しい気持ちをアイコンにぶつけるわけです。
-<p style="text-align: center;"><img class="aligncenter size-full wp-image-4619" src="http://t32k.me/mol/file/2012/12/st2.jpg" alt="st2" width="900" height="300" /></p>
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-4619" src="/static/blog/2012/12/st2.jpg" alt="st2" width="900" height="300" /></p>
 ST2のアイコンですけど、まぁそんなに、いまいち、いわんや、それほど、ましてや、はたまた、それでいて、かっこよろしくないわけですね。なんだろう色かなぁ、角度？形状？S?
 
 そんなわけで、こう思っているのは万国共通なのか「<a href="https://www.google.co.jp/search?hl=ja&amp;safe=off&amp;tbo=d&amp;q=sublime+text+icon+replacement&amp;oq=sublime+text+icon&amp;gs_l=serp.3.2.0j0i30l4j0i8i30l3j0i5i30l2.2066.2066.0.3949.1.1.0.0.0.0.123.123.0j1.1.0...0.0...1c.1.2aW1JbqCr-s">sublime text icon replacement</a>」なんかでググりますと、いろいろ出てきます。
@@ -32,7 +32,7 @@ ST2のアイコンですけど、まぁそんなに、いまいち、いわん�
 <h2>The Icon</h2>
 自分でSublime Textアイコンを作る前に、アイコンの予習をば。
 
-<a href="http://t32k.me/mol/file/2012/12/insta1.jpg"><img class="aligncenter size-full wp-image-4632" title="insta" src="http://t32k.me/mol/file/2012/12/insta1.jpg" alt="" width="900" height="300" /></a>
+<a href="/static/blog/2012/12/insta1.jpg"><img class="aligncenter size-full wp-image-4632" title="insta" src="/static/blog/2012/12/insta1.jpg" alt="" width="900" height="300" /></a>
 
 なにごとも、最初からオリジナルなものを作るのは難しいです。プログラミングでもそうでしょ？最初は良いコードを写経するもんでしょ？なので、僕も勉強がてらinstagramのアイコンとか写経してみました。いろいろ詰めが甘いですが、光の付け方とかこーすればそれっぽく見えるんだなとか一回やってみるといろいろ勉強になります。
 <ul>
@@ -54,14 +54,14 @@ ST2のアイコンですけど、まぁそんなに、いまいち、いわん�
 
 個人的にはテキストエディタのアイコンなので、テキストブック...ブック....本( ・∀・)!!みたいなアイコンにしたいと思いました。
 
-<a href="https://github.com/t32k/Sublime-Text-2-Icon"><img class="aligncenter size-full wp-image-4622" src="http://t32k.me/mol/file/2012/12/icon1.jpg" alt="icon1" width="900" height="300" /></a>
+<a href="https://github.com/t32k/Sublime-Text-2-Icon"><img class="aligncenter size-full wp-image-4622" src="/static/blog/2012/12/icon1.jpg" alt="icon1" width="900" height="300" /></a>
 <ul>
 	<li><a href="https://github.com/t32k/Sublime-Text-2-Icon">https://github.com/t32k/Sublime-Text-2-Icon</a></li>
 </ul>
 最初に作ったのこれ。縫い目の表現をしたかったので個人的に満足したのですけれどもロゴマーク的（S）なものがしっくりきてないのと、iOSアイコンのテンプレートで作ってるのMac Appアイコンとして見てると少し平べったい印象です。
 
 なんかもうちょっとモッコリしてみたいなと思ったのと、本の「地」みせた感じのあの表現やってみたいなと思ってぐぐってみるてると、見つけました。
-<p style="text-align: center;"><a href="http://dmonzon.com/freebies/book-icon-template/"><img class="aligncenter size-full wp-image-4630" title="book" src="http://t32k.me/mol/file/2012/12/book.jpg" alt="" width="900" height="300" /></a></p>
+<p style="text-align: center;"><a href="http://dmonzon.com/freebies/book-icon-template/"><img class="aligncenter size-full wp-image-4630" title="book" src="/static/blog/2012/12/book.jpg" alt="" width="900" height="300" /></a></p>
 
 <ul>
 	<li>
@@ -78,7 +78,7 @@ ST2のアイコンですけど、まぁそんなに、いまいち、いわん�
 </ul>
 ということで、いつもテクスチャ系でお世話になってるのが上記のサイトでSubtleというだけあって主張し過ぎない、ギラつかない、いい感じのテクスチャがいっぱいあります。
 
-<a href="https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine"><img class="aligncenter size-full wp-image-4623" src="http://t32k.me/mol/file/2012/12/icon2.jpg" alt="icon2" width="900" height="300" /></a>
+<a href="https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine"><img class="aligncenter size-full wp-image-4623" src="/static/blog/2012/12/icon2.jpg" alt="icon2" width="900" height="300" /></a>
 <ul>
 	<li>
 <p style="display: inline !important;"><a href="https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine">https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine</a></p>

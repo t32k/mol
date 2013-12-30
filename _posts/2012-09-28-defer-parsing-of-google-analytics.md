@@ -45,20 +45,20 @@ PCサイトで、それも単純にドキュメント閲覧のようなページ
 </ul>
 はい、2年前にこの記事を書いたのは僕でして、そこでは<code>&lt;/head&gt;</code>の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
 <h2>script要素の読み込みと評価</h2>
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/09/fig_1.png"><img class="aligncenter" src="http://t32k.me/mol/file/2012/09/fig_1.png" alt="JavaScript resource fetching, parsing and evaluation" width="500" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2012/09/fig_1.png"><img class="aligncenter" src="/static/blog/2012/09/fig_1.png" alt="JavaScript resource fetching, parsing and evaluation" width="500" /></a></p>
 <p style="text-align: right;"><a href="http://calendar.perfplanet.com/2011/lazy-evaluation-of-commonjs-modules/">Performance Calendar » Lazy evaluation of CommonJS modules</a> より</p>
 script要素を入れることでかかるコストについて上記の図のような感じですね。LatencyとDownloadが読み込みに関わるところで、普通にscript要素を読み込むと、通常のリソースは並列ダウンロードできるのに対して、script要素は他のリソースのダウンロードをブロッキングします。まぁ、scriptを早い段階で読み込むとそれだけページ表示に余計に時間がかかってしまいます。この点でノンブロッキングな読み込みを実現したのがGoogle Analyticsの非同期トラッキングコードで並列ダウンロードが可能となりました。また、トラッキング用のJSファイルにはga.jsには12時間の有効期限が設定されているので、次ページビュー、当日中くらいのセッション再開後もキャッシュが有効となり、LatencyとDownloadの部分は省略できます。
 
 ただ、お気付きの通りParsingとEvaluationはキャッシュがあろうがなかろうが毎回コストを支払わなければなりません。しかもParsingとEvaluationの実行中はレンダリングが止まってしまいます。PCサイトであればこの点が無視できるほど短い時間で完了するので、head要素においても大した影響がないということでした。事実、<a href="https://twitter.com/tobie">@tobie</a>さんの<a href="http://calendar.perfplanet.com/2011/lazy-evaluation-of-commonjs-modules/">記事でもjQeuryのParsingとEvaluation</a>のコストはMacBook Proが<strong>35ms</strong>に対して、iPhone4が<strong>320ms</strong>かかっている調査結果でした。つまり、jQueryを使おうが使わまいが、キャッシュが効いてようが効いてまいが、iPhone４ユーザーはjQueryが読み込まれている時点で毎回320ms（設置場所によっては）レンダリングが止まる時間ができるということです。
 
-[caption id="" align="aligncenter" width="500"]<a href="http://www.slideshare.net/souders/javascript-performance-at-sfjs"><img class=" " src="http://t32k.me/mol/file/2012/09/load_scripts_async.png" alt="2009 load scripts async" width="500" height="375" /></a> Google Analyticsの非同期トラッキングコードはノンブロッキングに読み込みできるが、<br />script実行中はレンダリングを止める。[/caption]
+[caption id="" align="aligncenter" width="500"]<a href="http://www.slideshare.net/souders/javascript-performance-at-sfjs"><img class=" " src="/static/blog/2012/09/load_scripts_async.png" alt="2009 load scripts async" width="500" height="375" /></a> Google Analyticsの非同期トラッキングコードはノンブロッキングに読み込みできるが、<br />script実行中はレンダリングを止める。[/caption]
 <h2>Google Analyticsの実行コスト</h2>
 そこでこのjQueryのテストのGoogle Analytics版を作ってみました。
 <ul>
 	<li><a href="http://dl.dropbox.com/u/356242/cost_ga.html">http://dl.dropbox.com/u/356242/cost_ga.html</a></li>
 </ul>
 Google Analyticsは基本的にページビュー計測を目的に入れると思いますので、単純に評価だけでなく毎ページごと実行（ビーコン画像発行）されると想定したテストです。
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/09/fig2.png"><img class="aligncenter" src="http://t32k.me/mol/file/2012/09/fig2.png" alt="" width="500" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2012/09/fig2.png"><img class="aligncenter" src="/static/blog/2012/09/fig2.png" alt="" width="500" /></a></p>
 上記のページで10回アクセスしてその平均値をグラフにしました。詳細は下記スプレッドシートにまとめてあります。
 <ul>
 	<li><a href="https://docs.google.com/spreadsheet/ccc?key=0ApycgWz4whD1dHhIWXVSTTRobEN1elFtYndPb0FIcFE#gid=0">Cost of Execute Google Analytics</a></li>

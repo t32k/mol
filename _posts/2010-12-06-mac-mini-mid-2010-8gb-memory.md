@@ -67,11 +67,11 @@ Apple Online Storeで8GB増設すると5万円くらいかかっちゃいます�
 
 4GBメモリ×2装着完了！
 
-<img class="alignnone size-full wp-image-2085" title="memory" src="http://t32k.me/mol/file/2010/12/memory.png" alt="" width="470" height="81" />
+<img class="alignnone size-full wp-image-2085" title="memory" src="/static/blog/2010/12/memory.png" alt="" width="470" height="81" />
 
 Mac 起動！　システムプロファイラで確認OK!
 
-<img class="alignnone size-full wp-image-2084" title="mac" src="http://t32k.me/mol/file/2010/12/mac.png" alt="" width="309" height="381" />
+<img class="alignnone size-full wp-image-2084" title="mac" src="/static/blog/2010/12/mac.png" alt="" width="309" height="381" />
 
 8GBドーン！
 

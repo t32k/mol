@@ -27,7 +27,7 @@ meta:
 </ul>
 SDKとChromeをインストール。SDKはどっか任意の場所に保存して、/Applications/android-sdk/tools/android（僕の場合はアプリケーションディレクトリにandroid-sdkという名前で置いた）を実行すると、Android SDK Managerが起動するので、Android SDK Platform-toolsをインストール。
 
-<img class="aligncenter wp-image-4297" title="Android SDK Platform-tools" src="http://t32k.me/mol/file/2012/09/Android-SDK-Platform-tools.png" alt="" width="520" />
+<img class="aligncenter wp-image-4297" title="Android SDK Platform-tools" src="/static/blog/2012/09/Android-SDK-Platform-tools.png" alt="" width="520" />
 
 /Applications/android-sdk/platform-toolsのAndroid Debug Bridge (adb)コマンドが必要になってくるので、PATHを通しておく。.bash_profileとかに下記のように記述する。
 <pre><code>#.bash_profile
@@ -39,11 +39,11 @@ PATHが通ったので、次回からは下記コマンドだけOK。
 <h2>各種設定</h2>
 んで、Androidの方の設定で、【本体設定】&gt;【開発者向けオプション】&gt;【USBデバッグ】にチェキラーぁぁぁっｌ！！
 
-<img class="aligncenter wp-image-4300" title="Setting-for-Android" src="http://t32k.me/mol/file/2012/09/Setting-for-Android.png" alt="" width="380" />
+<img class="aligncenter wp-image-4300" title="Setting-for-Android" src="/static/blog/2012/09/Setting-for-Android.png" alt="" width="380" />
 
 んで、Chrome for Androidの方の設定で、【設定】&gt;【デベロッパーツール】&gt;【USBウェブデバッグを有効化】にチェキラーぁぁぁっｌ！！
 
-<img class="aligncenter wp-image-4301" title="Setting-for-Chrome" src="http://t32k.me/mol/file/2012/09/Setting-for-Chrome.png" alt="" width="380" />
+<img class="aligncenter wp-image-4301" title="Setting-for-Chrome" src="/static/blog/2012/09/Setting-for-Chrome.png" alt="" width="380" />
 
 これらも一回設定しておけばOK.
 <h2>使ってみる</h2>
@@ -51,13 +51,13 @@ PATHが通ったので、次回からは下記コマンドだけOK。
 <pre><code>http://localhost:9222/</code></pre>
 このとき、USBでAndroid実機をつなげて、Chrome for Androidでデバッグしたいページを開いておきましょう。そうするとAndroidで開いてるページがPCから確認できます。
 
-<img class="aligncenter wp-image-4304" title="Inspectable Pages" src="http://t32k.me/mol/file/2012/09/Inspectable-Pages.png" alt="" width="520" />
+<img class="aligncenter wp-image-4304" title="Inspectable Pages" src="/static/blog/2012/09/Inspectable-Pages.png" alt="" width="520" />
 
 デバッグしたいページをクリックするとデベロッパーツールが立ち上がります。
-<p style="text-align: center;"><img class="aligncenter" title="DevTools" src="http://t32k.me/mol/file/2012/09/DevTools.png" alt="" width="520" height="326" /></p>
+<p style="text-align: center;"><img class="aligncenter" title="DevTools" src="/static/blog/2012/09/DevTools.png" alt="" width="520" height="326" /></p>
 見てもらえるとわかるように、PCのデベロッパーツールとほぼ同等の機能が使えます。比較検討のためにEdge Inspect（weinre）で開いたデベロッパーツールのキャプチャを置いときますね ↓
 
-<img class="aligncenter wp-image-4306" title="weinre" src="http://t32k.me/mol/file/2012/09/weinre.png" alt="" width="520" />
+<img class="aligncenter wp-image-4306" title="weinre" src="/static/blog/2012/09/weinre.png" alt="" width="520" />
 
 weinreでもNetworkとかTimeline使えるけど、Chrome for Androidでのリモートデバッグのほうがより細かいとこまで見れたり全体的に高機能かつサクサク動きますです、はい。個人的に一番バビったのが拡張機能のPageSpeedが普通に動いてて、なおかつ評価設定がちゃんと<strong>【モバイル】</strong>として評価されていたの感動しました。
 

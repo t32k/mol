@@ -70,20 +70,20 @@ var loadTime = timing.loadEventEnd – timing.navigationStart;</code></pre>
 <div>この機能リリース当初は、下記のようなコードをトラッキングコードに追加する必要ありましたが</div>
 <pre><code>_gaq.push(['_trackPageLoadTime']);</code></pre>
 <a href="http://analytics.blogspot.com/2011/11/site-speed-now-even-easier-to-access.html">現在では、コード追加なしでレポートから確認することできる</a>と思います。なかったらコード追加して確認してみてください。
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2011/12/sitespeed.png"><img class="aligncenter  wp-image-3835 fig" title="sitespeed" src="http://t32k.me/mol/file/2011/12/sitespeed.png" alt="" width="500" height="398" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2011/12/sitespeed.png"><img class="aligncenter  wp-image-3835 fig" title="sitespeed" src="/static/blog/2011/12/sitespeed.png" alt="" width="500" height="398" /></a></p>
 これらの情報は、最初に述べたNavigation Timingに対応しているブラウザに、プラス、Google ツールバーをインストールしたInternet Explorer(9以前)からも情報を取得しています。
 
 こういった情報が分かることで、読み込み時間が長いために離脱率が高いページなど改善の効果測定ができるようになります。
 
 また、「<strong>技術</strong>」というリンクをクリックすればネットワーク、サーバーに関するタイミング情報も確認することができます。
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2011/12/tech.png"><img class="aligncenter  wp-image-3850 fig" title="tech" src="http://t32k.me/mol/file/2011/12/tech.png" alt="" width="500" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2011/12/tech.png"><img class="aligncenter  wp-image-3850 fig" title="tech" src="/static/blog/2011/12/tech.png" alt="" width="500" /></a></p>
 <strong>参考</strong>
 <ul>
 	<li><a href="http://www.google.com/support/analyticshelp/bin/answer.py?answer=1205784">サイトの速度 - アナリティクス ヘルプ</a></li>
 	<li><a href="http://analytics.blogspot.com/2011/12/greater-insights-from-site-speed-report.html">Google Analytics Blog: Greater insights from the Site Speed report - Technical section </a></li>
 </ul>
 <h2>Measuring Social Interaciton</h2>
-<img title="social" src="http://t32k.me/mol/file/2011/12/social.png" alt="" width="500" height="150" />
+<img title="social" src="/static/blog/2011/12/social.png" alt="" width="500" height="150" />
 
 話は変わって、最近ソーシャルボタンが流行していますね、Twitter, Facebook, Google+などなどたくさんのいいね、シェアボタンがあります。ブログ読んでいると末尾にズラーッと並んだボタンをよく見かけます。あんなにつけて意味あるのかなーっと思ってしまいます。何よりも重いだろうよ。。。ってのが個人的な印象です。
 
@@ -114,7 +114,7 @@ Google+のプラス数は特に何もしなくても勝手に認識してくれ�
 そのほかにも、はてなブックマーク、mixiチェックも実装しましたが、ブックマーク、チェック完了時点のイベントが取れない（分からない）ので、単純にonclick時にtrackSocialを飛ばす対応しました。この結果から出る数字というのは実際にブックマークされた数、チェック数ではないので注意してください。ただmixiチェックはmixiデベロッパーサイト、パートナーダッシュボードからCSV形式でいいね数、チェック数、いいね・チェックから流入数などがダウンロード可能なので、そこから確認してもいいかもしれません。
 
 GREEのいいねに関してiframe形式でしかウイジェットが配布されてなかったのでお手上げです :(
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2011/12/socialaction.png"><img class="aligncenter  wp-image-3841 fig" title="socialaction" src="http://t32k.me/mol/file/2011/12/socialaction.png" alt="" width="500" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2011/12/socialaction.png"><img class="aligncenter  wp-image-3841 fig" title="socialaction" src="/static/blog/2011/12/socialaction.png" alt="" width="500" /></a></p>
 実装してデータが集まると、Googleアナリティクスの「<strong>ソーシャル</strong>」のメニューからサイト内のソーシャルアクション数が確認できます。hatena:bookmark, mixi:checkは実際にブックマークが完了された数、チェックが投稿された数ではないこと考慮しておくにして、このサイトにおいてはFacebookのいいね！が多いねみたいなことが確認できます。
 <h2>Practice</h2>
 さて、ソーシャルインタラクションのウイジェットを置いたことで、当初に懸念していたページの読み込み時間はどーなっているでしょうか。
@@ -138,7 +138,7 @@ Google 「サイトの速度」で、ウイジェット設置前後の3週間を
 	<li><a href="http://www.facebook.com/share_options.php">Share Bookmarklet | Facebook</a></li>
 </ul>
 現状は各ソーシャルウイジェットを生成するためにSCRIPT要素を読み込んでiframeを生成するパターンなのですが、ブックマークレットですと、投稿する利便性は落ちてしまいますがSCRIPT要素を読む込む必要もなくなるので安心です。非同期で読み込む方法も考えましたが、UIスレッドと非同期で読み込めるだけで読み込み時間自体は変わらないですし、なによりも管理が<a href="http://tokkono.cute.coocan.jp/blog/slow/index.php/xhtmlcss/asynchronous-loading-of-major-social-buttons/">複雑</a>です。
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2011/12/speed.png"><img class="aligncenter  wp-image-3847 fig" title="speed" src="http://t32k.me/mol/file/2011/12/speed.png" alt="" width="500" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2011/12/speed.png"><img class="aligncenter  wp-image-3847 fig" title="speed" src="/static/blog/2011/12/speed.png" alt="" width="500" /></a></p>
 実際に施策後の経過を確認んしてみると変更前は3秒近くあった読み込み時間が、2秒台になりました。ソーシャルアクションに関しては、「いいね！」のブックマークレットがなくて「シェア」に変更する必要があったり、ソーシャルアクション計測するためのコードは元のiframeを生成するスクリプトに依存するので、それを読みこまなくなったため計測できず、単純にはてな、mixiチェックのようにclick数になり、正確な比較はできませんが、アクション数が激減したということは見受けられませんでした。
 
 このサイトにおいて特にがっつりソーシャルと絡んでいくといった方向性もないので、パフォーマンスは犠牲にせずにこういった最小限のブックマークレットシェアボタンを置くというのが現実解かなと個人的には考えています。

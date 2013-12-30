@@ -14,7 +14,7 @@ meta:
   pvc_views: '10953'
   _aioseop_description: ごーごーれいきゅーさんのために作りました(｀･ω･´)ゞ
 ---
-<img class="alignnone size-full wp-image-3240" title="Coda.app" src="http://t32k.me/mol/file/2011/05/cj.png" alt="" width="470" height="120" />
+<img class="alignnone size-full wp-image-3240" title="Coda.app" src="/static/blog/2011/05/cj.png" alt="" width="470" height="120" />
 
 どもー全国数十万のCoda.appユーザーの皆さん、t32kでございます。
 
@@ -52,7 +52,7 @@ CodaCompletion.plistをDLしたものに置き換えてあげるだけです。�
 	<li><strong>lang + TAB</strong> でローカリゼーションのコード挿入</li>
 </ul>
 <h2>Download</h2>
-<a onclick="_gaq.push(['_trackEvent', 'DL', 'coda_jqm'])" href="https://github.com/t32k/Coda-Completion-for-jQuery-Mobile"><img class="alignnone size-full wp-image-3242" title="Download!" src="http://t32k.me/mol/file/2011/05/zip.png" alt="" width="128" height="128" /></a>
+<a onclick="_gaq.push(['_trackEvent', 'DL', 'coda_jqm'])" href="https://github.com/t32k/Coda-Completion-for-jQuery-Mobile"><img class="alignnone size-full wp-image-3242" title="Download!" src="/static/blog/2011/05/zip.png" alt="" width="128" height="128" /></a>
 (Coda Completion for jQuery Mobile - GitHub)
 
 問題がありましたらご指摘下さい。

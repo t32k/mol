@@ -14,7 +14,7 @@ meta:
   _edit_last: '1'
   _aioseop_description: 前回よりインストールしましたTitanium Developer 1.2.2ですがこれはIDE（統合開発環境）ではないです。ただビルドしてくれるだけですので、エディタは自前で用意しなければなりません。
 ---
-<img class="alignnone size-full wp-image-2575" title="tt" src="http://t32k.me/mol/file/2011/03/tt.png" alt="" width="468" height="135" />
+<img class="alignnone size-full wp-image-2575" title="tt" src="/static/blog/2011/03/tt.png" alt="" width="468" height="135" />
 
 <a href="http://t32k.me/mol/2011/03/hello-titanium-mobile/">前回</a>、インストールしました<a href="http://www.appcelerator.com/">Titanium Developer</a> 1.2.2ですがこれはIDE（統合開発環境）ではないです。ただビルドしてくれるだけですので、エディタは自前で用意しなければなりません。
 
@@ -54,7 +54,7 @@ Gitからのインストール方法書いてありますが、よくわから�
 
 とはいえ、無事インスコできたのでTextMateを開いてみるとファイル形式の部分に Titanium Mobile JavaScript と項目が新しく追加されています。
 <h3>使い方</h3>
-<img title="補完" src="http://t32k.me/mol/file/2011/03/tb.png" alt="" width="470" height="162" />
+<img title="補完" src="/static/blog/2011/03/tb.png" alt="" width="470" height="162" />
 <ul>
 	<li>option + escape で補完</li>
 	<li>option + F1 でツールチップ</li>

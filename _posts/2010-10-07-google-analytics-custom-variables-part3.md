@@ -18,7 +18,7 @@ meta:
 
 これがカスタム変数シリーズ3番目の記事だ（ようやくだね）。僕らはすでに、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">なぜカスタム変数を使うのか</a>、<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">どのようにコードが動作するのか</a>見てきた。カスタム変数のスロットと呼ばれるものがどのように動作するのか説明する、これが最後のパートだ。
 <h3>スロットとスコープ</h3>
-<a href="http://t32k.me/mol/file/2010/10/slot.jpg"><img class="alignright size-full wp-image-1764" title="slot" src="http://t32k.me/mol/file/2010/10/slot.jpg" alt="" width="200" height="245" /></a>
+<a href="/static/blog/2010/10/slot.jpg"><img class="alignright size-full wp-image-1764" title="slot" src="/static/blog/2010/10/slot.jpg" alt="" width="200" height="245" /></a>
 
 <a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part2/">パート2</a>でスロットもしくはインデックスは、_setCustomVar関数の第1引数だと覚えているだろうし、僕らもその時はもっともらしく説明していた。なぜなら、本気で説明しようとなると記事丸々使うことになっちゃうからね。
 
@@ -48,6 +48,6 @@ meta:
 <h3>スロットを知る</h3>
 カスタム変数の案件を隣の部署のエンジニアに任せたいし、彼らはそれをうまく解決してくれそうだけれども、すでにスロットは重要であることは気づいただろう。スロットが重要である理由はカスタム変数を詳細セグメント(またはクロスセグメントのレポート、カスタムレポート）でも使えるからだ。以下のような感じでスロットを利用できる。
 
-<a href="http://t32k.me/mol/file/2010/10/dimension.png"><img class="alignnone size-full wp-image-1761" title="dimension" src="http://t32k.me/mol/file/2010/10/dimension.png" alt="" width="200" height="260" /></a>
+<a href="/static/blog/2010/10/dimension.png"><img class="alignnone size-full wp-image-1761" title="dimension" src="/static/blog/2010/10/dimension.png" alt="" width="200" height="260" /></a>
 <h3>もっと知りたい</h3>
 Google Code のサイトになかなかよい<a href="http://t32k.me/mol/2010/10/gatrackingcustomvariables/">カスタム変数についてのドキュメント</a>があるよ。でも、この<a href="http://www.youtube.com/watch?v=UmQTfqmoSyk">ウェビナー</a>を見るのが一番いいね。Google Analytics のプロダクトマネージャーであるPhil Mui がカスタム変数がどのように動くのか丁寧に教えてくれるよ。最後に、Phi から君に良い言葉がある。” Google Analytics がどのように動くのか知りたいと思った時ほど成長するチャンスはない”

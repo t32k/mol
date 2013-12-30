@@ -14,7 +14,7 @@ meta:
   pvc_views: '6490'
   _comment_timeout: ignore
 ---
-<a href="http://www.flickr.com/photos/joost-ijmuiden/4768350290/"><img class="fig" title="Untitled" src="http://t32k.me/mol/file/2011/02/statics.jpg" alt="" width="470" height="260" /></a>
+<a href="http://www.flickr.com/photos/joost-ijmuiden/4768350290/"><img class="fig" title="Untitled" src="/static/blog/2011/02/statics.jpg" alt="" width="470" height="260" /></a>
 
 <span style="font-size: x-small;"><span style="color: #888888;"><strong>By <a href="http://www.flickr.com/photos/joost-ijmuiden/">Joost J. Bakker IJmuiden</a></strong></span></span>
 
@@ -249,7 +249,7 @@ A,Bも標本数8なので自由度は14です。
 
 <strong>6. 棄却か採択か</strong>
 
-<img class="alignnone size-full wp-image-2532" title="t" src="http://t32k.me/mol/file/2011/02/t.png" alt="" width="470" height="301" />
+<img class="alignnone size-full wp-image-2532" title="t" src="/static/blog/2011/02/t.png" alt="" width="470" height="301" />
 
 <strong>7. 結論を決める</strong>
 

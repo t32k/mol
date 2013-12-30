@@ -11,7 +11,7 @@ meta:
   _edit_last: '1'
   pvc_views: '5037'
 ---
-<p style="text-align: center;"><a href="http://livereload.com/"><img class="aligncenter fig" title="LiveReload 2" src="http://t32k.me/mol/file/2012/07/lr.png" alt="LiveReload 2" width="520" /></a></p>
+<p style="text-align: center;"><a href="http://livereload.com/"><img class="aligncenter fig" title="LiveReload 2" src="/static/blog/2012/07/lr.png" alt="LiveReload 2" width="520" /></a></p>
 
 <ul>
 	<li><a href="http://livereload.com/"><strong>LiveReload (a happy land where browsers don't need a Refresh button)</strong></a></li>

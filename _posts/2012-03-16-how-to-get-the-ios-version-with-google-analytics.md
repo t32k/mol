@@ -42,9 +42,9 @@ _gaq.push(['_trackPageview']);
 _setCustomVarの後の番号はどのカスタム変数のスロットを使うかってことなので、ご自身の空いてるとこ（1 - 5）の数値にしてください。UAにiPhone|iPad|iPodの文字列がなければなんにもしません。無害な子です。
 
 で、データが貯まると、【ユーザー】&gt;【ユーザーの分布】&gt;【カスタム変数】&gt;【カスタム変数（キー 5）】のレポートでデバイス（iPhone/iPad/iPod）＞バージョンの構造でレポートされます。iOSでOpera miniを使ってるとUA自体にOSのバージョン情報がないのでnull としてレポートされます。Firefox MobileはOKだった。
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/03/cv_key.png"><img class="aligncenter  wp-image-3973" title="カスタム変数　キー" src="http://t32k.me/mol/file/2012/03/cv_key.png" alt="" width="500" height="245" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2012/03/cv_key.png"><img class="aligncenter  wp-image-3973" title="カスタム変数　キー" src="/static/blog/2012/03/cv_key.png" alt="" width="500" height="245" /></a></p>
 <p style="text-align: center;">*カスタム変数（キー5）:デバイス</p>
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/03/cv_value.png"><img class="aligncenter  wp-image-3972" title="カスタム変数　値" src="http://t32k.me/mol/file/2012/03/cv_value.png" alt="" width="500" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2012/03/cv_value.png"><img class="aligncenter  wp-image-3972" title="カスタム変数　値" src="/static/blog/2012/03/cv_value.png" alt="" width="500" /></a></p>
 <p style="text-align: center;">*カスタム変数（値5）:バージョン</p>
 &nbsp;
 

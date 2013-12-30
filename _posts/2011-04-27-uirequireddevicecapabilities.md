@@ -14,7 +14,7 @@ meta:
   _aioseop_keywords: UIRequiredDeviceCapabilities
   _aioseop_description: あ、あんたなんて大っりじぇくとぉぉぉぉ！！！！
 ---
-<img class="alignnone size-full wp-image-2988" title="still-camera" src="http://t32k.me/mol/file/2011/04/still-camera.png" alt="still-camera" width="470" height="105" />
+<img class="alignnone size-full wp-image-2988" title="still-camera" src="/static/blog/2011/04/still-camera.png" alt="still-camera" width="470" height="105" />
 
 初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！
 
@@ -62,7 +62,7 @@ meta:
 
 <span style="font-size: x-small;"><a href="http://developer.appcelerator.com/question/43711/any-way-to-edit-the-uirequireddevicecapabilities-key-in-infoplist">Appcelerator Developer Center - Any way to edit the UIRequiredDeviceCapabilities key in Info.plist?</a></span></blockquote>
 
-<img class="fig" title="UIRequiredDeviceCapabilitie" src="http://t32k.me/mol/file/2011/04/UIRequiredDeviceCapabilitie.png" alt="Required device capabilitie" width="470" height="108" />
+<img class="fig" title="UIRequiredDeviceCapabilitie" src="/static/blog/2011/04/UIRequiredDeviceCapabilitie.png" alt="Required device capabilitie" width="470" height="108" />
 
 んで、TItanium Mobile のプロジェクトフォルダの、buid/iphone/Info.plistをルートディレクトリにコピーして、そのファイルでRequired device capabilitieの項目を作って必要な機能を記入してけばいいよ。2つも3つでも必要なだけ書けばいいお！
 

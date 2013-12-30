@@ -16,7 +16,7 @@ author:
   bio: Front-end Developer
   image: t32k.png
 ---
-<p style="text-align: center;"><a href="https://github.com/t32k/maple"><img class="aligncenter size-full wp-image-5012" title="Maple" alt="" src="http://t32k.me/mol/file/2013/07/head.png" width="722" height="200" /></a></p>
+<p style="text-align: center;"><a href="https://github.com/t32k/maple"><img class="aligncenter size-full wp-image-5012" title="Maple" alt="" src="/static/blog/2013/07/head.png" width="722" height="200" /></a></p>
 俺ももう30だし、夏なんで、CSSフレームワークはじめました。
 とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。
 
@@ -24,7 +24,7 @@ author:
 
 てか、最強のCSSなんて存在しないからなっ！！
 
-<a href="https://github.com/t32k/maple"><img class="size-full wp-image-5029" title="logo" alt="" src="http://t32k.me/mol/file/2013/07/logo.png" width="350" height="82" /></a>
+<a href="https://github.com/t32k/maple"><img class="size-full wp-image-5029" title="logo" alt="" src="/static/blog/2013/07/logo.png" width="350" height="82" /></a>
 <ul>
 	<li><a href="https://github.com/t32k/maple"><strong>t32k/maple </strong></a></li>
 </ul>
@@ -167,7 +167,7 @@ CSSのLintです。IDとか使ってたら怒られます。IEとか古いブラ
 <h3>grunt-csscomb</h3>
 CSSプロパティをソートしてくれるgrunt pluginです。<a href="http://t32k.me/mol/log/csscomb/">過去に記事かいたのでそこ参照。</a>最初からMapleのルールでCSSでかけばそこまであれだけど、１つのセレクタに何十ものプロパティを書いてる時などは、これでプロパティ順を揃えればgzipの圧縮率を高めてくれます。
 <h3>grunt-webfont</h3>
-<img class="wp-image-5030" alt="" src="http://t32k.me/mol/file/2013/07/c2eef1dbac4917459d28818432f9c6b8.png" width="450" />
+<img class="wp-image-5030" alt="" src="/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png" width="450" />
 あと、最近webフォントを使ったのだけど、これを使う前はオンラインのwebフォント管理ツールとか使っていてすごく面倒くさいなと思っていた。けどこれ使えば、webフォントしたいSVGを任意のディレクトリにいれてgrunt webfontカマスだけさ！
 <h3>grunt-imageOptim</h3>
 Compassで生成されたスプライト画像（PNG）とかはPNG-24なので重いです。それをアルファ透過つきPNG-8にダウンコンバートしてサイズ量を減らしてくれます。要<a href="http://imageoptim.com/">ImageOptim (Mac app)</a> です。忘れがちなので、buildタスクに入れておきましょう。

@@ -13,7 +13,7 @@ meta:
   pvc_views: '1814'
   _aioseop_description: とりあえずマークアッパーな人らも、もっとTitaniumやろーず(・∀・)!!みんなでやろーず。
 ---
-<a href="http://www.amazon.co.jp/JavaScript%E3%81%A8Titanium%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B-iPhone-Android%E3%82%A2%E3%83%97%E3%83%AA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%80%90Titanium-Titanium/dp/4839941084%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839941084"><img title="JavaScriptとTitaniumではじめる iPhone/Androidアプリプログラミング" src="http://t32k.me/mol/file/2012/09/ti.jpg" alt="JavaScriptとTitaniumではじめる iPhone/Androidアプリプログラミング" width="540" height="300" /></a>
+<a href="http://www.amazon.co.jp/JavaScript%E3%81%A8Titanium%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B-iPhone-Android%E3%82%A2%E3%83%97%E3%83%AA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%80%90Titanium-Titanium/dp/4839941084%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839941084"><img title="JavaScriptとTitaniumではじめる iPhone/Androidアプリプログラミング" src="/static/blog/2012/09/ti.jpg" alt="JavaScriptとTitaniumではじめる iPhone/Androidアプリプログラミング" width="540" height="300" /></a>
 
 私はHTMLコーダーだ。いやHTML/CSSも満足にかけないうんこやろーだ。そんなうんこでもいつかはiPhoneアプリでも作ってみたいという淡い夢を抱くものである。だが所詮うんこなのでObjective-Cなどという未体験ゾーン足を踏み入れたブラックホールの中キリモミ回転し飛んでなどいけないのである。
 

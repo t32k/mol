@@ -14,7 +14,7 @@ meta:
   _aioseop_keywords: Greasemonkey
   _aioseop_description: 最近、もっぱらグリモンに夢中です。まさしくDo It Yourself精神まっしぐら、ネコまっしぐらです。
 ---
-<a href="https://github.com/t32k/ATNDer-List-Maker/blob/master/atnder_list_maker.user.js"><img class="fig" title="atnder_list_maker.user.js" src="http://t32k.me/mol/file/2011/01/am.png" alt="" width="470" height="123" /></a>
+<a href="https://github.com/t32k/ATNDer-List-Maker/blob/master/atnder_list_maker.user.js"><img class="fig" title="atnder_list_maker.user.js" src="/static/blog/2011/01/am.png" alt="" width="470" height="123" /></a>
 
 最近、もっぱらグリモンに夢中です。まさしくDo It Yourself! 精神まっしぐら、ネコまっしぐらです。
 

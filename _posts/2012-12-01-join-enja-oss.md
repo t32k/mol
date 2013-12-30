@@ -12,7 +12,7 @@ meta:
   _edit_last: '1'
   pvc_views: '952'
 ---
-<a href="https://github.com/enja-oss"><img class="alignleft size-thumbnail wp-image-4485 fig" title="gravatar" src="http://t32k.me/mol/file/2012/12/gravatar-150x150.jpg" alt="" width="150" height="150" /></a>落ち葉が風に舞う季節となりました。我町の銀杏並木も美しい黄色に染まり初めました@t32k、いかがお過ごしか？俺？俺は元気だよ@t32kだ。もうびっくりなことに世間じゃもう12月っての？始まってるらしいじゃないか。え？来年から本気だすだって？馬鹿言っちゃいけねーよ。12月から本気出せよってことで、君も<strong><a href="https://github.com/enja-oss">enja-oss</a></strong>に参加しよう。
+<a href="https://github.com/enja-oss"><img class="alignleft size-thumbnail wp-image-4485 fig" title="gravatar" src="/static/blog/2012/12/gravatar-150x150.jpg" alt="" width="150" height="150" /></a>落ち葉が風に舞う季節となりました。我町の銀杏並木も美しい黄色に染まり初めました@t32k、いかがお過ごしか？俺？俺は元気だよ@t32kだ。もうびっくりなことに世間じゃもう12月っての？始まってるらしいじゃないか。え？来年から本気だすだって？馬鹿言っちゃいけねーよ。12月から本気出せよってことで、君も<strong><a href="https://github.com/enja-oss">enja-oss</a></strong>に参加しよう。
 
 話しは簡単だ、君も<strong><a href="https://github.com/enja-oss">enja-oss</a></strong>に参加しよう。
 

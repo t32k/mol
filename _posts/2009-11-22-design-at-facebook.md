@@ -17,7 +17,7 @@ meta:
   _topsy_long_url: http://t32k.me/mol/2009/11/design-at-facebook/
   topsy_short_url: http://bit.ly/aT1dx8
 ---
-<img title="Facebook" src="http://t32k.me/mol/file/2009/11/fb.png" alt="Facebook" width="500" height="40" />
+<img title="Facebook" src="/static/blog/2009/11/fb.png" alt="Facebook" width="500" height="40" />
 
 <cite>原文：<a href="http://www.lukew.com/ff/entry.asp?879">Functioning Form - Design at Facebook</a>
 投稿日：08.27.2009 by <a href="http://www.lukew.com/about/luke/">Luke Wroblewski</a></cite>

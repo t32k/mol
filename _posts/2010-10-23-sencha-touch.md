@@ -17,7 +17,7 @@ meta:
   _oembed_aedca5f54b3aeedaac6b58e5c50c6d4f: '{{unknown}}'
   _oembed_8218b133bfea3e7744ace5dc75067607: '{{unknown}}'
 ---
-<img class="alignnone size-full wp-image-1884" title="ss9_2" src="http://t32k.me/mol/file/2010/10/ss9_2.jpg" alt="" width="470" height="250" />
+<img class="alignnone size-full wp-image-1884" title="ss9_2" src="/static/blog/2010/10/ss9_2.jpg" alt="" width="470" height="250" />
 
 <a href="http://swapskills.info/sessions/html5-sencha.html">HTML5モバイルアプリ用フレームワーク：Sencha導入前の事前準備：SwapSKills vol.9</a>
 
@@ -39,7 +39,7 @@ Sencha導入前の準備ということで、セッションの内容はSencha T
 </ul>
 すぐにアプリを作るんじゃなくて、APIをひと通り眺めてから作りなさい。
 
-<img class="alignnone size-full wp-image-1883" title="ss9_1" src="http://t32k.me/mol/file/2010/10/ss9_1.jpg" alt="" width="470" height="250" />
+<img class="alignnone size-full wp-image-1883" title="ss9_1" src="/static/blog/2010/10/ss9_1.jpg" alt="" width="470" height="250" />
 
 そんんわけで、やっぱり基本は大事だと身に染みた良いセッションでした。がんばります。ありがとうございましった！！
 <table border="0" cellpadding="5">

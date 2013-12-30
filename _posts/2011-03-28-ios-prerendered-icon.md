@@ -16,7 +16,7 @@ meta:
   _aioseop_description: "月灯りの下 やさしく眠る 思い出は夏の星空となる\r\nもう帰らない 帰れない\r\nあなたのそば以外で私輝かないの\r\n輝けないの
     輝かないの"
 ---
-<img class="alignnone size-full wp-image-2673" title="ipon" src="http://t32k.me/mol/file/2011/03/ipon.png" alt="" width="470" height="250" />
+<img class="alignnone size-full wp-image-2673" title="ipon" src="/static/blog/2011/03/ipon.png" alt="" width="470" height="250" />
 
 アイコン的な意味でってことです。
 
@@ -38,11 +38,11 @@ Info.plist（プロパティリスト）というのは、設定ファイルみ�
 <pre>/[YOUR_PROJECT_NAME]/build/iphone/info.plist</pre>
 開くエディタによってはこうゆう感じで表示されます。
 
-<img class="fig" title="property_list_editor" src="http://t32k.me/mol/file/2011/03/property_list_editor.png" alt="UIPrerenderedIcon" width="320" height="60" />
+<img class="fig" title="property_list_editor" src="/static/blog/2011/03/property_list_editor.png" alt="UIPrerenderedIcon" width="320" height="60" />
 
 <em><span style="color: #888888;">Property List Editor
 </span></em>
-<img class="fig" title="xcode" src="http://t32k.me/mol/file/2011/03/xcode.png" alt="Icon already includes gloss effects" width="320" height="60" />
+<img class="fig" title="xcode" src="/static/blog/2011/03/xcode.png" alt="Icon already includes gloss effects" width="320" height="60" />
 
 <em><span style="color: #888888;">Xcode
 </span></em>

@@ -5,7 +5,7 @@ status: publish
 type: post
 published: true
 ---
-<a href="http://css.github.com/csso/"><img class="aligncenter size-full fig" title="CSSO" src="http://t32k.me/mol/file/2012/10/csso.png" alt="" width="520" height="260" /></a>
+<a href="http://css.github.com/csso/"><img class="aligncenter size-full fig" title="CSSO" src="/static/blog/2012/10/csso.png" alt="" width="520" height="260" /></a>
 
 読書の秋、ご勉学の方はいかがでしょうか。 I'm your <a href="https://twitter.com/t32k">@t32k.</a>
 
@@ -69,7 +69,7 @@ CSSOが他のminimizerとどのへんがunlikeなのかというと、上の対�
 
 + [http://t32k.me/mol/wp-content/themes/quickchic/style.css](http://t32k.me/mol/wp-content/themes/quickchic/style.css)
 
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2012/10/filesize.png"><img class="aligncenter  fig" title="Size" src="http://t32k.me/mol/file/2012/10/filesize.png" alt="" width="500" height="225" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2012/10/filesize.png"><img class="aligncenter  fig" title="Size" src="/static/blog/2012/10/filesize.png" alt="" width="500" height="225" /></a></p>
 元が14Kあるのに対して、CSSOでmiifyしたほうが8,979 byteで、YUIの9,342 byteよりも400byteほど軽くなっています。うん、素敵！
 
 ## grunt-csso

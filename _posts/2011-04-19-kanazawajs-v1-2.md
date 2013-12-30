@@ -15,7 +15,7 @@ meta:
   _aioseop_description: '会いたくて震えるのが西野カナ、console便利すぎて震えるのが #kanaj ってことで、kanazawa.js
     v1.2 開催しました。'
 ---
-<img class="fig" src="http://t32k.me/mol/file/2011/04/01.jpg" alt="" width="470" height="250" />
+<img class="fig" src="/static/blog/2011/04/01.jpg" alt="" width="470" height="250" />
 
 会いたくて震えるのが西野カナ、console便利すぎて震えるのが <a href="http://twitter.com/#!/search?q=%23kanaj">#kanaj</a> ってことで、<a href="http://atnd.org/events/13312">kanazawa.js v1.2</a> 開催しました。
 
@@ -89,6 +89,6 @@ kiyoharaさんは、いまホットな分野であるJSの動的読み込みに�
 
 次回開催はとりあえず未定ですが、また自習形式になるかと思いますので、そちらのほうもご参加頂ければ幸いです。ありがとうございます。
 
-<img class="fig" title="02" src="http://t32k.me/mol/file/2011/04/02.jpg" alt="" />
+<img class="fig" title="02" src="/static/blog/2011/04/02.jpg" alt="" />
 
 懇親会は<a href="http://r.tabelog.com/ishikawa/A1701/A170101/17005709/">SaiPe</a>というお店でトンガ・島料理屋でした。リーズナブルなのにお腹いっぱい食べれて大満足です。店内が狭かったので懇親会これなかった人もいて恐縮っす。また行きませう！ありがとうございます。

@@ -13,7 +13,7 @@ meta:
   pvc_views: '8777'
   _aioseop_description: それでもjQueryに恋に恋焦がれ恋に泣いた方であれば、せめて、jQueryライクにコードを記述できればと思われるかもしれません。
 ---
-<a href="http://www.imdb.com/title/tt0137523/"><img class="fig" title="『ファイト・クラブ』（Fight Club）は、1999年製作のアメリカ映画。日本では1999年12月11日に20世紀フォックス配給により、日比谷映画他、全国東宝洋画系にて公開された。チャック・パラニューク（Chuck Palahniuk）の同名小説の映画化。" src="http://t32k.me/mol/file/2011/03/fc.jpg" alt="Fight Club" width="470" height="250" /></a>
+<a href="http://www.imdb.com/title/tt0137523/"><img class="fig" title="『ファイト・クラブ』（Fight Club）は、1999年製作のアメリカ映画。日本では1999年12月11日に20世紀フォックス配給により、日比谷映画他、全国東宝洋画系にて公開された。チャック・パラニューク（Chuck Palahniuk）の同名小説の映画化。" src="/static/blog/2011/03/fc.jpg" alt="Fight Club" width="470" height="250" /></a>
 
 みなさんタイタンしてますか、わたし？わたしタイタイ(・∀・)！
 

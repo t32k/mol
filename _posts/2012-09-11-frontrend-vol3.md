@@ -63,7 +63,7 @@ meta:
 </tr>
 </tbody>
 </table>
-<a href="http://t32k.me/mol/file/2012/09/speed.jpg"><img class="size-thumbnail wp-image-4261" title="speed" src="http://t32k.me/mol/file/2012/09/speed-150x150.jpg" alt="" width="150" height="150" /></a>
+<a href="/static/blog/2012/09/speed.jpg"><img class="size-thumbnail wp-image-4261" title="speed" src="/static/blog/2012/09/speed-150x150.jpg" alt="" width="150" height="150" /></a>
 <table border="0" cellpadding="5">
 <tbody>
 <tr>

@@ -56,7 +56,7 @@ HTML4.01でname属性が設定できるのは以下の要素だけ。
 そうなってくると、どんな要素にでもclass属性がつけれるので、getElementsByClassName がやっぱり重要というか、こっちを使っていくほうがベターなんだと理解しました。
 
 ちなみに、getElementsByClassNameの各ブラウザのサポート状況はこんな感じ。IE以外OKってな感じで。
-<blockquote><a href="http://t32k.me/mol/file/2010/12/gebcn.png"><img class="alignnone size-medium wp-image-2240" title="gebcn" src="http://t32k.me/mol/file/2010/12/gebcn-300x50.png" alt="" width="550" /></a>
+<blockquote><a href="/static/blog/2010/12/gebcn.png"><img class="alignnone size-medium wp-image-2240" title="gebcn" src="/static/blog/2010/12/gebcn-300x50.png" alt="" width="550" /></a>
 
 <a href="http://www.quirksmode.org/dom/w3c_core.html"><span style="font-size: x-small;">W3C DOM Compatibility - Core</span></a></blockquote>
 ちなみに、似たような名前のメソッドでgetElementsByTagNameてのもある。

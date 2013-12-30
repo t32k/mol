@@ -21,7 +21,7 @@ meta:
 </ul>
 しかし、node.jsの進化は凄まじいものがありまして、月単位？週単位？で新しいバージョンがアップデートされていたなんてのはザラです。プラス、私は出来る限り（stableで）最新のバージョンにしておきたいという性格なので、node.jsのバージョンが新しく出るたびに、公式サイト行って、インストーラーDLして、インストール画面をクリック！クリック！クリック！なんて作業はもうやなんだよ！
 
-<a href="http://t32k.me/mol/file/2013/07/537090ed538f9d4ad7649e9ba5cb040b.png"><img class="aligncenter size-full wp-image-4988" title="node.js" src="http://t32k.me/mol/file/2013/07/537090ed538f9d4ad7649e9ba5cb040b.png" alt="" width="734" height="576" /></a>
+<a href="/static/blog/2013/07/537090ed538f9d4ad7649e9ba5cb040b.png"><img class="aligncenter size-full wp-image-4988" title="node.js" src="/static/blog/2013/07/537090ed538f9d4ad7649e9ba5cb040b.png" alt="" width="734" height="576" /></a>
 
 ということで、インストーラーによる管理は辞めたい！
 

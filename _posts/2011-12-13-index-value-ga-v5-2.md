@@ -36,7 +36,7 @@ meta:
 
 そして先ほどのカスタムレポートにアクセスするとスクリプトが実行されてこんな感じになると思います。出力されないとか調子悪かったらリロードしてください。
 
-<a href="http://t32k.me/mol/file/2011/12/Google-Analytics.png"><img src="http://t32k.me/mol/file/2011/12/Google-Analytics.png" alt="" title="Google-Analytics" width="500" class="fig aligncenter size-medium wp-image-3810" /></a>
+<a href="/static/blog/2011/12/Google-Analytics.png"><img src="/static/blog/2011/12/Google-Analytics.png" alt="" title="Google-Analytics" width="500" class="fig aligncenter size-medium wp-image-3810" /></a>
 
 個人的には満足です。<a href="https://twitter.com/#!/susumukatachi">@susumukatachi</a>さん、ありがとうございますでした。
 

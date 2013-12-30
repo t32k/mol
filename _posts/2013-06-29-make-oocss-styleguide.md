@@ -34,7 +34,7 @@ meta:
 	<li><a href="http://downloads.vagrantup.com/">Vagrant</a> (gemでインスコしたことある人はアンスコしとく)</li>
 </ul>
 <h2>OOCSSをbuild</h2>
-<p style="text-align: center;"><img class="aligncenter  wp-image-4963" src="http://t32k.me/mol/file/2013/06/4f7c94e2ab3fb1d22b3c581a01721d3b.png" alt="" width="900" /></p>
+<p style="text-align: center;"><img class="aligncenter  wp-image-4963" src="/static/blog/2013/06/4f7c94e2ab3fb1d22b3c581a01721d3b.png" alt="" width="900" /></p>
 <a href="https://github.com/stubbornella/oocss">OOCSS</a>をForkする(フォークボタン押すだけね！)
 
 <pre><code class="bash">git clone https://github.com/{user_name}/oocss.git
@@ -106,7 +106,7 @@ OOCSS Build                                 ✔ Done
 makeする
 
 <a href="http://localhost:8080/docs/library.html">http://localhost:8080/docs/library.html</a> にアクセスしてドキュメントみる。わーい見れた！
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2013/06/b37d8e01bd98623ba758276cde9747da.png"><img class="aligncenter  wp-image-4964" src="http://t32k.me/mol/file/2013/06/b37d8e01bd98623ba758276cde9747da.png" alt="" width="900" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2013/06/b37d8e01bd98623ba758276cde9747da.png"><img class="aligncenter  wp-image-4964" src="/static/blog/2013/06/b37d8e01bd98623ba758276cde9747da.png" alt="" width="900" /></a></p>
 ほらね、簡単でしょ？
 
 <pre><code class="bash">$ vagrant halt</code></pre>

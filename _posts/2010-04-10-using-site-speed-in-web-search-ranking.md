@@ -29,7 +29,7 @@ Webサイトの高速化は重要です。それはサイトオーナーだけ�
 	<li><a href="http://code.google.com/speed/page-speed/">Page Speed</a> は、パフォーマンス評価と改善の提案をしてくれるオープンソースのFirefox/Firebug add-onです。</li>
 	<li><a href="http://developer.yahoo.com/yslow/">YSlow</a> は、サイトの速度を改善する提案をしていくれるYahoo!の無料ツールです。</li>
 	<li><a href="http://www.webpagetest.org/">WebPagetest</a> は、読み込みのウォーターフォールレポートと最適化のチェックリストを表示してくれます</li>
-	<li><a href="https://www.google.com/webmasters/tools/home?hl=en">Webmaster Tools</a> のlab＞サイトパフォーマンスでは、実際に世界中のユーザーが体験したスピードを下記のチャート図で示してくれます。<a href="http://googlewebmastercentral.blogspot.com/2009/12/your-sites-performance-in-webmaster.html">site performance</a> についても私たちはブログを書いています。<a href="http://t32k.me/mol/file/2010/04/83.png"><img class="fig" title="site performance" src="http://t32k.me/mol/file/2010/04/83.png" alt="" width="400" height="155" /></a></li>
+	<li><a href="https://www.google.com/webmasters/tools/home?hl=en">Webmaster Tools</a> のlab＞サイトパフォーマンスでは、実際に世界中のユーザーが体験したスピードを下記のチャート図で示してくれます。<a href="http://googlewebmastercentral.blogspot.com/2009/12/your-sites-performance-in-webmaster.html">site performance</a> についても私たちはブログを書いています。<a href="/static/blog/2010/04/83.png"><img class="fig" title="site performance" src="/static/blog/2010/04/83.png" alt="" width="400" height="155" /></a></li>
 	<li>その他にも多くのツールがあります。<a href="http://code.google.com/speed/">code.google.com/speed.</a></li>
 </ul>
 サイトスピードを新しい指標としたわけですが、それは<a href="http://www.youtube.com/watch?v=muSIzHurn4U">ページの関連性</a>と同等の重みがあるというわけではないです。現在、1%未満の検索クエリでサイトスピードが影響した実装になっています。また、サイトスピードはGoogle.comで英語で検索した訪問者にしか適用されません。この変更は数週間前の厳密なテスト後に実施しました。もし、まだあなたのサイトのランキングに大きな変化が見られないようなら、たぶん、そのときのサイトスピードが影響を与えられなかったのでしょう。

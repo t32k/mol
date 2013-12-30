@@ -24,7 +24,7 @@ meta:
 
 <!--more--><strong>概要</strong>
 
-<img class="alignright size-full wp-image-1802" title="level" src="http://t32k.me/mol/file/2010/10/level.png" alt="" width="200" height="171" />
+<img class="alignright size-full wp-image-1802" title="level" src="/static/blog/2010/10/level.png" alt="" width="200" height="171" />
 
 もしあなたがGoogle Analyticsを使用してユーザーの基本的なインタラクションモデルを理解しようとするならば、カスタム変数から多くのことを得るでしょう。このモデルにおいて、ユーザーはサイトのコンテンツと特定の期間にわたって関与し、サイトに対するエンゲージメントは以下のような階層に分類することができます。
 

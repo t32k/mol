@@ -14,7 +14,7 @@ meta:
   pvc_views: '28246'
   _aioseop_description: 非同期トラッキングコードが公式に推奨されるようになったので、ようやく重い腰を上げて調べてみた。長文です。。。
 ---
-<a href="http://www.flickr.com/photos/subharnab/3779676969/"><img src="http://t32k.me/mol/file/2010/05/a.jpg" alt="" width="470" height="290" /></a>
+<a href="http://www.flickr.com/photos/subharnab/3779676969/"><img src="/static/blog/2010/05/a.jpg" alt="" width="470" height="290" /></a>
 <span style="color: #888888;"><em>by Subharnab</em></span>
 <ul>
 	<li><a href="http://analytics-ja.blogspot.com/2010/05/growing-google-analytics-ecosystem.html">Analytics 日本版 公式ブログ: 成長し続ける Google Analytics のエコシステム</a></li>
@@ -56,21 +56,21 @@ Analytics 公式ブログでは、非同期トラッキングコードの利点�
 
 非同期トラッキングコードについて説明していくのですが、まず前提知識としてページの読み込まれ方について解説します。HTTP/1.1の仕様に「ひとつのホスト名（EX: www.t32k.com, img.t32k.comなど）に対して並列ダウンロードできるコンポーネントは数は2つまで」と制限されています。（実際のブラウザ実装は6つとかだけど、IE6,7は2つまで）
 
-<a href="http://t32k.me/mol/file/2010/05/1.png"><img class="fig" title="1" src="http://t32k.me/mol/file/2010/05/1.png" alt="" width="460" height="110" /></a>
+<a href="/static/blog/2010/05/1.png"><img class="fig" title="1" src="/static/blog/2010/05/1.png" alt="" width="460" height="110" /></a>
 
 上記のグラフは簡単なモデルですが、すべて同じホスト名から読み込んでいます。まず、htmlファイルが読み込まれ、画像などのコンポーネントが2個ずつ読み込まれていきます。
 
 このとき、同じホスト名から読み込んでいる外部JavaScriptファイルがページの先頭で読み込まれていた場合はどうなるでしょうか？それを表したのが次のグラフです。
 
-<a href="http://t32k.me/mol/file/2010/05/2.png"><img class="fig" title="2" src="http://t32k.me/mol/file/2010/05/2.png" alt="" width="460" height="110" /></a>
+<a href="/static/blog/2010/05/2.png"><img class="fig" title="2" src="/static/blog/2010/05/2.png" alt="" width="460" height="110" /></a>
 
 どうでしょうか。仕様どおりなら「script + img」と並列に読み込まれるはずですが、そうはならずにscriptファイルひとつしか読み込まれていません。つまり、scriptファイルを最初に読み込むでしまうとダウンロード・レンダリングが止まってしまいます。そのため、<a href="http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/ref=nosim/">ハイパフォーマンスWebサイト、高速サイトの実現のための14のルール</a>のひとつ「ルール6：スクリプトは最後に置く」というものがあります。
 
-<a href="http://t32k.me/mol/file/2010/05/3.png"><img class="fig" title="3" src="http://t32k.me/mol/file/2010/05/3.png" alt="" width="460" height="110" /></a>
+<a href="/static/blog/2010/05/3.png"><img class="fig" title="3" src="/static/blog/2010/05/3.png" alt="" width="460" height="110" /></a>
 
 このような理由から、非同期以前のトラッキングコードは&lt;/body&gt;の直前に置くことが推奨されています。出来る限りページ最下部に置くことでダウンロード・レンダリングを止めないようにしています。上記のグラフのような感じですね。ページを表示するために必要なコンポーネントはscriptの手前ですべて読み込まれているのでこれが最善策なのかなと。
 
-<a href="http://t32k.me/mol/file/2010/05/4.png"><img class="fig" title="4" src="http://t32k.me/mol/file/2010/05/4.png" alt="" width="460" height="110" /></a>
+<a href="/static/blog/2010/05/4.png"><img class="fig" title="4" src="/static/blog/2010/05/4.png" alt="" width="460" height="110" /></a>
 
 しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、www.google-analytics.comから読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。
 <h4 id="section21">async属性に関して</h4>
@@ -93,10 +93,10 @@ Analytics 公式ブログでは、非同期トラッキングコードの利点�
 </blockquote>
 まぁ、実際のところどうなん？って感じなので、<a href="http://t32k.me/mol/2010/04/httpwatch/">HTTPWatch</a>(IE6で検証)で、とあるサイトの非同期トラッキングコードの実装の前後を計測したのが以下のウォーターフォールチャートです。
 
-<img class="fig" title="5" src="http://t32k.me/mol/file/2010/05/5.png" alt="" width="470" height="227" />
+<img class="fig" title="5" src="/static/blog/2010/05/5.png" alt="" width="470" height="227" />
 <em><span style="color: #888888;">&lt;/body&gt;直前に挿入したスタンダードトラッキングコードのチャート</span></em>
 
-<img class="fig" title="6" src="http://t32k.me/mol/file/2010/05/6.png" alt="" width="470" height="226" />
+<img class="fig" title="6" src="/static/blog/2010/05/6.png" alt="" width="470" height="226" />
 <span style="color: #888888;"><em>&lt;/head&gt;直前に挿入した非同期トラッキングコードのチャート</em></span>
 
 各コンポーネントの読み込み時間のブレもありますが、おおかた上記チャート図のような読み込まれ方をしています。灰色で強調されている部分がga.jsです。最初のチャート図は以前のように非同期ではないトラッキングコードで読み込んでいますので、ページの表示に必要なコンポーネントをすべて読み込んでからga.jsを読み込み、GIFリクエスト（最後のコンポーネント）をしています。

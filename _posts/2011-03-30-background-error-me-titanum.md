@@ -13,7 +13,7 @@ meta:
   pvc_views: '6063'
   _aioseop_description: "みなさんタイタンしてますか？わたし？わたしタイタン(・∀・)ｲｲ!!\r\n\r\n今日は小ネタ的な感じで徒然なるままにかきつらねてみるとかしてみるとか。"
 ---
-<img class="fig" title="install" src="http://t32k.me/mol/file/2011/03/install.jpg" alt="" width="470" height="250" />
+<img class="fig" title="install" src="/static/blog/2011/03/install.jpg" alt="" width="470" height="250" />
 
 みなさんタイタンしてますか？わたし？わたしタイタン(・∀・)ｲｲ!!
 

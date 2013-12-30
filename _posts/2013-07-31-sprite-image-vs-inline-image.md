@@ -31,12 +31,12 @@ author:
 
 このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik++
 
-<img class="aligncenter  wp-image-5056" style="text-align: center;" title="1" src="http://t32k.me/mol/file/2013/07/11.png" alt="" width="900" />
+<img class="aligncenter  wp-image-5056" style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
 
 セッション中の資料には、ご覧のとおり、HTMLがパースされてDOMが完成したところで、画面には何も表示されない。感覚的には、スタイルのついてない『Hello world!』くらい表示されてもいいじゃんか！と思うんだけど、表示されない。
-<p style="text-align: center;"><img class="aligncenter  wp-image-5055" title="2" src="http://t32k.me/mol/file/2013/07/21.png" alt="" width="900" /></p>
+<p style="text-align: center;"><img class="aligncenter  wp-image-5055" title="2" src="/static/blog/2013/07/21.png" alt="" width="900" /></p>
 次に、CSSがパースされてCSSOM（CSSのDOMみたいなもの？Style Rulesとかとも言ったりする）が構築されるが、まだ画面は空白のままだ。
-<p style="text-align: center;"><img class="aligncenter  wp-image-5054" title="3" src="http://t32k.me/mol/file/2013/07/31.png" alt="" width="900" /></p>
+<p style="text-align: center;"><img class="aligncenter  wp-image-5054" title="3" src="/static/blog/2013/07/31.png" alt="" width="900" /></p>
 DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレイアウト情報が加わって初めて描画となるんだね。この辺りの更に詳しい情報はHTML5 Rocksの以下の記事がすばらしいので読んでほしい（すぐ眠たくなるけど）。
 <ul>
 	<li><a href="http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks</a></li>
@@ -51,7 +51,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 	<li><a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/inline_sprite.html">Inline image CSS Sprites</a></li>
 </ul>
 30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを<a href="http://www.webpagetest.org/">WebPagetest</a>にかけてみた。
-<p style="text-align: center;"><a href="http://t32k.me/mol/file/2013/07/filmstrip.png"><img class="aligncenter  wp-image-5040" title="filmstrip" src="http://t32k.me/mol/file/2013/07/filmstrip.png" alt="" width="900" /></a></p>
+<p style="text-align: center;"><a href="/static/blog/2013/07/filmstrip.png"><img class="aligncenter  wp-image-5040" title="filmstrip" src="/static/blog/2013/07/filmstrip.png" alt="" width="900" /></a></p>
 <strong>ビジュアル比較テスト結果</strong>
 <ul>
 	<li><a href="http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49">WebPagetest - Visual Comparison</a></li>
@@ -71,7 +71,7 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 比較のテストはシンプルな実装だが、現実問題のサイトはもっと複雑だ。どのようなレンダリング過程になるのかはサイトそれぞれだし、DataURIにして読み込み時間を最小限するというのもひとつの手段かと思う。
 
-<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index#TOC-Measuring-Visual-Progress"><img class="aligncenter size-full wp-image-5075" title="Visual Progress" src="http://t32k.me/mol/file/2013/07/vp.png" alt="" width="900" height="520" /></a>
+<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index#TOC-Measuring-Visual-Progress"><img class="aligncenter size-full wp-image-5075" title="Visual Progress" src="/static/blog/2013/07/vp.png" alt="" width="900" height="520" /></a>
 
 ただ、我々は機械ではないので、数値を機械的に判断するのではなく、<strong>体感速度</strong>という観点からも考えなければならない。ノーマルのテストのようなブログレッシブレンダリングは、ユーザーに即座のフィードバックを返している点で、ユーザーに安心感を与えている。
 

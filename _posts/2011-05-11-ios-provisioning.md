@@ -18,7 +18,7 @@ KitchenSinkどうこうではなく、ほぼProvisioningに関するお話です
 
 あ、ちなみに私の環境はXcode 4 + Titanium Developer 1.2.2 + Titanium SDK 1.6.2です。
 
-<img class="fig" title="iOS Provisioning Portal - Apple Developer" src="http://t32k.me/mol/file/2011/05/ios.png" alt="iOS Provisioning Portal" width="470" height="240" />
+<img class="fig" title="iOS Provisioning Portal - Apple Developer" src="/static/blog/2011/05/ios.png" alt="iOS Provisioning Portal" width="470" height="240" />
 
 iPhoneアプリ公開で一番手をこまねいた作業といえばプログラミングでもなくデザインでもなく、プロビジョニングです。アプリを実機にインストールするのにもプロビジョニングファイルの作成が必須です。
 <ul>
@@ -50,7 +50,7 @@ iPhoneアプリ公開で一番手をこまねいた作業といえばプログ�
 </ul>
 DevelopmentもDistributionも基本同じ手順なので安心してください。今回はDevelopment用の証明書を作成します。
 
-<a href="http://t32k.me/mol/file/2011/05/keychain01.png"><img class="fig" title="キーチェーンアクセス" src="http://t32k.me/mol/file/2011/05/keychain01.png" alt="" width="470" height="281" /></a>
+<a href="/static/blog/2011/05/keychain01.png"><img class="fig" title="キーチェーンアクセス" src="/static/blog/2011/05/keychain01.png" alt="" width="470" height="281" /></a>
 <ol>
 	<li>キーチェーンアクセス.appを立ち上げる</li>
 	<li>証明書アシスタント &gt; <strong>認証局に証明証を要求...</strong>をクリック</li>
@@ -76,11 +76,11 @@ CAのメールアドレス：<strong>無記入</strong>
 <h3>複数のMacで開発を行いたい場合</h3>
 はい、ちょっと話はそれます。私はMac miniとMacBook Airを持ってまして両方の機器で作業したいわけです。そんなときは片方の機器で作成した証明書（developer_identity.cer）をクリックしても鍵が合わないのでうまく認識してくれません。そこで個人情報交換（Personal Information Exchange）フォーマットで書き出す必要がでてきます。
 
-<a href="http://t32k.me/mol/file/2011/05/keychain02.png"><img class="fig" title="キーチェーンアクセス.app" src="http://t32k.me/mol/file/2011/05/keychain02.png" alt="キーチェーンアクセス.app" width="470" height="182" /></a>
+<a href="/static/blog/2011/05/keychain02.png"><img class="fig" title="キーチェーンアクセス.app" src="/static/blog/2011/05/keychain02.png" alt="キーチェーンアクセス.app" width="470" height="182" /></a>
 
 キーチェーンアクセス.appを立ち上げで、iPhone Developer: USER_NAMEの証明書を選択、右クリックして、<strong><em>証明書</em>を書き出す</strong>を選択する。
 
-<a href="http://t32k.me/mol/file/2011/05/keychain03.png"><img class="fig" title="個人情報交換(.p12)" src="http://t32k.me/mol/file/2011/05/keychain03.png" alt="個人情報交換(.p12)" width="470" height="180" /></a>
+<a href="/static/blog/2011/05/keychain03.png"><img class="fig" title="個人情報交換(.p12)" src="/static/blog/2011/05/keychain03.png" alt="個人情報交換(.p12)" width="470" height="180" /></a>
 
 個人情報交換(.p12)を選択して保存。そして開発したいMacに持って行きダブルクリックしてインストール完了です。これで、複数台でのアプリケーション開発が可能となりました。
 
@@ -91,7 +91,7 @@ CAのメールアドレス：<strong>無記入</strong>
 <h2 id="devices">Devices</h2>
 次はテストしたいデバイスの登録です。これは簡単です。
 
-<a href="http://t32k.me/mol/file/2011/05/organizer.png"><img class="fig" title="Organizer" src="http://t32k.me/mol/file/2011/05/organizer.png" alt="" width="470" /></a>
+<a href="/static/blog/2011/05/organizer.png"><img class="fig" title="Organizer" src="/static/blog/2011/05/organizer.png" alt="" width="470" /></a>
 
 iPhoneをMacに繋げて、XcodeのOrganizerを立ち上げて、<strong>Identifier</strong>の部分をメモっておきましょう。
 <ul>
@@ -107,7 +107,7 @@ iPhoneをMacに繋げて、XcodeのOrganizerを立ち上げて、<strong>Identif
 </ul>
 上記ページからNew App IDをクリックして、項目を埋めていきます。
 
-<a href="http://t32k.me/mol/file/2011/05/create-app-id.png"><img class="fig" title="Create App ID" src="http://t32k.me/mol/file/2011/05/create-app-id.png" alt="Create App ID" width="470" /></a>
+<a href="/static/blog/2011/05/create-app-id.png"><img class="fig" title="Create App ID" src="/static/blog/2011/05/create-app-id.png" alt="Create App ID" width="470" /></a>
 <ol>
 	<li><strong>Description</strong>
 App IDの名前（説明文）です。</li>
@@ -121,11 +121,11 @@ App IDの名前（説明文）です。</li>
 <span style="font-size: x-small;"><a href="http://gihyo.jp/dev/serial/01/iphone/0009">目指せ！iPhoneアプリ開発エキスパート：第9回　デバイスでアプリを動かす｜gihyo.jp</a></span></blockquote>
 上記ページには*アスタリスク使うといいぜ！って書いてあるのですが、実際にアスタリスクでやると、注意（Game Center使えないよ）っぽいこと言われるので、げんなりします。（下記図参照）
 
-<a href="http://t32k.me/mol/file/2011/05/App-IDs.png"><img class="fig" title="App IDs" src="http://t32k.me/mol/file/2011/05/App-IDs.png" alt="App IDs" width="470" /></a>
+<a href="/static/blog/2011/05/App-IDs.png"><img class="fig" title="App IDs" src="/static/blog/2011/05/App-IDs.png" alt="App IDs" width="470" /></a>
 
 てことで、Submit押せばApp IDの登録完了です。
 <h2 id="provisioning">Provisioning</h2>
-<a href="http://t32k.me/mol/file/2011/05/flow.png"><img class="fig" title="flow" src="http://t32k.me/mol/file/2011/05/flow.png" alt="" width="470" height="123" /></a>
+<a href="/static/blog/2011/05/flow.png"><img class="fig" title="flow" src="/static/blog/2011/05/flow.png" alt="" width="470" height="123" /></a>
 
 ようやく最後のプロビジョニングファイルの作成です。プロビジョニングファイルっていうのはこれまで登録した情報（証明書、デバイス、App ID）を組み合わせて作成するもんです。下記のような感じですね。
 
@@ -141,7 +141,7 @@ App IDの名前（説明文）です。</li>
 <ul>
 	<li><a href="http://developer.apple.com/ios/manage/provisioningprofiles/index.action">Provisioning Profiles - iOS Provisioning Portal - Apple Developer </a></li>
 </ul>
-<a href="http://t32k.me/mol/file/2011/05/Create-iOS-Development-Provisioning-Profile.png"><img class="fig" title="Create iOS Development Provisioning Profile" src="http://t32k.me/mol/file/2011/05/Create-iOS-Development-Provisioning-Profile.png" alt="Create iOS Development Provisioning Profile" width="470" /></a>
+<a href="/static/blog/2011/05/Create-iOS-Development-Provisioning-Profile.png"><img class="fig" title="Create iOS Development Provisioning Profile" src="/static/blog/2011/05/Create-iOS-Development-Provisioning-Profile.png" alt="Create iOS Development Provisioning Profile" width="470" /></a>
 <ol>
 	<li>Profile Name：適当に</li>
 	<li>Certificates：チェックを付ける</li>
@@ -152,7 +152,7 @@ Submitボタンを押せばプロビジョニングファイルの完成です�
 <h2 id="runondevice">Run on Device</h2>
 実機にインストールする前に、<strong><a href="https://github.com/appcelerator/KitchenSink">KitchenSinkをGitHubよりダウンロード</a></strong>して、プロジェクトをインポートしておきましょう。ちなみにKitchenSinkってゆうのはTitaniumの機能を全部載っけた見本アプリのようなものです。これを動かしてどのような動きをするのか確認して、パクリたいとこはソースを見てパクるという教科書みたいなものです。
 
-<a href="http://t32k.me/mol/file/2011/05/run_on-device.png"><img class="fig" title="Run on Device" src="http://t32k.me/mol/file/2011/05/run_on-device.png" alt="Run on Device" width="470" /></a>
+<a href="/static/blog/2011/05/run_on-device.png"><img class="fig" title="Run on Device" src="/static/blog/2011/05/run_on-device.png" alt="Run on Device" width="470" /></a>
 
 はい、Titanium Developerをインスコした当初のRun on Deviceタブはこんな感じで、iOSプログラムに登録しろよーとかAppleから証明書もらってこいよーとか言われてるんですけども、プロビジョニングファイルを作成し終わればほとんどが埋まってしまいます。あとは、最後の項目にダウンロードをしてきたプロビジョニングファイルをUploadするだけです。
 

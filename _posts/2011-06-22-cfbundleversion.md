@@ -26,11 +26,11 @@ meta:
 <h2>Version (tiapp.xml)</h2>
 バージョンに関して記入するところと言えば、
 
-<img class="fig" title="Titanium Developer 1.2.2" src="http://t32k.me/mol/file/2011/06/tidev.png" alt="Titanium Developer 1.2.2" width="470" height="340" />
+<img class="fig" title="Titanium Developer 1.2.2" src="/static/blog/2011/06/tidev.png" alt="Titanium Developer 1.2.2" width="470" height="340" />
 
 Titanium Developer 1.2.2では↑ここ。
 
-<img class="fig" title="Titanium Studio" src="http://t32k.me/mol/file/2011/06/tistudio.png" alt="Titanium Studio" width="470" height="340" />
+<img class="fig" title="Titanium Studio" src="/static/blog/2011/06/tistudio.png" alt="Titanium Studio" width="470" height="340" />
 
 Titanium Studioでは↑ここですね。
 
@@ -42,7 +42,7 @@ Titanium Studioでは↑ここですね。
 <h2>Bundle version (CFBundleVersion)</h2>
 で、このtiapp.xmlの内容が、/<em>APPLICATION_PROJECT</em>/build/iphone/Info.plist のBundle version (CFBundleVersion)に反映されます。
 
-<img class="fig" title="Bundle version (CFBundleVersion)" src="http://t32k.me/mol/file/2011/06/info.png" alt="Bundle version (CFBundleVersion)" width="470" height="340" />
+<img class="fig" title="Bundle version (CFBundleVersion)" src="/static/blog/2011/06/info.png" alt="Bundle version (CFBundleVersion)" width="470" height="340" />
 
 上記はXcodeで確認した場合になります。通常のテキストエディタでInfo.plistを開いてみると
 
@@ -64,7 +64,7 @@ Titanium Studioでは↑ここですね。
 <h2>Version Number (iTunes Connect)</h2>
 ということで今回は、1.2.0って最初から出しとけば問題なかったわけですな。けどもVersion1.2.0でたぜ！ってゆうのもアレだと思った方、心配ご無用です。CFBundleVersionはいわゆる内部バージョン番号みたいなものなので、iTunes Connect（お店に並ぶときのバージョン）に出すのは別でよいのでそこは1.2って提出しときましょう。
 
-<a href="http://t32k.me/mol/file/2011/06/itunes.png"><img class="fig" title="iTunes Connect" src="http://t32k.me/mol/file/2011/06/itunes.png" alt="iTunes Connect" width="470" /></a>
+<a href="/static/blog/2011/06/itunes.png"><img class="fig" title="iTunes Connect" src="/static/blog/2011/06/itunes.png" alt="iTunes Connect" width="470" /></a>
 
 <a href="http://ja.wikipedia.org/wiki/Microsoft_Windows_7">Windows7の内部的なバージョン番号が 6.1</a>のようなものです。てことで今回僕は、1.2.1では通らなかったのでCFBundleVersionは1.3.0で提出してiTunes Conectには1.2.1を提出して無事アップデートできました。
 

@@ -13,7 +13,7 @@ meta:
   _edit_last: '1'
   pvc_views: '3743'
 ---
-<img class="alignnone size-full wp-image-1343" title="dtt" src="http://t32k.me/mol/file/2010/06/dtt.jpg" alt="" width="470" height="250" />
+<img class="alignnone size-full wp-image-1343" title="dtt" src="/static/blog/2010/06/dtt.jpg" alt="" width="470" height="250" />
 
 月イチの社内勉強会、第6回目は同僚の<a href="http://twitter.com/in0in0">@in0in0</a>氏（<a href="http://d.hatena.ne.jp/in0in0/">in0in0の日記</a>）が『ユーザビリティ』をテーマに講義を行ってくれました。
 

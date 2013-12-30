@@ -52,7 +52,7 @@ When the load event for all 5 images fired, the test was marked as “complete�
 
 次に、画像のloadイベントが発生した時を完了と見なしています、そして通常の画像パスでの読み込みはブラウザキャッシュがある状態としています。
 
-<a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/"><img class="aligncenter size-large wp-image-5194" alt="image_0" src="http://t32k.me/mol/file/2013/08/image_0-1024x768.png" width="540" height="405" /></a>
+<a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/"><img class="aligncenter size-large wp-image-5194" alt="image_0" src="/static/blog/2013/08/image_0-1024x768.png" width="540" height="405" /></a>
 
 で、結果が上記のグラフです、Android2系はほっといてAndroid4系、iOS6の差を見てみるとだいたい100ms ~ 150msくらいです。この差をどう捉えるかですね。実際のケースで考えれば、17.6KBの画像を3G回線でHTTPリクエストすればラウンドトリップだけで200ms以上はかかるでしょうし、また画像リクエストで同時接続数の1つを失ってしまい、後続のリソースのブロッキングをする可能性も出てくると考えれば、 150msくらい許容範囲ではないでしょうか？
 
@@ -71,7 +71,7 @@ HTTPリクエストを減らすという観点から言えば、大抵のもの�
 </ul>
 まぁ、こうゆうのですよね。
 
-<img class="aligncenter size-full wp-image-5196" alt="ss" src="http://t32k.me/mol/file/2013/08/ss1.png" width="556" height="154" />
+<img class="aligncenter size-full wp-image-5196" alt="ss" src="/static/blog/2013/08/ss1.png" width="556" height="154" />
 
 ボタンの文字が決め打ちだったり、幅が決まってたりする場合は単純にその画像をスプライトすればよいのですが、そうでもない場合は<span class="code">border-image</span>にしたほうが、都合が良いです。もちろん左端と右端と中央で画像を分けて各背景画像で対応するのもいいけど、やっぱり<span class="code">border-image</span>がなにかと都合が良いです。
 
@@ -125,7 +125,7 @@ HTTPリクエストを減らすという観点から言えば、大抵のもの�
 </ul>
 ですので、遅延読み込みしたのが上記です。
 
-<a href="http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G"><img class="aligncenter size-full wp-image-5198" alt="ss1" src="http://t32k.me/mol/file/2013/08/ss11.png" width="840" height="365" /></a>
+<a href="http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G"><img class="aligncenter size-full wp-image-5198" alt="ss1" src="/static/blog/2013/08/ss11.png" width="840" height="365" /></a>
 
 <a href="http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G">WebPagetest - Visual Comparison</a>
 

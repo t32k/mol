@@ -11,7 +11,7 @@ meta:
   _edit_last: '1'
   pvc_views: '1418'
 ---
-<a href="http://t32k.me/mol/file/2013/01/frontrend4.jpg"><img class="aligncenter size-full wp-image-4710" title="frontrend4" src="http://t32k.me/mol/file/2013/01/frontrend4.jpg" alt="" width="900" height="200" /></a>
+<a href="/static/blog/2013/01/frontrend4.jpg"><img class="aligncenter size-full wp-image-4710" title="frontrend4" src="/static/blog/2013/01/frontrend4.jpg" alt="" width="900" height="200" /></a>
 
 サイバーエージェントが主催するFrontrend Vol.4で開催されます。今回は肉の日に開催されるということもあってJavaScript中心としたナウいラインナップとなっております。よろしくお願いします。当日僕はたぶん司会です、たぶん。
 <ul>

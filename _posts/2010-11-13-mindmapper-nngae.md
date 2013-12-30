@@ -12,7 +12,7 @@ meta:
   _edit_last: '1'
   pvc_views: '3164'
 ---
-<img class="fig" title="mindmap" src="http://t32k.me/mol/file/2010/11/42_large.jpg" alt="" width="470" height="263" />
+<img class="fig" title="mindmap" src="/static/blog/2010/11/42_large.jpg" alt="" width="470" height="263" />
 
 月イチの社内勉強会、第11回目は弊社人事部長で石川県で一番マインドマップを描く男<a href="http://twitter.com/#!/nngae">@nngae</a>さんによるマインドマップ講座でした。細々やってきた勉強会に大物登場ですｗマインドマップとはなんぞやってことはWikipedia参照。
 <blockquote>表現したい概念の中心となるキーワードやイメージを図の中央に置き、そこから放射状にキーワードやイメージを繋げていくことで発想を延ばしていく図解表現技法。この方法によって複雑な概念もコンパクトに表現でき、非常に早く理解できるとされ、注目され始めている。人間の脳の意味ネットワークと呼ばれる意味記憶の構造によく適合しているので理解や記憶がしやすい。

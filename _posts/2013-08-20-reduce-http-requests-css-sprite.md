@@ -35,7 +35,7 @@ author:
 </ul>
 左が30個のアイコン画像をひとつ、ひとつimg要素として読み込んでいます。右は１つの背景画像（CSSスプライト）として読み込んでいます。この場合、表示完了までの差はCSSスプライトのほうが圧倒的に速いです。
 
-<img class="aligncenter size-full wp-image-5249" alt="waterfall" src="http://t32k.me/mol/file/2013/08/waterfall.png" width="885" height="552" />
+<img class="aligncenter size-full wp-image-5249" alt="waterfall" src="/static/blog/2013/08/waterfall.png" width="885" height="552" />
 
 これは前回のHTTPリクエストの仕組みを理解していれば当然のことといえます。つまり、ホスト名ごとの同時接続数やRTTが関係しています。上記のimg画像読み込みのウォーターフォールチャートを確認してみれば一目瞭然です。CSSスプライトすることで一つの画像ファイルサイズは重くなりますが、この場合、重要なのは<strong>Receiving</strong>の時間というより<strong>Waiting</strong>の時間なので、結果的にアイコン表示までの時間を短縮できています。
 
@@ -43,7 +43,7 @@ CSSスプライトの仕組み自体は簡単もので、任意の要素の中�
 
 CSSスプライトは非常に便利ですが、問題点もあります。スプライトのジレンマというのがあり、ページ数、保守性、最適化の観点から評価します。スプライトをする上でこの3つの中から2つしかとれません。
 
-<img class="aligncenter size-full wp-image-5245" alt="dilemma" src="http://t32k.me/mol/file/2013/08/dilemma.jpg" width="470" height="260" />
+<img class="aligncenter size-full wp-image-5245" alt="dilemma" src="/static/blog/2013/08/dilemma.jpg" width="470" height="260" />
 
 例えば、多くのページ数を保守性を保ちながらスプライトすると、最適化はちょっとあきらめなければいけません。また、多くのページ数を可能な限り最適化すれば保守性はあきらめなければなりません。また、保守性を意識しつつ最適化すれば、適用できるページ数は少なくなってしまいます。
 
@@ -66,7 +66,7 @@ $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --r
 </code></pre>
 <span class="code">grunt-init maple</span>を実行すると以下のようにMapleプロジェクトに必要なファイルがスキャフォルディングされ（落ちてき）ます。
 
-<img class="aligncenter size-full wp-image-5154" alt="grunt-init" src="http://t32k.me/mol/file/2013/08/grunt-init.gif" width="640" height="400" />
+<img class="aligncenter size-full wp-image-5154" alt="grunt-init" src="/static/blog/2013/08/grunt-init.gif" width="640" height="400" />
 
 落ちてきたら、<span class="code">/src/tools</span>（Gruntfile, package.jsonがある場所）に移動し、必要なGruntプラグインをインストール（<span class="code">npm install</span>）しておきます。これで下準備はOKです。
 
@@ -101,7 +101,7 @@ $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --r
 
 詳しく説明していきますと、<span class="code">$map-tabs:</span>で、スプライトしたい画像を指定しています。imgディレクトリ配下にspriteディレクトリを作ってそこにスプライト画像をおいておけば、普通の画像と区別できて便利です。このディレクトリの中に、スプライト前の１個１々独立した画像が入っています。これらの画像をCompassがまとめてくれるのです。
 
-<img class="aligncenter size-full wp-image-5246" alt="dir" src="http://t32k.me/mol/file/2013/08/dir.jpg" width="660" height="420" />
+<img class="aligncenter size-full wp-image-5246" alt="dir" src="/static/blog/2013/08/dir.jpg" width="660" height="420" />
 
 <span class="code">.sprt-a</span>で指定してある。<span class="code">@include sprite(parent, $map-tabs)</span>は、各スプライト画像の共通プロパティを吐き出す用に指定します。各スプライトのclassすべてに同じ<span class="code">background-image</span>のプロパティを吐き出されては冗長ですからね。
 
@@ -117,7 +117,7 @@ parentは親（共通）classであることを示し、$map-tabsは展開する
 
 また、Compassで生成したPNG画像は減色やメタ情報のストリップなどされていませんので、そのままではデプロイしてしまうのはいかんともしがたいです。通常、<a href="http://imageoptim.com/">ImageOptim.app</a>などのツールで画像を最適化する必要性がありますが、ドラッグ&amp;ドロップもめんどくさいので、というか忘れるので、Gruntタスクに<a href="https://github.com/JamieMason/grunt-imageoptim">grunt-imageoptim</a>というものを組み込みました。これはなんてことのないタスクで指定した画像を自動的に（imageOptim.appが立ち上がって）最適化してくれます。
 
-<img class="aligncenter size-full wp-image-5159" alt="build" src="http://t32k.me/mol/file/2013/08/build.gif" width="640" height="400" />
+<img class="aligncenter size-full wp-image-5159" alt="build" src="/static/blog/2013/08/build.gif" width="640" height="400" />
 
 Mapleプロジェクトでは、<span class="code">grunt build</span>でCSSがlintされ、Compassでコンパイルされ、CSSがminifyされ、画像がimageOptimされるというタスクを組んでありますので、忘れることもありません。
 

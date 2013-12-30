@@ -17,7 +17,7 @@ meta:
   _aioseop_keywords: iphone developer program
   _aioseop_description: "な…　何を言ってるのか　わからねーと思うが\r\nおれも何をされたのかわからなかった…"
 ---
-<img class="alignnone size-full wp-image-2653" title="activationcode" src="http://t32k.me/mol/file/2011/03/activationcode.png" alt="" width="470" height="369" />
+<img class="alignnone size-full wp-image-2653" title="activationcode" src="/static/blog/2011/03/activationcode.png" alt="" width="470" height="369" />
 
 有料プログラム的な意味でってことです。
 初めに言っておきますが、これかなりの無理ゲーですわ...

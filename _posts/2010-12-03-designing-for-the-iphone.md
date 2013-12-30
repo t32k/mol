@@ -13,7 +13,7 @@ meta:
   pvc_views: '2956'
   _wp_old_slug: ''
 ---
-<img class="fig" title="dtt12" src="http://t32k.me/mol/file/2010/12/dtt12.jpg" alt="" width="470" height="264" />
+<img class="fig" title="dtt12" src="/static/blog/2010/12/dtt12.jpg" alt="" width="470" height="264" />
 
 月イチの社内勉強会、第12回目は<a href="http://www.amazon.co.jp/exec/obidos/ASIN/4899772750/warikiru-22/ref=nosim/">HTML5＋CSS3で作る 魅せるiPhoneサイト</a>の著者であり、関西Web業界の重鎮、来年の1/22には<a href="http://lp13.cssnite.jp/">CSS Nite LP, Disk 13</a>での講演を控えているスーパースター <a href="http://twitter.com/#!/hiloki">@hiloki</a> さんによる「Designing for the iPhone」でした！
 

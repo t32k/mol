@@ -35,7 +35,7 @@ meta:
 	<li><a href="#conclusion">まとめ | Conclusion</a></li>
 </ul>
 <h3 id="news">Web Performanceは死んだか？</h3>
-<img class="fig" title="wpo.003" src="http://t32k.me/mol/file/2010/11/wpo.003.png" alt="" width="470" height="352" />
+<img class="fig" title="wpo.003" src="/static/blog/2010/11/wpo.003.png" alt="" width="470" height="352" />
 
 ちょっと釣りっぽい見出しですが、最近パフォーマンスの話、聞かないですよね？去年の暮れあたりが賑わい的にピークだったかと思います。(※Googleのランキングアルゴリズ追加に関しても情報全くないですし...)とはいえ、結構パフォーマンス事情は賑やかですってのをこれから紹介していきます。
 <h4>Web Performance Working Group</h4>
@@ -55,7 +55,7 @@ window.performance.navigation.loadEnd みたいな感じでページの読み込
 <h4>Boomerang.js</h4>
 それじゃ利用するにはまだまだ先の話だと思うのですが、そうでもないんですね。次に紹介するのはオープンソースのパフォーマンス計測ライブラリの<a href="http://yahoo.github.com/boomerang/doc/ja/">Boomerang.js </a>です。開発者は Yahoo! Inc. の Philip Tellis さんです。この Boomerang.js 先に紹介したパフォーマンス計測APIに似た機能を提供してくれます。（はてブコメントより、ブラウザがそのAPIをサポートしていればそれを利用するみたいですね。ありがとうございます。参考：<a href="http://developer.yahoo.com/blogs/ydn/posts/2010/07/boomerang_webtiming_api/">Boomerang and the WebTiming API · YDN Blog</a> ）
 
-<img class="fig" title="wpo.006" src="http://t32k.me/mol/file/2010/11/wpo.006.png" alt="" width="470" height="352" />
+<img class="fig" title="wpo.006" src="/static/blog/2010/11/wpo.006.png" alt="" width="470" height="352" />
 
 普通、自前でページのパフォーマンス計測しようと思うと、HEAD要素あたりに、new DateしてgetTimeで現在時刻を取ってきて、BODYの最後のほうでまたgetTimeして、その差分の時間を計測するといったことをするかと思います。これですと、最初のnew Dateから次のnew Dateするまでの時間、つまりドキュメント内での時間しか計測できてないわけですね。もっと重要なサーバーとのやりとりの時間、ネットワークのレイテンシなども考慮されていないわけです。これじゃいかんやろうと言うことで、このBoomerang.js を使うとどうなるかと言うと、BODY要素の最後らへんでBoomerang.jsを読み込み、初期化関数を書くだけで、ネットワークのレイテンシなどの時間を計測することが可能です。また取得した情報を任意のサーバーに送れることも可能です。
 
@@ -71,7 +71,7 @@ window.performance.navigation.loadEnd みたいな感じでページの読み込
 
 これまで見てきたように言わずもがなWPOというのは私たちにとって常に最重要課題なのではないかと考えます。さらに、前述のパフォーマンス計測の標準化が進めば、皆が同じルールの環境下で比較されるので、パフォーマンスが良いということはセールスポイントになることはもちろん、今後はミリ秒単位での厳しい争いになったりするのかなと考えます。
 <h3 id="machine">機械は進化する</h3>
-<img class="fig" title="wpo.011" src="http://t32k.me/mol/file/2010/11/wpo.011.png" alt="" width="470" height="352" />
+<img class="fig" title="wpo.011" src="/static/blog/2010/11/wpo.011.png" alt="" width="470" height="352" />
 
 Webパフォーマンスというのは重要なのは理解できたかと思うので、今度はそれを対策するために機械（コンピュータ）の部分に目を向けてみましょう。
 <h4>ムーアの法則</h4>
@@ -79,7 +79,7 @@ Webパフォーマンスというのは重要なのは理解できたかと思�
 
 Webの世界においても同じことが言えます。現在、WPO でもっとも有効な対策であるHTTPリクエストを減らすこと。これまで２度クライアントサイドでのパフォーマンスについて話してきましたが、言っていることはただ一つです。HTTPリクエストを減らすことしか僕は言っていません。現状はリクエストを減らすには、イメージマップ、CSSスプライト、インライン画像、ファイルの結合といったことが挙げられます。では、こういった対策がブラウザ（機械）の改善（進化）が進めばどのように変わるのか次は見ていきましょう
 <h4>CSS3</h4>
-<img class="fig" title="wpo.014" src="http://t32k.me/mol/file/2010/11/wpo.014.png" alt="" width="470" height="352" />
+<img class="fig" title="wpo.014" src="/static/blog/2010/11/wpo.014.png" alt="" width="470" height="352" />
 
 まずはCSS3。画像はコニッターさんの<a href="http://re-dzine.net/apple/iphone/2010/06/17/css3-iphone4/">iPhone4をCSS3で描いてみた</a>です！このような込み入ったものもCSS3で描けるということは、言わずもがなグラデーションボタンや見出しの背景画像といった比較的簡単なものならCSS３で十分事足りる可能性は大きいわけです。
 
@@ -105,34 +105,34 @@ Webの世界においても同じことが言えます。現在、WPO でもっ�
 
 とはいえ、実際問題、各ブラウザが一斉に改善（アップデート）されるわけではありませんので、各ブラウザの実装度を見つつ対応しなければならない状況は続きます。つまり、私たち製作者はは常に走り続けなければなりません(‘･ω･｀）...
 <h3 id="human">人間は変わらない</h3>
-<img class="fig" title="wpo.020" src="http://t32k.me/mol/file/2010/11/wpo.020.png" alt="" width="470" height="352" />
+<img class="fig" title="wpo.020" src="/static/blog/2010/11/wpo.020.png" alt="" width="470" height="352" />
 
 そこで、人間側に着目する必要があります。人間というのは昔から何も変わっていません。オギャーって生まれて恋をしてカクカクシカジカで死んでいくわけですよ。少なくとも、2年毎に2倍成長しているかといえばそうではありません。
 
-<img class="fig" title="wpo.021" src="http://t32k.me/mol/file/2010/11/wpo.021.png" alt="" width="470" height="352" />
+<img class="fig" title="wpo.021" src="/static/blog/2010/11/wpo.021.png" alt="" width="470" height="352" />
 
 要はこれまでは機械側ばっかりに着目してきたわけですけど、ここは進化が速い、ついて行くのはしんどいってことで、もっと変化の遅い人間側に着目しましょう。そうすればもっと楽できるかもしれませんってのが今回のセッションの狙いでもあります。
 <p style="text-align: center;"><span style="font-size: medium;"><span style="color: #800080;"><strong><span style="color: #999999;">認知・知覚・感受・体感</span> | Perception</strong></span></span></p>
 そこで、人間は知るうえで重要になってくるのが知覚の問題です。理論的に人間は最大で、1秒間126bit、 1分感で7560ビット、1時間50万ビットくらいの大量の情報を処理できるそうです。でも実際は毎秒10ビットくらいしか処理していません。つまり、結構省エネ、 相対的に判断したり、これまでの知識を元に判断したりして情報を簡略して処理しています。 <strong>つまり、世界をありのままにインプットしているわけではありません。</strong>
 
-<strong><a href="http://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%89%E3%83%BC%E9%8C%AF%E8%A6%96"><img class="fig" src="http://t32k.me/mol/file/2010/11/wp.023-001.png" alt="チェッカーシャドウ錯視" width="470" height="352" /></a>
+<strong><a href="http://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%89%E3%83%BC%E9%8C%AF%E8%A6%96"><img class="fig" src="/static/blog/2010/11/wp.023-001.png" alt="チェッカーシャドウ錯視" width="470" height="352" /></a>
 </strong>
 
 このことを理解するのに良い例があります。上記の図のA、Bのマスの色は違いますよね、実は2つは同じ色なんですね。2本のグレーの線を引きますと、同じ#6B6B6Bのグレーだと理解できます。
 
-<a href="http://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%93%E3%83%B3%E3%82%B0%E3%83%8F%E3%82%A6%E3%82%B9%E9%8C%AF%E8%A6%96"><img class="fig" src="http://t32k.me/mol/file/2010/11/wp.024-001.png" alt="エビングハウス錯視" width="470" height="352" /></a>
+<a href="http://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%93%E3%83%B3%E3%82%B0%E3%83%8F%E3%82%A6%E3%82%B9%E9%8C%AF%E8%A6%96"><img class="fig" src="/static/blog/2010/11/wp.024-001.png" alt="エビングハウス錯視" width="470" height="352" /></a>
 
 もう1つ例がありますので紹介します。こちらは2つのオレンジ色の円の大きさは左の円の大きさの方が小さく感じます。しかし、これも周りのオブジェクトを消してみると同じ大きさというのが分かりますよね。
 
 つまり、人間というのは曖昧に世界を知覚しているのが理解できるかと思います。
 
-<img class="fig" title="wp.025-001" src="http://t32k.me/mol/file/2010/11/wp.025-001.png" alt="" width="470" height="352" />
+<img class="fig" title="wp.025-001" src="/static/blog/2010/11/wp.025-001.png" alt="" width="470" height="352" />
 
 これは、別に視覚だけに限ったことではありません。時間感覚においても同じようなこと言えます。<a href="http://www.newscientist.com/article/mg15220571.700-why-time-flies-in-old-age.html">アメリカの神経科学学会の人が発表したレポート</a>によると、同じ3分という時間でも、若い人とお年を召した方では体感時間が違うといったデータが報告されています。この調査によると若い人にとっては3分は自分で秒数をカウントするとで実際は平均3:03秒くらいだったそうです。対して、60歳以上の人にとって3分は3:40秒に感じられたようです。つまり、お年を召した方のほうが流れている時間は速く感じているようです。
 
 時間感覚は年齢以外にも、地理的条件で違ったり、文化気候、体温によっても影響をうけるようです。もうちょっと具体的にWebではどんな事例があるかと言いますと、
 
-<img class="fig" title="wp.027-001" src="http://t32k.me/mol/file/2010/11/wp.027-001.png" alt="" width="470" height="352" />
+<img class="fig" title="wp.027-001" src="/static/blog/2010/11/wp.027-001.png" alt="" width="470" height="352" />
 
 User Interface Engineering Blog が<a href="http://www.uie.com/articles/download_time/">2001年に調べた調査</a>があります。ユーザーに10個の違うサイトを使ってもらってどのサイトが一番速く感じたか？という調査です。
 
@@ -167,7 +167,7 @@ User Interface Engineering Blog が<a href="http://www.uie.com/articles/download
 
 この人間編をまとめますと、人間を曖昧で相対的です。しかし、フローといったモデルをうまく利用することでWPOにもうまく利用できると考えます。
 <h3 id="practice">実践編</h3>
-<img class="fig" title="wp.035-001" src="http://t32k.me/mol/file/2010/11/wp.035-001.png" alt="" width="470" height="352" />
+<img class="fig" title="wp.035-001" src="/static/blog/2010/11/wp.035-001.png" alt="" width="470" height="352" />
 
 さて、ここからはWebサイトにフローを落とし込むためにはどうしたら良いのか考えてみましょう。
 
@@ -181,7 +181,7 @@ Webインターフェイスをデザインするパターンはいろいろあ�
 <h4>Progressive Rendering</h4>
 次のフィードバックはもう少し短いスパンにおいてのフィードバックです。プログレッシブレンダリングとは、まぁプログレッシブエンハンスメントという言葉もあるように、漸次的、段階的レンダリングと考えればよいでしょう。つまり、真っ白なページから、いきなりページが表示されるのではなく、ヘッダー、サイドナビ、メインコンテンツといった具合に順々にレンダリングしていく具合です。
 
-<img class="fig" title="wp.041-001" src="http://t32k.me/mol/file/2010/11/wp.041-001.png" alt="" width="470" height="352" />
+<img class="fig" title="wp.041-001" src="/static/blog/2010/11/wp.041-001.png" alt="" width="470" height="352" />
 
 プログレッシブレンダリングで有名な<a href="http://radar.oreilly.com/2009/06/bing-and-google-agree-slow-pag.html">Bingの事例</a>のよると、Bingの検索結果画面はそれまでプログレッシブレンダリングしてませんでした。検索クエリを入力して結果が表示されるまでに真っ白な画面をユーザーに表示させていました。そこで、スライドの紫色の選より上の部分、ビジュアルヘッダーの部分是が非でもまず表示させるように対応したようです。そうしただけで、各種評価は軒並み上昇しました。中でも、ユーザーの満足度は0.7％上昇と、ページをリニューアルしたとき並の効果があったようです。
 
@@ -200,7 +200,7 @@ Webインターフェイスをデザインするパターンはいろいろあ�
 </ul>
 Web Designにフローを落としこむテクニックはフィードバック以外にも上記のようなものがありますので、みなさんも取り入れてみてはどうでしょうか？
 <h3 id="conclusion">まとめ</h3>
-<img class="fig" title="wp.044-001" src="http://t32k.me/mol/file/2010/11/wp.044-001.png" alt="" width="470" height="352" />
+<img class="fig" title="wp.044-001" src="/static/blog/2010/11/wp.044-001.png" alt="" width="470" height="352" />
 
 これからもブラウザは進化し続けます。結局、何のためにWebパフォーマンス最適化をするのか？といったことですよね。決して、YSlow のスコアのためでもなければ、開発者の自己満足のためにでもありまん。ユーザーのために最適化するわけです。
 
@@ -208,7 +208,7 @@ Web Designにフローを落としこむテクニックはフィードバック�
 
 そういった知識をWebに落としこむことで、冒頭で申し上げました Long Life Web Performance Optimization は可能になると考えます。みなさんもより良いWeb Developer Lifeにしてみてください。
 
-<img class="fig" title="wp.048-001" src="http://t32k.me/mol/file/2010/11/wp.048-001.png" alt="" width="470" height="352" />
+<img class="fig" title="wp.048-001" src="/static/blog/2010/11/wp.048-001.png" alt="" width="470" height="352" />
 
 ありがとうございました。
 <h3>参考書籍</h3>

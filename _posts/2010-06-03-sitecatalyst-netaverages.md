@@ -68,7 +68,7 @@ Webデザイナーとしては、BroeserLabが気になるところですが、�
 
 実際のSiteCatalyst NetAveragesのインターフェイスは下図のような感じです。デスクトップとモバイルでメニューが2つにわかれています。
 
-デスクトップメニューのブラウザーバージョンはIE8が前月比で1.0%, 前年比で21.5%上昇したということが分かります。<a href="http://www.flickr.com/photos/t32k/4662587661/sizes/o/"><img class="fig" title="Browser Version" src="http://t32k.me/mol/file/2010/06/desktop.png" alt="" width="470" height="231" /></a>
+デスクトップメニューのブラウザーバージョンはIE8が前月比で1.0%, 前年比で21.5%上昇したということが分かります。<a href="http://www.flickr.com/photos/t32k/4662587661/sizes/o/"><img class="fig" title="Browser Version" src="/static/blog/2010/06/desktop.png" alt="" width="470" height="231" /></a>
 
 その他にも以下のようなことが分かります。
 <ul>
@@ -82,7 +82,7 @@ Webデザイナーとしては、BroeserLabが気になるところですが、�
 	<li>画面解像度</li>
 	<li>ブラウザータイプ</li>
 </ul>
-モバイルメニューのデバイス名では、Apple iPhoneが前月比-2.8%だということを教えてくれます。<a href="http://www.flickr.com/photos/t32k/4662587565/sizes/o/"><img class="fig" title="Mobile Devices" src="http://t32k.me/mol/file/2010/06/mobile.png" alt="" width="470" height="231" /></a>
+モバイルメニューのデバイス名では、Apple iPhoneが前月比-2.8%だということを教えてくれます。<a href="http://www.flickr.com/photos/t32k/4662587565/sizes/o/"><img class="fig" title="Mobile Devices" src="/static/blog/2010/06/mobile.png" alt="" width="470" height="231" /></a>
 
 その他にも以下のようなことが分かります。
 <ul>
@@ -129,4 +129,4 @@ SiteCatalystも、今回はCSファミリーとしてはなかったけど、<a 
 	<li><a href="http://an-k.jp/blog/archives/1921">解析しないと！やります！ | dIG iT </a></li>
 	<li><a href="http://www.cms-ia.info/news/adobe-kaiseki-shi-night/">6/7 解析しないと！に出演します :: 実践CMS*IA </a></li>
 </ul>
-<a href="http://station5.jp/seminar/list.html"><img class="fig" title="解析しないと！" src="http://t32k.me/mol/file/2010/06/analyticsnight.png" alt="解析しないと！" width="300" height="375" /></a>
+<a href="http://station5.jp/seminar/list.html"><img class="fig" title="解析しないと！" src="/static/blog/2010/06/analyticsnight.png" alt="解析しないと！" width="300" height="375" /></a>

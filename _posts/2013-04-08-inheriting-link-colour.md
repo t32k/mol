@@ -12,7 +12,7 @@ meta:
   pvc_views: '3046'
   _aioseop_description: おら、inheritなんて使う日が来るとはおもってなかっただよー。
 ---
-<p style="text-align: center;"><img class="aligncenter size-full wp-image-4776" title="listviews" src="http://t32k.me/mol/file/2013/04/link.png" alt="" width="860" height="450" /></p>
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-4776" title="listviews" src="/static/blog/2013/04/link.png" alt="" width="860" height="450" /></p>
 最近のスマホサイトとかコーディングしてるとこーゆうリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりなんかアクションしたりする。
 
 こーゆのコーディングするとなると、ul &gt; li &gt; aでaをblock要素にしたりする。そんとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。

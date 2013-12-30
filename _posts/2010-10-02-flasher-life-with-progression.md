@@ -13,7 +13,7 @@ meta:
   _edit_last: '1'
   pvc_views: '3702'
 ---
-<a href="http://t32k.me/mol/file/2010/10/dtt10.jpg"><img class="fig" title="dtt10" src="http://t32k.me/mol/file/2010/10/dtt10.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2010/10/dtt10.jpg"><img class="fig" title="dtt10" src="/static/blog/2010/10/dtt10.jpg" alt="" width="470" height="263" /></a>
 
 月イチの社内勉強会も今回で10回目となりました。いろいろ感慨深いところはありますが記念すべき10回目を飾るスピーカーは福井のスーパーデザイナー <a href="http://twitter.com/shirokuro331">@shirokuro331</a>さんでした。
 

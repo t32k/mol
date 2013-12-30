@@ -34,7 +34,7 @@ author:
 </ul>
 <h2>Bandwidth Throttling - Charles <span style="font-size: 13px;"> </span></h2>
 <div></div>
-<div><img class="alignnone size-full wp-image-5086" title="Bandwidth Throttling - Charles  " src="http://t32k.me/mol/file/2013/08/bs1.png" alt="" width="550" height="570" /></div>
+<div><img class="alignnone size-full wp-image-5086" title="Bandwidth Throttling - Charles  " src="/static/blog/2013/08/bs1.png" alt="" width="550" height="570" /></div>
 <div></div>
 <div>Charlesはよく使うツール。といっても、デスクトップでこの機能使うくらいなんだけど。</div>
 <div>詳しい使い方はこもりさんの記事がわかりやすい。</div>
@@ -46,7 +46,7 @@ author:
 </div>
 <div></div>
 <div></div>
-<div> <img class="alignnone size-full wp-image-5090" title="network" src="http://t32k.me/mol/file/2013/08/network.png" alt="" width="660" height="570" /></div>
+<div> <img class="alignnone size-full wp-image-5090" title="network" src="/static/blog/2013/08/network.png" alt="" width="660" height="570" /></div>
 <div>ちなみに、MacでIPアドレスを確認したい場合は、<strong>システム環境設定 ＞ ネットワーク ＞ 詳細 ＞ TCP/IP</strong>でみれます。</div>
 <div></div>
 <div>で、このIPをAndroidの端末に設定してあげれば行けるわけですね。けど、記事にはiOSの設定しか書いてない！ということでググったらネットワークの部分長押しでプロキシ設定項目がでてくるらしい。。。</div>
@@ -54,7 +54,7 @@ author:
 <ul>
 	<li><a href="http://ameblo.jp/yongmars/entry-11339671898.html">忘れないように 『プロキシ設定』｜スイーツ＠インデックス リバース </a></li>
 </ul>
-<div><a href="http://t32k.me/mol/file/2013/08/ss.png"><img class="alignnone size-full wp-image-5087" title="" src="http://t32k.me/mol/file/2013/08/ss.png" alt="" width="338" height="600" /></a></div>
+<div><a href="/static/blog/2013/08/ss.png"><img class="alignnone size-full wp-image-5087" title="" src="/static/blog/2013/08/ss.png" alt="" width="338" height="600" /></a></div>
 </div>
 どうでもいいけど、<a href="http://juggly.cn/archives/75086.html">Android 4.2で「開発者向けオプション」を表示する方法</a> とかも分かりにくいよね。。
 

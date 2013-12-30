@@ -21,7 +21,7 @@ excerpt: "このシリーズはHTTPリクエストの理解を通じてWebパフ
 
 例えに、私のポートフォリオページ（<a href="http://t32k.me/">http://t32k.me/</a>）が表示されるまでの流れを見て行きましょう。まず、ブラウザのURLバーにt32k.meと打ち込んで、アクセスします。検索からでも方法はなんでもよいのですが、そのページを見に行くということは、結局はt32k.meに対してhttpスキームでリクエストするということを意味しています。
 
-<a href="http://www.slideshare.net/t32k/ss-15915114/27"><img class="size-full wp-image-5128 aligncenter" alt="HTTPリクエストの中身" src="http://t32k.me/mol/file/2013/08/requests.gif" width="640" height="400" /></a>
+<a href="http://www.slideshare.net/t32k/ss-15915114/27"><img class="size-full wp-image-5128 aligncenter" alt="HTTPリクエストの中身" src="/static/blog/2013/08/requests.gif" width="640" height="400" /></a>
 
 クライアントであるブラウザは、入力されたURLを判断して、リソース（この場合HTMLファイル）を要求しにいきます。このとき、t32k.meというドメインはあくまで人間が覚えやすいように考えられた仕組みなので、ブラウザはこれだけではリソースに到達出来ません。そこでドメインをIPアドレス（192.0.2.0とかそうゆうの）に正引き（変換）する必要性があります。この作業を<b>DNS Lookup</b>（名前解決）といいます。たいてい、ISPのDNSサーバーに問い合わせたりして解決します。
 
@@ -35,7 +35,7 @@ excerpt: "このシリーズはHTTPリクエストの理解を通じてWebパフ
 
 そして、最後のパケットが送り終えた時点までが、<strong>Receiving</strong>の時間になります。ここがいわゆるファイルのダウンロード時間にかかる時間です。
 
-<img class="aligncenter size-full wp-image-5134" alt="network" src="http://t32k.me/mol/file/2013/08/network1.png" width="639" height="220" />
+<img class="aligncenter size-full wp-image-5134" alt="network" src="/static/blog/2013/08/network1.png" width="639" height="220" />
 
 ちなみに、これらのタイミングにかかる時間は、<a href="https://developers.google.com/chrome-developer-tools/docs/network?hl=ja">Google ChromeのDeveloper ToolsのNetworkパネル</a>のTimingタブで確認出来ます。
 
@@ -47,13 +47,13 @@ t32k.meのネットワークにかかる情報をまとめたHARファイルに�
 
 * HAR - <a href="http://www.softwareishard.com/blog/har-12-spec/">HTTP Archive format</a>
 
-<img class="aligncenter size-full wp-image-5140" alt="har" src="http://t32k.me/mol/file/2013/08/har.png" width="977" height="366" />
+<img class="aligncenter size-full wp-image-5140" alt="har" src="/static/blog/2013/08/har.png" width="977" height="366" />
 
 どうでしょう、見た感じで、紫色のバーが多いことに気づきますよね。つまりWatitingに多くの時間がかかっていることが理解出来ます。これは、単純にサーバーの処理が遅くて時間がかかっているのではなく（かかっていることもありますが）、たいていはホスト名ごとの同時接続数に起因するものです。
 
 ひとつの完全修飾ドメイン名 (FQDN: Fully Qualified Domain Name)に対して、同時接続できる数はたいてい6つまでです。これを超える数のリクエストがくると、7つ目のリクエストは、最初の6つのリクエスト処理がどれかが完了される間、待たなければなりません。この時間も<del>Watitng</del>待ち時間になります。
 
-<a href="http://www.browserscope.org/?category=network&amp;v=top-m&amp;ua=Android%202.3%2CAndroid%204%2CiPhone%205"><img class="aligncenter size-full wp-image-5138" alt="connections" src="http://t32k.me/mol/file/2013/08/connections.png" width="640" height="225" /></a>
+<a href="http://www.browserscope.org/?category=network&amp;v=top-m&amp;ua=Android%202.3%2CAndroid%204%2CiPhone%205"><img class="aligncenter size-full wp-image-5138" alt="connections" src="/static/blog/2013/08/connections.png" width="640" height="225" /></a>
 
 このような仕組みのため、一般的に静的ファイルはstatic.t32k.meなどの別ドメインから読み込むことによって、この同時接続数の上限を最大化しようとするのがドメイン・シャーディング（Domain Sharding）という手法です。これにより並列ダウンロードできる数を増やし、リソースのWaitingを可能な限り少なくしています。並列ダウンロード数が増えるからと言って10個の違うドメインから読み込んだとすれば、クライアントの最大コネクション数を大きく超えて意味がなかったり、また最初に説明したDNSルックアップの時間が増えたりして逆に弊害をもたらすようになるので、2,3つあたりのドメインを使うのが無難です。
 

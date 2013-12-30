@@ -13,7 +13,7 @@ meta:
   pvc_views: '4147'
   _aioseop_description: ちょお願いだから、一回だけ！一回だけ！一回だけでいいから買って！まじで一回だけでいいから、いや二回三回と言わず、つかお金ください！！！！
 ---
-<a href="https://marketplace.appcelerator.com/home"><img class="fig" title="Appcelerator Open Mobile Marketplace" src="http://t32k.me/mol/file/2012/02/aomm.png" alt="" width="500" height="156" /></a>
+<a href="https://marketplace.appcelerator.com/home"><img class="fig" title="Appcelerator Open Mobile Marketplace" src="/static/blog/2012/02/aomm.png" alt="" width="500" height="156" /></a>
 
 新年明けましたですね、おめでたですね。ということで先月、Ti.tokyo.GIG 2012新年会なるものに参加しまして、それはそれはモチベーションをあげてもらいました。ありがとうございました。やはり同じ志の人らが集まってワイワイするのは楽しいです。
 <ul>

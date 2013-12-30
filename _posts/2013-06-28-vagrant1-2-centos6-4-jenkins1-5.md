@@ -7,7 +7,7 @@ type: post
 published: true
 excerpt: "我もJenkins触ってみたかったんや..."
 ---
-![](http://t32k.me/mol/file/2013/06/vj.png)
+![](/static/blog/2013/06/vj.png)
 
 我も<a href="http://jenkins-ci.org/">Jenkins</a>触ってみたかったんや...
 
@@ -125,7 +125,7 @@ $ vagrant reload
 
 <a href="http://localhost:8001/">http://localhost:8001/</a>でJenkinsのホーム画面が表示されれば成功です。
 
-![](http://t32k.me/mol/file/2013/06/232fb3827d5a5421172fdd16db1ad854.png)
+![](/static/blog/2013/06/232fb3827d5a5421172fdd16db1ad854.png)
 
 ほらね、簡単でしょ？
 

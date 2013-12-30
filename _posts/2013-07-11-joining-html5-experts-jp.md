@@ -15,7 +15,7 @@ author:
   bio: Front-end Developer
   image: t32k.png
 ---
-<p style="text-align: center;"><a href="http://html5experts.jp/"><img class="aligncenter size-full wp-image-5000" title="HTML5 Experts.jp" src="http://t32k.me/mol/file/2013/07/logo_horizontal.png" alt="" width="600" height="95" /></a></p>
+<p style="text-align: center;"><a href="http://html5experts.jp/"><img class="aligncenter size-full wp-image-5000" title="HTML5 Experts.jp" src="/static/blog/2013/07/logo_horizontal.png" alt="" width="600" height="95" /></a></p>
 昨日、<a href="http://www.ntt.com/release/monthNEWS/detail/20130710.html">NTTコミュニケーションズさんからプレスリリース</a>があったように、日本のHTML5関連技術のエキスパートが集まった<a href="http://html5experts.jp/">HTML5 Experts.jp</a>が始まりました。
 <ul>
 	<li><a href="http://www.facebook.com/html5exp">HTML5 Experts.jp | Facebook </a></li>

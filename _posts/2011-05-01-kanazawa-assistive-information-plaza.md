@@ -28,9 +28,9 @@ meta:
 
 <!--more-->
 <h2>会議室, 40人程度</h2>
-<a href="http://t32k.me/mol/file/2011/05/DSC05281.jpg"><img class="fig" title="金沢福祉用具情報プラザ　会議室.1" src="http://t32k.me/mol/file/2011/05/DSC05281.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2011/05/DSC05281.jpg"><img class="fig" title="金沢福祉用具情報プラザ　会議室.1" src="/static/blog/2011/05/DSC05281.jpg" alt="" width="470" height="263" /></a>
 
-<a href="http://t32k.me/mol/file/2011/05/DSC05282.jpg"><img class="fig" title="金沢福祉用具情報プラザ　会議室.2" src="http://t32k.me/mol/file/2011/05/DSC05282.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2011/05/DSC05282.jpg"><img class="fig" title="金沢福祉用具情報プラザ　会議室.2" src="/static/blog/2011/05/DSC05282.jpg" alt="" width="470" height="263" /></a>
 <table style="width: 120px;" border="0" cellspacing="1" cellpadding="3">
 <tbody>
 <tr>

@@ -16,7 +16,7 @@ meta:
   _topsy_long_url: http://t32k.me/mol/2009/12/akamai-yahoo-japan/
   topsy_short_url: http://bit.ly/a9uPOy
 ---
-<img title="YAHOO!" src="http://t32k.me/mol/file/2009/12/yhoo.jpg" alt="" width="470" height="120" />
+<img title="YAHOO!" src="/static/blog/2009/12/yhoo.jpg" alt="" width="470" height="120" />
 
 これまた先週の話ですが、<a href="http://yasuyuki.vox.com/library/post/akamai-on-dec-11-friday.html">Akamai勉強会</a>に参加してきました。 <a href="http://www.akamai.co.jp/enja/">Akamai</a>と言えば<a href="http://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%83%87%E3%83%AA%E3%83%90%E3%83%AA%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF">CDN</a>、CDNと言えば<a href="http://warikiru.blogspot.com/2008/05/high-performance-web-sites.html">Yahoo!高速化14のルールの2番目の項目『CDNを使う』</a>ということで、HTTPリクエストを減らす事に次いで、有効な対策として挙げられていますが、個人サイトでCDNを使うなんてことは金銭的に無理な面もあって、特に考えてきませんでした。
 
@@ -37,7 +37,7 @@ meta:
 <h3>勉強会</h3>
 肝心の勉強会なんですけども、Akamaiさんのお話は『皆さん大人の対応でお願いしますよ！』ってことで、Yahoo!さんの事例もオフレコってことらしいので、よくわからないガキンチョの僕に書けることは特にないです。サーセンｗ
 
-<img class="alignnone size-full wp-image-1601" title="akamai" src="http://t32k.me/mol/file/2009/12/akamai.jpg" alt="" width="470" height="190" />
+<img class="alignnone size-full wp-image-1601" title="akamai" src="/static/blog/2009/12/akamai.jpg" alt="" width="470" height="190" />
 
 ただ、印象的だったのが、Akamaiさんが『お金があればなんでも出来る！』と言い、Yahoo!さんは『お金使ってAkamai使えばいいってもんじゃねーぞ！』と言っていたのが興味深かったです。
 

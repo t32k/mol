@@ -33,7 +33,7 @@ meta:
 
 <!--more-->
 <h2>研修室1, 40人程度</h2>
-<a href="http://t32k.me/mol/file/2011/04/DSC05268.jpg"><img class="fig" title="研修室1" src="http://t32k.me/mol/file/2011/04/DSC05268.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2011/04/DSC05268.jpg"><img class="fig" title="研修室1" src="/static/blog/2011/04/DSC05268.jpg" alt="" width="470" height="263" /></a>
 <table style="width: 470px;" border="0" cellspacing="1" cellpadding="3">
 <tbody>
 <tr>
@@ -51,7 +51,7 @@ meta:
 </tbody>
 </table>
 <h2>研修室2, 35人程度</h2>
-<a href="http://t32k.me/mol/file/2011/04/DSC05271.jpg"><img class="fig" title="研修室2" src="http://t32k.me/mol/file/2011/04/DSC05271.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2011/04/DSC05271.jpg"><img class="fig" title="研修室2" src="/static/blog/2011/04/DSC05271.jpg" alt="" width="470" height="263" /></a>
 <table style="width: 470px;" border="0" cellspacing="1" cellpadding="3">
 <tbody>
 <tr>
@@ -70,7 +70,7 @@ meta:
 </table>
 &nbsp;
 <h2>研修室3, 10人程度</h2>
-<a href="http://t32k.me/mol/file/2011/04/DSC05276.jpg"><img class="fig" title="研修室3" src="http://t32k.me/mol/file/2011/04/DSC05276.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2011/04/DSC05276.jpg"><img class="fig" title="研修室3" src="/static/blog/2011/04/DSC05276.jpg" alt="" width="470" height="263" /></a>
 <table style="width: 470px;" border="0" cellspacing="1" cellpadding="3">
 <tbody>
 <tr>
@@ -88,7 +88,7 @@ meta:
 </tbody>
 </table>
 <h2>集会室, 90人程度</h2>
-<a href="http://t32k.me/mol/file/2011/04/DSC05273.jpg"><img class="fig" title="集会室" src="http://t32k.me/mol/file/2011/04/DSC05273.jpg" alt="" width="470" height="263" /></a>
+<a href="/static/blog/2011/04/DSC05273.jpg"><img class="fig" title="集会室" src="/static/blog/2011/04/DSC05273.jpg" alt="" width="470" height="263" /></a>
 <table style="width: 470px;" border="0" cellspacing="1" cellpadding="3">
 <tbody>
 <tr>

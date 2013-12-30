@@ -29,6 +29,6 @@ Google Analyticsって高機能なのは良いのですが、全体像が掴め�
 
 ということで日本語に訳してみました。印刷して自分なりにカスタマイズしてみるのも良いかと。
 <ul>
-	<li><a href="http://t32k.me/mol/file/2010/06/ga_mindmap.pdf">Google Analytics MindMap</a> (PDF, 573KB)</li>
+	<li><a href="/static/blog/2010/06/ga_mindmap.pdf">Google Analytics MindMap</a> (PDF, 573KB)</li>
 </ul>
 <a title="The Google Analytics 1-Page MindMap by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/4728696935/"><img src="http://farm2.static.flickr.com/1240/4728696935_a971351a22_m.jpg" alt="The Google Analytics 1-Page MindMap" width="240" height="169" /></a>

@@ -62,7 +62,7 @@ CSS Sprite Generator のような便利なオンラインツールが存在す�
 .my-icons-hist { background-position: 0 -136px; }
 .my-icons-my { background-position: 0 -204px; }
 .my-icons-new { background-position: 0 0; }</code></pre>
-また上記のコードではmy-iconsディレクトリ以下にある個々の画像をひとつのスプライト画像にまとめてくれる。 <img class="aligncenter size-full wp-image-4465" title="compile" alt="" src="http://t32k.me/mol/file/2012/12/compile.png" width="900" height="300" />ただ、基本的な利用方法ではRetina対応や、自分のコードスタイルに合わず、独自でmixinを作成する必要があった。
+また上記のコードではmy-iconsディレクトリ以下にある個々の画像をひとつのスプライト画像にまとめてくれる。 <img class="aligncenter size-full wp-image-4465" title="compile" alt="" src="/static/blog/2012/12/compile.png" width="900" height="300" />ただ、基本的な利用方法ではRetina対応や、自分のコードスタイルに合わず、独自でmixinを作成する必要があった。
 <pre><code class="css">//　自分で定義したmixin
 @mixin sprites($map, $map-item, $isCommon:false) {
      @if $isCommon {
@@ -111,7 +111,7 @@ i {
 	<li><a href="http://compass-style.org/reference/compass/helpers/sprites/">CSS Sprite Helpers for Compass | Compass Documentation</a></li>
 	<li><a href="http://compass-style.org/help/tutorials/spriting/">Spriting with Compass | Compass Documentation</a></li>
 </ul>
-<a href="http://t32k.me/mol/file/2012/12/sprites.png"><img class="alignleft size-thumbnail wp-image-4464 fig" title="sprites" alt="" src="http://t32k.me/mol/file/2012/12/sprites-150x150.png" width="150" height="150" /></a>また気をつけなければならないことに、簡単にCSS Spriteできるようになったからといってすべての画像をスプライト画像にまとめることがないようにしたい。可能な限り、HTTPリクエストを減らすことは良いことだが、何事も限度がある。たとえばサイトで使うすべての画像をまとめてしまえば、そのどれか一つでも更新があれば再度リクエストしなければならない。これはキャッシュ保持できる期間が短くなってしまうことを意味し、結果的に応答性の悪いサイトになってしまう。ヘッダー画像のような大きな画像も含めば、初期ロード時にかなり待たなければならず体感速度的にも大きな影響がある。またそのような大きな画像と上記のような小さなアイコンが縦に並べば、空白の部分が多く生じる。ホワイトスペース部分はファイルサイズに影響しないが画像を表示するのにメモリを多く必要としてしまうため、これは非力なモバイルデバイス端末では無視できない事象である。
+<a href="/static/blog/2012/12/sprites.png"><img class="alignleft size-thumbnail wp-image-4464 fig" title="sprites" alt="" src="/static/blog/2012/12/sprites-150x150.png" width="150" height="150" /></a>また気をつけなければならないことに、簡単にCSS Spriteできるようになったからといってすべての画像をスプライト画像にまとめることがないようにしたい。可能な限り、HTTPリクエストを減らすことは良いことだが、何事も限度がある。たとえばサイトで使うすべての画像をまとめてしまえば、そのどれか一つでも更新があれば再度リクエストしなければならない。これはキャッシュ保持できる期間が短くなってしまうことを意味し、結果的に応答性の悪いサイトになってしまう。ヘッダー画像のような大きな画像も含めば、初期ロード時にかなり待たなければならず体感速度的にも大きな影響がある。またそのような大きな画像と上記のような小さなアイコンが縦に並べば、空白の部分が多く生じる。ホワイトスペース部分はファイルサイズに影響しないが画像を表示するのにメモリを多く必要としてしまうため、これは非力なモバイルデバイス端末では無視できない事象である。
 
 そのため、私は種類ごと、どのページでその画像が呼び出されるのかといった基準でスプライト画像を分けて管理している。タブバーで使われるものはtabsディレクトリ、矢印系のものはarrowsディレクトリに分けてなど、スプライト画像を作成している。
 <h2>さらなる最適化のために<span style="color: #888888;">（ピリオドの向こうへ）</span></h2>

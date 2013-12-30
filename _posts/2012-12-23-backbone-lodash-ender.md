@@ -57,7 +57,7 @@ Underscoreに関しては、Backboneと同じDocumentCloudが管理してるの�
 </ul>
 <a href="https://github.com/bestiejs/lodash#custom-builds">なんかいろいろカスタムビルド</a>出来るらしい。
 <h3>performance</h3>
-<p style="text-align: center;"><img class="fig aligncenter" alt="" src="http://t32k.me/mol/file/2012/12/bench.png" width="600" height="386" /></p>
+<p style="text-align: center;"><img class="fig aligncenter" alt="" src="/static/blog/2012/12/bench.png" width="600" height="386" /></p>
 <a href="http://lodash.com/benchmarks">
 <ul>
 	<li><strong>ベンチマークテスト</strong></li>

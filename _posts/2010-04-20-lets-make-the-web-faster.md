@@ -11,7 +11,7 @@ meta:
   _edit_last: '1'
   pvc_views: '5043'
 ---
-<img class="fig" title="Thanks!" src="http://t32k.me/mol/file/2010/04/lp9.png" alt="" width="470" height="312" />
+<img class="fig" title="Thanks!" src="/static/blog/2010/04/lp9.png" alt="" width="470" height="312" />
 <span style="color: #888888;">［撮影：<a href="http://s-style-arts.info/">おかだよういち</a>］</span>
 
 <a href="http://lp9.cssnite.jp/">CSS Nite LP, Disk 9「Coder's Higher」（2010年4月17日開催）</a>

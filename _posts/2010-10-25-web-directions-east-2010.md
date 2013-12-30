@@ -12,7 +12,7 @@ meta:
   _edit_last: '1'
   pvc_views: '2539'
 ---
-<a href="http://www.flickr.com/photos/t32k/4103197374/in/set-72157622677005017/"><img class="fig" title="Web Directions East 2009" src="http://t32k.me/mol/file/2010/10/wde09.jpg" alt="" width="470" height="200" /></a>
+<a href="http://www.flickr.com/photos/t32k/4103197374/in/set-72157622677005017/"><img class="fig" title="Web Directions East 2009" src="/static/blog/2010/10/wde09.jpg" alt="" width="470" height="200" /></a>
 <span style="font-size: x-small;"><span style="color: #888888;">Deborah Schultz | Web Directions East 2009</span></span>
 
 もう10月も終わりですね。ということで思い出した！11月は <a href="http://east.webdirections.org/2010/program/">Web Directions East 2010</a> があるよって話。
@@ -28,7 +28,7 @@ Web Directions Eastは今年で3回目ということで、回を重ねるごと
 </ul>
 どんだけ濃いぃイベントかは上記のエントリーを見てもらえば分かるかと思いますので、みなさんもどうでしょうか？
 <!--more-->
-<a href="http://www.flickr.com/photos/codepo8/4099572929/in/photostream/"><img class="fig" title="ピレーネ" src="http://t32k.me/mol/file/2010/10/oyatu.jpg" alt="" width="470" height="327" /></a>
+<a href="http://www.flickr.com/photos/codepo8/4099572929/in/photostream/"><img class="fig" title="ピレーネ" src="/static/blog/2010/10/oyatu.jpg" alt="" width="470" height="327" /></a>
 <span style="font-size: x-small;"><span style="color: #888888;">By codepo8</span></span>
 
 そういえば、このイベントではおやつがもらえるんだけど、これすごくおいしくてピレーネ食べたいからWDE行くって気持ちも少なからずしもあります（嘘です）。

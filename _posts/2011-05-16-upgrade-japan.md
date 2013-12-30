@@ -11,7 +11,7 @@ meta:
   _edit_last: '1'
   pvc_views: '6648'
 ---
-<a href="http://www.fisc.jp/ugj/"><img class="alignnone size-full wp-image-3196" title="UPGRADE JAPAN!! 2011.06" src="http://t32k.me/mol/file/2011/05/UPGRADE-JAPAN-2011.06.gif" alt="" width="244" height="204" /></a>
+<a href="http://www.fisc.jp/ugj/"><img class="alignnone size-full wp-image-3196" title="UPGRADE JAPAN!! 2011.06" src="/static/blog/2011/05/UPGRADE-JAPAN-2011.06.gif" alt="" width="244" height="204" /></a>
 
 2011年6月4日（土）<a href="http://www.fisc.jp/ugj/">UPGRADE JAPAN!!</a>で喋ります。
 モバイルの世界っておもしろいぜってこと話します。

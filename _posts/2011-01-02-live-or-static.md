@@ -25,7 +25,7 @@ meta:
 まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。
 
 なにはともあれ、サポート状況をば。
-<blockquote><a href="http://t32k.me/mol/file/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="http://t32k.me/mol/file/2011/01/qsa-300x62.png" alt="" /></a>
+<blockquote><a href="/static/blog/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="/static/blog/2011/01/qsa-300x62.png" alt="" /></a>
 
 <a href="http://www.quirksmode.org/dom/w3c_core.html">W3C DOM Compatibility – Core</a></blockquote>
 ほーFx3.0は対応していないけど、IE8は対応してるのか。素敵！

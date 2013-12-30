@@ -14,7 +14,7 @@ meta:
   _aioseop_keywords: web performance, color
   _aioseop_description: 3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。
 ---
-<p style="text-align: center;"><a title="Macro of sharpened colored pencils aranged in a circle by Horia Varlan, on Flickr" href="http://www.flickr.com/photos/horiavarlan/4268864706/"><img class="fig aligncenter" src="http://t32k.me/mol/file/2010/12/color.jpg" alt="Macro of sharpened colored pencils aranged in a circle" width="470" height="260" /></a><strong> <span style="font-size: x-small;"><span style="color: #888888;">By <a href="http://www.flickr.com/photos/horiavarlan/">Horia Varlan</a></span></span></strong></p>
+<p style="text-align: center;"><a title="Macro of sharpened colored pencils aranged in a circle by Horia Varlan, on Flickr" href="http://www.flickr.com/photos/horiavarlan/4268864706/"><img class="fig aligncenter" src="/static/blog/2010/12/color.jpg" alt="Macro of sharpened colored pencils aranged in a circle" width="470" height="260" /></a><strong> <span style="font-size: x-small;"><span style="color: #888888;">By <a href="http://www.flickr.com/photos/horiavarlan/">Horia Varlan</a></span></span></strong></p>
 色とWebパフォーマンスという奇妙な組み合わせの面白い記事を見つけたので紹介をば。
 
 <cite>原文：<a href="http://timkadlec.com/2010/12/the-color-of-speed/">The Color of Speed | TimKadlec.com</a>

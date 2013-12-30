@@ -17,7 +17,7 @@ meta:
 参加表明した順番が日付（12月◯日）となります。</blockquote>
 こうゆうおもしろい催し事があるみたいなので僕からは便利なJSライブラリの紹介をばしたいと思います。
 <h3>What is Modernizr?</h3>
-<a href="http://www.flickr.com/photos/24374884@N08/5141958757/"><img class="alignleft size-full wp-image-2020" title="newt" src="http://t32k.me/mol/file/2010/12/newt.jpg" alt="" width="151" height="191" /></a>
+<a href="http://www.flickr.com/photos/24374884@N08/5141958757/"><img class="alignleft size-full wp-image-2020" title="newt" src="/static/blog/2010/12/newt.jpg" alt="" width="151" height="191" /></a>
 
 まずはタイトルにもある <a href="http://www.modernizr.com/">Modernizr </a>ですが、これはHTML5時代のWeb技術、最近では「<strong>NEWT</strong>」、New Exciting Web Technologies （HTML5、CSS3、SVG、XHR2、Geolocation... などの技術総称）と呼ばれている技術がブラウザで実装されているか検出してくれるライブラリです。
 
@@ -27,13 +27,13 @@ meta:
 
 Modernizr を読み込んだページにアクセスすると自動的にHTML要素のclass属性に対応状況がこん感じで記述される具合です。
 
-<img class="fig" title="firefox" src="http://t32k.me/mol/file/2010/12/firefox.png" alt="" width="402" height="268" />
+<img class="fig" title="firefox" src="/static/blog/2010/12/firefox.png" alt="" width="402" height="268" />
 <em>Firefox 3.6.12</em>
 
-<img class="fig" title="chrome" src="http://t32k.me/mol/file/2010/12/chrome.png" alt="" width="403" height="230" />
+<img class="fig" title="chrome" src="/static/blog/2010/12/chrome.png" alt="" width="403" height="230" />
 <em>Google Chrome 7.0.517.44</em>
 
-<img class="fig" title="opera" src="http://t32k.me/mol/file/2010/12/opera.png" alt="" width="403" height="239" />
+<img class="fig" title="opera" src="/static/blog/2010/12/opera.png" alt="" width="403" height="239" />
 <em>Opera 10.63</em>
 
 機能が実装されていばその機能名、実装されていなければno-が頭につく感じですね。おおもとのHTML要素にclass属性がついたので、
@@ -65,7 +65,7 @@ Modernizr を読み込んだページにアクセスすると自動的にHTML要
 &lt;/script&gt;</code></pre>
 上記のfeaturesToTrackの部分にトラッキングしたいプロパティ（40種類くらいトラッキングできるプロパティはあるけど、GAの仕様上、配列内に記述できる文字列は55byte以内に納めなければならない）を記述することで、GAのレポートの<em>ユーザー</em> &gt; <em>カスタム変数</em> に <em>HTML5</em> の項目できているのでクリックすると、任意のプロパティを実装しているブラウザのセッション数などがわかります。もちろん、コンバージョンを設定すれば、実装機能別の成果を確認することができます。
 
-<img class="fig" title="customvar" src="http://t32k.me/mol/file/2010/12/customvar.png" alt="" width="470" height="352" />
+<img class="fig" title="customvar" src="/static/blog/2010/12/customvar.png" alt="" width="470" height="352" />
 <em>上記の場合、borderradius/boxshadow/webworkers/applicationcache とborderradiusをトラッキング</em>
 
 これをうまく使えば、CSS3アニメーションを使ったバリバリインタラクティブ登録フォームを作成してその成果を確かめたり、application cacheを大いに活用すればパフォーマンス的に良くなるわけですからapplication cacheを実装していないセグメントと比べてどのくらい成果が違うかなど確認できるかなど使い方はあなた次第！

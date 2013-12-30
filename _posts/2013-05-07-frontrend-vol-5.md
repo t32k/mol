@@ -11,7 +11,7 @@ meta:
   _edit_last: '1'
   pvc_views: '667'
 ---
-<a href="http://t32k.me/mol/file/2013/05/hd_05.jpg"><img class="aligncenter  wp-image-4900" title="FRONTREND" src="http://t32k.me/mol/file/2013/05/hd_05.jpg" alt="" width="870" /></a>
+<a href="/static/blog/2013/05/hd_05.jpg"><img class="aligncenter  wp-image-4900" title="FRONTREND" src="/static/blog/2013/05/hd_05.jpg" alt="" width="870" /></a>
 
 サイバーエージェントが主催するFrontrend Vol.5が開催されます。今回は5月の25日に開催されるということもあってGOGO松井ゴジラといった感じで、CreateJS, Functional JS, Node.jsといった幅広いラインナップとなっております。よろしくお願いします。当日僕はたぶん司会です、たぶん。
 

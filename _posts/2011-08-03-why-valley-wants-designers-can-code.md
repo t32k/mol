@@ -16,7 +16,7 @@ meta:
 <cite>原文：<a href="http://www.uie.com/brainsparks/2011/05/31/why-the-valley-wants-designers-that-can-code/">Why The Valley Wants Designers That Can Code</a>
 投稿日：2011-5-31 by Jared Spool</cite>
 
-<img class="alignleft size-full wp-image-3469" title="Jared Spool" src="http://t32k.me/mol/file/2011/08/jared_headshot.jpg" alt="Jared Spool" width="70" height="70" />もし周りにデザイナーが大勢いるのなら、デザイナーがコードも書けることは価値のあることかどうか話題に挙げてみてください。すぐに、モーゼが紅海を2つに割ったよりも早くデザイナー達の意見は分かれるでしょう。片方はプログラミングは必要不可欠なスキルだと主張し、もう片方はプロミグラミングはデザイナーの価値を薄めてしまうと猛烈に論じるでしょう。
+<img class="alignleft size-full wp-image-3469" title="Jared Spool" src="/static/blog/2011/08/jared_headshot.jpg" alt="Jared Spool" width="70" height="70" />もし周りにデザイナーが大勢いるのなら、デザイナーがコードも書けることは価値のあることかどうか話題に挙げてみてください。すぐに、モーゼが紅海を2つに割ったよりも早くデザイナー達の意見は分かれるでしょう。片方はプログラミングは必要不可欠なスキルだと主張し、もう片方はプロミグラミングはデザイナーの価値を薄めてしまうと猛烈に論じるでしょう。
 
 <!--more-->
 

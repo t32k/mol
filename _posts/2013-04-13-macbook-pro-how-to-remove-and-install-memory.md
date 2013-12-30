@@ -14,11 +14,11 @@ meta:
 <p style="text-align: center;"><a title="DSC06706 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/8644568837/"><img class="aligncenter" src="http://farm9.staticflickr.com/8393/8644568837_f9442d0b6b_c.jpg" alt="DSC06706" width="800" height="448" /></a></p>
 今日は表題のとおり、MBP13の2012Midのメモリ交換したよ。BTOのとき、16GBが選択できなくててっきり認識しないのかと思ってたけど普通に認識するみたいだ。
 
-<img class="aligncenter size-full wp-image-4801" title="MBP" src="http://t32k.me/mol/file/2013/04/s1.png" alt="" width="700" height="461" />
+<img class="aligncenter size-full wp-image-4801" title="MBP" src="/static/blog/2013/04/s1.png" alt="" width="700" height="461" />
 
 交換前のMyBookのスペック。
 
-<img class="aligncenter size-full wp-image-4802" title="８GB" src="http://t32k.me/mol/file/2013/04/s2.png" alt="" width="700" height="382" />
+<img class="aligncenter size-full wp-image-4802" title="８GB" src="/static/blog/2013/04/s2.png" alt="" width="700" height="382" />
 
 4GB×2の8GB. まぁそこまでメモリ不足に悩んでないけどAdobe CSとかVMを一緒に立ち上げてるとなかなか重い気がするのと、1万未満で16GBが買えるということなので買ってみた（やつ↓）
 <table border="0" cellpadding="5">
@@ -87,7 +87,7 @@ meta:
 
 Yeah!!!!!!!
 
-<img class="aligncenter size-full wp-image-4803" title="16GB" src="http://t32k.me/mol/file/2013/04/fd79ce5dba48706f16fc11179000825b.png" alt="" width="700" height="382" />
+<img class="aligncenter size-full wp-image-4803" title="16GB" src="/static/blog/2013/04/fd79ce5dba48706f16fc11179000825b.png" alt="" width="700" height="382" />
 
 ちゃんと認識してるみたい！
 <ul>

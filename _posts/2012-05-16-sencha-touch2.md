@@ -16,7 +16,7 @@ meta:
 
 事の発端は、愛しの<a href="http://tumblrgear.tumblr.com/">tumblr gear</a>さんが立ち上げるとすぐシャットダウンしてしまう不具合（v1.6.4で治りました：）が長らく続いておりまして、なんとか打開策がないもんかと考えた結果、自分で作ろうぜってことになって作ってみた（デモアプリだけど）。Titanium Mobileでもありかと思ったけど、Webアプリも作ってみたいと考えていたのでjQuery Mobileの紹介時によく引き合いに出されるだけ出されてそれっきりのSencha Touchで作ってみることにした。
 
-<a href="http://t32k.me/mol/file/2012/05/t1.jpg"><img class="aligncenter size-full wp-image-4028" title="t1" src="http://t32k.me/mol/file/2012/05/t1.jpg" alt="" width="500" height="375" /></a>
+<a href="/static/blog/2012/05/t1.jpg"><img class="aligncenter size-full wp-image-4028" title="t1" src="/static/blog/2012/05/t1.jpg" alt="" width="500" height="375" /></a>
 
 僕がtumblr gear が好きなのはその操作性。タップによる画面遷移です。なんかスマホとかになるとフリックとかスワイプとかもてはやされてる感があるんだけど、やっぱクリック・タップが個人的に一番慣れてる。しかもtumblr gearはタップする毎にいち画面いちアイテムで表示されるからフリックし過ぎちゃって戻ったりするロスもないわけでたくさんの<del>エロ</del>クールな画像など閲覧できるわけです。ぼくは残りの少ない人生のなかで一枚でも多くの<span style="color: #888888;"><del>エロ</del></span>クールな画像を見たいわけです。ということで、TumblrTouchというデモアプリを作りました。
 <h2>TumblrTouch</h2>

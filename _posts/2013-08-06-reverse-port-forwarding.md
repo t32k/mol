@@ -15,7 +15,7 @@ author:
   bio: Front-end Developer
   image: t32k.png
 ---
-<img class="alignnone size-full wp-image-5100" title="debug" src="http://t32k.me/mol/file/2013/08/debug.png" alt="" width="900" height="200" />
+<img class="alignnone size-full wp-image-5100" title="debug" src="/static/blog/2013/08/debug.png" alt="" width="900" height="200" />
 
 最近、横文字タイトルがマイブームです、@t32kです。要はReverse Port Forwardingしたいのです。
 
@@ -29,14 +29,14 @@ Reverse Port Forwardingってのがなんなのかはよくわかってないで
 </ul>
 必要な物は上記です、Canaryとbetaが必要なんですね。ADBPluginって書いてあるけど、拡張機能からだとうまくいかなかったので、おとなしくコマンド叩いた。とりあえずADBを起動させておく。
 
-<img class="alignnone size-full wp-image-5102" title="flag" src="http://t32k.me/mol/file/2013/08/flag.png" alt="" width="850" height="134" />
+<img class="alignnone size-full wp-image-5102" title="flag" src="/static/blog/2013/08/flag.png" alt="" width="850" height="134" />
 
 まず、Canaryで<strong> chrome://flags</strong> を開いて、『<strong>デベロッパー ツールのテストを有効にする</strong>』にします。<strong>#enable-devtools-experiments</strong> で検索すればいいよ。再起動もしておく。
 
-<img class="alignnone size-full wp-image-5103" title="port" src="http://t32k.me/mol/file/2013/08/port.png" alt="" width="768" height="423" />
+<img class="alignnone size-full wp-image-5103" title="port" src="/static/blog/2013/08/port.png" alt="" width="768" height="423" />
 
 <strong>chrome://inspect</strong> を開くと、USBで繋いだChrome for Android betaで開いているサイトが出てくるので、そこの上の『<strong>Enable port forwarding</strong>』にチェック！（記事にはDevToolsのSettings Panelって書いてあってフェイントくらった）Configure port forwardingで、port:8080, IP adrress andport: 127.0.0.1:8080をにする。
 
 あとは、開発環境で<strong>python -m SimpleHTTPServer 8080</strong>とかでサーバー立てたり、<a href="https://github.com/t32k/maple#-grunt-tasks">Maple使ってる人はgrunt developす</a>るだけで立っちゃう！で、あとは端末で、http://localhost:8080/にアクセスすれば、実機で開発マシンのファイルを検証することができるよ！！！！
 
-<img class="alignnone size-full wp-image-5105" title="xperia" src="http://t32k.me/mol/file/2013/08/xperia.jpg" alt="" width="800" height="450" />
+<img class="alignnone size-full wp-image-5105" title="xperia" src="/static/blog/2013/08/xperia.jpg" alt="" width="800" height="450" />

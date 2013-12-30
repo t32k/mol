@@ -13,7 +13,7 @@ meta:
   pvc_views: '10665'
   _aioseop_description: とにかく信じられない。
 ---
-<a href="http://en.wikipedia.org/wiki/CSS_(band)"><img title="CSSとは、サンパウロ出身のブラジリアンロックバンドです。" src="http://t32k.me/mol/file/2011/03/css.jpg" alt="" width="470" height="270" /></a>
+<a href="http://en.wikipedia.org/wiki/CSS_(band)"><img title="CSSとは、サンパウロ出身のブラジリアンロックバンドです。" src="/static/blog/2011/03/css.jpg" alt="" width="470" height="270" /></a>
 
 Titanium Mobile での開発は当然JavaScriptオンリーですので、愛も憎しみもすべてこの中にではなくて、コンテンツであったり見た目の情報であったり振る舞いであったり全てJavaScript の中に書かれているわけです。
 

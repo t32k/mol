@@ -12,7 +12,7 @@ meta:
   _edit_last: '1'
   pvc_views: '2142'
 ---
-<a href="http://atnd.org/events/19252"><img class="fig" title="kanazawa.js" src="http://t32k.me/mol/file/2011/09/16.jpg" alt="" width="500" height="250" /></a>
+<a href="http://atnd.org/events/19252"><img class="fig" title="kanazawa.js" src="/static/blog/2011/09/16.jpg" alt="" width="500" height="250" /></a>
 
 フルートとピアノの音色が響く中、<a href="http://atnd.org/events/19252">kanazawa.js v1.6</a> 開催しました。こじんまりゆるゆると開催できました。ありがとうございます＞＜
 

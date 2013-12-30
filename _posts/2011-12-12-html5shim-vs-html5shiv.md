@@ -10,7 +10,7 @@ published: true
 ---
 <a href="http://atnd.org/events/21980">JavaScript Advent Calendar 2011 (オレ標準コース) </a>12日目の id:t32k です。去年も参加しましたがなんでもありと聞いて今年も懲りずに参加！
 
-<a href="http://keycss.com/html5/html5shim-vs-html5shiv.html"><img title="Don’t lose any more time." src="http://t32k.me/mol/file/2011/12/same.png" alt="Don’t lose any more time. html5shim and html5shiv are exactly the same thing."></a>
+<a href="http://keycss.com/html5/html5shim-vs-html5shiv.html"><img title="Don’t lose any more time." src="/static/blog/2011/12/same.png" alt="Don’t lose any more time. html5shim and html5shiv are exactly the same thing."></a>
 
 はじめに言っておきますが、html5shimもhtml5shivどっちもまったく同じです。違いなんて無いので、こんなことに頭を悩ませる暇があったらさっさとコードでも書いてろ！以上！うんこ(・∀・)!
 

@@ -58,7 +58,7 @@ iOS SDKのほうはインストールされていたらTitaniumが勝手に認�
 </ul>
 正直、単にHello Worldして動きを確かめたいだけなら、全部の項目UNKOでも問題ないです！
 <h3>プロジェクトのファイル構成</h3>
-<img class="alignnone size-full wp-image-2592" title="proj" src="http://t32k.me/mol/file/2011/03/proj.png" alt="" width="390" height="247" />
+<img class="alignnone size-full wp-image-2592" title="proj" src="/static/blog/2011/03/proj.png" alt="" width="390" height="247" />
 
 プロジェクトフォルダ直下が上記のような構成をしておりますんで、これをもとに開発していくのだ。
 
