@@ -2,88 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bac73b0-74be-4ea1-8be4-5699ba7e89c0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2010/12/gebcn-1024x171.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05268-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05269-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05270-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05271-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05272-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05273-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05274-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05275-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05276-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05277-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05278-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05279-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/04/DSC05280-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/05/DSC05281-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/05/DSC05282-1024x572.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/10/v4-1024x780.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/10/v5-1024x862.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/12/Google-Analytics-1024x931.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/12/sitespeed-1024x818.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2011/12/socialaction-1024x819.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2012/09/DevTools-1024x642.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2012/09/Inspectable-Pages-1024x642.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2012/09/weinre-1024x636.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/04/cad4f2acb23f9d4aa554d564aa920837-1024x270.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/04/fig-1024x646.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/04/s21-1024x844.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/04/s3-1024x844.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/06/b37d8e01bd98623ba758276cde9747da-1024x852.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/1-1024x577.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/11-1024x572.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/2-1024x577.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/21-1024x579.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/3-1024x577.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/31-1024x572.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/07/filmstrip-1024x209.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/08/head1-1024x768.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/2013/08/image_0-1024x768.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/i/html5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/file/i/skelton.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2012/01/19.010-002.png" afterPath="$PROJECT_DIR$/file/2012/01/19.010-002.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2012/01/19.027-001.png" afterPath="$PROJECT_DIR$/file/2012/01/19.027-001.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2012/01/19.057-001.png" afterPath="$PROJECT_DIR$/file/2012/01/19.057-001.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/04/83-50x50.png" afterPath="$PROJECT_DIR$/file/2010/04/83-50x50.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/04/83.png" afterPath="$PROJECT_DIR$/file/2010/04/83.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/CANCEL.png" afterPath="$PROJECT_DIR$/file/2011/04/CANCEL.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/08/CSSNiteLP19.png" afterPath="$PROJECT_DIR$/file/2011/08/CSSNiteLP19.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/DONE.png" afterPath="$PROJECT_DIR$/file/2011/04/DONE.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/EDIT.png" afterPath="$PROJECT_DIR$/file/2011/04/EDIT.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/12/Google-Analytics.png" afterPath="$PROJECT_DIR$/file/2011/12/Google-Analytics.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/Titanium.UI_.iPhone.SystemButton.png" afterPath="$PROJECT_DIR$/file/2011/04/Titanium.UI_.iPhone.SystemButton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/08/af.png" afterPath="$PROJECT_DIR$/file/2011/08/af.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/08/b4.png" afterPath="$PROJECT_DIR$/file/2011/08/b4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/10/bnr_tissa.png" afterPath="$PROJECT_DIR$/file/2011/10/bnr_tissa.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/05/browserscope.png" afterPath="$PROJECT_DIR$/file/2011/05/browserscope.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/cp.008-001.png" afterPath="$PROJECT_DIR$/file/2011/04/cp.008-001.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/cp.008-0011.png" afterPath="$PROJECT_DIR$/file/2011/04/cp.008-0011.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/cp.029-002.png" afterPath="$PROJECT_DIR$/file/2011/04/cp.029-002.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/04/cp.032-001.png" afterPath="$PROJECT_DIR$/file/2011/04/cp.032-001.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/06/dotcoder1.png" afterPath="$PROJECT_DIR$/file/2010/06/dotcoder1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2009/11/fb.png" afterPath="$PROJECT_DIR$/file/2009/11/fb.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/12/firefox.png" afterPath="$PROJECT_DIR$/file/2010/12/firefox.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/05/icon.png" afterPath="$PROJECT_DIR$/file/2011/05/icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/11/itunes_connect.png" afterPath="$PROJECT_DIR$/file/2011/11/itunes_connect.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/09/key20.png" afterPath="$PROJECT_DIR$/file/2010/09/key20.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/09/key28.png" afterPath="$PROJECT_DIR$/file/2010/09/key28.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/09/key54.png" afterPath="$PROJECT_DIR$/file/2010/09/key54.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/12/memory.png" afterPath="$PROJECT_DIR$/file/2010/12/memory.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/03/proj.png" afterPath="$PROJECT_DIR$/file/2011/03/proj.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/01/qsa.png" afterPath="$PROJECT_DIR$/file/2011/01/qsa.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/11/rename.png" afterPath="$PROJECT_DIR$/file/2011/11/rename.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/11/replace-167x300.png" afterPath="$PROJECT_DIR$/file/2011/11/replace-167x300.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/11/replace.png" afterPath="$PROJECT_DIR$/file/2011/11/replace.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/08/roirevoluyion.png" afterPath="$PROJECT_DIR$/file/2010/08/roirevoluyion.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/05/run_on-device.png" afterPath="$PROJECT_DIR$/file/2011/05/run_on-device.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/12/social.png" afterPath="$PROJECT_DIR$/file/2011/12/social.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/12/speed.png" afterPath="$PROJECT_DIR$/file/2011/12/speed.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/11/tiapp.png" afterPath="$PROJECT_DIR$/file/2011/11/tiapp.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/09/wcaf.png" afterPath="$PROJECT_DIR$/file/2010/09/wcaf.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/11/wp.024-001.png" afterPath="$PROJECT_DIR$/file/2010/11/wp.024-001.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2010/11/wp.027-001.png" afterPath="$PROJECT_DIR$/file/2010/11/wp.027-001.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file/2011/03/xcode.png" afterPath="$PROJECT_DIR$/file/2011/03/xcode.png" />
     </list>
     <ignored path="mol.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,121 +27,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2010-07-16-on-human-relations.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2010-07-16-on-human-relations.md">
+      <file leaf-file-name="2012-10-17-csscomb.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="930">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2010-09-21-dotcoder4.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2010-09-21-dotcoder4.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1110">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-09-24-sass-school.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-09-24-sass-school.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-05-webpagetest-5-minutes.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-webpagetest-5-minutes.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2011-12-28-top-entry-2011.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2011-12-28-top-entry-2011.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1365">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2011-12-13-index-value-ga-v5-2.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2011-12-13-index-value-ga-v5-2.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="735">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2011-11-15-titanium-meetup-osaka.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2011-11-15-titanium-meetup-osaka.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="690">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2011-09-24-news-201109.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2011-09-24-news-201109.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="12.740741" vertical-offset="344" max-vertical-offset="1035">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2011-12-12-html5shim-vs-html5shiv.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2011-12-12-html5shim-vs-html5shiv.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2235">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2011-12-01-titanium-advent-calendar-2011-01.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/2011-12-01-titanium-advent-calendar-2011-01.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="72" selection-start="2326" selection-end="2350" vertical-scroll-proportion="0.43609023" vertical-offset="310" max-vertical-offset="975">
+            <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.4131356" vertical-offset="15" max-vertical-offset="915">
               <folding />
             </state>
           </provider>
@@ -364,7 +177,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919255" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298611" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -566,7 +379,47 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="72" selection-start="2326" selection-end="2350" vertical-scroll-proportion="0.43609023" vertical-offset="310" max-vertical-offset="975">
+        <state line="40" column="72" selection-start="2326" selection-end="2350" vertical-scroll-proportion="-5.4716983" vertical-offset="310" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-12-15-akamai-yahoo-japan.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="67" selection-start="1830" selection-end="1830" vertical-scroll-proportion="-5.259259" vertical-offset="443" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-04-10-using-site-speed-in-web-search-ranking.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="297" selection-start="2063" selection-end="2063" vertical-scroll-proportion="-17.222221" vertical-offset="0" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.26694915" vertical-offset="219" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.4131356" vertical-offset="15" max-vertical-offset="915">
           <folding />
         </state>
       </provider>
