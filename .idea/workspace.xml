@@ -2,111 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bac73b0-74be-4ea1-8be4-5699ba7e89c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md" afterPath="$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2009-12-15-akamai-yahoo-japan.md" afterPath="$PROJECT_DIR$/_posts/2009-12-15-akamai-yahoo-japan.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-04-08-httpwatch.md" afterPath="$PROJECT_DIR$/_posts/2010-04-08-httpwatch.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-04-10-using-site-speed-in-web-search-ranking.md" afterPath="$PROJECT_DIR$/_posts/2010-04-10-using-site-speed-in-web-search-ranking.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-04-20-lets-make-the-web-faster.md" afterPath="$PROJECT_DIR$/_posts/2010-04-20-lets-make-the-web-faster.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-04-29-start-html5.md" afterPath="$PROJECT_DIR$/_posts/2010-04-29-start-html5.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-04-30-dtt05.md" afterPath="$PROJECT_DIR$/_posts/2010-04-30-dtt05.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-05-28-asynchronous-tracking.md" afterPath="$PROJECT_DIR$/_posts/2010-05-28-asynchronous-tracking.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-06-03-sitecatalyst-netaverages.md" afterPath="$PROJECT_DIR$/_posts/2010-06-03-sitecatalyst-netaverages.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-06-04-usabilit-in0in0.md" afterPath="$PROJECT_DIR$/_posts/2010-06-04-usabilit-in0in0.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-06-28-google-analytics-mindmap.md" afterPath="$PROJECT_DIR$/_posts/2010-06-28-google-analytics-mindmap.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-08-24-google-analytics-report-enhancer.md" afterPath="$PROJECT_DIR$/_posts/2010-08-24-google-analytics-report-enhancer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-08-28-web-tan.md" afterPath="$PROJECT_DIR$/_posts/2010-08-28-web-tan.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-09-06-coding-web-performance.md" afterPath="$PROJECT_DIR$/_posts/2010-09-06-coding-web-performance.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-09-30-ga-not-set.md" afterPath="$PROJECT_DIR$/_posts/2010-09-30-ga-not-set.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-10-02-flasher-life-with-progression.md" afterPath="$PROJECT_DIR$/_posts/2010-10-02-flasher-life-with-progression.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-10-07-google-analytics-custom-variables-part3.md" afterPath="$PROJECT_DIR$/_posts/2010-10-07-google-analytics-custom-variables-part3.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-10-08-gatrackingcustomvariables.md" afterPath="$PROJECT_DIR$/_posts/2010-10-08-gatrackingcustomvariables.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-10-17-wcaf-4.md" afterPath="$PROJECT_DIR$/_posts/2010-10-17-wcaf-4.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-10-23-sencha-touch.md" afterPath="$PROJECT_DIR$/_posts/2010-10-23-sencha-touch.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-10-25-web-directions-east-2010.md" afterPath="$PROJECT_DIR$/_posts/2010-10-25-web-directions-east-2010.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-11-13-mindmapper-nngae.md" afterPath="$PROJECT_DIR$/_posts/2010-11-13-mindmapper-nngae.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-11-22-kanazawajs-v0-0-1.md" afterPath="$PROJECT_DIR$/_posts/2010-11-22-kanazawajs-v0-0-1.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-11-24-long-life-web-performance-optimization.md" afterPath="$PROJECT_DIR$/_posts/2010-11-24-long-life-web-performance-optimization.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-12-02-trackhtml5inga-with-modernizr.md" afterPath="$PROJECT_DIR$/_posts/2010-12-02-trackhtml5inga-with-modernizr.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-12-03-designing-for-the-iphone.md" afterPath="$PROJECT_DIR$/_posts/2010-12-03-designing-for-the-iphone.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-12-06-mac-mini-mid-2010-8gb-memory.md" afterPath="$PROJECT_DIR$/_posts/2010-12-06-mac-mini-mid-2010-8gb-memory.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-12-09-color-of-speed.md" afterPath="$PROJECT_DIR$/_posts/2010-12-09-color-of-speed.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-12-27-getelementsbyname-and-getelementsbyclassname.md" afterPath="$PROJECT_DIR$/_posts/2010-12-27-getelementsbyname-and-getelementsbyclassname.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2010-12-30-year-end-party-2010.md" afterPath="$PROJECT_DIR$/_posts/2010-12-30-year-end-party-2010.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-01-02-live-or-static.md" afterPath="$PROJECT_DIR$/_posts/2011-01-02-live-or-static.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-01-08-kanazawajs-v0-0-2.md" afterPath="$PROJECT_DIR$/_posts/2011-01-08-kanazawajs-v0-0-2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-01-24-atnder-list-maker.md" afterPath="$PROJECT_DIR$/_posts/2011-01-24-atnder-list-maker.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-02-09-kanazawa-js-v1-0.md" afterPath="$PROJECT_DIR$/_posts/2011-02-09-kanazawa-js-v1-0.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-01-statistical-significance.md" afterPath="$PROJECT_DIR$/_posts/2011-03-01-statistical-significance.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-08-kanazawa-js-v1-0-1.md" afterPath="$PROJECT_DIR$/_posts/2011-03-08-kanazawa-js-v1-0-1.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-24-hello-titanium-mobile.md" afterPath="$PROJECT_DIR$/_posts/2011-03-24-hello-titanium-mobile.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-25-titanium-mobile-meets-textmate.md" afterPath="$PROJECT_DIR$/_posts/2011-03-25-titanium-mobile-meets-textmate.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-28-ios-prerendered-icon.md" afterPath="$PROJECT_DIR$/_posts/2011-03-28-ios-prerendered-icon.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-29-ios-developer-program.md" afterPath="$PROJECT_DIR$/_posts/2011-03-29-ios-developer-program.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-30-background-error-me-titanum.md" afterPath="$PROJECT_DIR$/_posts/2011-03-30-background-error-me-titanum.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-03-31-titanium-mobile-jss.md" afterPath="$PROJECT_DIR$/_posts/2011-03-31-titanium-mobile-jss.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-01-titanium-fighter-js.md" afterPath="$PROJECT_DIR$/_posts/2011-04-01-titanium-fighter-js.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-07-titanium-ui-iphone-systembutton.md" afterPath="$PROJECT_DIR$/_posts/2011-04-07-titanium-ui-iphone-systembutton.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-19-communities-of-practice.md" afterPath="$PROJECT_DIR$/_posts/2011-04-19-communities-of-practice.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-19-kanazawajs-v1-2.md" afterPath="$PROJECT_DIR$/_posts/2011-04-19-kanazawajs-v1-2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-20-titanium-ui-iphone-systemicon.md" afterPath="$PROJECT_DIR$/_posts/2011-04-20-titanium-ui-iphone-systemicon.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-27-uirequireddevicecapabilities.md" afterPath="$PROJECT_DIR$/_posts/2011-04-27-uirequireddevicecapabilities.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-04-30-ohumi-chou-plaza.md" afterPath="$PROJECT_DIR$/_posts/2011-04-30-ohumi-chou-plaza.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-05-01-kanazawa-assistive-information-plaza.md" afterPath="$PROJECT_DIR$/_posts/2011-05-01-kanazawa-assistive-information-plaza.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-05-02-nyars.md" afterPath="$PROJECT_DIR$/_posts/2011-05-02-nyars.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-05-11-ios-provisioning.md" afterPath="$PROJECT_DIR$/_posts/2011-05-11-ios-provisioning.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-05-16-upgrade-japan.md" afterPath="$PROJECT_DIR$/_posts/2011-05-16-upgrade-japan.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-05-20-mobitest-blaze.md" afterPath="$PROJECT_DIR$/_posts/2011-05-20-mobitest-blaze.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-06-01-coda-completion-for-jquery-mobile.md" afterPath="$PROJECT_DIR$/_posts/2011-06-01-coda-completion-for-jquery-mobile.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-06-02-jsgirl.md" afterPath="$PROJECT_DIR$/_posts/2011-06-02-jsgirl.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-06-20-js-girl-01.md" afterPath="$PROJECT_DIR$/_posts/2011-06-20-js-girl-01.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-06-22-cfbundleversion.md" afterPath="$PROJECT_DIR$/_posts/2011-06-22-cfbundleversion.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-08-02-titanium-studio-font.md" afterPath="$PROJECT_DIR$/_posts/2011-08-02-titanium-studio-font.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-08-03-why-valley-wants-designers-can-code.md" afterPath="$PROJECT_DIR$/_posts/2011-08-03-why-valley-wants-designers-can-code.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-08-31-cssnite-lp19.md" afterPath="$PROJECT_DIR$/_posts/2011-08-31-cssnite-lp19.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-09-24-news-201109.md" afterPath="$PROJECT_DIR$/_posts/2011-09-24-news-201109.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-09-25-kanazawajs-v1-6-report.md" afterPath="$PROJECT_DIR$/_posts/2011-09-25-kanazawajs-v1-6-report.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-10-21-index-value-ga-v5.md" afterPath="$PROJECT_DIR$/_posts/2011-10-21-index-value-ga-v5.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-11-05-kanazawajs-is-one-year-old.md" afterPath="$PROJECT_DIR$/_posts/2011-11-05-kanazawajs-is-one-year-old.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-12-01-titanium-advent-calendar-2011-01.md" afterPath="$PROJECT_DIR$/_posts/2011-12-01-titanium-advent-calendar-2011-01.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-12-12-html5shim-vs-html5shiv.md" afterPath="$PROJECT_DIR$/_posts/2011-12-12-html5shim-vs-html5shiv.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-12-13-index-value-ga-v5-2.md" afterPath="$PROJECT_DIR$/_posts/2011-12-13-index-value-ga-v5-2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2011-12-19-measuring-web-performance.md" afterPath="$PROJECT_DIR$/_posts/2011-12-19-measuring-web-performance.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-01-16-google-analytics-on-large-site.md" afterPath="$PROJECT_DIR$/_posts/2012-01-16-google-analytics-on-large-site.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-02-10-mobile-marketplace.md" afterPath="$PROJECT_DIR$/_posts/2012-02-10-mobile-marketplace.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-03-16-how-to-get-the-ios-version-with-google-analytics.md" afterPath="$PROJECT_DIR$/_posts/2012-03-16-how-to-get-the-ios-version-with-google-analytics.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-03-23-jsoff.md" afterPath="$PROJECT_DIR$/_posts/2012-03-23-jsoff.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-04-02-kanazawa-js-v1-7.md" afterPath="$PROJECT_DIR$/_posts/2012-04-02-kanazawa-js-v1-7.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-04-09-listy4dmm.md" afterPath="$PROJECT_DIR$/_posts/2012-04-09-listy4dmm.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-05-16-sencha-touch2.md" afterPath="$PROJECT_DIR$/_posts/2012-05-16-sencha-touch2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-07-10-livereload-2.md" afterPath="$PROJECT_DIR$/_posts/2012-07-10-livereload-2.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-09-11-frontrend-vol3.md" afterPath="$PROJECT_DIR$/_posts/2012-09-11-frontrend-vol3.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-09-18-titanium-mobile-book-2012.md" afterPath="$PROJECT_DIR$/_posts/2012-09-18-titanium-mobile-book-2012.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-09-26-remote-debugging-with-chrome-for-android.md" afterPath="$PROJECT_DIR$/_posts/2012-09-26-remote-debugging-with-chrome-for-android.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-09-28-defer-parsing-of-google-analytics.md" afterPath="$PROJECT_DIR$/_posts/2012-09-28-defer-parsing-of-google-analytics.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-10-17-csscomb.md" afterPath="$PROJECT_DIR$/_posts/2012-10-17-csscomb.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-10-18-csso-and-grunt-csso.md" afterPath="$PROJECT_DIR$/_posts/2012-10-18-csso-and-grunt-csso.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md" afterPath="$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-12-02-spriting-with-compass.md" afterPath="$PROJECT_DIR$/_posts/2012-12-02-spriting-with-compass.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-12-23-backbone-lodash-ender.md" afterPath="$PROJECT_DIR$/_posts/2012-12-23-backbone-lodash-ender.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2012-12-25-present-for-you.md" afterPath="$PROJECT_DIR$/_posts/2012-12-25-present-for-you.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-01-08-frontrend-vol4.md" afterPath="$PROJECT_DIR$/_posts/2013-01-08-frontrend-vol4.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-04-08-inheriting-link-colour.md" afterPath="$PROJECT_DIR$/_posts/2013-04-08-inheriting-link-colour.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-04-13-macbook-pro-how-to-remove-and-install-memory.md" afterPath="$PROJECT_DIR$/_posts/2013-04-13-macbook-pro-how-to-remove-and-install-memory.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-05-07-frontrend-vol-5.md" afterPath="$PROJECT_DIR$/_posts/2013-05-07-frontrend-vol-5.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-06-28-vagrant1-2-centos6-4-jenkins1-5.md" afterPath="$PROJECT_DIR$/_posts/2013-06-28-vagrant1-2-centos6-4-jenkins1-5.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-06-29-make-oocss-styleguide.md" afterPath="$PROJECT_DIR$/_posts/2013-06-29-make-oocss-styleguide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md" afterPath="$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-07-11-joining-html5-experts-jp.md" afterPath="$PROJECT_DIR$/_posts/2013-07-11-joining-html5-experts-jp.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-07-29-the-perfect-css-i-thought.md" afterPath="$PROJECT_DIR$/_posts/2013-07-29-the-perfect-css-i-thought.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-07-31-sprite-image-vs-inline-image.md" afterPath="$PROJECT_DIR$/_posts/2013-07-31-sprite-image-vs-inline-image.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-06-charles-bandwidth-throttling.md" afterPath="$PROJECT_DIR$/_posts/2013-08-06-charles-bandwidth-throttling.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-06-reverse-port-forwarding.md" afterPath="$PROJECT_DIR$/_posts/2013-08-06-reverse-port-forwarding.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-19-reduce-http-requests-overview.md" afterPath="$PROJECT_DIR$/_posts/2013-08-19-reduce-http-requests-overview.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-20-reduce-http-requests-css-sprite.md" afterPath="$PROJECT_DIR$/_posts/2013-08-20-reduce-http-requests-css-sprite.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-21-reduce-http-requests-webfont.md" afterPath="$PROJECT_DIR$/_posts/2013-08-21-reduce-http-requests-webfont.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-22-reduce-http-requests-datauri.md" afterPath="$PROJECT_DIR$/_posts/2013-08-22-reduce-http-requests-datauri.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-08-23-reduce-http-requests-one-second.md" afterPath="$PROJECT_DIR$/_posts/2013-08-23-reduce-http-requests-one-second.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2013-09-06-cascading-style-sheets.md" afterPath="$PROJECT_DIR$/_posts/2013-09-06-cascading-style-sheets.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md" afterPath="$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mol.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,51 +26,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2012-10-17-csscomb.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
+      <file leaf-file-name="2014-01-01-new-years-resolutions-2014.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="-7.2222223" vertical-offset="15" max-vertical-offset="915">
+            <state line="11" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.22" vertical-offset="0" max-vertical-offset="750">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2009-11-22-design-at-facebook.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
+      <file leaf-file-name="2013-12-05-modern-coder.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-12-05-modern-coder.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.33184856" vertical-offset="136" max-vertical-offset="1140">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2012-12-01-join-enja-oss.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
+      <file leaf-file-name="2013-12-16-look-back-2013.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-12-16-look-back-2013.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="-5.814815" vertical-offset="53" max-vertical-offset="885">
+            <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="-2.7777777" vertical-offset="0" max-vertical-offset="945">
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-07-03-using-node-version-manager.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="-6.0740743" vertical-offset="181" max-vertical-offset="1320">
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -191,6 +76,7 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md" />
+        <option value="$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md" />
       </list>
     </option>
   </component>
@@ -225,7 +111,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,6 +145,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,14 +154,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/_posts" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -286,15 +164,23 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -322,7 +208,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919255" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298611" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -330,6 +215,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -349,244 +235,339 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2007-07-28-warikiru.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2007-08-13-comment-out.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2009-11-06-google-analytics-management-strategy.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-09-06-referencing-parent-selectors.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2010-08-28-web-tan.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="48" selection-start="295" selection-end="319" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2007-08-13-comment-out.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="764">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2009-11-06-google-analytics-management-strategy.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-09-06-referencing-parent-selectors.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2010-08-28-web-tan.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="54" selection-start="172" selection-end="227" vertical-scroll-proportion="0.19859155" vertical-offset="54" max-vertical-offset="960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2007-07-28-warikiru.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="764">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2010-06-29-masason.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="737">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2010-07-16-on-human-relations.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2010-09-21-dotcoder4.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-09-24-sass-school.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="737">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-webpagetest-5-minutes.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2011-12-28-top-entry-2011.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2011-12-13-index-value-ga-v5-2.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2011-11-15-titanium-meetup-osaka.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2011-09-24-news-201109.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="12.740741" vertical-offset="344" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2011-12-12-html5shim-vs-html5shiv.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2235">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2011-12-01-titanium-advent-calendar-2011-01.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="72" selection-start="2326" selection-end="2350" vertical-scroll-proportion="-5.4716983" vertical-offset="310" max-vertical-offset="975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2009-12-15-akamai-yahoo-japan.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="67" selection-start="1830" selection-end="1830" vertical-scroll-proportion="-5.259259" vertical-offset="443" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2010-04-10-using-site-speed-in-web-search-ranking.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="297" selection-start="2063" selection-end="2063" vertical-scroll-proportion="-17.222221" vertical-offset="0" max-vertical-offset="930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="-7.2222223" vertical-offset="15" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="-5.814815" vertical-offset="53" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="-6.0740743" vertical-offset="181" max-vertical-offset="1320">
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.33184856" vertical-offset="136" max-vertical-offset="1140">
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2007-07-28-warikiru.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2007-08-13-comment-out.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-06-google-analytics-management-strategy.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-09-06-referencing-parent-selectors.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-08-28-web-tan.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="48" selection-start="295" selection-end="319" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2007-08-13-comment-out.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="764" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-06-google-analytics-management-strategy.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-09-06-referencing-parent-selectors.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-08-28-web-tan.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="54" selection-start="172" selection-end="227" vertical-scroll-proportion="0.19859155" vertical-offset="54" max-vertical-offset="960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2007-07-28-warikiru.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="764" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-06-29-masason.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="737" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-07-16-on-human-relations.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-09-21-dotcoder4.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1110" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-09-24-sass-school.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="737" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-webpagetest-5-minutes.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2011-12-28-top-entry-2011.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2011-12-13-index-value-ga-v5-2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2011-11-15-titanium-meetup-osaka.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2011-09-24-news-201109.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="12.740741" vertical-offset="344" max-vertical-offset="1035" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2011-12-12-html5shim-vs-html5shiv.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2235" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2011-12-01-titanium-advent-calendar-2011-01.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="72" selection-start="2326" selection-end="2350" vertical-scroll-proportion="-5.4716983" vertical-offset="310" max-vertical-offset="975" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-12-15-akamai-yahoo-japan.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="67" selection-start="1830" selection-end="1830" vertical-scroll-proportion="-5.259259" vertical-offset="443" max-vertical-offset="900" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2010-04-10-using-site-speed-in-web-search-ranking.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="297" selection-start="2063" selection-end="2063" vertical-scroll-proportion="-17.222221" vertical-offset="0" max-vertical-offset="930" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.20868348" vertical-offset="136" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="5" selection-start="49" selection-end="49" vertical-scroll-proportion="0.058900524" vertical-offset="15" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-05-modern-coder.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="737">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-16-look-back-2013.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="-2.7777777" vertical-offset="0" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.22" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
       </provider>
     </entry>
   </component>
