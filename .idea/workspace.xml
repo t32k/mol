@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bac73b0-74be-4ea1-8be4-5699ba7e89c0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2014-01-01-casual-continuous-integration.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md" afterPath="$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/base.html" afterPath="$PROJECT_DIR$/_layouts/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mol.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +28,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2014-01-01-new-years-resolutions-2014.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2014-01-01-new-years-resolutions-2014.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="21" selection-start="123" selection-end="123" vertical-scroll-proportion="0.16" vertical-offset="0" max-vertical-offset="750">
+            <state line="8" column="19" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="255">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2013-12-01-modern-development-workflow-with-grunt.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-12-01-modern-development-workflow-with-grunt.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="3660">
               <folding />
             </state>
           </provider>
@@ -37,10 +49,40 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="2014-01-01-casual-continuous-integration.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-casual-continuous-integration.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="33" selection-start="544" selection-end="544" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="315">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_layouts/post.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="720">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_layouts/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="45" selection-start="741" selection-end="741" vertical-scroll-proportion="0.24657534" vertical-offset="0" max-vertical-offset="1215">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="2013-12-05-modern-coder.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2013-12-05-modern-coder.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="405">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
@@ -52,7 +94,7 @@
       <file leaf-file-name="2013-12-16-look-back-2013.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2013-12-16-look-back-2013.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="-2.7777777" vertical-offset="0" max-vertical-offset="945">
+            <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="945">
               <folding />
             </state>
           </provider>
@@ -76,13 +118,44 @@
       <list>
         <option value="$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md" />
         <option value="$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md" />
+        <option value="$PROJECT_DIR$/_posts/2014-01-01-casual-continuous-integration.md" />
+        <option value="$PROJECT_DIR$/_layouts/base.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1440" />
+    <option name="width" value="1370" />
     <option name="height" value="874" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Error handlingJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -110,6 +183,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,21 +212,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
+              <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/_posts" />
+    <property name="options.lastSelected" value="editor" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_posts" />
+    </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -163,23 +253,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -201,14 +283,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="0" y="22" width="1370" height="874" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298611" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18248175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -234,26 +316,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
+        <state line="8" column="19" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-01-modern-development-workflow-with-grunt.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="3660">
           <folding />
         </state>
       </provider>
@@ -261,9 +333,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-casual-continuous-integration.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
+        <state line="12" column="33" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="270">
           <folding />
         </state>
       </provider>
@@ -271,16 +343,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-05-modern-coder.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="405">
           <folding />
         </state>
       </provider>
@@ -288,19 +353,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-16-look-back-2013.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
+        <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="945">
           <folding />
         </state>
       </provider>
@@ -310,16 +365,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915">
-          <folding />
-        </state>
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140">
-          <folding />
-        </state>
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -327,9 +378,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
-          <folding />
-        </state>
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -337,9 +386,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
-          <folding />
-        </state>
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="121" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="915" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1140" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885" />
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -501,9 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885">
-          <folding />
-        </state>
+        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -511,9 +614,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320">
-          <folding />
-        </state>
+        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -521,9 +622,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.20868348" vertical-offset="136" max-vertical-offset="1140">
-          <folding />
-        </state>
+        <state line="19" column="27" selection-start="493" selection-end="493" vertical-scroll-proportion="0.20868348" vertical-offset="136" max-vertical-offset="1140" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -531,9 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="49" selection-end="49" vertical-scroll-proportion="0.058900524" vertical-offset="15" max-vertical-offset="915">
-          <folding />
-        </state>
+        <state line="4" column="5" selection-start="49" selection-end="49" vertical-scroll-proportion="0.058900524" vertical-offset="15" max-vertical-offset="915" />
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -541,7 +638,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-12-05-modern-coder.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="737">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="405">
           <folding />
         </state>
       </provider>
@@ -549,9 +646,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-12-16-look-back-2013.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-01-modern-development-workflow-with-grunt.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="-2.7777777" vertical-offset="0" max-vertical-offset="945">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="3660">
           <folding />
         </state>
       </provider>
@@ -561,12 +658,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-new-years-resolutions-2014.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="123" selection-end="123" vertical-scroll-proportion="0.16" vertical-offset="0" max-vertical-offset="750">
+        <state line="8" column="19" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-01-casual-continuous-integration.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="33" selection-start="544" selection-end="544" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-12-16-look-back-2013.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="73" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_layouts/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="45" selection-start="741" selection-end="741" vertical-scroll-proportion="0.24657534" vertical-offset="0" max-vertical-offset="1215">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
