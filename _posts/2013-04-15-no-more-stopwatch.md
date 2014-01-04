@@ -39,16 +39,16 @@ ga:avgPageLoadTime = (ga:pageLoadTime / ga:pageLoadSample) * 0.001
 と言った計算式で算出されております。これであればサイトの全ページを計測でき、なおかつ平均なので、ある程度ならした数値を得ることができます（外れ値は別途カスタムレポートとかで除外することもできます）し、パフォーマンス改善もPVの多いとこから対応したほうが効率的だということが理解できるでしょう。
 
 <strong><span style="color: #333399;">[追記]</span></strong>　コメントに指摘されたように、値にばらつきがあるような場合（凹凸形状な分布）だとやはり、中央値を確認すべきなので、<strong>[分布]</strong>タブをクリックすれば、どの値の範囲に多いのか確認できます。
-<p style="text-align: center;"><a href="/mol/file/2013/04/fig.png"><img class="aligncenter size-large wp-image-4889 fig" title="Distribution" src="/mol/file/2013/04/fig-1024x646.png" alt="" width="540" height="340" /></a></p>
+<p style="text-align: center;"><a href="/mol/file/2013/04/fig.png"><img class="aligncenter size-large wp-image-4889 fig" title="Distribution" src="/mol/file/2013/04/fig.png" alt="" width="540" height="340" /></a></p>
 またディレクトリごとで読み込み時間の違いを確認したり、端末ごとでの読み込み時間を確認するといったことも可能でしょう。
 
 さて、この読み込み時間ってのはどこから取ってきてるのかと言いますと、<a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html">Navigation Timing</a>という仕様を実装しているブラウザからです。ユーザーがページ遷移するとネットワークの接続、サーバーレスポンス、ブラウザ読み込みにかかった時間が自動的にブラウザに記録され、その情報をGAがサーバーに送ってるといった感じです。
 <p style="text-align: center;"><img class="size-full wp-image-4848 aligncenter" title="Before" src="/mol/file/2013/04/f1.png" alt="" width="640" height="300" /></p>
 これまでというか、一昔前まではそうゆうことを計測しようと思うと上記のようなコードを挿入して計測していた気がします。これをページの読み込み時間と定義してしまうのは、いささか問題があります。Aのページの読み込みを考えれば、当然Bとなど他のページから遷移したと想定され、Bのページのリンクを押してから、Aのベージの読み込み完了までが本来の意味での（体感的な）読み込み時間と考えるべきでしょう。つまり、上記のコードではネットワークやサーバーのやり取りの部分が考慮されてないことを意味します。またそもそも<a href="http://ejohn.org/blog/accuracy-of-javascript-time/">JavaScriptでの時間計測は不正確</a>ということも懸念されます。
-<p style="text-align: center;"><img class="aligncenter size-full wp-image-4836" title="After" src="/mol/file/2013/04/f2.png" alt="" width="640" height="340" /></p>
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-4836" title="After" src="/static/blog/2013/04/f2.png" alt="" width="640" height="340" /></p>
 より体感に近い読み込み時間を考慮すれば上図のような流れを計測すべきです。このような計測をJavaScriptだけで行おうとするとやや複雑な処理を記述しなければなりません。そんなめんどくさいことしなくても計測できるようになったのが、Navigation timingです。
 
-<a href="/mol/file/2013/04/s21.png"><img class="size-large wp-image-4838 fig" title="技術" src="/mol/file/2013/04/s21-1024x844.png" alt="" width="540" height="445" /></a>
+<a href="/mol/file/2013/04/s21.png"><img class="size-large wp-image-4838 fig" title="技術" src="/static/blog/2013/04/s21.png" alt="" width="540" height="445" /></a>
 
 もう一度、GAのレポート（[コンテンツ] &gt; [サイトの速度] &gt; [ページ速度]）を見てみると、『平均表示時間』の以外にも様々な指標が確認できるでしょう。
 <ol>
@@ -60,7 +60,7 @@ ga:avgPageLoadTime = (ga:pageLoadTime / ga:pageLoadSample) * 0.001
 </ol>
 <strong>[エクスプローラ]</strong>タブの<strong>[技術]</strong>にはネットワークとサーバーに関する指標がレポーティングされています。『平均表示時間』の大半がこの部分で占められていれば、フロントエンドエンジニアではなくサーバーサイドエンジニアに文句を言いましょう。
 
-<a href="/mol/file/2013/04/s3.png"><img class="size-large wp-image-4837 fig" title="DOM速度" src="/mol/file/2013/04/s3-1024x844.png" alt="" width="540" height="445" /></a>
+<a href="/mol/file/2013/04/s3.png"><img class="size-large wp-image-4837 fig" title="DOM速度" src="/static/blog/2013/04/s3.png" alt="" width="540" height="445" /></a>
 <ol>
 	<li><strong>平均ドキュメントインタラクティブ時間</strong>（ドキュメントがパースされるのにかかった平均時間。このときDOMは完全に読み込まれてはいないが、ユーザー操作可能な状態。またユーザーの所在地からサイトのサーバーにアクセスするネットワークの通信時間も含まれる）</li>
 	<li><strong>平均ドキュメントコンテンツ読み込み時間</strong>（ドキュメントがパースされDOMContentLoadedを実行するのにかかった平均時間。このときDOMは読み込まれているがCSSや画像などのリソースが読み込みが完了しているわけではない）</li>
