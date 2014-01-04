@@ -38,13 +38,7 @@ author:
 似たような例として、毎年のようにブラウザのJavaScriptエンジンがx倍高速化した！といったようなニュースを一度は聞いてるかと思いますが、実体感としては、それほど速くなっていないように感じます。これも結局はブラウザのJS処理というのは何msという単位（あるいはもっと細かい単位かもしれません）での改善なので、そのような文脈での『x倍』というのは、実際は0.数ms程度の違いしかないのかもしれません。
 
 このように『x倍速くなった・遅くなった』という表現をしているときは、注意が必要です（大人はみんな騙そうとしてきます）！どうゆう文脈での何倍なのか、ちゃんと確認してみましょう。
-> In the first condition, the src image attribute was specified to an image location known to be in the browser cache. This is called the binary condition.
-
-In the second condition, the src image attribute was specified to a pre- fetched data URI of the same image as in the first condition. This is called the data URI condition.
-
-Both conditions used the same image, a 17.8kB PNG. In both conditions, the same image was materialized 5 times. Materialization completion was measured by using the "load" event of the image object.
-
-When the load event for all 5 images fired, the test was marked as “complete” and results were recorded.
+> In the first condition, the src image attribute was specified to an image location known to be in the browser cache. This is called the binary condition.In the second condition, the src image attribute was specified to a pre- fetched data URI of the same image as in the first condition. This is called the data URI condition.Both conditions used the same image, a 17.8kB PNG. In both conditions, the same image was materialized 5 times. Materialization completion was measured by using the "load" event of the image object.When the load event for all 5 images fired, the test was marked as “complete” and results were recorded.
 
 <a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">http://www.mobify.com/blog/data-uris-are-slow-on-mobile/</a>
 
