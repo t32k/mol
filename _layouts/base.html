@@ -15,12 +15,12 @@
     {% if page.author.gplus %}<link rel="author" href="https://plus.google.com/{{ page.author.gplus }}">{% endif %}       
     <meta property="og:title" content="{% if page.title %}{{ page.title }} {% else %}{{ site.inc.title }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}mol{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}mol/images/{{ site.inc.logo }}">
     {% if page.cover_image %}
     <meta property="og:image" content="{{ site.url }}mol/images/{{ page.cover_image }}">
     {% if page.main_image %}
     <meta property="og:image" content="{{ site.url }}mol/images/{{ page.main_image }}">  
     {% endif %}
-    <meta property="og:image" content="{{ site.url }}mol/images/{{ site.inc.logo }}">   
     {% endif %}
     {% if page.excerpt %}
     <meta property="og:description" content="{{ page.excerpt }}">
