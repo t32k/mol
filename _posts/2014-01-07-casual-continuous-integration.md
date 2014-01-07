@@ -92,7 +92,7 @@ script:
 
 ## YSlow
 
-で、次はパフォーマンスのテスト内容に関して。[YSlow](http://yslow.org/)はFirefoxとかChromeの拡張機能でみんな使ったことあるよね？それをPhantom.jsを使ってTravis上でも実行できるように解説してるのが以下のページ。
+で、次はパフォーマンスのテスト内容に関して。[YSlow](http://yslow.org/)はFirefoxとかChromeの拡張機能でみんな使ったことあるよね？君のサイトはパフォーマンス的にAランクですよ！とか教えてくれるツール。それをPhantom.jsを使ってTravis上でも実行できるように解説してるのが以下のページ。
 
 + [YSlow - Official Open Source Project Website](http://yslow.org/phantomjs/#travisci-integration)
 
@@ -116,21 +116,20 @@ script:
 phantomjs yslow.js [オプション] <テストしたいURL>
 ```
 
-で、オプションで重要なしきい値の設定も忘れずに。
+で、重要なオプションである、しきい値の設定も忘れずに。
 
 ```
 --threshold '{"ycdn": 10, "yexpires": 10}'
 ```
 
-単純にテストしたいだけなので『CDN使えよ！』の項目や、gh-pagesでホストしてるのでサーバーの設定とかできないので、キャッシュの項目とか10点でもOKなように（テストが通るように）しておく（もちろん、その他の項目がダメならテストが失敗したよってメールが飛んでくる）。
+単純にテストしたいだけなので『CDN使えよ！』の項目や、gh-pagesでホストしてるのでサーバーの設定とかできないので、キャッシュの項目とか10点でもOKなように（テストが通るように）しておく（もちろん、その他の項目がダメならテストが失敗したよってメールが飛んでくる（飛んでこないようにも設定できる））。
 
 てな感じで、これでmasterにpushするとその内容をgh-pagesにマージしてホストされたURLをパフォーマンステストするって流れが出来ました。
 
 + [Travis CI - Free Hosted Continuous Integration Platform for the Open Source Community](https://travis-ci.org/t32k/maple)
 
-まぁ今回のテストページとか適当だし、そもそもgh-pagesのホストにデプロイしてる間にtestが実行されちゃって残念な状態にもなってるのであれですけど、雰囲気掴んで貰えれば幸いっす＞ｍ＜
+まぁ今回のテストページとか適当だし、そもそもgh-pagesのホストにデプロイしてる間にtestが実行されちゃって残念な状態にもなってるのであれですけど、雰囲気つかんで貰えれば幸いっす＞ｍ＜
 
 ### 参考リソース
 
 + [Performance Calendar » Proactive Web Performance Optimization](http://calendar.perfplanet.com/2012/proactive-web-performance-optimization/)
-
