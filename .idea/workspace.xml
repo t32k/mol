@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bac73b0-74be-4ea1-8be4-5699ba7e89c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2014-01-07-casual-continuous-integration.md" afterPath="$PROJECT_DIR$/_posts/2014-01-07-casual-continuous-integration.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2014-01-08-casual-continuous-integration-2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mol.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +26,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2014-01-07-casual-continuous-integration.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2014-01-07-casual-continuous-integration.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2014-01-07-casual-continuous-integration.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="1144" selection-end="1200" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="4704">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2014-01-08-casual-continuous-integration-2.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2014-01-08-casual-continuous-integration-2.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="117" selection-start="4977" selection-end="4977" vertical-scroll-proportion="0.886076" vertical-offset="3128" max-vertical-offset="4392">
+            <state line="33" column="139" selection-start="1186" selection-end="1186" vertical-scroll-proportion="-19.185184" vertical-offset="274" max-vertical-offset="1776">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.sh" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../maple/test/test.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="77" selection-start="77" selection-end="77" vertical-scroll-proportion="0.019339243" vertical-offset="0" max-vertical-offset="1241">
               <folding />
             </state>
           </provider>
@@ -63,14 +82,15 @@
         <option value="$PROJECT_DIR$/_layouts/base.html" />
         <option value="$PROJECT_DIR$/_posts/2014-01-06-casual-continuous-integration.md" />
         <option value="$PROJECT_DIR$/_posts/2014-01-07-casual-continuous-integration.md" />
+        <option value="$PROJECT_DIR$/_posts/2014-01-08-casual-continuous-integration-2.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="128" />
-    <option name="y" value="22" />
-    <option name="width" value="1072" />
-    <option name="height" value="1414" />
+    <option name="x" value="1116" />
+    <option name="y" value="74" />
+    <option name="width" value="1338" />
+    <option name="height" value="1364" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -145,20 +165,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -227,14 +233,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="128" y="22" width="1072" height="1414" extended-state="0" />
+    <frame x="1116" y="74" width="1338" height="1364" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.67096287" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295964" sideWeight="0.67096287" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -266,22 +272,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/2012-12-01-join-enja-oss.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="116" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="885" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-07-03-using-node-version-manager.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="1320" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2009-11-22-design-at-facebook.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -340,16 +330,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="26" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.28616852" vertical-offset="456" max-vertical-offset="2040">
-          <folding />
-        </state>
+        <state line="32" column="26" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.28616852" vertical-offset="456" max-vertical-offset="2040" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-06-28-vagrant1-2-centos6-4-jenkins1-5.md">
@@ -357,9 +343,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="0.4177215" vertical-offset="0" max-vertical-offset="3888">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="0.4177215" vertical-offset="0" max-vertical-offset="3888" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-12-01-modern-development-workflow-with-grunt.md">
@@ -367,9 +351,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="9096">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="9096" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-09-24-sass-school.md">
@@ -377,9 +359,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1704">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1704" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-webpagetest-5-minutes.md">
@@ -387,9 +367,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="3775" selection-end="3775" vertical-scroll-proportion="0.7531645" vertical-offset="1688" max-vertical-offset="2952">
-          <folding />
-        </state>
+        <state line="69" column="0" selection-start="3775" selection-end="3775" vertical-scroll-proportion="0.7531645" vertical-offset="1688" max-vertical-offset="2952" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2014-01-07-casual-continuous-integration.md">
@@ -397,7 +375,24 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="117" selection-start="4977" selection-end="4977" vertical-scroll-proportion="0.886076" vertical-offset="3128" max-vertical-offset="4392">
+        <state line="18" column="0" selection-start="1144" selection-end="1200" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="4704">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-08-casual-continuous-integration-2.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="139" selection-start="1186" selection-end="1186" vertical-scroll-proportion="-19.185184" vertical-offset="274" max-vertical-offset="1776">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../maple/test/test.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="77" selection-start="77" selection-end="77" vertical-scroll-proportion="0.019339243" vertical-offset="0" max-vertical-offset="1241">
           <folding />
         </state>
       </provider>
