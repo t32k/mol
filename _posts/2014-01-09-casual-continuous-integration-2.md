@@ -4,16 +4,16 @@ title: 手軽にCIを体験してみたい・その2
 subtitle: Proactive Web Performance Optimization with Jenkins
 cover_image: /2014/01-08-cover.png
 categories: performance
-excerpt: "前回の記事が全然手軽じゃない気がしてきたので、今回も幾分かマシにCIを体験するという目的で書いてみる。"
+excerpt: "前回の記事が全然手軽じゃない気がしてきたので、今回も幾分かマシにCIを体験するというかCIサーバ立てずにがんばってみる。"
 ---
 
-前回の記事が全然手軽じゃない気がしてきたので、今回も幾分かマシにCIを体験するというというかパフォーマンステストしてみる目的で書いてみる。
+[前回の記事](/mol/log/casual-continuous-integration/)が全然手軽じゃない気がしてきたので、今回も幾分かマシにCIを体験するというかCIサーバ立てずにがんばってみる。
 
 ![Jenkins・WPT・GitHub](/mol/images/2014/01-08-fig01.png)
 
 前回はTravisとYSlowを使ってパフォーマンステストをしたけど、今回はJenkinsとWebPagetestを使って全く同じことをしてみる。
 
-やっぱしTravisの設定が慣れないんだ。ちなみに普通のユニットテストとかだったら、アクセストークンとか必要ないので軽くできる。僕はGruntのプラグインでやってる。
+やっぱしTravisの設定が慣れないんだなぁ。ちなみに普通のユニットテストとかだったら、アクセストークンとか必要ないのでもっと簡単にできる。僕はGruntプラグインの開発で使用している。
 
 + [grunt-csso/.travis.yml](https://github.com/t32k/grunt-csso/blob/master/.travis.yml)
 + [grunt-csso/package.json](https://github.com/t32k/grunt-csso/blob/master/package.json)
@@ -32,7 +32,7 @@ Freeでは月300分までのビルドまでしかできなかったり制限あ�
 
 ### Jenkinsシステム設定
 
-まず、GitHubとJenkinsの連携だけどDEV@cloudのJenkinsは[Git Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)がデフォルトでインストールしてあるのでいちいちこちらでインストールしなくてもいいので楽ですね。
+まず、GitHubとJenkinsの連携だけどDEV@cloudのJenkinsは[Git Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)がデフォルトでインストールしてあるのでこちらでインストールしなくてもいいので楽です。
 
 __CloudBees DEV@cloud Authorization__でCloudBees Public KeyをGitHubのAccount Settingsの[SSH Keys](https://github.com/settings/ssh)に登録しておく。
 
