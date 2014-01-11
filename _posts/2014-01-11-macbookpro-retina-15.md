@@ -15,7 +15,7 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 #### Before
 
 + MacBook Pro 13" (2012 Mid)
-+ [Dell U2713HM 27インチ]](http://www.amazon.co.jp/dp/B00FEZD878?tag=warikiru-22)
++ [Dell U2713HM 27インチ](http://www.amazon.co.jp/dp/B00FEZD878?tag=warikiru-22)
 + Apple Magic Mouse
 + Apple Wireless Keyboard (US)
 + [LOGICOOL HDプロ ウェブカム C920](http://www.amazon.co.jp/dp/B006NTPLJW?tag=warikiru-22)
