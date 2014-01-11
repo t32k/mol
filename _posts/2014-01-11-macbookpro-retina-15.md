@@ -1,10 +1,10 @@
 ---
 layout: post
-title: MacBook Pro "15 のみという選択
+title: MacBook Pro 15" のみという選択
 subtitle: MacBook Pro Retinaディスプレイ 2000/15.4 ME293J/A
 cover_image: /2014/01-11-cover.jpg
 categories: gadget
-excerpt: "最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。前回のRX100のカメラも然り。"
+excerpt: "最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。"
 ---
 
 最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。前回のRX100のカメラも然り。
@@ -14,18 +14,17 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 #### Before
 
-+ MacBook Pro "13 (2012 Mid)
-+ Dell U2713HM [27インチ] 
++ MacBook Pro 13" (2012 Mid)
++ [Dell U2713HM 27インチ]](http://www.amazon.co.jp/dp/B00FEZD878?tag=warikiru-22)
 + Apple Magic Mouse
 + Apple Wireless Keyboard (US)
-+ LOGICOOL HDプロ ウェブカム C920
-+ BOSE SoundLink Mini Bluetooth speaker
-+ LaCie USB3.0/2.0対応3.5インチ 1TB
-
++ [LOGICOOL HDプロ ウェブカム C920](http://www.amazon.co.jp/dp/B006NTPLJW?tag=warikiru-22)
++ [BOSE SoundLink Mini Bluetooth speaker](http://www.amazon.co.jp/dp/B00D89H1NO?tag=warikiru-22)
++ [LaCie USB3.0/2.0対応3.5インチ 1TB](http://www.amazon.co.jp/dp/B00D12RQPG?tag=warikiru-22)
 
 #### After
 
-+ MacBook Pro Retina "15 (2013 Late)
++ MacBook Pro Retina 15" (2013 Late)
 
 <table  class="g-tools_table"><tr><td valign="top"><span class="g-tools_img"><a href="http://www.amazon.co.jp/MacBook-Retina-Display-GeForce-ME294J/dp/B00G55EJWO%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G55EJWO" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51ZQGx%2BAsRL._SL160_.jpg"  alt="APPLE MacBook Pro Retina Display(15.4/2.3GHz Quad Core i7/16GB/512GB/Iris Pro/GeForce) ME294J/A" /></a></span></td><td valign="top"><span class="g-tools_body"><a href="http://www.amazon.co.jp/MacBook-Retina-Display-GeForce-ME294J/dp/B00G55EJWO%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G55EJWO" target="_blank">APPLE MacBook Pro Retina Display(15.4/2.3GHz Quad Core i7/16GB/512GB/Iris Pro/GeForce) ME294J/A</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />アップル  2013-10-23<br />売り上げランキング : 12407<br /><br /><a href="http://www.amazon.co.jp/MacBook-Retina-Display-GeForce-ME294J/dp/B00G55EJWO%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G55EJWO" target="_blank">Amazonで詳しく見る</a></span><span class="g-tools_by"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></span></td></tr></table>
 
@@ -41,7 +40,7 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 ## 解像度
 
 
-<a href="http://www.flickr.com/photos/t32k/11872510793/" title="DSC00008 by t32k, on Flickr"><img src="http://farm8.staticflickr.com/7378/11872510793_70bba7ecc9_b.jpg" width="1024" height="683" alt="DSC00008"></a>
+<a href="http://www.flickr.com/photos/t32k/11872510793/" title="DSC00008 by t32k, on Flickr"><img src="http://farm8.staticflickr.com/7378/11872510793_70bba7ecc9_b.jpg" alt="DSC00008"></a>
 
 
 新しい環境に移行するにあたってMBPを何インチ買うのか、やはり迷った。当然13インチでもスペック的には十分だし、しかし解像度低いし、むしろMacBook Air 13のほうがいいんじゃないかと思ったけど、やはりメインマシンで使っていくし（動画もちょっと編集するし）って思って15インチ買った。
@@ -82,10 +81,10 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 これで気兼ねなく、ステッカー貼れるね！
 
-<a href="http://www.flickr.com/photos/t32k/11872510353/" title="DSC00011 by t32k, on Flickr"><img src="http://farm3.staticflickr.com/2844/11872510353_e81f5f1222_b.jpg" width="1024" height="683" alt="DSC00011"></a>
+<a href="http://www.flickr.com/photos/t32k/11872510353/" title="DSC00011 by t32k, on Flickr"><img src="http://farm3.staticflickr.com/2844/11872510353_e81f5f1222_b.jpg" alt="DSC00011"></a>
 
 
-<a href="http://www.flickr.com/photos/t32k/11872509443/" title="DSC00016 by t32k, on Flickr"><img src="http://farm3.staticflickr.com/2888/11872509443_9ff0cf8980_b.jpg" width="1024" height="683" alt="DSC00016"></a>
+<a href="http://www.flickr.com/photos/t32k/11872509443/" title="DSC00016 by t32k, on Flickr"><img src="http://farm3.staticflickr.com/2888/11872509443_9ff0cf8980_b.jpg" alt="DSC00016"></a>
 
 
 <table  class="g-tools_table"><tr><td valign="top"><span class="g-tools_img"><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-MacBook-Pro-15inch-Retina%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A2%E3%83%87%E3%83%AB%E7%94%A8-PEF-65/dp/B008RTRZJA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008RTRZJA" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41qiBVxxB2L._SL160_.jpg"  alt="パワーサポート MacBook Pro 15inch Retinaディスプレイモデル用　PEF-65" /></a></span></td><td valign="top"><span class="g-tools_body"><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-MacBook-Pro-15inch-Retina%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A2%E3%83%87%E3%83%AB%E7%94%A8-PEF-65/dp/B008RTRZJA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008RTRZJA" target="_blank">パワーサポート MacBook Pro 15inch Retinaディスプレイモデル用　PEF-65</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />パワーサポート  <br />売り上げランキング : 49445<br /><br /><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-MacBook-Pro-15inch-Retina%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A2%E3%83%87%E3%83%AB%E7%94%A8-PEF-65/dp/B008RTRZJA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008RTRZJA" target="_blank">Amazonで詳しく見る</a></span><span class="g-tools_by"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></span></td></tr></table>
@@ -96,7 +95,7 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 このキーボードカバーは気に入っている。一枚のフラットシートをかぶせてあるだけなんだけど、薄いので打撃感があんまりかわらない。
 
-<a href="http://www.flickr.com/photos/t32k/11872676654/" title="DSC00012 by t32k, on Flickr"><img src="http://farm4.staticflickr.com/3779/11872676654_80658ecfd1_b.jpg" width="1024" height="683" alt="DSC00012"></a>
+<a href="http://www.flickr.com/photos/t32k/11872676654/" title="DSC00012 by t32k, on Flickr"><img src="http://farm4.staticflickr.com/3779/11872676654_80658ecfd1_b.jpg" alt="DSC00012"></a>
 
 
 
@@ -104,19 +103,19 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 これ全然つけてるのかわかんなくなるほど馴染んでる！いいね！
 
-<a href="http://www.flickr.com/photos/t32k/11873080476/" title="DSC00009 by t32k, on Flickr"><img src="http://farm6.staticflickr.com/5491/11873080476_094ef3cfbe_b.jpg" width="1024" height="683" alt="DSC00009"></a>
+<a href="http://www.flickr.com/photos/t32k/11873080476/" title="DSC00009 by t32k, on Flickr"><img src="http://farm6.staticflickr.com/5491/11873080476_094ef3cfbe_b.jpg" alt="DSC00009"></a>
 
 
 簡易的な冷却台
 
-<a href="http://www.flickr.com/photos/t32k/11873080646/" title="DSC00010 by t32k, on Flickr"><img src="http://farm8.staticflickr.com/7333/11873080646_96cf9f7d03_b.jpg" width="1024" height="683" alt="DSC00010"></a>
+<a href="http://www.flickr.com/photos/t32k/11873080646/" title="DSC00010 by t32k, on Flickr"><img src="http://farm8.staticflickr.com/7333/11873080646_96cf9f7d03_b.jpg" alt="DSC00010"></a>
 
 ## オマケ
 
-あと最近流行ってるので自分のパソコンリュックは__THE NORTH FACE "BITE 20"__っての。山系のブランドですがAppleとコラボしてPCリュックとして企画したものとか。もう売ってないかな？
+あと最近流行ってるので自分のパソコンリュックは __THE NORTH FACE "BITE 20"__ っての。TNFは山系のブランドですがAppleとコラボしてPCリュックとして企画したものとか。もう売ってないかな？
 
-<a href="http://www.flickr.com/photos/t32k/11873078736/" title="DSC00017 by t32k, on Flickr"><img src="http://farm4.staticflickr.com/3809/11873078736_0cc9c8221e_b.jpg" width="1024" height="683" alt="DSC00017"></a>
+<a href="http://www.flickr.com/photos/t32k/11873078736/" title="DSC00017 by t32k, on Flickr"><img src="http://farm4.staticflickr.com/3809/11873078736_0cc9c8221e_b.jpg" alt="DSC00017"></a>
 
-<a href="http://www.flickr.com/photos/t32k/11873077606/" title="DSC00019 by t32k, on Flickr"><img src="http://farm8.staticflickr.com/7320/11873077606_0d2352457c_b.jpg" width="1024" height="683" alt="DSC00019"></a>
+<a href="http://www.flickr.com/photos/t32k/11873077606/" title="DSC00019 by t32k, on Flickr"><img src="http://farm8.staticflickr.com/7320/11873077606_0d2352457c_b.jpg" alt="DSC00019"></a>
 
-<a href="http://www.flickr.com/photos/t32k/11872233275/" title="DSC00018 by t32k, on Flickr"><img src="http://farm3.staticflickr.com/2847/11872233275_d883f8340f_b.jpg" width="1024" height="683" alt="DSC00018"></a>
+<a href="http://www.flickr.com/photos/t32k/11872233275/" title="DSC00018 by t32k, on Flickr"><img src="http://farm3.staticflickr.com/2847/11872233275_d883f8340f_b.jpg" alt="DSC00018"></a>
