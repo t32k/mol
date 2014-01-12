@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bac73b0-74be-4ea1-8be4-5699ba7e89c0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2014-01-11-macbookpro-retina-15.md" afterPath="$PROJECT_DIR$/_posts/2014-01-11-macbookpro-retina-15.md" />
     </list>
     <ignored path="mol.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +25,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2014-01-10-cyber-shot-rx100.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="2014-01-10-cyber-shot-rx100.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="51" selection-start="4830" selection-end="4830" vertical-scroll-proportion="0.9624413" vertical-offset="1314" max-vertical-offset="2712">
+            <state line="64" column="51" selection-start="5050" selection-end="5050" vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1485">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2014-01-11-macbookpro-retina-15.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2014-01-11-macbookpro-retina-15.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="12" selection-start="12811" selection-end="12811" vertical-scroll-proportion="0.58" vertical-offset="2400" max-vertical-offset="3150">
               <folding />
             </state>
           </provider>
@@ -66,14 +77,14 @@
         <option value="$PROJECT_DIR$/_posts/2014-01-09-casual-continuous-integration-2.md" />
         <option value="$PROJECT_DIR$/_posts/2014-01-10- cyber-shot-rx100.md" />
         <option value="$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md" />
+        <option value="$PROJECT_DIR$/_posts/2014-01-11-macbookpro-retina-15.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="351" />
     <option name="y" value="22" />
-    <option name="width" value="1347" />
-    <option name="height" value="1375" />
+    <option name="width" value="1440" />
+    <option name="height" value="874" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -182,6 +193,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -192,23 +211,15 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
       <setting name="configLocationType" value="CONFIG_FILE" />
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
@@ -230,14 +241,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="351" y="22" width="1347" height="1375" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18930958" sideWeight="0.67096287" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18888889" sideWeight="0.67096287" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -245,11 +256,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903716" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903716" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -271,14 +282,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="68" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1392">
+        <state line="64" column="51" selection-start="5050" selection-end="5050" vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2014-01-09-casual-continuous-integration-2.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="3096" />
+        <state line="19" column="68" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0" vertical-offset="456" max-vertical-offset="1392">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md">
@@ -289,11 +302,6 @@
         <state line="7" column="3" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="312">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2014-01-09-casual-continuous-integration-2.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="3096" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2012-10-17-csscomb.md">
@@ -386,11 +394,6 @@
         <state line="69" column="0" selection-start="3775" selection-end="3775" vertical-scroll-proportion="0.7531645" vertical-offset="1688" max-vertical-offset="2952" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../maple/test/test.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="146" selection-end="146" vertical-scroll-proportion="0.058017727" vertical-offset="0" max-vertical-offset="1241" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2014-01-07-casual-continuous-integration.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -399,17 +402,22 @@
         <state line="10" column="34" selection-start="437" selection-end="437" vertical-scroll-proportion="0.25469387" vertical-offset="0" max-vertical-offset="4344" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2014-01-09-casual-continuous-integration-2.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="4080" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2014-01-10-cyber-shot-rx100.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="51" selection-start="4830" selection-end="4830" vertical-scroll-proportion="0.9624413" vertical-offset="1314" max-vertical-offset="2712">
+        <state line="64" column="51" selection-start="5050" selection-end="5050" vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="1485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-11-macbookpro-retina-15.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="12" selection-start="12811" selection-end="12811" vertical-scroll-proportion="0.58" vertical-offset="2400" max-vertical-offset="3150">
           <folding />
         </state>
       </provider>

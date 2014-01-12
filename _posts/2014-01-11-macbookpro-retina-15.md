@@ -7,12 +7,12 @@ categories: gadget
 excerpt: "最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。"
 ---
 
-最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。前回のRX100のカメラも然り。
+最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。[前回のRX100のカメラ](/mol/log/cyber-shot-rx100/)も然り。
 
 我々デベロッパーの仕事環境こそ、物がたまる諸悪の根源である！ってことでMacBookProだけにしてみたよ。
 
 
-#### Before
+#### Beforeの環境
 
 + MacBook Pro 13" (2012 Mid)
 + [Dell U2713HM 27インチ](http://www.amazon.co.jp/dp/B00FEZD878?tag=warikiru-22)
@@ -22,7 +22,7 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 + [BOSE SoundLink Mini Bluetooth speaker](http://www.amazon.co.jp/dp/B00D89H1NO?tag=warikiru-22)
 + [LaCie USB3.0/2.0対応3.5インチ 1TB](http://www.amazon.co.jp/dp/B00D12RQPG?tag=warikiru-22)
 
-#### After
+#### Afterの環境
 
 + MacBook Pro Retina 15" (2013 Late)
 
@@ -49,13 +49,13 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 + MacBook Air 13" - 1440 x 900 - 1.35kg
 + MacBook Pro Retina15" 2880 x 1800 - 2.03kg
 
-画面の広さ的にAdobe Creative Suiteを使うのは少々キツイけど、最近はもっぱらフロントエンドな感じで黒い画面ばかりなので、特に問題はない。重さ的にも前のDVDディスクドライブがついたMBP13よりもドライブ無しのMBP15は対して変わらない重量である。この辺りは頻繁にこまめに海外行くのならMBA13だろうなと思った。
+画面の広さ的にAdobe Creative Suiteを使うのは少々キツイけど、最近はもっぱらフロントエンドな感じで黒い画面ばかりなので、特に問題はない。重さ的にも前の光学ディスクドライブがついたMBP13よりもドライブ無しのMBP15は対して変わらない重量である。この辺りは頻繁にこまめに海外行くのならMBA13だろうなと思ったけど、許容範囲である。
 
 ## ハードディスク
 
-問題はハードディスクの容量だ。MBPのSSDを512GBにしたかったけど+3万を渋ってしまったので、256GBでなんとかしなければならない。
+問題はハードディスクの容量だ。MBPのSSDを512GBにしたかったけど+3万を渋ってしまったので、256GBでなんとかしなければならない。（この機種はメモリは後から増設できないので16GBにした）
 
-基本的に外付けに入れていたのはiTunesの音楽80GBとiPhotoの写真40GBだ。これを何とかする。2TBもあったけど全然使ってなかった。
+今まで外付けHDDに入っていたデータはiTunesの音楽80GBとiPhotoの写真40GBだ。これを何とかするしかない。しかし2TBもあったけど全然使ってなかったな。
 
 ### iTunes
 
@@ -67,14 +67,15 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 + [jawj/iphoto-flickr](https://github.com/jawj/iphoto-flickr)
 
-実質60時間くらいかかった。長かった。アップロードするときはデフォルトの公開設定を気をつけておこう。基本全員に公開（？）になってるかもしんないので、やんちゃした写真とか全世界に公開かつ僕の場合CCライセンスになってたときは焦ったｗ
+実質60時間くらいかかった。長かった。アップロードするときはデフォルトの公開設定を気をつけておこう。基本的にプライパシー設定が全員に公開（？）になってるかもしんないので、学生時代にやんちゃした写真とか全世界に公開かつ僕の場合CCライセンスになってたときは焦ったｗ
 
 ### Movie
 
-あとはですね、ムフフな動画は[DMM.com](http://www.dmm.com/)で買っておきましょう。デジタル商品ならスマホ・タブレット・PCどのデバイスからでも見れます！！あと誤解を招くといけないのですが、DMMはですね、ツチノコで3Dプリントで艦これなイノベーションカンパニーですからね！！そうゆうんじゃねーから！
+あとはですね、ムフフな動画は[DMM.com](http://www.dmm.com/)で買っておきましょう。デジタル商品ならスマホ・タブレット・PCどのデバイスからクラウド上でストリーミングできます！！あと誤解を招くといけないのですが、DMMはですね、ツチノコで3Dプリントで艦これなイノベーションカンパニーですからね！！そうゆうんじゃねーから！
 
 ## 防御的なもの
 
+あと、旅に出るといろいろ傷つきそう、汚れそうなので防御的なアクセサリーをちょっと紹介。
 
 <table  class="g-tools_table"><tr><td colspan="2"><span class="g-tools_title"><a href="http://www.amazon.co.jp/MacBook-15-4%E3%82%A4%E3%83%B3%E3%83%81%E7%94%A8-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%88%E9%BB%92%EF%BC%89-MOBILE-STUDIO/dp/B009A4YKXA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009A4YKXA" target="_blank">MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /></span></td></tr><tr><td valign="top"><span class="g-tools_img"><a href="http://www.amazon.co.jp/MacBook-15-4%E3%82%A4%E3%83%B3%E3%83%81%E7%94%A8-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%88%E9%BB%92%EF%BC%89-MOBILE-STUDIO/dp/B009A4YKXA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009A4YKXA" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21ghGdXBnuL._SL160_.jpg"  alt="MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]" /></a></span></td><td valign="top"><span class="g-tools_body"><br />MOBILE STUDIO  <br />売り上げランキング : 5640<br /><br /><br /><a href="http://www.amazon.co.jp/MacBook-15-4%E3%82%A4%E3%83%B3%E3%83%81%E7%94%A8-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%88%E9%BB%92%EF%BC%89-MOBILE-STUDIO/dp/B009A4YKXA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009A4YKXA" target="_blank">Amazonで詳しく見る</a></span><span class="g-tools_by"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></span></td></tr></table>
 
@@ -89,7 +90,7 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 <table  class="g-tools_table"><tr><td valign="top"><span class="g-tools_img"><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-MacBook-Pro-15inch-Retina%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A2%E3%83%87%E3%83%AB%E7%94%A8-PEF-65/dp/B008RTRZJA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008RTRZJA" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41qiBVxxB2L._SL160_.jpg"  alt="パワーサポート MacBook Pro 15inch Retinaディスプレイモデル用　PEF-65" /></a></span></td><td valign="top"><span class="g-tools_body"><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-MacBook-Pro-15inch-Retina%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A2%E3%83%87%E3%83%AB%E7%94%A8-PEF-65/dp/B008RTRZJA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008RTRZJA" target="_blank">パワーサポート MacBook Pro 15inch Retinaディスプレイモデル用　PEF-65</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />パワーサポート  <br />売り上げランキング : 49445<br /><br /><a href="http://www.amazon.co.jp/%E3%83%91%E3%83%AF%E3%83%BC%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88-MacBook-Pro-15inch-Retina%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A2%E3%83%87%E3%83%AB%E7%94%A8-PEF-65/dp/B008RTRZJA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008RTRZJA" target="_blank">Amazonで詳しく見る</a></span><span class="g-tools_by"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></span></td></tr></table>
 
-テカリを抑えたいので。
+画面を守るというかテカリを抑えたいので購入。
 
 <table  class="g-tools_table"><tr><td valign="top"><span class="g-tools_img"><a href="http://www.amazon.co.jp/%E3%83%95%E3%83%AB%E3%83%95%E3%83%A9%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%BC%E3%83%BBPURE-MacBook-Retina-display-PWK05/dp/B008TQTIEQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008TQTIEQ" target="_blank"><img src="http://ecx.images-amazon.com/images/I/413Wd3NgfaL._SL160_.jpg"  alt="フルフラットキーボードカバー・PURE WRAP KEY #05 for Apple 13/15 MacBook Pro with Retina display 半透明 PWK05" /></a></span></td><td valign="top"><span class="g-tools_body"><a href="http://www.amazon.co.jp/%E3%83%95%E3%83%AB%E3%83%95%E3%83%A9%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%BC%E3%83%BBPURE-MacBook-Retina-display-PWK05/dp/B008TQTIEQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008TQTIEQ" target="_blank">フルフラットキーボードカバー・PURE WRAP KEY #05 for Apple 13/15 MacBook Pro with Retina display 半透明 PWK05</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />マイクロソリューション Micro Solution Inc.  <br />売り上げランキング : 1813<br /><br /><a href="http://www.amazon.co.jp/%E3%83%95%E3%83%AB%E3%83%95%E3%83%A9%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%BC%E3%83%BBPURE-MacBook-Retina-display-PWK05/dp/B008TQTIEQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008TQTIEQ" target="_blank">Amazonで詳しく見る</a></span><span class="g-tools_by"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></span></td></tr></table>
 
@@ -112,7 +113,11 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 ## オマケ
 
-あと最近流行ってるので自分のパソコンリュックは __THE NORTH FACE "BITE 20"__ っての。TNFは山系のブランドですがAppleとコラボしてPCリュックとして企画したものとか。もう売ってないかな？
+あと最近流行ってるので、自分のパソコンリュックは __THE NORTH FACE "BITE 20"__ っての。TNFは山系のブランドですがAppleとコラボしてPCリュックとして企画したものとか。もう売ってないかな？
+
+後継シリーズっぽいのが多分これ。
+
++ [シャトルデイパック　|　GOLDWIN WEB STORE](http://goldwinwebstore.jp/ec/pro/disp/2/NM81212)
 
 <a href="http://www.flickr.com/photos/t32k/11873078736/" title="DSC00017 by t32k, on Flickr"><img src="http://farm4.staticflickr.com/3809/11873078736_0cc9c8221e_b.jpg" alt="DSC00017"></a>
 
