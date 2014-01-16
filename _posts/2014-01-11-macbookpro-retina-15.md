@@ -67,11 +67,18 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 + [jawj/iphoto-flickr](https://github.com/jawj/iphoto-flickr)
 
-実質60時間くらいかかった。長かった。アップロードするときはデフォルトの公開設定を気をつけておこう。基本的にプライパシー設定が全員に公開（？）になってるかもしんないので、学生時代にやんちゃした写真とか全世界に公開かつ僕の場合CCライセンスになってたときは焦ったｗ
+実質60時間くらいかかった。長かった。アップロードするときはデフォルトの公開設定を気をつけておこう。基本的にプライバシー設定が全員に公開（？）になってるかもしんないので、学生時代にやんちゃした写真とか全世界に公開かつ僕の場合CCライセンスになってたときは焦ったｗ
 
 ### Movie
 
 あとはですね、ムフフな動画は[DMM.com](http://www.dmm.com/)で買っておきましょう。デジタル商品ならスマホ・タブレット・PCどのデバイスからクラウド上でストリーミングできます！！あと誤解を招くといけないのですが、DMMはですね、ツチノコで3Dプリントで艦これなイノベーションカンパニーですからね！！そうゆうんじゃねーから！
+
+## バックアップ
+
+ バックアップとか気にする方はTime Capsuleですればいいんじゃないかな。無線でいけるし。基本、クラウドというかWeb上に上がってるもんだしまた落としてくればいいかなと思ってる。
+
+<table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/APPLE-AirMac-Time-Capsule-ME177J/dp/B00DCM3W26%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DCM3W26" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31PWp3-pIgL._SL160_.jpg" border="0" alt="APPLE AirMac Time Capsule - 2TB ME177J/A" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/APPLE-AirMac-Time-Capsule-ME177J/dp/B00DCM3W26%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DCM3W26" target="_blank">APPLE AirMac Time Capsule - 2TB ME177J/A</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />アップル  2013-06-11<br />売り上げランキング : 12251<br /><br /><a href="http://www.amazon.co.jp/APPLE-AirMac-Time-Capsule-ME177J/dp/B00DCM3W26%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DCM3W26" target="_blank">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
 
 ## 防御的なもの
 
