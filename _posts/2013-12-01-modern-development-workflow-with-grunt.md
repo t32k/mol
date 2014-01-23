@@ -14,7 +14,7 @@ SassなどのCSSプリプロセッサを使うWebデザイナが増えてきま�
 
 ども、Front-end Developerをしております[@t32k](https://twitter.com/t32k)です。今日はがんばります。
 
-[Frontrend](http://frontrend.github.io/)というコミュニティ活動をしています。通常は東京で3~4ヶ月の周期でフロントエンドをテーマにした勉強会を開催しています。12月は[Frontrend in Sapporo](http://sacss.net/special04/)、2014年1月はFrontrend in Fukuokaを開催予定です。良かったらみなさんもご参加くださいませ。
+[Frontrend](http://frontrend.github.io/)というコミュニティ活動をしています。通常は東京で3~4ヶ月の周期でフロントエンドをテーマにした勉強会を開催しています。良かったらみなさんもご参加くださいませ。
 
 ## Agenda
 
@@ -24,7 +24,7 @@ SassなどのCSSプリプロセッサを使うWebデザイナが増えてきま�
 + Gruntの使い方
 + Gruntfileをカスタマイズしてみましょう
 
-ちなみに今日の話のターゲットはGruntを使ったことのないHTML/CSSコーダーやWebデザイナーさんです。
+ちなみに今日の話のターゲットはGruntを使ったことのないHTML/CSSコーダーやWebデザイナーさんです。私自身、元Webデザイナーなので僕もできたことは皆さんもできるかと思います。
 
 ## Why use Grunt?
 
@@ -45,15 +45,15 @@ Gruntの使い方としてはこのように黒い画面に`grunt`といった�
 + [Koala - a gui application for LESS, Sass, Compass and CoffeeScript compilation.](http://koala-app.com/)
 + [Prepros :: Compile Sass, less or any preprocessing language](http://alphapixels.com/prepros/)
 
-別にSassとかのコンパイルや画像最適化処理などであったら、黒い画面(Grunt)を使わなくても上記のようなGUIアプリを使うことができます。デザイナーにとっては分かりやすいかもしれないGUIアプリですが、エンジニアさんが『ちょっとSass修正したいんだけど。。。』って言われた時に、これらのGUIアプリの使い方を説明するにあたって『ここのボタンを押して、、ここのメニューからhogeを選択して、、、』といったまどろっこしい説明をしなければなりません。Gruntであれば後述するPackage.jsonとGruntfile.jsを渡して、任意のGruntタスクコマンドを打つだけです。
+Sassとかのコンパイルや画像最適化処理などであったら、別に黒い画面(Grunt)を使わなくても上記のようなGUIアプリを使うことができます。デザイナーにとっては分かりやすいかもしれないGUIアプリですが、エンジニアさんが『ちょっとSass修正したいんだけど。。。』って言われた時に、これらのGUIアプリの使い方を説明するにあたって『ここのボタンを押して、ここのメニューからhogeを選択して、、、』といったまどろっこしい説明をしなければなりません。Gruntであれば後述するPackage.jsonとGruntfile.jsを渡して、任意のGruntタスクコマンドを打つだけです。
 
-またカスタマイズ性においても、私達は唯一無二のWebアプリケーションを制作しているわけですから、当然、最大公約数をターゲットとしているGUIアプリでは都合が悪い時があります（ウチの開発環境ではこれが使えない、これしたいんだけど負の遺産が。。など）。そんな時はGUIアプリではその機能や設定が実装されるまで指を加えて待たないといけません。しかし、Gruntなら、タスクを組み合わせたりすることで、ある程度柔軟に対応することができます。
+またカスタマイズ性においても、私達は唯一無二のWebアプリケーションを制作しているわけですから、当然、最大公約数をターゲットとしているGUIアプリでは都合が悪い時があります（ウチの開発環境ではこれが使えない、これしたいんだけど負の遺産が。など）。そんな時はGUIアプリではその機能や設定が実装されるまで指を加えて待たないといけません。しかし、Gruntなら、タスクを組み合わせたりすることで、ある程度柔軟に対応することができます。
 
 余談ですが、弊社でGitHub Enterpriseを導入した時に私は『やったーこれでGitが使えるお！』と思い、喜び勇んで[Tower](http://www.git-tower.com/)というGUIのGitクライアントアプリ購入しました。それでエンジニアさんにTowerのGit設定をやってもらおうと思ったのですが、『いや俺、Towerの使い方わかんねーし、コマンドラインなら教えますよ』って言われたので、僕はコマンドラインでGit使ってます(ヽ´ω`)
 
 #### Paid Apps
 
-また、これらのアプリの中には有料のものもあります。現在有料じゃなくても将来有料になるかもしれませんし、より良いサービスを受けようとおもうと有料プランを選択肢なければならないかもしれません。良いアプリにお金を払うこと自体、とても素晴らしいことだと思います。しかし、例えばさっきの例で『Sassコンパイルしたいんだけど』、『有料アプリ買ってね！』って言うのはなんか違うかと思います。Gruntなら各種プラグインは基本的に無料です。
+また、これらのアプリの中には有料のものもあります。現在有料じゃなくても将来有料になるかもしれませんし、より良いサービスを受けようとおもうと有料プランを選択肢なければならないかもしれません。良いアプリにお金を払うこと自体、とても素晴らしいことだと思います。しかし、例えばさっきの例でエンジニア：『Sassコンパイルしたいんだけど』、デザイナー：『有料アプリ買ってね！』って言うのはなんか違うかと思います。Gruntなら各種プラグインは基本的に無料です。
 
 ### Web Performance
 
@@ -73,7 +73,7 @@ __Render__は同僚の[ahomuさんの資料](https://speakerdeck.com/ahomu/web-f
 
 ## How to use Grunt
 
-次は使い方です。まずは、__[node.js](http://nodejs.org/)__をインストールしましょう。公式サイトにはインストーラーが配布されているのでポチポチとボタンを押していくだけでインストールできます。Node.jsをインストールすると同意にNPM(Node Package Module)というパッケージ管理ツールも一緒にインストールされます。
+次は使い方です。まずは、__[node.js](http://nodejs.org/)__をインストールしましょう。公式サイトにはインストーラーが配布されているのでポチポチとボタンを押していくだけでインストールできます。Node.jsをインストールすると同時にNPM(Node Package Module)というパッケージ管理ツールも一緒にインストールされます。
 
 ```
 $ npm install grunt-cli -g
@@ -115,9 +115,9 @@ $ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gr
 $ grunt-init gruntfile
 ```
 
-次にGruntfileの作成ですが、少々面倒です。まず`grunt-init`というプラグインをインストールする必要があります。そして、gruntfileを作るためのテンプレートを`git clone`でダウンロードしてきます。そうすることで`grunt-init gruntfile`を打つとまた`npm init`のようにいろいろ黒い画面が問いてきますが、ENTERおしておきましょう。
+次にGruntfileの作成ですが、少々面倒です。まず`grunt-init`というプラグインをインストールする必要があります。そして、gruntfileを作るためのテンプレートを`git clone`でダウンロードしてきます。そうすることで`grunt-init gruntfile`を打つとまた`npm init`のようにいろいろ黒い画面が問いてきますが、とりあえずはENTER押しておきましょう。
 
-こうすることで、Gruntfileが作成されます。なんかいろいろ黒い画面いっぱいで面倒だなと思った方は、最初の内はGitHub上にあがってるファイルをコピペして作れば問題無いです。
+こうすることで、Gruntfileが作成されます。なんかいろいろ黒い画面いっぱいで面倒だなと思った方は、最初の内は同じようなことをしているGruntfileをGitHubで見つけてコピペして作れば問題無いです。
 
 
 ```js
@@ -172,7 +172,7 @@ $ grunt-init gruntplugin
 
 私もあまりJavaScriptは書かないのですが、なぜかgruntプラグインをちょこちょこ書いてますので、良かったら使ってみてください。
 
-+ [t32k:npmjs](https://npmjs.org/~)
++ [t32k:npmjs](https://npmjs.org/~t32k)
 
 ### Maple 
 
@@ -194,12 +194,12 @@ $ grunt-init gruntplugin
 
 タスクの設定の詳しいことは過去のブログ読んで下さいまし！
 
-+ [CSScomb — MOL](http://t32k.me/mol/log/csscomb/)
-+ [CSSOとGRUNT-CSSO — MOL](http://t32k.me/mol/log/csso-and-grunt-csso/)
-+ [部屋とYシャツと私 — MOL](http://t32k.me/mol/log/good-bye-compass-good-bye-ruby/)
-+ [【CSS Sprite編】スプライト地獄からの解放 — MOL](http://t32k.me/mol/log/reduce-http-requests-css-sprite/)
-+ [【WebFont編】ドラッグ＆ドロップでウェ～イ — MOL](http://t32k.me/mol/log/reduce-http-requests-webfont/)
-+ [grunt-initとYeoman — MOL](http://t32k.me/mol/log/grunt-init-yo/)
++ [CSScomb — MOL](/mol/log/csscomb/)
++ [CSSOとGRUNT-CSSO — MOL](/mol/log/csso-and-grunt-csso/)
++ [部屋とYシャツと私 — MOL](/mol/log/good-bye-compass-good-bye-ruby/)
++ [【CSS Sprite編】スプライト地獄からの解放 — MOL](/mol/log/reduce-http-requests-css-sprite/)
++ [【WebFont編】ドラッグ＆ドロップでウェ～イ — MOL](/mol/log/reduce-http-requests-webfont/)
++ [grunt-initとYeoman — MOL](/mol/log/grunt-init-yo/)
 
 
 ### Jet Start
