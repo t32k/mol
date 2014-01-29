@@ -19,11 +19,6 @@
     {% else %}
     <meta property="og:image" content="{{ site.url }}mol/images/{{ site.inc.logo }}">
     {% endif %}
-    {% if page.main_image %}
-    <meta property="og:image" content="{{ site.url }}mol/images/{{ page.main_image }}">
-    {% else %}
-    <meta property="og:image" content="{{ site.url }}mol/images/{{ site.inc.logo }}">
-    {% endif %}
     {% if page.excerpt %}
     <meta property="og:description" content="{{ page.excerpt }}">
     <meta name="description" content="{{ page.excerpt }}">
