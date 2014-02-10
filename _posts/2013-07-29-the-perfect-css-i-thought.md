@@ -1,16 +1,15 @@
 ---
 layout: post
 title: ぼくのかんがえたさいきょうのしーえしゅえしゅ
+subtitle: Realistic preprocessors-based CSS framework for mobile.
 categories:
 - css
-tags:
-- maple
 status: publish
 type: post
 published: true
-excerpt: "俺ももう30だし、夏なんで、CSSフレームワークはじめました。とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。"
+cover_image: /2013/07-29-cover.jpg
+excerpt: "俺ももう30だし、夏なんで、CSSフレームワークはじめました。"
 ---
-<p style="text-align: center;"><a href="https://github.com/t32k/maple"><img class="aligncenter size-full wp-image-5012" title="Maple" alt="" src="/static/blog/2013/07/head.png" width="722" height="200" /></a></p>
 
 俺ももう30だし、夏なんで、CSSフレームワークはじめました。
 とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。
@@ -19,10 +18,7 @@ excerpt: "俺ももう30だし、夏なんで、CSSフレームワークはじ�
 
 てか、最強のCSSなんて存在しないからなっ！！
 
-<a href="https://github.com/t32k/maple"><img class="size-full wp-image-5029" title="logo" alt="" src="/static/blog/2013/07/logo.png" width="350" height="82" /></a>
-
-+ <a href="https://github.com/t32k/maple"><strong>t32k/maple </strong></a>
-
++ [t32k/maple - GitHub](https://github.com/t32k/maple)
 
 ## ありがちな落とし穴
 
