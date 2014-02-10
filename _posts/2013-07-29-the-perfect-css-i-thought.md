@@ -9,14 +9,9 @@ status: publish
 type: post
 published: true
 excerpt: "俺ももう30だし、夏なんで、CSSフレームワークはじめました。とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。"
-author:
-  name: Koji Ishimoto
-  twitter: t32k
-  gplus: 104886596569728254273 
-  bio: Front-end Developer
-  image: t32k.png
 ---
 <p style="text-align: center;"><a href="https://github.com/t32k/maple"><img class="aligncenter size-full wp-image-5012" title="Maple" alt="" src="/static/blog/2013/07/head.png" width="722" height="200" /></a></p>
+
 俺ももう30だし、夏なんで、CSSフレームワークはじめました。
 とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。
 
@@ -25,52 +20,74 @@ author:
 てか、最強のCSSなんて存在しないからなっ！！
 
 <a href="https://github.com/t32k/maple"><img class="size-full wp-image-5029" title="logo" alt="" src="/static/blog/2013/07/logo.png" width="350" height="82" /></a>
-<ul>
-	<li><a href="https://github.com/t32k/maple"><strong>t32k/maple </strong></a></li>
-</ul>
-<h2>ありがちな落とし穴</h2>
+
++ <a href="https://github.com/t32k/maple"><strong>t32k/maple </strong></a>
+
+
+## ありがちな落とし穴
+
 これを作るにあたって社内のほかのプロジェクトのCSSがどんな風に書いてるのか調べった結果、以下の点が気になった。
-<ul>
-	<li>無用な Vendor Prefixes</li>
-	<li>Data URI 多用</li>
-	<li>Nest が深い</li>
-	<li>@extend 多用</li>
-	<li>ID セレクタ使用</li>
-</ul>
-<h3>無用な Vendor Prefixes</h3>
+
++ 無用な Vendor Prefixes
++ Data URI 多用
++ Nest が深い
++ @extend 多用
++ ID セレクタ使用
+
+
+### 無用な Vendor Prefixes
+
 基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、
-<pre><code>$experimental-support-for-opera: false;
+
+```
+$experimental-support-for-opera: false;
 $experimental-support-for-mozilla: false;
-$experimental-support-for-microsoft: false;</code></pre>
-そういったものを吐き出さないように、変数で指定する必要がある。また<span class="code">-webkit-border-radius</span>のようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかは<a href="http://caniuse.com/#search=border-ra">Can I use…</a>で調べればよい（逆に正規プロパティを書いてないとこもあった）。
-<h3>Data URI 多用</h3>
+$experimental-support-for-microsoft: false;
+```
+
+そういったものを吐き出さないように、変数で指定する必要がある。また`-webkit-border-radius`のようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかは<a href="http://caniuse.com/#search=border-ra">Can I use…</a>で調べればよい（逆に正規プロパティを書いてないとこもあった）。
+
+### Data URI 多用
+
 WebパフォーマンスにおいてHTTPリクエストを削減することは真っ先に優先されるべきことだが、あまり何でもかんでも画像をDataURI化してCSSファイルの中に記述してしまうと、CSSファイルの肥大化が問題になってしまう。CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
 
 ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、<a href="http://t32k.me/mol/log/data-uri-scheme/">仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい</a>。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。
-<h3>Nestが深い</h3>
+
+### Nestが深い
+
 ロケーションに基づいたスタイル付け、ページに基づいたCSSを書いていくと当然ネストが深くなっていく（ex. body.login-page a.login-btn &gt; span）。ここではセレクタの数が増えることによるファイルサイズ増量が問題というわけでなく、詳細度が高まれば高まるほど、そこでしか使用できないセレクタになってしまうことが問題だ。結果、同じようなスタイルでも新しくCSSを記述しなければならずファイルサイズが増えていくことになる。
 
 これらの解決策はできるだけ小さなモジュールに基づいてスタイル付けしていくことだ。基本、ネストは<strong>3レベル</strong>までが許容値だ。
-<h3>@extend 多用</h3>
+
+### @extend 多用
+
 @extendは素晴らしい機能だと思うが、あまりカジュアルに使用してしまえば、セレクタの増加につながる。マルチクラス（"class="btn btn-primary"）でマークアップすれば基本的に代用できる機能だ。確かに、CSSファイル内で.btnを@extendして.btn-primaryを作ればclass="btn-primary"だけになって簡潔だが、それ以上の意味は無い。ただいたずらに使えばCSSファイルが増えるだけなので、マルチクラスの使用を推奨する。
-<h3>ID セレクタ使用</h3>
+
+### ID セレクタ使用
+
 CSSのスタイル付けにおいてIDセレクタを使用しなければならない理由などない。それどころかIDを使えば詳細度が複雑になり、このスタイルを上書きするためにさらにIDを使用したりなど、チキンレースが始まり、結果ファイルサイズが肥大化する。HTML内でJSのフックとして id="js-getElement"など使用するのは問題ないが、そのセレクタに対してスタイルをつけてはならない。
 
 まぁ、そんな感じのことを考えつつ作りました。
-<h2>CSS設計方針</h2>
+
+## CSS設計方針
+
 CSS全体に関しては、以下の様な感じで。
-<ul>
-	<li>絶対にCSSを増やしたくない</li>
-	<li>class名で悩みたくない</li>
-	<li>完璧じゃなくてもいい</li>
-</ul>
-<h3>絶対にCSSを増やしたくない</h3>
+
++ 絶対にCSSを増やしたくない
++ class名で悩みたくない
++ 完璧じゃなくてもいい
+
+
+### 絶対にCSSを増やしたくない
+
 CSSとは時とともに増えるものだ。新しいページが増えるイコール、CSSを新規に追加しなければならない。そこでモジュールとして設計しておけば、新しいページができたとしても再利用ができ、新規に作らなければならないスタイルを最小限に抑えることが出来る。しかし、必ずしもモジュールの再利用ができるのかといったら、それは難しい問題だ。モジュールAとは微妙にちがうモジュールA’などが当然のごとく登場してくる。
 
 これはデザイナーの責任とは100％言い切れない、クライアントの要望であったり、力のあるステークホルダーからの意見であったりと、UIとは最初に設計したものから変幻自在にその姿を変える。未来は誰にもわからないのである。
 
 このため、私はモジュール単位で設計すると同時に、<a href="https://github.com/t32k/maple/blob/master/src/files/css/sass/core/_helper.scss">helper.sccs</a>を充実させた。
-<pre><code># Directory structure
+
+```
+# Directory structure
 ├── maple.css
 └── sass
     ├── maple.scss
@@ -92,17 +109,21 @@ CSSとは時とともに増えるものだ。新しいページが増えるイ�
     │   └── _misc.scss
     └── vendors
         └── _myfont.scss
-</code></pre>
-helper.scssはユーティリティ的に使える便利classをまとめたものだ。<span class="code">.c{ text-align:center !imporatnt}</span> などのように単一のCSSプロパティだけを記述した短い名前のclassだ。
 
-これらのCSSを充実させることで、パターンに外れたUIの変更、例えばこのページのこのモジュールだけ文字色はこれ！とか、このページの時は余白を大きく！などのケースは、<span class="code">.module.helper</span>のようにマルチクラスで、モジュールに任意のヘルパーclassを追加するだけで対応できるようになる。
+```
+
+helper.scssはユーティリティ的に使える便利classをまとめたものだ。`.c{ text-align:center !imporatnt}` などのように単一のCSSプロパティだけを記述した短い名前のclassだ。
+
+これらのCSSを充実させることで、パターンに外れたUIの変更、例えばこのページのこのモジュールだけ文字色はこれ！とか、このページの時は余白を大きく！などのケースは、`.module.helper`のようにマルチクラスで、モジュールに任意のヘルパーclassを追加するだけで対応できるようになる。
 
 また、モジュールにはmarginやpositionなどの位置を指定するプロパティを記述しないほうが無難だ。モジュールとして設計している以上、それはどの場所にもおけることを前提としているので、そのようなスタイルをつけていると問題になることが多い。
 
-これらの考えを適用したHTMLは<span class="code">class="btn-primary mod mbx ca c"</span>などのような属性値となるだろう、命名ルールはあとから説明するとして、このように複数のclass属性値を持つことは当然の流れなのではないかと最近痛感している。我々はWebアプリケーションを作っているのであって、Webドキュメントを作っているわけではない。しかし、CSS自体、ドキュメントをスタイル付けするために生まれたようなものである。CSS3になって表現的にはリッチになったものの、構文的には何も進化していない（だからCSSプリプロセッサがあるのだけど）、プロパティが増えただけだ。このような現状でやれば多少のほころびというか気になる点もでてくるのは仕方のないことだと思う。
+これらの考えを適用したHTMLは`class="btn-primary mod mbx ca c"`などのような属性値となるだろう、命名ルールはあとから説明するとして、このように複数のclass属性値を持つことは当然の流れなのではないかと最近痛感している。我々はWebアプリケーションを作っているのであって、Webドキュメントを作っているわけではない。しかし、CSS自体、ドキュメントをスタイル付けするために生まれたようなものである。CSS3になって表現的にはリッチになったものの、構文的には何も進化していない（だからCSSプリプロセッサがあるのだけど）、プロパティが増えただけだ。このような現状でやれば多少のほころびというか気になる点もでてくるのは仕方のないことだと思う。
 
 モバイルアプリケーションフレームワークで有名なjQuery MobileやSencha Touchのclassの当て方を見てみれば分かるように、要素に対して3,4つのclass属性がついているのがざらだ。汎用性を持たせるにはこの方法が現実解なのだろう。
-<h3>class名で悩みたくない</h3>
+
+### class名で悩みたくない
+
 よく、class名とは『抽象的スギズ 具体的スギズ』なものが良いと言われているが、これを考えることはすごく難しい。ひどいときは2,3時間class名を考えているときがある。パッと思いつくこともあるが、先ほど述べたように、未来は誰にもわからない。もしこのモジュールが予定していたものと違った用途でも使われたら？などと考えはじめると、これでは具体的すぎるので、もうちょっと抽象的な名前にするか、いやこれでは抽象的すぎるといった具合に、英語辞書サイトをグルグル回ったりすることが日常である。
 
 我々の仕事はclass名を考えることではない。確かに良い名前をつけることは良いことだが、頻繁なUI変更を繰り返せば、当初予定していた意味とは違った用途で使われることは予想できる。そこで私は、アルファベットの連番を採用した。
@@ -114,20 +135,24 @@ helper.scssはユーティリティ的に使える便利classをまとめたも�
 そこで、できるかぎり意味性を排除したa,b,cであれば、破綻しない。なぜならもともと意味が無い、ニュートラルなものであるから。いかようにもパターンを増やしていける（増やさないほうがいいんだけど）。
 
 よく、class名はセマンティックでなければならないとかほざいてる人がいるんだけど、
-<blockquote>There are no additional restrictions on the tokens authors can use in the class attribute, but authors are encouraged to use values that describe the nature of the content, rather than values that describe the desired presentation of the content.
 
-<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#classes">http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#classes</a></blockquote>
+> There are no additional restrictions on the tokens authors can use in the class attribute, but authors are encouraged to use values that describe the nature of the content, rather than values that describe the desired presentation of the content.
+
++ [3.2 Elements — HTML Standard](http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#classes)
+
 そんなこと仕様書に書いていない。Webにおいてセマンティックと言えば、<a href="http://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%9E%E3%83%B3%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A6%E3%82%A7%E3%83%96">セマンティック・ウェブ</a>を指していると思われ、機械的にデータを再利用できるような仕組みのことを言っている。つまりあなたがセマンティックだと思ってつけたclass="primaryButton"はclass属性値がprimaryButtonということでしかなく、ブラウザがそれを読み取って主要なボタンを抽出するといった芸当なんてことはしてくれない。
 
 セマンティックなマークアップをしたければ、<a href="https://support.google.com/webmasters/answer/176035?hl=ja">microdata</a>を利用するのが妥当だろう。（<a href="http://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88">microformats</a>と混同してはいけない）
-<h3>完璧じゃなくてもいい</h3>
+
+### 完璧じゃなくてもいい
+
 最近読んだ記事に、『<a href="http://www.infoq.com/jp/articles/managing-technical-debt">技術的負債を管理する</a>』というものがある。技術的負債というのは素早くいい加減に実装したコードのことを言っている。この記事では技術的負債を受け入れるということが述べられている。
-<ul>
-	<li>技術的負債が常にあること</li>
-	<li>技術的負債が常に悪い訳ではないこと</li>
-	<li>技術的負債は完全に支払わなければならないものではないこと</li>
-</ul>
-CSSにおいて、技術的負債と言えば、<span class="code">style="margin-right:54px"</span>などのようにstyle属性で書かれたものや、style要素など書かれたものを言うだろうか。CSS（じゃなくてもいいが）を管理する上において外部ファイルにまとめるのは当然だが、それではCSSファイルが肥大化する。
+
++ 技術的負債が常にあること
++ 技術的負債が常に悪い訳ではないこと
++ 技術的負債は完全に支払わなければならないものではないこと
+
+CSSにおいて、技術的負債と言えば、`style="margin-right:54px"`などのようにstyle属性で書かれたものや、style要素など書かれたものを言うだろうか。CSS（じゃなくてもいいが）を管理する上において外部ファイルにまとめるのは当然だが、それではCSSファイルが肥大化する。
 
 例えば、キャンペーンページなどそのページでしか存在しないスタイルを全ページで読み込む１つの外部CSSファイルに記述してしまうことは本当によいことだろうか？そのページを見ない人もそのスタイルの記述分のコストを負担させることになる。
 
@@ -142,38 +167,62 @@ CSSにおいて、技術的負債と言えば、<span class="code">style="margin
 まぁそうゆう方針で作っています。前提として、CSSは１つの外部ファイルとしてまとめているもので、UIの変更が頻繁にあるケースを想定しています。なので、一回作って終わり！と言ったケースであれば、別にクラス名はシングルでもいいし、ロケーションに基づいたスタイル付けでもなんでも良いと思う。
 
 世の中ベストなCSSといったものがあるかどうかわからないけど、あったとしてもそのプロジェクト（運用）で、ベストなわけであって、自分のプロジェクトでもベストなことはないと思う。ただ、『これどこからいじったらいいんじゃい！』ってな最悪な状況にならないためにも最低限なルールなり決まりをつくったほうがいいかなと思っている。
-<h3>ロードマップ</h3>
+
+### ロードマップ
+
 v1.0の正式リリースに向けて、UIスタイルを設けるつもりだけど、そんな格好いいものは用意できないので期待しないでほしい。むしろ、コーディングスタイルの例として設けるのが狙いです。
 
 あと、この命名規則の弱点としてclass名からスタイルを類推しづらいというのが弱点なので、そこをカバーする上でスタイルガイドの作成というのは必須だろうと思っている。前にstyledoccoを使ったことがあるが自分的にしっくりきてないので、いいのを見つける必要性があるなーと。
-<h2>CSSのためのGrunt Task</h2>
+
+## CSSのためのGrunt Task
+
 現時点でCSSは全然書いてないのはずーっとGrunt Taskの設定をしていたり、プラグイン作ってたりしてたという理由があります。マシなCSSを書くために必要なGrunt用意しましたー。
 
 Mapleプロジェクトは<a href="https://github.com/t32k/grunt-init-maple">grunt-init-maple</a>を使えば、gurnt-init mapleでプロジェクトをスキャフォルドできます。あとはプロジェクトに必要なnode_moduleを落としてくれば、すぐに使えます！
-<pre><code>$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --recursive
+
+```
+$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --recursive
 $ git-init maple
 $ cd /path/to/maple_project/src/tools 
 $ npm install
 # ローカルサーバが立ち上がってSassがwatchの状態になる。
-$ grunt develop</code></pre>
-<h3>grunt-contrib-connect / grunt-contrib-watch</h3>
+$ grunt develop
+```
+
+### grunt-contrib-connect / grunt-contrib-watch
+
 ローカルサーバーとウォッチ、ライブリロード機能を有効にしています。コンポーネントページでモジュールを開発したりするとき便利です。
-<h3>grunt-contrib-compass</h3>
+
+### grunt-contrib-compass
+
 Sass/Compassのコンパイルのために入れてます。Compassだけど、Retina用のCSSスプライト、<a href="https://github.com/t32k/maple#mixins">新たにリライト</a>してみました。良かったら使ってね。
-<h3>grunt-contrib-csslint</h3>
+
+### grunt-contrib-csslint
+
 CSSのLintです。IDとか使ってたら怒られます。IEとか古いブラウザ対応のためのlintはオフにしてあります。どうゆう理由で<a href="https://github.com/stubbornella/csslint/wiki/Rules">そういったルール</a>が設けてあるのか一度読んでおいたらタメになります。
-<h3>grunt-csso</h3>
+
+### grunt-csso
+
 より高い率でミニファイしてくれるCSSOのgrunt pluginです。<a href="http://t32k.me/mol/log/csso-and-grunt-csso/">過去に記事かいたのでそこ参照。</a>
-<h3>grunt-csscomb</h3>
+
+### grunt-csscomb
+
 CSSプロパティをソートしてくれるgrunt pluginです。<a href="http://t32k.me/mol/log/csscomb/">過去に記事かいたのでそこ参照。</a>最初からMapleのルールでCSSでかけばそこまであれだけど、１つのセレクタに何十ものプロパティを書いてる時などは、これでプロパティ順を揃えればgzipの圧縮率を高めてくれます。
-<h3>grunt-webfont</h3>
-<img class="wp-image-5030" alt="" src="/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png" width="450" />
+
+### grunt-webfont
+
 あと、最近webフォントを使ったのだけど、これを使う前はオンラインのwebフォント管理ツールとか使っていてすごく面倒くさいなと思っていた。けどこれ使えば、webフォントしたいSVGを任意のディレクトリにいれてgrunt webfontカマスだけさ！
-<h3>grunt-imageOptim</h3>
+
+### grunt-imageoptim
+
 Compassで生成されたスプライト画像（PNG）とかはPNG-24なので重いです。それをアルファ透過つきPNG-8にダウンコンバートしてサイズ量を減らしてくれます。要<a href="http://imageoptim.com/">ImageOptim (Mac app)</a> です。忘れがちなので、buildタスクに入れておきましょう。
-<h3>grunt-kss</h3>
-kss-nodeでスタイルガイドを生成してくれます。.btn-aとかクラス名からスタイルが類推しづらいのでスタイルガイドの作成は必須になってきます。
-<h2>終わりに</h2>
+
+### grunt-kss
+
+kss-nodeでスタイルガイドを生成してくれます。`.btn-a`とかクラス名からスタイルが類推しづらいのでスタイルガイドの作成は必須になってきます。
+
+## 終わりに
+
 別にCSS使わなくても単純にGruntfileだけ拝借して使ってもらっても構わない、何かの役に立てて貰えればさいわいです。
 
 フレームワークは所詮ツールでしかありません。これ使えばすべてがOKということは、もちろんなく。CSSだけでどんだけがんばってもデザインがくそだったらCSSもくそになります。逆を言えば、デザイナーさんとうまくルール（パターン）を予め決めて開発をすれば驚くほどCSSは軽くなります。その辺はデザイナーさんと協力・コミュニケーションしながら共通認識（ゴール）を持つことが一番重要です。
