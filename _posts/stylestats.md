@@ -64,6 +64,7 @@ CSSは[レンダリングをブロックする](/mol/log/sprite-image-vs-inline-
 
 + [CSS Architecture | en.ja Article](http://article.enja.io/articles/css-architecture.html)
 + [Code smells in CSS | en.ja Article](http://article.enja.io/articles/code-smells-in-css.html)
++ [SOLID CSS | en.ja Article](http://article.enja.io/articles/solidcss.html)
 + [About HTML semantics and front-end architecture | en.ja Article](http://article.enja.io/articles/about-html-semantics-and-front-end-architecture.html)
 + [Rules · stubbornella/csslint Wiki](https://github.com/stubbornella/csslint/wiki/Rules)
 
@@ -77,12 +78,11 @@ CSSは[レンダリングをブロックする](/mol/log/sprite-image-vs-inline-
 
 ### Simplicity
 
-個人的に気に入ってるのがこの指標。単純に`Rules/Selectors`で割ったものをパーセンテージにしたものだ。要は1つのルールに1つのセレクタが対応していたほうが良いって意味。想定としているのはSassの@extendとかで継承しまくってたら、この数値は低くくなる傾向がある。
-
-
+個人的に気に入ってるのがこの指標。単純に`Rules/Selectors`で割ったものをパーセンテージにしたものを僕がSimplicityと言っている。要は1つのルールに1つのセレクタが対応していたほうが良いって意味。想定としているのはSassの`@extend`とかで継承しまくってたら、この数値は低くくなる傾向がある。個人的には何度も言ってるけど、Webアプリのような複雑大規模なものをコーディングするのであれば。HTML側で`<div class="button button-alpha">のように`マルチクラスでやれば良いと思う。あと、reset.cssとかでもSimplicityは低くなるけど、そこはしかたがないかなと思ってる。
 
 ### Lowest Cohesion
 
+Lowest Cohesionは、SOLID CSSのSingle Responsibility Principle / 単一責任の原則に基づいて一つのルールセットにあまり色いろいろな
 
 ## Jenkinsとの統合
 
