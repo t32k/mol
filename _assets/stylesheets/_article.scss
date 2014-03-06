@@ -180,21 +180,18 @@ article {
     pre {
         display: block;
         overflow-x: auto;
-        margin: 1.5em;
-        padding: 1.5em;
-        border: 0;
+        margin: 2em 1em;
+        padding: 1em;
+        font-size: 14px;
+        line-height: 20px;
+        border: 1px solid #DDD;
         border-radius: 3px;
-        background: #F5F2F0;
+        background: #F8F8F8;
         code {
             border: 0;
         }
     }
     
-    code {
-        border-radius:2px;
-        color:#222;
-    } 
-
     .rounded img {
         border-radius:6px;
     }
