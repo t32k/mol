@@ -21,17 +21,14 @@ $accent: #2077b2;
 @import "syntax";
 @import "responsive";
 
-/*
-Make the Facebook Like box responsive (fluid width)
-https://developers.facebook.com/docs/reference/plugins/like-box/
-*/
- 
-/* This element holds injected scripts inside iframes that in some cases may stretch layouts. So, we're just hiding it. */
-#fb-root {
-  display: none;
+.fluid {
+  position: relative;
+  height: 300px;
+  margin-bottom: 1.5em;
 }
- 
-/* To fill the container and nothing else */
-.fb_wrap .fb_iframe_widget, .fb_wrap .fb_iframe_widget span, .fb_wrap .fb_iframe_widget span iframe[style] {
-  width: 100% !important;
+.fluid iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
 }

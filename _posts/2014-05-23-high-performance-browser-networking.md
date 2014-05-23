@@ -12,7 +12,7 @@ Ilya Grigorik氏の『ハイパフォーマンス ブラウザネットワーキ
 
 ## Design Fast Websites
 
-<iframe width="480" height="340" src="//www.youtube.com/embed/7HC3OV1dDZ4" frameborder="0" allowfullscreen></iframe>
+<div class="fluid"><iframe src="//www.youtube.com/embed/7HC3OV1dDZ4" allowfullscreen></iframe></div>
 
 思い起こせば、僕がWebパフォーマンスに興味を持ったのは2008年にYUI Theaterで公開されたNicole Sullivan氏の『Design Fast Websites』の動画を見てからだ。
 
