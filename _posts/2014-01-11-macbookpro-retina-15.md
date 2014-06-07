@@ -73,6 +73,22 @@ excerpt: "最近、数年に一度来る『断捨離』のブームで、要ら�
 
 あとはですね、ムフフな動画は[DMM.com](http://www.dmm.com/)で買っておきましょう。デジタル商品ならスマホ・タブレット・PCどのデバイスからクラウド上でストリーミングできます！！あと誤解を招くといけないのですが、DMMはですね、ツチノコで3Dプリントで艦これなイノベーションカンパニーですからね！！そうゆうんじゃねーから！
 
+### JetDrive Lite
+
+<table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00K73NWK0/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41InOqoBnvL._SL160_.jpg" border="0" alt="Transcend Macbook Pro専用 カードスロット対応拡張メモリーカード JetDrive Lite 360 128GB for Macbook Pro with Retina display 15" (Late 2013) TS128GJDL360" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/Transcend-Macbook-%E3%82%AB%E3%83%BC%E3%83%89%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E5%AF%BE%E5%BF%9C%E6%8B%A1%E5%BC%B5%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89-JetDrive-TS128GJDL360/dp/B00K73NWK0%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00K73NWK0" target="_blank">Transcend Macbook Pro専用 カードスロット対応拡張メモリーカード JetDrive Lite 360 128GB for Macbook Pro with Retina display 15" (Late 2013) TS128GJDL360</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />トランセンド・ジャパン  2014-05-23<br />売り上げランキング : 5679<br /><br /><a href="http://www.amazon.co.jp/Transcend-Macbook-%E3%82%AB%E3%83%BC%E3%83%89%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E5%AF%BE%E5%BF%9C%E6%8B%A1%E5%BC%B5%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%89-JetDrive-TS128GJDL360/dp/B00K73NWK0%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00K73NWK0" target="_blank">Amazonで詳しく見る</a></font> <font size="-2">by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
+やっぱり、HDDの容量増やしたかったので、[JetDrive™ Lite](http://jp.transcend-info.com/apple/jetdrivelite/)を購入してみた。
+
+この手のやつは、mini SDカードを買ってMackBookにピッタリサイズのSDアダプターを購入するタイプのもあるけど何故か僕の持っているMacBook Pro Retina '15に対応するものがなかったので購入は控えていた。
+
+![](/mol/images/2014/01-11-fig01.jpg)
+
+完全にSDスロットの中に入るタイプじゃなくて少し出っ張る。でもほんの少しなので上記のカバーとかつけたらカバー目線ではフラットになるｗ
+
+![](/mol/images/2014/01-11-fig02.jpg)
+
+ので問題ない。書き込み速度はSSDに比べたら遅いけど、まぁ動画とか保存して見る分にはなんら問題なくて個人的には満足している。
+
 ## バックアップ
 
  バックアップとか気にする方はTime Capsuleですればいいんじゃないかな。無線でいけるし。基本、クラウドというかWeb上に上がってるもんだしまた落としてくればいいかなと思ってる。
