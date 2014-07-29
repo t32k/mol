@@ -12,6 +12,7 @@ inc:
   twitter:      t32k
   gplus:        '104886596569728254273'
   about_link:   http://t32k.me/
+  q_link:       https://github.com/t32k/feedback/issues/new
   
   # Product Information
   product_link: https://github.com/t32k/maple
