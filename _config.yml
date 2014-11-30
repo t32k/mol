@@ -30,13 +30,11 @@ inc:
     gplus:      true
     hn:         false
     
-  
  # Analytics     
   analytics:
     google: 
       # eg. 'UA-123-12'
       id: 'UA-2317436-26'
-      
       
   # Google Fonts
   # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'
@@ -57,7 +55,6 @@ timezone:    Asia/Tokyo
 future:      false
 show_drafts: nil
 limit_posts: 0
-pygments:    true
 
 relative_permalinks: true
 
@@ -76,6 +73,8 @@ host:        0.0.0.0
 port:        4000
 baseurl:     /mol/
 lsi:         false
+
+highlighter: pygments
 
 maruku:
   use_tex:    false
