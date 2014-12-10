@@ -21,6 +21,8 @@ excerpt: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 
 上記のアイコンですが、2年前に作った、いわゆるスキューモーフィズムっぽいやつで、しかもiOSのアイコンベースにしていたので、デスクトップアプリのアイコンとして使うにはなんだか野暮ったいです。もっと現代っぽくしたいです。もっとフラットっぽくしたいです。
 
+## Yosemite
+
 + [Inspecting Yosemite's Icons](http://martiancraft.com/blog/2014/07/inspecting-yosemite-icons/)
 
 最新のYosemiteのアイコンの仕様に関しては上記の記事を読むと良いです。僕は読んでないですが、とりあえずはなんかガイドラインが引いてあるテンプレートみたいなものがあるのだろう、そしてそれに沿って作れば、それっぽくなるんじゃね？って思い探してみました。
@@ -39,11 +41,17 @@ excerpt: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 
 ダウンロードは上記からどうぞ。自分でも作ってみたいって方は上記のレポジトリをフォークして作ってみるといいよ。
 
-あとICNSファイルを作るときに、下記のオンラインツールを作ってたんだけど、どうも高解像度のアイコンが生成されなくて、Appleの標準のICNSファイル見たら10サイズあったのだけど、オンラインだと5サイズしか生成されなかったので、[Macアプリ](https://itunes.apple.com/us/app/iconvert-icons/id515197296?mt=12&ign-mpt=uo%3D4)買ったらちゃんとフルサイズ作れました。
+## ICNS
+
+あとファイルを作るときに、下記のオンラインツールを作ってたんだけど、どうも高解像度のアイコンが生成されなくて、Appleの標準のICNSファイル見たら10サイズあったのだけど、オンラインだと5サイズしか生成されなかったので、[Macアプリ](https://itunes.apple.com/us/app/iconvert-icons/id515197296?mt=12&ign-mpt=uo%3D4)買ったらちゃんとフルサイズ作れました。
 
 + [Online icon converter for png, ico, and icns - iConvertIcons](http://iconverticons.com/online/)
 
 あとで知ったけど、`iconutil`ってコマンドで作成できるらしい。俺の500円。。
 
 + [iconutil(1) Mac OS X Manual Page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/iconutil.1.html)
+
+あとで知ったけど、Sketchのプラグインがあった！
+
++ [NathanRutzky/Generate-ICNS](https://github.com/NathanRutzky/Generate-ICNS)
 
