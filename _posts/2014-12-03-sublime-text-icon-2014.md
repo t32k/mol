@@ -4,7 +4,7 @@ title: Sublime Text Icon 2014
 subtitle: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 categories: design
 cover_image: "/2014/12-16-cover.png"
-excerpt: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
+excerpt: Sketch 3 Advent Calendar 2014 - Adventar
 ---
 
 [Sketch 3 Advent Calendar 2014](http://www.adventar.org/calendars/347)の16日目です、たぶん。知らんけど。
