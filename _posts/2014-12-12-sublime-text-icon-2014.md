@@ -4,10 +4,8 @@ title: Sublime Text Icon 2014
 subtitle: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 categories: design
 cover_image: "/2014/12-16-cover.png"
-excerpt: Sketch 3 Advent Calendar 2014 - Adventar
+excerpt: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 ---
-
-[Sketch 3 Advent Calendar 2014](http://www.adventar.org/calendars/347)の16日目です、たぶん。知らんけど。
 
 今日はSketchを使ってYosemiteライクなアイコンを作ってみようって話です。
 
@@ -37,9 +35,9 @@ excerpt: Sketch 3 Advent Calendar 2014 - Adventar
 
 あとはガイドにそって光源とか注意してあまりゴテゴテしないようにすれば、できあがりです♪
 
-+ [t32k/sublime-text-icon - GitHub](https://github.com/t32k/sublime-text-icon)
++ __[t32k/sublime-text-icon - GitHub](https://github.com/t32k/sublime-text-icon)__
 
-ダウンロードは上記からどうぞ。自分でも作ってみたいって方は上記のレポジトリをフォークして作ってみるといいよ。
+ダウンロードは上記からどうぞ。自分でも作ってみたいって方は上記のレポジトリをフォークして作ってみるといいよ。Sketchファイルも入ってるよ。なんだか人にSketchファイルの中見られるの恥ずいですな(ﾉ´∀｀*)
 
 ## ICNS
 
@@ -47,11 +45,15 @@ excerpt: Sketch 3 Advent Calendar 2014 - Adventar
 
 + [Online icon converter for png, ico, and icns - iConvertIcons](http://iconverticons.com/online/)
 
-あとで知ったけど、`iconutil`ってコマンドで作成できるらしい。俺の500円。。
+あとで知ったけど、`iconutil`ってコマンドで作成できるらしい！
 
 + [iconutil(1) Mac OS X Manual Page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/iconutil.1.html)
 
 あとで知ったけど、Sketchのプラグインがあった！
 
 + [NathanRutzky/Generate-ICNS](https://github.com/NathanRutzky/Generate-ICNS)
+
+あとで知ったけど、作ってるアイコンをすぐさまDockでプレビューできるプラグインもあるよ。
+
++ [fnky/sketch-dockpreview](https://github.com/fnky/sketch-dockpreview)
 
