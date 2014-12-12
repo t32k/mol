@@ -11,6 +11,8 @@ excerpt: Sketch app plugin for displaying Google material design color palette.
 
 表題の通りなんですけど、Sketch.appのプラグインとか作ってみたいなーて思ってて作ったわけです。
 
+<iframe src="//player.vimeo.com/video/114320997?title=0&amp;byline=0&amp;portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 + __[t32k/material-design-color-palette-sketch-plugin](https://github.com/t32k/material-design-color-palette-sketch-plugin)__
 
 GoogleのMaterial Designってありますよね？あれの色見本的なものを生成してくれるやつです。公式サイトみたらIllustrator/Photoshop用のSwatchesファイルがあったんですけど、Sketch用のなかったわけですよ！（そもそもそんなファイルSketchにはないのか？）よくわかりませんが、なかったら自分で作りなはれ精神で作りました。
