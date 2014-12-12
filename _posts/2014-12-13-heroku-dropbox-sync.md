@@ -4,7 +4,7 @@ title: Heroku Dropbox Syncで実現するWeb開発の未来
 subtitle: Heroku Advent Calendar 2014 - Qita
 categories: develop
 cover_image: /2014/12-13-cover.jpg
-excerpt: Heroku Advent Calendar 2014 - Qita
+excerpt: 2014年11月にHerokuからDropbox Sync機能のアナウンス（Beta版）がありました。今日はこれを使ってみようと思います。
 ---
 
 [Heroku Advent Calendar 2014](http://qiita.com/advent-calendar/2014/heroku)の13日目の記事です。
