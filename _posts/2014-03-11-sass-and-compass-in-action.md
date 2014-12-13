@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Sass&Compass徹底入門を監修しました
+title: Sass/Compass徹底入門を監修しました
 subtitle: CSSのベストプラクティスを効率よく実現するために
 cover_image: /2014/03-12-cover.jpg
 categories: blog
-excerpt: "2014年3月18日に発売される、『Sass&Compass徹底入門 CSSのベストプラクティスを効率よく実現するために』を監修した。"
+excerpt: "2014年3月18日に発売される、『Sass/Compass徹底入門 CSSのベストプラクティスを効率よく実現するために』を監修した。"
 ---
 
 2014年3月18日に発売される、[Sass and Compass in Action](http://www.amazon.co.jp/Sass-Compass-Action-Wynn-Netherland/dp/1617290149%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1617290149)の邦訳版である『[Sass&Compass徹底入門 CSSのベストプラクティスを効率よく実現するために](http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446)』を監修した。
