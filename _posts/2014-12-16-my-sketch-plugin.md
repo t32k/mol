@@ -3,7 +3,7 @@ layout: post
 title: Material Design Color Paletteプラグインつくった
 subtitle: Sketch 3 Advent Calendar 2014
 categories: blog
-cover_image: "/2014/12-16-1-cover.png"
+cover_image: /2014/12-16-1-cover.png
 excerpt: Sketch app plugin for displaying Google material design color palette.
 ---
 
@@ -42,7 +42,6 @@ GoogleのMaterial Designってありますよね？あれの色見本的なも�
 あとは、Sketchのリソース関連で有名なSketch App Sourcesに載せるため[Submit free resources](http://www.sketchappsources.com/submit-free-resource.html)に申請しておきましょう。
 
 <blockquote class="twitter-tweet" lang="en"><p>Sketch App plugin for displaying Google Material Design Color Palette by <a href="https://twitter.com/t32k">@t32k</a> <a href="http://t.co/E7inQyFGVs">http://t.co/E7inQyFGVs</a> <a href="http://t.co/n2w5hxQeXi">pic.twitter.com/n2w5hxQeXi</a></p>&mdash; Sketch App Sources (@sketchsources) <a href="https://twitter.com/sketchsources/status/544039316067209216">December 14, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>  
 
 こんな感じでツイートしてくれます！いっぱいFavorite付いてるけど、GitHubのスターが欲しいんだボクは！
 
