@@ -8,6 +8,7 @@ excerpt: Why The Valley Wants Designers That Can Code
 ---
 
 <cite class=citation>
+![Jared Spool](/mol/images/people/jared_spooljpg)
 原文：[Why The Valley Wants Designers That Can Code](http://www.uie.com/brainsparks/2011/05/31/why-the-valley-wants-designers-that-can-code/)（<time>2011-05-31</time>）by Jared Spool
 </cite>
 
@@ -36,6 +37,7 @@ excerpt: Why The Valley Wants Designers That Can Code
 次のポストではなぜデザイナーがコードを書けたほうが良いのか３つの理由を述べています。
 
 <cite class=citation>
+![Jared Spool](/mol/images/people/jared_spooljpg)
 原文：[3 Reasons Why Learning To Code Makes You A Better Designer](http://www.uie.com/brainsparks/2011/06/06/3-reasons-why-learning-to-code-makes-you-a-better-designer/)（<time>2011-06-31</time>）by Jared Spool
 </cite>
 
