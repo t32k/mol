@@ -40,8 +40,6 @@ article {
             content:" ";
         }
     }
-
-
     address {
         margin:0;
         max-height:48px;
@@ -70,6 +68,7 @@ article {
         }
 
     }
+    // 翻訳の引用
     .citation {
         background: #fafafa;
         border-left: 3px #BBDEFB solid;
@@ -93,27 +92,30 @@ article {
     
     
     ol, ul {
-        margin: 1.5em 0;
+        margin: 1.5em 0 1.5em -1.5em;
         padding: 0;
         padding-left: 1.5em;
         list-style-position: outside;
-        font-weight: 600;
-        
         li {
-            margin-bottom:0.5em;
-            font-weight:400;
+            margin-bottom: 0.1em;
         }
     }
+    // 引用
     blockquote {
-        margin: 1.5em;
-        padding: 1.5em;
+        margin: 1.5em 0;
+        padding: 1em 1.5em;
         border: 0;
         border-radius: 3px;
-        color: #004B6A;
-        background: rgba(122, 181, 214, 0.1);
+        background: rgba(122, 181, 214, 0.07);
         font-size: 16px;
         font-family: "Georgia", Times, sans-serif;
         line-height: 1.4em;
+        a {
+            font-size: 14px;
+        }
+        p {
+            color: #444;
+        }
     }
     h1 {
         margin:0.5em 0 1em;
