@@ -13,7 +13,7 @@ excerpt: 12/13にバンクーバーで開催されたThe Style & Class Conferenc
 
 Smashing Conferenceで登壇していた[John Allsopp](https://twitter.com/johnallsopp)氏や[Val Head](https://twitter.com/vlh)氏もこのカンファレンスで登壇するということで、『なんだ、ウィスラーのついでかよー』と思い全然期待してなかったのだが、行ってみたらカンファレンス全体の構成などすごく考えられていて、とても素晴らしいカンファレンスだった。
 
-そんなわけで、今回はその中で最も気に入ったVitaly Friedman氏のセッションを紹介したいと思う。
+そんなわけで、今回はその中で最も気に入った[Vitaly Friedman](https://twitter.com/smashingmag)氏のセッションを紹介したいと思う。
 
 ## Improving Smashing Magazine's Performance
 
@@ -25,7 +25,7 @@ Smashing Conferenceで登壇していた[John Allsopp](https://twitter.com/johna
 
 ### Critical Rendering Path
 
-ちなみに、Critical Rendering Pathは、HTML/CSS/JSなどのバイトの取得からピクセルとしてレンダリングする必須処理までの間の段階のことを言い、Critical CSSとはページの最初のレンダリングをブロックする可能性のあるCSSのことを言う。
+Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピクセルとしてレンダリングする必須処理までの間の段階のことを言い、Critical CSSとはページの最初のレンダリングをブロックする可能性のあるCSSのことを言う。
 
 [![Critical Rendering Path](http://t32k.me/static/blog/2013/07/31.png)](https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present?slide=id.p19)
 
@@ -49,11 +49,11 @@ Smashing Conferenceで登壇していた[John Allsopp](https://twitter.com/johna
 
 ことCSSだけに関して言えば、リソース数の最小化はスタイルシートを何個も読み込まず、1個にまとめればよいし、バイト数の最小化は[CSSO](https://github.com/t32k/grunt-csso)や[gzip](https://github.com/t32k/speed/blob/master/articles/gzip.md)をかけてやればよい。
 
-まぁそれらはそんなに難しいことではないのですぐにでも対応できると思われる。問題なのはクリティカル パス長（音的にリヴァイ兵長みたいな感じなので以後Critical Path Lengthと表記する）の最適化だ。
+まぁそれらはそんなに難しいことではないので、すぐにでも対応できると思われる。問題なのはクリティカル パス長（音的にリヴァイ兵長みたいな感じなので以後Critical Path Lengthと表記する）の最適化だ。
 
-基本的には外部スタイルシートとして読み込むファイルを1個にまとめれば、HTML読み込んで、そのCSSを読み込むのがCritical Path Lengthの最短じゃねーのかと思うが、Google様は認めてくれない。
+基本的には外部スタイルシートとして読み込むファイルを1個にまとめれば、HTML読み込んで、そのCSSを読み込むのがCritical Path Lengthの最短じゃねーのかと思うが、それではGoogle様が認めてくれない。
 
-試しに、[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=ja)で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：t32k.meを計測してみると、『__スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する__』なことを言われモバイル評価で89点。
+試しに、[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=ja)で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：[t32k.me](http://t32k.me/)を計測してみると、『__スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する__』なことを言われモバイル評価で89点といった結果が返ってきます。
 
 ![PageSpeed Insights：Before](/mol/images/2014/12-24-fig03.png)
 
@@ -149,8 +149,7 @@ loadCSS('/skeleton.min.css');
 
 > So how fast is fast enough? A Speed Index of under 1000. And for professionals that get there, they should shoot for delivering the critical-path view (above the fold) in the first 14Kb of the page. — Paul Irish
 
-Smashing Magazineの講演でも触れられていたが、やはりどれだけ速ければいいのかという問いに対して、[Web業界のベネディクト・カンバーバッチ](https://twitter.com/snookca/status/543210094431723520)
-である[Paul Irish](https://twitter.com/paul_irish)氏が言及してたようにSpeed Indexが1000以下になるのが望ましい。これは去年も来日してた時に言っていたのでGoogle様はそれを目標にしているのだろう。そうゆうわけでのクリティカル・パスの最適化である。
+Smashing Magazineの講演でも触れられていたが、やはりどれだけ速ければいいのかという問いに対して、[Web業界のベネディクト・カンバーバッチ](https://twitter.com/snookca/status/543210094431723520)である[Paul Irish](https://twitter.com/paul_irish)氏が言及していたようにSpeed Indexが1000以下になるのが望ましい。これは去年も来日してた時に言っていたのでGoogle様はそれを目標にしているのだろう。そうゆうわけでのクリティカル・パスの最適化である。
 
 ![](/mol/images/2014/12-24-fig06.png)
 
@@ -164,7 +163,7 @@ Smashing Magazineのケースでは一連の改善の結果、1000近くにま�
 
 そうゆうわけで、Smashing Magazineの改善ケースでやってること自体は特に目新しい物はないが、ひとつひとつのことを丁寧にしっかりやってる点が素晴らしいと思う。しかもSmashing Magazineのような長年運用している大規模・複雑なサイトでCritical CSSの対応などは相当めんどくさかったに違いない（もっと詳しく聞きたかった）。今回の簡単な静的ページであるプロフィールページの改善もめんどくさかったし。
 
-結局、山ほどあるパフォーマンス改善策を優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか、Vitaly Friedman氏ハンパなくね？って思った。
+結局、山ほどあるパフォーマンス改善策を優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか対象となる知識大杉、てか、Vitaly Friedman氏ハンパなくね？って思った。
 
 Smashing Magazineにはスーパーマンがいたけど、もっと他のケースも知りたいというか、泥臭いのに共感したいと思っている。だって世の中そんなうまくいかないし、[テキスト主体で画像少なめのページでこれ速いだろうって言っても意味ねーし](http://httparchive.org/trends.php?s=Top1000&minlabel=Dec+15+2013&maxlabel=Dec+1+2014#bytesImg&reqImg)、世の中もっとゴテゴテしてるし複雑だ。この辺は緑の顔の緑の会社の人をチェックしていれば、いつか闇がにじみだしてくるのではと期待している。
 
