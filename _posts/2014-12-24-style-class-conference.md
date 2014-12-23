@@ -7,6 +7,8 @@ cover_image: "/2014/12-24-cover.jpg"
 excerpt: 12/13にバンクーバーで開催されたThe Style & Class Conference 2014に参加して感銘を受けたのでVitaly Friedman氏のセッションを紹介するよ。
 ---
 
+[Frontrend Advent Calendar 2014 - Qiita](http://qiita.com/advent-calendar/2014/frontrend)の24日目。たぶん。知らんけど。
+
 ![The Style & Class Conference 2014](/mol/images/2014/12-24-fig01.jpg)
 
 ちょっと前になるが12/13にバンクーバーで開催された[The Style & Class Conference 2014](http://www.eventbrite.com/e/the-style-class-conference-tickets-13842235499)に参加してきた。前日に[Smashing Conference](http://smashingconf.com/)が、ウィスラーというバンクーバーから比較的近い所で開催されていて、本当はそっちに行きたかったんだけど高額なため、地元コミュニティのほうにだけ参加した。ウィスラーの方の記事は[@ygoto3が書いてたっぽい。](http://www.ygoto3.com/?p=107)
@@ -163,7 +165,7 @@ Smashing Magazineのケースでは一連の改善の結果、1000近くにま�
 
 そうゆうわけで、Smashing Magazineの改善ケースでやってること自体は特に目新しい物はないが、ひとつひとつのことを丁寧にしっかりやってる点が素晴らしいと思う。しかもSmashing Magazineのような長年運用している大規模・複雑なサイトでCritical CSSの対応などは相当めんどくさかったに違いない（もっと詳しく聞きたかった）。今回の簡単な静的ページであるプロフィールページの改善もめんどくさかったし。
 
-結局、山ほどあるパフォーマンス改善策を優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか対象となる知識大杉、てか、Vitaly Friedman氏ハンパなくね？って思った。
+結局、山ほどあるパフォーマンス改善策を優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか、対象となる知識大杉、てか、Vitaly Friedman氏ハンパなくね？って思った。
 
 Smashing Magazineにはスーパーマンがいたけど、もっと他のケースも知りたいというか、泥臭いのに共感したいと思っている。だって世の中そんなうまくいかないし、[テキスト主体で画像少なめのページでこれ速いだろうって言っても意味ねーし](http://httparchive.org/trends.php?s=Top1000&minlabel=Dec+15+2013&maxlabel=Dec+1+2014#bytesImg&reqImg)、世の中もっとゴテゴテしてるし複雑だ。この辺は緑の顔の緑の会社の人をチェックしていれば、いつか闇がにじみだしてくるのではと期待している。
 
