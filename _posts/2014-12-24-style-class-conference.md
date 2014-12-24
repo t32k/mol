@@ -55,30 +55,30 @@ Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピ�
 
 基本的には外部スタイルシートとして読み込むファイルを1個にまとめれば、HTML読み込んで、そのCSSを読み込むのがCritical Path Lengthの最短じゃねーのかと思うが、それではGoogle様が認めてくれない。
 
-試しに、[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=ja)で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：[t32k.me](http://t32k.me/)を計測してみると、『__スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する__』なことを言われモバイル評価で89点といった結果が返ってきます。
+試しに、[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=ja)で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：[t32k.me](http://t32k.me/)を計測してみると、『__スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する__』なことを言われモバイル評価で89点といった結果が返ってきた。
 
 ![PageSpeed Insights：Before](/mol/images/2014/12-24-fig03.png)
 
-で、対処法として[CSSの配信を最適化](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery)しなさいと言われる。こっちの説明よりWeb Fundamentalsの説明のほうが分かりやすいのでこっちを参照。
+で、対処法として[CSSの配信を最適化](https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery)しなさいと言われる。こっちの説明より[Web Fundamentals](https://developers.google.com/web/fundamentals/)の説明のほうが分かりやすいのでこっちを引用。
 
 > __インライン レンダリング ブロック CSS__  
 クリティカル CSS は、HTML ドキュメント内で直接インライン化することをおすすめします。これにより、クリティカル パスの追加ラウンドトリップが削減され、適切に設定できれば、HTML が唯一のブロック リソースの場合に「1 ラウンドトリップ」のクリティカル パス長が実現できます。  
 ― [PageSpeed Rules and Recommendations](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations)
 
-つまり、外部スタイルシートを読み込んでいては1.) HTMLを読み込む、2.) 外部CSSファイルを読み込むので、最低でも2ラウンドトリップ（往復）しないといけない。ゆえに描画が遅くなる、なのでHTML内にインラインで記述しなよっと仰せられておる。
+つまり、外部スタイルシートを読み込んでいては1.) HTMLを読み込む、2.) 外部CSSファイルを読み込むので、最低でも2ラウンドトリップ（往復）しないといけない。ゆえに描画が遅くなるのでHTML内にインラインで記述しなよっと仰せられておる。
 
 でも、だからといって全部CSSをインライン化しちゃうとHTMLが膨れ上がっちゃう。TCPスロースタートのせいで1回目のレスポンスで送信できるサイズは14KBなので、オーバーしちゃう。この辺りは以前に__HTTPリクエストを減らすためにシリーズ__で記事を書いたので参照してほしい。
 
 + [【序章】HTTPリクエストは甘え — MOL](http://t32k.me/mol/log/reduce-http-requests-overview/)
 + [【終章】我々には1000msの猶予しか残されていない — MOL](http://t32k.me/mol/log/reduce-http-requests-one-second/)
 
-だもんで、必要なCSSだけインライン化しましょうよってことになる。それ（[Above the Fold](http://www.suzukikenichi.com/blog/above-the-fold%E3%81%A8%E3%81%AF/)）に必要なCSS、つまりクリティカルCSSを検出するのがnpmモジュールの[CriticalCSS](https://github.com/filamentgroup/criticalcss)だ。
+だもんで、必要なCSSだけインライン化しましょうよってことになる。それ（[Above the Fold](http://www.suzukikenichi.com/blog/above-the-fold%E3%81%A8%E3%81%AF/)）に必要なCSS、つまりCritical CSSを検出するのがnpmモジュールの[CriticalCSS](https://github.com/filamentgroup/criticalcss)だ。
 
 [![ATFの例](/mol/images/2014/12-24-fig05.jpg)](http://www.filamentgroup.com/lab/performance-rwd.html)
 
-簡単に説明すれば上図のようにファーストビューだけに使うCSSを抽出してくれる。
+簡単に説明すれば上図のようにファーストビュー（Above the Fold）だけに使うCSSを抽出してくれる。
 
-ちなみに、それをGruntプラグインで利用できるので、これを使って僕のプロフィールページ：t32k.meを改善してみる。
+ちなみにGruntプラグインで利用できるので、これを使って僕のプロフィールページ：t32k.meを改善してみる。
 
 + [filamentgroup/grunt-criticalcss](https://github.com/filamentgroup/grunt-criticalcss)
 
@@ -104,7 +104,7 @@ grunt.initConfig({
 
 + [t32k.github.io/Gruntfile.js](https://github.com/t32k/t32k.github.io/blob/master/Gruntfile.js)
 
-で、Full CSSの方は、後から非同期で読み込む。こうしないとレンダリングをブロックするので。
+で、Full CSSの方は、後から非同期で読み込む。こうしないとレンダリングをブロックするので。あ、ちなみにほぼ[Skeleton.css](http://getskeleton.com/)をそのまま使ってる(^_^;)
 
 ```html
 <script>
@@ -129,7 +129,6 @@ loadCSS('/skeleton.min.css');
   <link rel="stylesheet" href="/skeleton.min.css">
 </noscript>
 ```
-あ、ちなみにほぼ[Skeleton.css](http://getskeleton.com/)をそのまま使ってる(^_^;)
 
 で、Critical CSSに対応した結果をPageSpeedにかけてみると、
 
@@ -143,7 +142,7 @@ loadCSS('/skeleton.min.css');
 
 なにをもって速いとするのか？というのは重要な問題だ。PageSpeed Insightのスコアも一種の指標となるだろうが、もう少し細かく検証したい。（事実、PageSpeedのスコアは90点くらいまでなら簡単に取れる）
 
-最近は読み込み時間が体感速度を表しているように思えない。各種SNSボタンのJSが大量に読み込まれるが、それらは非同期で読み込まれるために実際の読み込み時間と体感速度には大きな乖離が見られるし、何千pxという長大なページで2,3スクロールしないと見えないような画像の読み込みがカウントされるのはどうだろう。はたまたdomContentLoadedだったらどうだろうか、うーん、あんましフロント関係なくね？
+最近は読み込み時間が体感速度を表しているように思えない。各種SNSボタンのJSが大量に読み込まれるが、それらは非同期で読み込まれるために実際の読み込み時間と体感速度には大きな乖離が見られるし、何千pxという長大なページで2,3スクロールしないと見えないような画像が読み込み時間にカウントされるのはどうだろう。はたまたdomContentLoadedだったらどうだろうか、うーん、あんましフロント関係なくね？
 
 そんなこんなで現時点で一番有用な指標と個人的に考えているのが、WebPagetestで計測できる[Speed Index](https://github.com/t32k/webpagetest-doc-ja/blob/master/using-webpagetest/metrics/speed-index/index.md)だ。Speed Indexに関しても以前記事を書いた。
 
@@ -153,7 +152,7 @@ loadCSS('/skeleton.min.css');
 
 Smashing Magazineの講演でも触れられていたが、やはりどれだけ速ければいいのかという問いに対して、[Web業界のベネディクト・カンバーバッチ](https://twitter.com/snookca/status/543210094431723520)である[Paul Irish](https://twitter.com/paul_irish)氏が言及していたようにSpeed Indexが1000以下になるのが望ましい。これは去年も来日してた時に言っていたのでGoogle様はそれを目標にしているのだろう。そうゆうわけでのクリティカル・パスの最適化である。
 
-Smashing Magazineでは[grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)を使って、定期的にWebPagetestを回していたらしい。
+Smashing Magazineでは[grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)を使って、定期的にWebPagetestを回していたらしい（CLIからWPTを動かすにはAPI Keyが必要なので個別に作者に連絡しなければならない）。
 
 ![](/mol/images/2014/12-24-fig06.png)
 
@@ -161,15 +160,15 @@ Smashing Magazineでは[grunt-perfbudget](https://github.com/tkadlec/grunt-perfb
 
 今回の改善によるSpeed Indexの変化だけど、GitHub Pagesでカスタムドメインしているため、どうしても最初にリダイレクトが入ってしまうせいで、改善前後のSpeed Indexは微減（2097 -> 1940）だが、Start Renderは1.8秒から1.6秒と確実に速くなっている。
 
-Smashing Magazineのケースでは一連の改善の結果、1000近くにまで削減することができたそうだ。その結果、『SmashingMagはサンパウロからEDGE回線で読むことができるただ一つのサイトだ』と講演の最後にブラジルの読者からのツイートを誇らしげに紹介していたVitaly Friedman氏の笑顔が忘れられない。
+Smashing Magazineのケースでも一連の改善の結果、1000近くにまで削減することができたそうだ。その結果、『__SmashingMagはサンパウロからEDGE回線で読むことができるただ一つのサイトだ__』と講演の最後にブラジルの読者からのツイートを誇らしげに紹介していたVitaly Friedman氏の笑顔が忘れられない。
 
 ## まとめ
 
-そうゆうわけで、Smashing Magazineの改善ケースでやってること自体は特に目新しい物はないが、ひとつひとつのことを丁寧にしっかりやってる点が素晴らしいと思う。しかもSmashing Magazineのような長年運用している大規模・複雑なサイトでCritical CSSの対応などは相当めんどくさかったに違いない（もっと詳しく聞きたかった）。今回の簡単な静的ページであるプロフィールページの改善もめんどくさかったし。
+そうゆうわけで、Smashing Magazineの改善ケースでやってること自体は特に目新しい物はないが、ひとつひとつのことを丁寧にしっかりやってる点が素晴らしいと思う。しかもSmashing Magazineのような長年運用している大規模かつ複雑なサイトでCritical CSSの対応などは相当めんどくさかったに違いない（もっと詳しく聞きたかった）。今回の簡単な静的ページであるプロフィールページの改善もめんどくさかったし。
 
 結局、山ほどあるパフォーマンス改善策を優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか、対象となる知識大杉、てか、Vitaly Friedman氏ハンパなくね？って思った。
 
-Smashing Magazineにはスーパーマンがいたけど、もっと他のケースも知りたいというか、泥臭いのに共感したいと思っている。だって世の中そんなうまくいかないし、[テキスト主体で画像少なめのページでこれ速いだろうって言っても意味ねーし](http://httparchive.org/trends.php?s=Top1000&minlabel=Dec+15+2013&maxlabel=Dec+1+2014#bytesImg&reqImg)、世の中もっとゴテゴテしてるし複雑だ。この辺は緑の顔の緑の会社の人をチェックしていれば、いつか闇がにじみだしてくるのではと期待している。
+Smashing Magazineにはスーパーマンがいたけど、個人的にはもっと他のケースも知りたいというか、泥臭いのに共感したいと思っている。だって世の中そんなうまくいかないし、[テキスト主体で画像少なめのページでこれ速いだろうって言っても意味ねーし](http://httparchive.org/trends.php?s=Top1000&minlabel=Dec+15+2013&maxlabel=Dec+1+2014#bytesImg&reqImg)、世の中もっとゴテゴテしてるし複雑だ。この辺は緑の顔の緑の会社の人をチェックしていれば、いつか闇がにじみだしてくるのではと期待している。
 
 + [2014年のWebパフォーマンスふりかえり - 来年以降の期待etc ::ハブろぐ](http://havelog.ayumusato.com/develop/performance/e637-web_performance_2014.html)
 
