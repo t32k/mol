@@ -145,13 +145,15 @@ loadCSS('/skeleton.min.css');
 
 最近は読み込み時間が体感速度を表しているように思えない。各種SNSボタンのJSが大量に読み込まれるが、それらは非同期で読み込まれるために実際の読み込み時間と体感速度には大きな乖離が見られるし、何千pxという長大なページで2,3スクロールしないと見えないような画像の読み込みがカウントされるのはどうだろう。はたまたdomContentLoadedだったらどうだろうか、うーん、あんましフロント関係なくね？
 
-そんなこんなで現時点で一番有用な指標と個人的に考えているのが[Speed Index](https://github.com/t32k/webpagetest-doc-ja/blob/master/using-webpagetest/metrics/speed-index/index.md)だ。Speed Indexに関しても以前記事を書いた。
+そんなこんなで現時点で一番有用な指標と個人的に考えているのが、WebPagetestで計測できる[Speed Index](https://github.com/t32k/webpagetest-doc-ja/blob/master/using-webpagetest/metrics/speed-index/index.md)だ。Speed Indexに関しても以前記事を書いた。
 
 + [WebPagetest in 5 minutes — MOL](http://t32k.me/mol/log/webpagetest-5-minutes/)
 
 > So how fast is fast enough? A Speed Index of under 1000. And for professionals that get there, they should shoot for delivering the critical-path view (above the fold) in the first 14Kb of the page. — Paul Irish
 
 Smashing Magazineの講演でも触れられていたが、やはりどれだけ速ければいいのかという問いに対して、[Web業界のベネディクト・カンバーバッチ](https://twitter.com/snookca/status/543210094431723520)である[Paul Irish](https://twitter.com/paul_irish)氏が言及していたようにSpeed Indexが1000以下になるのが望ましい。これは去年も来日してた時に言っていたのでGoogle様はそれを目標にしているのだろう。そうゆうわけでのクリティカル・パスの最適化である。
+
+Smashing Magazineでは[grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)を使って、定期的にWebPagetestを回していたらしい。
 
 ![](/mol/images/2014/12-24-fig06.png)
 
