@@ -72,6 +72,10 @@ Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピ�
 + [【序章】HTTPリクエストは甘え — MOL](http://t32k.me/mol/log/reduce-http-requests-overview/)
 + [【終章】我々には1000msの猶予しか残されていない — MOL](http://t32k.me/mol/log/reduce-http-requests-one-second/)
 
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51x2sA8N%2BTL._SL160_.jpg" alt="ハイパフォーマンス ブラウザネットワーキング―ネットワークアプリケーションのためのパフォーマンス最適化" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">ハイパフォーマンス ブラウザネットワーキング</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2014.12.24</div></div><div class="azlink-detail">Ilya Grigorik,和田 祐一郎,株式会社プログラミングシステム社<br />オライリージャパン<br />売り上げランキング: 130931<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+または、[Ilya Grigorik](https://www.igvita.com/)大先生の本を読んでおいた方がいい。
+
 だもんで、必要なCSSだけインライン化しましょうよってことになる。それ（[Above the Fold](http://www.suzukikenichi.com/blog/above-the-fold%E3%81%A8%E3%81%AF/)）に必要なCSS、つまりCritical CSSを検出するのがnpmモジュールの[CriticalCSS](https://github.com/filamentgroup/criticalcss)だ。
 
 [![ATFの例](/mol/images/2014/12-24-fig05.jpg)](http://www.filamentgroup.com/lab/performance-rwd.html)
