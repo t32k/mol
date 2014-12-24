@@ -1,146 +1,58 @@
 ---
 layout: post
-title: MacBook Late 2006 ハードディスク交換（換装）
-categories:
-- gadget
-tags:
-- macbook
-status: publish
-type: post
-published: true
-meta:
-  blogger_blog: warikiru.blogspot.com
-  blogger_author: t32khttp://www.blogger.com/profile/06797489791220082722noreply@blogger.com
-  blogger_permalink: /2009/01/macbook-hdd-exchange.html
-  _edit_last: '1'
-  pvc_views: '18386'
+title: MacBook Late 2006 ハードディスク交換・換装
+subtitle: MacBook Late 2006 (MA700J/A)
+categories: gadget
+description: 最近、心もハードディスクもいっぱいイッパイ＞＜なので、せめてMacBook Late 2006 (MA700J/A)の方だけでもゆとりを持たせようとハードディスクを換装してみたよ。
 ---
-最近、心もハードディスクもいっぱいイッパイ＞＜なので、せめて<a href="http://kakaku.com/spec/00209015296/"><span style="font-weight: bold;">MacBook Late 2006 (MA700J/A)</span></a>の方だけでもゆとりを持たせようと、ハードディスクを換装してみたよ。
 
-まずはHDDを用意しなければならないんだけど、
-どうやら、MacBookのHDDは<span style="font-weight: bold;">Serial-ATAの2.5インチ</span>で
-<span style="font-weight: bold;">厚さが9.5mm以下</span>のものでないとだめらしい。
-で、いろいろな記事を参考にしたり、価格.comでも上位にあったので、
-WESTERN DIGITALの500GBに決定した。
-ノートブックで500GBなんてパねぇ、価格も7千前後で良心的＞＜
+最近、心もハードディスクもいっぱいイッパイ＞＜なので、せめて[MacBook Late 2006 (MA700J/A)](http://kakaku.com/item/00209015296/spec/)の方だけでもゆとりを持たせようとハードディスクを換装してみたよ。
 
-<a href="http://www.flickr.com/photos/t32k/3186741493/sizes/o/"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Sg2EI2G-OLI/AAAAAAAAAYk/8VonYpsHEHo/01.jpg" alt="" /></a>
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td colspan="2"><a href="http://www.amazon.co.jp/WESTERN-DIGITAL-2-5%E3%82%A4%E3%83%B3%E3%83%81%E5%86%85%E8%94%B5HDD-Serial-ATA-WD5000BEVT/dp/B001NVYKE2%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001NVYKE2" target="_blank">WESTERN DIGITAL 2.5インチ内蔵HDD </a>
-<a href="http://www.amazon.co.jp/WESTERN-DIGITAL-2-5%E3%82%A4%E3%83%B3%E3%83%81%E5%86%85%E8%94%B5HDD-Serial-ATA-WD5000BEVT/dp/B001NVYKE2%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001NVYKE2" target="_blank">Serial-ATA 5400rpm 500GB 8MB WD5000BEVT</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" /></td>
-</tr>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/WESTERN-DIGITAL-2-5%E3%82%A4%E3%83%B3%E3%83%81%E5%86%85%E8%94%B5HDD-Serial-ATA-WD5000BEVT/dp/B001NVYKE2%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001NVYKE2" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21bPqvgZ6KL._SL160_.jpg" border="0" alt="WESTERN DIGITAL 2.5インチ内蔵HDD Serial-ATA 5400rpm 500GB 8MB WD5000BEVT" /></a></td>
-<td valign="top"><span style="font-size: 85%;">WESTERNDIGITAL
-売り上げランキング : 275
-<strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />
-<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />ポリカMacBook(Mid 2007)で
-<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />PS3用に購入してみました。
-<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />この価格で、この大容量
+まずはHDDを用意しなければならないんだけど、どうやらMacBookのHDDは__Serial-ATAの2.5インチ__で、__厚さが9.5mm以下__のものでないとだめらしい。 いろいろな記事を参考にして、価格.comでも上位にあったので、 Western Digitalの500GB HDDを購入することにした。ノートブックで500GBも入るなんて素晴らしい！
 
-<a href="http://www.amazon.co.jp/WESTERN-DIGITAL-2-5%E3%82%A4%E3%83%B3%E3%83%81%E5%86%85%E8%94%B5HDD-Serial-ATA-WD5000BEVT/dp/B001NVYKE2%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001NVYKE2" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span>
+[![WESTERN DIGITAL 2.5インチ内蔵HDD Serial-ATA 5400rpm 500GB 8MB WD5000BEVT](/mol/images/2009/01-11-01.jpg)](https://www.flickr.com/photos/t32k/3186741493/sizes/o/)
 
-</span></td>
-</tr>
-</tbody>
-</table>
-で、もうひとつ用意しておかなければならないのが、
-<span style="font-weight: bold;">T8</span>の<span style="font-weight: bold;">トルクスドライバー</span>。一家に一本トルクスドライバーなんて
-あるわけないので、ホームセンターに行ったのだけれども、
-なんかメーカーによってはヘクスローブドライバーとも呼ぶらしく（商標？）
-トルクスドライバーなんてものが見つからなくてちょっと焦った。
-結局、ヘクスローブドライバーもなくてヘクスローブレンチ（315円）を買った。
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001JSSDGU/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51cIDm-g0mL._SL160_.jpg" alt="WESTERN DIGITAL 2.5インチ内蔵HDD Serial-ATA 5400rpm 500GB 8MB WD5000BEVT" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001JSSDGU/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">WESTERN DIGITAL 2.5インチ内蔵HDD<br>Serial-ATA 5400rpm 500GB 8MB WD5000BEVT</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2014.12.24</div></div><div class="azlink-detail"><br />WESTERNDIGITAL<br />売り上げランキング: 7553<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001JSSDGU/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-<a href="http://www.flickr.com/photos/t32k/3186741197/sizes/o/"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Sg2EI2i7JmI/AAAAAAAAAYo/FASrv1eZHps/02.jpg" alt="" /></a>
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/11WMPAGQ8GL._SL160_.jpg" border="0" alt="SANWA SUPPLY TK-002 ドライバーセット" /></a></td>
-<td valign="top"><span><a href="http://www.amazon.co.jp/%E3%82%B5%E3%83%B3%E3%83%AF%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4-TK-002-SANWA-SUPPLY-%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88/dp/B00008BB14%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00008BB14" target="_blank">SANWA SUPPLY TK-002 ドライバーセット</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span>
+もうひとつ用意しておかなければならないのが、__T8のトルクスドライバー__。一家に一本トルクスドライバーなんてあるわけないので、ホームセンターに行ったのだけれども、なんかメーカーによってはヘクスローブドライバーとも呼ぶらしく（商標？）トルクスドライバーなんてものが見つからなくてちょっと焦った。 結局、ヘクスローブドライバーもなくてヘクスローブレンチ（315円）を買った。Amazonなら以下の商品を購入すれば良い。
 
-<span>サンワサプライ
-売り上げランキング : 2815
-おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-2-5.gif" alt="" /></span>
+[![ヘクスローブレンチ](/mol/images/2009/01-11-02.jpg)](https://www.flickr.com/photos/t32k/3186741197/sizes/o/)
 
-<span><a href="http://www.amazon.co.jp/%E3%82%B5%E3%83%B3%E3%83%AF%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4-TK-002-SANWA-SUPPLY-%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88/dp/B00008BB14%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00008BB14" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
-Amazonならこれ買えばいい↑
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21lazgYOL6L._SL160_.jpg" alt="サンワサプライ TK-002 ドライバーセット" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">サンワサプライ TK-002 ドライバーセット</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://sakuratan.biz/azlink/dp/%E3%82%B5%E3%83%B3%E3%83%AF%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4%20TK-002%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88/B00008BB14/warikiru-22" target="_blank">AZlink</a>  at 2014.12.24</div></div><div class="azlink-detail">Not Machine Specific<br />サンワサプライ<br />売り上げランキング: 8261<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-とりあえず、バッテリーを外すと,
-側面に3本のネジが見えるので、それを精密ドライバーで外しましょう。
+[![MacBook](/mol/images/2009/01-11-03.jpg)](https://www.flickr.com/photos/t32k/3187581102/sizes/o/)
 
-<a href="http://www.flickr.com/photos/t32k/3187581102/sizes/o/"><img src="http://lh3.ggpht.com/_1drnogi3vdg/Sg2EI-jS65I/AAAAAAAAAYs/lnhp2CpUiWs/03.jpg" alt="" /></a>
+とりあえずバッテリーを外すと側面に3本のネジが見えるので、それを精密ドライバーで外しましょう。
 
-そうするとL字型の金具がとれますので、短辺の方にHDDが眠ってます。
-<span style="color: #666666;">（ちなみに長辺の方はメモリが2本並んでます。）</span>
-白いベロを引っ張ると、いとも簡単に出てきます。
 
-<a href="http://www.flickr.com/photos/t32k/3187581328/sizes/o/"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Sg2EI-rDGeI/AAAAAAAAAYw/7t8D72ooSkE/04.jpg" alt="" /></a>
+[![L字型の金具](/mol/images/2009/01-11-04.jpg)](https://www.flickr.com/photos/t32k/3187581328/sizes/o/)
 
-取り出したHDDにはカバーがついてますので、側面の4つの（星形の）ネジを
-今回購入したヘクスローブレンチで取り外します。やっぱりレンチなので、
-ちょっと回しにくかったけど、まぁこのような機会しか使うことわないので全然おｋ。
+そうするとL字型の金具がとれますので、短辺の方にHDDが眠ってます。（ちなみに長辺の方はメモリが2本並んでます）白いベロを引っ張ると、いとも簡単に出てきます。
 
-<a href="http://www.flickr.com/photos/t32k/3187581380/sizes/o/"><img src="http://lh4.ggpht.com/_1drnogi3vdg/Sg2EI25jlZI/AAAAAAAAAY0/D1OlqI7UctE/05.jpg" alt="" /></a>
 
-で、取り外したら新しいHDDにカバーをつけ直して、
-元の場所に戻してあげましょう。
+[![](/mol/images/2009/01-11-05.jpg)](https://www.flickr.com/photos/t32k/3187581380/sizes/o/)
 
-<a href="http://www.flickr.com/photos/t32k/3187581262/sizes/o/"><img src="http://lh5.ggpht.com/_1drnogi3vdg/Sg2ENue5pZI/AAAAAAAAAY4/IMfikGhxbAg/07.jpg" alt="" /></a>
+取り出したHDDにはカバーがついてますので、側面の4つの（星形の）ネジを 今回購入したヘクスローブレンチで取り外します。やっぱりレンチなので、ちょっと回しにくかったけど、まぁこのような機会しか使うことわないので全然おｋ。
 
-HDD換装自体はこれで終了です。なんとまぁ簡単なことか。
-前、iBook G4のHDDを換装したときは、
-かなりの大手術で結局、換装したHDDも認識されずヤフオク行きという
-悲劇を起こした自分としては、今回はちゃんと予習をしたものの、
-簡単すぎてあっけにとられました。便利な世の中っす＞＜
 
-あ、とりあえず、HDDを換装したら、OSのインストールDVDを入れて、
-HDDをフォーマットしてから、インスコしちゃってください。
+[![](/mol/images/2009/01-11-06.jpg)](https://www.flickr.com/photos/t32k/3187581262/sizes/o/)
 
-Leopard以降のの人は<span style="font-weight: bold;">Time Machine</span>機能使ってバックアップしておくと、
-3~4時間くらいで、換装前の設定に戻ります。
-一つ一つアプリインスコしなくてもいいんすよ、Leopardテラ便利＞＜
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41HIGx2mb3L._SL160_.jpg" border="0" alt="Mac OS X 10.6 Snow Leopard" /></a></td>
-<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Mac-OS-10-6-Snow-Leopard/dp/B002MRTR1M%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB002MRTR1M" target="_blank">Mac OS X 10.6 Snow Leopard</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></span>
+で、取り外したら新しいHDDにカバーをつけ直して、 元の場所に戻してあげましょう。HDD換装自体はこれで終了です。なんとまぁ簡単なことか。
 
-アップルコンピュータ  2009-08-28
-売り上げランキング : 7
-おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="" />
+以前iBook G4のHDDを換装したときは、かなりの大手術で結局、換装したHDDも認識されずヤフオク行きという悲劇を起こした自分としては、今回はちゃんと予習をしたものの簡単すぎてあっけにとられました。便利な世の中っす＞＜
 
-<a href="http://www.amazon.co.jp/Mac-OS-10-6-Snow-Leopard/dp/B002MRTR1M%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB002MRTR1M" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> </span><span style="font-size: 85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
+あ、とりあえずHDDを換装したらOSのインストールDVDを入れてHDDをフォーマットしてからインスコしちゃってください。
+
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41HIGx2mb3L._SL160_.jpg" alt="Mac OS X 10.6 Snow Leopard" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">Mac OS X 10.6 Snow Leopard</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://sakuratan.biz/azlink/dp/Mac%20OS%20X%2010.6%20Snow%20Leopard/B002MRTR1M/warikiru-22" target="_blank">AZlink</a>  at 2014.12.24</div></div><div class="azlink-detail">Macintosh<br />アップル<br />売り上げランキング: 630<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+Snow Leopard以降のの人はTime Machine機能使ってバックアップしておくと、3~4時間くらいで換装前の設定に戻ります。 一つ一つアプリインスコしなくてもいいんすよ、Leopardテラ便利＞＜
+
+
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000P46LVS/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41rTBzpI0uL._SL160_.jpg" alt="玄人志向 2.5型HDDケース SATA接続 USB2.0対応 クロムシルバー GW2.5AI-SU2" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000P46LVS/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">玄人志向 2.5型HDDケース SATA接続 USB2.0対応<br>クロムシルバー GW2.5AI-SU2</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2014.12.24</div></div><div class="azlink-detail">玄人志向<br />売り上げランキング: 5991<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000P46LVS/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
 取り外した内蔵HDDはケース買って外付けHDDで第二の人生を。
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td colspan="2"><a href="http://www.amazon.co.jp/%E7%8E%84%E4%BA%BA%E5%BF%97%E5%90%91-GW2-5AI-SU2-2-5%E5%9E%8BSATA-HDD%E3%82%B1%E3%83%BC%E3%82%B9-%E3%82%AF%E3%83%AD%E3%83%A0%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC/dp/B000P46LVS%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000P46LVS" target="_blank">玄人志向 GW2.5AI-SU2 [2.5型SATA-HDDケース] クロムシルバー</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></td>
-</tr>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/%E7%8E%84%E4%BA%BA%E5%BF%97%E5%90%91-GW2-5AI-SU2-2-5%E5%9E%8BSATA-HDD%E3%82%B1%E3%83%BC%E3%82%B9-%E3%82%AF%E3%83%AD%E3%83%A0%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC/dp/B000P46LVS%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000P46LVS" target="_blank"><img src="http://ecx.images-amazon.com/images/I/21eYuIxxBzL._SL160_.jpg" border="0" alt="玄人志向 GW2.5AI-SU2 [2.5型SATA-HDDケース] クロムシルバー" /></a></td>
-<td valign="top"><span><span style="font-size: 85%;">玄人志向
-売り上げランキング : 233
-<strong>おすすめ平均 </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-5.gif" alt="star" />
-<img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" />必要最小限
-<img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />シンプルにして十分
-<a href="http://www.amazon.co.jp/%E7%8E%84%E4%BA%BA%E5%BF%97%E5%90%91-GW2-5AI-SU2-2-5%E5%9E%8BSATA-HDD%E3%82%B1%E3%83%BC%E3%82%B9-%E3%82%AF%E3%83%AD%E3%83%A0%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC/dp/B000P46LVS%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000P46LVS" target="_blank">Amazonで詳しく見る</a></span></span><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
-<span style="font-size: 85%;">参考サイト
-</span>
-<ul>
-	<li><span style="font-size: 85%;"><a href="http://hyper-text.org/archives/2008/09/macbook_hdd_change.shtml">MacBook の HDD を交換 | WWW WATCH</a></span></li>
-	<li><span style="font-size: 85%;"><a href="http://www.sukechan.net/archives/76/">sukechan.net - MacBook HDD 交換と Time Machine バックアップからの復元</a></span></li>
-	<li><span style="font-size: 85%;"><a href="http://trendy.nikkeibp.co.jp/article/column/20080110/1006016/">MacBookのHDD換装は「超」お得 - デジタル - 日経トレンディネット</a></span></li>
-	<li><span style="font-size: 85%;"><a href="http://conex.fujigoma.com/?target=http://conex.fujigoma.com/mac/mac_hdd_change.html">MacBookのHDD換装方法 - COONEX</a></span></li>
-	<li><span style="font-size: 85%;"><a href="http://www.techgaga.com/blog/2007/12/04/macbook-hdd-change-and-select/">MacBookのHDD換装&amp;選び方 | TechGaga</a></span></li>
-</ul>
+
+## 参考記事
+
++ [MacBook の HDD を交換 | WWW WATCH](http://hyper-text.org/archives/2008/09/macbook_hdd_change.shtml)
++ [MacBook HDD 交換と Time Machine バックアップからの復元](http://www.sukechan.net/archives/76/)
