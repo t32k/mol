@@ -6,6 +6,8 @@ categories: translation
 excerpt: Design Engineering - Snook.ca
 ---
 
+フロントエンドエンジニアと言っても多種多様だ。常に疑問を抱いている。なお、翻訳にあたってはJonathan Snook氏の同意を得ている。
+
 <cite class="citation">
 ![Jonathan Snook](/mol/images/people/jonathan_snook.jpg)
 原文：[Design Engineering](http://snook.ca/archives/opinion/design-engineering)（<time>2014-11-25</time>）by [Jonathan Snook](http://snook.ca/about/)
