@@ -15,7 +15,6 @@ excerpt: Design Engineering - Snook.ca
 
 > フロントエンド開発はJavaScriptだけではない。フロントエンド開発は人種のるつぼのようにデザインとディベロプメントの技術が融合したものである。それはアクセシブルなUIを実装するためであり、Web標準を受け入れるものである。— [Matt Hill](https://twitter.com/matthillco/status/480986847473303552)
 
-
 Shopify Adminの開発に関して言えば、最近まで2つの専門職、つまりデザイナーとエンジニアを受け入れていた。しかしながら、今では3つめの専門職があり、that has had a tough time finding a solid home:フロントエンドデベロッパーである。フロントエンドデベロッパーのスキルというのはさまざまであり、エンジニアリング、デザインどちらにも融合している。クオリティの高いフロントエンドコードをフロントエンドデベロッパーの助けもなしに書けるデザイナーを雇えて、私達は非常にラッキーだった。
 
 フロントエンドデベロッパーの精鋭チームの作り方の講演に関してはいくつかの反論がある。『もし彼らがデベロッパーであるのなら、そのとき彼らはエンジニアチームに所属している。』つまり逆を言えば、バックエンドデベロッパーはフロントエンドデベロッパーでもあるということである。Shopifyは彼らデベロッパーに対してフルスタックであることを期待している。しかし、フロントエンド開発が開発であるのなら、なぜ私達はデザイナーにもそれを求めないのか？
@@ -40,23 +39,30 @@ Shopify Adminの開発に関して言えば、最近まで2つの専門職、つ
 
 ## デザイン実装
 
-Implementing a design means writing HTML and CSS (and some JavaScript) and ensuring that the design holds up under the various design constraints: different browsers, different dimensions, different resolutions, and different interaction methods (mouse, keyboard, gestures, screen readers). It also can mean building out prototypes for UX validation. These people are design-minded but not necessarily designers. These people are technically-minded but not necessarily developers.
+デザインを実装することはHTML/CSSといくぶんかのJavaScriptを書くことを意味し、さまざまなデザイン上の制約、つまり異なるブラウザ、異なるサイズ、異なる解像度、異なるインタラクションメソッド（マウス、キーボード、ジェスチャー、スクリーンリーダー）を克服しデザインを確かなものとすることである。それはまたUXの検証のためにプロトタイプを作成することでもある。これらの領域を担当するものはデザイナーである必要はないが、デザインマインドを持っており、かつデベロッパーである必要はないが、テクニカルマインドも持っている。
 
-デザインを実装することはHTML/CSSといくぶんかのJavaScriptを書くことを意味し、
-People in this role provide a great bridge between design and engineering. I’ve often called these people the “arbiters of design”. They inform design of possibilities and constraints and help ensure that designers build a consistent and usable interface for as many users as possible. They help codify the design work. They have a developer mindset with concerns about render performance and load times and can work with engineering to build out a performant front-end.
-
+この役割の人たちはデザインとエンジニアリングの間に立ち、見事な架け橋を作ってくれる。私はよくこの人たちのことを『デザインの調停者』と呼んでいる。彼らはそのデザインの実装が可能かどうか、制約がどんなものか教えてくれたり、可能な限り多くのユーザーが使いやすいインターフェースと一貫性を構築するために手助けをしてくれる。彼らはデザインワークをコード化することを助けてくれる。彼らはデベロッパーのマインドセットであるレンダリングのパフォーマンスや、読み込み時間に関心があり、ハイパフォーマンスなフロントエンドを実装するためにエンジニアリング精神を持って働くことができる。
 
 
 ## 役割
 
-It’s important that we have generalists that can bleed across these lines and specialists that can go deep in each of these sections. Up until a short while ago, we were not doing enough to foster the practice of design implementation within Shopify Admin. This has been affecting our designers’ ability to focus on design and affecting our ability to hire people due to our expectation of requiring generalists over specialists.
+これらのラインを超えて仕事ができるジェネラリストとそれぞれのセクションで専門性を発揮できるスペシャリスト両方を揃えることが重要である。ほんのすこし前まで、Shopify Admin内で、私たちはデザイン実装者の育成に力を入れてこなかった。私達が期待しているのはスペシャリストを超えたジェネラリストを求めているため、デザイナーのデザインに集中する能力に影響しており、私たちの人を雇う力に影響している。
 
 ## 彼らをなんと呼べばいいのか？
 
-“Could front-end translate as being design engineering?” — Dan Donald
-We debated on what this role should be called. Design Implementorsfelt less than impressive. We almost settled on Design Engineers but it sounded a little too “Disney”.
+> フロントエンドはデザインエンジニアリングと置き換えることができるか？— Dan Donald
 
-We also already had a well-established team of front-end developers in Toronto focused on Shopify.com and other growth projects. Their needs were a little different than ours since their front-end developers bled more into backend development.
+私たちはこの役割の人をなんと呼ぶべきか議論した。__デザイン実装者__はあまりしっくりこない。私たちはほとんど__デザインエンジニア__と呼ぼうと決めていたが、やっぱりそれはちょっとディズニーっぽいのだ。
 
+私たちは既にShopify.comを担当する優秀なフロントエンドデベロッパーチームをトロントとほかの進行中のプロジェクトに有していた。彼らはよりバックエンド開発よりだったため、私たちのそれとはすこしばかり違っていた。
 
-We also already had a well-established team of front-end developers in Toronto focused on Shopify.com and other growth projects. Their needs were a little different than ours since their front-end developers bled more into backend development.
+結局、私たちは__フロントエンドデベロッパー__に戻ってきた。
+
+彼らがいる領域の端にも関わらず、それは一般的であり、すべてのフロントエンダーを内包する。
+
+しかしながら産業として、私たちがこれまでほかのテクノロジーで見てきたように私たちはデザイン・コードの設計においてより専門性を高める方向にシフトしていく傾向があり、プロダクトをスケールし、大規模なコードベースと大人数でのサイト開発においての新しいワークフローを見守り続けている。
+
+***
+
+個人的には自分のやっている肩書に関してはあまり興味はないが、やはりあやふやなものに対して世間一般の認知は得られない。かけた労力に対して見合った見返りがなければ、損であろう。やはりそうならないために、私たちはフロントエンドデベロッパーと名乗り自分たちの職種を定義し主張することが存在価値を認めさせる一歩だろう。
+
