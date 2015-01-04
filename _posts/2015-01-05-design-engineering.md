@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 【翻訳】デザインエンジニアリング
-subtitle: DESIGN ENGINEERING
+subtitle: Design Engineering
 categories: translation
 excerpt: Design Engineering - Snook.ca
 ---
