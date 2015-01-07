@@ -17,17 +17,17 @@ excerpt:
 
 <div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51K%2BQlzoQlL._SL160_.jpg" alt="フロントエンドエンジニア養成読本［HTML ，CSS，JavaScriptの基本から現場で役立つ技術まで満載！］ Software Design Plus" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">フロントエンドエンジニア養成読本</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.7</div></div><div class="azlink-detail">養成読本編集部<br />技術評論社<br />売り上げランキング: 2402<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-そんな活動もあってか、Frontrendメンバーで書籍も刊行することができた。フロントエンドエンジニア養成読本はいい思い出だ。
+そんな活動もあってか、Frontrendメンバーで書籍も刊行することができた。普通フロントエンド全般についての書籍を執筆するには膨大な知識を必要とされるが、各Frontrendメンバーの得意な分野で割り振れば造作もないことだった。それでいて気心の知れたメンツ（執筆時は全員緑の社員だった）なので、まとまりのある良い書籍になったと思う。
 
-2年も続けていると『Frontrendに憧れてこの会社にしました！！』と嬉しいことを言ってくれる内定者エンジニアも現れるようになった。私はFrontrendに良い思い出しかない。
+また2年も続けていると『Frontrendに憧れてこの会社にしました！！』と嬉しいことを言ってくれる内定者エンジニアも現れるようになった。私はFrontrendに良い思い出しかない。
 
 そんなFrontrendだが、2015年2月21日の[Frontrend Conference](http://frontrend.github.io/conference/)を最後に、その活動を終えるそうだ。私はすでにあの会社を去ってるが、ありがたいことに今回のカンファレンスで講演する機会を頂いており、なおかつスピーカーのアサインも任せれた。
 
 + __[Frontrend Conference（2015年2月21日開催）](http://frontrend.github.io/conference/)__
 
-Frontrendを通じてお世話になった人、与えられたリソースで考える、最高のスピーカー陣を揃えたつもりだ。言わば、ぼくのかんがえたさいきょうのかんふぁれんすだ。（個人的にはJS Conf.jp/CSS Conf.jpを名乗ってもいいんじゃないかと思えるほどの布陣だけど、フランチャイズルールあるので勝手に名乗れない）とにかく、絶対に良いものにしたい。
+Frontrendを通じてお世話になった人、与えられたリソースで考える、最高のスピーカー陣を今回揃えたつもりだ。言わば、ぼくのかんがえたさいきょうのかんふぁれんすだ。（個人的にはJS Conf.jp/CSS Conf.jpを名乗ってもいいんじゃないかと思えるほどの布陣だけど、フランチャイズルールあるので勝手に名乗れない）とにかく、絶対に良いものにしたいと思っている。
 
-私はFrontrendのおかげで多くの人と知り合うことができたし、成長させてもらったし、本当に感謝している。Frontrendは終わるが、[別にFront-end（Web）が終わるわけではない](http://takoratta.hatenablog.com/entry/2015/01/08/014826)。
+私はFrontrendのおかげで多くの人と知り合うことができたし、成長させてもらったし、本当にこのコミュニティには感謝している。Frontrendは終わるが、[別にFront-end（Web）が終わるわけではない](http://takoratta.hatenablog.com/entry/2015/01/08/014826)。
 
 今後の最新のフロントエンドの流れは、__[Frontend Weeklyを購読](http://t32k.me/mol/log/frontend-weekly/)__していれば把握できるだろう。Frontend Weeklyはただのニュースレターでは終わらずに、フロントエンドデベロッパーの新たなHubとなれるよう、これから整備していくつもりだ。
 
