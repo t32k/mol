@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Farewell Frontrend!
+title: Farewell Frontrend
 subtitle: Frontrend is over, but front-end comes over.
 cover_image: /2015/0108-00.png
 categories: blog
-excerpt: 
+excerpt: 私はFrontrendのおかげで多くの人と知り合うことができたし、成長させてもらったし、本当にこのコミュニティには感謝している。
 ---
 
 [Frontrend](http://frontrend.github.io/)というコミュニティがある。緑の会社が運営するこのコミュニティは[2012年の6月2日に始まった](https://atnd.org/events/29000)。私が入社したのは2012年の6月1日だったので、Frontrendとは同期のようなものだ。転職して右も左もわからない状態だったが、[@cssradar](https://twitter.com/cssradar)がスピーカーだったので見学しておいた。つまり、誕生の瞬間に立ち会っていた。
