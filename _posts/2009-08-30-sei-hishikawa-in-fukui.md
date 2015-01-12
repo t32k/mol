@@ -1,17 +1,134 @@
 ---
 layout: post
-title: 菱川勢一 @ソフトパークふくい
-categories:
-- report
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  pvc_views: '3002'
-  blogger_blog: warikiru.blogspot.com
-  blogger_author: t32khttp://www.blogger.com/profile/06797489791220082722noreply@blogger.com
-  blogger_permalink: /2009/08/sei-hishikawa-at-fukui.html
-  _edit_last: '1'
+title: 菱川勢一@ソフトパークふくい
+subtitle: 映像クリエーターパワーアップセミナー
+categories: report
 ---
-<img src="http://lh6.ggpht.com/_1drnogi3vdg/SplRoF1gYtI/AAAAAAAAAiU/vtrchRB885k/1.jpg" alt="" /><br />僕が読んでいるフィードは技術系ブログなどのWebに関するものがほとんどだったりするんだけど、その中でも唯一と言ってもいいくらいデザイン（映像）系のブログが<a href="http://ja.wikipedia.org/wiki/%E8%8F%B1%E5%B7%9D%E5%8B%A2%E4%B8%80">菱川勢一</a>さんのだ。映像系の人だからといって別にFinalCutの使い方がどうとかAfterEffectsの使い方がどうとかゆう話は全然でてこない。むしろ、なにが美しいのか、なにに感動したのか、なにを思ったのかみたいな日常的なことを書いている、そうまさに<a href="http://blog.goo.ne.jp/sei_hishikawa">菱川勢一日記</a>。読んでいて心地が良くて、かれこれ3、4年は購読している。<br /><br />そんな憧れの人が<a href="http://blog.goo.ne.jp/sei_hishikawa/e/35e045f3d7ce33f04d969e57ad62b616">福井に来るってもんだから</a>、車はないけど電車とバス乗り継いで言ってきましたよ、<a href="http://www.fisc.jp/aboutus/access.html#access1">ソフトパークふくい</a>。金沢から片道２時間以上かかった＞＜<br /><br /><a href="http://www.fisc.jp/msc_detail.php?eid=00014">セミナー</a>は菱川さんが手がけた案件を解説していく流れだった。<br /><h5>自己紹介</h5>朝市の飛行機で福井に来ました！<br />福井県立博物館行ってきましたｗ<br />おろしそばとソースカツ丼食べましたｗ<br />東京オリンピック招致のディレクションをやってる<br />同じメンバーの佐藤さん（？）の繋がりで今回喋ることになりました<br /><br /><h5>Tokyo2016 Press Przentation Design</h5>東京オリンピッック招致のためプレゼンテーション映像<br />今年の10月にコペンハーゲンで最終プレゼン<br />東京の各施設をCGで紹介<br />東京がどんな街かを紹介（滝川クリステルさんや森理世さん）<br />肖像権の絡みで東京の町並みを撮るときにいる人は全部エキストラ<br />最大で300人のエキストラ使った（クリステルさんトチってリテイクとかあったりｗ）<br />関連施設の映像とかDVDで800枚にも及んだ、チェック大変。。。。<br />スイスのローゼンヌの時のプレゼンでは前日に石原都知事にダメ出しをくらい現地で修正<br />試写会しても関係者が60人くらい集まる（各施設毎に担当がいる：武道館担当とか）<br />ステークホルダーが多く調整が大変<br /><br /><h5>NO MORE HIBAKUSHA</h5><a href="http://www.nhk.or.jp/no-more-hibakusha/">http://www.nhk.or.jp/no-more-hibakusha/</a><br />日本語、英語に対応<br />すべての被爆の取材映像が見られる（8ヶ月かかった）<br />取材記事もすべて公開<br />NHKには独自の放送ルールがあり、このサイトはひっかかった<br />（サブリミナル的な演出がNG）<br />NHK広島局の方の熱意でメッセージ性のためにもサイトはルール適用外に<br /><br /><h5>Softbank with TIFFANY Press Prezentation</h5>Softbankが出した一台1000万円の携帯電話のプレゼンテーション映像<br />TIFFANYのブランドカラー<a href="http://images.googlem.co.jp/images?q=TIFFANY+BLUE&amp;lr=lang_ja&amp;oe=utf-8&amp;rls=org.mozilla:ja-JP-mac:official&amp;client=firefox-a&amp;um=1&amp;ie=UTF-8&amp;ei=qUGZSvH1FI7w6QOm--jcBA&amp;sa=X&amp;oi=image_result_group&amp;ct=title&amp;resnum=1">TIFFANY BLUE</a>に対してはすごく厳しい注文が<br />この手のカラーマネジメントはほんとに厳しい<br />印刷物で何万枚刷ろうが本店のクリエィティブディレクターがNOなら絶対にダメ<br />（エコじゃないよねー）<br />Web・映像のカラーマネジメントは大変（デバイスに依存）<br />最終的にはクリエィティブディレクターの目視で調整（数値とか関係ないｗ）<br /><br /><h5>Sony Vaio Design Concept Motion Image</h5><a href="http://www.drawingandmanual.jp/#/portfolio/movie_sony">http://www.drawingandmanual.jp/#/portfolio/movie_sony</a><br />A4のノートブックパソコン、カラーバリエーションがいくつか<br />↑これだけの情報で映像を作っての依頼がｗ<br />Fit Your Life / Color Your Life のキャッチコピーを無理矢理考える<br />撮影に入りたくてもモックアップすら完成していない<br />外国のイメージで撮ろうと思ってた（アルゼンチン・チェコ：ここらへんは費用が安い）<br />結局、出国準備してるときにもモックアップができなくて国内ロケ（静岡県掛川）に変更ｗ<br />撮影で使ってるチャリンコは菱川さんのｗ<br /><br /><h5>Map Style with Air Paradissimo TV Show</h5><a href="http://www.drawingandmanual.jp/#/portfolio/movie_axn">http://www.drawingandmanual.jp/#/portfolio/movie_axn</a><br />旅番組（ケーブルTV）のディレクション<br />予算が少なすぎるのでスチルカメラ（EOS）で撮った現地の写真の版権を頂いた<br />（レアケース）3TBの画像がきたｗ<br />48週ともすべてオリジナル曲を作曲した（コンポーザー涙目）<br />季節とか景勝地の映像は古くならない<br /><br /><h5>Honda STREAM Promotion Design</h5><a href="http://www.drawingandmanual.jp/#/portfolio/movie_honda">http://www.drawingandmanual.jp/#/portfolio/movie_honda</a><br />V.I.開発（Product Brand）<br />HondaのLPL(Large Product Leader)の権限は社長よりも強い<br />担当した方は博多弁の怖い人<br />ActionScriptで書いたプログラムを持って行った<br />指でなぞって「風」を表現→気に入ってもらって映像も撮ることに<br />パリの高速道路を封鎖して撮影<br /><br /><h5>ITOKI SPINA Promotion Design</h5><a href="http://www.drawingandmanual.jp/#/portfolio/brand_itoki">http://www.drawingandmanual.jp/#/portfolio/brand_itoki</a><br />グッドデザイン2008 金賞受賞！<br />本来のイトーキはコクヨみたいに普通の事務メーカー<br />ハーマンミラーのアーロンチェアに対抗する製品としてドイツでお洒落デビュー<br />サイトは英語・独語のみ　→その後、逆輸入の形で日本デビュー<br />グッドデザインプレゼンテーションの時、他のノミネートに新幹線やジェット機<br />今更カッコつけても仕方がないので演歌でプロモ映像作成（好評ｗ）<br /><br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B000VWO5X0/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41YLKfIF4nL._SL160_.jpg" alt="【短納期商品】ITOKI オフィスチェア/Spina（スピーナチェア） 背エラストマー 757Z9（ADJ肘付） T1/ブラックT" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/%E3%80%90%E7%9F%AD%E7%B4%8D%E6%9C%9F%E5%95%86%E5%93%81%E3%80%91ITOKI-%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%83%81%E3%82%A7%E3%82%A2-Spina%EF%BC%88%E3%82%B9%E3%83%94%E3%83%BC%E3%83%8A%E3%83%81%E3%82%A7%E3%82%A2%EF%BC%89-%E8%83%8C%E3%82%A8%E3%83%A9%E3%82%B9%E3%83%88%E3%83%9E%E3%83%BC-757Z9%EF%BC%88ADJ%E8%82%98%E4%BB%98%EF%BC%89/dp/B000VWO5X0%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000VWO5X0" target="_blank">ITOKI オフィスチェア/Spina（スピーナチェア）</a><br /><a href="http://www.amazon.co.jp/%E3%80%90%E7%9F%AD%E7%B4%8D%E6%9C%9F%E5%95%86%E5%93%81%E3%80%91ITOKI-%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%83%81%E3%82%A7%E3%82%A2-Spina%EF%BC%88%E3%82%B9%E3%83%94%E3%83%BC%E3%83%8A%E3%83%81%E3%82%A7%E3%82%A2%EF%BC%89-%E8%83%8C%E3%82%A8%E3%83%A9%E3%82%B9%E3%83%88%E3%83%9E%E3%83%BC-757Z9%EF%BC%88ADJ%E8%82%98%E4%BB%98%EF%BC%89/dp/B000VWO5X0%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000VWO5X0" target="_blank"> 背エラストマー 757Z9（ADJ肘付） T1/ブラックT</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />イトーキ<br />売り上げランキング : 91213I<br /><br /><a href="http://www.amazon.co.jp/%E3%80%90%E7%9F%AD%E7%B4%8D%E6%9C%9F%E5%95%86%E5%93%81%E3%80%91ITOKI-%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%83%81%E3%82%A7%E3%82%A2-Spina%EF%BC%88%E3%82%B9%E3%83%94%E3%83%BC%E3%83%8A%E3%83%81%E3%82%A7%E3%82%A2%EF%BC%89-%E8%83%8C%E3%82%A8%E3%83%A9%E3%82%B9%E3%83%88%E3%83%9E%E3%83%BC-757Z9%EF%BC%88ADJ%E8%82%98%E4%BB%98%EF%BC%89/dp/B000VWO5X0%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000VWO5X0" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br /><h5>HondaJet Special Web Site "sky"</h5><a href="http://www.drawingandmanual.jp/#/portfolio/web_hondajet">http://www.drawingandmanual.jp/#/portfolio/web_hondajet</a><br />実際にホンダジェットに乗って撮影の指示を出した（２Gにかかりながらｗ）<br /><br /><h5>質問</h5><h6>”好きな映画、VPは？”</h6>ベタベタだけど映画は<a href="http://www.amazon.co.jp/gp/product/B001DKBJJW?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=B001DKBJJW">2001年宇宙の旅</a>が好き。<br />懐中電灯とか使ってるのにもかかわらずスケール感がでかい<br />淡々と宇宙ステーションがドッキングする様は渋い<br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B001CUUMFU/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51nFS%2Blsp5L._SL160_.jpg" alt="2001年宇宙の旅 [Blu-ray]" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/2001%E5%B9%B4%E5%AE%87%E5%AE%99%E3%81%AE%E6%97%85-Blu-ray-%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%BB%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%AF/dp/B001CUUMFU%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001CUUMFU" target="_blank">2001年宇宙の旅 [Blu-ray]</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />ワーナー・ホーム・ビデオ  2009-06-24<br />売り上げランキング : 455<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/2001%E5%B9%B4%E5%AE%87%E5%AE%99%E3%81%AE%E6%97%85-Blu-ray-%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%AA%E3%83%BC%E3%83%BB%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%E3%83%AA%E3%83%83%E3%82%AF/dp/B001CUUMFU%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001CUUMFU" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br />VPは20代の頃はつまらなく嫌だったが最近は進んで受けている<br />組織がまとまっていくなど役に立っている感が強い<br />イームズがIBMのために作った<a href="http://www.amazon.co.jp/gp/product/B00005MIG1?ie=UTF8&amp;tag=blog0360-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=B00005MIG1">Powers of Ten</a>が好き<br /><table border="0" cellpadding="5"><tbody><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00005MIG1/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/517HEJ4RKYL._SL160_.jpg" alt="EAMES FILMS:チャールズ&amp;レイ・イームズの映像世界 [DVD]" border="0" /></a></td><td valign="top"><span style="font-size:85%;"><a href="http://www.amazon.co.jp/EAMES-FILMS-%E3%83%81%E3%83%A3%E3%83%BC%E3%83%AB%E3%82%BA-%E3%83%AC%E3%82%A4%E3%83%BB%E3%82%A4%E3%83%BC%E3%83%A0%E3%82%BA%E3%81%AE%E6%98%A0%E5%83%8F%E4%B8%96%E7%95%8C-DVD/dp/B00005MIG1%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00005MIG1" target="_blank">EAMES FILMS:チャールズ&amp;レイ・イームズの映像世界 [DVD]</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" l="ur2&amp;o=" 9="" alt="''" border="0" height="1" width="1" /><br /><br />パイオニアLDC  2001-08-24<br />売り上げランキング : 7725<br />おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" /><br /><br /><a href="http://www.amazon.co.jp/EAMES-FILMS-%E3%83%81%E3%83%A3%E3%83%BC%E3%83%AB%E3%82%BA-%E3%83%AC%E3%82%A4%E3%83%BB%E3%82%A4%E3%83%BC%E3%83%A0%E3%82%BA%E3%81%AE%E6%98%A0%E5%83%8F%E4%B8%96%E7%95%8C-DVD/dp/B00005MIG1%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00005MIG1" target="_blank">Amazonで詳しく見る</a></span><span style="font-size:85%;"> </span><span style="font-size:85%;">by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><br /><h6>”編集環境はどんな感じでしょう？”</h6>FinalCut ProとAfterEffectsという普通の環境（iMac愛用）<br />ただ、こだわるのはソフトウェアではなく撮影計画<br />コンテを描いているときは集中している、絶対に妥協しない<br />（パリの高速道路を封鎖したり、1カット2カットのために空撮したり）<br />あとはカラーマネジメントには時間をかける<br /><h6>”撮影の時に大事にしていることは？”</h6>現場の雰囲気（出演者を笑わせたりしている）<br />映像に対してはストイックだけどなごやかに撮っている<br /><h6>”アイデアやひらめきを出すためのヒントは？”</h6><span style="font-weight: bold;">よく観察すること</span><br />構成力では大差がでない、クリエイターとしての見せ所は<br />カットの入り方だったりティスト<br />よく観察・理解していないとおかしな表現になってしまう<br /><br /><h5>感想</h5>基本的にプレスしか見られないようなプレゼンテーション映像の多くを紹介してもらったことや撮影時の裏話を聞けたことは大変貴重だった。TOKYOオリンピック招致の映像などナショナルクライアントの案件はその責任もさることながらステークホルダーの多さに同情。そう考えると自分がやっているWeb制作で社長などにやんや言われるのなんて全然易しいなと思ってしまったｗ<br />あと、菱川さんの人柄なども好きだけど、作っているの作品が無条件にカッコイイんですよね。ほんと世の中で一番カッコイイことを具現化したんじゃないのってゆう感覚をいつも受けてしまうんだけど、やっぱりそうゆうのを作るヒントは日々の観察からだったんですね。リアリティを表現するのにも必要だけど、「カッコイイ」ものを見たときの本質、コアな部分も観察し理解しているんだろうなと思った。う〜ん、ストイックになりましょう。<br /><br /><br />せっかく福井に来たので名物のソースカツ丼と越前おろしそばを食べました。<br />やっぱりソースカツ丼は卵がないためご飯とカツの連続性がないように思えます。<br />ボクは・・じゃないです。<br /><img src="http://lh3.ggpht.com/_1drnogi3vdg/SplRoDPZbAI/AAAAAAAAAiY/qLuItT-DY9M/2.jpg" alt="" /><br /><br /><span style="font-size:85%;">関連エントリー<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2008/05/blog-post_18.html">ナガオカケンメイ @金沢サロン</a></span></li></ul>
+
+僕が読んでいるフィードは技術系ブログなどのWebに関するものがほとんどだったりするんだけど、その中でも唯一と言ってもいいくらいデザイン（映像）系のブログが菱川勢一さんのだ。映像系の人だからといって別にFinalCutの使い方がどうとかAfterEffectsの使い方がどうとかゆう話は全然でてこない。むしろ、なにが美しいのか、なにに感動したのか、なにを思ったのかみたいな日常的なことを書いている、そうまさに菱川勢一日記。読んでいて心地が良くて、かれこれ3、4年は購読している。
+
+そんな憧れの人が福井に来るってもんだから、車はないけど電車とバス乗り継いで言ってきましたよ、ソフトパークふくい。金沢から片道２時間以上かかった＞＜
+
+セミナーは菱川さんが手がけた案件を解説していく流れだった。
+
+***
+
+### 自己紹介
+
+朝市の飛行機で福井に来ました！  
+福井県立博物館行ってきましたｗ  
+おろしそばとソースカツ丼食べましたｗ  
+東京オリンピック招致のディレクションをやってる  
+同じメンバーの佐藤さん（？）の繋がりで今回喋ることになりました  
+
+### Tokyo2016 Press Prezentation Design
+
+東京オリンピッック招致のためプレゼンテーション映像  
+今年の10月にコペンハーゲンで最終プレゼン  
+東京の各施設をCGで紹介  
+東京がどんな街かを紹介（滝川クリステルさんや森理世さん）  
+肖像権の絡みで東京の町並みを撮るときにいる人は全部エキストラ  
+最大で300人のエキストラ使った  
+関連施設の映像とかDVDで800枚にも及んだ、チェック大変  
+スイスのローゼンヌの時のプレゼンでは前日に石原都知事にダメ出しをくらい現地で修正  
+試写会しても関係者が60人くらい集まる（各施設毎に担当がいる：武道館担当とか）  
+ステークホルダーが多く調整が大変
+
+### NO MORE HIBAKUSHA
+
++ [NHK ノーモアヒバクシャ](http://www.nhk.or.jp/no-more-hibakusha/)
+
+日本語、英語に対応  
+すべての被爆の取材映像が見られる（8ヶ月かかった）  
+取材記事もすべて公開  
+NHKには独自の放送ルールがあり、このサイトはひっかかった  
+NHK広島局の方の熱意でメッセージ性のためにもサイトはルール適用外に  
+
+### Softbank with TIFFANY Press Prezentation
+
+Softbankが出した一台1000万円の携帯電話のプレゼンテーション映像  
+TIFFANYのブランドカラーTIFFANY BLUEに対してはすごく厳しい注文が  
+この手のカラーマネジメントはほんとに厳しい  
+印刷物で何万枚刷ろうが本店のクリエィティブディレクターがNOなら絶対にダメ（エコじゃないよねー）  
+Web・映像のカラーマネジメントは大変（デバイスに依存）  
+最終的にはクリエィティブディレクターの目視で調整（数値とか関係ないｗ）
+
+### Sony Vaio Design Concept Motion Image
+
+A4のノートブックパソコン、カラーバリエーションがいくつか  
+↑これだけの情報で映像を作っての依頼がｗ  
+Fit Your Life / Color Your Life のキャッチコピーを無理矢理考える  
+撮影に入りたくてもモックアップすら完成していない  
+外国のイメージで撮ろうと思ってた（アルゼンチン・チェコ：ここらへんは費用が安い）  
+結局、出国準備してるときにもモックアップができなくて国内ロケ（静岡県掛川）に変更ｗ  
+撮影で使ってるチャリンコは菱川さんのｗ
+
+### Map Style with Air Paradissimo TV Show
+
+旅番組（ケーブルTV）のディレクション  
+予算が少なすぎるのでスチルカメラ（EOS）で撮った現地の写真の版権を頂いた  
+（レアケース）3TBの画像がきたｗ  
+48週ともすべてオリジナル曲を作曲した（コンポーザー涙目）  
+季節とか景勝地の映像は古くならない
+
+
+### Honda STREAM Promotion Design
+
+V.I.開発（Product Brand）  
+HondaのLPL(Large Product Leader)の権限は社長よりも強い  
+担当した方は博多弁の怖い人  
+ActionScriptで書いたプログラムを持って行った  
+指でなぞって「風」を表現→気に入ってもらって映像も撮ることに  
+パリの高速道路を封鎖して撮影
+
+### ITOKI SPINA Promotion Design
+
+グッドデザイン2008 金賞受賞！  
+本来のイトーキはコクヨみたいに普通の事務メーカー  
+ハーマンミラーのアーロンチェアに対抗する製品としてドイツでお洒落デビュー  
+サイトは英語・独語のみ　→その後、逆輸入の形で日本デビュー  
+グッドデザインプレゼンテーションの時、他のノミネートに新幹線やジェット　　
+今更カッコつけても仕方がないので演歌でプロモ映像作成（好評ｗ）
+
+
+
+### 好きな映画、VPは？
+
+ベタベタだけど映画は2001年宇宙の旅が好き。懐中電灯とか使ってるのにもかかわらずスケール感がでかい淡々と宇宙ステーションがドッキングする様は渋い。
+
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IIY9ISK/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/5172-hJcFYL._SL160_.jpg" alt="2001年宇宙の旅(初回生産限定スペシャル・パッケージ) [Blu-ray]" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IIY9ISK/warikiru-22/" name="azlinklink" target="_blank">2001年宇宙の旅[Blu-ray]</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.12</div></div><div class="azlink-detail">スタンリー・キューブリック<br />ワーナー・ホーム・ビデオ<br />売り上げランキング: 574<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IIY9ISK/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+VPは20代の頃はつまらなく嫌だったが最近は進んで受けている。組織がまとまっていくなど役に立っている感が強い。イームズがIBMのために作ったPowers of Tenが好き。
+
+<div class="azlink-box" style="margin-bottom:0px"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00005MIG1/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/517HEJ4RKYL._SL160_.jpg" alt="EAMES FILMS:チャールズ&amp;レイ・イームズの映像世界 [DVD]" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00005MIG1/warikiru-22/" name="azlinklink" target="_blank">EAMES FILMS:チャールズ&amp;レイ・イームズの映像世界 [DVD]</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.12</div></div><div class="azlink-detail">チャールズ&amp;レイ・イームズ<br />パイオニアLDC<br />売り上げランキング: 38827<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00005MIG1/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+
+### 編集環境はどんな感じでしょう？
+
+FinalCut ProとAfterEffectsという普通の環境（iMac愛用）ただ、こだわるのはソフトウェアではなく撮影計画。コンテを描いているときは集中している、絶対に妥協しない（パリの高速道路を封鎖したり、1カット2カットのために空撮したり）あとはカラーマネジメントには時間をかける。
+
+### 撮影の時に大事にしていることは？
+
+現場の雰囲気（出演者を笑わせたりしている）  
+映像に対してはストイックだけどなごやかに撮っている
+
+### アイデアやひらめきを出すためのヒントは？
+
+よく観察すること。構成力では大差がでない、クリエイターとしての見せ所は
+カットの入り方だったりティスト。よく観察・理解していないとおかしな表現になってしまう。
+
+
+## 感想
+
+基本的にプレスしか見られないようなプレゼンテーション映像の多くを紹介してもらったことや撮影時の裏話を聞けたことは大変貴重だった。TOKYOオリンピック招致の映像などナショナルクライアントの案件はその責任もさることながらステークホルダーの多さに同情。そう考えると自分がやっているWeb制作で社長などにやんや言われるのなんて全然易しいなと思ってしまったｗ
+
+あと、菱川さんの人柄なども好きだけど、作っているの作品が無条件にカッコイイんですよね。ほんと世の中で一番カッコイイことを具現化したんじゃないのってゆう感覚をいつも受けてしまうんだけど、やっぱりそうゆうのを作るヒントは日々の観察からだったんですね。リアリティを表現するのにも必要だけど、「カッコイイ」ものを見たときの本質、コアな部分も観察し理解しているんだろうなと思った。う〜ん、ストイックになりましょう。
+
+
+
+
+
+
+
+
+
