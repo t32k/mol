@@ -86,7 +86,7 @@ blockquote {
 }
 .post .citation {
   background: #fafafa;
-  border-left: 3px #BBDEFB solid;
+  border-left: .4rem #BBDEFB solid;
   color: #777;
   font-size: 14px;
   padding: .75em;
