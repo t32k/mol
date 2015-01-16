@@ -5,7 +5,7 @@
     <header class="post-header">
         <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="u-mute">{{ .Date.Format "January 2, 2006" }}</time>
         <h1 class="post-h1 m-0">{{ .Title }}</h1>
-        {{ with .Params.subtitle }} <h4 class="u-mute">{{ . }}</h4>{{ end }}
+        {{ with .Params.subtitle }} <h3 class="u-mute">{{ . }}</h3>{{ end }}
     </header>
     <section>
         {{ .Content }}
