@@ -1,8 +1,7 @@
 ---
 date: 2009-03-28
 title: お金は銀行に預けるな 金融リテラシーの基本と実践
-categories:
-- books
+categories: books
 ---
 <table border="0" cellpadding="5">
 <tbody>

@@ -8,7 +8,7 @@ excerpt: Don’t docwrite scripts | High Performance Web Sites
 
 <cite class="citation">
 ![Steve Souders](/mol/images/people/steve_souders.jpg)
-原文：[Don’t docwrite scripts](http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/)（<time>2012-04-10</time>）by [Steve Souders](http://stevesouders.com/)
+Original：[Don’t docwrite scripts](http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/)（<time>2012-04-10</time>）by [Steve Souders](http://stevesouders.com/)
 </cite>
 
 昨日のブログ記事の<a href="http://www.stevesouders.com/blog/2012/04/09/making-the-http-archive-faster/">HTTP Archiveが速くなっている</a>、大きな要因の一つとしてはスクリプトローダーを<strong>使用しない</strong>ことです。そのスクリプトローダーとはスクリプトを動的に読み込むためにdocument.writeを使用しているものです。振り返れば、私は2009年4月の<a href="http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/">ブロッキングなしのスクリプト読み込み</a>、<a href="http://www.amazon.co.jp/dp/4873114462/">続・ハイパフォーマンスWebサイト(4章)</a>において、document.writeテクニックについて記述していました。それは以下のようなものです。
