@@ -8,7 +8,7 @@ excerpt: Why The Valley Wants Designers That Can Code
 
 <cite class=citation>
 ![Jared Spool](/mol/images/people/jared_spool.jpg)
-原文：[Why The Valley Wants Designers That Can Code](http://www.uie.com/brainsparks/2011/05/31/why-the-valley-wants-designers-that-can-code/)（<time>2011-05-31</time>）by Jared Spool
+Original：[Why The Valley Wants Designers That Can Code](http://www.uie.com/brainsparks/2011/05/31/why-the-valley-wants-designers-that-can-code/)（<time>2011-05-31</time>）by Jared Spool
 </cite>
 
 もし周りにデザイナーが大勢いるのなら、デザイナーがコードも書けることは価値のあることかどうか話題に挙げてみてください。すぐに、モーゼが紅海を2つに割ったよりも早くデザイナー達の意見は分かれるでしょう。片方はプログラミングは必要不可欠なスキルだと主張し、もう片方はプロミグラミングはデザイナーの価値を下げてしまうと猛烈に論じるでしょう。
@@ -37,7 +37,7 @@ excerpt: Why The Valley Wants Designers That Can Code
 
 <cite class=citation>
 ![Jared Spool](/mol/images/people/jared_spool.jpg)
-原文：[3 Reasons Why Learning To Code Makes You A Better Designer](http://www.uie.com/brainsparks/2011/06/06/3-reasons-why-learning-to-code-makes-you-a-better-designer/)（<time>2011-06-31</time>）by Jared Spool
+Original：[3 Reasons Why Learning To Code Makes You A Better Designer](http://www.uie.com/brainsparks/2011/06/06/3-reasons-why-learning-to-code-makes-you-a-better-designer/)（<time>2011-06-31</time>）by Jared Spool
 </cite>
 
 __1.__

@@ -7,7 +7,7 @@ excerpt: Omniture SiteCatalyst vs. Google Analytics - An Objective Comparison
 ---
 
 <cite class="citation">
-原文：[Omniture SiteCatalyst vs. Google Analytics](http://www.slideshare.net/Semetis/omniture-sitecatalyst-vs-google-analytics-an-objective-comparison-7814945)（<time>2011-05-03</time>）by [Semetis](http://stevesouders.com/)
+Original：[Omniture SiteCatalyst vs. Google Analytics](http://www.slideshare.net/Semetis/omniture-sitecatalyst-vs-google-analytics-an-objective-comparison-7814945)（<time>2011-05-03</time>）by [Semetis](http://stevesouders.com/)
 </cite>
 
 <div class="fluid">

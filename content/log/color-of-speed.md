@@ -10,7 +10,7 @@ excerpt: The Color of Speed | TimKadlec.com
 
 <cite class="citation">
 ![Steve Souders](/mol/images/people/tim_kadlec.jpg)
-原文：[The Color of Speed](http://timkadlec.com/2010/12/the-color-of-speed/)（<time>2010-12-02</time>）by [Tim Kadlec](http://timkadlec.com/)
+Original：[The Color of Speed](http://timkadlec.com/2010/12/the-color-of-speed/)（<time>2010-12-02</time>）by [Tim Kadlec](http://timkadlec.com/)
 </cite>
 
 3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。

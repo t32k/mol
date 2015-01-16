@@ -7,7 +7,7 @@ excerpt: LukeW | Design at Facebook
 ---
 
 <cite class="citation">
-原文：[Design at Facebook](http://www.lukew.com/ff/entry.asp?879)（<time>2009-04-26</time>）by Luke Wroblewski
+Original：[Design at Facebook](http://www.lukew.com/ff/entry.asp?879)（<time>2009-04-26</time>）by Luke Wroblewski
 </cite>
 
 パロ・アルト本社にて、Facebookデザインチームの理念や2.5億人にも及ぶユーザーに対してのデザインアプローチを確認し合った。彼らはコードを書くことの重要性、デザインを早い段階でこまめに共有すること、最初から最後までプロジェクトに関わること、そして自らの仕事に固執しないことを力説した。デザイナーがコードを書くのに十分にテクニカルであると確認した。

@@ -9,7 +9,7 @@ excerpt: Social button BFFs / Stoyan's phpied.com
 
 <cite class="citation">
 ![](/mol/images/people/stoyan_stefanov.jpg)
-原文：[Social button BFFs](http://www.phpied.com/social-button-bffs/)（<time>2011-09-27</time>）by [Stoyan Stefanov](http://www.phpied.com/bio/)
+Original：[Social button BFFs](http://www.phpied.com/social-button-bffs/)（<time>2011-09-27</time>）by [Stoyan Stefanov](http://www.phpied.com/bio/)
 </cite>
 
 TL;DR:JavaScriptの非同期読み込みはWebアプリのパフォーマンスにおいて重要な問題だ。以降に書かれている内容は一般的なソーシャルボタンに共通する取り扱い方についての記事であり、ソーシャルボタンに残りのコンテンツ読み込みをブロックさせないことを学べるだろう。結局のところ、ユーザーはあなたの __コンテンツを最初__  に見たいのであって、それから、そのコンテンツがシェアする価値があるのか決めるのである。

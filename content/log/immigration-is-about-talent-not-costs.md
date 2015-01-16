@@ -8,7 +8,7 @@ excerpt: Immigration is about talent, not costs | AeroFS
  
 <cite class="citation">
 ![Yuri Sagalov](/mol/images/people/yuri_sagalov.jpg)
-原文：[Immigration is about talent, not costs](https://www.aerofs.com/blog/immigration-is-about-talent-not-costs/)（<time>2014-12-02</time>）by [Yuri Sagalov](https://twitter.com/yuris)
+Original：[Immigration is about talent, not costs](https://www.aerofs.com/blog/immigration-is-about-talent-not-costs/)（<time>2014-12-02</time>）by [Yuri Sagalov](https://twitter.com/yuris)
 </cite>
 
 先週、BusinessWeekは『[テックワーカー不足問題は本当は存在しない](http://www.businessweek.com/articles/2014-11-24/the-tech-worker-shortage-doesnt-really-exist)』という記事を出した。FacebookやMicrosoftのような企業は実際のところ低賃金労働者を探しているだけだと、テックワーカー不足問題に異論を唱える識者に彼らはインタビューをしていた。

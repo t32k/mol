@@ -8,7 +8,7 @@ excerpt: Design Engineering - Snook.ca
 
 <cite class="citation">
 ![Jonathan Snook](/mol/images/people/jonathan_snook.jpg)
-原文：[Design Engineering](http://snook.ca/archives/opinion/design-engineering)（<time>2014-11-25</time>）by [Jonathan Snook](http://snook.ca/about/)
+Original：[Design Engineering](http://snook.ca/archives/opinion/design-engineering)（<time>2014-11-25</time>）by [Jonathan Snook](http://snook.ca/about/)
 </cite>
 
 > JavaScriptだけがフロントエンド開発ではない。それはデザインとディベロップメントの技術が人種のるつぼのように融合したものである。それはアクセシブルなUIを実装するためであり、Web標準を受け入れるものである。  — [Matt Hill](https://twitter.com/matthillco/status/480986847473303552)
