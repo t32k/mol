@@ -8,7 +8,7 @@ build:
   after-steps:
     - script:
         name: Copy RSS feed XML file.
-        code: cp _public/index.xml _public/feed.xml
+        code: ls
 deploy:
   steps:
     - lukevivier/gh-pages@0.2.1:
