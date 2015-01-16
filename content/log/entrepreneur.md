@@ -3,14 +3,6 @@ date: 2013-04-14
 title: 起業家
 categories:
 - books
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  _edit_last: '1'
-  pvc_views: '1482'
-  _wp_old_slug: '%e8%b5%b7%e6%a5%ad%e5%ae%b6'
 ---
 <table border="0" cellpadding="5">
 <tbody>
