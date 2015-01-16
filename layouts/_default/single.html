@@ -3,20 +3,26 @@
 
     <article class="post">
         <header class="post-header">
-            <p class="t-hint">By {{ .Site.Params.author }} — <time>{{ .Date.Format "Monday, January 2, 2006" }}</time></p>
+            <time class="u-mute">{{ .Date.Format "Monday, January 2, 2006" }}</time>
             <h1 class="post-h1 m-0">{{ .Title }}</h1>
-            <h4 class="t-hint">{{ .Params.subtitle }}</h4>
+            <h4 class="u-mute">{{ .Params.subtitle }}</h4>
         </header>
         <section>
             {{ .Content }}
         </section>
     </article>
 
+    <div class="post-social" style="margin-top: 20px">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-related="t32k">Tweet</a>
+        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+
     {{ partial "author.html" .}}
 
-    <div class="row li-pagination">
+    <div class="row post-pagination">
         <div class="six columns">
-            <div class="li-pagination-previous">
+            <div class="post-previous">
                 {{with .Prev}}
                     Later article<br>
                     <a href="{{.Permalink}}"> {{.Title}}</a>
@@ -26,7 +32,7 @@
             </div>
         </div>
         <div class="six columns">
-            <div class="li-pagination-next">
+            <div class="post-next">
                 {{with .Next}}
                     Older article<br>
                     <a href="{{.Permalink}}"> {{.Title}}</a>

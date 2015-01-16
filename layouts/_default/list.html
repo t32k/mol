@@ -3,7 +3,7 @@
     <h1>{{.Title}}</h1>
     {{ range .Data.Pages }}
         <article>
-            <time class="t-hint">{{ .Date.Format "January, 2, 2006" }}</time>
+            <time class="u-mute">{{ .Date.Format "Monday, January 2, 2006" }}</time>
             <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
         </article>
     {{ end }}

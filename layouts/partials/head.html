@@ -1,16 +1,17 @@
 <!doctype html>
-<html>
+<html lang="ja">
     <head>
         <meta charset="utf-8">
+        <title>{{ .Title }} - {{ .Site.Title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="fb:app_id" content="212646065416408">
+        {{ with .Params.excerpt }}<meta name="description" content="{{ . }}">{{ end }}
         <meta property="og:type" content="article">
         <meta property="og:site_name" content="MOL">
-        <title>{{ .Title }} - {{ .Site.Title }}</title>
-        <link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/skeleton.css">
-        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <meta property="fb:app_id" content="212646065416408">
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="stylesheet" href="/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
         <link rel="alternate" href="{{ .RSSlink }}" type="application/rss+xml" title="{{ .Site.Title }}">
     </head>
     <body role="document">
-    <div class="container">
+        <div class="container">
