@@ -12,36 +12,8 @@
         </section>
     </article>
 
-    <div class="post-social" style="margin: 30px 0">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-related="t32k">Tweet</a>
-        <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
-        <div class="g-plusone" data-size="medium"></div>
-    </div>
-
+    {{ partial "social.html" .}}
     {{ partial "author.html" .}}
-
-    <div class="row post-pagination">
-        <div class="six columns">
-            <div class="post-previous">
-                {{with .Prev}}
-                    Later article<br>
-                    <a href="{{.Permalink}}"> {{.Title}}</a>
-                {{else}}
-                    &nbsp;
-                {{end}}
-            </div>
-        </div>
-        <div class="six columns">
-            <div class="post-next">
-                {{with .Next}}
-                    Older article<br>
-                    <a href="{{.Permalink}}"> {{.Title}}</a>
-                {{else}}
-                    &nbsp;
-                {{end}}
-            </div>
-        </div>
-    </div>
-
+    {{ partial "pager.html" .}}
 {{ partial "footer.html" . }}
 {{ partial "tail.html" . }}
