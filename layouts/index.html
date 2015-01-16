@@ -1,0 +1,7 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+  {{ range first 14 .Data.Pages }}
+    {{ .Render "summary"}}
+  {{ end }}
+{{ partial "footer.html" . }}
+{{ partial "tail.html" . }}

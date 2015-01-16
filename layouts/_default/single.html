@@ -1,0 +1,41 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By {{ .Site.Params.author }} — <time>{{ .Date.Format "Monday, January 2, 2006" }}</time></p>
+            <h1 class="post-h1 m-0">{{ .Title }}</h1>
+            <h4 class="t-hint">{{ .Params.subtitle }}</h4>
+        </header>
+        <section>
+            {{ .Content }}
+        </section>
+    </article>
+
+    {{ partial "author.html" .}}
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                {{with .Prev}}
+                    Later article<br>
+                    <a href="{{.Permalink}}"> {{.Title}}</a>
+                {{else}}
+                    &nbsp;
+                {{end}}
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                {{with .Next}}
+                    Older article<br>
+                    <a href="{{.Permalink}}"> {{.Title}}</a>
+                {{else}}
+                    &nbsp;
+                {{end}}
+            </div>
+        </div>
+    </div>
+
+{{ partial "footer.html" . }}
+{{ partial "tail.html" . }}
