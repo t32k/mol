@@ -4,7 +4,6 @@
 * www.getskeleton.com
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
-* 12/15/2014
 */
 .profile {
   float:left;
@@ -240,11 +239,10 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #0091EA;
+  color: #1EAEDB;
   text-decoration: none; }
 a:hover {
-  color: #01579B; }
-
+  color: #0FA0CE; }
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -400,20 +398,6 @@ pre > code {
   padding: 1rem 1.5rem;
   white-space: pre; }
 
-
-/* Tables
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-th,
-td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #E1E1E1; }
-th:first-child,
-td:first-child {
-  padding-left: 0; }
-th:last-child,
-td:last-child {
-  padding-right: 0; }
 
 
 /* Spacing
