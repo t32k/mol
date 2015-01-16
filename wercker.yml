@@ -5,10 +5,8 @@ build:
     - arjen/hugo-build:
         version: 0.12
         flags: --buildDrafts=true
-        
 deploy:
   steps:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
-        domain: t32k.me
         basedir: _public
