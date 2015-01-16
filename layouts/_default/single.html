@@ -1,9 +1,9 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
 
-    <article class="post">
+    <article role="main" class="post">
         <header class="post-header">
-            <time class="u-mute">{{ .Date.Format "Monday, January 2, 2006" }}</time>
+            <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}' class="u-mute">{{ .Date.Format "January 2, 2006" }}</time>
             <h1 class="post-h1 m-0">{{ .Title }}</h1>
             <h4 class="u-mute">{{ .Params.subtitle }}</h4>
         </header>
@@ -19,7 +19,6 @@
     </div>
 
     {{ partial "author.html" .}}
-
 
     <div class="row post-pagination">
         <div class="six columns">

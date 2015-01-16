@@ -3,6 +3,9 @@ languageCode = "ja"
 title = "MOL"
 publishdir = "_public"
 
+[indexes]
+  category = "categories"
+
 [params]
   description = "Designing for a Mobile World."
   author = "Koji Ishimoto"
