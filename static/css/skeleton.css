@@ -77,6 +77,9 @@ blockquote {
 .post-author-info {
   margin: .6rem 0 0 8rem;
 }
+.post-pager {
+  font-size: 1.4rem;
+}
 .post-next {
   text-align: right;
 }
