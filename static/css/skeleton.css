@@ -114,7 +114,9 @@ blockquote {
 .post .azlink-box {
   margin-bottom: 2.5rem;
 }
-
+.post h2 {
+  margin-top: 3.5rem;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
