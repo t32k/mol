@@ -3,6 +3,7 @@ date: 2008-05-05
 title: ウェブ時代をゆく ─いかに働き、いかに学ぶか
 categories: books
 ---
+
 <table border="0" cellpadding="5">
 <tbody>
 <tr>
