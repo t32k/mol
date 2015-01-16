@@ -9,5 +9,5 @@ deploy:
   steps:
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
-        domain: hugo-wercker.ig.nore.me
+        domain: t32k.me
         basedir: _public
