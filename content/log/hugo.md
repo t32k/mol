@@ -7,11 +7,10 @@ subtitle: Hugo - A fast and modern static website engine
 title: Jekyllが許されるのは小学生までだよね
 ---
 
-タイトルは釣り！これまでJekyllを使ってブログを書いてたけど[Hugo](http://gohugo.io/)に移行したよという話。
+タイトルは釣り！これまでJekyllを使ってブログを書いてたけど[Hugo](http://gohugo.io/)に移行したよという話。[Frontend Weekly Vol.0](/mol/log/frontend-weekly/)で知ったんだけど、これ見ていいなーって思ったのでやってみた。
 
 + [OctopressからHugoへ移行した | SOTA](http://deeeet.com/writing/2014/12/25/hugo/)
 
-[Frontend Weekly Vol.0](/mol/log/frontend-weekly/)で知ったんだけど、これ見ていいなーって思ったのでやってみた。
 
 ## これまでの遍歴
 
@@ -24,6 +23,7 @@ title: Jekyllが許されるのは小学生までだよね
 + __Hugo + GitHub Pages__  
 　イマココ。
 
+
 ## Jekyllのいやなところ
 
 __遅い！__コレに尽きる。上記のように、7年ほどブログを続けていると記事数が450くらいになってた。`jekyll serve --watch`して、記事を変更しても体感的に10秒位かかって更新されるような状態だった。ほんの少しスタイルを変更して確認したいだけなのに何秒も待たされるのは本当にイライラする。限界だ。
@@ -31,6 +31,7 @@ __遅い！__コレに尽きる。上記のように、7年ほどブログを続
 + [Jekyll Incorporated - Modern Blog for Companies](http://incorporated.sendtoinc.com/)
 
 あと、これは別にJekyllのせいじゃないけど、僕の使ってたテーマがRuby 1.9固定だったので、なんでブログ書く度にRubyのバージョンを変えなきゃいけないのか、本当にイライラする。限界だ。
+
 
 ## Hugoのすきなところ
 
