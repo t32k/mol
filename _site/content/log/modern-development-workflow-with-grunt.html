@@ -1,0 +1,253 @@
+<script async="" class="speakerdeck-embed" data-id="57a669003bb9013102323286f532ced0" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>SassなどのCSSプリプロセッサを使うWebデザイナが増えてきました。Sassをコンパイルするだけなら黒い画面（ターミナル）を使わずともGUIアプリからの利用で問題ありません。が、ここは一歩踏み込んでGrunt（JavaScript製のタスクランナー）を使って、Sass以外のコンパイルやライブリロード、画像最適化、CSSのリントやスタイルガイド生成など、あらゆる作業をGruntに任せてより効率的な開発環境を手に入れてみませんか。</p>
+
+<hr />
+
+<p>ども、Front-end Developerをしております<a href="https://twitter.com/t32k">@t32k</a>です。今日はがんばります。</p>
+
+<p><a href="http://frontrend.github.io/">Frontrend</a>というコミュニティ活動をしています。通常は東京で3~4ヶ月の周期でフロントエンドをテーマにした勉強会を開催しています。良かったらみなさんもご参加くださいませ。</p>
+
+<h2 id="agenda">Agenda</h2>
+
+<p>今日の話す内容は以下のとおりです。</p>
+
+<ul>
+  <li>なぜGruntを使うの？</li>
+  <li>Gruntの使い方</li>
+  <li>Gruntfileをカスタマイズしてみましょう</li>
+</ul>
+
+<p>ちなみに今日の話のターゲットはGruntを使ったことのないHTML/CSSコーダーやWebデザイナーさんです。私自身、元Webデザイナーなので僕もできたことは皆さんもできるかと思います。</p>
+
+<h2 id="why-use-grunt">Why use Grunt?</h2>
+
+<ul>
+  <li><strong><a href="http://gruntjs.com/">Grunt: The JavaScript Task Runner</a></strong></li>
+</ul>
+
+<p>まず、Gruntはなんでしょうか。公式サイトを見てみると__JavaScript Task Runner__と書いています。JavaScriptでTask（あなたがしてほしい処理）をしてくれるRunner（実行してくれるもの）といった意味です。</p>
+
+<p>Gruntの使い方としてはこのように黒い画面に<code>grunt</code>といったコマンド名を打つことで使います。</p>
+
+<h3 id="complexity">Complexity</h3>
+
+<p>私達はWeb <strong>ドキュメント</strong> を作っているわけではない。Web <strong>アプリケーション</strong> を作っている。そのため以前よりもましてWeb制作は複雑性を増している。 </p>
+
+<h4 id="gui-apps">GUI Apps</h4>
+
+<ul>
+  <li><a href="http://incident57.com/codekit/">CodeKit — THE Mac App For Web Developers</a></li>
+  <li><a href="http://koala-app.com/">Koala - a gui application for LESS, Sass, Compass and CoffeeScript compilation.</a></li>
+  <li><a href="http://alphapixels.com/prepros/">Prepros :: Compile Sass, less or any preprocessing language</a></li>
+</ul>
+
+<p>Sassとかのコンパイルや画像最適化処理などであったら、別に黒い画面(Grunt)を使わなくても上記のようなGUIアプリを使うことができます。デザイナーにとっては分かりやすいかもしれないGUIアプリですが、エンジニアさんが『ちょっとSass修正したいんだけど。。。』って言われた時に、これらのGUIアプリの使い方を説明するにあたって『ここのボタンを押して、ここのメニューからhogeを選択して、、、』といったまどろっこしい説明をしなければなりません。Gruntであれば後述するPackage.jsonとGruntfile.jsを渡して、任意のGruntタスクコマンドを打つだけです。</p>
+
+<p>またカスタマイズ性においても、私達は唯一無二のWebアプリケーションを制作しているわけですから、当然、最大公約数をターゲットとしているGUIアプリでは都合が悪い時があります（ウチの開発環境ではこれが使えない、これしたいんだけど負の遺産が。など）。そんな時はGUIアプリではその機能や設定が実装されるまで指を加えて待たないといけません。しかし、Gruntなら、タスクを組み合わせたりすることで、ある程度柔軟に対応することができます。</p>
+
+<p>余談ですが、弊社でGitHub Enterpriseを導入した時に私は『やったーこれでGitが使えるお！』と思い、喜び勇んで<a href="http://www.git-tower.com/">Tower</a>というGUIのGitクライアントアプリ購入しました。それでエンジニアさんにTowerのGit設定をやってもらおうと思ったのですが、『いや俺、Towerの使い方わかんねーし、コマンドラインなら教えますよ』って言われたので、僕はコマンドラインでGit使ってます(ヽ´ω`)</p>
+
+<h4 id="paid-apps">Paid Apps</h4>
+
+<p>また、これらのアプリの中には有料のものもあります。現在有料じゃなくても将来有料になるかもしれませんし、より良いサービスを受けようとおもうと有料プランを選択肢なければならないかもしれません。良いアプリにお金を払うこと自体、とても素晴らしいことだと思います。しかし、例えばさっきの例でエンジニア：『Sassコンパイルしたいんだけど』、デザイナー：『有料アプリ買ってね！』って言うのはなんか違うかと思います。Gruntなら各種プラグインは基本的に無料です。</p>
+
+<h3 id="web-performance">Web Performance</h3>
+
+<ul>
+  <li><a href="http://stevesouders.com/hpws/rules.php">High Performance Web Sites</a></li>
+</ul>
+
+<p>またWebパフォーマンスの観点から見れば、2007年にSteve Soudersが『<a href="http://www.oreilly.co.jp/books/9784873113616/">ハイパフォーマンスWebサイト</a>』の著書で初めてフロントエンドのパフォーマンスの重要性について説きました。その当時は高速サイトの14のルールという基本的なルールさえ守れば、だいたい問題ありませんでした。</p>
+
+<p>時は経ち、2013年、<a href="https://twitter.com/search?q=%23perfmatters&amp;src=hash">#perfmatters</a>の大号令を気に、Webパフォーマンスと言っても、<strong>Network</strong>、<strong>Render</strong>、__Compute__の3つの分野に分類され、それぞれの分野ごとに本が出るほど、対応する対策というのは複雑、高度化してきました。</p>
+
+<ul>
+  <li><a href="http://chimera.labs.oreilly.com/books/1230000000545">High Performance Browser Networking</a></li>
+  <li><a href="http://www.oreilly.co.jp/books/9784873114903/">O’Reilly Japan - ハイパフォーマンスJavaScript</a></li>
+</ul>
+
+<p>__Render__は同僚の<a href="https://speakerdeck.com/ahomu/web-frontend-rendering-performance-knowledge-and-tips">ahomuさんの資料</a>が一番まとまっているかと思います。</p>
+
+<p>そんなわけで、フロントエンド(HTML/CSS)に関しても、画像の最適化、効率的なスタイルシートの管理、縮小化など対応すべきタスクは多くなってきています。これらの作業を一つ一つ手作業でやっていては抜けなどもありまうすし、面倒です。こういったものはGruntに任せ自動化すべきです。</p>
+
+<h2 id="how-to-use-grunt">How to use Grunt</h2>
+
+<p>次は使い方です。まずは、__<a href="http://nodejs.org/">node.js</a>__をインストールしましょう。公式サイトにはインストーラーが配布されているのでポチポチとボタンを押していくだけでインストールできます。Node.jsをインストールすると同時にNPM(Node Package Module)というパッケージ管理ツールも一緒にインストールされます。</p>
+
+<p><code>
+$ npm install grunt-cli -g
+</code></p>
+
+<p>なので、このコマンドの意味はnpmでinstallします、grunt-cliを。グローバルで。って意味です。grunt-cliってのgruntをCommandline Interfaceから使えるようにするパッケージで、グローバルと言うのはどのディレクトリにいても<code>grunt</code>のコマンドを使えるようにするという意味で、これがなけばローカルです。</p>
+
+<h3 id="structure">Structure</h3>
+
+<p>これで下準備は整いました。つぎにGruntの構成ですが__Package.json__と__Gruntfile.js__(coffeescriptでも可)の2種類のファイルが必要です。</p>
+
+<p>試しに、<a href="https://npmjs.org/package/grunt-csso">grunt-csso</a>をというCSSを圧縮してくるれるGruntプラグインを使用できるところまで解説していきましょう。</p>
+
+<h4 id="packagejson">Package.json</h4>
+
+<ul>
+  <li><a href="https://npmjs.org/doc/json.html">Package.json</a></li>
+</ul>
+
+<p><code>
+$ npm init
+</code>
+Package.jsonを作るには、上記のようなコマンドを打ちます。そうすると対話形式でいろいろ黒い画面が訪ねてきますので、適当にYESもしくはENTERキーを押し続けます。そうするとPackage.jsonのひな形が作成されます。</p>
+
+<p><code>
+$ npm install grunt --save-dev
+$ npm install grunt-csso --save-dev
+</code>
+次にローカルモジュールのインストールをしていきます。先ほどのgrunt-cliはあくまでコマンドラインからgruntを利用するためだけのパッケージなので、ここでインストールするgruntが実質のパッケージです。このような仕組みになっているので、現在gruntはv0.4ですが、grunt v0.5のバージョンが出てきた時にプロジェクトごとに違うバージョンのgruntを共存することができます。</p>
+
+<p><code>--save-dev</code>というオプションは、パッケージをインストールする際にPackage.jsonに<code>devDependency</code>を追記してくれるものです。このように自分の使っているパッケージを記録しておくことで、Aさんが作ったPackage.jsonをBさんに渡して、Bさんが<code>npm install</code>することで、Aさんと同じパッケージを一度でインストールすることができます。</p>
+
+<h3 id="gruntfile">Gruntfile</h3>
+
+<ul>
+  <li><a href="http://gruntjs.com/sample-gruntfile">Sample Gruntfile - Grunt: The JavaScript Task Runner</a></li>
+</ul>
+
+<p><code>
+$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+$ grunt-init gruntfile
+</code></p>
+
+<p>次にGruntfileの作成ですが、少々面倒です。まず<code>grunt-init</code>というプラグインをインストールする必要があります。そして、gruntfileを作るためのテンプレートを<code>git clone</code>でダウンロードしてきます。そうすることで<code>grunt-init gruntfile</code>を打つとまた<code>npm init</code>のようにいろいろ黒い画面が問いてきますが、とりあえずはENTER押しておきましょう。</p>
+
+<p>こうすることで、Gruntfileが作成されます。なんかいろいろ黒い画面いっぱいで面倒だなと思った方は、最初の内は同じようなことをしているGruntfileをGitHubで見つけてコピペして作れば問題無いです。</p>
+
+<p><code>js
+// Load the task:
+grunt.loadNpmTasks('grunt-csso');
+</code></p>
+
+<p>Gruntfileの中身はいろいろ書かかれていますが、大事なのは3つの部分です。最初にnpm installしたパッケージを読み込む記述です。これがないと<code>csso</code>のタスクが使えません。</p>
+
+<p><code>js
+// Configure the task:
+grunt.initConfig({
+  csso: {
+    dist: {
+      files: {
+        'output.css': ['input.css']
+      }
+    }
+  },
+  foo: { //....}
+});
+</code></p>
+
+<p>次がGruntファイルのメインとなる部分のタスクの設定の部分です。<code>initConfig</code>配下にタスクを記述していきます。<code>dist</code>の部分はターゲットを表します。この部分の名前は別になんでも構いません。例えばプロダクション環境とディベロプメント環境で圧縮するファイルが違うのなら<code>prod:</code>や<code>dev:</code>といった名前をつけ、<code>grunt csso:prod</code>や<code>grunt csso:dev</code>とコマンドを打てば、実行したいタスクを分離できます。<code>grunt csso</code>と打つとprodとdev両方のタスクが実行されます。そしてdistの下の階層には大抵処理したいファイルのインプットと処理したあとのファイルのアウトプット先、あと必要であればプラグインのオプションを記述しまうす。</p>
+
+<p>これらが基本的なタスクの設定で、この粒度でタスクをどんどん追加していきます。</p>
+
+<p><code>js
+// Register the task:
+grunt.registerTask('default', ['csso']);
+</code></p>
+
+<p>最後にカスタムタスクを登録します。<code>default</code>を文字通りデフォルトでこの文字列で指定したタスクは<code>grunt</code>だけで実行できます。<code>grunt.registerTask('foo', ['csso']);</code>とすれば、<code>grunt foo</code>でcssoタスクを実行できます。もちろん、CSSの縮小化、JSの縮小化、画像の最適化などの複数のタスクをまとめて任意のタスク名と登録することもできるので、かっこいタスク名考えときましょう。グラント・ティロ・フィナーレ！！！！！</p>
+
+<h2 id="customize-your-gruntfile">Customize your Gruntfile!</h2>
+
+<ul>
+  <li><a href="http://gruntjs.com/plugins">Plugins - Grunt: The JavaScript Task Runner</a></li>
+</ul>
+
+<p>さて基本的なGruntの使い方はわかったので、今度は自分好みのGruntfileにしていきましょう。あなたが『こうゆうのあったら便利だなー』って思うプラグインはたいてい公式サイトのプラグインを検索すれば見つかることでしょう。それほどGruntのエコステムは巨大なものとなっています。</p>
+
+<p>また、同じような機能を提供するプラグインが2つ合った場合は基本的には<code>grunt-contirb-***</code>の名前がついたプラグインを選択すれば問題ないです。これはGruntjsチームが公式にメンテナンスしているプラグインという証なので。</p>
+
+<p><code>
+$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntplugin.git ~/.grunt-init/gruntplugin
+$ grunt-init gruntplugin
+</code></p>
+
+<p>また、もし自分のほしいプラグインが見つからなかったら自分で作っちゃいましょう。先ほどの<code>grunt-init</code>でもgruntpluginのひな形を作ってくれるのでがんばってみましょう。</p>
+
+<p>私もあまりJavaScriptは書かないのですが、なぜかgruntプラグインをちょこちょこ書いてますので、良かったら使ってみてください。</p>
+
+<ul>
+  <li><a href="https://npmjs.org/~t32k">t32k:npmjs</a></li>
+</ul>
+
+<h3 id="maple">Maple</h3>
+
+<ul>
+  <li><strong><a href="https://github.com/t32k/maple">t32k/maple</a></strong></li>
+</ul>
+
+<p>さて最後は僕のGruntfileの設定を紹介しておきます。この一年スマホのWebアプリを制作してきてた集大成をCSSフレームワーク:Mapleとして公開しています。CSSフレームワークといいながら今は全然CSSの部分作ってないですが、ベターなHTML/CSSを書く、パフォーマンス性の高いアプリを作成するために必要なGrunt設定ある程度できていますのでぜひ参考にしてみてください。</p>
+
+<ul>
+  <li><a href="https://github.com/t32k/maple/blob/master/Gruntfile.coffee">maple/Gruntfile.coffee at master · t32k/maple</a></li>
+</ul>
+
+<p>基本的なことはコード読めば分かるかと思います。MapleのGruntfileはCoffeeScriptで書いてあります。っていいても全然CoffeeScript分かんないですけど、Gruntfileってほぼ設定ファイルのようなものなので、コーフィーで書いたほうがシンプルで見やすいかなと思ってます。</p>
+
+<ul>
+  <li><strong>default</strong>: [‘develop’]</li>
+  <li><strong>develop</strong>: [‘connect’, ‘watch’]</li>
+  <li><strong>stylesheet</strong>: [‘sass’, ‘autoprefixer’, ‘csscomb’, ‘csslint’]</li>
+  <li><strong>typeset</strong>: [‘webfont’, ‘stylesheet’]</li>
+  <li><strong>publish</strong>: [‘stylesheet’, ‘kss’]</li>
+  <li><strong>build</strong>: [‘stylesheet’, ‘csso’, ‘imageoptim’]</li>
+</ul>
+
+<p>タスクの設定の詳しいことは過去のブログ読んで下さいまし！</p>
+
+<ul>
+  <li><a href="/mol/log/csscomb/">CSScomb — MOL</a></li>
+  <li><a href="/mol/log/csso-and-grunt-csso/">CSSOとGRUNT-CSSO — MOL</a></li>
+  <li><a href="/mol/log/good-bye-compass-good-bye-ruby/">部屋とYシャツと私 — MOL</a></li>
+  <li><a href="/mol/log/reduce-http-requests-css-sprite/">【CSS Sprite編】スプライト地獄からの解放 — MOL</a></li>
+  <li><a href="/mol/log/reduce-http-requests-webfont/">【WebFont編】ドラッグ＆ドロップでウェ～イ — MOL</a></li>
+  <li><a href="/mol/log/grunt-init-yo/">grunt-initとYeoman — MOL</a></li>
+</ul>
+
+<h3 id="jet-start">Jet Start</h3>
+
+<ul>
+  <li><a href="http://yeoman.io/">Yeoman - Modern workflows for modern webapps</a></li>
+</ul>
+
+<p>で、ここまでいろいろ説明してきて頭がパンクされた方！大丈夫です！そんな方のために最速でGruntを動かす（Mapleプロジェクトを動かす）ためのコマンドを用意しました。</p>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/U26K5NXvRxc" frameborder="0" allowfullscreen=""></iframe>
+
+<p>YeomanというGruntとBowerを内包したツールがあります。これだけ（node.js必要ですが）でgruntを実行できますので、ぜひためしてみてください。</p>
+
+<p><code>
+$ npm install yo -g
+$ npm install generator-maple -g
+$ mkdir your_proj &amp;&amp; cd $_
+$ yo maple
+$ grunt
+</code></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>僕自身も1年前まで普通のHTMLコーダーでGUIアプリ大好きっ子でした。『黒い画面』ってのは必要そうだなとは思ってましたし、使ったら便利なんだろうなとも思ってましたけど、軽く触った程度でわかんなくなってGUIのほうがいいや！と何度も投げ出したものです。しかし、とりあえず触ってみる！動かす！ということを続けていれば、今ではGrunt（というかターミナル）無しではアプリ開発は考えれないほど手に慣れています。</p>
+
+<p>多くのデザイナーさんたちがこちら側に来ていただければ、もっとデザイナーに便利なNodeパッケージやGemなどが出てくるでしょうし、みんなの制作環境がハッピーになると思っていますので、ぜひとも、まずは一歩を踏み出す、そして動かす、続けるってことを実践するキッカケとなってくれれば幸いです。</p>
+
+<p>ありがとうございました。</p>
+
+<h3 id="section">追記</h3>
+
+<p>普段使ってるGruntプラグインまとめてみました。</p>
+
+<ul>
+  <li><strong><a href="http://t32k.me/mol/log/modern-coder/">CSSを書くために必要なGruntプルギン集！！ — MOL</a></strong></li>
+</ul>
+
+<hr />
+
+<p>この記事は<a href="http://www.adventar.org/calendars/62">Frontrend Advent Calendar 2013</a>の1日目に寄稿した記事です。</p>

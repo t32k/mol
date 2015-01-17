@@ -1,0 +1,211 @@
+<iframe src="http://www.slideshare.net/slideshow/embed_code/31162704" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe>
+
+<ul>
+  <li><a href="http://event.shoeisha.jp/devsumi/20140213/session/389">Developers Summit 2014：【13-D-3】</a></li>
+  <li><a href="http://www.slideshare.net/t32k/i-wanna-bea-frontendengineer">フロントエンドエンジニア（仮） 〜え、ちょっとフロントやること多すぎじゃない！？〜 // SlideShare </a></li>
+</ul>
+
+<p>2年前でWebデザイナーだった私がどのようにフロントエンドエンジニアなっていったのか。デザイナーにもなれず、エンジニアにもなれないどっちつかずな職種で自分のアイデンティティを模索し、日々の膨大なタスクに追われながら、フロントエンドのワークフロー(Grunt)、最適化（パフォーマンス）について考えたことを紹介します。</p>
+
+<p>『（仮）が取れた時、運命の技術者に出会える・・・』</p>
+
+<h2 id="section">自己紹介</h2>
+
+<ul>
+  <li><a href="http://t32k.me/">Koji Ishimoto - t32k.me</a></li>
+  <li>Web Performance
+    <ul>
+      <li><a href="http://www.slideshare.net/t32k/high-performance-web-design">High Performance Web Design</a></li>
+      <li><a href="http://www.slideshare.net/t32k/coding-web-performance">Coding Web Performance</a></li>
+      <li><a href="http://www.slideshare.net/t32k/long-life-web-performance-optimization">Long Life Web Performance Optimization</a></li>
+    </ul>
+  </li>
+  <li>Web Analytics
+    <ul>
+      <li><a href="http://www.slideshare.net/t32k/using-google-analytics-with-jquery-mobile">Using Google Analytics with jQuery Mobile</a></li>
+      <li><a href="http://www.slideshare.net/t32k/lp19-ishimoto">大規模サイトにおけるGoogleアナリティクス導入から成果まで</a></li>
+    </ul>
+  </li>
+  <li>Sass/Compass
+    <ul>
+      <li><a href="http://www.slideshare.net/t32k/web-15218538">スマートフォンWebアプリ最適化”３つの極意”</a></li>
+      <li><a href="http://www.slideshare.net/t32k/sasscompass-20689960">パフォーマンスから考えるSass/Compassの導入・運用</a></li>
+      <li><a href="http://www.slideshare.net/t32k/ss-15915114">モバイル制作におけるパフォーマンス最適化について</a></li>
+      <li><a href="http://www.manning.com/netherland/">Manning: Sass and Compass in Action</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="section-1">フロントエンドエンジニアとは？</h2>
+
+<ul>
+  <li><a href="http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/">A Baseline for Front-End Developers - Adventures in JavaScript Development</a></li>
+</ul>
+
+<ol>
+  <li>JavaScript</li>
+  <li>Git(and a GitHub account)</li>
+  <li>Modularity, dependency management, and production builds</li>
+  <li>In-Browser Developer Tools</li>
+  <li>The command line</li>
+  <li>Client-side templating</li>
+  <li>CSS preprocessors</li>
+  <li>Testing</li>
+  <li>Process automation (rake/make/grunt/etc.)</li>
+  <li>Code quality</li>
+  <li>The fine manual</li>
+</ol>
+
+<ul>
+  <li><a href="http://uptodate.frontendrescue.org/">How to keep up to date on Front-End Technologies - The Recipe</a></li>
+</ul>
+
+<h2 id="section-2">ツールを管理する</h2>
+
+<h3 id="front-end-tooling-landscape">Front-end Tooling Landscape</h3>
+
+<p><a href="http://slid.es/passy/yeoman/fullscreen#/1/1"><img src="http://i.imgur.com/043Yanf.png" alt="" /></a></p>
+
+<ul>
+  <li><strong>Boilerplate</strong> : HTML5 Boilerplate, Twitter Bootstrap, Backbone Boilerplate, Angular seed, Ember starter, Zurb Foundation</li>
+  <li><strong>Abstractions</strong> : CoffeeScript, Sass, Less, Compass, Jade, Haml, Zen coding, Markdown, Handlebars, Iced Coffee, TypeScript, Traceur</li>
+  <li><strong>Frameworks</strong> : Backbone, Angular, Ember, YUI, Agility, CanJS, Dojo, Meteor, Derby, Spine, Batman, Cujo, Knockout, Knockback, jQuery Mobile, jQuery UI, Closure, ExtJS, Montage</li>
+  <li><strong>Workflow</strong> : Chrome DevTools, LiveReload, Codekit, Brunch, WebStorm IDE, watch, Testing, Tincr, JSHint, BrowserStack, Selenium, WebGL Inpector</li>
+  <li><strong>Performance</strong> : JavaScript, CSS and Heap profiling, GPU, memory, tracing, PageSpeed</li>
+  <li><strong>Build</strong> : Grunt, Rake, Marven, Concat, r.js, Miification, Image optimization, Compression, Module loading, mod_pagespeed</li>
+</ul>
+
+<p><strong>GUI Apps</strong></p>
+
+<ul>
+  <li><a href="http://sass-lang.com/">Sass: Syntactically Awesome Style Sheets</a></li>
+  <li><a href="http://mhs.github.io/scout-app/">Scout - Compass and Sass without all the hassle</a></li>
+  <li><a href="http://livereload.com/">LiveReload</a></li>
+  <li><a href="https://incident57.com/codekit/">CodeKit — THE Mac App For Web Developers</a></li>
+</ul>
+
+<p><strong>Grunt</strong></p>
+
+<ul>
+  <li><a href="http://gruntjs.com/">Grunt: The JavaScript Task Runner</a></li>
+  <li><a href="http://nodejs.org/">node.js</a></li>
+</ul>
+
+<p><code>
+$ npm install grunt-cli -g
+</code></p>
+
+<p><strong>Package.json</strong></p>
+
+<p>```
+$ npm init</p>
+
+<p>This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sane defaults.</p>
+
+<p>See <code>npm help json</code> for definitive documentation on these fields
+and exactly what they do.</p>
+
+<p>Use <code>npm install &lt;pkg&gt; --save</code> afterwards to install a package and
+save it as a dependency in the package.json file.
+…
+```</p>
+
+<p><code>
+$ npm install grunt --save-dev
+$ npm install grunt-csso --save-dev
+</code></p>
+
+<p><strong>Gruntfile.js</strong></p>
+
+<p><code>
+$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+$ grunt-init gruntfile
+</code></p>
+
+<p><strong>Gruntfile.js</strong></p>
+
+<p><code>
+module.exports = function(grunt) {
+  // プロジェクト設定
+  grunt.initConfig({
+    // タスク設定
+    csso: {
+      files: {
+        'output.css': ['input.css']
+      }
+    }
+  });
+  // タスクに必要なプラグインを読み込む
+  grunt.loadNpmTasks('grunt-csso');
+  // カスタムタスクを設定
+  grunt.registerTask('default', ['csso']);
+};
+</code>
++ <a href="http://gruntjs.com/plugins">Plugins - Grunt: The JavaScript Task Runner</a>
++ <a href="https://github.com/t32k/maple">t32k/maple</a></p>
+
+<h4 id="grunt-contrib-connectwatch">grunt-contrib-connect/watch</h4>
+
+<iframe width="640" height="480" src="//www.youtube.com/embed/MnhmDAPjwT8?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
+<h4 id="grunt-sass">grunt-sass</h4>
+
+<iframe width="640" height="480" src="//www.youtube.com/embed/ZVXgibjJDwE?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
+<h4 id="grunt-contrib-csslint">grunt-contrib-csslint</h4>
+
+<iframe width="640" height="360" src="//www.youtube.com/embed/CjCpRjAX-HE?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
+<h4 id="grunt-kss">grunt-kss</h4>
+
+<iframe width="640" height="480" src="//www.youtube.com/embed/WbZeB7hih_M?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
+<ul>
+  <li><a href="http://yeoman.io/">Yeoman - Modern workflows for modern webapps</a></li>
+</ul>
+
+<p><code>
+$ npm install yo -g
+$ npm install generator-maple -g
+$ mkdir your_proj &amp;&amp; cd $_
+$ yo maple
+$ grunt
+</code></p>
+
+<iframe width="640" height="480" src="//www.youtube.com/embed/GIMmipDkU2M?rel=0" frameborder="0" allowfullscreen=""></iframe>
+
+<h2 id="section-3">スピードを追跡する</h2>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Front-End Ops</td>
+          <td>Smashing Magazine](http://www.smashingmagazine.com/2013/06/11/front-end-ops/)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<blockquote>
+  <p>It doesn’t matter how many features you have or how sexy your features are if they aren’t delivered to the user quickly, with ease, and then heavily monitored. ― Alex Sexton</p>
+</blockquote>
+
+<ul>
+  <li><a href="http://shop.oreilly.com/product/9780596529307.do">High Performance Web Sites - O’Reilly Media</a></li>
+  <li><a href="https://www.webpagetest.org/">WebPagetest - Website Performance and Optimization Test</a></li>
+  <li><a href="http://t32k.me/mol/log/webpagetest-5-minutes/">WebPagetest in 5 minutes — MOL</a></li>
+  <li><a href="https://github.com/marcelduran/webpagetest-api">marcelduran/webpagetest-api</a></li>
+  <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin">TAP Plugin - Jenkins - Jenkins Wiki</a></li>
+  <li><a href="http://ameblo.jp/principia-ca/entry-11561132297.html">Velocity 2013 レポート｜サイバーエージェント 公式エンジニアブログ</a></li>
+</ul>
+
+<p><code>
+$ npm install webpagetest -g
+</code></p>
+
+<p>Thank you!</p>

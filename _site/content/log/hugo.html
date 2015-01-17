@@ -1,0 +1,90 @@
+<p>タイトルは釣り！これまでJekyllを使ってブログを書いてたけど<a href="http://gohugo.io/">Hugo</a>に移行したよという話。<a href="/mol/log/frontend-weekly/">Frontend Weekly Vol.0</a>で知ったんだけど、これ見ていいなーって思ったのでやってみた。</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[OctopressからHugoへ移行した</td>
+          <td>SOTA](http://deeeet.com/writing/2014/12/25/hugo/)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h2 id="section">これまでの遍歴</h2>
+
+<ul>
+  <li><strong>Blogger</strong><br />
+　Webサービスを使うのはよいことだ。最初にはてなを使ってたら僕の人生変わってたかもしれない。</li>
+  <li><strong>WordPress + さくらサーバー</strong><br />
+　僕は若かった。いったい誰が僕のことを責めれようか。いや誰もいない。</li>
+  <li><strong>Jekyll + GitHub Pages</strong><br />
+　Markdown最高ww</li>
+  <li><strong>Hugo + GitHub Pages</strong><br />
+　イマココ。</li>
+</ul>
+
+<h2 id="jekyll">Jekyllのいやなところ</h2>
+
+<p>__遅い！__コレに尽きる。上記のように、7年ほどブログを続けていると記事数が450くらいになってた。<code>jekyll serve --watch</code>して、記事を変更しても体感的に10秒位かかって更新されるような状態だった。ほんの少しスタイルを変更して確認したいだけなのに何秒も待たされるのは本当にイライラする。限界だ。</p>
+
+<ul>
+  <li><a href="http://incorporated.sendtoinc.com/">Jekyll Incorporated - Modern Blog for Companies</a></li>
+</ul>
+
+<p>あと、これは別にJekyllのせいじゃないけど、僕の使ってたテーマがRuby 1.9固定だったので、なんでブログ書く度にRubyのバージョンを変えなきゃいけないのか、本当にイライラする。限界だ。</p>
+
+<h2 id="hugo">Hugoのすきなところ</h2>
+
+<p><a href="http://gohugo.io/"><img src="/mol/images/2015/0115-01.png" alt="Hugo" /></a></p>
+
+<p>__速い！__コレに尽きる。ほぼリアルタイムで更新されるんじゃないかくらい速い。<code>hugo server --watch</code>したら、デフォルトでLiveReloadで更新されるのも地味に便利である。</p>
+
+<p>移行にあたって、いらない記事とか捨てた結果240記事になった。__0.2秒__かからないくらいで生成される。</p>
+
+<p>```shell
+$ time hugo
+0 draft content
+0 future content
+240 pages created
+0 tags created
+12 categories created
+in 119 ms</p>
+
+<p>real	0m0.172s
+user	0m0.367s
+sys	0m0.108s
+```
+対して、Jekyllは__2.5秒__!!<br />
+Hugoとくらべて14倍時間がかかってる。</p>
+
+<p>```shell
+$ time jekyll build
+Configuration file: _config.yml
+            Source: .
+       Destination: ./_site
+      Generating…
+                    done.
+ Auto-regeneration: disabled. Use –watch to enable.</p>
+
+<p>real	0m2.458s
+user	0m1.826s
+sys	0m0.323s
+```</p>
+
+<p>そんなわけで、やっぱりGolang製は速いなと。HugoはGolang製だけどHugoを使う分には別にGoを勉強する必要はない。<code>brew install hugo</code>でインスコして、JekyllのようにMarkdownを書いていくだけだ。テンプレートの記法もJekyllに似てるので問題ない。</p>
+
+<ul>
+  <li><a href="http://gohugo.io/overview/introduction/">Introduction to Hugo</a></li>
+</ul>
+
+<p>あと、<a href="http://gohugo.io/tutorials/migrate-from-jekyll/">Jekyllからの移行方法</a>も丁寧に記載されてるし、masterにPushするだけであとは<a href="http://gohugo.io/tutorials/automated-deployments/">Wreckerでgh-pagesにPushしてくれるビルド</a>も用意されているので非常に楽である。</p>
+
+<ul>
+  <li><a href="https://github.com/t32k/mol">t32k/mol</a></li>
+</ul>
+
+<p>みなさんもよかったらどうぞ。</p>
+

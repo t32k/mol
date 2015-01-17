@@ -1,0 +1,150 @@
+<p>昨年の<a href="http://frontrend.github.io/events/06/">Frontrend/06</a>では、全くもってながら個人的な趣向のもと継続インテグレーション（CI:Continuous Integration）をテーマに開催した。もはや、フロントエンドとは！という感じだが、非常に良いイベントだったと思う。</p>
+
+<p>基本的に昨今のフロントエンドは膨大なタスクに追われている、そのようなタスクを手動でちまちまやっていては手戻りやミスなど必ず発生するので自動化すべきである。フロントエンドの自動化は<a href="/mol/log/modern-development-workflow-with-grunt/">Grunt</a>などがあるが、結局フロントだけで問題を解決しようとすると問題（限界）があったりするので、CIサーバーとか使ったほうがいいよね。てかフロントエンドの人も慣れておいたほうがいいよねって話。</p>
+
+<p>しかし、フロントエンドの人が<a href="/mol/log/vagrant1-2-centos6-4-jenkins1-5/">いちからJenkinsを立ち上げたり</a>するのもさほど面倒でもないが多少の心理的障壁があるので、もっとカジュアルに利用したい。</p>
+
+<p><img src="/mol/images/2014/01-07-fig01.png" alt="Build・Test・Commit" /></p>
+
+<p><a href="http://www.slideshare.net/st44100/ss-28353683">Frontend/06の佐竹さんのセッション</a>でCIを構成する要素として、Build・Test・Commitの3つがあると紹介されていた。Commitは普段Gitを使ってるから馴染み深いというかGitHub使ってるよね？みんな！！ってことで問題無いとして、Build/TestをなんとかCIサーバーでやってもらいたい。Testに関してはJavaScriptのTestなんかフロントエンドの人もやるので問題ないかと思うけど僕はそんなJavaScriptとか書かないのでよくわからないので、今回はWeb Performanceのテストをやってみるよ。</p>
+
+<p><img src="/mol/images/2014/01-07-fig02.png" alt="Travis・YSlow・GitHub" /></p>
+
+<p>今回のGitHubのレポジトリ(master)にPushしたら、Travisがgh-pagesブランチに同じ内容をコミットして反映された(gh-pagesの)ページのパフォーマンスをYSlowで検証してみるという流れだ。</p>
+
+<p>gh-pagesをDev環境と見立てて、Dev環境でBuildした内容がパフォーマンス的に不適切（テストが失敗）ならProduction環境にはリリースできない・させないというようなサイクルを想定している。</p>
+
+<p>今回はMapleの下記のファイルを検証してみる。</p>
+
+<ul>
+  <li><a href="https://github.com/t32k/maple/blob/master/test/fixtures/perf_test.html">maple/test/fixtures/perf_test.html at master · t32k/maple</a></li>
+</ul>
+
+<p>これがgh-pagesにマージしてやると、下記のURLでホストされる。</p>
+
+<ul>
+  <li><a href="http://t32k.me/maple/test/fixtures/perf_test.html">http://t32k.me/maple/test/fixtures/perf_test.html</a></li>
+</ul>
+
+<h2 id="travis-ci">Travis-CI</h2>
+
+<p>CIサーバーはなにもJenkinsだけではない。GitHub上でレポジトリを管理しているのなら連携している<a href="https://travis-ci.org/">Travis-CI</a>を使用するのが何かと都合がよい。</p>
+
+<p>Travisを使うにはアカウントを連携して、自分の<a href="https://travis-ci.org/profile">プロフィール</a>から検証したいレポジトリを<code>ON</code>にする。</p>
+
+<p>Travisをどのように使用するかは<code>.travis.yml</code>というファイルに記述する。Mapleでの設定は下記ファイルを見てもらえればよい。</p>
+
+<ul>
+  <li><a href="https://github.com/t32k/maple/blob/master/.travis.yml">maple/.travis.yml at master · t32k/maple</a></li>
+</ul>
+
+<p><code>
+language: node_js
+node_js: 0.10
+</code>
+最初の行は実行環境を指定する。node.jsを使ったテストがしたいので、<code>node_js</code>を指定する。バージョンは0.8、0.10とか複数指定できる。</p>
+
+<p><code>
+env:
+  global:
+    - GIT_AUTHOR_NAME=t32k
+    - GIT_AUTHOR_EMAIL=ijok.ijok@gmail.com
+    - GIT_COMMITTER_NAME=t32k
+    - GIT_COMMITTER_EMAIL=ijok.ijok@gmail.com
+    - secure: "Xtk................"
+</code></p>
+
+<p>TravisからGitHubにコミットするには、OAuth access tokensが必要になので<a href="https://github.com/settings/applications">ここから発行する</a>。そんでトークンをこんなパブリックなところに公開できないので、コマンドラインの<code>travis</code>で暗号化したのが<code>secure</code>のところ。</p>
+
+<p><code>
+$ gem install travis
+$ travis encrypt -r t32k/maple "GH_TOKEN=&lt;生成したトークン&gt;"
+</code></p>
+
+<p>こんな感じで暗号化する。詳しくは下記のサイトを参照して欲しい。</p>
+
+<ul>
+  <li><a href="http://tricknotes.hateblo.jp/entry/2013/06/17/020229">Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ</a></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[MiddlemanとTravis CIでgh-pagesを運用したら身長が伸びた</td>
+          <td>1000ch.net](http://1000ch.net/2013/08/30/MiddlemanAndGruntOnTravis/)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>まぁ、GitHubの設定をしてるとこです。</p>
+
+<p><code>
+before_script:
+  - "git clone --quiet https://github.com/t32k/maple.git"
+  - "git checkout -b gh-pages"
+  - "git rebase master"
+  - "[ \"$TRAVIS_BRANCH\" == \"master\" ] &amp;&amp; [ $GH_TOKEN ] &amp;&amp; git push --quiet https://$GH_TOKEN@github.com/t32k/maple.git gh-pages 2&gt; /dev/null"
+</code></p>
+
+<p><code>before_script</code>はtestが実行する前に実行しておきたいコマンドで、ここでは、masterブランチの内容をgh-pagesにマージしてプッシュしてる。</p>
+
+<p><code>
+script:
+  - "npm test"
+</code></p>
+
+<p>で、最後にテストコマンドを実行って流れ。</p>
+
+<h2 id="yslow">YSlow</h2>
+
+<p>で、次はパフォーマンスのテスト内容に関して。<a href="http://yslow.org/">YSlow</a>はFirefoxとかChromeの拡張機能でみんな使ったことあるよね？君のサイトはパフォーマンス的にAランクですよ！とか教えてくれるツール。それをPhantom.jsを使ってTravis上でも実行できるように解説してるのが以下のページ。</p>
+
+<ul>
+  <li><a href="http://yslow.org/phantomjs/#travisci-integration">YSlow - Official Open Source Project Website</a></li>
+</ul>
+
+<p>基本的にこの通りにやっていく。さっきの<code>.travis.yml</code>で指定した<code>npm test</code>ってのは<code>package.json</code>
+の以下の部分が実行されるということ。</p>
+
+<ul>
+  <li><a href="https://github.com/t32k/maple/blob/master/package.json#L15">maple/package.json at master · t32k/maple</a></li>
+</ul>
+
+<p>で、<code>yslow.sh</code>を実行するって書いてあるから、yslow.shのファイルは以下。</p>
+
+<ul>
+  <li><a href="https://github.com/t32k/maple/blob/master/test/yslow.sh">maple/test/yslow.sh at master · t32k/maple</a></li>
+</ul>
+
+<p><code>
+./node_modules/phantomjs/bin/phantomjs test/yslow.js --info grade --format tap --threshold '{"ycdn": 10, "yexpires": 10}' t32k.me/maple/test/fixtures/perf_test.html?${CACHE_CLEAR}
+</code></p>
+
+<p>長ったらしく書いてあってややこいけど、基本的には以下のような構造になってる。</p>
+
+<p><code>
+phantomjs yslow.js [オプション] &lt;テストしたいURL&gt;
+</code></p>
+
+<p>で、重要なオプションである、しきい値の設定も忘れずに。</p>
+
+<p><code>
+--threshold '{"ycdn": 10, "yexpires": 10}'
+</code></p>
+
+<p>単純にテストしたいだけなので『CDN使えよ！』の項目や、gh-pagesでホストしてるのでサーバーの設定とかできないので、キャッシュの項目とか10点でもOKなように（テストが通るように）しておく（もちろん、その他の項目がダメならテストが失敗したよってメールが飛んでくる（飛んでこないようにも設定できる））。</p>
+
+<p>てな感じで、これでmasterにpushするとその内容をgh-pagesにマージしてホストされたURLをパフォーマンステストするって流れが出来ました。</p>
+
+<ul>
+  <li><a href="https://travis-ci.org/t32k/maple">Travis CI - Free Hosted Continuous Integration Platform for the Open Source Community</a></li>
+</ul>
+
+<p>まぁ今回のテストページとか適当だし、そもそもgh-pagesのホストにデプロイしてる間にtestが実行されちゃって残念な状態にもなってるのであれですけど、雰囲気つかんで貰えれば幸いっす＞ｍ＜</p>
+
+<h3 id="section">参考リソース</h3>
+
+<ul>
+  <li><a href="http://calendar.perfplanet.com/2012/proactive-web-performance-optimization/">Performance Calendar » Proactive Web Performance Optimization</a></li>
+</ul>

@@ -1,0 +1,203 @@
+<p><cite class="citation">
+Original：<a href="http://www.slideshare.net/Semetis/omniture-sitecatalyst-vs-google-analytics-an-objective-comparison-7814945">Omniture SiteCatalyst vs. Google Analytics</a>（<time>2011-05-03</time>）by <a href="http://stevesouders.com/">Semetis</a>
+</cite></p>
+
+<div class="fluid">
+<iframe src="//www.slideshare.net/slideshow/embed_code/7814945" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/Semetis/omniture-sitecatalyst-vs-google-analytics-an-objective-comparison-7814945" title="Omniture SiteCatalyst vs. Google Analytics - An Objective Comparison" target="_blank">Omniture SiteCatalyst vs. Google Analytics - An Objective Comparison</a> </strong> from <strong><a href="//www.slideshare.net/Semetis" target="_blank">Semetis</a></strong> </div></div>
+
+<h2 id="implementation">Implementation</h2>
+
+<p><strong>SiteCatalyst (´・ω・｀) BAD</strong></p>
+
+<ul>
+  <li>複雑な実装（evars, props…）</li>
+  <li>カスタマイズの必要性</li>
+  <li>要：テクニカルスーパーバイザー</li>
+  <li>メンテナンスのために要：ITサポート</li>
+</ul>
+
+<p>→ かなり複雑（実装&amp;メンテナンス）<br />
+ → セットアップに週/月単位でかかる<br />
+ → 非常に高価なソリューション￥￥￥  </p>
+
+<p><strong>Google Analytics (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>すべてのページに（ユニークな）1つのタグを入れるだけ</li>
+  <li>オプション実装が可能
+    <ul>
+      <li>カスタム変数</li>
+      <li>イベントトラッキング</li>
+      <li>仮想ページビュー</li>
+      <li>Eコマース, …</li>
+    </ul>
+  </li>
+</ul>
+
+<p>→ 基本的な実装は簡単（1日もかからない）<br />
+ → 高度な実装に関してはそれなりに複雑<br />
+ → 無料であり、すべての人が使える</p>
+
+<h2 id="input">Input</h2>
+
+<h3 id="input-traffic-filtering">Input: Traffic filtering</h3>
+
+<p><strong>SiteCatalyst (´・ω・｀) BAD</strong></p>
+
+<ul>
+  <li>フィルタリングオプションに制限がある</li>
+  <li>いくつかのフィルタは追加のコスト発生</li>
+  <li>フィルタはプロファイルではなくレポート毎に設定する必要がある</li>
+</ul>
+
+<p><strong>Google Analytics (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>あらかじめ定義したカスタムフィルタをプロファイルレベルで適用可能</li>
+  <li>簡単な設定</li>
+  <li>例：IP除外、サイトの一部分だけ含める、特定の地域だけ含めるなど…</li>
+</ul>
+
+<h3 id="input-tracking--traffic-sourcescampaigns">Input: Tracking – Traffic sources/Campaigns</h3>
+
+<p><strong>SiteCatalyst (´・ω・｀) BAD</strong></p>
+
+<ul>
+  <li>トラッキングコードはすべてのリンクに設定しなければならない</li>
+  <li>その時、トラッキングコードをSiteCatalystレポート上で確認するために分類用のファイルを送信しなければならない（SAINT 分類） 追加のステップとしてキャンペーントラッキングも同様</li>
+  <li> AdWordsの費用データはトラッキングコードに統合されていない</li>
+  <li>Google AdWordsとの統合はこれまた追加のコストでAdobe SearchCenterというのが存在</li>
+</ul>
+
+<p><strong>Google Analytics (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>費用データも含めてGoogle Adowordsとの完全なる統合（無料）</li>
+  <li>その他のリンク（バナーやメルマガ…）もまた、キャンペーン名やソース、メディアを含んだurmパラメータで手動でトラッキングすべき</li>
+  <li>フィルタを使用することでレポート上でリネームや複数のキャンペーン/流入元をまとめることが可能</li>
+</ul>
+
+<h3 id="input-tracking--goalseventscustom-variables">Input: Tracking – Goals/Events/Custom Variables</h3>
+
+<p><strong>SiteCatalyst (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>複数の変数をトラッキング可能、いくつかの計算指標ではブレイクダウンでレポート可能</li>
+  <li>カスタムイベント、コンバージョン、トラフィック（要：カスタマイズ実装）をトラッキング可能</li>
+  <li>CVファネルレポートはSCレポートインターフェース上からセットアップ可能（イベント指標に関して。計算指標はできない）</li>
+  <li>ファネルレポートは事前に設定する必要はなく遡って評価可能</li>
+</ul>
+
+<p><strong>Google Analytics (´・ω・｀) BAD</strong></p>
+
+<ul>
+  <li>ゴール設定は特に実装の手間はない（URLベースのため）</li>
+  <li>ファネルパスとビジュアリゼーションレポートの設定は追加のコード実装無しで簡単にセットアップ可能</li>
+  <li>ファネルレポートは過去に遡れない</li>
+  <li>Eコマーストラッキングは追加のタグ実装が必要</li>
+  <li>カスタム変数（最大で5つ）とイベントトラッキングは異なるセグメントやインタラクションタイプをトラッキング可能</li>
+  <li>イベントをゴールとして設定できる（新GA）</li>
+</ul>
+
+<h2 id="interpretation">Interpretation</h2>
+
+<h3 id="interpretation-metrics">Interpretation: Metrics</h3>
+
+<p><strong>SiteCatalyst (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>指標の計算が可能。これらの指標はSC上で事前に定義された重要指標（例：直帰率、離脱率、ページビュー/訪問数、訪問者あたりの訪問数、ランディングページ、イベントコンバージョンレート,…）とは別の重要指標として定義が可能</li>
+  <li>データウェアハウス全ての生データを蓄積可能、カスタム・複雑なレポートも実行可能(72時間はかかる)</li>
+  <li>クリックスルー、インスタンスはデフォルトの指標として使用される</li>
+</ul>
+
+<p><strong>Google Analytics (´・ω・｀) BAD</strong></p>
+
+<ul>
+  <li>指標を計算することができない</li>
+  <li>しかし、最も重要な指標に関してはGAで事前に定義されておりすべての（カスタム）レポートで閲覧可能</li>
+  <li>訪問は最も使用されるデフォルト指標</li>
+</ul>
+
+<h3 id="interpretation-dashboards">Interpretation: Dashboards</h3>
+
+<p><strong>SiteCatalyst (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>いちから作成可能</li>
+  <li>ダッシュボードは全てのレポートを取り込むことが可能</li>
+  <li>フィルタとセグメント設定も保持可能</li>
+  <li>複数のフォーマットで共有可能</li>
+</ul>
+
+<p><strong>Google Analytics (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>最大でプロファイルごとに20ダッシュボードまで作成可能</li>
+  <li>ユーザーフレンドリーで簡単にカスタマイズ可能</li>
+  <li>ダッシュボードレポートにもフィルタが適用されるようになった</li>
+  <li>新GAでは一瞬で他のユーザーへ複製が可能</li>
+  <li>複数のフォーマットで共有可能</li>
+</ul>
+
+<h3 id="interpretation-on-site-performance-reporting">Interpretation: On-site performance reporting</h3>
+
+<p><strong>SiteCatalyst (・∀・) GOOD!</strong></p>
+
+<ul>
+  <li>柔軟なカスタムレポートで訪問者の行動を分析可能</li>
+  <li>ページレベルの遷移、累積的なパスレポート</li>
+  <li>内部キャンペーンのためのトラッキングコード追加可能（分類ファイルは不要）</li>
+</ul>
+
+<p><strong>Google Analytics (´・ω・｀) BAD</strong></p>
+
+<ul>
+  <li>指定したページの前後しか分析できない</li>
+  <li>ページ内（例：ヘッダー、メニュー…）のインタラクションはイベントトラッキングで評価可能</li>
+</ul>
+
+<h2 id="other-differentiating-specificities">Other Differentiating Specificities</h2>
+
+<p><strong>SiteCatalyst</strong></p>
+
+<ul>
+  <li>カスタマイズ性が高い（ユーザー行動、ネガティブ分析, … ）</li>
+  <li>サードパーティや外部システムとの統合（SAINT classification）</li>
+  <li>“Data Sources”経由でデータのインポートが可能（インポート後は削除できない）</li>
+  <li>ページ遷移:ページレベルの遷移と累積的なパスレポート（GAは前後しか見れない）</li>
+  <li>カスタマーサポート</li>
+  <li>計算指標</li>
+  <li>複数サイトで同様のレポートが比較可能</li>
+</ul>
+
+<p><strong>Google Analytics</strong></p>
+
+<ul>
+  <li>生データの利用性、フィルタオプションの拡張性によって複数のプロファイルを作成可能</li>
+  <li>簡単なCVファネルレポート vs. SCのフォールアウトレポートとイベントコンバージョンファネル</li>
+  <li>追加のタグ実装なしでのGoogle AdWordsとの統合</li>
+  <li>簡単に使える！しかも理解しやすい！</li>
+  <li>共有設定が簡単（但しサブセットデータのみ）</li>
+  <li>新・ベータバージョンの機能</li>
+</ul>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<ul>
+  <li>もし、ある解析ツールから他のツールへ変更するならば、これまでに貯めたデータはあきらめなければならない</li>
+  <li>新たな機能は移行コストに見合うものですか？またこれからも投資し続けますか（SiteCatalyst）？</li>
+  <li>決定は見積もり次第です
+    <ul>
+      <li>実装コストは？</li>
+      <li>新たなデータの解釈の必要性は？</li>
+      <li>導入するためのリソースと時間は？</li>
+      <li>サードパーティのデータとの連携によるポテンシャルは？（統合の必要性）</li>
+      <li>自社の要件とSLAの条件は？</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<p>というわけで、2011年5月のスライドということでちょいちょい古い部分もありますが、なんとなく理解。これにGoogleアナリティクスPremiumとかも入ってくると話は変わってくるだろうなと。</p>

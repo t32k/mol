@@ -1,0 +1,65 @@
+<p>今日はSketchを使ってYosemiteライクなアイコンを作ってみようって話です。</p>
+
+<p>今年の5月に<a href="/mol/log/sketch3/">Sketch3ハジメマシタ</a>って言っておきながら、それ以来まったくSketchを使ってなかったことを反省したので、最近、<a href="http://www.sketchcasts.net/">SketchCasts</a>を見ながら勉強してました。余談ですが、SketchCastsは月$8でSketch.appの使い方をスクリーンキャストで学習できるサービスです。やっぱ実際に動かす・制作してるとこ見るのが一番理解が速いと思います。</p>
+
+<p>そんなわけで、ひと通り使い方を学習したので何を作ろうかなと思いまして、そういえば、昔<a href="http://www.sublimetext.com/">Sublime Text</a>のアイコン作ったなーと思いだしまして、それをリデザインしてみようかと思います。</p>
+
+<p><img src="http://t32k.me/static/blog/2012/12/icon2.jpg" alt="旧バージョン" /></p>
+
+<ul>
+  <li><a href="/mol/log/present-for-you/">Sublime Text 2 のアイコンをなんとかする — MOL</a></li>
+</ul>
+
+<p>上記のアイコンですが、2年前に作った、いわゆるスキューモーフィズムっぽいやつで、しかもiOSのアイコンベースにしていたので、デスクトップアプリのアイコンとして使うにはなんだか野暮ったいです。もっと現代っぽくしたいです。もっとフラットっぽくしたいです。</p>
+
+<h2 id="yosemite">Yosemite</h2>
+
+<ul>
+  <li><a href="http://martiancraft.com/blog/2014/07/inspecting-yosemite-icons/">Inspecting Yosemite’s Icons</a></li>
+</ul>
+
+<p>最新のYosemiteのアイコンの仕様に関しては上記の記事を読むと良いです。僕は読んでないですが、とりあえずはなんかガイドラインが引いてあるテンプレートみたいなものがあるのだろう、そしてそれに沿って作れば、それっぽくなるんじゃね？って思い探してみました。</p>
+
+<ul>
+  <li><a href="http://www.sketchappsources.com/free-source/630-os-x-yosemite-icon-grid-sketch-freebie-resource.html">OS X Yosemite Icon Grid Sketch freebie - Sketch App Sources</a></li>
+  <li><a href="http://www.sketchappsources.com/free-source/563-osx-yosemite-icons-sketch-freebie.html">Apple OS X Yosemite Icons Sketch freebie - Sketch App Sources</a></li>
+</ul>
+
+<p>はい、ありました。Sketchのこうゆうエコシステムはほんと素敵ですね。</p>
+
+<p><img src="/mol/images/2014/12-16-fig01.jpg" alt="新バージョン" /></p>
+
+<p>あとはガイドにそって光源とか注意してあまりゴテゴテしないようにすれば、できあがりです♪</p>
+
+<ul>
+  <li><strong><a href="https://github.com/t32k/sublime-text-icon">t32k/sublime-text-icon - GitHub</a></strong></li>
+</ul>
+
+<p>ダウンロードは上記からどうぞ。自分でも作ってみたいって方は上記のレポジトリをフォークして作ってみるといいよ。Sketchファイルも入ってるよ。なんだか人にSketchファイルの中見られるの恥ずいですな(ﾉ´∀｀*)</p>
+
+<h2 id="icns">ICNS</h2>
+
+<p>あとファイルを作るときに、下記のオンラインツールを作ってたんだけど、どうも高解像度のアイコンが生成されなくて、Appleの標準のICNSファイル見たら10サイズあったのだけど、オンラインだと5サイズしか生成されなかったので、<a href="https://itunes.apple.com/us/app/iconvert-icons/id515197296?mt=12&amp;ign-mpt=uo%3D4">Macアプリ</a>買ったらちゃんとフルサイズ作れました。</p>
+
+<ul>
+  <li><a href="http://iconverticons.com/online/">Online icon converter for png, ico, and icns - iConvertIcons</a></li>
+</ul>
+
+<p>あとで知ったけど、<code>iconutil</code>ってコマンドで作成できるらしい！</p>
+
+<ul>
+  <li><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/iconutil.1.html">iconutil(1) Mac OS X Manual Page</a></li>
+</ul>
+
+<p>あとで知ったけど、Sketchのプラグインがあった！</p>
+
+<ul>
+  <li><a href="https://github.com/NathanRutzky/Generate-ICNS">NathanRutzky/Generate-ICNS</a></li>
+</ul>
+
+<p>あとで知ったけど、作ってるアイコンをすぐさまDockでプレビューできるプラグインもあるよ。</p>
+
+<ul>
+  <li><a href="https://github.com/fnky/sketch-dockpreview">fnky/sketch-dockpreview</a></li>
+</ul>
+

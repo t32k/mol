@@ -1,0 +1,105 @@
+<p>部屋とYシャツと私、AutoprefixerとSpritesmithとLibsassの話。</p>
+
+<p>愛しの<a href="https://github.com/t32k/maple">Maple</a>は、フレームワークというかGrunt詰め合わせセットなのですが、Grunt自体はNode.js依存で、使っているCSSプリプロセッサはSassでRuby依存なので、なんだかキメラみたいで気持ち悪い。いっそのこと、プリプロセッサはStylusにしてNode.jsで統一しようか、むしろ<a href="http://middlemanapp.com/">Middleman</a>みたいにRubyで統一するか、考えものだ。とりあえずはCompassを辞めてみようという結論に至ったので代替案を探る。</p>
+
+<p>MapleでCompassを使っている理由は2つ。</p>
+
+<ul>
+  <li>ベンダープレフィックスを付ける手間をなくしたい</li>
+  <li>CSSスプライトを自動化したい</li>
+</ul>
+
+<p>これらをGruntプラグインでなんとか置き換えれないものか。</p>
+
+<h2 id="grunt-autoprefixer">grunt-autoprefixer</h2>
+
+<ul>
+  <li><a href="https://github.com/nDmitry/grunt-autoprefixer">nDmitry/grunt-autoprefixer</a></li>
+</ul>
+
+<p>ちょうど、<a href="http://myakura.hatenablog.com/entry/2013/09/30/035244">myakura氏のブログで取り上げられていたAutoprefixer</a>が便利そうなので、これのGruntプラグインがないか探したらもちろんあった。</p>
+
+<p><code>js
+autoprefixer: {
+  options: {
+    browsers: ['ios &gt;= 5', 'android &gt;= 2.3']
+  },
+  dist: {
+    src: '../files/css/maple.css'
+  },
+}
+</code></p>
+
+<p>Gruntの設定も至極簡単だ。対象のCSSファイルとと対応するバージョンを指定するだけだ。
+あとは正規のプロパティ書いておくだけ、Autoprefixerがバージョンに応じてベンダープレフィックス付きのプロパティを追加・削除してくれる。</p>
+
+<p>Compassのミックスインによる書き方よりも、真っ当というか、なんかこっちの実装のほうが素敵だと素直に思った。あと対応するバージョンの指定方法も、CompassみたいにベンダーごとにON/OFFするんじゃなくて、<code>last 2 versions</code>といった書き方もできたり、<a href="https://twitter.com/tacamy/status/398400127259262977">蟹ｳｾﾞ</a>のデータを元にしてあったりと柔軟に指定できるのも魅力かな。</p>
+
+<h2 id="grunt-spritesmith">grunt-spritesmith</h2>
+
+<ul>
+  <li><a href="https://github.com/Ensighten/grunt-spritesmith">Ensighten/grunt-spritesmith</a></li>
+</ul>
+
+<p>CSSスプライトを自動化するためにCompassを使用しはじめたのもあって、移行しんどかった。使い勝手的には<a href="https://gist.github.com/t32k/e65534b5a8bb124e1cbe">Compass Sprite</a>のほうが今のところは良いと思う。 </p>
+
+<p>しかし、Spritesmithに変更することでCSSプリプロセッサに依存せずにCSSスプライトの自動化を手に入れることができる。MapleではSass用にコードを吐き出してるけど、Stylus用にも吐き出せるし、生のCSSでもできる。</p>
+
+<p>```css
+$_bird1: 0px 149px 0px -149px 60px 49px 302px 198px “/files/img/sprite/tabs.1383826639213.png”;
+$_bird2: 0px 0px 0px 0px 180px 147px 302px 198px “/files/img/sprite/tabs.1383826639213.png”;
+$_bird3: 182px 0px -182px 0px 120px 98px 302px 198px “/files/img/sprite/tabs.1383826639213.png”;
+$_bird4: 62px 149px -62px -149px 60px 49px 302px 198px “/files/img/sprite/tabs.1383826639213.png”;</p>
+
+<p>// $list: <x> <y> <offset x=""> <offset y=""> <width> <height> <total width=""> <total height=""> <image path=""></image></total></total></height></width></offset></offset></y></x></p>
+
+<p>@mixin sprite($isParent, $sprite) {
+  @if $isParent == “parent” {
+    $imagePath: nth($sprite, 9);
+    background-image: url(“#{$imagePath}”);
+    background-repeat: no-repeat;
+    background-size: round( nth($sprite, 7) / 2 ) round( nth($sprite, 8) / 2 );
+  } @else {
+    width: round( nth($sprite, 5) / 2 );
+    height: round( nth($sprite, 6) / 2 );
+    background-position: round( nth($sprite, 3) / 2 ) round( nth($sprite, 4) / 2 );
+  }
+}
+```</p>
+
+<p>Spritesmithはタスクを実行すると、任意の画像をスプライト画像にまとめて、上記のようなコードを吐き出してくれる。要は、<code>$_bird1</code>のようなスプライト画像のWidth/Heightやオフセット値をまとめたリスト型の変数を提供してくれるので、あとはそのデータを使って自分で独自のミックスイン（Retina対応している）を作成すればよい。このデータさえあればCompassの関数を使わなくて良くなる。</p>
+
+<p><code>js
+sprite: {
+  dist: {
+    dt: '&lt;%= Date.now() %&gt;',
+    src: '../files/img/sprite/tabs/*.png',
+    destImg: '../files/img/sprite/tabs.&lt;%= sprite.dist.dt %&gt;.png',
+    imgPath: '/files/img/sprite/tabs.&lt;%= sprite.dist.dt %&gt;.png',
+    destCSS: '../files/css/sass/libs/_sprite.scss',
+    algorithm: 'binary-tree',
+    padding: 2,
+    cssTemplate: 'spritesmith.mustache'
+  }
+}
+</code>
+各画像のオフセット値が分かるので<code>binary-tree</code>という、単純に縦並べ、横並べじゃなくてCompassの<code>Smart</code>みたいな、詰め込んだ並べ方ができるのも良さげ。</p>
+
+<p>Gruntでの設定がややめんどいし、キャッシュバスターのために<code>Date.now()</code>の値をファイル名に入れてるけど、タスクが実行される度に画像に変更がなくても新たにスプライト画像を生成してしまうし、以前のスプライト画像もCompassみたいに勝手に削除されない。この辺もうちょっと頑張ってみる必要性がある。</p>
+
+<h2 id="libsass">Libsass</h2>
+
+<ul>
+  <li><a href="https://github.com/sindresorhus/grunt-sass">sindresorhus/grunt-sass</a></li>
+</ul>
+
+<p>ということで、Compassの呪縛からはとりあえず解放されたのでSassもC実装の<a href="http://libsass.org/">Libsass</a>にしてみた。LibsassはRubyで書かれていたSassのコンパイラをCで書きなおしたもの。それをNode.jsから利用できるようにしたのが<a href="https://github.com/andrew/node-sass">node-sass</a>で、それのGruntプラグインが<a href="https://github.com/sindresorhus/grunt-sass">grunt-sass</a>。ややこいけど要はSassだけどRubyがいらないシロモノ。</p>
+
+<p>しかもCで書かれているので、<a href="http://www.damln.com/log/sassc-and-bourbon-it-works/">爆速でコンパイルされるらしい</a>よ（まだ大きいファイルで試してないけど）とりあえず今んとこ絶賛開発中でSCSSファイルしかコンパイルできてないし、RubySassでうまくコンパイルされるけど、Libsassではコンパイルできないってバグもあるし、ご利用は慎重にって感じ。個人的にはそんなにSassっぽいというかCSSプリプロセッサ全開！な書き方してないし、変数使えたらいいなぁ程度なので、そこまで困らないはず。。。</p>
+
+<p>というわけで、Sass使いながらでも、</p>
+
+<p><a href="https://github.com/t32k/maple/commit/fb621dbda3634b25575618b16a49560a4000a5d2">Good-bye Compass, Good-bye Ruby.</a></p>
+
+<p>できました。おしまい(・ω&lt;)</p>
+

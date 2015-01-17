@@ -1,0 +1,68 @@
+<script async="" class="speakerdeck-embed" data-id="2194dea0233401314f283ee30ec95e6c" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<ul>
+  <li><a href="https://vimeo.com/78323495">WebPagetest in 5 minutes // Vimeo</a></li>
+  <li><a href="https://speakerdeck.com/t32k/webpagetest-in-5-minutes">WebPagetest in 5 minutes // Speaker Deck</a></li>
+</ul>
+
+<h2 id="webpagetest">WebPagetest</h2>
+
+<p>2013年10月30日にサイバーエージェントで行われた<a href="http://frontrend.github.io/events/chrome/">Frontrend x Chrome Tech Talk Night Extended</a>でWebPagetestでライトニングトークしてきたのでメモしておく。</p>
+
+<p>公式サイトにはAddyやJake、Paulの動画も既に公開されている。しかも通訳付きなので参加できなかった方もぜひ見てほしい。</p>
+
+<p>さて、今回紹介する<a href="http://www.webpagetest.org/">WebPagetest</a>だが、いまいち日本で人気のないようだから紹介してみる。</p>
+
+<p>私の仕事はWebパフォーマンス改善のタスクを主な業務としている。弊社がリリースしているWebアプリで遅いことが確認されるとその原因を調査する。その時に使うツールがChromeの拡張機能の<a href="https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli">PageSpeed Insights</a>と、WebPagetestだ。PageSpeedはサクッと調べたい時に使い、WebPagetestを腰を据えてじっくり調べたい時に使う。今回紹介するのはWebPagetestのほうだ。</p>
+
+<ul>
+  <li><a href="http://www.webpagetest.org/">WebPagetest - Website Performance and Optimization Test</a></li>
+</ul>
+
+<p>WebPagetestを使うには上記のサイトから、調べたいページのURLを入力して『START TEST』のボタンを押すだけだ。しばらくするとテスト結果画面が表示されるのでここからボトルネックを見つける。さまざまなオプションがあるが基本的な使い方はこの通りである。</p>
+
+<p>WebPagetestはPageSpeed(DevTools)に似たような機能も提供しているが、多くの機能がある。First ByteやStart Render、DOM Elementsなどといった指標を取得することも可能であれば、Waterfall View、Connection View、FilmstripやScripted Testといったことも可能である。ここでは全部紹介しきれないのでWebPagetestの最も素晴らしい機能と言っても過言ではない__Speed Index__について紹介する。</p>
+
+<h2 id="speed-index">Speed Index</h2>
+
+<p>Speed Indexは、端的に言えば体感速度を指標化したようなものだ。</p>
+
+<ul>
+  <li><a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index - WebPagetest Documentation</a></li>
+</ul>
+
+<p>詳しくは上記のドキュメントを読んでもらいたい。簡単に説明するとページのVisual Progressというのがあって、文字通りページがどれだけ描画されているかの進捗度である。スライドのA：青とB：赤のVisual Progressだと、どっちが良いかは自明だろう。どちらも12秒ほどの読み込み時間がかかっているが、青のほうは、1秒の段階で90%ほど描画が完了しているのに対して、赤のほうは11秒くらいまで20%未満のVisual Progressだ。当然、青のほうが体感速度的には早いと感じるであろう。</p>
+
+<p>Speed Indexというのはこの単位時間辺りのVisual Completeしていない度合いの総和である。つまり、Speed Indexは小さい方はがよりよいということである。</p>
+
+<p><img src="/mol/images/2013/11-06-fig.png" alt="" /></p>
+
+<p>上記の数式の意味は、0秒から読み込みが完了するまでのミリセカンド毎に、1からVisual Completeをひいたものを足した総和ということを意味している。</p>
+
+<p>これにより、同じ読み込み時間であってもSpeed Indexを見ればどちらが良いのか判断できるようになる。</p>
+
+<h2 id="lets-improve-performance">Let’s Improve Performance</h2>
+
+<p>ということで、試しにこれらのツールを使ってパフォーマンスを改善していく。改善対象サイトは<a href="http://t32k.me/">t32k.me</a>、私のポートフォリオサイト。このページの改善前のPageSpeed Scoreは80点（ちなみに、PageSpeed Insightsの言語設定を日本語にしているとScoreが出ない）。このページのどこが重いのか、軽く見てみるとページ下部にソーシャルウィジェットを発見したので、これを取り除いてみることにする。</p>
+
+<p>ソーシャルウィジェットを取り除いた改善後のPageSpeed Scoreは93点。やったね、たえちゃん！ってことで素晴らしい改善結果だ。</p>
+
+<p>しかし、改善前後のWebPagetestの結果を見てみよう。Visual Progressはほぼ変わっていないし、Speed Indexはほぼおなじの3105だorz…</p>
+
+<p>ここで言いたいことは、決してソーシャルウィジェットを取り除くことが意味のないことだということではない。事実、ソーシャルウィジェットを読み込んでいる方は当然、総読み込み時間は読み込んでいないものより長くなる。しかし、__体感速度__の改善という意味では効果のないことかもしれない。</p>
+
+<blockquote>
+  <p>Speed is the second biggest engagement driver on the internet - just after perceived speed.  - <a href="https://twitter.com/maccaw/status/380385677390516224">@maccaw</a></p>
+</blockquote>
+
+<p>この辺りの話題は最近のWeb Performance界隈ではホットな話題だ。PageSpeedで最低限のアドバイス（gzipしろとか）を達成した場合、次はどうすればいいのか？体感速度をどう速めるのか？そしてどうやってそれを計測するのか？</p>
+
+<p>ちょうど<a href="http://velocityconf.com/velocityny2013/public/schedule/detail/31344">Velocity NY 2013で似たような話題を取り扱っていたセッション</a>があった。そこでSpeed Indexはもちろん紹介されていたし、UserTimingでキーとなるビジュアルを設定し、そのレンダリング速度を計測するといった方法（この場合コンテキスト依存になるので自動化できない..）や、Microsoftの<a href="http://programming.oreilly.com/2013/10/page-phase-time.html">PPT</a>（パワーポイントではない、Page Phaze Time）といった新しい概念もでてきている。要チェックやで！</p>
+
+<p><a href="http://frontrend.github.io/events/chrome/#paul">Paulのセッション</a>の最後のほうで、Speed Indexは1000以下にするのは理想だとか言ってたような気がするけど、無理じゃね？</p>
+
+<h2 id="private-instance-for-ameba">Private Instance for Ameba</h2>
+
+<p>あ、そうそうWebPagetestはWebサービスとして使用するのが一般的だが、<a href="https://github.com/WPO-Foundation/webpagetest">オープンソース</a>として公開されていて、自社のネットワーク上に<a href="https://sites.google.com/a/webpagetest.org/docs/private-instances">プライベートインスタンス</a>を置くことも可能だ。なので、UIとかいじりまくりだぜ、ひゃっほーい♪</p>
+
+<p>我々はWebPagetestを使いテストを自動的に実行し、各種指標を収集するといったことをやっていきたいと考えている。開発中だお(´・ω・｀)</p>

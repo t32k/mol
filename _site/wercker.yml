@@ -1,0 +1,16 @@
+box: wercker/rvm
+# Build definition
+build:
+  steps:
+    - arjen/hugo-build:
+        version: 0.12
+        flags: --buildDrafts=true
+    - script:
+        name: Copy RSSfeed to feed.xml
+        code: cp _public/index.xml _public/feed.xml
+
+deploy:
+  steps:
+    - lukevivier/gh-pages@0.2.1:
+        token: $GIT_TOKEN
+        basedir: _public
