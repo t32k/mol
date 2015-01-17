@@ -40,6 +40,7 @@ blockquote {
   padding-top: 2.5rem;
   color: #fff;
   background: #424242;
+  font-size: 1.4rem;
   text-align: center;
 }
 .site-footer a {
@@ -119,7 +120,9 @@ blockquote {
 .post .azlink-box {
   margin-bottom: 2.5rem;
 }
-.post h2 {
+.post h2,
+.post h3,
+.post h4 {
   margin-top: 3.5rem;
 }
 
