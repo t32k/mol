@@ -133,7 +133,7 @@ blockquote {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 640px;
   margin: 0 auto;
   box-sizing: border-box; }
@@ -153,8 +153,8 @@ blockquote {
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
-    padding: 0;
-    width: 80%; }
+    width: 80%;
+    padding: 0; }
   .column,
   .columns {
     margin-left: 4%; }
