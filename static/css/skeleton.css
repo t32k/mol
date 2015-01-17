@@ -33,9 +33,27 @@ blockquote {
 .site-header a {
   margin-right: 3rem;
 }
+.site-ad {
+  padding-bottom: 3.5rem;
+}
 .site-footer {
-  padding: 0 0 2rem;
+  padding-top: 2.5rem;
+  color: #fff;
+  background: #424242;
   text-align: center;
+}
+.site-footer a {
+  color: #fff;
+}
+.site-footer a:hover {
+  color: #ddd;
+}
+.post-author {
+  margin: auto;
+}
+.post-author-pic {
+  border: 2px #fff solid;
+  border-radius: 34px;
 }
 
 /* Post
@@ -62,21 +80,7 @@ blockquote {
   min-width: 120px;
   line-height: 12px;
 }
-.post-author {
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 2rem;
-  padding: 2.4rem 2rem 0;
-  background: #fafafa;
-  border-radius: .4rem;
-}
-.post-author-pic {
-  border: 4px #fff solid;
-  border-radius: 36px;
-}
-.post-author-info {
-  margin: .6rem 0 0 8rem;
-}
+
 .post-pager {
   font-size: 1.4rem;
 }
@@ -91,7 +95,8 @@ blockquote {
   background: #fafafa;
   border-left: .4rem #BBDEFB solid;
   color: #777;
-  font-size: 14px;
+  font-size: 1.4rem;
+  font-style: normal;
   padding: .75em;
   display: block;
 }

@@ -7,8 +7,6 @@ subtitle: Hugo - A fast and modern static website engine
 title: Jekyllが許されるのは小学生までだよね
 ---
 
-[![Hugo](/mol/images/2015/0115-01.png)](http://gohugo.io/)
-
 タイトルは釣り！これまでJekyllを使ってブログを書いてたけど[Hugo](http://gohugo.io/)に移行したよという話。
 
 + [OctopressからHugoへ移行した | SOTA](http://deeeet.com/writing/2014/12/25/hugo/)
@@ -35,6 +33,8 @@ __遅い！__コレに尽きる。上記のように、7年ほどブログを続
 あと、これは別にJekyllのせいじゃないけど、僕の使ってたテーマがRuby 1.9固定だったので、なんでブログ書く度にRubyのバージョンを変えなきゃいけないのか、本当にイライラする。限界だ。
 
 ## Hugoのすきなところ
+
+[![Hugo](/mol/images/2015/0115-01.png)](http://gohugo.io/)
 
 __速い！__コレに尽きる。ほぼリアルタイムで更新されるんじゃないかくらい速い。`hugo server --watch`したら、デフォルトでLiveReloadで更新されるのも地味に便利である。
 
