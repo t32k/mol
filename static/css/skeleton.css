@@ -71,6 +71,9 @@ blockquote {
   background: #ddd;
   content: " ";
 }
+.post-h1 {
+  margin: 1rem 0 0 0 !important;
+}
 .post-social {
   margin: 2rem 0;
   padding: 1rem 0;
@@ -465,8 +468,14 @@ p {
 .u-mute {
   color: rgba(0,0,0,0.54);
 }
-.m-0 {
-  margin: 0 !important;
+.u-txs {
+  font-size: 1.4rem;
+}
+.u-mtn {
+  margin-top: 0 !important;
+}
+.u-mbn {
+  margin-bottom: 0 !important;
 }
 
 /* Misc
