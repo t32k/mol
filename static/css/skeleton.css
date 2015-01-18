@@ -53,7 +53,7 @@ blockquote {
   transition-duration: 1s;
   transition-timing-function: ease-out;
 }
-a:hover .post-author-pic {
+a:hover .site-author-pic {
   border: 2px  #7E57C2 solid;
 }
 .site-author-info {
@@ -140,7 +140,7 @@ a:hover .social-links-linkedin { fill: #42A5F5; }
 .post .fluid {
   position: relative;
   height: 20em;
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
 }
 .post .fluid iframe {
   position: absolute;
