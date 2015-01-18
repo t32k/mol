@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+
+<path id="rss-square-rounded-icon" d="M412,50H100c-27.614,0-50,22.386-50,50v312c0,27.614,22.386,50,50,50h312
+
+	c27.614,0,50-22.386,50-50V100C462,72.386,439.614,50,412,50z M151.005,400.2c-21.554,0-39.026-17.472-39.026-39.026
+
+	c0-21.553,17.473-39.024,39.026-39.024s39.024,17.472,39.024,39.024C190.029,382.729,172.559,400.2,151.005,400.2z M244.268,400.2
+
+	c-0.747-72.618-59.672-131.542-132.289-132.288v-57.815c104.663,0.747,189.355,85.44,190.104,190.103H244.268z M342.201,400.2
+
+	c-0.174-61.521-24.205-119.335-67.728-162.856c-43.436-43.437-101.108-67.456-162.495-67.723V111.8
+
+	c158.955,0.556,287.681,129.401,288.043,288.4H342.201z"/>
+
+</svg>
+
