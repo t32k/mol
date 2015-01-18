@@ -1,17 +1,24 @@
 ---
 date: 2009-01-31
-title: ザ・プロフェッショナル - 大前 研一
-categories:
-- books
-tags: []
-status: publish
-type: post
-published: true
-meta:
-  pvc_views: '2298'
-  blogger_blog: warikiru.blogspot.com
-  blogger_author: t32khttp://www.blogger.com/profile/06797489791220082722noreply@blogger.com
-  blogger_permalink: /2009/01/professionalism.html
-  _edit_last: '1'
+title: ザ・プロフェッショナル
+subtitle: 21世紀で成功するビジネス・プロフェッショナルの要件
+categories: books
+excerpt: 企業のリーダーたちは、「その道のプロになれ」と言いますが、この場合の「プロ」は「スペシャリスト」を意味するのであって、「プロフェッショナル」とは異なります。両者を隔てる能力は「洞察力」と「判断力」です。これこそが21世紀で成功するビジネス・プロフェッショナルの要件であり、大前研一氏は努力次第でその習得は可能であると断言します。
+ogimage: http://ecx.images-amazon.com/images/I/419YNAN3XBL.jpg
 ---
-<blockquote>目次<br /><ol><li>「プロフェッショナリズム」の定義</li><li>先見する力</li><li>構想する力</li><li>議論する力</li><li>矛盾に適応する力</li></ol></blockquote><br />プロフェッショナルとはスペシャリストでなければ、ましてやゼネラリストでもない。変化に対して深い「洞察」と適切な「判断」で対応できる人って感じですかね。全体として、プロフェッショナルに必要な力を4つに分けて説明してくれてます。<br /><br />Amazonのレビューを見る限り、「目新しい内容はほとんどない。」と言ったことが書かれているが、基本的に大前さんの本は読んでない自分としては、この点は逆におさらいができてよかった。<br /><br />気になったところと言えば、8億人市場のところで、グローバル化、ボーダレス化により消費者の同質化が始まり、地球上には学歴も、所得も、生活様式も非常によく似た8億人の消費者が存在するらしい。この世界総人口の13％に及ぶ消費者がインターネットを使い、同じ情報を同じタイミングで享受できてしまう現状、この波に乗ることができればiPod、iTunesのような成功が勝ち取ることができ、波に乗り損ねてしまうと、富士フィルムやコダックのようにデジタルカメラの急速な台頭と低価格化により苦戦を強いられてしまう。<br /><br />話がでかすぎるね、けどこの「見えない世界」をいかに感じ取るかもプロフェッショナルな力の１つだと言ってる。この部分を読んでいて、8億人とまではいかないけどiPhoneアプリの世界で果敢に世界進出を試みる<a href="http://fladdict.net/blog/">fladdict</a>さんを思い浮かべてしまった。ほんとすごいなーと端から見て思います。ああいうひとがプロフェッショナルと言えるかもしれませんね。<br /><br />あとどうでもいいけど、discussの意味が分かった。<br /><br /><blockquote>そもそも、"discuss"という言葉は、否定を意味する"dis"と、恨むという意味の"cuss"が合体した言葉です。要するに、反対したり、反論したりしても「恨みっこなし」というのがディスカッションの本来の意味なのです。<br /><div style="text-align: right;"><span style="font-size:85%;">P151- 第4章 議論する力</span></div></blockquote><br />そういうことなんですね。<br />はてブなんかでdisるときもdisrespectじゃなくてdiscussしたいものですね。<br /><br /><table border="0" cellpadding="5"><tbody><tr><td colspan="2"><a href="http://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB-%E5%A4%A7%E5%89%8D-%E7%A0%94%E4%B8%80/dp/4478375011%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478375011" target="_blank">ザ・プロフェッショナル</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" border="0" height="1" width="1" /></td></tr><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB-%E5%A4%A7%E5%89%8D-%E7%A0%94%E4%B8%80/dp/4478375011%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478375011" target="_blank"><img src="http://ecx.images-amazon.com/images/I/419YNAN3XBL._SL160_.jpg" alt="ザ・プロフェッショナル" border="0" /></a></td><td valign="top"><span style="">大前 研一<br /><br />ダイヤモンド社  2005-09-30<br />売り上げランキング : 7424<br /><br /><strong>おすすめ平均  </strong><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" /><br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-4-0.gif" alt="star" />プロフェッショナルファームにいた者として<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-5-0.gif" alt="star" />時々振り返る本<br /><img src="http://g-images.amazon.com/images/G/01/detail/stars-3-0.gif" alt="star" />大前研一に今の日本を引っ張ってほしい<br /><br /><a href="http://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB-%E5%A4%A7%E5%89%8D-%E7%A0%94%E4%B8%80/dp/4478375011%3FSubscriptionId%3D0G91FPYVW6ZGWBH4Y9G2%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478375011" target="_blank">Amazonで詳しく見る</a></span><span style=""> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td></tr></tbody></table><span style="font-size:85%;"><br />関連エントリー<br /></span><ul><li><span style="font-size:85%;"><a href="http://warikiru.blogspot.com/2009/01/dont-wait-for-tomorrow.html">warikiru: [読書] やりたいことは全部やれ! - 大前 研一</a><span style="font-family:monospace;"></span></span></li><li><span style="font-size:85%;"><span style="font-family:monospace;"></span><a href="http://warikiru.blogspot.com/2008/09/blog-post.html">warikiru: [読書] ハイ・コンセプト「新しいこと」を考え出す人の時代</a></span></li></ul>
+
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478375011/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/419YNAN3XBL._SL160_.jpg" alt="ザ・プロフェッショナル" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478375011/warikiru-22/" name="azlinklink" target="_blank">ザ・プロフェッショナル</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.18</div></div><div class="azlink-detail">大前 研一<br />ダイヤモンド社<br />売り上げランキング: 5476<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478375011/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+プロフェッショナルとはスペシャリストでなければ、ましてやゼネラリストでもない。変化に対して深い「洞察」と適切な「判断」で対応できる人って感じ。全体として、プロフェッショナルに必要な力を4つに分けて説明してくれてます。
+
+>
++ 先見する力
++ 構想する力
++ 議論する力
++ 矛盾に適応する力
+
+Amazonのレビューを見る限り、「目新しい内容はほとんどない。」と言ったことが書かれているが、基本的に大前さんの本は読んでない自分としては、この点は逆におさらいができてよかった。
+
+気になったところと言えば、8億人市場のところで、グローバル化、ボーダレス化により消費者の同質化が始まり、地球上には学歴も、所得も、生活様式も非常によく似た8億人の消費者が存在するらしい。この世界総人口の13％に及ぶ消費者がインターネットを使い、同じ情報を同じタイミングで享受できてしまう現状、この波に乗ることができればiPod、iTunesのような成功が勝ち取ることができ、波に乗り損ねてしまうと、富士フィルムやコダックのようにデジタルカメラの急速な台頭と低価格化により苦戦を強いられてしまう。
+
+話が大きいけど、この「見えない世界」をいかに感じ取るかもプロフェッショナルな力の１つだと言ってる。8億人市場は魅力的だ。どうやったらこの市場にアプローチできるだろうか。
