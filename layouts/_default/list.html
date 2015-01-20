@@ -7,6 +7,7 @@
         <article>
             <time class="u-txs u-mute">{{ .Date.Format "Monday, January 2, 2006" }}</time>
             <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+            {{ with .Params.excerpt }}<p class="post-desc">{{ . }}</p>{{ end }}
         </article>
     {{ end }}
 </section>

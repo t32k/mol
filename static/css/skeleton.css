@@ -27,7 +27,7 @@ blockquote {
   padding: 2rem 0;
   margin-bottom: 4rem;
 }
-.site-header img {
+.site-header img {f
   vertical-align: middle;
 }
 .site-header a {
@@ -38,9 +38,10 @@ blockquote {
 }
 
 .site-footer {
+  border-top: 1px #cfcfcf solid;
   padding-top: 3rem;
-  color: #fff;
-  background: #424242;
+  color: #4f4f4f;
+  background: #f0f0f0;
 }
 .site-author {
   margin: auto;
@@ -78,7 +79,7 @@ a:hover .site-author-pic {
 }
 a:hover .social-links-rss { fill: #FF7043; }
 a:hover .social-links-twitter { fill: #29B6F6; }
-a:hover .social-links-github { fill: #fff; }
+a:hover .social-links-github { fill: #444; }
 a:hover .social-links-behance { fill: #5C6BC0; }
 a:hover .social-links-linkedin { fill: #42A5F5; }
 .site-copyright {
@@ -101,6 +102,13 @@ a:hover .social-links-linkedin { fill: #42A5F5; }
 }
 .post-h1 {
   margin: 1rem 0 0 0 !important;
+}
+.post-desc {
+  margin-top: -2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.4rem;
 }
 .post-social {
   margin: 2rem 0;
@@ -254,7 +262,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  border-top: .5rem  #673AB7 solid;
+  border-top: .8rem  #673AB7 solid;
   font-size: 1.8rem; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
