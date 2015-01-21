@@ -1,10 +1,11 @@
 ---
 categories: blog
 date: 2015-01-20T16:08:56-08:00
-excerpt: ビジュアルデザインは必要なくなってしまったのか？
-ogimage: http://t32k.me/mol/images/2015/0120-00.png
+
+title: ビジュアルデザインはつまらなくなってしまったのか？
 subtitle: HAS VISUAL DESIGN FALLEN FLAT?
-title: ビジュアルデザインは必要なくなってしまったのか？
+excerpt: 2013-2014年の大規模なUIフラット化により無数のピクセルが流れ落ちていった
+ogimage: http://t32k.me/mol/images/2015/0120-00.png
 draft: true
 ---
 
@@ -13,22 +14,28 @@ draft: true
 <cite class="citation">
 ![Emmet Connolly](/mol/images/people/emmet_connolly.jpg)
 Original：[HAS VISUAL DESIGN FALLEN FLAT?
-](http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/)（<time>2012-04-10</time>）by [Emmet Connolly](http://stevesouders.com/)
+](http://blog.intercom.io/has-visual-design-fallen-flat/)（<time>2015-01-20</time>）by [Emmet Connolly](https://twitter.com/thoughtwax)
 </cite>
 
-## Countless pixels were spilled during The Great UI Flattening of 2013–2014.
 
-It was a time of great change in the world of visual design: foreshadowed by Microsoft’s aggressively modernist Metro style, popularized and polarized by the release of iOS 7, and perhaps most fully realized in the form of Google’s Material Design.
-Flat design (a reductive but useful shorthand) didn’t just kill skeuomorphism (ditto), it danced on its grave and then erased every last trace of beveling, shadow, and granite texture from the headstone.
+## 2013-2014年の大規模なUIフラット化により無数のピクセルが流れ落ちていった
+
+それはビジュアルデザインにおいて劇的な変化だった。Microsoftの急進的なモダンMetro UIはその前兆だった。iOS7のリリースよって大衆化し、分裂させられた。GoogleのMaterial Designによって、たぶんほとんど完成した。
+
+フラットデザイン（簡潔だけれど便利な表現）はスキューモーフィズム（同前）を駆逐するだけでなく、それの墓の上で踊り、すべてのべべル、影、墓石のテクスチャさえ消しさってしまったのだ。
 
 ![](/mol/images/2015/0120-01.png)
 
-Such is design. Progress, change, and fashion are inevitable. The sun will some day set on these latest styles too. Predicting future trends is a futile game, but it’s interesting to look at where we are today and speculate on possible future directions. What lies over the (extremely flat) horizon? What next for the visual design of software products?
+このようなデザインである。 発展、変化、流行は避けられないものだ。これらの最新スタイルもまた、いつの日か廃れていくだろう。未来のトレンドを予測することはつまらないゲームだが、今日の私たちの現在位置を確認し、未来の方向性に思いをめぐらすのは興味深い。何がフラットデザインを延命させるのか？何が次のソフトウェアのビジュアルデザインを代表するのか？
 
-## SURVEYING THE LANDSCAPE
+## 情勢の概観
 
-Here’s a basic laundry list of common visual design tropes in software today:
-	•	Heavily inspired by iOS and Material Design, often slavishly adhering to their style guidelines.
+今日のソフトウェアにおける、一般的なビジュアルデザインの比喩がここにリストになっている。
+
++ iOSとMaterial Designに過度に影響を受けており、それらのスタイルガイドラインに奴隷のように粘着している
++ 最小限の影を伴ったフラットな四角形は大きな写真やビデオで使用される。
+
+
 	•	Flat rectangles with some minimal shadows, frequent use of large photography and video as background to headline text.
 	•	Lots of negative space around content, grid layouts with low information density, a focus on bold, clean typography.
 	•	Borderless, edge to edge blocks of plain white accented by vibrant, poppy colour palettes; more muted, desaturated colours are often used in photography.
