@@ -1,7 +1,7 @@
 ---
 date: 2013-08-20
 title: HTTPリクエストを減らすために【CSS Sprite編】スプライト地獄からの解放
-subtitle: Automation of CSS Sprite.
+subtitle: CSS Sprite Automation.
 categories: performance
 excerpt: 2日目は、HTTPリクエストを減らす最もポピュラーな手法、CSSスプライトについて説明します。
 ogimage: http://t32k.me/static/blog/2013/08/requests.gif

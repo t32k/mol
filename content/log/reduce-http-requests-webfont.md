@@ -1,71 +1,86 @@
 ---
 date: 2013-08-21
 title: HTTPリクエストを減らすために【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ
-categories:
-- performance
+subtitle: grunt-webfont
+categories: performance
+excerpt: 3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用について考慮しても、やぶさかではないでしょう。
+ogimage: http://t32k.me/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png
 ---
 
-このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。
-<ul>
-	<li><a href="http://t32k.me/mol/log/reduce-http-requests-overview/">【序章】HTTPリクエストは甘え</a></li>
-	<li><a href="http://t32k.me/mol/log/reduce-http-requests-css-sprite/">【CSS Sprite編】スプライト地獄からの解放</a></li>
-	<li><strong>【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ</strong></li>
-	<li><a href="http://t32k.me/mol/log/reduce-http-requests-datauri/">【DataURI編】遅延ロードでレンダリングブロックを回避</a></li>
-	<li><a href="http://t32k.me/mol/log/reduce-http-requests-one-second/">【終章】我々には1000msの猶予しか残されていない</a></li>
-</ul>
-3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用について考慮しても、やぶさかではないでしょう。
+このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
+
++ [【序章】HTTPリクエストは甘え](/mol/log/reduce-http-requests-overview/)
++ [【CSS Sprite編】スプライト地獄からの解放](/mol/log/reduce-http-requests-css-sprite/)
++ __【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ__
++ [【DataURI編】遅延ロードでレンダリングブロックを回避](/mol/log/reduce-http-requests-datauri/)
++ [【終章】我々には1000msの猶予しか残されていない](/mol/log/reduce-http-requests-one-second/)
+
+3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用を考慮しても、やぶさかではないだろう。
 
 まずは下記の画像をご覧頂きたい。
 
-<img class="aligncenter size-full wp-image-5274" alt="arrows" src="/static/blog/2013/08/arrows.png" width="607" height="30" />
+![](http://t32k.me/static/blog/2013/08/arrows.png)
 
-これは私がプロジェクトで使用していたスプライト画像ですが（実際は縦にして使用）、このような単純な形状、単色のアイコンであれば、Webフォント化したほうがなにかと都合がよいです。
+これはプロジェクトで私が使用していたスプライト画像だが（実際は縦にして使用）、このような単純な形状、単色のアイコンであれば、Webフォント化したほうがなにかと都合がよい。
 
-このスプライトであれば、カラー×矢印の向き×シャドウのありなしでパターンが増えていく可能性があり、スプライトすれば1リクエストで収まりますが、それでも画像が肥大化していけば、<strong>Receiving </strong>が無視できない状況になっていきます。
+このスプライトであれば、__カラー__ × __矢印の向き__ × __シャドウの有無__ パターンの可能性があり、スプライトすれば1リクエストでおさまるが、それでも画像が肥大化していけば、__Receiving__が無視できない状況になってくる。
 
-そこでWebフォント化すれば、色は自由に変更できますし、フォントなので<span class="code">text-shadow</span>で影を当てることもできますし、<span class="code">font-size</span>で大きさも変更でき柔軟に対応することができます。
+そこでWebフォント化すれば色は自由に変更可能だし、フォントなので`text-shadow`で影を当てることも可能、`font-size`で大きさも変更でき柔軟に対応することができる。
 
-それではWebフォントって一体どうやって作るのでしょうか？高いフォント作成アプリケーションを購入しなければならないのでしょうか？オンライン作成ツールもあるようですが、毎回新しいアイコン追加の度にそのツールのサイトを訪問しなければならないのでしょうか？
-<ul>
-	<li><a href="http://icomoon.io/"> IcoMoon</a></li>
-</ul>
-以前は上記のオンラインツールを使ってましたが、やはり更新対応を考えるとめんどくさかったです。ということで、<a href="https://github.com/t32k/maple">Mapleプロジェクト</a>では<a href="https://github.com/sapegin/grunt-webfont"><strong>grunt-webfont</strong></a>を導入しました。
+それではWebフォントって一体どうやって作るのだろうか？高いフォント作成アプリを購入しなければならないのだろうか？オンライン作成ツールもあるようだが、毎回、新規アイコン追加の度にそのツールのサイトを訪問しなければならないのだろうか？
 
-ということで、前回の記事を見ながら、<span class="code">grunt-init maple</span>しましょう^_^
++ [❍ IcoMoon - icon font & SVG icon sets](https://icomoon.io/)
 
-必要環境として以下のものインストールしておきましょう 。
-<a href="http://brew.sh/">Homebrew</a>も入っていなければインストールしておきましょう。
-<pre class="bash"><code>$ brew install fontforge ttfautohint
-$ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb</code></pre>
-あと事前に必要になるのは、フォントの元となるSVGファイルです。<a href="https://github.com/cognitom/symbols">SVGファイルを作る上で便利なテンプレート</a>があるのでそれを拝借してきましょう。
+以前は上記オンラインツールを使っていたが、やはり更新対応を考えるとめんどうだった。そうゆうわけで、[Maple](https://github.com/t32k/maple)プロジェクトでは[grunt-webfont](https://github.com/sapegin/grunt-webfont)を導入している。
 
-<img class="aligncenter  wp-image-5163" alt="arrow" src="/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png" width="640" />
+前回の記事を見ながらMapleプロジェクトを準備してもらいたい。そのほかの必要環境として以下のものインストールしておく。[Homebrew](http://brew.sh/)も入っていなければインストールする。
 
-テンプレートを使ってMapleでは上記のような.aiを作成しました。<a href="http://iconmonstr.com/">iconmonstr</a>にはいろいろ使い勝手がいいアイコンが無料で配布されていますので、ここから必要な物をとってくるのもいいでしょう。ここからIllustratorでアートボード別に書きだしてSVGファイルとして保存します。要注意なのはこのアートボードの空白部分も含めてSVGファイルなので気をつけてください。
+```shell
+$ brew install fontforge ttfautohint
+$ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb
+```
 
-<img class="aligncenter size-full wp-image-5282" alt="fontdir" src="/static/blog/2013/08/fontdir.png" width="675" height="387" />
+あと事前に必要になるのはフォントの元となるSVGファイル。SVGファイルを作るうえで便利なテンプレートがあるのでそれを拝借する。
 
-基本的にこの部分はデザイナーさんにやってもらえればよいことなので、フロントエンドデベロッパーは完成したSVGファイルを、<span class="code">/src/files/font/svg</span> ディレクトリに投げ込んでコマンド打つだけです。
-<pre><code>$ grunt webfont
-Running "webfont:dist" (webfont) task
-Font 'myfont-b5fd89266afbbfbfc281a0ce9a5bf50e' with 13 glyphs created.</code></pre>
-で、<span class="code">/src/tools/</span>で<span class="code">grunt webfont</span>を実行すれば上記のようなログなとともに、<strong>.woff</strong>と<strong>.ttf</strong>と_myfont.scssが作成されます。
-<pre><code>// _setting.scss
++ [cognitom/symbols](https://github.com/cognitom/symbols)
+
+
+![](http://t32k.me/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png)
+
+テンプレートを使ってMapleでは上記のようなイラレファイルを作成した。[iconmonstr](http://iconmonstr.com/)にはいろいろ使い勝手がいいアイコンが無料で配布されているので、ここから必要なものをとってくるのもいいだろう。Illustratorでアートボード別に書きだして、SVGファイルとして保存する。要注意なのはこのアートボードの空白部分も含めてSVGファイルなので気をつける。
+
+![](http://t32k.me/static/blog/2013/08/fontdir.png)
+
+基本的にこの部分はデザイナーさんにやってもらえればよいことなので、フロントエンドデベロッパーは完成したSVGファイルを、`/src/files/font/svg`ディレクトリに投げ込んでコマンド打つだけだ。
+
+```shell
+$ grunt webfont
+Running “webfont:dist” (webfont) task
+Font ‘myfont-b5fd89266afbbfbfc281a0ce9a5bf50e’ with 13 glyphs created.
+```
+
+で、`/src/tools/`で`grunt webfont`を実行すれば上記のようなログとともに、.woffと.ttfと_myfont.scssが作成される。
+
+
+```sass
+// _setting.scss
 //-------------------------------------
 @import "../vendors/myfont";
 
 // _myfont.scss
 .icon-hoge:before {
 content:"\f100";
-}</code></pre>
-_myfont.scssは_setting.scssで<span class="code">@import</span>されていますので、特にCSSをいじることはありません。
+}
+```
 
-<img class="aligncenter size-full wp-image-5170" alt="icon" src="/static/blog/2013/08/icon.png" width="640" height="250" />
+_myfont.scssは_setting.scssで`@import`されていますので、特にCSSをいじる必要性はない。
 
-上記のように、<span class="code">.icon-{SVGファイル名}</span>のクラスを当てれば、すぐさま使えます。
+![](http://t32k.me/static/blog/2013/08/icon.png)
 
-Webフォント使えば、CSSスプライトに頼らなくても大丈夫だー＼(-o-)／って使う前は思っていましたが、やはり単純な表現に限定されます。グラデーションカラーかつシャドウ有りや、部分的に色を変えるなどはWebフォントでは無理がありますので、そこはCSSスプライトを採用するか、デザインを少し調整してWebフォント化するかはデザイナーと相談しましょう。
+上記のように、`.icon-{SVGファイル名}`のクラスを当てれば、すぐさま使える。
 
-また、Webフォントも複数のアイコンのリクエストをまとめることができますが、Webフォント自体のリクエストが必要になるので、フォントがダウンロードされるまでは、当たり前ですが表示されません。そのため、数種類のパターンで収まることがわかっていればWebフォント化可能でもCSSスプライトでまとめることも考慮すべきです。
+Webフォント使えば、CSSスプライトに頼らなくても大丈夫だー＼(-o-)／って使う前は思っていたが、やはり単純な表現に限定される。グラデーションカラーかつシャドウ有りや、部分的に色を変えるなどはWebフォントでは無理があるので、そこはCSSスプライトを採用するか、デザインを少し調整してWebフォント化するかはデザイナーと相談すべきだろう。
 
-なにごともバランスが重要です。
+またWebフォントも複数のアイコンのリクエストをまとめることができるが、Webフォント自体のリクエストが必要になるので、フォントがダウンロードされるまでは、当たり前だが表示されない。そのため数種類のパターンで収まることがわかっていればWebフォント化可能でもCSSスプライトでまとめることも考慮すべきだろう。
+
+なにごともバランスが重要だ。
