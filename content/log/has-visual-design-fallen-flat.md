@@ -3,8 +3,54 @@ categories: blog
 date: 2015-01-20T16:08:56-08:00
 excerpt: null
 ogimage: null
-subtitle: null
-title: has visual design fallen flat
+subtitle: HAS VISUAL DESIGN FALLEN FLAT?
+title: ビジュアルデザインは必要なくなってしまったのか？
 draft: true
 ---
+
+![](/mol/images/2015/0120-00.png)
+
+<cite class="citation">
+![Emmet Connolly](/mol/images/people/emmet_connolly.jpg)
+Original：[HAS VISUAL DESIGN FALLEN FLAT?
+](http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/)（<time>2012-04-10</time>）by [Emmet Connolly](http://stevesouders.com/)
+</cite>
+
+## Countless pixels were spilled during The Great UI Flattening of 2013–2014.
+
+It was a time of great change in the world of visual design: foreshadowed by Microsoft’s aggressively modernist Metro style, popularized and polarized by the release of iOS 7, and perhaps most fully realized in the form of Google’s Material Design.
+Flat design (a reductive but useful shorthand) didn’t just kill skeuomorphism (ditto), it danced on its grave and then erased every last trace of beveling, shadow, and granite texture from the headstone.
+
+![](/mol/images/2015/0120-01.png)
+
+Such is design. Progress, change, and fashion are inevitable. The sun will some day set on these latest styles too. Predicting future trends is a futile game, but it’s interesting to look at where we are today and speculate on possible future directions. What lies over the (extremely flat) horizon? What next for the visual design of software products?
+
+## SURVEYING THE LANDSCAPE
+
+Here’s a basic laundry list of common visual design tropes in software today:
+	•	Heavily inspired by iOS and Material Design, often slavishly adhering to their style guidelines.
+	•	Flat rectangles with some minimal shadows, frequent use of large photography and video as background to headline text.
+	•	Lots of negative space around content, grid layouts with low information density, a focus on bold, clean typography.
+	•	Borderless, edge to edge blocks of plain white accented by vibrant, poppy colour palettes; more muted, desaturated colours are often used in photography.
+	•	Frequent use of blurring effects, luminescence and splashy neon, which works well for marketing but not necessarily for productivity/communication products.
+	•	Given the lack of visual ornamentation much of the “freshness” and “polish” of modern designs come in the form of slick animations and subtle transitions.
+
+
+![](/mol/images/2015/0120-02.png)
+
+In short, a lot of today’s visual language is about clean simplicity, executed well. There are a few fashion trends in there, sure, but in general this is a list of objectively desirable qualities. It reflects a maturity to the aesthetics of digital design that has been developing for decades, a process that for periods was held back by amateurism or an under-appreciation of the value of beauty and clarity in software. It is now safe to go online without fear your eyeballs will be accosted by crimes against taste. As an industry we should be proud of this.
+
+![](/mol/images/2015/0120-03.png)
+
+SO, WHAT’S NEXT?
+It’s worth asking some questions, and in the process trying to imagine what an even more mature era of software visual design might look like.
+	•	On the desktop, panels with draggable handles seem like a natural complement to 2D pointing devices. Today’s trends were in many ways influenced by the smooth, inert, slate-like nature of the devices that we mostly view these design on. In that sense, flat design could be considered “native” to touchscreens, more so than the overly-literal metaphors of early smartphones: perhaps this is an honest account of what pictures under glass should look like. Our tools shape us, and thereafter they shape how we design. How will the changing nature of devices influence what we see on them? For how much longer will flat glowing rectangles continue to dominate?
+	•	Every trend drags along a backlash in its wake. According to the natural ebb and flow of fashion, there will come a time when less is not necessarily considered more. In the 90s desktop publishing software led to grungy magazines, in the 2000s the computer as appliance led to a world of oversized pixels, today we have our touchscreens and flat design. There will be a next thing. There always is.
+	•	What might a more aesthetically diverse software world look like? A world where your credit card provider and your sock subscription service don’t look like the exact same company? As one style becomes increasingly prevalent, others will emerge in an attempt to set themselves apart. Perhaps the next big trend will simply be a multiplicity of trends.
+	•	More and more the data we interact with is becoming crystallized down into nuggets of micro-content, most commonly in the form of cards. Will much of the app functionality become subsumed down the stack to the OS level? If so, will this lead to even more homogeneous UIs? In turn, might there be a counter-reaction against that trend?
+	•	Technology is spreading throughout the world like wildfire. What does a world with another couple of billion people online look like, bringing with them styles, tastes, and cultural influences that may be utterly alien to the Designed-in-California aesthetic that dominates today?
+So which of these predictions will come to pass? Well, you’ve made it this far, I’m not going to start lying to you now.
+I don’t actually know.
+Maybe there won’t be a seismic shift at all. The literal representation of real-life objects in UIs hung around for a long time after the birth of the desktop metaphor. Who’s to say this new approach of manipulating minimally-adorned digital objects won’t stay with us for just as long?
+But somehow I doubt it.
 
