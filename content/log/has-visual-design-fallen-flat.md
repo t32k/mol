@@ -1,8 +1,8 @@
 ---
 categories: blog
 date: 2015-01-20T16:08:56-08:00
-excerpt: null
-ogimage: null
+excerpt: ビジュアルデザインは必要なくなってしまったのか？
+ogimage: http://t32k.me/mol/images/2015/0120-00.png
 subtitle: HAS VISUAL DESIGN FALLEN FLAT?
 title: ビジュアルデザインは必要なくなってしまったのか？
 draft: true
