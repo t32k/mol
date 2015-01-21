@@ -79,7 +79,7 @@ sys	0m0.323s
 
 あと、[Jekyllからの移行方法](http://gohugo.io/tutorials/migrate-from-jekyll/)も丁寧に記載されてるし、masterにPushするだけであとは[Wreckerでgh-pagesにPushしてくれるビルド](http://gohugo.io/tutorials/automated-deployments/)も用意されているので非常に楽である。
 
-問題はJekyllのような生態系が育ってないこと、痒いところに手が届かいない感じだろうか。まぁしかし、それって痒かったのかと開き直れば問題ない。男は黙ってマークダウンで記事を書くのみ。
+問題はJekyllのような生態系が育ってないこと、痒いところに手が届かいない感じだろうか。まぁしかし、それって本当に痒かったのかと開き直れば問題ない。男は黙って記事を書くのみ。トライ&エラーを繰り返せば良いものができる。そのためにスピードは重要なのだ。
 
 + [t32k/mol](https://github.com/t32k/mol)
 
