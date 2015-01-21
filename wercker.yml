@@ -4,7 +4,6 @@ build:
   steps:
     - arjen/hugo-build:
         version: 0.12
-        flags: --buildDrafts=true
     - script:
         name: Copy RSSfeed to feed.xml
         code: cp _public/index.xml _public/feed.xml
