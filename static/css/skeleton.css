@@ -102,6 +102,7 @@ a:hover .social-links-linkedin { fill: #42A5F5; }
 }
 .post-h1 {
   margin: 1rem 0 0 0 !important;
+  letter-spacing: -0.2rem;
 }
 .post-desc {
   margin-top: -2rem;
