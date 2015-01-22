@@ -1,7 +1,6 @@
 ---
 categories: blog
 date: 2015-01-20T16:08:56-08:00
-
 title: ビジュアルデザインはつまらなくなってしまったのか？
 subtitle: HAS VISUAL DESIGN FALLEN FLAT?
 excerpt: 2013-2014年の大規模なUIフラット化により無数のピクセルが流れ落ちていった
@@ -28,24 +27,31 @@ Original：[HAS VISUAL DESIGN FALLEN FLAT?
 
 このようなデザインである。 発展、変化、流行は避けられないものだ。これらの最新スタイルもまた、いつの日か廃れていくだろう。未来のトレンドを予測することはつまらないゲームだが、今日の私たちの現在位置を確認し、未来の方向性に思いをめぐらすのは興味深い。何がフラットデザインを延命させるのか？何が次のソフトウェアのビジュアルデザインを代表するのか？
 
-## 情勢の概観
+## 最近のビジュアルデザインの傾向
 
-今日のソフトウェアにおける、一般的なビジュアルデザインの比喩がここにリストになっている。
+今日のソフトウェアにおける、一般的なビジュアルデザインの傾向がここにリストになっている。
 
-+ iOSとMaterial Designに過度に影響を受けており、それらのスタイルガイドラインに奴隷のように粘着している
++ iOSとMaterial Designに過度に影響を受けており、それらのガイドラインに奴隷のように執着している
 + 最小限の影を伴ったフラットな四角形は大きな写真やビデオで使用される。
++ コンテンツ周りのネガティブスペース、密度の低い情報とグリッドレイアウト、大胆さにフォーカス、簡潔なタイポグラフィ
++ ボーダレス、アクセントとしてビビットな色が使われるがだいたいプレーンな白いブロックが並んでいる、ポップなカラー配色、低彩度色は写真上でよく使われる
++ ブラー効果の多用、寒色で目立つネオン、これらはマーケティング上有用かもしれないが、コミニュケーション上は必要ではない
++ ビジュアル的な装飾を外せば、なめらかなアニメーションとでしゃばらないトランジション効果によってモダンデザインの新鮮さと洗練した印象を与える
 
 
-	•	Flat rectangles with some minimal shadows, frequent use of large photography and video as background to headline text.
-	•	Lots of negative space around content, grid layouts with low information density, a focus on bold, clean typography.
-	•	Borderless, edge to edge blocks of plain white accented by vibrant, poppy colour palettes; more muted, desaturated colours are often used in photography.
-	•	Frequent use of blurring effects, luminescence and splashy neon, which works well for marketing but not necessarily for productivity/communication products.
-	•	Given the lack of visual ornamentation much of the “freshness” and “polish” of modern designs come in the form of slick animations and subtle transitions.
+つまり、今日のビジュアル言語の多くは簡潔なシンプリシティのことであり、それはうまく機能している。そこには少なからずトレンドという意味合いがあるかもしれないが、もちろん、これらは客観的に見ても望ましい特性だ言える。アマチュア精神またはソフトウェアにおける簡潔さと美の価値の過小評価によって足止めされながらも数十年間に発展してきたデジタルデザインの美学としての成熟を意味している。趣味の悪いデザインに見ずにインターネット楽しむことができる。産業として、私たちはこれを誇りに思うべきだろう。
 
+![](/mol/images/2015/0120-04.png)
+
+ミニマム化の傾向はユーザーがより成熟してきた表れと主張するものもいる。つまり、UIがどのように作用するのかわかっているユーザーにとっては、明らかに押せるとわかるようなベベルボタンはもはや必要としない。補助輪は外されたことにより、デザイナーはユーザーの教育義務から開放され自由に表現できるようになった。ついには、モバイル画面の小ささは、より使いやすくシンプルに、ごちゃごちゃしないデザインに貢献した。
+
+## デザインのコモディティ化
+
+When you squint your eyes and tilt your head, don’t a lot of these products look awfully, well, similar? Don’t they look pretty but, at times, a little dull?
 
 ![](/mol/images/2015/0120-02.png)
 
-In short, a lot of today’s visual language is about clean simplicity, executed well. There are a few fashion trends in there, sure, but in general this is a list of objectively desirable qualities. It reflects a maturity to the aesthetics of digital design that has been developing for decades, a process that for periods was held back by amateurism or an under-appreciation of the value of beauty and clarity in software. It is now safe to go online without fear your eyeballs will be accosted by crimes against taste. As an industry we should be proud of this.
+When it becomes necessary for virtually every business to signal they value design by adopting an up-to-date style, it becomes a commodity, a box to be ticked. That fresh look quickly becomes a cliché. This descent towards aesthetic monoculture was helped by the ease with which this particular style can be cheaply imitated: stick a blurred photo in the background, lay some centered Helvetica Neue on top and you’re already halfway there!
 
 ![](/mol/images/2015/0120-03.png)
 
