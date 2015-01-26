@@ -1,10 +1,10 @@
 ---
 date: 2013-08-22
 title: HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避
-subtitle: CSS Sprite Automation.
+subtitle: Data URI scheme
 categories: performance
 excerpt: 4日目は、Data URI(インライン画像)ついて説明します。
-ogimage: http://t32k.me/static/blog/2013/08/requests.gif
+ogimage: http://t32k.me/static/blog/2013/08/image_0.png
 ---
 
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
