@@ -1,5 +1,5 @@
 ---
-date: 2014-11-11
+date: 2014-01-11
 title: MacBook Pro 15" のみという選択
 subtitle: MacBook Pro Retinaディスプレイ 2000/15.4 ME293J/A
 cover_image: /2014/01-11-cover.jpg
