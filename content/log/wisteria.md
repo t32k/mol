@@ -12,7 +12,7 @@ title: Wisteria：デザインツールとしてのCSS
 + [Wisteria.css: A class selectors based harmless CSS library.](http://t32k.me/wisteria/)
 + [t32k/wisteria](https://github.com/t32k/wisteria)
 
-[Wisteria](http://t32k.me/wisteria/)というCSSライブラリ作った。
+[Wisteria](http://t32k.me/wisteria/)というCSSライブラリ作った。基本的な用途としてはモックアップや後方互換とかそこまで考えなくていい、小規模の個人用のページとかで使われることを想定している。
 
 [Skeleton](http://getskeleton.com/)という、すごくシンプルなCSSライブラリがあるのだが、僕はこれが好きで、ちょっとしたものとか作るときによく使用している。このブログもSkeletonをベースにしているくらいだ。
 
