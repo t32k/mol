@@ -102,7 +102,7 @@ Wisteriaには多くのヘルパークラスというか、ユーティリティ
 ```
 てことで、Wisteriaでは`.g-row`の列に`.g-col`の名前の要素を入れとくだけでうまいこと分割数に応じてやってくれる。Flexbox様々である。
 
-[![](/mol/images/2015/0128-01.jpg)](http://caniuse.com/#search=flexbox)
+[![](/mol/images/2015/0128-01.png)](http://caniuse.com/#search=flexbox)
 
 その分、最新ブラウザにしか対応しなくなるけど、あくまでモックアップや個人用途で使うことを考えれば、十分メリットのほうが大きい。
 
