@@ -31,16 +31,16 @@ Wisteriaを作るにあたって、一番気をつけたことは無害である
 
 
 ```css
- .h1, .u-fz1 { font-size: 6.4rem !important; }
- .h2, .u-fz2 { font-size: 4.8rem !important; }
- .h3, .u-fz3 { font-size: 3.6rem !important; }
- .h4, .u-fz4 { font-size: 2.4rem !important; }
- .h5, .u-fz5 { font-size: 2.0rem !important; }
- .h6, .u-fz6 { font-size: 1.8rem !important; } 
- .u-fz7 {  font-size: 1.6rem !important; } 
- .u-fz8 {  font-size: 1.4rem !important; }
- .small, .u-fz9 {  font-size: 1.2rem !important; }
- .u-fz10 {  font-size: 1rem !important; }
+ .h1, .u-fz1 { font-size: 6.4rem; }
+ .h2, .u-fz2 { font-size: 4.8rem; }
+ .h3, .u-fz3 { font-size: 3.6rem; }
+ .h4, .u-fz4 { font-size: 2.4rem; }
+ .h5, .u-fz5 { font-size: 2.0rem; }
+ .h6, .u-fz6 { font-size: 1.8rem; } 
+ .u-fz7 { font-size: 1.6rem; } 
+ .u-fz8 { font-size: 1.4rem; }
+ .small, .u-fz9 { font-size: 1.2rem; }
+ .u-fz10 { font-size: 1rem; }
 ```
 
 また、最近のCSSライブラリは[Normalize.css](http://necolas.github.io/normalize.css/)で初期化されているのが前提だけど、これもやめてほしい。デフォルトのスタイリングをうまく残して初期化するものだけど、僕はブラウザのデフォルトスタイルを熟知しているわけではない。だから要素ごとのマージンとかも一律ゼロにしたい。そうゆうよくわからないものを覚えるために時間をかけたくない。
@@ -55,18 +55,18 @@ Wisteriaには多くのヘルパークラスというか、ユーティリティ
 ```css
 /*	#Spacing
 \*------------------------------------*/
-.u-ma { margin: auto !important; }
-.u-mtn { margin-top: 0 !important; }
-.u-mts { margin-top: .4rem !important; }
-.u-mtm { margin-top: 1.6rem !important; }
-.u-mtl { margin-top: 3.2rem !important; }
-.u-mtx { margin-top: 4.8rem !important; }
-.u-mbn { margin-bottom: 0 !important; }
-.u-mbs { margin-bottom: .4rem !important; }
-.u-mbm { margin-bottom: 1.6rem !important; }
-.u-mbl { margin-bottom: 3.2rem !important; }
-.u-mbx { margin-bottom: 4.8rem !important; }
-.u-mn { margin: 0 !important; }
+.u-ma { margin: auto; }
+.u-mtn { margin-top: 0; }
+.u-mts { margin-top: .4rem; }
+.u-mtm { margin-top: 1.6rem; }
+.u-mtl { margin-top: 3.2rem; }
+.u-mtx { margin-top: 4.8rem; }
+.u-mbn { margin-bottom: 0; }
+.u-mbs { margin-bottom: .4rem; }
+.u-mbm { margin-bottom: 1.6rem; }
+.u-mbl { margin-bottom: 3.2rem; }
+.u-mbx { margin-bottom: 4.8rem; }
+.u-mn { margin: 0; }
 ```
 
 `.u-`から始まるもの。こうゆう単一的な仕事をするクラスを多くもつのは[Maple](https://github.com/t32k/maple)でもやったことだが、あれはイレギュラーなデザインに対応するためである。
@@ -120,12 +120,8 @@ Sketchに[Content generator sketch plugin](https://github.com/timuric/Content-ge
 
 結局、ブラウザでデザインするにはHTMLファイル（テンプレートファイル）とスタイルシートを行き来しなければならないのだ。そして下手にマークアップ脳もあるため、メンテナンス性を考えたCSS設計、命名の適当さなど考えると結局デザインしづらくなってしまう（デザインに集中できなくなってしまう）。
 
-HTMLファイルにだけに集中して、ガシガシ書き込んでいけば、どんどんビジュアルが完成されていく。うん、実にやりやすい。インブラウザデザインと言って、最初からコンテンツとスタイルの分離を意識するからやりにくいのであって、いったん、それは忘れる必要がある（だからといって、style属性で書くように密結合することもない）。
+HTMLファイルにだけに集中して、ガシガシ書き込んでいけば、どんどんビジュアルが完成されていく。つまりは、Wisteriaにおける（ユーティリティ）クラス属性はデザインするためのコマンドみたいなものだ。うん、実にやりやすい。トライアンドエラー繰り返すことができる。インブラウザデザインと言って、最初からコンテンツとスタイルの分離を意識するからやりにくいのであって、いったん、それは忘れる必要がある（だからといって、style属性で書くように密結合することもない）。
 
 Wisteriaを使えば、PhotoshopやSketchでマウスで操作するように（それに近い状態で）、ブラウザ上でデザインしていけるだろう。
 
 僕はこうゆうのを求めていたんだ。
-
-
-
-
