@@ -1,5 +1,5 @@
 ---
-date: 
+date: 2009-11-05
 title: 貧乏はお金持ち
 subtitle: 「雇われない生き方」で格差社会を逆転する
 categories: books
