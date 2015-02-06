@@ -1,82 +1,68 @@
 ---
 date: 2010-12-06
 title: Mac mini (Mid 2010) メモリ増設（8GB）
+subtitle: Apple Mac mini/2.4GHz Core 2 Duo MC270J/A
 categories: gadget
+excerpt: Macbook Air が発売されたころ、Mac mini を買いました。字面どおりの意味です(Airも買いましたが)。
+ogimage: https://farm6.staticflickr.com/5170/5230613004_d059ceded2_o.jpg
 ---
-<a title="DSC02379 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230613004/"><img src="http://farm6.static.flickr.com/5170/5230613004_7e976f8b9a.jpg" alt="DSC02379" width="500" height="280" /></a>
 
-Macbook Air が発売されたころ、Mac mini を買いました。字面どおりの意味です(Airも買いましたが)。さて、この <strong><a href="http://support.apple.com/kb/SP585?viewlocale=ja_JP">Mac mini (Mid 2010) </a></strong>はメモリを8GBまで搭載できるそうなので、4GBメモリ×2を購入してメモリ交換してみたいと思います。
+![](https://farm6.staticflickr.com/5170/5230613004_d059ceded2_o.jpg)
 
-さすがに、2GBだとアプリを立ち上げすぎるとやっぱりモッサリしますもんね。
+Macbook Air が発売されたころ、Mac mini を買いました。字面どおりの意味です。さて、この [Mac mini (Mid 2010)](http://support.apple.com/kb/SP585?viewlocale=ja_JP) はメモリを8GBまで搭載できるそうなので、4GBメモリ×2を購入してメモリ交換してみたいと思います。
 
-<!--more-->
+***
 
-<a title="DSC02369 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230609910/"><img src="http://farm6.static.flickr.com/5206/5230609910_e52d793cdc.jpg" alt="DSC02369" width="500" height="280" /></a>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B003S9VOH8/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31pU62j3lSL._SL160_.jpg" alt="Apple Mac mini/2.4GHz Core 2 Duo/2GB/320GB/SuperDrive DL MC270J/A" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B003S9VOH8/warikiru-22/" name="azlinklink" target="_blank">Apple Mac mini/2.4GHz Core 2 Duo MC270J/A</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.5</div></div><div class="azlink-detail">アップル<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B003S9VOH8/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+***
+
+さすがに2GBだとアプリを立ち上げすぎるとモッサリしますもんね。
+
+![](https://farm6.staticflickr.com/5206/5230609910_0444c099e3_o.jpg)
 
 てことで、Mac mini 裏返しドーン！
 
-<a title="DSC02370 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230610238/"><img src="http://farm6.static.flickr.com/5201/5230610238_bd28f22a0c.jpg" alt="DSC02370" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5201/5230610238_09a03ae776_o.jpg)
 
 ターンテーブルをクルッと回しーの♪
 
-<a title="DSC02371 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230017781/"><img src="http://farm6.static.flickr.com/5124/5230017781_e4220283ae.jpg" alt="DSC02371" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5124/5230017781_203b739683_o.jpg)
 
 出てきたぜ、メモリ！俺の愛のメモリ〜♪
 
-<a title="DSC02376 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230019339/"><img src="http://farm6.static.flickr.com/5084/5230019339_cbd4d14e09.jpg" alt="DSC02376" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5084/5230019339_568715ee52_o.jpg)
 
-ノリノリで開けてみたものの、これどーやってぶっこ抜くの？と思ったら、どーやらサイドに銀色のフックみたいなものがあるので、両側のフックを外側に開いてやると...
+ノリノリで開けてみたものの、これどーやってぶっこ抜くの？と思ったら、どーやらサイドに銀色のフックみたいなものがあるので、両側のフックを外側に開いてやると…
 
-<a title="DSC02373 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230611220/"><img src="http://farm6.static.flickr.com/5209/5230611220_b54eb15103.jpg" alt="DSC02373" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5209/5230611220_41892b0045_o.jpg)
 
-カパッと！フックから外れてムクリと起き上がりますんでぶっこ抜いてください。
+カパッと！フックから外れて起き上がりますんでぶっこ抜いてください。
 
-<a title="DSC02374 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230611598/"><img src="http://farm6.static.flickr.com/5085/5230611598_4a671600a1.jpg" alt="DSC02374" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5085/5230611598_d05784357f_o.jpg)
 
 で、左が今回購入した4GBメモリ、右がぶっこ抜いた1GBメモリ。なんか黒いのが多いと強そうですな。
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B003SKADOM/warikiru-22/ref=nosim/" target="_top"><img src="http://ecx.images-amazon.com/images/I/515Ofvx5QML._SL160_.jpg" border="0" alt="高品質サムスン純正 4GB DDR3 1066MHz PC3-8500 SO-DIMM 204Pin ノートPC用メモリ" /></a></td>
-<td valign="top"><a href="http://www.amazon.co.jp/%E9%AB%98%E5%93%81%E8%B3%AA%E3%82%B5%E3%83%A0%E3%82%B9%E3%83%B3%E7%B4%94%E6%AD%A3-1066MHz-PC3-8500-SO-DIMM-%E3%83%8E%E3%83%BC%E3%83%88PC%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA/dp/B003SKADOM%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003SKADOM" target="_top">高品質サムスン純正 4GB DDR3 1066MHz
-PC3-8500 SO-DIMM 204Pin ノートPC用メモリ</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />サムスン
-売り上げランキング : 9989
 
-<a href="http://www.amazon.co.jp/%E9%AB%98%E5%93%81%E8%B3%AA%E3%82%B5%E3%83%A0%E3%82%B9%E3%83%B3%E7%B4%94%E6%AD%A3-1066MHz-PC3-8500-SO-DIMM-%E3%83%8E%E3%83%BC%E3%83%88PC%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA/dp/B003SKADOM%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003SKADOM" target="_top">Amazonで詳しく見る</a> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></td>
-</tr>
-</tbody>
-</table>
-<blockquote>2GB (1GB SO-DIMM×2)、1,066MHz DDR3 SDRAM、SO-DIMM 2スロットで最大8GBをサポート<a href="http://support.apple.com/kb/SP585?viewlocale=ja_JP">
-Mac mini (Mid 2010) - 技術仕様</a></blockquote>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002R8D9EC/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51b0A92GtTL._SL160_.jpg" alt="Transcend 204PIN ノートPC用増設メモリ DDR3-1066 4GB 永久保証 TS512MSK64V1N" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002R8D9EC/warikiru-22/" name="azlinklink" target="_blank">Transcend 204PIN DDR3-1066 4GB TS512MSK64V1N</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.5</div></div><div class="azlink-detail">Not Machine Specific<br />トランセンド・ジャパン<br />売り上げランキング: 1549<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B002R8D9EC/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
+> 2GB (1GB SO-DIMM×2)、1,066MHz DDR3 SDRAM、SO-DIMM 2スロットで最大8GBをサポート - [Mac mini (Mid 2010) - 技術仕様](http://support.apple.com/kb/SP585?viewlocale=ja_JP)
+
 Apple Online Storeで8GB増設すると5万円くらいかかっちゃいますけど、上記のメモリなら1.4万でOKでしたぜ！
 
-<a title="DSC02375 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230019077/"><img src="http://farm6.static.flickr.com/5008/5230019077_53542464d1.jpg" alt="DSC02375" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5008/5230019077_903fe9ece6_o.jpg)
 
 挿し込むときは側面からスライドさせることはできないので、図にも描いてあるように斜め上から挿し込む感じですね。ほんと自分が思っているより30%上から挿し込む感じ。刺さった感触があったらそのまま寝かせてフックにかけて固定するといった流れです。
 
-<a title="DSC02377 by t32k, on Flickr" href="http://www.flickr.com/photos/t32k/5230612494/"><img src="http://farm6.static.flickr.com/5007/5230612494_acfe452482.jpg" alt="DSC02377" width="500" height="280" /></a>
+![](https://farm6.staticflickr.com/5007/5230612494_ea365d3604_o.jpg) 
 
 4GBメモリ×2装着完了！
 
-<img class="alignnone size-full wp-image-2085" title="memory" src="/static/blog/2010/12/memory.png" alt="" width="470" height="81" />
+![](http://t32k.me/static/blog/2010/12/memory.png)
 
 Mac 起動！　システムプロファイラで確認OK!
 
-<img class="alignnone size-full wp-image-2084" title="mac" src="/static/blog/2010/12/mac.png" alt="" width="309" height="381" />
+![](http://t32k.me/static/blog/2010/12/mac.png)
 
 8GBドーン！
 
 複数アプリ立ち上げても以前のようなモッサリ感もなくなったように思いますし、iMovieも速くなったような気がします。みなさんも良ければどうぞ。
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B003S9VOH8/warikiru-22/ref=nosim/" target="_top"><img src="http://ecx.images-amazon.com/images/I/31pU62j3lSL._SL160_.jpg" border="0" alt="Apple Mac mini/2.4GHz Core 2 Duo/2GB/320GB/SuperDrive DL MC270J/A" /></a></td>
-<td valign="top"><span><a href="http://www.amazon.co.jp/Apple-2-4GHz-320GB-SuperDrive-MC270J/dp/B003S9VOH8%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003S9VOH8" target="_top">Apple Mac mini/2.4GHz Core 2 Duo/2GB/320GB/SuperDrive DL MC270J/A</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" /></span>
-
-<span>アップル  2010-06-16
-売り上げランキング : 1876</span>
-
-<span><a href="http://www.amazon.co.jp/Apple-2-4GHz-320GB-SuperDrive-MC270J/dp/B003S9VOH8%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003S9VOH8" target="_top">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
