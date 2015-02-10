@@ -60,22 +60,35 @@ Original：[HAS VISUAL DESIGN FALLEN FLAT?
 
 タッチスクリーンデバイスの登場によってこのスタイルが引き起こされたのなら、より新しいテクノロジーがまた全く新しいビジュアルスタイルのトリガーとなるかもしれない。
 
-## デザインにおける技術的なアクセラレータ
+## デザインにおける技術的な触媒
 
-If these trends were indeed triggered by new materials, it may be instructive to look to the past, to other schools of design, and to study how designers react to technological change.
+新たな素材がこういったトレンドの引き金となるなら、過去や他のデザインスクールを見守る、または技術的な挑戦にどのようにデザイナーが反応するか教訓になるかもしれない。
+
+1900年代初期に、スイス系フランス人建築家のル・コルビュジエが鉄筋コンクリートの新しい建築スタイルを確立し、これにより今まで構造的に不可能だったデザインが可能になった。絶対的な美とミニマリズムを追いかける彼の作品において、ル・コルビュジエが彼の建築物の構造を削減し、劇的で魅力的な現代建築の新しいスタイルを作った。必要のないものと思われるものすべては、無用であるか、不快なものでしかないように考えれた。
+
+![サヴォア邸](/mol/images/2015/0120-02.png)
+
+この様式が与えた影響は大きかったけれども、現代でこのような建築物を見かけることない。なぜだろうか？1つの理由として、これらのデザインは、単独でみた場合、慈悲深く素晴らしいものであるが、延々と続く場合はすべてが死んだように見える。ル・コルビジェの未完成プランである、60階建の住宅地のパリの『輝ける都市』（[Radiant City](http://www.archdaily.com/411878/ad-classics-ville-radieuse-le-corbusier/)）は、まちがいなく[社会と美的な災害](http://en.wikipedia.org/wiki/Pruitt%E2%80%93Igoe)となっていただろう。それはもはやモダニティによる圧政に等しく、偉大な都市としての魂が失われていると言うまでもない。
 
 
-During the early 1900s the Swiss-French architect Le Corbusier seized upon the relatively new construction method of reinforced concrete – steel bars encased in slabs of concrete – to enable him to design buildings that were previously structurally impossible. Chasing an absolute purity and minimalism in his work, Le Corbusier reduced the structure of his buildings to the absolute minimum, creating drastic and stunning new styles of modernist architecture. Anything deemed not essential was considered superfluous, almost offensive.
+![輝ける都市](/mol/images/2015/0120-03.png)
+
+The alternative is a more bottoms-up, organic, and mixed approach to design. Jane Jacobs, activist and critic of urban planning wrote in her wonderful book The Death and Life of Great American Cities, “There is a quality even meaner than outright ugliness or disorder, and this meaner quality is the dishonest mask of pretended order, achieved by ignoring or suppressing the real order that is struggling to exist and to be served.”
+
+
+Repeated endlessly, even beautifully simple design can become boring at best, ugly at worst. If all software begins to look the same we lose out on the opportunity to see something as wonderfully different.
+
+
+Just as we live in cities, we inhabit our digital spaces. How these spaces make us feel is important, and so functional considerations need to be balanced by less tangible qualities if these spaces are to become truly special. Variety and richness of aesthetics allows products to stand out in relation to one another, and in doing so reach a true expression of beautiful design.
 
 
 
-![](/mol/images/2015/0120-02.png)
 
+## 次になにが来るのか？
 
-![](/mol/images/2015/0120-03.png)
-
-SO, WHAT’S NEXT?
 It’s worth asking some questions, and in the process trying to imagine what an even more mature era of software visual design might look like.
+
+
 	•	On the desktop, panels with draggable handles seem like a natural complement to 2D pointing devices. Today’s trends were in many ways influenced by the smooth, inert, slate-like nature of the devices that we mostly view these design on. In that sense, flat design could be considered “native” to touchscreens, more so than the overly-literal metaphors of early smartphones: perhaps this is an honest account of what pictures under glass should look like. Our tools shape us, and thereafter they shape how we design. How will the changing nature of devices influence what we see on them? For how much longer will flat glowing rectangles continue to dominate?
 	•	Every trend drags along a backlash in its wake. According to the natural ebb and flow of fashion, there will come a time when less is not necessarily considered more. In the 90s desktop publishing software led to grungy magazines, in the 2000s the computer as appliance led to a world of oversized pixels, today we have our touchscreens and flat design. There will be a next thing. There always is.
 	•	What might a more aesthetically diverse software world look like? A world where your credit card provider and your sock subscription service don’t look like the exact same company? As one style becomes increasingly prevalent, others will emerge in an attempt to set themselves apart. Perhaps the next big trend will simply be a multiplicity of trends.
