@@ -73,29 +73,42 @@ Original：[HAS VISUAL DESIGN FALLEN FLAT?
 
 ![輝ける都市](/mol/images/2015/0120-03.png)
 
-The alternative is a more bottoms-up, organic, and mixed approach to design. Jane Jacobs, activist and critic of urban planning wrote in her wonderful book The Death and Life of Great American Cities, “There is a quality even meaner than outright ugliness or disorder, and this meaner quality is the dishonest mask of pretended order, achieved by ignoring or suppressing the real order that is struggling to exist and to be served.”
+代替案はデザインに対してよりボトムアップであり、有機的であり、ミックスされてアプローチが必要である。ジャーナリストのジェイン・ジェイコブズ氏は彼女の素晴らしい著書でる『アメリカ大都市の死と生』（The Death and Life of Great American Cities）において、こう記している。
 
+> 醜悪や、無秩序よりも粗悪な品質というものがある。これは一見して秩序があるように見せかけているが、それは不正のためのマスクであり、現実世界の秩序、存在する混沌や苦悩を無視または抑制によって成し遂げられたものである。
 
-Repeated endlessly, even beautifully simple design can become boring at best, ugly at worst. If all software begins to look the same we lose out on the opportunity to see something as wonderfully different.
+延々と繰り返せば、美しくてシンプルなデザインもよくてつまらないもの、悪くて醜いものへと変貌してしまう。もしすべてのソフトウェアが同じ体裁となれば、私たちは多様性を認めない愚か者になってしまう。
 
-
-Just as we live in cities, we inhabit our digital spaces. How these spaces make us feel is important, and so functional considerations need to be balanced by less tangible qualities if these spaces are to become truly special. Variety and richness of aesthetics allows products to stand out in relation to one another, and in doing so reach a true expression of beautiful design.
-
-
+ちょうど都市に住んでるように、私たちはデジタル空間にも生きている。この空間が私たちに与える影響というものは重要なことであり、もしそれが本当に特別なものになるのであれば、不確かな要素を取り込むことによってバランスを整える必要性があるのではないだろうか。他のものとの兼ね合いにおいてプロダクトが突出するのは美の豊かさと多様性を認めることであり、そうすることで、真の美しいデザイン表現に近づくことができる。
 
 
 ## 次になにが来るのか？
 
-It’s worth asking some questions, and in the process trying to imagine what an even more mature era of software visual design might look like.
+以下の問いかけに思慮をめぐらすのは価値のあることであり、この過程において、ソフトウェアのビジュアルデザインのより成熟した時代がどうなっているか想像してみてほしい。
 
++ デスクトップで、ドラッグ可能なパネル操作は、2次元ポインティングデバイスに対する自然な補完といえるかもしれない。現在のトレンドは、なめらかで、身動きの取れない、石版のようなデバイス（モニターやタブレット？）を通してさまざまな影響を受けている。そういう意味では、フラットデザインというのは、初期のスマートフォンのメタファーよりもタッチスクリーンに対して『ネイティブ』と言えるのかもしれない。たぶん、[サングラスの下にある絵](http://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/)がそう見えるべきである正直な本音かもしれない。ツールが私たちを形作る、それから、私たちがどのようにデザインするかデザインする。デバイスの特性が変わることが私たちの見てるものにどのような影響をあたえるだろうか？どのくらいの期間フラットデザインが続くのだろうか？
++ すべてのトレンドは大衆の反発のよって引きずられる。自然の流行の満引きによれば、ミニマム至上主義が終わる日がくるだろう。90年代のデスクトップ印刷ソフトウェアはグランジ雑誌を率いたし、00年代の家電としてのコンピュータはオーバーサイズピクセルの表現を率いたし、現在は、タッチスクリーンとフラットデザインがある。また次があるだろうし、つねにトレンドは存在する。
++ 私たちが触れるデータはますます小さなコンテンツの塊となっており、それはカードの形をしている。アプリの機能の多くはOSレベルまで内包するようになるだろうか？もしそうであれば、さらに同質なUIへと導かれていくのか？今度はそのトレンドに反する動きがあるかもしれないだろうか？
++ テクノロジーはいまも山火事がごとく世界中に広がっている。オンラインの数億の人々の世界は、現在のデザイン美学であるDesigned-in-Californiaとはまったく異なる彼らのスタイル、志向、文化的影響とともにいったいなにをもたらすのだろうか？
 
-	•	On the desktop, panels with draggable handles seem like a natural complement to 2D pointing devices. Today’s trends were in many ways influenced by the smooth, inert, slate-like nature of the devices that we mostly view these design on. In that sense, flat design could be considered “native” to touchscreens, more so than the overly-literal metaphors of early smartphones: perhaps this is an honest account of what pictures under glass should look like. Our tools shape us, and thereafter they shape how we design. How will the changing nature of devices influence what we see on them? For how much longer will flat glowing rectangles continue to dominate?
-	•	Every trend drags along a backlash in its wake. According to the natural ebb and flow of fashion, there will come a time when less is not necessarily considered more. In the 90s desktop publishing software led to grungy magazines, in the 2000s the computer as appliance led to a world of oversized pixels, today we have our touchscreens and flat design. There will be a next thing. There always is.
-	•	What might a more aesthetically diverse software world look like? A world where your credit card provider and your sock subscription service don’t look like the exact same company? As one style becomes increasingly prevalent, others will emerge in an attempt to set themselves apart. Perhaps the next big trend will simply be a multiplicity of trends.
-	•	More and more the data we interact with is becoming crystallized down into nuggets of micro-content, most commonly in the form of cards. Will much of the app functionality become subsumed down the stack to the OS level? If so, will this lead to even more homogeneous UIs? In turn, might there be a counter-reaction against that trend?
-	•	Technology is spreading throughout the world like wildfire. What does a world with another couple of billion people online look like, bringing with them styles, tastes, and cultural influences that may be utterly alien to the Designed-in-California aesthetic that dominates today?
-So which of these predictions will come to pass? Well, you’ve made it this far, I’m not going to start lying to you now.
-I don’t actually know.
-Maybe there won’t be a seismic shift at all. The literal representation of real-life objects in UIs hung around for a long time after the birth of the desktop metaphor. Who’s to say this new approach of manipulating minimally-adorned digital objects won’t stay with us for just as long?
-But somehow I doubt it.
+さて、これの予想のどれが現実となるだろうか？まぁ、思えば遠くに来たものだ。わたしはこれから嘘をつくつもろはない。
 
+実際のところ私は知らないのだ。
+
+たぶん、劇的なシフトチェンジは起こらないだろう。デスクトップメタファーが生まれて以来、UIにおける現実世界のつまらないオブジェクト表現は長い間、変わりない。一体誰が、この最小限に装飾されたデジタルオブジェクトを操作する新しいアプローチが長くつづくと言えるだろうか？
+
+私はいくぶんか懐疑的である。
+
+## 君は答えを持っているか？
+
+あなたの考えをコメントに書いてほしい。最近あなたが見たとてもユニークなデザインはなんだろうか？私たちはあなたが考える次がどんなものか知りたい。
+
+もしくは一緒に考えてみませんか？私たちは新しいデザインスタイルを創り、それを、一貫性があり洗練されたマルチプラットフォームデザインシステムに落としこむシニアビジュアルデザイナーを募集しています。
+
+*** 
+
+[翻訳ここまで]
+
+いやーエンジニアの書く文章とちがって、デザイナーの英語は難しいね。読みにくくてすまんへん。著者のEmmet Connollyはどんな反応があるのか楽しみしてたので、遠慮なくコメントしてください。
+
+個人的な意見としては、建築もそうであったようにポストモダニズムを探してるように、控えめなグラデーション・テクスチャ表現のようなフラットデザイン＋αぐらいのところをさまようじゃないかなと思っている。
