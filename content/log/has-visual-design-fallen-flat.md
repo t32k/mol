@@ -1,9 +1,9 @@
 ---
 categories: translation
-date: 2015-02-10T16:08:56-08:00
+date: 2015-02-11T01:08:56-08:00
 title: 【翻訳】ビジュアルデザインはつまらなくなってしまったのか？
 subtitle: HAS VISUAL DESIGN FALLEN FLAT?
-excerpt: それはビジュアルデザインにおいて劇的な変化だった。Microsoftの急進的なモダンMetro UIはその前兆だった。iOS7のリリースよって大衆化し、分裂させられた。GoogleのMaterial Designによって、ほとんど完成した。
+excerpt: それはビジュアルデザインにおいて非常に大きな変化だった。Microsoftの急進的でモダンなMetro UIはその前兆だった。iOS7のリリースよって大衆化し、UIのトレンドは2極化した。Google Material Designによって、おおかた完成した。
 ogimage: http://t32k.me/mol/images/2015/0120-00.png
 draft: true
 ---
@@ -19,7 +19,7 @@ Original：[HAS VISUAL DESIGN FALLEN FLAT?
 
 ## 2013年から2014年の劇的なUIフラット化により無数のピクセルが流れ落ちていった
 
-それはビジュアルデザインにおいて非常に大きな変化だった。Microsoftの急進的なモダンMetro UIはその前兆だった。iOS7のリリースよって大衆化し、UIのトレンドは2極化した。GoogleのMaterial Designによって、おおかた完成した。
+それはビジュアルデザインにおいて非常に大きな変化だった。Microsoftの急進的でモダンなMetro UIはその前兆だった。iOS7のリリースよって大衆化し、UIのトレンドは2極化した。Google Material Designによって、おおかた完成した。
 
 フラットデザイン（未完成であるけれど便利な表現）はスキューモーフィズム（同前）を駆逐するだけでなく、それの墓の上で踊り、すべてのべべル、影、墓石のテクスチャさえ消し去ってしまった。
 
@@ -103,10 +103,10 @@ Original：[HAS VISUAL DESIGN FALLEN FLAT?
 
 あなたの考えをコメントに書いてほしい。最近あなたが見たとてもユニークなデザインはなんだろうか？私たちはあなたが考える『次』がどんなものか知りたい。
 
-もしくは一緒に考えてみませんか？私たちは新しいデザインスタイルを創り、それを一貫性がある洗練されたマルチプラットフォームデザインシステムに落としこめる[Senior Visual Designerを募集](http://intercom.workable.com/jobs/31953)しています。
+もしくは一緒に考えみないだろうか？私たちは新しいデザインスタイルを創り、それを一貫性がある洗練されたマルチプラットフォームデザインシステムに落としこめる[Senior Visual Designerを募集している](http://intercom.workable.com/jobs/31953)。
 
 *** 
 
 [翻訳ここまで]
 
-エンジニアの書く文章と違ってデザイナーの英語は難しい。そんなことはどうでもいいが、毎度すてきなデザイン記事を書くことに定評のある[Intercom](http://blog.intercom.io/category/design/)でデザインディレクターをしている[Emmet Connolly](https://twitter.com/thoughtwax)氏の記事。日本のデザイナーからどんな反応があるのか、彼は楽しみにしていたので遠慮なくここにコメントしてくださいませ。
+エンジニアの書く文章と違ってデザイナーの英語は難しい。そんなことはどうでもいいが、毎度すてきなデザイン記事を書くことに定評のある[Intercom](http://blog.intercom.io/category/design/)でデザインディレクターをしている[Emmet Connolly](https://twitter.com/thoughtwax)氏の記事。日本のデザイナーからどんな反応があるのか、彼は楽しみにしていたので、よかったらここにコメントしてくださいませ。
