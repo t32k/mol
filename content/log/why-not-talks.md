@@ -1,5 +1,5 @@
 ---
-date: 2010-01-04
+date: 2010-01-05
 title: あなたの話はなぜ「通じない」のか
 categories: books
 ---
