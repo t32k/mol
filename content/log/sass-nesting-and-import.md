@@ -18,12 +18,20 @@ categories: performance
 Yahoo!のパフォーマンスベスト・プラクティスにおいて、上記のような記述がありました。Styleの情報というのはできる限りページ上部に置いてレンダリングを早く開始させる必要があるのでこれは頂けませぬ。
 
 まぁ基本的に@importのパフォーマンス的問題はIE以外ならOKであれば使ってもいいのかなと思ってたんですけど、よくよく調べてみるとそうでもなかったですという話。
-<pre><code>/* first.css */
-@import url("second.css")</code></pre>
+
+```
+/* first.css */
+@import url("second.css")
+```
+
 まぁ上記のような&lt;link&gt;で読み込んだfirst.cssでsecond.cssを@importするといった例があるとします。これがどのような挙動をするのかと言いますと、
+
+
 <blockquote>ブラウザーはsecond.cssをダウンロード可能と発見する前に、必ずfirst.cssのダウンロード、パース、実行をする。
 
 <a href="https://developers.google.com/speed/docs/best-practices/rtt#AvoidCssImport">Minimize round-trip times - Make the Web Faster — Google Developers</a></blockquote>
+
+
 Googleの方には上記のようなことが書かれていました。つまり、first.cssを読み込み完了してからsecond.cssを読み込みに行くので並列ダウンロードができないってことです。これってIEに限ったことではなくてすべてのブラウザーで起こりうることらしいです。マジかいや！てことで、<a href="http://stevesouders.com/tests/atimport/link-with-import.php">Steve Soudersセンセのテストケース</a>を最新のChromeのNetworkパネルで見てみると本当にそうでした。さーせん！ということで、やっぱり普通の@importは使うべきではないですな。
 
 詳しくは下記ブログ読むと良いよ。
@@ -38,7 +46,9 @@ Googleの方には上記のようなことが書かれていました。つま�
  @import "_main";
  @import "_footer";</code></pre>
 これだけのためにでもSass導入してもいいんじゃないかと個人的には思っています。
-<h2>Nesting</h2>
+
+## Nesting
+
 あと、便利っちゃー便利なのがネストです。下記のようにセレクタ、プロパティの重複する部分ってのを省略して書けます。
 <pre><code>// Sass
 table.hl {
