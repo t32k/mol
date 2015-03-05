@@ -1,46 +1,28 @@
 ---
 date: 2009-02-12
-title: マイクロフォーマット ~Webページをより便利にする最新マークアップテクニック~
+title: マイクロフォーマット
+subtitle: Webページをより便利にするマークアップテクニック
 categories: books
+excerpt: マイクロフォーマット(microformats)とは、既存の(X)HTMLを用いつつ、ウェブページの情報により豊かな意味を与え、構造化する仕組みです。ウェブページをマイクロフォーマットに対応させることで、ウェブページ上の情報を、コンピュータでも処理しやすくなります。
+ogimage: http://ecx.images-amazon.com/images/I/41vZZo0080L.jpg
 ---
 
-HTML5と言えば、意味的な要素が追加されセマンティックな色合いが強まっていますが、まだまだ足りないですね。だって、「店名」をマークアップするときはどの要素を使えばいいの？「名前」をマークアップするときは？「地名」は？ってな具合に。
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4839925445/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41vZZo0080L._SL160_.jpg" alt="マイクロフォーマット ~Webページをより便利にする最新マークアップテクニック~ (Web Designing BOOKS)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4839925445/warikiru-22/" name="azlinklink" target="_blank">マイクロフォーマット</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.3.4</div></div><div class="azlink-detail">John Allsopp<br />毎日コミュニケーションズ<br />売り上げランキング: 1046859<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4839925445/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-かといって、&lt;shop&gt;や&lt;name&gt;というように新しい要素がどんどん作られたらそれもそれで困りますね。そんなこんなでMicroformats(´∀｀*)ｳﾌﾌ 簡単に言えば、新しく要素なんて作らずclass属性やrel属性を使って意味的な部分を補っていこうって考えですかね。
+HTML5に関して言えば、意味的な要素が追加され、セマンティックな色合いが強まっているがまだまだ足りない。なぜなら「店名」をマークアップするときはどの要素を使うべきか？「名前」をマークアップするときは？「地名」は？などのようにだ。
 
-↓詳しくはこの本を読んだら良いと思う。
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4839925445/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/41vZZo0080L._SL160_.jpg" border="0" alt="マイクロフォーマット ~Webページをより便利にする最新マークアップテクニック~ (Web Designing BOOKS)" /></a></td>
-<td valign="top"><span><a href="http://www.amazon.co.jp/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88-%7EWeb%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E3%82%88%E3%82%8A%E4%BE%BF%E5%88%A9%E3%81%AB%E3%81%99%E3%82%8B%E6%9C%80%E6%96%B0%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%7E-Web-Designing-BOOKS/dp/4839925445%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839925445" target="_blank">マイクロフォーマット~Webページをより便利にする最新マークアップテクニック~ </a>
-木達 一仁 </span>
+だからといって、`shop`や`name`みたいに新しい要素がどんどん作られたらそれはそれで困るだろう。そうゆうわけで、マイクロフォーマットの出番だ。簡単に言えば、新しく要素なんて作らずにclass属性やrel属性を使って意味的な部分を補っていこうって考え。
 
-<span>毎日コミュニケーションズ  2008-07-23
-売り上げランキング : 234040
-おすすめ平均  <img src="http://g-images.amazon.com/images/G/01/detail/stars-3-0.gif" alt="" /></span>
+紹介する本はリファレンス形式かなと思いきやステップアップ式のガイド本だったのが残念だった（一応、巻末に仕様リファレンスはある）。例えば、hreviewの仕様について知りたかったら、まず、hreviewの章の部分読んで、事例研究の章を読んで、仕様リファレンス部分を読まなければならず、飛び飛びですごく面倒くさい。CSSのスタイル指定とかあんまり必要ないのではと感じた。
 
-<span><a href="http://www.amazon.co.jp/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88-%7EWeb%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E3%82%88%E3%82%8A%E4%BE%BF%E5%88%A9%E3%81%AB%E3%81%99%E3%82%8B%E6%9C%80%E6%96%B0%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF%7E-Web-Designing-BOOKS/dp/4839925445%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4839925445" target="_blank">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
-んで、僕もようやく読み終えました（・ω・）
-<div>
+とはいえ、Microformats Wikiを除けば、日本語でこれだけマイクロフォーマットについて書かれてるドキュメントはこれしかないし、実際に使われているマイクロフォーマットの事例など紹介して丁寧に解説されてあるので、分かりやすかった。
 
-リファレンス本かなと思いきやステップアップ式のガイド本だったのが残念（一応、巻末に仕様リファレンスはある）。そのせいで、例えばhreviewの仕様について知りたかったらまずhreviewの章の部分読んで、事例研究の章を読んで、仕様リファレンス部分を読まなければならず、飛び飛びですごいめんどい。CSSのスタイル指定とかあんまり必要ないんでないかな。
+特にYahoo!の事例なんかは、中の人のマイクロフォーマットに対する考え紹介されていて興味深い。
 
-とはいえ、<a href="http://microformats.org/wiki/ja">Microformats Wiki</a>を除けば、日本語でコレだけMicroformatsについて書かれてるドキュメントはこれしかないし、実際に使われているMicroformatsの事例など紹介して丁寧に解説されてあるので分かりやすかったかなと思う。
+> なぜマイクロフォーマットを採用したのかって？　何よりまず、Yahoo!ではどのスタッフもただウェブに夢中だからだ。ウェブがどんどん繁栄するのを見たいのさ。マイクロフォーマットはウェブを活気づけるのに役立ちそうだし、最終的にはユーザのためにもなるだろうと感じた。ウェブサイトでも組織でも、大規模になるほど制約が出てくることがあるのは確かだけど、裏を返せばその規模の大きさが有利になることもある。マイクロフォーマットのような例では、Yahoo!クラスの規模があれば、その技術が一定のハードルを超えて広まる可能性がある。僕らは光栄にもその役目を果たしたわけで、マイクロフォーマットをの力でウェブが一段とユーザの役に立つようになるのを楽しみにしているんだ。
 
-特にYahoo!の事例なんかは、中の人のMicroformatsに対する考えも聞けて面白い。
-<blockquote>なぜマイクロフォーマットを採用したのかって？　何よりまず、Yahoo!ではどのスタッフもただウェブに夢中だからだ。ウェブがどんどん繁栄するのを見たいのさ。マイクロフォーマットはウェブを活気づけるのに役立ちそうだし、最終的にはユーザのためにもなるだろうと感じた。ウェブサイトでも組織でも、大規模になるほど制約が出てくることがあるのは確かだけど、裏を返せばその規模の大きさが有利になることもある。マイクロフォーマットのような例では、Yahoo!クラスの規模があれば、その技術が一定のハードルを超えて広まる可能性がある。僕らは光栄にもその役目を果たしたわけで、マイクロフォーマットをの力でウェブが一段とユーザの役に立つようになるのを楽しみにしているんだ。
-<span class="Apple-style-span" style="font-size: small;"><a href="http://nate.koechley.com/blog/about/">Nate Koechley</a></span></blockquote>
-<div>
+いいですね、米Yahoo!はオープンな感じがして、とても好きです。実際にSearchMonekyではhAtom、hCalendar、hCard、hReview、XFNをインデックスしているみたいだ。
 
-いいですね、米ヤホーはオープンな感じがして、とても好きです。実際に<a href="http://developer.yahoo.com/searchmonkey/">SearchMoneky</a>ではhAtom、hCalendar、hCard、hReview、XFNをインデックスしているみたいです。また、Nate Koechleyはこんなことも言ってます↓
-<blockquote>ウェブをもっと良い世界にしてくれるものなら、何でも利用した方がいいと思う。それがマイクロフォーマットほど技術的な影響が小さいものなら、使わない手はない。もちろん、状況次第で臨機応変に判断する必要があるけれど、マイクロフォーマットに対応するのは楽勝モノだと思うよ。おまけに、自分たちの努力がウェブ全体の進化にとってプラスとなるかもしれないというボーナスまで付くことになる、。<span class="Apple-style-span" style="font-size: small;">
-P378 | マイクロフォーマットの利用価値</span></blockquote>
-事実Microformats、最小限の工数で対応しようと思えばclass属性いじるだけでいいですからね。それによってCSSを変更しなければならないとかないし（名前かぶったらしなきゃいけないけど。。）、古い環境に影響せずにそれに対応するUAにはそれ相応の価値を提供できる。これって<a href="http://warikiru.blogspot.com/2008/12/understanding-progressive-enhancement.html">Progressive Enhancement</a>的な考え方に通じますね。素敵♪
+> ウェブをもっと良い世界にしてくれるものなら、何でも利用した方がいいと思う。それがマイクロフォーマットほど技術的な影響が小さいものなら、使わない手はない。もちろん、状況次第で臨機応変に判断する必要があるけれど、マイクロフォーマットに対応するのは楽勝モノだと思うよ。おまけに、自分たちの努力がウェブ全体の進化にとってプラスとなるかもしれないというボーナスまで付くことになる
 
-</div>
-<div>みんなもMicroformatsでDOしちゃったらいいんだよ(　´∀｀)つ</div>
-</div>
+事実、マイクロフォーマットは最小限の工数で対応しようと思えば、class属性いじるだけで良いからだ。それによってCSSを変更しなければならないとかないし（名前かぶったらしなきゃいけないけど）、古い環境に影響せずにそれに対応するUAにはそれ相応の価値を提供できる。素敵だ。
