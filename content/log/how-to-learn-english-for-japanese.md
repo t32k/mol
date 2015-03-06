@@ -1,7 +1,7 @@
 ---
 categories: books
 date: 2015-03-05T14:43:35-08:00
-excerpt: 長年日本に住み、日本人に英語を教えてきた著者が、英会話学習の「俗説」と「真相」を紹介し、「そんな勉強法だから英語ができない！」と斬る一冊。本当に英語上達を目指す人に必要な勉強法とは何かを語ります。
+excerpt: タイトルから見て分かるように、これは英語の参考書の類ではない。在日39年のジェームス氏から見る、日本人の英語に対する誤解をバッサバッサぶった斬りながら解説している本である。
 ogimage: http://ecx.images-amazon.com/images/I/51OSHX2xwSL.jpg
 subtitle: なぜ日本人はこんなにも英語ができないのか？
 title: 日本人の英語勉強法
@@ -21,7 +21,7 @@ title: 日本人の英語勉強法
 
 例えば、僕は英語圏でプログラマーとして仕事をしたいと思っている。前職の職場で同僚に外国人がいたが、「ココノ実装オソイ、ヨクナイ、ダカラ直シタ」とか彼らが言ってても十分通じるし（実際はもっと日本語うまかったけど）、仕事上なんの問題なかった。それは逆も言えることだと思う。だからと言ってずっとそのままで良いとは思わないけど、地道にやってくしかないんだろうなと思っている。
 
-そんなわけで、この本でも『英語聞きながすだけで大丈夫！』とか楽して勉強する俗説に関してことごとく否定してるので、やっぱり地道にやってくしかないんだろうなと思う。
+そんなわけで、この本でも『英語聞きながすだけで大丈夫！』とか受動的な楽して勉強する俗説に関してことごとく否定してるので、やっぱり地道に能動的にやってくしかないんだろうなと思う。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00C1BG8SE/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51U55eWV6DL._SL160_.jpg" alt="毎日の英文法　頭の中に「英語のパターン」をつくる" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00C1BG8SE/warikiru-22/" name="azlinklink" target="_blank">毎日の英文法　頭の中に「英語のパターン」をつくる</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.3.5</div></div><div class="azlink-detail">ジェームス・M・バーダマン <br />朝日新聞出版<br />売り上げランキング: 428<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00C1BG8SE/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
