@@ -3,8 +3,8 @@ date: 2008-12-24
 title: Design Fast Websites
 subtitle: Don’t Blame the Rounded Corners
 categories: performance
-excerpt:
-ogimage:
+excerpt: パフォーマンスに関するデザインの話なので、興味があった。まず、なぜパフォーマンスを意識しなければならないのか？ということに関して3つの理由を挙げている。
+ogimage: http://ecx.images-amazon.com/images/I/51GQNCMJsZL.jpg
 ---
 
 『[Chromeはなぜ速いのか](http://www.atmarkit.co.jp/news/analysis/200812/22/chrome.html)』の記事が話題になっていて、少し内容がリンクしていたので紹介する。YSlowでおなじみのYahoo! Performance Teamのスライドだ。
@@ -74,14 +74,3 @@ rows これも、CSSでは縦のラインは合わせられるけど、水平ラ
 とまぁ、こんな感じの内容のプレゼン（適当）...
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg" alt="続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" name="azlinklink" target="_blank">続・ハイパフォーマンスWebサイト</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.3.9</div></div><div class="azlink-detail">Steve Souders,武舎 広幸,福地 太郎,武舎 るみ<br />オライリージャパン<br />売り上げランキング: 364143<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
-
-
-
-
-
-
-
-
-
-
-

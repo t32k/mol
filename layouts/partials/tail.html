@@ -26,5 +26,27 @@
     ga('create', 'UA-2317436-26', 't32k.me');
     ga('send', 'pageview');
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('.azlink-box a').on('click', function() {
+      var anchorType;
+      var productName = $('.azlink-name a').text();
+      var text = $(this).text();
+
+      switch (text) {
+        case '':
+          anchorType = 'Image';
+          break;
+        case 'Amazon.co.jp で詳細を見る':
+          anchorType = 'Detail';
+          break;
+        default:
+          anchorType = 'Title';
+      }
+      ga('send', 'event', 'Amazon.co.jp', productName, anchorType);
+    });
+  });
+</script>
 </body>
 </html>
