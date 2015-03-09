@@ -1,3 +1,4 @@
+<div id="fb-root"></div>
 <script src="/mol/js/highlight.pack.js"></script>
 <script>
     // Hiligjt.js
@@ -33,13 +34,12 @@
       var anchorType;
       var productName = $('.azlink-name a').text();
       var text = $(this).text();
-
       switch (text) {
-        case '':
-          anchorType = 'Image';
-          break;
         case 'Amazon.co.jp で詳細を見る':
           anchorType = 'Detail';
+          break;
+        case '':
+          anchorType = 'Image';
           break;
         default:
           anchorType = 'Title';
