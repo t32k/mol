@@ -35,7 +35,7 @@
     $(function() {
       $('.azlink-box a').on('click', function() {
         var anchorType;
-        var productName = $('.azlink-name a').text();
+        var productName = $(this).closest('.azlink-name a').text();
         var text = $(this).text();
         switch (text) {
           case 'Amazon.co.jp で詳細を見る':
