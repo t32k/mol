@@ -62,7 +62,7 @@ ogimage: http://t32k.me/mol/images/2015/coffee/01.jpg
 
 ![KONE](/mol/images/2015/coffee/08.jpg)
 
-見よ、この美しい局面を！
+見よ、この美しい曲面を！
 
 ![KONE](/mol/images/2015/coffee/09.jpg)
 
