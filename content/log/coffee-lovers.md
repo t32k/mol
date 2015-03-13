@@ -1,7 +1,7 @@
 ---
 date: 2015-03-11
-title: 珈琲ハジメマシタ。
-subtitle: よく分かるドリップコーヒー入門
+title: 2015年俺的ドリップコーヒー環境まとめ
+subtitle: これだけ揃えれば、一生大丈夫！
 categories: gadget
 excerpt: このエントリはコーヒーの魅力を効果的に伝え、関連コーヒー器具のアフィリエイトでがっぽがっぽ稼ぐ目的のために書かれている。
 ogimage: http://t32k.me/mol/images/2015/coffee/01.jpg
