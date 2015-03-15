@@ -1,10 +1,9 @@
 ---
 date: 2010-02-02
 title: 勉強会という装置
-subtitle:
+subtitle: Community of practice
 categories: blog
-excerpt:
-ogimage:
+excerpt: 最近、勉強会というか実践コミュニティに興味がある。そして、その実践として前回、紹介した社内TechTalksがあったりする。
 ---
 
 最近、勉強会というか実践コミュニティに興味がある。そして、その実践として前回、紹介した社内TechTalksがあったりする。実践コミュニティについては__[コミュニティ・オブ・プラクティス](http://www.amazon.co.jp/gp/product/B00DIM6A38/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00DIM6A38&linkCode=as2&tag=warikiru-22)__って言う素晴らしい本があるのでそちらを参照してほしい。
