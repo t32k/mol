@@ -1,8 +1,7 @@
 ---
 date: 2010-06-04
 title: それ、誰のためのユーザビリティ？ @in0in0
-categories:
-- report
+categories: report
 ---
 <img class="alignnone size-full wp-image-1343" title="dtt" src="/static/blog/2010/06/dtt.jpg" alt="" width="470" height="250" />
 
