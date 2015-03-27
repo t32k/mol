@@ -4,7 +4,7 @@ title: Grunt/Gulpで憔悴したおっさんの話
 subtitle: Hello, npm run-script!
 categories: development
 excerpt: 先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的には下記の記事読んだら分かります。要はGulpとかGruntといったモノ使わずにnpm run-scriptでビルドしよーぜって話です。
-ogimage:
+ogimage: http://ecx.images-amazon.com/images/I/518ME653H3L.jpg
 ---
 
 先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的に以下の記事読んだら分かります。要はGulpとかGruntといったモノ使わずに`npm run hogehoge`でビルドしよーぜって話です。
@@ -70,9 +70,9 @@ ogimage:
 
 ただですね、Gruntのほうが[完全に開発が止まってまして](https://github.com/tvooo/grunt-stylestats/commits/master)、StyleStatsを使いたいGruntプロジェクトのユーザーに人になんて言ったらいいのかなーって、『Gulpの方使ってくださいー』って言うのもなーなんて。
 
-かといって、Gruntプラグインの人に『ちょっとアップデートしてくれよ！』って言うのもなーって。前述の通り、やる気が無い気持ちは痛いほどわかるしなーって。でも更新止まってから、こちらとしてはいっぱいいろんな機能リリースしてるからみんなに使って欲しいしなー。
+かといって、Gruntプラグインの人に『ちょっとアップデートしてくれよ！』って言うのもなーって。前述の通り、やる気が無い気持ちは痛いほどわかるしなーって。でも更新止まってから、こちらとしてはいっぱいいろんな機能リリースしてるからみんなに使って欲しいしなーって。
 
-僕がプルリク送ればいいのかもしれないけど、俺もGruntのプラグイン開発ってどうするんだっけって感じだし。そもそもプルリク送ってもマージしてくれるのか。そうやって気を使うのダルいんですよ、おっさん疲れたのです。
+僕がプルリク送ればいいのかもしれないけど、俺もGruntのプラグイン開発ってどうするんだっけって感じだし。そもそもプルリク送ってもマージしてくれるのか。てか飽きたならリポジトリをtransferしてくれないかなーって。そうやって気を使うのダルいんですよ、おっさん疲れたのです。
 
 普通に元のコマンド叩いてくださいって思うんです。
 
@@ -113,7 +113,7 @@ __スクリプトが長すぎるよ！__
 
 ```shell
 #!/bin/bash
-npm run css:sass & npm run css:prefix & npm run css:comb & npm run css:csso
+npm run css:sass & npm run css:prefix & npm run css:comb & npm run css:min
 ```
 
 `chmod +x`しとく。
@@ -144,7 +144,7 @@ npm run css:sass & npm run css:prefix & npm run css:comb & npm run css:csso
 
 __Windowsユーザーは？__
 
-[win-bash](http://win-bash.sourceforge.net/)使うとか、UNIX系のコマンド系をラップしてるnpmパッケージ使う（例：`rm -rf` > [rimraf](https://github.com/isaacs/rimraf)）とかしてがんばってね。
+[win-bash](http://win-bash.sourceforge.net/)使ってもらうとか、UNIX系のコマンド系をラップしてるnpmパッケージ使って（例：`rm -rf` > [rimraf](https://github.com/isaacs/rimraf)）npm scriptを書くよう心がけるとか、とりまがんばってね。
 
 
 ## まとめ
