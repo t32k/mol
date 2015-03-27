@@ -1,15 +1,19 @@
 ---
 date: 2009-10-07
-title: 分かった気になるHTML5 ～開発者の視点から～ @shoito
+title: 分かった気になるHTML5 
+subtitle: DooGA Tech Talks 01
 categories: report
+excerpt: shoitoさんが白川郷で聞けなかった話を弊社まで来て講演してくれるということなので自分が会場など手配した。
+ogimage: http://lh3.ggpht.com/_1drnogi3vdg/SsyfyInGOSI/AAAAAAAAAnE/gvAdnyr4DTQ/html5.jpg
 ---
-<img src="http://lh3.ggpht.com/_1drnogi3vdg/SsyfyInGOSI/AAAAAAAAAnE/gvAdnyr4DTQ/html5.jpg" alt="" width="512" height="384"/>
+![](http://lh3.ggpht.com/_1drnogi3vdg/SsyfyInGOSI/AAAAAAAAAnE/gvAdnyr4DTQ/html5.jpg)
 
-<a href="http://twitter.com/shoito">@shoito</a>さんが<a href="http://warikiru.blogspot.com/2009/10/hokurikulang.html">白川郷で聞けなかった</a>話を弊社まで来て講演されるということなので自分が会場など準備した。自社ってゆう完全ホームな環境、なおかつ一人の講師を招くだけなのに疲れた。精神的にね。スピーカーとはまた違った体験でしたね。ホスピタリティゼロです、次がんばりまっす。
+[@shoito](https://twitter.com/shoito)さんが白川郷で聞けなかった話を弊社まで来て講演してくれるということなので自分が会場など手配した。
 
-講演はWebデザイナーも知っておくべき内容だったと思うので、弊社デザイン部も満足度高かったぽいですね。HTML５に興味をもってもらえたようですし、大成功です。はい。
+<iframe src="//www.slideshare.net/slideshow/embed_code/2154536" width="510" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
-感想としては社内で平日にこうゆうTech Talkみたいなことできて素敵だなと思いました。（それもデザイナーとエンジニアが肩を並べて。）Googleみたいにね、毎週？毎日？いたるところでなんか話してたら、そりゃ勉強になるし社員のモチベーションあがるなと思いました。次回もこうゆうことできたらなと思います。（shoitoさん次回は『デザイナーにも分かる正規表現』ですよｗ）
+自社ってゆう完全ホームな環境、なおかつ一人の講師を招くだけなのに疲れた。精神的に。スピーカーとはまた違った体験だった。ホスピタリティゼロで申し訳なかった。講演はWebデザイナーも知っておくべき内容だと思うので、弊社デザイン部も満足度高かったぽい。HTML5に興味をもったようだし大成功だろう。
 
-<iframe style="border: 1px solid #CCC; border-width: 1px 1px 0; margin-bottom: 5px;" src="http://www.slideshare.net/slideshow/embed_code/2154536" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="427" height="356"></iframe>
-<div style="margin-bottom: 5px;"><strong> <a title="分かった気になるHTML5 〜開発者の視点から〜 " href="http://www.slideshare.net/shoito/html5-and-api" target="_blank">分かった気になるHTML5 〜開発者の視点から〜 </a> </strong> from <strong><a href="http://www.slideshare.net/shoito" target="_blank">Sho Ito</a></strong></div>
+感想としては社内で平日にこうゆうTech Talkみたいなことできて素敵だなと思った。（それもデザイナーとエンジニアが肩を並べて。）Googleみたいにね、毎週？毎日？いたるところでなんか話してたら、そりゃ勉強になるし社員のモチベーションあがるなと思った。
+
+次回もこうゆうことできたらな良いなと思う。
