@@ -27,6 +27,8 @@ ogimage: http:t32k.me/mol/images/2015/0331-00.png
 
 もちろん、コミットが止まっているのは枯れていて安定しているって意味かもしれないので、必ずしも悪いことじゃない。しかし、変化の激しいフロントエンド界隈で生きているので、やっぱ定期的にメンテなりしてあるほうがいいかなと思っている。
 
+![](/mol/images/2015/0331-01.png)
+
 + __[gFaceee - Chrome ウェブストア](https://chrome.google.com/webstore/detail/gfaceee/fgkdbhnipaaeokfjgdmpejglfepclgbk)__
 
 GitHubのニュースフィード上でアイコンを表示させるgFaceeeの追加機能としてリリースしましたのでよければ使ってくださいませ。
