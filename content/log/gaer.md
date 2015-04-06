@@ -31,9 +31,9 @@ ga('send', 'event', 'クリックイベント', 'PDF', '資料請求');
 
 クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前から[JavaScriptのエラーが発生したらそのページのURLを記録する](http://qiita.com/hidek84/items/e42f8632d95b9444aea4)等、デベロッパーライクな使い方をしてる人がいたりする。
 
-そうでもなくても、Googleアナリティクスは、『__サイトの速度__』であったり、『__ユーザーの環境__』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAREを利用して欲しい。
+そうでもなくても、Googleアナリティクスは、『__サイトの速度__』であったり、『__ユーザーの環境__』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAERを利用して欲しい。
 
-GAREは[Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide)を使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。
+GAERは[Measurement Protocol](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide)を使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。
 
 ```json
 {
@@ -98,9 +98,11 @@ $ stylestats -f json -n https://google.com | gaer -t UA-xxxxxxx-x -r Google
 
 まだデータ貯まってなくてアレだけど、まぁこんな感じで確認できるようになった。あとはこれを一日一回とか定期実行させればよい（これも若干面倒だけど、[Heroku Scheduler](https://addons.heroku.com/scheduler)を使うのがお手軽かも）。ほか、PushしたタイミングでCIサーバーのほうで実行するのもありかな。
 
-なにせイベントトラッキングレポートなので、デフォルトではイベントの回数がメインになっているので、カスタムレポートで平均値だけを表示にしたりするのが若干面倒だけど、ここは使い方次第だと思う。
+なにせイベントトラッキングレポートなので、デフォルトではイベントの回数がメインになっているので、カスタムレポートで平均値だけを表示にしたりするのが若干面倒だけど、ここは使い方次第だと思う。GAER用のカスタムレポート作ったので、以下からインポートしてね（Solutions Galleryなんてあるんだね、最近のGAは）。
 
-僕はStyleStatsのデータを記録するためにGAREを作ったけど、皆さんもグラフ作るの面倒くさいなってデータがあったらGoogleアナリティクスにレポートさせれば良いと思う。なんか良い使い方あったら教えて下さい。
++ [GAER Report | Google Analytics Solutions Gallery](https://www.google.com/analytics/gallery/#posts/search/%3F_.viewId%3Drdf3ytkGQPmTXMiPHErVoA/)
+
+僕はStyleStatsのデータを記録するためにGAERを作ったけど、皆さんもグラフ作るの面倒くさいなってデータがあったらGoogleアナリティクスにレポートさせれば良いと思う。なんか他にも良い使い方あったら教えて下さい。
 
 
 
