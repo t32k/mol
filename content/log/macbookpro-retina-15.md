@@ -78,6 +78,9 @@ ogimage: http://t32k.me/mol/images/2014/mbp/01.jpg
 
 やっぱり、HDDの容量増やしたかったので、[JetDrive™ Lite](http://jp.transcend-info.com/apple/jetdrivelite/)を購入してみた。
 
+> 注文確定時に下記クーポンコードを入力すると、対象商品が表示金額より最大7,000円OFF。2015年4月3日(金)00時00分から2015年4月26日(日)23時59分（日本時間）まで。 - [Amazon.co.jp: 春の新生活応援セール-Transcend](http://www.amazon.co.jp/b/?_encoding=UTF8&camp=247&creative=7399&linkCode=ur2&node=3443032051&tag=warikiru-22)
+
+
 この手のやつは、mini SDカードを買ってMackBookにピッタリサイズのSDアダプターを購入するタイプのもあるけど何故か僕の持っているMacBook Pro Retina 15"に対応するものがなかったので購入は控えていた。
 
 ![JetDrive Lite](/mol/images/2014/mbp/03.jpg)
