@@ -68,7 +68,7 @@ ogimage: http://ecx.images-amazon.com/images/I/518ME653H3L.jpg
 
 [StyleStats](https://github.com/t32k/stylestats)というそこそこ使われるnpmパッケージを作っているのですが、ありがたいことに僕とは別の開発者様が[Grunt](https://github.com/tvooo/grunt-stylestats)/[Gulp](https://github.com/1000ch/gulp-stylestats)のプラグインを作ってもらっているのです。
 
-ただですね、Gruntのほうが[完全に開発が止まってまして](https://github.com/tvooo/grunt-stylestats/commits/master)、StyleStatsを使いたいGruntプロジェクトのユーザーに人になんて言ったらいいのかなーって、『Gulpの方使ってくださいー』って言うのもなーなんて。
+ただですね、StyleStats Grunt Pluginのほうが[完全に開発が止まってまして](https://github.com/tvooo/grunt-stylestats/commits/master)、StyleStatsを使いたいGruntプロジェクトのユーザーに人になんて言ったらいいのかなーって、『Gulpの方使ってくださいー』って言うのもなーなんて。
 
 かといって、Gruntプラグインの人に『ちょっとアップデートしてくれよ！』って言うのもなーって。前述の通り、やる気が無い気持ちは痛いほどわかるしなーって。でも更新止まってから、こちらとしてはいっぱいいろんな機能リリースしてるからみんなに使って欲しいしなーって。
 
