@@ -4,16 +4,18 @@ title: そんなに目新しくもない技術でWebアプリをリニューア�
 subtitle: An evaluating tool for writing better CSS
 categories: development
 excerpt: 世間はReactの話題で持ちきりのようだけど、Backbone.jsでStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことつらつらかきとめておく。
-ogimage:
+ogimage: http://t32k.me/mol/images/2015/0427-00.png
 ---
 
-[世間はReactの話題で持ちきり](http://reactjs-meetup.connpass.com/event/11232/)のようだけど、Backbone.jsでStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことつらつらかきとめておく。
+[![StyleStats](/mol/images/2015/0427-00.png)](http://www.stylestats.org/)
+
+[世間はReactの話題で持ちきり](http://reactjs-meetup.connpass.com/event/11232/)のようだけど、[Backbone.js](http://backbonejs.org/)でStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことをつらつらかきとめておく。
 
 + [StyleStats - An evaluating tool for writing better CSS](http://www.stylestats.org/)
 
-そもそもBackbone使うほど複雑なアプリでもないんだけど、勉強がてら使ってみた。てか[Parse.com](https://parse.com/)を使いたくて、それが[BackboneベースのSDK](https://parse.com/docs/js_guide)だったからというのもある。
+そもそもBackbone使うほど複雑なアプリでもないんだけど、勉強がてら使ってみた。てかParse.comを使いたくて、それが[BackboneベースのSDK](https://parse.com/docs/js_guide)だったからというのもある。
 
-Parse.comはmBaaS（Mobile Backend as a Service)の類で、データを簡単にストアしてくれるもの。僕のようなフロント側の人間でバックエンドがからっきしな人も、こうゆうのを使うとWebアプリケーションを簡単に作れるそうだ。StyleStatsで、テスト結果をデータに貯めときたかったので使ってみた。
+[Parse.com](https://parse.com/)はmBaaS(mobile Backend as a Service)の類で、データを簡単にストアしてくれるもの。僕のようなフロント側の人間でバックエンドがからっきしな人も、こうゆうのを使うとWebアプリケーションを簡単に作れるそうだ。StyleStatsで、テスト結果をデータに貯めときたかったので使ってみた。
 
 + [StyleStats Test Result | http://www.google.com/ - Sun Apr 26 2015 04:32:59 GMT-0700 (PDT)](http://www.stylestats.org/results/nBEUw1oi7k)
 
@@ -21,21 +23,21 @@ Parse.comはmBaaS（Mobile Backend as a Service)の類で、データを簡単�
 
 ## JavaScriptとか
 
-個人的にJavaScriptはCrome拡張だったりNode.jsでCLIツール作ったりで書くくらいで、今回はじめてWebアプリケーションとしてのJavaScriptをBackbone.jsで書いた。うん、難しいよね。なんかうまく動かなかったら、それBackboneの問題なのかParseSDKの問題なのか、どっちかわからんと思ってたら、結局、自分のJS基礎力のなさから来る問題だったりして苦労した。
+個人的にJavaScriptはCrome拡張だったりNode.jsでCLIツール作ったするときに書くくらいで、今回はじめてWebアプリケーションとしてのJavaScriptをBackbone.jsで書いた。うん、難しいよね。なんかうまく動かなかったら、それBackboneの問題なのかParse SDKの問題なのか、どっちかわからんと思ってたら、結局、自分のJS基礎力のなさから来る問題だったりして苦労した。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51oknTylWUL._SL160_.jpg" alt="入門Backbone.js" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/" name="azlinklink" target="_blank">入門Backbone.js</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.4.27</div></div><div class="azlink-detail">James Sugrue,クイープ<br />翔泳社<br />売り上げランキング: 27475<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-世間がReact!React!React!って言ってる中、せっせと2012年くらいの記事を貪っていてちょっと辛かった。いや今までサボっていた自分が悪いんだ。置いてけぼり感つらい。資料に関しては上記の本で事足りる。
+世間がReact!React!React!って言ってる中、せっせと2012年くらいの記事を貪っていてちょっと辛かった。いや今までサボっていた自分が悪いんだ。置いてけぼり感つらい。資料に関しては、上記の本ですべて事足りると思う。
 
-あと、[Browserify](http://browserify.org/)を使ってみた。個人的にどちらかというとNode.jsの文化に親しみを感じているのでモジュール管理としてはこれがいいのではと思ったけど、うまいこと使いこなせている自信はない。[Concatでいいんじゃないか](http://havelog.ayumusato.com/develop/others/e613-concat_build_pattern_examples.html)と思うこともあるが、`require()`したいんや。
+あと、[Browserify](http://browserify.org/)を使ってみた。個人的にどちらかというとNode.jsの文化に親しみを感じているのでモジュール管理としてはこれがいいのではと思ったけど、うまいこと使いこなせている自信はない。[Concatでいいんじゃないか](http://havelog.ayumusato.com/develop/others/e613-concat_build_pattern_examples.html)と思うこともあるが、`require()`したかったんや。
 
-でも[ES6のimport](http://www.2ality.com/2014/09/es6-modules-final.html)ってのもあるのね、どうしよう。まぁいいや。[es6ify](http://thlorenz.com/es6ify/)や[babelify](https://github.com/babel/babelify)というのもある。なんだこれ？まぁいいや。あ、そうそう。browserifyでHandlebarsのプリコンパイルしたかったら[hbsfy](https://github.com/epeli/node-hbsfy)っての使うらしいい。ファイファイやかましいわ。とにかく最近のES6,7事情ついていけてない、つらい。
+でも、最近じゃ[ES6のimport](http://www.2ality.com/2014/09/es6-modules-final.html)ってのもあるのね、どうしよう。まぁいいや。[es6ify](http://thlorenz.com/es6ify/)や[babelify](https://github.com/babel/babelify)というのもある。なんだこれ？まぁいいや。あ、そうそう。BrowserifyでHandlebarsのtemplateをプリコンパイルしたかったら[hbsfy](https://github.com/epeli/node-hbsfy)っての使うらしいい。ファイファイやかましいわ。とにかく最近のES6,7事情ついていけてない、つらい。
 
-あと[Grunt/Gulpで憔悴した話](http://t32k.me/mol/log/npm-run-script/)したけど、やっぱなんやかんやで、Gulp使った。起動させるインターフェイスとしてはnpm run script使っているので許して欲しい（誰）。
+あと[Grunt/Gulpで憔悴した話](http://t32k.me/mol/log/npm-run-script/)したけど、やっぱなんやかんやでGulp使った。起動させるインターフェイスとしては`npm run script`使っているので許して欲しい（誰）。
 
 ## CSSとか
 
-UIは[Material Design](http://www.google.com/design/spec/material-design/introduction.html)をやってみたかったので、ここは王道な感じで、[Polymer](https://www.polymer-project.org/0.5/)の[Paper Element](https://www.polymer-project.org/0.5/docs/elements/)を使ってみようと思った。てか、Material Design以前に、Polymer以前に、[Web Components](http://webcomponents.org/)分かってないので色々読んだ。
+UIは[Material Design](http://www.google.com/design/spec/material-design/introduction.html)をやってみたかったので、ここは王道な感じで、[Polymer](https://www.polymer-project.org/0.5/)の[Paper Element](https://www.polymer-project.org/0.5/docs/elements/)を使ってみようと思った。てか、Material Design以前に、Polymer以前に、[Web Components](http://webcomponents.org/)を分かってないなかったので色々読んだ。
 
 ### Web Components
 
@@ -52,9 +54,9 @@ UIは[Material Design](http://www.google.com/design/spec/material-design/introdu
 + [Polycasts - YouTube](https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN)
 
 
-わー覚えること多すぎだ。疲れた。Polymerが0.8で爆速になったとかでAPIも変わったとかで、Paper elementsが0.8対応してないので、ここまできてやっぱやめた。つらい。
+わー＞＜覚えること多すぎだ。疲れた。Polymerが0.5から0.8で爆速になったとかでAPIも変わったとかで、Paper elementsが0.8対応してないので、ここまできて採用するのやっぱやめた。つらい。
 
-普通にMaterial DesignのCSSフレームワークを使おうと思ったけど、[Material UI](http://callemall.github.io/material-ui/#/)はReactで使うのをリコメンドしてるし、なんぞ！と思った。ので、[Materialize](http://materializecss.com/)使おうと思ったけど、これ120K近くもあるぞ。ということで、自分で、Mateliaze CSSを参考にしつつ、それっぽく作ってみた。単純に見た目だけでも再現してもなーと思って、動きもつけようと思ってCSS Animationとかよくわからんしなー、てかSVGもよくわからん。というか、UI作るの難しくなってきてるよね？JavaScript使うの前提とか。とにかくつらい。
+普通にMaterial DesignのCSSフレームワークを使おうと思ったけど、[Material UI](http://callemall.github.io/material-ui/#/)はReactと一緒に使うのをリコメンドしてるし、なんぞ！と思った。ので、[Materialize](http://materializecss.com/) 使おうと思ったけど、これ120K近くもあるぞ。ということで、自分で、Mateliaze CSSを参考にしつつ、それっぽく作ってみた。単純に見た目だけでも再現してもなーと思って、動きもつけようと思ってCSS Animationとかよくわからんしなー、てかSVGもよくわからん。というか、UI作るの難しくなってきてるよね？JavaScript使うの前提とか。とにかくつらい。
 
 ## HTMLとか
 
@@ -65,9 +67,9 @@ body
             a タイトル
 ```
 
-Node.jsのプロジェクトなので、惰性的にView Engineを[Jade](http://jade-lang.com/)で使ってたけど、このぶら下がり感がつらい。というか、嫌い。
+Node.jsのプロジェクトなので、惰性的にView Engineで[Jade](http://jade-lang.com/)を使ってたけど、このぶら下がり感がつらい。というか、嫌い。
 
-Viewつながりで、サーバー上でもBackbone.jsを動かす[Rendr](https://github.com/rendrjs/rendr)使えたら、もっとシンプルになるのになーと思ったけど、力尽きた。導入は次回で。
+Viewつながりで、サーバー上でもBackbone.jsを動かす[Rendr](https://github.com/rendrjs/rendr)採用したら、もっと共有できてシンプルになるのかなーと思ったけど、力尽きた。導入は次回で。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51mzyCBKBDL._SL160_.jpg" alt="コーディングWebアクセシビリティ - WAI-ARIAで実現するマルチデバイス環境のWebアプリケーション" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/" name="azlinklink" target="_blank">コーディングWebアクセシビリティ</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.4.27</div></div><div class="azlink-detail">伊原力也, 太田良典<br />ボーンデジタル<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
@@ -82,16 +84,4 @@ React資料読んでて気づいたのだけど、[ReactはViewライブラリ�
 
 ***
 
-リニューアルにあたって、数多くの助言を与えてくださった[利休1000](https://twitter.com/1000ch)と[寿司銀平](https://twitter.com/ginpei_jp)さんに多大なる感謝の念を伝えたい。
-
-
-
-
-
-
-
-
-
-
-
-
+最後にリニューアルにあたって、数多くの助言を与えてくださった[利休1000](https://twitter.com/1000ch)と[寿司銀平](https://twitter.com/ginpei_jp)さんに多大なる感謝の念を伝えたい。
