@@ -2,14 +2,15 @@
 date: 2014-01-10
 title: サイバーショットRX100買った
 subtitle: Cyber-shot DSC-RX100
-cover_image: /2014/01-10-cover.jpg
 categories: gadget
 excerpt: "1.0型センサーとF1.8レンズを小型ボディに搭載"
+ogimage:
 ---
 
 タイトル通り。今までは同じSONYでミラーレス一眼のNEX-5を使ってたが、売り払ってコンデジに戻ってきた。
 
-<table border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/SONY-Cyber-shot-RX100-2020%E4%B8%87-%E5%85%89%E5%AD%A6x3-6/dp/B00898JY8E%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00898JY8E" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41%2ByZvTCsJL._SL160_.jpg" border="0" alt="SONY Cyber-shot RX100 2020万/光学x3.6/ブラック" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/SONY-Cyber-shot-RX100-2020%E4%B8%87-%E5%85%89%E5%AD%A6x3-6/dp/B00898JY8E%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00898JY8E" target="_blank">SONY Cyber-shot RX100 2020万/光学x3.6/ブラック</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />ソニー  2012-06-15<br />売り上げランキング : 1841<br /><br /><a href="http://www.amazon.co.jp/SONY-Cyber-shot-RX100-2020%E4%B8%87-%E5%85%89%E5%AD%A6x3-6/dp/B00898JY8E%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00898JY8E" target="_blank">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00898JY8E/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41DBnlRMzdL._SL160_.jpg" alt="SONY デジタルカメラ Cyber-shot RX100 光学3.6倍 DSC-RX100" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00898JY8E/warikiru-22/" name="azlinklink" target="_blank">SONY DSC-RX100</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.4.28</div></div><div class="azlink-detail">Not Machine Specific<br />ソニー<br />売り上げランキング: 3173<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00898JY8E/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
 
 NEX-5もミラーレス一眼なので普通の一眼に比べればコンパクトなほうだが、やっぱデカイなと3年経ってようやく理解した。特にズームレンズとか装着したり、持ち歩いたりしてるとほんと場所をとる。しかも、たいして写真がうまくないのにレンズをいろいろ買い足していってしまう悪循環に陥るのもこわい。
 
@@ -37,8 +38,7 @@ COOL!
 
 ![](http://farm6.staticflickr.com/5503/11863141094_72b5dbaa61_b.jpg)
 
-
-<table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-AGR1B-SYH-SONY-%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%83%E3%83%97-AG-R1/dp/B00DRYVF2S%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DRYVF2S" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41J1PossUTL._SL160_.jpg" border="0" alt="SONY アタッチメントグリップ AG-R1 B" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-AGR1B-SYH-SONY-%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%83%E3%83%97-AG-R1/dp/B00DRYVF2S%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DRYVF2S" target="_blank">SONY アタッチメントグリップ AG-R1 B</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br /><br />ソニー  <br />売り上げランキング : 1232<br /><br /><a href="http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-AGR1B-SYH-SONY-%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%83%E3%83%97-AG-R1/dp/B00DRYVF2S%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DRYVF2S" target="_blank">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DRYVF2S/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41KsPXaRJIL._SL160_.jpg" alt="SONY アタッチメントグリップ AG-R1 B" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DRYVF2S/warikiru-22/" name="azlinklink" target="_blank">SONY アタッチメントグリップ AG-R1 B</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.4.28</div></div><div class="azlink-detail"><br />ソニー<br />売り上げランキング: 54882<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DRYVF2S/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 そのままでもシンプルで好きだけど、持ち手が不安だったので純正のグリップシールを買った。
 
@@ -60,11 +60,3 @@ COOL!
 
 + [主な仕様 | DSC-RX100 | Cyber-shot“サイバーショット” | ソニー](http://www.sony.jp/cyber-shot/products/DSC-RX100/spec.html)
 
-<table>
-<tr><th>有効画素数</th><td>約2020万画素</td></tr>
-<tr><th>撮像素子</th><td>1.0型(13.2×8.8mm)"Exmor"CMOSセンサー アスペクト比 3:2</td></tr>
-<tr><th>画面サイズ</th><td>3インチ</td></tr>
-<tr><th>ズーム倍率 (光学)</th><td>3.6</td></tr>
-<tr><th>レンズタイプ</th><td>カールツァイス「バリオ・ゾナーT*」レンズ</td></tr>
-<tr><th>ASIN</th><td>B00898JY8E</td></tr>
-</table>
