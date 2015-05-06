@@ -3,6 +3,7 @@ date: 2008-01-22
 title: マークアップエンジニアってなによ？
 categories: blog
 ---
+
 この言葉を作った人の会社の募集要項では、
 <blockquote><span style="font-weight: bold;">マークアップデザインエンジニア</span>
 <ul>
