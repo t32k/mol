@@ -3,6 +3,8 @@ date: 2009-08-17
 title: 理科系の作文技術
 subtitle: 木下 是雄
 categories: books
+excerpt: 調査報告、出張報告、技術報告、研究計画の申請書など、好むと好まざるとにかかわらず、書かなければならない書類は多い。
+ogimage: http://ecx.images-amazon.com/images/I/31818M220JL.jpg
 ---
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31818M220JL._SL160_.jpg" alt="理科系の作文技術 (中公新書 (624))" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" name="azlinklink" target="_blank">理科系の作文技術 (中公新書 (624))</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.13</div></div><div class="azlink-detail">木下 是雄<br />中央公論新社<br />売り上げランキング: 366<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
