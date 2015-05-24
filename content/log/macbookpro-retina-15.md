@@ -56,6 +56,9 @@ ogimage: http://t32k.me/mol/images/2014/mbp/01.jpg
 
 ### iTunes
 
+<div class="ad"><iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=warikiru-22&o=9&p=12&l=ur1&category=pc&banner=1GPMTNKMXF574JRJJE82&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+</div>
+
 僕のiTunesには1.6万曲入ってるけど、そんなに聞いていないし聞けない。なぜなら最近は[SoundCloud](https://soundcloud.com/)や[Thefuture.fm](http://www.thefuture.fm/)のLifetime Subscriptionがあるので、もっぱらそっちで聞いている。最近の曲もほとんどiTunes Storeで購入しているので、一回全部バックアップで置いて、新規に『購入した項目』を落としてくればいいかなと思った。ので、iTunesのデータはほとんど諦めることにした。
 
 ### iPhoto 
