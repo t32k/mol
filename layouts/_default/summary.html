@@ -1,5 +1,4 @@
-<hr>
-<article>
+<article class="c-article">
     <h3><a href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }} (draft) {{end}}</a></h3>
     {{ with .Params.excerpt }}<p>{{ . }}</p>{{ end }}
     <p class="u-mute">By {{ .Site.Params.author }} — <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format "Monday, January 2, 2006" }}</time></p>

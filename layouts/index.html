@@ -15,10 +15,8 @@
   <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="{{ .Site.Title }}">
 </head>
 <body role="document">
-<div class="container">
-
 {{ partial "header.html" . }}
-
+<div class="container">
   {{ range first 14 .Data.Pages }}
     {{ .Render "summary"}}
   {{ end }}
