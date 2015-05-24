@@ -33,6 +33,21 @@ blockquote {
     width: 100% !important;
     height: 100% !important;
 }
+.ad {
+    margin-bottom: 10px;
+    padding: 10px 10px 0;
+    background: #efefef;
+    text-align: center;
+}
+.ad a {
+    display: block;
+    margin: auto;
+}
+.ad:after {
+    content: "AD";
+    color: #4f4f4f;
+    font-size: 1.2rem;
+}
 
 /* Site
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -273,7 +288,10 @@ a:hover .social-links-linkedin {
         width: 80%;
         padding: 0;
     }
-
+    .ad {
+        float: right;
+        margin-bottom: 0;
+    }
     .column,
     .columns {
         margin-left: 4%;
