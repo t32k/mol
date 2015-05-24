@@ -59,13 +59,10 @@ blockquote {
     color: #ffffff;
 }
 
-.site-ad {
-    padding-bottom: 3.5rem;
-}
-
 .site-footer {
-    border-top: 1px #cfcfcf solid;
+    margin-top: 3.5rem;
     padding-top: 3rem;
+    border-top: 1px #cfcfcf solid;
     color: #4f4f4f;
     background: #f0f0f0;
 }
