@@ -215,18 +215,3 @@ __Q5-3__ 神崎さんはTwitterを使われていますか？また、Twitterで
 
 + [セマンティックなマーク付けとメタデータ活用 | ヨモツネット](http://www.yomotsu.net/wp/?p=538)
 + [「セマンティックなマーク付けとメタデータの活用」に参加してきました : could](http://www.yasuhisa.com/could/diary/cybergarden-semanticweb/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
