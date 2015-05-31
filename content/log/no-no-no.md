@@ -1,7 +1,10 @@
 ---
 date: 2007-09-27
 title: じゃない、じゃない、そうじゃない
+subtitle: アイデアのヒント
 categories: blog
+excerpt: 確かに優秀な人は学ぶ意欲があると思う。でも、よく知らない人がその人を見ると、その優秀さだけが見えて、「すごいなーこの人、天才なんだ。自分とは違う人なんだ。」と簡単に判断してしまうことが多い。自分はそうだった。
+ogimage: http://ecx.images-amazon.com/images/I/417NZZW9GVL.jpg
 ---
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484031019/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/417NZZW9GVL._SL160_.jpg" alt="アイデアのヒント" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484031019/warikiru-22/" name="azlinklink" target="_blank">アイデアのヒント</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.13</div></div><div class="azlink-detail">ジャック フォスター,青島 淑子<br />阪急コミュニケーションズ<br />売り上げランキング: 15785<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484031019/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
