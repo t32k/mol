@@ -194,15 +194,12 @@ a:hover .social-links-linkedin {
 }
 
 .post-social {
-    margin: 2rem 0;
-    padding: 1rem 0;
-    height: 40px;
+    margin: 4rem 0 0;
 }
-
-.post-social div {
-    display: inline-block;
-    min-width: 120px;
-    line-height: 12px;
+.post-social svg {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
 }
 
 .post-pager {
