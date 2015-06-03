@@ -1,8 +1,12 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
 <div class="container">
+
 <section role="main">
     <h1>{{.Title}}</h1>
+    <hr>
+    {{ partial "ad.html" . }}
+    <hr>
     {{ range .Data.Pages }}
         <article>
             <time class="u-txs u-mute">{{ .Date.Format "Monday, January 2, 2006" }}</time>
