@@ -12,9 +12,9 @@ ogimage: http://t32k.me/mol/images/2015/seattle/11.jpg
 ## 4:00 AM 起床
 
 <div class="ad">
-<a href="http://px.a8.net/svt/ejp?a8mat=2HO30I+GBMUUQ+321Y+62U35" target="_blank">
-<img border="0" width="300" height="250" alt="" src="http://www20.a8.net/svt/bgt?aid=150609474987&wid=001&eno=01&mid=s00000014263001021000&mc=1"></a>
-<img border="0" width="1" height="1" src="http://www12.a8.net/0.gif?a8mat=2HO30I+GBMUUQ+321Y+62U35" alt="">
+<a href="http://px.a8.net/svt/ejp?a8mat=2HK2TG+88HWT6+327I+60WN5&asid=a15042247792" target="_blank">
+<img border="0" width="300" height="250" alt="" src="http://www24.a8.net/svt/bgt?aid=150422596498&wid=002&eno=01&mid=s00000014283001012000&mc=1"></a>
+<img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=2HK2TG+88HWT6+327I+60WN5" alt="">
 </div>
 
 いつ起きてもいつ寝てもいい、そんなニート生活しているt32kにとって目覚まし時計は単に時を刻むだけの代物と成り下がっていた。だがそれゆえに、目覚ましアラーム特有の電子音には敏感に反応することができのだ（寝坊せずに済んだ）。
