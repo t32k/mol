@@ -184,6 +184,12 @@ Cherry Street Coffeeの店内。なんかどこもこーゆアンティークな
 
 帰りの[BoltBus](https://www.boltbus.com/)。チケットとかテキトーにしかチェックしなかったり指定席じゃなかったり、かなりフランクなアレだけど、バスはWi-Fiついているし、席によっては電源もある（ない席もある）し、快適だ。僕が買った時は30ドルだった。
 
+<div class="ad">
+<a href="http://px.a8.net/svt/ejp?a8mat=2HO30J+4SNQZE+26ZC+3SYRPT" target="_blank">
+<img border="0" width="300" height="250" alt="" src="http://www28.a8.net/svt/bgt?aid=150609475290&wid=002&eno=01&mid=s00000010236023005000&mc=1"></a>
+<img border="0" width="1" height="1" src="http://www17.a8.net/0.gif?a8mat=2HO30J+4SNQZE+26ZC+3SYRPT" alt="">
+</div>
+
 バスに乗ったら税関申告書を書いて、ボーダーで入国審査うける。ボーダーにつくとバスの乗客が全員降りて、全員が終わるまでバスは出発しないし、ほかのバスがまた後ろに来たりするので、審査官もプレッシャーなのか、ここの入国審査はちょっと適当な気がした。『何しにカナダきたの？』『ワーホリ』『どこ行ってたの？』『シアトル』『何日？』『日帰り』OK、GO!って感じだった。
 
 
