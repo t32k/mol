@@ -59,13 +59,13 @@
     });
 
     // Share Posts
-    $('.js-share a').on('click', function (e) {
+    $('.js-share').on('click', function (e) {
       e.preventDefault();
       var path = $(this).attr('href') + encodeURIComponent(location.href);
       if (path.indexOf('twitter') !== -1) {
         path += '&text=' + encodeURIComponent(document.title);
       }
-      window.open(path, 'Share Post', 'height=550,width=650,resizable=1');
+      window.open(path, 'Share Post', 'height=350,width=500,resizable=1');
     });
   });
 </script>
