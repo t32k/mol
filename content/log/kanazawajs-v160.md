@@ -1,9 +1,7 @@
 ---
 date: 2011-09-25
 title: kanazawa.js v1.6 開催しました
-subtitle:
 categories: books
-excerpt:
 ogimage: http://t32k.me/static/blog/2011/09/16.jpg
 ---
 
