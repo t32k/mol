@@ -1,8 +1,10 @@
 ---
 date: 2011-03-01
 title: 施策前後のCV率に有意差はあるのか？
-categories:
-- analytics
+subtitle:
+categories: analytics
+excerpt:
+ogimage:
 ---
 
 <a href="http://www.flickr.com/photos/joost-ijmuiden/4768350290/"><img class="fig" title="Untitled" src="/static/blog/2011/02/statics.jpg" alt="" width="470" height="260" /></a>
