@@ -15,7 +15,6 @@ ogimage:
 
 Google Website Optimizer とか使えば、テストを実行してしばらくしたら勝手にこっちの方が何％優れてるよーって教えてくれるんですけど、今回のケースだと GWO の実装が難しかったので  Google Analytics で指標を読み取ることにしました。
 
-<!--more-->
 
 やりたいことはですね。手元にあるデータは施策前後の１週間毎のコンバージョン率（8週間分）がありますんで前後8週間の平均CV率を出して何％改善したのか確認したいわけです。で、今回の場合1%程度改善されたのですが、これって別になんにもしなくても1%上がっちゃったりするのか、それとも偶然ではない<a href="http://ja.wikipedia.org/wiki/%E6%9C%89%E6%84%8F"><strong>有意</strong></a>の差なのかってことを理解しようと思います。
 <table border="0" width="470">
@@ -253,18 +252,8 @@ A,Bも標本数8なので自由度は14です。
 はい、できたー！そらできたー！やたー！
 
 なんとかできたけど、細かいこと全然わかってないのでもう少し勉強しようと思いました(；´Д｀)
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478820090/warikiru-22/ref=nosim/"><img class="fig" src="http://ecx.images-amazon.com/images/I/51-vAi68VSL._SL160_.jpg" border="0" alt="完全独習 統計学入門" width="113" height="160" /></a></td>
-<td valign="top"><span><a href="http://www.amazon.co.jp/%E5%AE%8C%E5%85%A8%E7%8B%AC%E7%BF%92-%E7%B5%B1%E8%A8%88%E5%AD%A6%E5%85%A5%E9%96%80-%E5%B0%8F%E5%B3%B6-%E5%AF%9B%E4%B9%8B/dp/4478820090%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478820090" target="_top">完全独習 統計学入門</a><img style="border: none;" src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" alt="" width="1" height="1" />
-小島 寛之 </span>&nbsp;
 
-<span>ダイヤモンド社  2006-09-29
-売り上げランキング : 1395</span>
+<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=warikiru-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=B00DJ0Y7F2" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 
-<span><a href="http://www.amazon.co.jp/%E5%AE%8C%E5%85%A8%E7%8B%AC%E7%BF%92-%E7%B5%B1%E8%A8%88%E5%AD%A6%E5%85%A5%E9%96%80-%E5%B0%8F%E5%B3%B6-%E5%AF%9B%E4%B9%8B/dp/4478820090%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4478820090" target="_top">Amazonで詳しく見る</a></span> <span>by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
-</tr>
-</tbody>
-</table>
+
 あ、有意な差があると言えると証明できたけど、それが今回行った施策によるものかっていう点はまた別問題なので気をつけてまし。
