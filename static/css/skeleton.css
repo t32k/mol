@@ -225,6 +225,22 @@ a:hover .social-links-linkedin {
     display: block;
 }
 
+.post table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.post tr {
+    border-top: 1px solid #CCC;
+}
+.post th,
+.post td {
+    padding: 6px 12px;
+    border: 1px solid #DDD;
+}
+.post table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}
+
 .post .citation img {
     width: 40px;
     border-radius: 40px;
