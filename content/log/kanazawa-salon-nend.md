@@ -1,9 +1,13 @@
 ---
 date: 2008-10-26
 title: 第45回 金沢サロン： 佐藤 オオキ（nendo）
+subtitle:
 categories: report
+excerpt:
+ogimage:
 ---
-<a href="http://www.kanazawa-bidai.ac.jp/salon/">金沢サロン</a>に行ってきたよー
+
++ [kanazawa_salon](http://www.kanazawa-bidai.ac.jp/salon/)
 
 <span style="color: #666666;">日時：2008年10月24日（金）18：30〜20：30 </span>
 <span style="color: #666666;">講師： 佐藤 オオキ（nendo）</span>
