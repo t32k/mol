@@ -1,6 +1,6 @@
 ---
 date: 2008-05-18
-title: ナガオカケンメイ @金沢サロン
+title: 第44回 金沢サロン：ナガオカケンメイ
 categories: report
 ---
 

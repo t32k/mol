@@ -1,6 +1,6 @@
 ---
 date: 2008-10-26
-title: 第45回 金沢サロン： 佐藤 オオキ（nendo）
+title: 第45回 金沢サロン：佐藤オオキ
 subtitle:
 categories: report
 excerpt: のっけから佐藤さん、交通渋滞のため遅刻。ということで、主催者の黒川雅之さんが場つなぎでちょっとお話。
