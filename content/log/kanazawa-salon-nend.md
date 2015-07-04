@@ -7,7 +7,7 @@ excerpt: のっけから佐藤さん、交通渋滞のため遅刻。という�
 ogimage: http://ecx.images-amazon.com/images/I/41OTDB749FL.jpg
 ---
 
-+ [0801024report](http://www.kanazawa-bidai.ac.jp/salon/081024report.html)
++ [第45回金沢サロン報告](http://www.kanazawa-bidai.ac.jp/salon/081024report.html)
 
 のっけから佐藤さん、交通渋滞のため遅刻。ということで、主催者の黒川雅之さんが場つなぎでちょっとお話。
 

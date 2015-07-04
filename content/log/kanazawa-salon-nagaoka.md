@@ -7,7 +7,7 @@ excerpt: 金沢サロンとは、建築家でデザイナーの黒川雅之氏�
 ogimage: http://ecx.images-amazon.com/images/I/31RQ9lkwOaL.jpg
 ---
 
-+ [080516report](http://www.kanazawa-bidai.ac.jp/salon/080516report.html)
++ [第43回金沢サロン報告](http://www.kanazawa-bidai.ac.jp/salon/080516report.html)
 
 金沢サロンなるゆーものに行ってきた。金沢サロンとは、建築家でデザイナーの黒川雅之氏が毎回様々なゲストを招いて議論する会。会社の先輩から誘われて初めて行ったのだが、かなり充実した2時間だった。
 
