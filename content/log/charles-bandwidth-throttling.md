@@ -1,7 +1,10 @@
 ---
 date: 2013-08-06
-title: CharlesでBandwidth Throttlingやりーの、Chrome for AndroidでRemote Debugしーの。
+title: CharlesでBandwidth Throttlingを設定しChrome for AndroidでRemote Debugする
+subtitle:
 categories: development
+excerpt:
+ogimage:
 ---
 
 とりあえず表題のようなことがしたい。
