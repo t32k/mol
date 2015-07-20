@@ -3,10 +3,9 @@ date: 2013-08-06
 title: CharlesでBandwidth Throttlingを設定しChrome for AndroidでRemote Debugする
 subtitle:
 categories: development
-excerpt:
-ogimage:
+excerpt: 僕のAndroid端末は3G回線契約していない、いわゆる白ロムなので、WiFiしか使えない。これだと、3G回線の低速さが体感できない、低帯域でどうアプリケーションが振る舞うのかわからないので不便だ。ということで、CharlesでBandwidth Throttlingできたよねと思い、組み合わせて使ってみる。
+ogimage: http://t32k.me/static/blog/2013/08/bs1.png
 ---
-
 
 とりあえず表題のようなことがしたい。[Chrome for AndroidでRemote Debuggingは以前の記事](http://t32k.me/mol/log/remote-debugging-with-chrome-for-android/)でも紹介したとおりだ。
 
