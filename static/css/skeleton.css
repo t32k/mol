@@ -54,7 +54,7 @@ blockquote {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .site-header {
     margin-bottom: 3rem;
-    background: #72248c;
+    background: #F5F8FC;
 }
 
 .site-header img {
@@ -64,15 +64,14 @@ blockquote {
 .site-header a {
     display: block;
     float: left;
-    height: 48px;
-    line-height: 48px;
-    padding: 0 2rem;
-    color: #ffffff;
+    padding: 1.5rem 2rem 1.1rem;
+    color: #4C566C;
     font-size: 14px;
+    border-bottom: 3px transparent solid;
 }
 .site-header a:hover {
-    background: #560075;
-    color: #ffffff;
+    color: #4C566C;
+    border-bottom: 3px #88E18E solid;
 }
 
 .site-footer {
@@ -465,7 +464,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    border-top: .6rem #560075 solid;
     font-size: 18px; /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 400;
@@ -551,12 +549,12 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-    color: #1EAEDB;
+    color: #5FA9FF;
     text-decoration: none;
 }
 
 a:hover {
-    color: #0FA0CE;
+    color: #477fbf;
 }
 
 /* Lists
