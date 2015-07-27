@@ -5,10 +5,7 @@ categories: memo
 ---
 <img class="alignnone size-full wp-image-2653" title="activationcode" src="/static/blog/2011/03/activationcode.png" alt="" width="470" height="369" />
 
-有料プログラム的な意味でってことです。
-初めに言っておきますが、これかなりの無理ゲーですわ...
-
-<!--more-->
+有料プログラム的な意味でってことです。初めに言っておきますが、これかなりの無理ゲーですわ...
 
 せっかく、Titanium MobileでiPhone App制作するんだから、iPhoneっぽいことしたいよねってことでカメラ使いたい！カメラ使いたい！そうゆうわけで、カメラの動作はiOSシュミレーター上ではできませんから、iOS Developer Programの有料登録をして、作ったアプリを実機に転送できるようにしてもらわないといけません。たったそれだけの願いです。たったそれだけのためにかれこれ2週間はかかりました。
 

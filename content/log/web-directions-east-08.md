@@ -1,11 +1,10 @@
 ---
 date: 2008-11-30
 title: Web Directions East 08 カンファレンス
-categories:
-- report
+categories: report
 ---
-なんとか11月中に書けた。。。イベントに行ったらレポはすぐ書くべきですね（；^ω^）
-ということで、<a href="http://east08.webdirections.org/program/">Web Directions East 08</a>に行ってきたー
+
+なんとか11月中に書けた。。。イベントに行ったらレポはすぐ書くべきですね（；^ω^）ということで、<a href="http://east08.webdirections.org/program/">Web Directions East 08</a>に行ってきたー
 当日の写真はこちらで共有されてる <a href="http://www.flickr.com/photos/tags/wde08/">flickt  tag: wde08</a>
 
 <h2>『State of the web』ブラウザの多様化でみる最良のウェブ開発</h2>
