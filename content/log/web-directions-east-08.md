@@ -4,11 +4,14 @@ title: Web Directions East 08 カンファレンス
 categories: report
 ---
 
-なんとか11月中に書けた。。。イベントに行ったらレポはすぐ書くべきですね（；^ω^）ということで、<a href="http://east08.webdirections.org/program/">Web Directions East 08</a>に行ってきたー
-当日の写真はこちらで共有されてる <a href="http://www.flickr.com/photos/tags/wde08/">flickt  tag: wde08</a>
+[Web Directions East 08](http://east.webdirections.org/)に行ってきた。当日の写真は[Flickr: "wde08"](https://www.flickr.com/photos/tags/wde08/)で共有されている。
 
-<h2>『State of the web』ブラウザの多様化でみる最良のウェブ開発</h2>
+## 『State of the web』ブラウザの多様化でみる最良のウェブ開発
+
 <a href="http://meyerweb.com/eric/thoughts/">Eric Meyer</a>（エリック・メイヤー）
+
+![Eric Meyer](https://farm4.staticflickr.com/3285/3019345414_6e962eb72a_b.jpg)
+
 <a href="http://www.flickr.com/photos/t32k/3019345414/"><img src="http://farm4.static.flickr.com/3285/3019345414_90d286ff10.jpg" alt="RIMG0007 1"/></a>
 
 Google Chromeは新しくない
