@@ -14,15 +14,15 @@ categories: report
 
 <a href="http://www.flickr.com/photos/t32k/3019345414/"><img src="http://farm4.static.flickr.com/3285/3019345414_90d286ff10.jpg" alt="RIMG0007 1"/></a>
 
-Google Chromeは新しくない
-Safariのwebkit搭載してるから実質的にはSafari
-GoogleはなぜGeckoを選ばなかったのか？
-モバイルを見越して、モバイル版も対応しているwebkitにしたのではないか？
-IE8はAcid2をようやく合格
-Acid3でもSafariやOperaが高い評価を出してる
-Googleの関係者ははHTML5は2022年頃に勧告になるのではと言ってる
-しかし、使おうと思ったら今すぐHTML5は使えるよ
-ベクトルデータのCanvasとか
++ Google Chromeは新しくない
++ Safariのwebkit搭載してるから実質的にはSafari
++ GoogleはなぜGeckoを選ばなかったのか？
++ モバイルを見越して、モバイル版も対応しているwebkitにしたのではないか？
++ IE8はAcid2をようやく合格
++ Acid3でもSafariやOperaが高い評価を出してる
++ Googleの関係者ははHTML5は2022年頃に勧告になるのではと言ってる
++ しかし、使おうと思ったら今すぐHTML5は使えるよ
++ ベクトルデータのCanvasとか
 <a href="http://typeface.neocracy.org/">typeface.js</a>
 Canvasを使うとFlashのSIFRみたいなんができる。
 フォントの可能性が広がる！
