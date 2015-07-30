@@ -88,7 +88,7 @@ blockquote {
 }
 
 .site-author-pic {
-    border: 2px #fff solid;
+    border: 3px #fff solid;
     border-radius: 42px;
     transition-property: border;
     transition-duration: 1s;
