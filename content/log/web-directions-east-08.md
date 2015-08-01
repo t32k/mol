@@ -7,8 +7,7 @@ categories: report
 [Web Directions East 08](http://east.webdirections.org/)に行ってきた。当日の写真は[Flickr: "wde08"](https://www.flickr.com/photos/tags/wde08/)で共有されている。
 
 ## 『State of the web』ブラウザの多様化でみる最良のウェブ開発
-
-<a href="http://meyerweb.com/eric/thoughts/">Eric Meyer</a>（エリック・メイヤー）
+[Eric Meyer](http://meyerweb.com/eric/thoughts/)（エリック・メイヤー）
 
 ![Eric Meyer](https://farm4.staticflickr.com/3285/3019345414_6e962eb72a_b.jpg)
 
