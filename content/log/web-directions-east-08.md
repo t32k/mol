@@ -209,7 +209,8 @@ SVG and Canvas : Standards based open graphics
 JIS化されれば日本でももっと広まっていくと思う
 
 
-<h2>Visualization A Web Of Data─Web上における情報データの可視化</h2>
+## Visualization A Web Of Data─Web上における情報データの可視化
+
 <a href="http://mike.teczno.com/">Mike Migurski</a>(マイク・ミジャースキー)
 <a href="http://www.flickr.com/photos/t32k/3019356328/"><img src="http://farm4.static.flickr.com/3221/3019356328_1c93185280.jpg" alt="RIMG0026 1"/></a>
 
