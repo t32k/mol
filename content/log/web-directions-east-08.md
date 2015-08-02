@@ -11,7 +11,7 @@ categories: report
 
 ![Eric Meyer](https://farm4.staticflickr.com/3285/3019345414_6e962eb72a_b.jpg)
 
-<a href="http://www.flickr.com/photos/t32k/3019345414/"><img src="http://farm4.static.flickr.com/3285/3019345414_90d286ff10.jpg" alt="RIMG0007 1"/></a>
+![RIMG0007](http://www.flickr.com/photos/t32k/3019345414/"><img src="http://farm4.static.flickr.com/3285/3019345414_90d286ff10.jpg)
 
 + Google Chromeは新しくない
 + Safariのwebkit搭載してるから実質的にはSafari
