@@ -185,7 +185,8 @@ informal test
 Slide : <a href="http://www.slideshare.net/andybudd/guerilla-usability-testing">Guerilla Usability Testing
 </a>
 
-<h2>Web標準的ブラウザのグラフィックのススメ</h2>
+## Web標準的ブラウザのグラフィックのススメ
+
 Doug Schepers(ダグ・シェパーズ)
 SVG and Canvas : Standards based open graphics
 ■SVG
@@ -222,6 +223,7 @@ Visualization A Web Of Data
 	<li>VAST：広範囲でデータをカバー</li>
 	<li>DEEP：どの程度まで情報を掘り下げれるか</li>
 </ul>制作事例
+
 <a href="http://www.fivethirtyeight.com/"><img src="http://ijok.ijok.googlepages.com/081130_01.png" alt=""/>
 FiveThirtyEight.com</a>
 <a href="http://www.nytimes.com/ref/us/20061228_3000FACES_TAB2.html"><img src="http://ijok.ijok.googlepages.com/081130_02.png" alt=""/>
