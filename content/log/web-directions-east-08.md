@@ -157,7 +157,8 @@ John Allsoppのグローバルナビを画像を使わず、CSS3だけで実装�
 ファイル削減 30kBから1.7KB、文字サイズ拡大に対応
 
 
-<h2>『Guerilla Userbility Testing』高効率・低コストで行うユーザビリティテストの仕組み</h2>
+## 『Guerilla Userbility Testing』高効率・低コストで行うユーザビリティテストの仕組み
+
 <a href="http://www.andybudd.com/">Andy Budd</a>（アンディ・バド）
 <a href="http://www.flickr.com/photos/t32k/3018524443/"><img src="http://farm4.static.flickr.com/3195/3018524443_3e7221269f.jpg" alt="RIMG0025 1"/></a>
 
