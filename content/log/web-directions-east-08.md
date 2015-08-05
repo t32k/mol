@@ -104,7 +104,8 @@ When can we__?
 Slide : <a href="http://www.slideshare.net/mantangs/bulletproof-a-to-z">WDE08 BULLETPROOF A to Z</a>
 
 
-<h2>Bulletproof 使い勝手と見やすさを両立するAjaxを使ったサイト設計</h2>
+## Bulletproof 使い勝手と見やすさを両立するAjaxを使ったサイト設計
+
 <a href="http://adactio.com/">Jeremy Keith</a>（ジェレミー・キース）
 <a href="http://www.flickr.com/photos/t32k/3019353226/"><img src="http://farm4.static.flickr.com/3283/3019353226_1545e97964.jpg" alt="RIMG0020 1"/></a>
 
