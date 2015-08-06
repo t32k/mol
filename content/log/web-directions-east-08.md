@@ -50,7 +50,7 @@ iPhone,Andoroidどちらが勝かという問題ではない
 Slide : <a href="http://www.slideshare.net/mantangs/wde-state-of-the-web">WDE08 State of the web</a>
 
 
-<h2>『Bulletproof A-Z』　あらゆるデバイスに対応できるウェブデザインの考え方</h2>
+## 『Bulletproof A-Z』　あらゆるデバイスに対応できるウェブデザインの考え方
 <a href="http://www.simplebits.com/">Dan Cederholm</a>（ダン・セダーホルム)
 <a href="http://www.flickr.com/photos/t32k/3018515571/"><img src="http://farm4.static.flickr.com/3150/3018515571_2f5656a2e9.jpg" alt="RIMG0009 1"/></a>
 
