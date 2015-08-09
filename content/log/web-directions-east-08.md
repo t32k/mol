@@ -22,7 +22,7 @@ categories: report
 + Googleの関係者ははHTML5は2022年頃に勧告になるのではと言ってる
 + しかし、使おうと思ったら今すぐHTML5は使えるよ
 + ベクトルデータのCanvasとか
-<a href="http://typeface.neocracy.org/">typeface.js</a>
++ <a href="http://typeface.neocracy.org/">typeface.js</a>
 Canvasを使うとFlashのSIFRみたいなんができる。
 フォントの可能性が広がる！
 こうゆうのもできるようになりJSエンジンの性能が重要になってきた。
