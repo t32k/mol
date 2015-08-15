@@ -4,4 +4,60 @@ title: 複数のGoogle Analytics Tracker Codeを併用する
 categories: analytics
 ---
 
-<a href="http://www.suzukikenichi.com/blog/tracking-access-by-mutiple-google-analytics-accounts/">Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ・メルマガ</a>でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は_gat._getTracker()で初期化する際に、変数を2つ用意してあげればいいってことだね。<br /><br />ちょうど<a href="http://www.sigma-dp.com/DP2/">SIGMA DP2 : Special Contents</a>で似たようなコード見つけたので、挙げておく。<br /><pre>&lt;script type="text/javascript"&gt;<br />try {<br /><br />var <span style="color: #6600cc;">pageTracker</span> = _gat._getTracker("UA-xxxxxx-1");<br />pageTracker._trackPageview();<br /><br />var <span style="color: #6600cc;">pageTracker2</span> = _gat._getTracker("UA-yyyyy-4");<br />pageTracker2._trackPageview();<br /><br />} catch(err) {}<br />&lt;/script&gt;</pre>pageTrackerとpageTracker2に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。<br /><br /><a href="http://www.vkistudios.com/">Analytics Consulting, Conversion Rate Optimization and Internet Marketing Vancouver BC</a>てところは、こんな感じだった。<br /><pre>&lt;script type="text/javascript"&gt;<br />try {<br />var <span style="color: #330099;">pageTracker</span> = _gat._getTracker("UA-5036481-1");<br />var isDev = window.location.href.search(/vkistudios.net/);<br /><br /><span style="color: #6600cc;">if (isDev &gt; -1)</span><br />pageTracker._setDomainName(".vkistudios.net");<br /><span style="color: #6600cc;">else</span><br />pageTracker._setDomainName(".vkistudios.com");<br /><br />pageTracker._setLocalRemoteServerMode();<br />pageTracker._initData();<br />pageTracker._trackPageview();<br />} catch (e) {}<br /><br /><span style="color: #666666;">//event tracking profile</span><br />try {<br />var <span style="color: #6600cc;">eventTracker</span> = _gat._getTracker("UA-5036481-4");<br /><br /><span style="color: #6600cc;">if (isDev &gt; -1)</span><br />eventTracker._setDomainName(".vkistudios.net");<br /><span style="color: #6600cc;">else</span><br />eventTracker._setDomainName(".vkistudios.com");<br />eventTracker._initData();<br />eventTracker._trackPageview();<br />} catch (e) {}<br />&lt;/script&gt;</pre>イベントトラッキングとコンテンツの情報は分けて管理してるのかな。URLを判別して、_setDomainName()の引数を変えることでマルチドメイントラッキングを可能にしてる。<br /><br />こんなふうにいろんなサイトのカスタマイズしたコード見てみたいもんです。<br />eコマーストランザクションとかどこか使ってないもんかな。
+『[Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ](https://www.suzukikenichi.com/blog/tracking-access-by-mutiple-google-analytics-accounts/)』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は`_gat._getTracker()`で初期化する際に、変数を2つ用意してあげればいいってこと。
+
+ちょうど、『SIGMA DP2 : Special Contents』のサイトで似たようなコード見つけたので、挙げておく。
+
+```html
+<script type=“text/javascript”>
+<script>
+try {
+	var pageTracker = _gat._getTracker(“UA-xxxxxx-1”);
+	pageTracker._trackPageview();
+
+	var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”);
+	pageTracker2._trackPageview();
+
+} catch(err) {}
+</script>
+```
+
+`pageTracker`と`pageTracker2`に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。
+
++ [Digital Intelligence Solutions to Empower Data Driven, Confident Decision Making | Cardinal Path](http://www.cardinalpath.com/)
+
+上記にサイトはこんな感じのコードだった。
+
+```html
+<script>
+try {
+	var pageTracker = _gat._getTracker("UA-xxxxx-1");
+	var isDev = window.location.href.search(/vkistudios.net/);
+
+	if (isDev > -1)
+	pageTracker._setDomainName(".vkistudios.net");
+	else
+	pageTracker._setDomainName(".vkistudios.com");
+
+	pageTracker._setLocalRemoteServerMode();
+	pageTracker._initData();
+	pageTracker._trackPageview();
+} catch (e) {}
+
+//event tracking profile
+try {
+	var eventTracker = _gat._getTracker("UA-xxxxx-4");
+
+	if (isDev > -1)
+	eventTracker._setDomainName(".vkistudios.net");
+	else
+	eventTracker._setDomainName(".vkistudios.com");
+	eventTracker._initData();
+	eventTracker._trackPageview();
+} catch (e) {}
+</script>
+```
+
+イベントトラッキングとコンテンツの情報は分けて管理してるのかな。URLを判別して、`_setDomainName()`の引数を変えることでマルチドメイントラッキングを可能にしてる。
+
+こんなふうにいろんなサイトのカスタマイズしたコード見てみたいもんだ。eコマーストランザクションとかどこか使ってないもんかな。
