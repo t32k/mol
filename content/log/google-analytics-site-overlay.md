@@ -3,6 +3,7 @@ date: 2009-07-30
 title: Google Analyticsの『サイト上のデータ表示』は信頼できるのか？
 categories: analytics
 ---
+
 <img class="aligncenter" src="http://lh4.ggpht.com/_1drnogi3vdg/SnFOnMi2ijI/AAAAAAAAAeQ/d0yu8Sumky0/ga.png" alt="Site Overlay Report" width="520" height="232" />
 <img class="alignleft" style="margin: 12px;" src="http://lh5.ggpht.com/_1drnogi3vdg/SnAE1vt6DHI/AAAAAAAAAdo/H4H_ix2eryA/ga2.png" alt="" width="180" />
 ちょっと調べてみた。
