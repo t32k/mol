@@ -4,14 +4,12 @@ title: Google Analyticsの『サイト上のデータ表示』は信頼できる
 categories: analytics
 ---
 
-<img class="aligncenter" src="http://lh4.ggpht.com/_1drnogi3vdg/SnFOnMi2ijI/AAAAAAAAAeQ/d0yu8Sumky0/ga.png" alt="Site Overlay Report" width="520" height="232" />
-<img class="alignleft" style="margin: 12px;" src="http://lh5.ggpht.com/_1drnogi3vdg/SnAE1vt6DHI/AAAAAAAAAdo/H4H_ix2eryA/ga2.png" alt="" width="180" />
-ちょっと調べてみた。
-
 『サイト上のデータ表示』とは『コンテンツ』ナビゲーションの下にある機能で、ページにあるリンクのクリック率がわかるというものです。小難しい数字の羅列のレポートとは違って、どこが押されているのか直感的に分かる素晴らしい機能ですが、個人的には毎回ちょっと違和感を覚える結果だったので何となく信用していませんでした。
 
 先日、会社の方でこの機能を見たらクリック率がすべて0%になっている、ありえない状態を発見したので、この『サイト上のデータ表示』はどのような仕組みで動いてるのか気になったので調べてみました。
-<h3>なぜクリック率がすべて0%になっていたのか？</h3>
+
+## なぜクリック率がすべて0%になっていたのか？
+
 <blockquote><span class="Apple-style-span" style="font-weight: bold;">URL の書き換え</span>
 フィルタを使用して URL を書き換ると、実際の HTML に記述されたリンクの URL とコンテンツ サマリー レポートの [ナビゲーション サマリー] に表示されるフィルタで書き換えられた URL は一致しなくなります。 この場合、サイト上のデータ表示レポートは、HTML のリンクとレポートに記録されたデータを正しく関連付けられなくなります。
 <div style="text-align: right;">
