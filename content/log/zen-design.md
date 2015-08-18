@@ -17,23 +17,3 @@ excerpt: 伝統的なデザイン原則や、身の回りの視覚世界に潜�
 プレゼンテーションはスライドが主役ではなくプレゼンター自身が主役であるので、こういったスライド一枚一々にフォーカスしたのはなんか個人的に違うような気がする。いや大事なんだけど。
 
 そう思うのはやっぱり去年、著者である[ガーレイノルズさんの講演](/mol/log/the-naked-presenter/)を生で見たのが起因していると思う。ほんと本読んで分かった気になってるだけだった。生のプレゼンは本当にすごかった。死ぬ前に1回は見たほうがいいと思う。DVDでもいいかな。見れば、流れの中の一枚であることが分かると思う。うん、重要なのはあくまで全体の流れだと理解したので、そこらへんも気をつけならがこの本を読んでブラッシュアップしていけばいいかなと思う。
-
-<script>
-ga(‘require’, ‘ecommerce’);
-ga(‘ecommerce:addTransaction’, {
-  ‘id’: ‘1234’,                     // Transaction ID. Required.
-  ‘affiliation’: ‘Acme Clothing’,   // Affiliation or store name.
-  ‘revenue’: ’11.99’,               // Grand Total.
-  ‘shipping’: ‘5’,                  // Shipping.
-  ‘tax’: ‘1.29’                     // Tax.
-});
-ga(‘ecommerce:addItem’, {
-  ‘id’: ‘1234’,                     // Transaction ID. Required.
-  ‘name’: ‘Fluffy Pink Bunnies’,    // Product name. Required.
-  ‘sku’: ‘DD23444’,                 // SKU/code.
-  ‘category’: ‘Party Toys’,         // Category or variation.
-  ‘price’: ’11.99’,                 // Unit price.
-  ‘quantity’: ‘1’                   // Quantity.
-});
-ga(‘ecommerce:send’);
-</script>
