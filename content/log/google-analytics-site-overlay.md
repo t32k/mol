@@ -51,7 +51,8 @@ URLの書き換えの項を見る限り、[ナビゲーション サマリー]�
 	<li><a href="http://crazyegg.com/help/Viewing_Results/Why_is_my_website_not_displaying_all_the_images_or_CSS/">Why is my website not displaying all the images or CSS?  - Crazy Egg</a></li>
 </ul>
 
-### 参考サイト
+##　参考サイト
+
 
 <ul>
 	<li><a href="http://www.analyticsexperts.com/google-analytics/site-overlay-is-not-working-why-not/"><span class="Apple-style-span" style="font-size: small;">Site overlay is not working, why not?</span></a><span class="Apple-style-span" style="font-size: small;">
