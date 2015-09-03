@@ -33,6 +33,5 @@ a { color: inherit; } ul li { color: gray; }
 スマホサイトはタップエリアを大きくするためにblock化して、aに多くの内容物が放り込まれるきらいがある。だもんで、aも通常のspanとかdiv感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。
 
 とおもったの(´・ω・`)
-<ul>
-	<li><strong><a href="http://snook.ca/archives/html_and_css/inheriting_link">Inheriting Link Colour - Snook.ca </a></strong></li>
-</ul>
+
++ <a href="http://snook.ca/archives/html_and_css/inheriting_link">Inheriting Link Colour - Snook.ca </a>
