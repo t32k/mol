@@ -38,4 +38,4 @@ a { color: inherit; } ul li { color: gray; }
 
 とおもったの(´・ω・`)
 
-+ <a href="http://snook.ca/archives/html_and_css/inheriting_link">Inheriting Link Colour - Snook.ca </a>
++ [Inheriting Link Colour - Snook.ca](http://snook.ca/archives/html_and_css/inheriting_link)
