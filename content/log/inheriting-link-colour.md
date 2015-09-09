@@ -11,7 +11,8 @@ categories: css
 こーゆのコーディングするとなると、`ul > li > a`でaをblock要素にしたりする。そんとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。
 
 ```css
-body { color: black; } a { color: blue; }
+body { color: black; }
+a { color: blue; }
 ```
 
 下線付きとは言わなくてもまぁたいていリセットの段階で基本的なリンク色を設定してると思う。
@@ -23,13 +24,15 @@ ul li { color: gray; }
 それじゃいけないってもんだから、`ul > li`にグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだ`a`の`color`は継承しないんだったー』ってことが疲れてるとよくある。
 
 ```css
-ul li, ul li a { color: gray; }
+ul li,
+ul li a { color: gray; }
 ```
 
 だもんで、めんどくさいけど、こんなことしてた（`a`で包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここで`inherit`さんの登場だ。
 
 ```css
-a { color: inherit; } ul li { color: gray; }
+a { color: inherit; }
+ul li { color: gray; }
 ```
 
 こうしとけば、`ul > li > a`は、グレーの文字色を継承する。`inherit`なんて初めて使っただよ。（<a href="http://jigokuno.com/?eid=943">やっべー、CSS3ばっか使ってinherit使ってこなかったわー。ほら俺ってCSS3ばっか使っちゃうからー</a>）
