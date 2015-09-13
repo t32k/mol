@@ -1,10 +1,7 @@
 ---
-date: 
+date: 2007-06-01
 title: ブロガーのための５つのGoogle Analyticsレポート
-subtitle:
-categories: books
-excerpt:
-ogimage:
+categories: analytics
 ---
 
 <cite class="citation">

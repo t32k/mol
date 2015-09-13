@@ -84,4 +84,4 @@ while(i &lt; divs.length){
 
 結局、getElementsBy*で取れるもんはわざわざ、QSAでやらないほうがいいよ。ってことかな。あ、だからってQSAをディスってないよ。クラスの複数付けとか取ってくるときはQSAでやったほうが楽チンだし速いからね。と思ったけど、<a href="http://jsperf.com/the-benefit-of-using-the-selectors-api">このテスト</a>だとgetElementsByTagNameの方が速いじゃん（High Perfromace JavaScriptにはQSAのほうが2-6倍速いって書いてあるのに...）
 
-とりあえず、よく分かりません＞＜。
+とりあえず、よく分かりません。
