@@ -4,7 +4,7 @@ title: querySelector と querySelectorAll というか Live NodeList と Static 
 categories: javascript
 ---
 
-先日、getElementsByClassName便利だぜ！とブログに書いたら、to-Rの西畑せんせより「<a href="http://t32k.me/mol/2010/12/getelementsbyname-and-getelementsbyclassname/comment-page-1/#comment-1116">querySelectorAllアルヨ！</a>」と言われたので、調べてみる。
+先日、`getElementsByClassName`便利だぜ！とブログに書いたら、to-Rの西畑せんせより「<a href="http://t32k.me/mol/2010/12/getelementsbyname-and-getelementsbyclassname/comment-page-1/#comment-1116">querySelectorAllアルヨ！</a>」と言われたので、調べてみる。
 
 <h3>querySelector と querySelectorAll</h3>
 <ul>
