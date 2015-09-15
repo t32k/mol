@@ -3,7 +3,7 @@ date: 2015-09-14
 title: 強いチームはオフィスを捨てる
 subtitle: 37シグナルズが考える「働き方革命」
 categories: books
-excerpt: 皆さんご存知かもしれないが、弊社Kaizen Platform, Inc.は、現在、東京・サンフランシスコ両オフィス合わせると100人くらいの従業員がいる規模のフルリモートワークOKな会社だ。
+excerpt: 皆さんご存知かもしれないが、弊社Kaizen Platformは、現在、東京・サンフランシスコ両オフィス合わせると100人くらいの従業員がいる規模のフルリモートワークOKな会社だ。
 ogimage: http://ecx.images-amazon.com/images/I/41nDcp8X7fL.jpg
 ---
 
