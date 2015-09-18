@@ -87,3 +87,9 @@ grunt/gulpのプラグインもある！
 あと、現時点ではPhotoshopしか正式対応してないけど、Framer.jsってのを使うと、PSDとかsketchファイルからビューファイルを作ってくれるのもあったりするので今後に期待したい。
 
 というわけで、Sketch.app使うとデザイナーだけでなくエンジニアの方も、みんながハッピーになれる可能性を持っているソフトなんじゃないかなと思うのでした。
+
+[追記]
+
+Sketchプラグインつくりました。
+
++ [Material Design Color Paletteプラグインつくった - MOL](http://t32k.me/mol/log/my-sketch-plugin/)
