@@ -11,13 +11,16 @@ categories: javascript
 <ul>
 	<li><a href="http://d.hatena.ne.jp/amachang/20080306/1204787459">IE8 で実装された Selectors API とは何か？ - IT戦記</a></li>
 </ul>
+
 まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。
 
 なにはともあれ、サポート状況をば。
+
 <blockquote><a href="/static/blog/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="/static/blog/2011/01/qsa-300x62.png" alt="" /></a>
 
 <a href="http://www.quirksmode.org/dom/w3c_core.html">W3C DOM Compatibility – Core</a></blockquote>
 ほーFx3.0は対応していないけど、IE8は対応してるのか。素敵！
+
 <blockquote>
 <pre><code><em>element</em> = document.querySelector(<strong><em>selectors</em></strong>);</code></pre>
 <em>element</em> is an element object.<a href="https://developer.mozilla.org/En/DOM/Document.querySelector">
@@ -35,6 +38,7 @@ querySelectorAll はノードリストを返す。
 <blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
 セレクター API Level 1</a></blockquote>
 ほほー、静的なノードリストなわけですね。具体的な例ですと、
+
 <pre><code>var divs = document.getElementsByTagName("div"),
     i=0;
 while(i &lt; divs.length){
