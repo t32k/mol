@@ -32,8 +32,12 @@ element = document.querySelector(selectors);
 <a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll - MDC Doc Center</a></blockquote>
 querySelectorAll はノードリストを返す。
 <pre><code>var node = document.querySelectorAll('#hoge &gt; h2');</code></pre>
+
+
 つまり、#hogeの中の子供のh2だけを取ってくるなんてことも、上記のようにCSSセレクタで簡単に書けちゃう。jQueryライクに書けちゃう。だから、これまでFirefoxのグリモンとかChromeの拡張機能を作成するときは僕はjQuery読み込んでいたんだけど、簡単なものであればSelectors API使えば、jQueryに頼らなくても良くなった（いや、欲しいけど）。
-<h3>Live NodeList と Static NodeList</h3>
+
+## Live NodeListとStatic NodeList
+
 はい、そんなわけでSelectors API＼(-o-)／なんですけども、ひとつ気になる点がありました。querySelectorAllが返すのはnon-liveなノードリストと書いてあります。non-liveって何よ？ってことで、仕様書、仕様書
 <blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
 セレクター API Level 1</a></blockquote>
