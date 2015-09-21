@@ -4,28 +4,28 @@ title: querySelector と querySelectorAll というか Live NodeList と Static 
 categories: javascript
 ---
 
-先日、`getElementsByClassName`便利だぜ！とブログに書いたら、to-Rの西畑せんせより「<a href="http://t32k.me/mol/2010/12/getelementsbyname-and-getelementsbyclassname/comment-page-1/#comment-1116">querySelectorAllアルヨ！</a>」と言われたので、調べてみる。
+先日、`getElementsByClassName`便利だぜ！とブログに書いたら、to-Rの西畑先生より`querySelectorAll`アルヨ！と言われたので、調べてみる。
 
-## querySelector と querySelectorAll
+## querySelectorとquerySelectorAll
 
-<ul>
-	<li><a href="http://d.hatena.ne.jp/amachang/20080306/1204787459">IE8 で実装された Selectors API とは何か？ - IT戦記</a></li>
-</ul>
++ [IE8 で実装された Selectors API とは何か？ - IT戦記](http://d.hatena.ne.jp/amachang/20080306/1204787459)
 
 まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。
 
 なにはともあれ、サポート状況をば。
 
-<blockquote><a href="/static/blog/2011/01/qsa.png"><img class="alignnone size-medium wp-image-2292" title="qsa" src="/static/blog/2011/01/qsa-300x62.png" alt="" /></a>
++ [DOM Core](http://quirksmode.org/dom/core/)
 
-<a href="http://www.quirksmode.org/dom/w3c_core.html">W3C DOM Compatibility – Core</a></blockquote>
-ほーFx3.0は対応していないけど、IE8は対応してるのか。素敵！
+Fx3.0は対応していないけど、IE8は対応してるのか。素敵！
 
-<blockquote>
-<pre><code><em>element</em> = document.querySelector(<strong><em>selectors</em></strong>);</code></pre>
-<em>element</em> is an element object.<a href="https://developer.mozilla.org/En/DOM/Document.querySelector">
-document.querySelector - MDC Doc Center</a></blockquote>
-querySelector ってのもある。基本的な使い方は両方一緒で<em>selectors</em>の引数に、取得したい要素のCSSセレクタ書いてあげればいい。querySelector は最初に見つけてきた単一の要素を返すのに対して、
+```javascript
+element = document.querySelector(selectors);
+```
+
++ [Document.querySelector() - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+
+`querySelector`ってのもある。基本的な使い方は両方一緒で`selectors</em`の引数に、取得したい要素のCSSセレクタ書いてあげればいい。`querySelector`は最初に見つけてきた単一の要素を返すのに対して、
+
 <blockquote>
 <pre><code><em>elementList</em> = document.querySelectorAll(<strong><em>selectors</em></strong>);</code></pre>
 <em>elementList</em> is a non-live NodeList of element objects.
