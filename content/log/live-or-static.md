@@ -1,6 +1,6 @@
 ---
 date: 2011-01-02
-title: querySelector と querySelectorAll というか Live NodeList と Static NodeList
+title: querySelectorとquerySelectorAllというかLive NodeListとStatic NodeList
 categories: javascript
 ---
 
@@ -26,13 +26,19 @@ element = document.querySelector(selectors);
 
 `querySelector`ってのもある。基本的な使い方は両方一緒で`selectors</em`の引数に、取得したい要素のCSSセレクタ書いてあげればいい。`querySelector`は最初に見つけてきた単一の要素を返すのに対して、
 
-<blockquote>
-<pre><code><em>elementList</em> = document.querySelectorAll(<strong><em>selectors</em></strong>);</code></pre>
-<em>elementList</em> is a non-live NodeList of element objects.
-<a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll - MDC Doc Center</a></blockquote>
-querySelectorAll はノードリストを返す。
-<pre><code>var node = document.querySelectorAll('#hoge &gt; h2');</code></pre>
+> 
+```javascript
+elementList = document.querySelectorAll(selectors);
+```
+elementList is a non-live NodeList of element objects.
 
++ [Document.querySelectorAll() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+
+querySelectorAll はノードリストを返す。
+
+```javascript
+var node = document.querySelectorAll('#hoge > h2');
+```
 
 つまり、`#hoge`の中の子供のh2だけを取ってくるなんてことも、上記のようにCSSセレクタで簡単に書けちゃう。jQueryライクに書けちゃう。だから、これまでFirefoxのグリモンとかChromeの拡張機能を作成するときは僕はjQuery読み込んでいたんだけど、簡単なものであればSelectors API使えば、jQueryに頼らなくても良くなった。
 
