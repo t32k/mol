@@ -96,12 +96,14 @@ while(i &lt; divs.length){
 	<li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall/2">http://jsperf.com/getelementsbyname-vs-queryselectorall/2</a></li>
 </ul>
 <strong>getElementsByClassName VS querySelectorAll · jsPerf</strong>
+
+
 <ul>
 	<li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall">http://jsperf.com/getelementsbyclassname-vs-queryselectorall</a></li>
 	<li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2">http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2</a></li>
 </ul>
 
-なんか全部のテストで、（operaを除いて）getElementsBy*（動的）が速いんですけど。。。でも、<a href="http://jsperf.com/getelementsbytagname-a-0-vs-queryselector-a/4">このテスト</a>だとQSAの方が速い。。。うんーわからん。だれかおせーてエロい人！
+なんか全部のテストで、（Operaを除いて）getElementsBy*（動的）が速いんですけど。。。でも、<a href="http://jsperf.com/getelementsbytagname-a-0-vs-queryselector-a/4">このテスト</a>だとQSAの方が速い。。。うんーわからん。だれかおせーてエロい人！
 
 結局、`getElementsBy*`で取れるもんはわざわざ、QSAでやらないほうがいいよ。ってことかな。あ、だからってQSAをディスってないよ。クラスの複数付けとか取ってくるときはQSAでやったほうが楽チンだし速いからね。と思ったけど、<a href="http://jsperf.com/the-benefit-of-using-the-selectors-api">このテスト</a>だとgetElementsByTagNameの方が速いじゃん（High Perfromace JavaScriptにはQSAのほうが2-6倍速いって書いてあるのに...）
 
