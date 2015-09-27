@@ -34,7 +34,7 @@ UNIXの考え方について、以下の9つが挙げられている。
 
 結果として、プログラムは小さく保てるし、『**部分は全体の総和より大きい**』というように、プログラムの組み合わせで柔軟性も持てる。
 
-個人的にもNode.jsのCLIツールだが、[https://github.com/t32k/gaer]で`stdin`を受けつけるようにした時、すごく感動したし、世界が広がったように感じた。こんな感じで繋げれるようになった。
+個人的にもNode.jsのCLIツールだが、[GAER](https://github.com/t32k/gaer)で`stdin`を受けつけるようにした時、すごく感動したし、世界が広がったように感じた。こんな感じで繋げれるようになった。
 
 ```shell
 stylestats -f json -n path/to/css/file.css | gaer -t UA-xxxxxxx-x -r ReportName
