@@ -49,7 +49,7 @@ var node = document.querySelectorAll('#hoge > h2');
 <blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
 セレクター API Level 1</a></blockquote>
 
-ほほー、静的なノードリストなわけですね。具体的な例ですと、
+ほほー静的なノードリストなわけですね。具体的な例ですと、
 
 ```javascript
 var divs = document.getElementsByTagName("div"),
