@@ -46,41 +46,46 @@ var node = document.querySelectorAll('#hoge > h2');
 
 はい、そんなわけでSelectors API＼(-o-)／なんですけども、ひとつ気になる点がありました。`querySelectorAll`が返すのはnon-liveなノードリストと書いてあります。non-liveって何よ？ってことで、仕様書、仕様書
 
-<blockquote>querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。<a href="http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/">
-セレクター API Level 1</a></blockquote>
+> querySelectorAll() メソッドから返される NodeList オブジェクトは 動的 (live) ではなく、静的 (static) である必要があります ([DOM-LEVEL-3-CORE], section 1.1.1) (must)。元文書の構造が変化しても、その変化が NodeList オブジェクトに反映されることは許されていません (must not)。つまり、返されるオブジェクトは、リストが生成された時点で文書に存在していたノードに対しクエリをかけ、マッチする Element ノードを取得することを意味します。
 
-静的なノードリストなわけですね。具体的な例ですと、
++ [セレクタ API Level 1](http://standards.mitsue.co.jp/resources/w3c/TR/selectors-api/)
+
+静的なノードリストなわけですね。具体的な例だと、
 
 ```javascript
-var divs = document.getElementsByTagName("div"),
-    i=0;
-while(i > divs.length){
- document.body.appendChild(document.createElement("div"));
+var divs = document.getElementsByTagName('div'),
+    i = 0;
+while(i > divs.length) {
+ document.body.appendChild(document.createElement('div'));
  i++;
 }
 ```
 
 getElementsByTagName()で返される値は動的なノードリストですので、上記のスクリプトは無限ループになる。
-<pre><code>var divs = document.querySelectorAll("div"),
-    i=0;
-while(i &lt; divs.length){
- document.body.appendChild(document.createElement("div"));
- i++;
-}</code></pre>
-代わって、querySelectorAllで返される値は静的なノードリストで、取得してきた時点での数になります。つまり、divが10個そのときあったのであれば、その後に何個divを生成しようが10回でこのループは止まります。
 
-違いが分かりましたけど、なんでちゃうのん？
-<ul>
-	<li><a href="http://web.g.hatena.ne.jp/vantguarde/20081114/1226673398">querySelectorAllがliveじゃないNodeList返すのはなんで？ - vantguarde - web:g</a></li>
-</ul>
+```javascript
+var divs = document.querySelectorAll('div'),
+    i = 0;
+while(i < divs.length) {
+ document.body.appendChild(document.createElement('div'));
+ i++;
+}
+```
+
+代わって、`querySelectorAll`で返される値は静的なノードリストで、取得してきた時点での数になります。つまり、divが10個そのときあったのであれば、その後に何個divを生成しようが10回でこのループは止まります。
+
+違いが分かりましたけど、なんでちゃうのん?
+
++ [querySelectorAllがliveじゃないNodeList返すのはなんで？ - vantguarde - web:g](http://web.g.hatena.ne.jp/vantguarde/20081114/1226673398)
+
 コメント欄にuupaaせんせがDOMアクセスを減らすためと書いてある。
 
 おーなるほど、パフォーマンスのためか？と思ったのでもうちっと調べてみると、こんな記事があった。
-<ul>
-	<li><a href="http://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/">Why is getElementsByTagName() faster that querySelectorAll()? | NCZOnline</a></li>
-	<li><a href="http://journal.mycom.co.jp/articles/2010/10/01/javascript-nodelist-difference/index.html">【レポート】getElementsByTagName()がquerySelectorAll()より高速な理由  | マイコミジャーナル</a></li>
-	<li><a href="http://d.hatena.ne.jp/vwxyz/20101005">Nicholas C. Zakas「getElementsByTagName()がquerySelectorAll()よりも高速な件」 - クライアント・サイド・スクリプティング with Web Standards</a></li>
-</ul>
+
++ [Why is getElementsByTagName() faster than querySelectorAll()? - NCZOnline](https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/)
++ [getElementsByTagName()がquerySelectorAll()より高速な理由 | マイナビニュース](http://news.mynavi.jp/articles/2010/10/01/javascript-nodelist-difference/)
++ [2010-10-05 - 以下斜め読んだ内容](http://vwxyz.hateblo.jp/entries/2010/10/05)
+
 上記ブログに書いてあることをなんとなく理解すると、静的リストはまるまるコピーするから事前にやることが多いので、動的リストよりも遅くなる。けども、取ってきたノードリストをイテレートする分には動的リストは毎回チェックするのに対して、静的リストはしないから速い。とのことみたいな事言ってるんだけど、
 
 <a href="http://jsperf.com/">jsPerf</a> ってところでパフォーマンスしてみたのがこれ。ついでに、ほかのgetElementsBy*メソッドもテストしてみた。
