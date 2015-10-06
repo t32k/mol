@@ -90,7 +90,9 @@ while(i < divs.length) {
 
 <a href="http://jsperf.com/">jsPerf</a> ってところでパフォーマンスしてみたのがこれ。ついでに、ほかのgetElementsBy*メソッドもテストしてみた。
 
-<strong>getElementsByTagName VS querySelectorAll · jsPerf</strong>
+## getElementsByTagName VS querySelectorAll · jsPerf
+
+
 <ul>
 	<li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall">http://jsperf.com/getelementsbytagname-vs-queryselectorall</a></li>
 	<li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall/2">http://jsperf.com/getelementsbytagname-vs-queryselectorall/2</a></li>
