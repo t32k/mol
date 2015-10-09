@@ -88,7 +88,7 @@ while(i < divs.length) {
 
 上記ブログに書いてあることをなんとなく理解すると、静的リストはまるまるコピーするから事前にやることが多いので、動的リストよりも遅くなる。けども、取ってきたノードリストをイテレートする分には動的リストは毎回チェックするのに対して、静的リストはしないから速い。とのことみたいな事言ってるんだけど、
 
-<a href="http://jsperf.com/">jsPerf</a> ってところでパフォーマンスしてみたのがこれ。ついでに、ほかのgetElementsBy*メソッドもテストしてみた。
+[jsPerf: JavaScript performance playground](http://jsperf.com/)でパフォーマンスチェックしてみたのが以下のテスト。ついでに、ほかの`getElementsBy*`メソッドもテストしてみた。
 
 ## getElementsByTagName VS querySelectorAll · jsPerf
 
