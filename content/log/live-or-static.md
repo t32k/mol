@@ -90,24 +90,20 @@ while(i < divs.length) {
 
 [jsPerf: JavaScript performance playground](http://jsperf.com/)でパフォーマンスチェックしてみたのが以下のテスト。ついでに、ほかの`getElementsBy*`メソッドもテストしてみた。
 
-## getElementsByTagName VS querySelectorAll · jsPerf
+### getElementsByTagName VS querySelectorAll · jsPerf
 
-<ul>
-	<li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall">http://jsperf.com/getelementsbytagname-vs-queryselectorall</a></li>
-	<li><a href="http://jsperf.com/getelementsbytagname-vs-queryselectorall/2">http://jsperf.com/getelementsbytagname-vs-queryselectorall/2</a></li>
-</ul>
-<strong>getElementsByName VS querySelectorAll · jsPerf</strong>
-<ul>
-	<li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall">http://jsperf.com/getelementsbyname-vs-queryselectorall</a></li>
-	<li><a href="http://jsperf.com/getelementsbyname-vs-queryselectorall/2">http://jsperf.com/getelementsbyname-vs-queryselectorall/2</a></li>
-</ul>
-<strong>getElementsByClassName VS querySelectorAll · jsPerf</strong>
++ [getElementsByTagName VS querySelectorAll · jsPerf](http://jsperf.com/getelementsbytagname-vs-queryselectorall)
++ [getElementsByTagName VS querySelectorAll · jsPerf](http://jsperf.com/getelementsbytagname-vs-queryselectorall/2)
 
+### getElementsByName VS querySelectorAll · jsPerf
 
-<ul>
-	<li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall">http://jsperf.com/getelementsbyclassname-vs-queryselectorall</a></li>
-	<li><a href="http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2">http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2</a></li>
-</ul>
++ [getElementsByName VS querySelectorAll · jsPerf](http://jsperf.com/getelementsbyname-vs-queryselectorall)
++ [getElementsByName VS querySelectorAll · jsPerf](http://jsperf.com/getelementsbyname-vs-queryselectorall/2)
+
+### getElementsByClassName VS querySelectorAll · jsPerf
+
++ [getElementsByClassName VS querySelectorAll · jsPerf](http://jsperf.com/getelementsbyclassname-vs-queryselectorall)
++ [getElementsByClassName VS querySelectorAll · jsPerf](http://jsperf.com/getelementsbyclassname-vs-queryselectorall/2)
 
 なんか全部のテストで、（Operaを除いて）getElementsBy*（動的）が速いんですけど.でも、<a href="http://jsperf.com/getelementsbytagname-a-0-vs-queryselector-a/4">このテスト</a>だとQSAの方が速い。。。うんーわからん。だれかおせーてエロい人！
 
