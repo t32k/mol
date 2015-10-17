@@ -1,8 +1,7 @@
 ---
 date: 2013-07-31
 title: CSS Sprite画像はDataURI画像にすべきか？
-categories:
-- performance
+categories: performance
 excerpt: "最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。"
 ---
 
