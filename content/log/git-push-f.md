@@ -13,10 +13,11 @@ categories: blog
 <ul>
 	<li><a href="http://transitive.info/article/git/command/push/">transitive.info - git push 使い方</a></li>
 </ul>
-<strong>このとき、リモートリポジトリのコミットが失われる可能性がある。</strong>
 
-<strong>このとき、リモートリポジトリのコミットが失われる可能性がある。</strong>
+__このとき、リモートリポジトリのコミットが失われる可能性がある。__
 
-<strong>このとき、リモートリポジトリのコミットが失われる可能性がある。</strong>
+__このとき、リモートリポジトリのコミットが失われる可能性がある。__
+
+__このとき、リモートリポジトリのコミットが失われる可能性がある。__
 
 もう2度としない(´; ω ;`)
