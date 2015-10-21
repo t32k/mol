@@ -10,9 +10,8 @@ categories: blog
 リモートのコミットがローカルのコミットの祖先でない場合は リモートへの送信が拒否される。 これを無効にするには「-f」または「--force」オプションをつける。
 <pre><code>git push -f</code></pre>
 このとき、リモートリポジトリのコミットが失われる可能性がある。</blockquote>
-<ul>
-	<li><a href="http://transitive.info/article/git/command/push/">transitive.info - git push 使い方</a></li>
-</ul>
+
++ [transitive.info - git push 使い方](http://transitive.info/article/git/command/push/)
 
 __このとき、リモートリポジトリのコミットが失われる可能性がある。__
 
