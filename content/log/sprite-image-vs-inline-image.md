@@ -5,8 +5,8 @@ categories: performance
 excerpt: "最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。"
 ---
 
-最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。
-<div>DataURIってなんぞって方は下記を見てほしい。</div>
+最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。DataURIってなんぞって方は下記を見てほしい。
+
 <div>
 <ul>
 	<li><a href="http://t32k.me/mol/log/data-uri-scheme/">データURIスキーム | MOL</a></li>
