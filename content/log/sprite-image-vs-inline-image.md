@@ -7,11 +7,9 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。DataURIってなんぞって方は下記を見てほしい。
 
-<div>
-<ul>
-	<li><a href="http://t32k.me/mol/log/data-uri-scheme/">データURIスキーム | MOL</a></li>
-</ul>
-</div>
+
++ <a href="http://t32k.me/mol/log/data-uri-scheme/">データURIスキーム | MOL</a>
+
 <blockquote>CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
 <a href="http://t32k.me/mol/log/the-perfect-css-i-thought/">ぼくのかんがえたさいきょうのしーえしゅえしゅ | MOL </a></blockquote>
 <a href="http://molmol.tumblr.com/post/51105314376/dontrblgme-tumblr-lhl6jnlwmc1qzqmk9o1-400-jpg">憎しみと恐怖にとらわれてはいけない</a>。あ、ホントそうだっけーなーと思いつつ、どこぞの資料見たんだっけなーと探してたらあった。
