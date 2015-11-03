@@ -11,6 +11,7 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 + <a href="http://t32k.me/mol/log/data-uri-scheme/">データURIスキーム | MOL</a>
 
 <blockquote>CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
+
 <a href="http://t32k.me/mol/log/the-perfect-css-i-thought/">ぼくのかんがえたさいきょうのしーえしゅえしゅ | MOL </a></blockquote>
 <a href="http://molmol.tumblr.com/post/51105314376/dontrblgme-tumblr-lhl6jnlwmc1qzqmk9o1-400-jpg">憎しみと恐怖にとらわれてはいけない</a>。あ、ホントそうだっけーなーと思いつつ、どこぞの資料見たんだっけなーと探してたらあった。
 
@@ -70,6 +71,7 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 セッションでは、AFT(Above-the-fold time)、つまりファーストビューで見える範囲だけのCSSをHTMLにインラインで記述し、残りCSSファイルは遅延読み込みするといったテクニックが披露されているが、実際の運用ベースで使うとなると厳しいだろう。
 
 そもそも的な話で、
+
 <blockquote>
 <ul>
 	<li>Base64 encoding incurs transfer size overhead of 1.37 times the original data, with another 814 bytes of header data. Server gzip compression reduces this overhead to around 3% so the penalty is relatively small.</li>
@@ -77,6 +79,7 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 	<li>If data URIs are included in HTML or uncached CSS, the content of the data URI will be sent to the browser from the HTTP server with each request.</li>
 	<li>Regardless of whether the data URI content exists in a cached CSS or HTML file, the browser must decode the image each time a page renders: the decoding cost is paid repeatedly every time a page is viewed.</li>
 </ul>
+
 </blockquote>
 <a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事</a>もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、
 <blockquote>Inline images judiciously
