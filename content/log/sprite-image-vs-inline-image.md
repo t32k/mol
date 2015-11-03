@@ -91,7 +91,8 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 個人的な意見としては一回ぐらいしか出てこない画像をDataURIするのであれば、そこのビューに埋め込めばいいし、かと言って何回も出てくるような画像であれば、毎回のデコードコストが気にかかるし、ならスプライトでまとめてキャッシュさせたほうが無難でしょ！と思う。またスプライト画像も今回述べたようにレンダリングのブロックにつながる可能性があるので絶対CSSファイルには入れない、使わない。なんで、使わないかなー。使わないなー、うん。
 
-参考
+### 参考
+
 <ul>
 	<li><a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery">Optimize CSS Delivery - PageSpeed Insights — Google Developers</a></li>
 	<li><a href="https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent">Reduce the size of the above-the-fold content - PageSpeed Insights — Google Developers</a></li>
