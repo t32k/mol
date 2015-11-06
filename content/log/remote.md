@@ -54,4 +54,9 @@ ogimage: http://ecx.images-amazon.com/images/I/41nDcp8X7fL.jpg
 
 本書の著者2人が運営している37signalsがなぜ、リモートワークを認めてるのかというと、社員の幸せを最優先に考えているからだ。そうすることで優秀な人材は集まってくるし辞めない。そっちのほうがずっと経済的なんだろう。
 
+GitHubも同じように考えている。
+
++ [Rebuild: 62: Wrong Username Mentions (dice)](http://rebuild.fm/62/)
++ [Rebuild: Aftershow 62: Unlimited Means Zero (dice)](http://rebuild.fm/62a/)
+
 そうゆうわけで、リモートワークを実践している会社が書いた本で、こっちもリモートワークを実践している会社の人間が読んだ感想としては、納得感のある内容だったし、社内のアレはこうゆう理由かぁなど確認の意味で読んでよかった。書いてあるツールが若干古いが、そこはCasey West氏のスライドで補足すればいいだろう。
