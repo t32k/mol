@@ -15,9 +15,11 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 あ、ホントそうだっけーなーと思いつつ、どこぞの資料見たんだっけなーと探してたらあった。
 
 <iframe src="//www.youtube.com/embed/YV1nKLWoARQ" frameborder="0" width="560" height="315"></iframe>
+
+
 <a href="https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present#slide=id.gc57996a9_0168">Optimizing the Critical Rendering Path for Instant Mobile Websites - Velocity SC - 2013</a>
 
-このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik++
+このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik ++
 
 <img class="aligncenter  wp-image-5056" style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
 
