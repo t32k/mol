@@ -21,7 +21,7 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik ++
 
-<img class="aligncenter  wp-image-5056" style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
+<img style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
 
 セッション中の資料には、ご覧のとおり、HTMLがパースされてDOMが完成したところで、画面には何も表示されない。感覚的には、スタイルのついてない『Hello world!』くらい表示されてもいいじゃんか！と思うんだけど、表示されない。
 <p style="text-align: center;"><img class="aligncenter  wp-image-5055" title="2" src="/static/blog/2013/07/21.png" alt="" width="900" /></p>
