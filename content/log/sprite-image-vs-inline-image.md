@@ -15,16 +15,18 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 <iframe src="//www.youtube.com/embed/YV1nKLWoARQ" frameborder="0" width="560" height="315"></iframe>
 
-
-<a href="https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present#slide=id.gc57996a9_0168">Optimizing the Critical Rendering Path for Instant Mobile Websites - Velocity SC - 2013</a>
+[Optimizing the Critical Rendering Path for Instant Mobile Websites - Velocity SC 2013](https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present#slide=id.gc57996a9_0168)
 
 このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik ++
 
 <img style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
 
 セッション中の資料には、ご覧のとおり、HTMLがパースされてDOMが完成したところで、画面には何も表示されない。感覚的には、スタイルのついてない『Hello world!』くらい表示されてもいいじゃんか！と思うんだけど、表示されない。
-<p style="text-align: center;"><img class="aligncenter  wp-image-5055" title="2" src="/static/blog/2013/07/21.png" alt="" width="900" /></p>
+
+![](/static/blog/2013/07/21.png)
+
 次に、CSSがパースされてCSSOM（CSSのDOMみたいなもの？Style Rulesとかとも言ったりする）が構築されるが、まだ画面は空白のままだ。
+
 <p style="text-align: center;"><img class="aligncenter  wp-image-5054" title="3" src="/static/blog/2013/07/31.png" alt="" width="900" /></p>
 DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレイアウト情報が加わって初めて描画となるんだね。この辺りの更に詳しい情報はHTML5 Rocksの以下の記事がすばらしいので読んでほしい（すぐ眠たくなるけど）。
 <ul>
