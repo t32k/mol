@@ -7,19 +7,20 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。DataURIってなんぞって方は下記を見てほしい。
 
-+ <a href="http://t32k.me/mol/log/data-uri-scheme/">データURIスキーム | MOL</a>
++ [データURIスキーム | MOL](http://t32k.me/mol/log/data-uri-scheme/)
 
-<blockquote>CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
+> CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。 ― [ぼくのかんがえたさいきょうのしーえしゅえしゅ ](http://t32k.me/mol/log/the-perfect-css-i-thought/)
 
-<a href="http://t32k.me/mol/log/the-perfect-css-i-thought/">ぼくのかんがえたさいきょうのしーえしゅえしゅ | MOL </a></blockquote>
-<a href="http://molmol.tumblr.com/post/51105314376/dontrblgme-tumblr-lhl6jnlwmc1qzqmk9o1-400-jpg">憎しみと恐怖にとらわれてはいけない</a>。あ、ホントそうだっけーなーと思いつつ、どこぞの資料見たんだっけなーと探してたらあった。
+あ、ホントそうだっけーなーと思いつつ、どこぞの資料見たんだっけなーと探してたらあった。
 
 <iframe src="//www.youtube.com/embed/YV1nKLWoARQ" frameborder="0" width="560" height="315"></iframe>
+
+
 <a href="https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present#slide=id.gc57996a9_0168">Optimizing the Critical Rendering Path for Instant Mobile Websites - Velocity SC - 2013</a>
 
-このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik++
+このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik ++
 
-<img class="aligncenter  wp-image-5056" style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
+<img style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
 
 セッション中の資料には、ご覧のとおり、HTMLがパースされてDOMが完成したところで、画面には何も表示されない。感覚的には、スタイルのついてない『Hello world!』くらい表示されてもいいじゃんか！と思うんだけど、表示されない。
 <p style="text-align: center;"><img class="aligncenter  wp-image-5055" title="2" src="/static/blog/2013/07/21.png" alt="" width="900" /></p>
