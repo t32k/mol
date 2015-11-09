@@ -27,7 +27,8 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 次に、CSSがパースされてCSSOM（CSSのDOMみたいなもの？Style Rulesとかとも言ったりする）が構築されるが、まだ画面は空白のままだ。
 
-<p style="text-align: center;"><img class="aligncenter  wp-image-5054" title="3" src="/static/blog/2013/07/31.png" alt="" width="900" /></p>
+![](/static/blog/2013/07/31.png)
+
 DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレイアウト情報が加わって初めて描画となるんだね。この辺りの更に詳しい情報はHTML5 Rocksの以下の記事がすばらしいので読んでほしい（すぐ眠たくなるけど）。
 <ul>
 	<li><a href="http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks</a></li>
