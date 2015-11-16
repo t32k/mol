@@ -99,8 +99,5 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 ### 参考
 
-<ul>
-	<li><a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery">Optimize CSS Delivery - PageSpeed Insights — Google Developers</a></li>
-	<li><a href="https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent">Reduce the size of the above-the-fold content - PageSpeed Insights — Google Developers</a></li>
-</ul>
-
++ <a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery">Optimize CSS Delivery - PageSpeed Insights — Google Developers</a>
++ <a href="https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent">Reduce the size of the above-the-fold content - PageSpeed Insights — Google Developers</a>
