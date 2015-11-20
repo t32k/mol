@@ -85,14 +85,16 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 </blockquote>
 <a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事</a>もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、
-<blockquote>Inline images judiciously
-<ul>
-	<li>Inlining increases parse time</li>
-	<li>External images don't block the parser</li>
-	<li>Can defer resource discovery and execution</li>
-	<li>SPDY server push &gt; image inlining</li>
-</ul>
-</blockquote>
+
+
+> Inline images judiciously
+	<ul>
+		<li>Inlining increases parse time</li>
+		<li>External images don't block the parser</li>
+		<li>Can defer resource discovery and execution</li>
+		<li>SPDY server push &gt; image inlining</li>
+	</ul>
+
 また、Velocity2012での<a href="https://perf-metrics-velocity2012.appspot.com/#41">Understanding and Optimizing Web Performance Metrics</a>でも、DataURIは慎重に使用しろと言われてますので、用法用量お守りの上、お使いくださいませ。
 
 個人的な意見としては一回ぐらいしか出てこない画像をDataURIするのであれば、そこのビューに埋め込めばいいし、かと言って何回も出てくるような画像であれば、毎回のデコードコストが気にかかるし、ならスプライトでまとめてキャッシュさせたほうが無難でしょ！と思う。またスプライト画像も今回述べたようにレンダリングのブロックにつながる可能性があるので絶対CSSファイルには入れない、使わない。
