@@ -88,12 +88,10 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 
 > Inline images judiciously
-	<ul>
-		<li>Inlining increases parse time</li>
-		<li>External images don't block the parser</li>
-		<li>Can defer resource discovery and execution</li>
-		<li>SPDY server push &gt; image inlining</li>
-	</ul>
++ Inlining increases parse time
++ External images don't block the parser
++ Can defer resource discovery and execution
++ SPDY server push &gt; image inlining
 
 また、Velocity2012での<a href="https://perf-metrics-velocity2012.appspot.com/#41">Understanding and Optimizing Web Performance Metrics</a>でも、DataURIは慎重に使用しろと言われてますので、用法用量お守りの上、お使いくださいませ。
 
