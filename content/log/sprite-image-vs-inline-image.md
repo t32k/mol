@@ -19,7 +19,7 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik ++
 
-<img style="text-align: center;" title="1" src="/static/blog/2013/07/11.png" alt="" width="900" />
+![](/static/blog/2013/07/11.png)
 
 セッション中の資料には、ご覧のとおり、HTMLがパースされてDOMが完成したところで、画面には何も表示されない。感覚的には、スタイルのついてない『Hello world!』くらい表示されてもいいじゃんか！と思うんだけど、表示されない。
 
