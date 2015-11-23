@@ -31,7 +31,7 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレイアウト情報が加わって初めて描画となるんだね。この辺りの更に詳しい情報はHTML5 Rocksの以下の記事がすばらしいので読んでほしい（すぐ眠たくなるけど）。
 
-+ <a href="http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/">ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks</a>
++ [ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks](http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/)
 
 ここで重要なのはHTMLと（読み込んでいる）スタイルシート（CSS）が無い限り、描画はされないということだ。つまり、CSSの読み込みに手間取ればCSSレンダリングをブロックするということが考えられる。
 
