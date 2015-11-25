@@ -38,10 +38,10 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 レンダリングをブロックするのはJSファイルだけかと思ってたけど、スタイルシート（CSS）も気をつけなければならないということが分かる。
 
 そこで冒頭にも述べたように、CSSファイルを出来る限り軽くし、読み込みを速くすることでレンダリングのブロックを回避するという考えになってくると思うが、実際どんなもんなのよ？と思ったので、テストファイル作ってみた。
-<ul>
-	<li><a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/normal_sprite.html">Normal CSS Sprites</a></li>
-	<li><a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/inline_sprite.html">Inline image CSS Sprites</a></li>
-</ul>
+
++ <a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/normal_sprite.html">Normal CSS Sprites</a></li>
++ <a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/inline_sprite.html">Inline image CSS Sprites</a>
+
 30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを<a href="http://www.webpagetest.org/">WebPagetest</a>にかけてみた。
 <p style="text-align: center;"><a href="/static/blog/2013/07/filmstrip.png"><img class="aligncenter  wp-image-5040" title="filmstrip" src="/static/blog/2013/07/filmstrip.png" alt="" width="900" /></a></p>
 <strong>ビジュアル比較テスト結果</strong>
