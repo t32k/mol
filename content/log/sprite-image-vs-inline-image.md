@@ -39,7 +39,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 そこで冒頭にも述べたように、CSSファイルを出来る限り軽くし、読み込みを速くすることでレンダリングのブロックを回避するという考えになってくると思うが、実際どんなもんなのよ？と思ったので、テストファイル作ってみた。
 
-+ <a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/normal_sprite.html">Normal CSS Sprites</a></li>
++ [Normal CSS Sprites](https://dl.dropboxusercontent.com/u/356242/test/httprequests/normal_sprite.html)
 + <a href="https://dl.dropboxusercontent.com/u/356242/exp/httprequests/inline_sprite.html">Inline image CSS Sprites</a>
 
 30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを<a href="http://www.webpagetest.org/">WebPagetest</a>にかけてみた。
