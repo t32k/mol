@@ -42,7 +42,9 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 + [Normal CSS Sprites](https://dl.dropboxusercontent.com/u/356242/test/httprequests/normal_sprite.html)
 + [Inline image CSS Sprites](https://dl.dropboxusercontent.com/u/356242/test/httprequests/inline_sprite.html)
 
-30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを<a href="http://www.webpagetest.org/">WebPagetest</a>にかけてみた。
+
+30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを[WebPagetest](http://www.webpagetest.org/)にかけてみた。
+
 <p style="text-align: center;"><a href="/static/blog/2013/07/filmstrip.png"><img class="aligncenter  wp-image-5040" title="filmstrip" src="/static/blog/2013/07/filmstrip.png" alt="" width="900" /></a></p>
 <strong>ビジュアル比較テスト結果</strong>
 <ul>
