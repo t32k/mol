@@ -45,8 +45,11 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを[WebPagetest](http://www.webpagetest.org/)にかけてみた。
 
-<p style="text-align: center;"><a href="/static/blog/2013/07/filmstrip.png"><img class="aligncenter  wp-image-5040" title="filmstrip" src="/static/blog/2013/07/filmstrip.png" alt="" width="900" /></a></p>
+
+![](/static/blog/2013/07/filmstrip.png)
+
 <strong>ビジュアル比較テスト結果</strong>
+
 <ul>
 	<li><a href="http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49">WebPagetest - Visual Comparison</a></li>
 </ul>
