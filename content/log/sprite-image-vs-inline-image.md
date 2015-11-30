@@ -48,12 +48,14 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 ![](/static/blog/2013/07/filmstrip.png)
 
-### ビジュアル比較テスト結果
+#### ビジュアル比較テスト結果
 
 <ul>
 	<li><a href="http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49">WebPagetest - Visual Comparison</a></li>
 </ul>
-<strong>各テスト結果</strong>
+
+#### 各テスト結果
+
 <ul>
 	<li><a href="http://www.webpagetest.org/result/130730_2V_G48/1/details/">WebPagetest Test Details - Dulles : Normal.../normal_sprite.html</a></li>
 	<li><a href="http://www.webpagetest.org/result/130730_7X_G49/3/details/">WebPagetest Test Details - Dulles : DataURI...inline_sprite.html</a></li>
