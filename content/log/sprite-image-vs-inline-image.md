@@ -17,7 +17,7 @@ excerpt: "最近、スプライト画像はDataURIにすべきですか？とい
 
 [Optimizing the Critical Rendering Path for Instant Mobile Websites - Velocity SC 2013](https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present#slide=id.gc57996a9_0168)
 
-このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。 というかIlya Grigorik ++
+このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。というかIlya Grigorik ++
 
 ![](/static/blog/2013/07/11.png)
 
@@ -50,9 +50,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 #### ビジュアル比較テスト結果
 
-<ul>
-	<li><a href="http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49">WebPagetest - Visual Comparison</a></li>
-</ul>
++ <a href="http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49">WebPagetest - Visual Comparison</a>
 
 #### 各テスト結果
 
