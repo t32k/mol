@@ -50,7 +50,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 #### ビジュアル比較テスト結果
 
-+ <a href="http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49">WebPagetest - Visual Comparison</a>
++ [WebPagetest - Visual Comparison](http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49)
 
 #### 各テスト結果
 
