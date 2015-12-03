@@ -7,7 +7,7 @@ excerpt: 最近、燃え尽き症候群な感じでとりあえずエスプレ�
 ogimage: http://t32k.me/mol/images/2015/rok/01.jpg
 ---
 
-[コーヒー Advent Calendar 2015](http://www.adventar.org/calendars/895) の4日目です。
+[コーヒー Advent Calendar 2015](http://www.adventar.org/calendars/895) の4日目です。たぶん、しらんけど。
 
 ![](/mol/images/2015/rok/01.jpg)
 
