@@ -1,4 +1,4 @@
-box: wercker/default
+box: debian
 # Build definition
 build:
   steps:
@@ -6,7 +6,7 @@ build:
         version: "0.14"
     - script:
         name: Copy RSSfeed to feed.xml
-        code: cp _public/index.xml _public/feed.xml
+        code: sudo cp _public/index.xml _public/feed.xml
 
 deploy:
   steps:
