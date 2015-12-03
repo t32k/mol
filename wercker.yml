@@ -2,7 +2,7 @@ box: wercker/default
 # Build definition
 build:
   steps:
-    - arjen/hugo-build@1.6.0:
+    - arjen/hugo-build@1.6.1:
         version: "0.14"
     - script:
         name: Copy RSSfeed to feed.xml
