@@ -1,8 +1,8 @@
-box: wercker/default
+box: debian
 # Build definition
 build:
   steps:
-    - arjen/hugo-build@1.6.1:
+    - arjen/hugo-build:
         version: "0.14"
     - script:
         name: Copy RSSfeed to feed.xml
