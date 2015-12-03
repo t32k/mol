@@ -1,4 +1,4 @@
-box: wercker/rvm
+box: wercker/default
 # Build definition
 build:
   steps:
