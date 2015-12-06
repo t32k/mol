@@ -89,7 +89,8 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 </ul>
 
 </blockquote>
-<a href="http://www.mobify.com/blog/data-uris-are-slow-on-mobile/">DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事</a>もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、
+
+[DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事](http://www.mobify.com/blog/data-uris-are-slow-on-mobile/)もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、
 
 
 > Inline images judiciously
