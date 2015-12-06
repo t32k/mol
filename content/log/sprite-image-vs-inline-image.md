@@ -45,7 +45,6 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを[WebPagetest](http://www.webpagetest.org/)にかけてみた。
 
-
 ![](/static/blog/2013/07/filmstrip.png)
 
 #### ビジュアル比較テスト結果
@@ -62,7 +61,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.994s</strong>で、ビジュアル比較においても、表示完了までの時間がDataURIを使用した方が速い。まぁHTTPリクエストが2つと3つじゃ、リクエストの少ないほうが速いのは当たり前なんですけど、ここではレンダリング過程を見てほしい。
 
-ノーマルは0.7秒あたりから画像なしだけどレンダリングが始まっているのに対して、その時点ではDataURIは真っ白な画面のままだ。<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide#TOC-Start-Render:">Start Render</a>を見ても、ノーマルが、<strong>0.697s</strong>に対して、DataURIは<strong>0.920s</strong>で、普通の画像のほうがレンダリングが速く始まっている。
+ノーマルは0.7秒あたりから画像なしだけどレンダリングが始まっているのに対して、その時点ではDataURIは真っ白な画面のままだ。[Start Render](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide#TOC-Start-Render:)を見ても、ノーマルが、<strong>0.697s</strong>に対して、DataURIは<strong>0.920s</strong>で、普通の画像のほうがレンダリングが速く始まっている。
 
 これは先程の、Ilya Grigorik氏のプレゼン内容を理解していれば当然の現象と理解できるだろう。DataURI化した文字列を含んだCSSは<strong>59KB</strong>サイズもあるのに対して、画像パスで読み込んだCSSは<strong>3KB</strong>と軽量だ。この読み込みの差が反映された結果になっている。
 
