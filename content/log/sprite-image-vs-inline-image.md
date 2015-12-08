@@ -69,7 +69,7 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 <a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index#TOC-Measuring-Visual-Progress"><img class="aligncenter size-full wp-image-5075" title="Visual Progress" src="/static/blog/2013/07/vp.png" alt="" width="900" height="520" /></a>
 
-ただ、我々は機械ではないので、数値を機械的に判断するのではなく、<strong>体感速度</strong>という観点からも考えなければならない。ノーマルのテストのようなブログレッシブレンダリングは、ユーザーに即座のフィードバックを返している点で、ユーザーに安心感を与えている。
+ただ、我々は機械ではないので、数値を機械的に判断するのではなく、**体感速度**という観点からも考えなければならない。ノーマルのテストのようなブログレッシブレンダリングは、ユーザーに即座のフィードバックを返している点で、ユーザーに安心感を与えている。
 
 このような事例として、<a href="http://t32k.me/mol/log/long-life-web-performance-optimization/">検索サイトのBingはプログレッシブレンダリングをすることでユーザーの満足度を0.7％向上させた</a>(サイトリニューアル並に上昇したようです)という例もある。
 
