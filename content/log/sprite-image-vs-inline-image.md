@@ -80,13 +80,10 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 そもそも的な話で、
 
 <blockquote>
-<ul>
-	<li>Base64 encoding incurs transfer size overhead of 1.37 times the original data, with another 814 bytes of header data. Server gzip compression reduces this overhead to around 3% so the penalty is relatively small.</li>
-	<li>The content must be decoded back into it’s original form by the browser. This operation consumes CPU &amp; battery on mobile devices.</li>
-	<li>If data URIs are included in HTML or uncached CSS, the content of the data URI will be sent to the browser from the HTTP server with each request.</li>
-	<li>Regardless of whether the data URI content exists in a cached CSS or HTML file, the browser must decode the image each time a page renders: the decoding cost is paid repeatedly every time a page is viewed.</li>
-</ul>
-
++ Base64 encoding incurs transfer size overhead of 1.37 times the original data, with another 814 bytes of header data. Server gzip compression reduces this overhead to around 3% so the penalty is relatively small.
++ The content must be decoded back into it’s original form by the browser. This operation consumes CPU &amp; battery on mobile devices.
++ If data URIs are included in HTML or uncached CSS, the content of the data URI will be sent to the browser from the HTTP server with each request.
++ Regardless of whether the data URI content exists in a cached CSS or HTML file, the browser must decode the image each time a page renders: the decoding cost is paid repeatedly every time a page is viewed.
 </blockquote>
 
 [DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事](http://www.mobify.com/blog/data-uris-are-slow-on-mobile/)もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、
