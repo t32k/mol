@@ -53,10 +53,10 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 #### 各テスト結果
 
-<ul>
-	<li><a href="http://www.webpagetest.org/result/130730_2V_G48/1/details/">WebPagetest Test Details - Dulles : Normal.../normal_sprite.html</a></li>
-	<li><a href="http://www.webpagetest.org/result/130730_7X_G49/3/details/">WebPagetest Test Details - Dulles : DataURI...inline_sprite.html</a></li>
-</ul>
+
++ <a href="http://www.webpagetest.org/result/130730_2V_G48/1/details/">WebPagetest Test Details - Dulles : Normal.../normal_sprite.html</a>
++ <a href="http://www.webpagetest.org/result/130730_7X_G49/3/details/">WebPagetest Test Details - Dulles : DataURI...inline_sprite.html</a>
+
 どうでしょうか？
 
 Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.994s</strong>で、ビジュアル比較においても、表示完了までの時間がDataURIを使用した方が速い。まぁHTTPリクエストが2つと3つじゃ、リクエストの少ないほうが速いのは当たり前なんですけど、ここではレンダリング過程を見てほしい。
