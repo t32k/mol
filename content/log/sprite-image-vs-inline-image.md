@@ -53,8 +53,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 
 #### 各テスト結果
 
-
-+ <a href="http://www.webpagetest.org/result/130730_2V_G48/1/details/">WebPagetest Test Details - Dulles : Normal.../normal_sprite.html</a>
++ [WebPagetest Test Details - Dulles : Normal.../normal_sprite.html](http://www.webpagetest.org/result/130730_2V_G48/1/details/)
 + <a href="http://www.webpagetest.org/result/130730_7X_G49/3/details/">WebPagetest Test Details - Dulles : DataURI...inline_sprite.html</a>
 
 どうでしょうか？
@@ -88,12 +87,13 @@ Fully Loadedがノーマルで<strong>1.187s</strong>で、DataURIが<strong>0.9
 
 [DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事](http://www.mobify.com/blog/data-uris-are-slow-on-mobile/)もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、
 
-
-> Inline images judiciously
+<blockquote>
+Inline images judiciously
 + Inlining increases parse time
 + External images don't block the parser
 + Can defer resource discovery and execution
 + SPDY server push &gt; image inlining
+</blockquote>
 
 また、Velocity2012での[nderstanding and Optimizing Web Performance Metrics](https://perf-metrics-velocity2012.appspot.com/#41)でも、DataURIは慎重に使用しろと言われてますので、用法用量お守りの上、お使いくださいませ。
 
