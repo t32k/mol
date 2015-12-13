@@ -54,7 +54,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 #### 各テスト結果
 
 + [WebPagetest Test Details - Dulles : Normal.../normal_sprite.html](http://www.webpagetest.org/result/130730_2V_G48/1/details/)
-+ <a href="http://www.webpagetest.org/result/130730_7X_G49/3/details/">WebPagetest Test Details - Dulles : DataURI...inline_sprite.html</a>
++ [WebPagetest Test Details - Dulles : DataURI...inline_sprite.html](http://www.webpagetest.org/result/130730_7X_G49/3/details/)
 
 どうでしょうか？
 
