@@ -13,7 +13,7 @@ ogimage: http://ecx.images-amazon.com/images/I/51vnf8h3ieL.jpg
 
 久しぶりに本読んだので紹介だよ。おっさん、ピクセルパーフェクトなCSSコーディングしてた時代がIE6/7が全盛期だったので、未だにその当時のCSSコーディングのクセが抜けない。最近はCSS設計だったり関連ツールに興味の対象が移っていて、CSS自体の機能をちゃんと把握していなかった。
 
-Flexbox何それおいしいの？ `display:table` 最強じゃん！って状態だし、 `E:last-child`擬似セレクタ使うのは甘え、男は黙ってclass属性に`-last`付けるべしって思ってるし、 アニメーションに関しては、`tansform`、 `tanslate`、 `transition`、一体でどれがpropertyでvalueなのか、頭の中がごっちゃになってる状況だ。
+Flexbox何それおいしいの？ `display:table` 最強じゃん！って状態だし、 `E:last-child`擬似セレクタ使うのは甘え、男は黙ってclass属性に`-last`付けるべしって思ってるし、 アニメーションに関しては、`transform`、 `translate`、 `transition`、一体でどれがpropertyでvalueなのか、頭の中がごっちゃになってる状況だ。
 
 このままだと老害一直線だと感じたので、いわゆるCSS3の知識を詰め込まなければいけない。ということで表題の書籍がGOODだった。
 
