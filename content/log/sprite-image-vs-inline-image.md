@@ -66,7 +66,7 @@ Fully Loadedがノーマルで**1.187s**で、DataURIが**0.994s**で、ビジ�
 
 比較のテストはシンプルな実装だが、現実問題のサイトはもっと複雑だ。どのようなレンダリング過程になるのかはサイトそれぞれだし、DataURIにして読み込み時間を最小限するというのもひとつの手段かと思う。
 
-<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index#TOC-Measuring-Visual-Progress"><img class="aligncenter size-full wp-image-5075" title="Visual Progress" src="/static/blog/2013/07/vp.png" alt="" width="900" height="520" /></a>
+<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index#TOC-Measuring-Visual-Progress">![](/static/blog/2013/07/vp.png)</a>
 
 ただ、我々は機械ではないので、数値を機械的に判断するのではなく、**体感速度**という観点からも考えなければならない。ノーマルのテストのようなブログレッシブレンダリングは、ユーザーに即座のフィードバックを返している点で、ユーザーに安心感を与えている。
 
