@@ -9,7 +9,7 @@ ogimage: https://farm9.staticflickr.com/8393/8644568837_cc52139c2d_o.jpg
 
 ![](/mol/images/2013/0413/01.jpg)
 
-今日は表題のとおり、MBP13”の2012Midのメモリ交換したよ。BTOのとき、16GBが選択できなくて、てっきり認識しないのかと思ってたけど普通に認識するみたいだ。
+今日は表題のとおり、MBP13”の2012Midのメモリ交換した。BTOのとき、16GBが選択できなくて、てっきり認識しないのかと思ってたけど普通に認識するみたいだ。
 
 ![](/mol/images/2013/0413/02.png)
 
@@ -17,7 +17,7 @@ ogimage: https://farm9.staticflickr.com/8393/8644568837_cc52139c2d_o.jpg
 
 ![](/mol/images/2013/0413/03.png)
 
-4GB ×2の8GB。まぁそこまでメモリ不足に悩んでないけどAdobe CSとかVMを一緒に立ち上げてるとなかなか重い気がするのと、1万未満で16GBが買えるということなので買ってみた。
+4GB×2の8GB。まぁそこまでメモリ不足に悩んでないけどAdobe CSとかVMを一緒に立ち上げてるとなかなか重い気がするのと、1万未満で16GBが買えるということなので買ってみた。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0094P98FK/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51ghxIR7QoL.jpg" alt="シリコンパワー メモリモジュール 204Pin SO-DIMM DDR3-1600(PC3-12800) 8GB×2枚組 SP016GBSTU160N22" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0094P98FK/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">シリコンパワー メモリモジュール 204Pin SO-DIMM DDR3-1600(PC3-12800) 8GB×2枚組 SP016GBSTU160N22</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://sakuratan.biz/azlink/dp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC%20%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%20204Pin%20SO-DIMM%20DDR3-1600(PC3-12800)%208GB%C3%972%E6%9E%9A%E7%B5%84%20SP016GBSTU160N22/B0094P98FK/warikiru-22" target="_blank">AZlink</a>  at 2015.2.11</div></div><div class="azlink-detail">Not Machine Specific<br />シリコンパワー<br />売り上げランキング: 612<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0094P98FK/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
@@ -27,16 +27,16 @@ ogimage: https://farm9.staticflickr.com/8393/8644568837_cc52139c2d_o.jpg
 __メモリカードの仕様__
 
 - DDR3 (Double Data Rate Small Outline Dual Inline Memory Module) 方式
-- 67.6mm x 30mm (1.18 インチ)
-- 2 GB または 4 GB
-- 204 ピン
+- 67.6mm x 30mm (1.18インチ)
+- 2GB または 4GB
+- 204ピン
 - PC3-12800 DDR3 1600 MHz タイプの RAM
 
 ***
 
 + __[MacBook Pro：メモリの取り外し方法と取り付け方法](http://support.apple.com/kb/HT1270?viewlocale=ja_JP)__
 
-あと、メモリ交換する際にMBPを開かなきゃいけないんだけど、これて保証の対象外になるんだよなーと思ってたけど、__保証の対象外になるのはそのメモリ交換に起因する故障の場合__で、例えば電源タップがなんか知らんが壊れたとかなら期間内であれば保証してもらえるって感じかな。
+あと、メモリ交換する際にMBPを開かなきゃいけないんだけど、これって保証の対象外になるんだよなーと思ってたけど、__保証の対象外になるのはそのメモリ交換に起因する故障の場合__で、例えば電源タップがなんか知らんが壊れたとかなら期間内であれば保証してもらえるって感じかな。
 
 + __[SSDやメモリを換装するとサポート対象外？: Apple サポートコミュニティ](https://discussionsjapan.apple.com/thread/10116307?start=0&amp;tstart=0)__
 
