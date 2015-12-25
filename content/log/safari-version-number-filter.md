@@ -10,8 +10,6 @@ Safariのシェア並びにバージョン別のシェアが知りたくて、Go
 
 <span style="color: #808080;"><em>ユーザー &gt; PC環境 &gt; ブラウザ &gt; Safari</em></span>
 
-<!--more-->
-
 こんなんわかんないよヽ(`Д´ﾒ)ﾉ ﾌﾟﾝｽｶ！ってことで、これをなんとかフィルタで書き換えたい欲望に駆られました。<a href="http://ja.wikipedia.org/wiki/Safari#.E3.83.90.E3.83.BC.E3.82.B8.E3.83.A7.E3.83.B3.E5.B1.A5.E6.AD.B4">Wikipedia</a>で確認してみると、どうやら<strong>410番台が2.x系</strong>、<strong>520番台が3.x系</strong>、<strong>530番台が4.x系</strong>だと分かる。1.x系はちょっとごちゃごちゃしているのと、シェアも少ないだろうということでスルーの方向で。
 
 で、書いてみたフィルタがこれ。
