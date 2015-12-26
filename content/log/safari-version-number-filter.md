@@ -1,12 +1,11 @@
 ---
 date: 2010-03-04
 title: Google AnalyticsでSafariのバージョンを確認するフィルタ
-categories:
-- analytics
+categories: analytics
 ---
 Safariのシェア並びにバージョン別のシェアが知りたくて、Google Analyticsで確認してみたらびっくり、バージョンじゃなくてビルド番号なんだね、こやつは。
 
-<span style="color: #808080;"><em>ユーザー &gt; PC環境 &gt; ブラウザ &gt; Safari</em></span>
+`ユーザー &gt; PC環境 &gt; ブラウザ &gt; Safari`
 
 こんなんわかんないよヽ(`Д´ﾒ)ﾉ ﾌﾟﾝｽｶ！ってことで、これをなんとかフィルタで書き換えたい欲望に駆られました。<a href="http://ja.wikipedia.org/wiki/Safari#.E3.83.90.E3.83.BC.E3.82.B8.E3.83.A7.E3.83.B3.E5.B1.A5.E6.AD.B4">Wikipedia</a>で確認してみると、どうやら<strong>410番台が2.x系</strong>、<strong>520番台が3.x系</strong>、<strong>530番台が4.x系</strong>だと分かる。1.x系はちょっとごちゃごちゃしているのと、シェアも少ないだろうということでスルーの方向で。
 
