@@ -23,14 +23,6 @@ excerpt: "昨年のFrontrend/06では、全くもってながら個人的な趣�
 
 gh-pagesをDev環境と見立てて、Dev環境でBuildした内容がパフォーマンス的に不適切（テストが失敗）ならProduction環境にはリリースできない・させないというようなサイクルを想定している。
 
-今回はMapleの下記のファイルを検証してみる。
-
-+ [maple/test/fixtures/perf_test.html at master · t32k/maple](https://github.com/t32k/maple/blob/master/test/fixtures/perf_test.html)
-
-これがgh-pagesにマージしてやると、下記のURLでホストされる。
-
-+ [http://t32k.me/maple/test/fixtures/perf_test.html](http://t32k.me/maple/test/fixtures/perf_test.html)
-
 ## Travis-CI
 
 CIサーバーはなにもJenkinsだけではない。GitHub上でレポジトリを管理しているのなら連携している[Travis-CI](https://travis-ci.org/)を使用するのが何かと都合がよい。
@@ -52,10 +44,10 @@ node_js: 0.10
 ```
 env:
   global:
-    - GIT_AUTHOR_NAME=t32k
-    - GIT_AUTHOR_EMAIL=ijok.ijok@gmail.com
-    - GIT_COMMITTER_NAME=t32k
-    - GIT_COMMITTER_EMAIL=ijok.ijok@gmail.com
+    - GIT_AUTHOR_NAME=YOUR_ID
+    - GIT_AUTHOR_EMAIL=YOUR_MAIL_ADDRESS
+    - GIT_COMMITTER_NAME=YOUR_ID
+    - GIT_COMMITTER_EMAIL=YOUR_MAIL_ADDRESS
     - secure: "Xtk................"
 ```
 
