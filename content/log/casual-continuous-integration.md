@@ -44,10 +44,17 @@ node_js: 0.10
 ```
 env:
   global:
+<<<<<<< HEAD
     - GIT_AUTHOR_NAME=YOUR_ID
     - GIT_AUTHOR_EMAIL=YOUR_MAIL_ADDRESS
     - GIT_COMMITTER_NAME=YOUR_ID
     - GIT_COMMITTER_EMAIL=YOUR_MAIL_ADDRESS
+=======
+    - GIT_AUTHOR_NAME=your-name
+    - GIT_AUTHOR_EMAIL=your-mail
+    - GIT_COMMITTER_NAME=your-name
+    - GIT_COMMITTER_EMAIL=your-mail
+>>>>>>> bc00bb731570eceb7f151001eafb282b7ce2fe56
     - secure: "Xtk................"
 ```
 

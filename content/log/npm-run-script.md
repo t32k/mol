@@ -151,9 +151,13 @@ __Windowsユーザーは？__
 
 そうゆうわけで、Gulp/Gruntを通さなければプラグインの依存パッケージの更新追随を待たなくてもいいし、Node.js/npmに関する知識とかUNIXに関する知識は、数ヶ月で変わることもないので、変化に適応できない私みたいなおっさんにも優しいんじゃないんでしょうか。ちょっと複雑なことやろうとすると、Node.jsのコードを書かないとできないかもしれないけど、きっと心の優しい誰かがその素晴らしい見聞を共有してくれると思うのです。おっさんは気長に待つのです。
 
-***
-
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/518ME653H3L._SL160_.jpg" alt="UNIXという考え方―その設計思想と哲学" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/" name="azlinklink" target="_blank">UNIXという考え方―その設計思想と哲学</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.3.26</div></div><div class="azlink-detail">Mike Gancarz,芳尾 桂<br />オーム社<br />売り上げランキング: 21740<br /></div><div class="azlink-review" style="margin-top:10px;margin-bottom:10px"></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 てか、Makefileでいいんじゃね？  
 って、思ったそこのでっかいおっさんちょっと出てこいよ！
+
+***
+
+#### 関連エントリ
+
++ [【翻訳】Web世代のデベロッパーのためのmake - MOL](/mol/log/make-for-the-web-generation/)
