@@ -2,7 +2,7 @@ box: samueldebruyn/hugo-build
 build:
   steps:
     - arjen/hugo-build:
-        version: 0.14
+        version: "HEAD"
     - script:
         name: Copy RSSfeed to feed.xml
         code: cp public/index.xml public/feed.xml
@@ -11,6 +11,7 @@ deploy:
     - install-packages:
         packages: git ssh-client
     - lukevivier/gh-pages:
+        version: "0.2.1"
         token: $GIT_TOKEN
         basedir: public
-        repo: t32k/mol
+
