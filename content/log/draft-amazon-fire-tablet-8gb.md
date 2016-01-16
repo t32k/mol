@@ -1,7 +1,6 @@
 ---
 date: 2016-01-19
 title: Amazon Fireタブレット（8GB)を購入した
-subtitle: 
 categories: gadget
 excerpt: トップページのカルーセルヘッダーにいつもこのタブレットのバナーが出ていて、もうわかったよ、買うよ！みたいな気持ちになってきてたので購入してしまった（謎）
 ogimage: http://ecx.images-amazon.com/images/I/51Wl2Y-%2BP4L.jpg
