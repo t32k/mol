@@ -1,4 +1,4 @@
-box: wercker/default
+box: samueldebruyn/hugo-build
 build:
   steps:
     - arjen/hugo-build:
