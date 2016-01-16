@@ -1,4 +1,4 @@
-box: node:latest
+box: wercker/default
 build:
   steps:
     - arjen/hugo-build:
