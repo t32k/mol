@@ -1,77 +1,47 @@
 ---
-date: 2016-01-19
-title: StyleStats Chrome拡張機能ができました
-subtitle: 
+date: 2016-01-20
+title: StyleStatsのChrome拡張機能ができました
+subtitle: StyleStats Chrome Extension
 categories: develop
 excerpt:
 ogimage: 
 draft: true
 ---
 
-# つくったもの
-
 ![StyleStats Chrome拡張機能](http://i.imgur.com/EJSI1qU.gif)
 
-
-[StyleStats](https://github.com/t32k/stylestats)のChrome Extensionを作りました。
+[StyleStats](https://github.com/t32k/stylestats)のChrome拡張を作った。
 
 + [stylestats/stylestats-chrome-extension](https://github.com/stylestats/stylestats-chrome-extension)
 
-StyleStatsは僕が作っているOSSで、CSSを解析して指標を表示してくれるnpmです。それを簡単にChrome拡張から利用できるようにしました。調べたいページで右上のボタンを押すと新規タブで結果が出ます。
+StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
 
-なので、CSS解析ツールとしてのStyleStatsをもっとデザインよりにする必要がありました。ということで、今回の拡張は`color`や`font-family`、`font-size`のプレビュー表示を主役な感じにしました。
+## これまでの流れ
 
 ### CLI
 
-![これまで](https://kaizen.qiita.com/files/0f9fb514-d47e-c3e7-1dff-902d9a9d664a.png)
+```shell
+$ npm install -g stylestats
+```
 
-これはシステマティックすぎる。
+[npm](https://www.npmjs.com/package/stylestats)からインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
 
 ### Web
 
-![ウェブ](https://kaizen.qiita.com/files/3f9ec6ec-d0f8-3882-f03f-648ef9531ede.png)
+そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、`Unique Font Families`、　`Unique Colors` がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
 
-いくぶんかユーザーフレンドリーなインターフェースになったけど、Webにアクセスするのめんどくさい。
+### CRX
 
-### Chrome拡張
-
-![キタコレ！](https://kaizen.qiita.com/files/54a5f3eb-112a-4af8-fd81-6cbca03a2b0a.png)
+そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。`Unique Font Sizes`もプレビュー可能になった。
 
 
-```
-　　　　, - - ､
-　　＜（　　　 `､　ヽ　 '　'　`,-‐､
-　　　　/⌒　　￣＼＼从/, | 刃
-　　　 /　.ｲ　　　　l |　 ' ; 　|　.|
-　　　/ ./ |　　　　 | | ∴`　|　 |
-　　 / ./　 |　　　　| .|/Wヽ |　 |＿∧
-　　/ ./　　|　　　　|　|､'　` |　 |´Д｀）__ 　　イヤッッホォォォオオォオウ！
-　⊂､Ｊ　 （　　 i.　 !__）　; :　|　　　　^ﾑ　〕
-　 !　 !!　　|　 .||　 |　!! '　　　|　　　　|.i　.|
-　 :　 :: 　 .|　 .| |　 |　:: 　　　 |　　 　 |!　 |
-　　　　　 )　 ）　)　 ）　/￣｀ヽ　　　 | `‐´!
-　　　　　.|　 |　 |　 |　 |＼　"ﾍ､._　　| !　 :
-　　　　　|　 |　　|　 |.　! ; !＼　 l|　　| .;
-　　　　 .|　 |.　　 |　 |ヾ从 /, | / |.　 | .
-　　　　 |＼__）　 |＼__) ､ ` 　`'.　|.　 |
-　　　　 !　 ! !　　!　!　!!;　''　 　　 |　 |
-　 　 　 :　 : :　　 :　:／/W ＼ 　　|　 |
-　　　　　　　 　 　 '　 ;　 ,　　`　､ |　 !
-　　　　　　　　　　　 　 　 　 　 　 !__/
-　　　　　　　　　　　　　　　　　　 !　! !
-　　　　　　　　　　　　　　　　　　 :　: :
-```
+## 使った技術とか
 
+### ES2015
 
-# なにを得たの？
+当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。
 
-> そこはヘブン(*´ω｀*)！
-
-当たり前だけど、Chrome拡張なのでクロスブラウザ対応を気にしなくてよいし、Angular.jsもいないので、のびのびできました。しかもBabelならなくてもいい！
-
-## ES2015
-
-### arrow function + promise + fetch
+### Promise + Fetch API + Arrow functions 
 
 ```js
 Promise.all(links.map(link =>
@@ -80,11 +50,11 @@ Promise.all(links.map(link =>
 .then(texts => {});
 ```
 
-`<link rel="stylesheet">`要素を見つけて、リモートのスタイルシートをGETしてるけど、Promiseできるのでコールバック地獄にならない、Fetch API使えるのでXMLHTTPRequestみたいな煩雑な記述しなくてもいい、アロー関数でタイプ数も少なくて済む。この記述とか普通にES3/5で書けば20~30行くらいになるだろう。
+ということで、`<link rel="stylesheet" href="/stylesheet.css">`要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるので`XMLHttpRequest`みたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
 
-### let + const
+### Let + Const
 
-あと、自己満だけど`let`とか`const`とか。
+あとまぁ特にそこまで便利になるわけでもないけど、一応`let`とか`const`とかも使っといた。
 
 ## CSS3
 
@@ -94,9 +64,8 @@ Promise.all(links.map(link =>
 
 ### currentColor
 
-![Screen Shot 2016-01-15 at 15.08.30.png](https://kaizen.qiita.com/files/3a979a13-ca51-128e-7fe9-ab21a7f90db3.png)
 
-```html
+```hbs
 <ul>
   {{#each body.uniqueColors}}
   <li style="color:{{this}}">
