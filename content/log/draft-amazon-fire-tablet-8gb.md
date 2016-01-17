@@ -7,7 +7,6 @@ ogimage: http://ecx.images-amazon.com/images/I/51Wl2Y-%2BP4L.jpg
 draft: true
 ---
 
-
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00Y3TMKKM/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51Wl2Y-%2BP4L._SL160_.jpg" alt="Fire タブレット 8GB、ブラック" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00Y3TMKKM/warikiru-22/" name="azlinklink" target="_blank">Fire タブレット 8GB、ブラック</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.1.16</div></div><div class="azlink-detail"><br />Amazon<br />売り上げランキング: 2<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00Y3TMKKM/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 トップページのカルーセルヘッダーにいつもこのタブレットのバナーが出ていて、もうわかったよ、買うよ！みたいな気持ちになってきてたので購入してしまった（謎）。プライム会員だと4000円OFFの4,980円だし、飲み会一回我慢したと思えば、たとえゴミが来たとしても、たいしたことない。たぶん、知らんけど。いや、ゴミ来たらいやだけど。
@@ -18,7 +17,7 @@ draft: true
 
 なら、Kindleを購入すればいいじゃないかと思うけど、あの砂鉄みたいなEインクが個人的にはどうも慣れない。これまで２度Kindleを購入しているけど、どの時もあの砂鉄がやっぱり耐えられなくて返品してしまった経験がある。
 
-ちなみに、Kindle端末じゃなくてもAmazon FireでもKindleオーナーライブラリーを利用できるのも今回購入をした理由の一つだ。千円の本5回借りれば元がとれるぞ！プライム会員である必要があるけど。
+ちなみに、Kindle端末じゃなくてもAmazon Fireでも[Kindleオーナーライブラリー](http://www.amazon.co.jp/gp/feature.html?docId=3077704816)を利用できるのも今回購入をした理由の一つだ。千円の本5回借りれば元がとれるぞ！プライム会員である必要があるけど。
 
 ## 重さと価格
 
@@ -36,8 +35,8 @@ draft: true
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B017SMDMRK/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41Nj30cf6fL._SL160_.jpg" alt="Samsung microSDHCカード 32GB SAMSUNG EVO Class10 UHS-I対応 MB-MP32DA/FFP" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B017SMDMRK/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">Samsung microSDHCカード 32GB<br>SAMSUNG EVO Class10 UHS-I対応</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.1.16</div></div><div class="azlink-detail"><br />日本サムスン<br />売り上げランキング: 958<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B017SMDMRK/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-本体が5千円なのに、3千円の純正品カバーを買うのも馬鹿らしいと思ってほとんど何も買ってない。フィルムも買ってない、どうせ家でしか使わないだろうと思った。
+本体が5千円なのに、3千円の純正品カバーを買うのも馬鹿らしいと思ってほとんど何も買ってない。フィルムも買ってない、どうせ家でしか使わないだろうと思った。重くなるのもいやだしね。
 
-容量的には、まぁKindle端末としてみれば8GBで十分なんだろうけど、microSDカードスロットがあるのと、心もとない気持ちもあって32GBのカードを買ってしまった。千円だしいいか。いいよね。
+容量的には、まぁKindle端末としてみれば8GBで十分なんだろうけど、microSDカードスロットがあるのと、心もとない気持ちもあって32GBのカードをつい買ってしまった。千円だしいいか。いいよね。
 
 [2016年版の新型Nexus 7](http://sumahoinfo.com/nexus7-2016-model-release-may-cpu-spec-memory)が出るとかゆうニュースを耳にしたけど、発売は夏とか聞くし、まぁそれまでの代替品としても5千円ならアリだろう。

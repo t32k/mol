@@ -3,12 +3,12 @@ date: 2016-01-20
 title: StyleStatsのChrome拡張機能ができました
 subtitle: StyleStats Chrome Extension
 categories: develop
-excerpt:
+excerpt: StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
 ogimage: 
 draft: true
 ---
 
-![StyleStats Chrome拡張機能](http://i.imgur.com/EJSI1qU.gif)
+![StyleStats Chrome拡張機能](/mol/images/2016/0120-00.gif)
 
 [StyleStats](https://github.com/t32k/stylestats)のChrome拡張を作った。
 
@@ -20,6 +20,8 @@ StyleStatsはCSSを解析してスタイルの各種指標を表示してくれ�
 
 ### CLI
 
+![Commandline](/mol/images/2016/0120-00.png)
+
 ```shell
 $ npm install -g stylestats
 ```
@@ -28,9 +30,13 @@ $ npm install -g stylestats
 
 ### Web
 
+![StyleStats.org](/mol/images/2016/0120-01.png)
+
 そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、`Unique Font Families`、　`Unique Colors` がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
 
 ### CRX
+
+![Chrome Extension](/mol/images/2016/0120-02.png)
 
 そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。`Unique Font Sizes`もプレビュー可能になった。
 
@@ -60,10 +66,17 @@ Promise.all(links.map(link =>
 
 ### object-fit
 
-`background-cover`的なことを`img`要素に対して直接できる
+
+```css
+.screenshot img {
+  object-fit: cover;
+  object-position: top;
+}
+```
+
+`background-size`的なことを`img`要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にして`background-size:cover`的なことをしたが、これだと印刷したときに表示されないので、そういえば`object-fit`があったのを思い出した。今のところIEではサポートされていない。
 
 ### currentColor
-
 
 ```hbs
 <ul>
@@ -75,7 +88,7 @@ Promise.all(links.map(link =>
 </ul>
 ```
 
-色丸は`span`の`background-color`で指定してあるのだけど、`.circle { background-color:currentcolor }`で現在のその要素のcolorプロパティを指定できる。
+`Unique Colors`の色丸の部分は`span`の`background-color`で指定してあるのだけど、`.circle { background-color:　currentColor; }`で、現在のその要素のcolorプロパティを指定できる。`currentColor`キーワードが使えないと、`<span style="background-color:{{this}}"></span>`みたいな感じで`span`の方にも指定しなきゃいけないというダルいことになる。`currentColor`自体は、IE9以上で使えるので、そこまで最新技術ってことでもないけど良い使い道が見つかって嬉しかったのだ。
 
 
 ## Chrome Extension API
@@ -86,11 +99,11 @@ Promise.all(links.map(link =>
 chrome.tabs.captureVisibleTab(screenshotUrl => {})
 ```
 
-これでキャプチャ取れる！Phantom.jsなんて使わなくてもいい！
+これでキャプチャ取れる！簡単！Phantom.jsなんて使わなくてもいい！
 
 ### chrome.runtime
 
-アイコンをクリックしたらcontent scriptを動かすとか。そんでcontent scriptの結果をbackground.jsに返すとか。
+アイコンをクリックしたらcontent scriptを動かすとか。そんでcontent scriptの結果をbackground.jsに返すとか。[Message Passing](https://developer.chrome.com/extensions/messaging)というやつだ。いつも忘れるのでメモっとく。
 
 ```background.js
 // これでcontent.jsに送信
@@ -110,9 +123,3 @@ chrome.runtime.onMessage.addListener(analyzeCSS);
 // これでbackground.jsに送信
 chrome.runtime.sendMessage({error: false, meta: meta, body: result});
 ```
-
-## 課題感
-
-・エラーハンドリング
-・`window.print()`使えないのかよ！印刷綺麗に！
-・なんかもっとデザインに役に立つ情報とは？
