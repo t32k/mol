@@ -4,7 +4,6 @@ title: Amazon Fireタブレット（8GB)を購入した
 categories: gadget
 excerpt: トップページのカルーセルヘッダーにいつもこのタブレットのバナーが出ていて、もうわかったよ、買うよ！みたいな気持ちになってきてたので購入してしまった（謎）
 ogimage: http://ecx.images-amazon.com/images/I/51Wl2Y-%2BP4L.jpg
-draft: true
 ---
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00Y3TMKKM/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51Wl2Y-%2BP4L._SL160_.jpg" alt="Fire タブレット 8GB、ブラック" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00Y3TMKKM/warikiru-22/" name="azlinklink" target="_blank">Fire タブレット 8GB、ブラック</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.1.16</div></div><div class="azlink-detail"><br />Amazon<br />売り上げランキング: 2<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00Y3TMKKM/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
