@@ -123,3 +123,9 @@ chrome.runtime.onMessage.addListener(analyzeCSS);
 // これでbackground.jsに送信
 chrome.runtime.sendMessage({error: false, meta: meta, body: result});
 ```
+
+## Material Design Lite
+
++ [Material Design Lite](http://www.getmdl.io/)
+
+使ったと言えないほど、ほぼ既存のテンプレートをいじっただけだ。基本BEMっぽいかんじでクラス属性を付与していくのだけど、`mdl-color-text--grey-500`こうゆう長いユーティリティのクラス属性とかもバンバンつけていく感じで、クラス属性値の見通しがあんまりだなと思った。まぁ、独自の接頭辞とかつけて名前空間区切ったりして汎用性を考慮しなければならないCSSライブラリの宿命か。
