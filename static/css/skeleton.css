@@ -272,6 +272,26 @@ a:hover .social-links-linkedin {
     margin-top: 4rem;
 }
 
+.post-tag a {
+     display: inline-block;
+     line-height: 22px;
+     padding: 5px 10px;
+     border-radius: 3px;
+     color: rgba(0,0,0,0.6);
+     background: rgba(0,0,0,0.05);
+     font-size: 13px;
+ }
+.post-tag a:hover {
+    color: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.1);
+}
+
+.post-tag a::first-letter {
+    text-transform: uppercase;
+}
+
+
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
