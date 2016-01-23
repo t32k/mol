@@ -2,7 +2,8 @@
 date: 2011-03-01
 title: 施策前後のCV率に有意差はあるのか？
 subtitle:
-categories: analytics
+categories: 
+    - analytics
 excerpt: はい、タイトルのとおりでございます。とある改善を行いまして、その効果というのが誤差の範疇なのか、それとも効果があったのか（プラスマイナス問わず）知りたい状況に陥りましたんで、いろいろ調べてみましたよというお話。
 ogimage: http://t32k.me/mol/images/2015/statics/01.jpg
 ---

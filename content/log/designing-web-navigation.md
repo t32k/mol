@@ -2,7 +2,8 @@
 date: 2009-05-25
 title: デザイニング・ウェブナビゲーション
 subtitle: 最適なユーザーエクスペリエンスの設計
-categories: books
+categories: 
+    - books
 excerpt: 使いやすいウェブサイトの構築において、根幹をなすテーマであるナビゲーションのデザインについて、理論から実践まで、豊富な実例と共に解説した書籍
 ogimage: http://lh5.ggpht.com/_1drnogi3vdg/ShqPxeDZpLI/AAAAAAAAAZU/N5YICvTUjI4/cat.jpg
 ---

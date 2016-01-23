@@ -2,7 +2,8 @@
 date: 2010-05-28
 title: Google Analytics 非同期トラッキングコード再考（2010）
 subtitle:
-categories: books
+categories: 
+    - books
 excerpt:
 ogimage:
 ---

@@ -2,7 +2,8 @@
 date: 2010-02-24
 title: CMSの観点から見たWordPress 
 subtitle: DooGA Tech Talks 04
-categories: books
+categories: 
+    - books
 excerpt: 先程、第4回社内Tech Talks無事終了した。前々回の@takumi0605さんの同僚で@ohumi_FBさんに「CMSの観点から見たWordPress ～その他のCMSと比べて～」と題して、WordPress中心にCMS全般について講義してもらった。
 ogimage: http://ecx.images-amazon.com/images/I/51sR-mLkHuL.jpg
 ---

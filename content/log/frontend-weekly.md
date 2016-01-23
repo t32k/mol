@@ -2,7 +2,8 @@
 date: 2015-01-06
 title: ”今の”フロントエンド開発を知るためのメルマガ：Frontend Weekly
 subtitle: Frontend Weekly is a weekly e-mail.
-categories: blog
+categories: 
+    - blog
 excerpt: Frontend Weeklyは、毎週フロントエンド開発に関連する記事、チュートリアル、動画/スライドなどを、斉藤 祐也、谷 拓樹、そして石本 光司の3名で世界中からキュレーションしてメールでお届けします。
 ---
 

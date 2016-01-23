@@ -1,7 +1,8 @@
 ---
 date: 2009-03-24
 title: Webサイトパフォーマンス管理と客観的評価手法セミナー
-categories: report
+categories: 
+    - report
 ---
 
 3月12日に開かれた<a href="http://www.gomez.co.jp/company/press/090205.html">Webサイトパフォーマンス管理と客観的評価手法セミナー</a>に行ってきたー

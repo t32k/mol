@@ -2,7 +2,8 @@
 date: 2015-01-05
 title: 【翻訳】デザインエンジニアリング
 subtitle: Design Engineering
-categories: translation
+categories: 
+    - translation
 excerpt: Design Engineering - Snook.ca
 ---
 

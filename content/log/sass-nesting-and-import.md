@@ -1,7 +1,8 @@
 ---
 date: 2012-07-12
 title: パフォーマンスからみるSass/Compass 第1回：Nestingと@import
-categories: performance
+categories: 
+    - performance
 ---
 
 

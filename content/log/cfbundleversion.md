@@ -2,7 +2,8 @@
 date: 2011-06-22
 title: Version Number (iTunes Connect) と Bundle version (CFBundleVersion)
 subtitle: バージョン番号ではまるの巻
-categories: development
+categories: 
+    - development
 excerpt: 前出したバージョンより、CFBundleVersionが低いからダメってことよね？1.2から1.2.1ってどーみても上がってんじゃん！てめぇ数字数えられねーのかよ!?てことで調べてみた。
 ogimage: http://t32k.me/static/blog/2011/06/itunes.png
 ---

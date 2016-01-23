@@ -1,7 +1,8 @@
 ---
 date: 2012-12-25
 title: Sublime Text 2 のアイコンをなんとかする
-categories: design
+categories: 
+    - design
 ---
 
 <strong><a href="http://www.adventar.org/calendars/20">Sublime Text 2 Advent Calendar 2012 </a></strong>

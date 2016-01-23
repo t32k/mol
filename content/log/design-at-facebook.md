@@ -2,7 +2,8 @@
 date: 2009-11-22
 title: 【翻訳】Facebookのデザイン
 subtitle: Design at Facebook
-categories: translation
+categories: 
+    - translation
 excerpt: LukeW | Design at Facebook
 ---
 

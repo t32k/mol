@@ -3,7 +3,8 @@ date: 2014-06-16
 title: 6月16日晴れ
 subtitle: Fake it till you make it!
 cover_image: /2014/06-16-cover.jpg
-categories: blog
+categories: 
+    - blog
 excerpt: "有給消化が終わって正式に退職になった。これで僕も東証一部上場企業社員から住所不定無職31歳男性だ。まじLike A Rolling Stone!"
 ---
 

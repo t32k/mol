@@ -2,7 +2,8 @@
 date: 2010-08-18
 title: 不都合な真実
 subtitle: スペシャル・コレクターズ・エディション [DVD]
-categories: books
+categories: 
+    - books
 excerpt: 第79回アカデミー賞2部門受賞(最優秀長編ドキュメンタリー賞、最優秀主題歌賞)!!
 ---
 

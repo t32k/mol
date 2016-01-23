@@ -2,7 +2,8 @@
 date: 2008-05-27
 title: 彼女があのテレビを買ったワケ
 subtitle: 男がわからなかった 女が商品を選ぶ本当の理由
-categories: books
+categories: 
+    - books
 excerpt: 女性心理がわかれば、不思議なくらい会社もグングン伸びる!女性マーケティングのパイオニア(ハー・ストーリイ)チーフプロデューサーが明かす、女ゴコロマーケティングの極意。
 ogimage: http://ecx.images-amazon.com/images/I/31gRk0pDLWL._SL160_.jpg
 ---

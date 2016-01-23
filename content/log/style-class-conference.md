@@ -2,7 +2,8 @@
 date: 2014-12-24
 title: Smashing Magazineのパフォーマンス改善ケースが凄まじい件
 subtitle: Improving Smashing Magazine’s Performance
-categories: development
+categories: 
+    - development
 cover_image: "/2014/12-24-cover.jpg"
 excerpt: 12/13にバンクーバーで開催されたThe Style & Class Conference 2014に参加して感銘を受けたのでVitaly Friedman氏のセッションを紹介するよ。
 ---

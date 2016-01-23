@@ -2,7 +2,8 @@
 date: 2009-02-12
 title: マイクロフォーマット
 subtitle: Webページをより便利にするマークアップテクニック
-categories: books
+categories: 
+    - books
 excerpt: マイクロフォーマット(microformats)とは、既存の(X)HTMLを用いつつ、ウェブページの情報により豊かな意味を与え、構造化する仕組みです。ウェブページをマイクロフォーマットに対応させることで、ウェブページ上の情報を、コンピュータでも処理しやすくなります。
 ogimage: http://ecx.images-amazon.com/images/I/41vZZo0080L.jpg
 ---

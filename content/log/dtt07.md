@@ -2,7 +2,8 @@
 date: 2010-06-30
 title: 決してムズイもんじゃない 〜初めてのPHPプログラミング〜
 subtitle: DooGA Tech Talks 07
-categories: report
+categories: 
+    - report
 excerpt: 昨日は第7回社内TechTalksを開催した。今回は社内のシステム部の人に来てもらってPHPについて講義してもらった！
 ogimage: https://farm5.staticflickr.com/4100/4745764968_45da2fafa1_b.jpg
 ---

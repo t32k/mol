@@ -2,7 +2,8 @@
 date: 2009-01-11
 title: MacBook Late 2006 ハードディスク交換・換装
 subtitle: MacBook Late 2006 (MA700J/A)
-categories: gadget
+categories: 
+    - gadget
 description: 最近、心もハードディスクもいっぱいイッパイ＞＜なので、せめてMacBook Late 2006 (MA700J/A)の方だけでもゆとりを持たせようとハードディスクを換装してみたよ。
 ---
 

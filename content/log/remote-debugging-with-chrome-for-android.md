@@ -1,7 +1,8 @@
 ---
 date: 2012-09-26
 title: Chrome for Androidでリモートデバッグ
-categories: development
+categories: 
+    - development
 ---
 
 さて、<a href="http://html.adobe.com/jp/edge/">Adobe Edgeツール&amp;サービス</a>が発表されましたね。リモートデバッグではAdobe Shadowが<a href="http://html.adobe.com/jp/edge/inspect/">Edge Inspect</a>に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は<a href="http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html">こことか参照</a>するとよい。

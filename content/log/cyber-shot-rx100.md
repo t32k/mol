@@ -2,7 +2,8 @@
 date: 2014-01-10
 title: サイバーショットRX100買った
 subtitle: Cyber-shot DSC-RX100
-categories: gadget
+categories: 
+    - gadget
 excerpt: "1.0型センサーとF1.8レンズを小型ボディに搭載"
 ogimage:
 ---

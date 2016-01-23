@@ -2,7 +2,8 @@
 date: 2011-04-27
 title: UIRequiredDeviceCapabilities
 subtitle: 初リジェクトなう！
-categories: development
+categories: 
+    - development
 excerpt: 初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！
 ---
 

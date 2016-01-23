@@ -1,5 +1,6 @@
 ---
-categories: development
+categories: 
+    - development
 date: 2015-01-28T18:14:51-08:00
 excerpt: 誰も傷つけない、傷つけたくない、そんなかわいいCSSライブラリです。
 ogimage: http://t32k.me/wisteria/img/hero.jpg

@@ -2,7 +2,8 @@
 date: 2010-01-04
 title: あなたの話はなぜ「通じない」のか
 subtitle: 山田 ズーニー
-categories: books
+categories: 
+    - books
 excerpt: 自分にうそをつかず、人と通じ合っていきたいあなたへ 
 ogimage:
 ---

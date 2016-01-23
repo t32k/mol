@@ -1,7 +1,8 @@
 ---
 date: 2013-03-09
 title: git push -f
-categories: blog
+categories: 
+    - blog
 ---
 
 ```shell

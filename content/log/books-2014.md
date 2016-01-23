@@ -1,7 +1,8 @@
 ---
 date: 2014-12-25
 title: 2014年に読んだ技術書とか
-categories: blog
+categories: 
+    - blog
 excerpt: 英語の参考書はよく買ったなー。
 ---
 

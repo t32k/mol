@@ -3,7 +3,8 @@ date: 2014-03-24
 title: バッジ駆動開発（2014:Node.js）
 subtitle: Readmeをバッジで飾ろう！
 cover_image: /2014/03-24-cover.jpg
-categories: development
+categories: 
+    - development
 excerpt: "みんなバッジ好き？(　ﾟ∀ﾟ)o彡ﾟバッジ！バッジ！バッジ！"
 ---
 

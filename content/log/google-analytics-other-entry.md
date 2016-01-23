@@ -1,7 +1,8 @@
 ---
 date: 2009-11-20
 title: Google Analyticsの(other)とはなんぞや？
-categories: analytics
+categories: 
+    - analytics
 excerpt: アクセス解析してたら、どうもデータの取れていないページがある事に気づいた。確かに該当のページは他のページと比べてあまり見られてなさそうなページなので、もしかして、はしょられているの？なんて思いながらGoogle Analyticsのそこらへんの仕様について調べてみた。
 ---
 

@@ -2,7 +2,8 @@
 date: 2009-10-09
 title: ブラック・スワン
 subtitle: 不確実性とリスクの本質
-categories: books
+categories: 
+    - books
 excerpt: 未来予測を切って捨て、経済学とファイナンス理論を根底から揺さぶり、ベル型カーブでは扱えない不確実性の核心に迫る。
 ogimage: http://ecx.images-amazon.com/images/I/41snE5NgDHL.jpg
 ---

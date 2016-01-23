@@ -2,7 +2,9 @@
 date: 2015-12-14
 title: CSS3開発者ガイドーモダンWebデザインのスタイル設計
 subtitle: うまく魅せないCSSなんてCSSじゃない！
-categories: books
+categories: 
+    - books
+    - css
 excerpt: 久しぶりに本読んだので紹介だよ。おっさん、ピクセルパーフェクトなCSSコーディングしてた時代がIE6/7が全盛期だったので、未だにその当時のCSSコーディングのクセが抜けない。
 ogimage: http://ecx.images-amazon.com/images/I/51vnf8h3ieL.jpg
 ---

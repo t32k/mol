@@ -2,7 +2,8 @@
 date: 2014-12-15
 title: 2014年の振り返りと人気記事まとめ
 subtitle: 今年もいろいろあったわーJ( ‘ｰ`)し
-categories: blog
+categories: 
+    - blog
 cover_image:  /2014/12-15-cover.jpg
 excerpt: 今年もいろいろあったわーJ( ‘ｰ`)し
 ---

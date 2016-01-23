@@ -3,7 +3,8 @@ date: 2014-01-09
 title: 手軽にCIを体験してみたい・その2
 subtitle: Proactive Web Performance Optimization with Jenkins
 cover_image: /2014/01-08-cover.png
-categories: performance
+categories: 
+    - performance
 excerpt: "前回の記事が全然手軽じゃない気がしてきたので、今回も幾分かマシにCIを体験するというかCIサーバ立てずにがんばってみる。"
 ---
 

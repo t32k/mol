@@ -2,7 +2,8 @@
 date: 2009-10-07
 title: 分かった気になるHTML5 
 subtitle: DooGA Tech Talks 01
-categories: report
+categories: 
+    - report
 excerpt: shoitoさんが白川郷で聞けなかった話を弊社まで来て講演してくれるということなので自分が会場など手配した。
 ogimage: http://lh3.ggpht.com/_1drnogi3vdg/SsyfyInGOSI/AAAAAAAAAnE/gvAdnyr4DTQ/html5.jpg
 ---

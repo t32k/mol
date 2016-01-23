@@ -2,7 +2,8 @@
 date: 2016-01-20
 title: StyleStatsのChrome拡張機能ができました
 subtitle: StyleStats Chrome Extension
-categories: development
+categories: 
+    - development
 excerpt: StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
 ogimage: 
 draft: true

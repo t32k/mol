@@ -2,7 +2,8 @@
 date: 2007-09-27
 title: じゃない、じゃない、そうじゃない
 subtitle: アイデアのヒント
-categories: blog
+categories: 
+    - blog
 excerpt: 確かに優秀な人は学ぶ意欲があると思う。でも、よく知らない人がその人を見ると、その優秀さだけが見えて、「すごいなーこの人、天才なんだ。自分とは違う人なんだ。」と簡単に判断してしまうことが多い。自分はそうだった。
 ogimage: http://ecx.images-amazon.com/images/I/417NZZW9GVL.jpg
 ---

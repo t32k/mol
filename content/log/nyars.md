@@ -2,7 +2,8 @@
 date: 2010-12-09
 title: WebデザイナーだけどiPhoneカメラアプリ、リリースできました！
 subtitle: Nyars
-categories: javascript
+categories: 
+    - javascript
 excerpt: あたしWebデザイナーだけど、制作期間実質1週間（コードだけなら3日）でiPhoneカメラアプリを制作して、今日リリースまでこぎつけることができました。
 ---
 

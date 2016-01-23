@@ -2,7 +2,8 @@
 date: 2010-01-05
 title: ライト、ついてますか—問題発見の人間学
 subtitle: How to Figure Out What the Problem Really Is.
-categories: books
+categories: 
+    - books
 excerpt: ジェリー・ワインバーグとその仲間たちの〈計算機の人間学〉の本。この本は問題発見についての本である。問題は解くより発見する方がずっとむずかしく、ずっと面白い。―実人生で本当にものをいうのはそこなのだ。
 ---
 

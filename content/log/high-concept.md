@@ -2,7 +2,8 @@
 date: 2008-09-07
 title: ハイ・コンセプト
 subtitle: 「新しいこと」を考え出す人の時代
-categories: books
+categories: 
+    - books
 excerpt: 21世紀にまともな給料をもらって、良い生活をしようと思った時に何をしなければならないか―この「100万ドルの価値がある質問」に初めて真っ正面から答えを示した、アメリカの大ベストセラー。
 ogimage: http://ecx.images-amazon.com/images/I/51Kh5fowRGL.jpg
 ---

@@ -3,7 +3,8 @@ date: 2014-03-11
 title: Sass/Compass徹底入門を監修しました
 subtitle: CSSのベストプラクティスを効率よく実現するために
 cover_image: /2014/03-12-cover.jpg
-categories: blog
+categories: 
+    - blog
 excerpt: "2014年3月18日に発売される、『Sass/Compass徹底入門 CSSのベストプラクティスを効率よく実現するために』を監修した。"
 ---
 

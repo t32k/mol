@@ -2,7 +2,8 @@
 date: 2009-03-30
 title: デザインってなに？
 subtitle: What is design?
-categories: blog
+categories: 
+    - blog
 ---
 
 + [グーグルのビジュアルデザイン責任者が退職--データ中心主義に嫌気 - CNET Japan](http://japan.cnet.com/news/biz/20390324/)

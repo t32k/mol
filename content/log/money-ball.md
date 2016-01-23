@@ -2,7 +2,8 @@
 date: 2010-02-08
 title: マネーボール
 subtitle: Moneyball- The Art of Winning an Unfair Game
-categories: books
+categories: 
+    - books
 excerpt: 新任ゼネラルマネジャーのビリー・ビーンは、かつて将来を嘱望されながら夢破れてグラウンドを去った元選手。彼は統計データを用いた野球界の常識を覆す手法で球団改革を実行。チームを強豪へと変えていく…
 ---
 

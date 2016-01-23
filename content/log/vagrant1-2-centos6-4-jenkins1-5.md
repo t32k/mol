@@ -1,7 +1,8 @@
 ---
 date: 2013-06-28
 title: VagrantでCentOSを入れてJenkinsを導入してみる
-categories: development
+categories: 
+    - development
 excerpt: "我もJenkins触ってみたかったんや..."
 ---
 ![](/static/blog/2013/06/vj.png)

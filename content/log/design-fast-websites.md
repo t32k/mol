@@ -2,7 +2,8 @@
 date: 2008-12-24
 title: Design Fast Websites
 subtitle: Don’t Blame the Rounded Corners
-categories: performance
+categories: 
+    - performance
 excerpt: パフォーマンスに関するデザインの話なので、興味があった。まず、なぜパフォーマンスを意識しなければならないのか？ということに関して3つの理由を挙げている。
 ogimage: http://ecx.images-amazon.com/images/I/51GQNCMJsZL.jpg
 ---

@@ -2,7 +2,8 @@
 date: 2014-12-16
 title: Material Design Color Paletteプラグインつくった
 subtitle: Sketch 3 Advent Calendar 2014
-categories: blog
+categories: 
+    - blog
 cover_image: /2014/12-16-1-cover.png
 excerpt: Sketch app plugin for displaying Google material design color palette.
 ---

@@ -1,7 +1,8 @@
 ---
 date: 2013-11-28
 title: peerDependency
-categories: development
+categories: 
+    - development
 excerpt: "暮らし、安心、魔鎖狩あん♪"
 ---
 

@@ -2,7 +2,8 @@
 date: 2010-06-04
 title: それ誰のためのユーザビリティ？
 subtitle: DooGA Teck Talks 06
-categories: report
+categories: 
+    - report
 excerpt: 月イチの社内勉強会、第6回目は同僚の@in0in0氏が『ユーザビリティ』をテーマに講義をしてくれた。
 ogimage: http://t32k.me/static/blog/2010/06/dtt.jpg
 ---

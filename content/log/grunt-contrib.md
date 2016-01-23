@@ -1,7 +1,8 @@
 ---
 date: 2013-03-05
 title: grunt-contribさえあればOK！
-categories: javascript
+categories: 
+    - javascript
 ---
 世の中、Grunt0.4が出たって持ちきりでやんス。
 

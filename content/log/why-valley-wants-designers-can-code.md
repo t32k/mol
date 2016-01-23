@@ -2,7 +2,8 @@
 date: 2011-08-03
 title: 【翻訳】なぜシリコンバレーはコードの書けるデザイナーを求めているのか？
 subtitle: Why The Valley Wants Designers That Can Code
-categories: translation
+categories: 
+    - translation
 excerpt: Why The Valley Wants Designers That Can Code
 ---
 

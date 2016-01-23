@@ -3,7 +3,8 @@ date: 2015-01-08
 title: Farewell Frontrend
 subtitle: Frontrend is over, but front-end comes over.
 cover_image: /2015/0108-00.png
-categories: blog
+categories: 
+    - blog
 excerpt: 私はFrontrendのおかげで多くの人と知り合うことができたし、成長させてもらったし、本当にこのコミュニティには感謝している。
 ---
 

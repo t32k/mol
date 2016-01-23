@@ -1,7 +1,8 @@
 ---
 date: 2013-04-08
 title: CSSプロパティの継承：inherit
-categories: css
+categories: 
+    - css
 ---
 
 ![](http://t32k.me/static/blog/2013/04/link.png)

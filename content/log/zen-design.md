@@ -2,7 +2,8 @@
 date: 2011-02-18
 title: プレゼンテーションzenデザイン
 subtitle: ガー・レイノルズ
-categories: books
+categories: 
+    - books
 excerpt: 伝統的なデザイン原則や、身の回りの視覚世界に潜む教訓を利用することによって、明確なコミュニケーションを達成する方法を伝授。
 ---
 

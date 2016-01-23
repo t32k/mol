@@ -3,7 +3,8 @@ date: 2014-03-07
 title: StyleStats
 subtitle: スタイルシートの統計情報を出力するNode Package
 cover_image: /2014/03-07-cover.jpg
-categories: development
+categories: 
+    - development
 excerpt: "スタイルシートの統計情報を出力するNode Packageを作った。Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。"
 ---
 

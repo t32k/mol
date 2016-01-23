@@ -2,7 +2,8 @@
 date: 2011-06-28
 title: jQuery MobileでGoogle Analyticsを使うために気をつけなければいけないこと
 subtitle: Using Google Analytics with jQuery Mobile
-categories: analytics
+categories: 
+    - analytics
 excerpt: jQuery MobileでAjax遷移してると、普通にGoogle Analytics置いてても作動しないから気をつけてねって話です。
 ogimage: http://i.imgur.com/wtaftdU.png
 ---

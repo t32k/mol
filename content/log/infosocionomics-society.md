@@ -1,7 +1,8 @@
 ---
 date: 2008-07-17
 title: 情報社会学会 08年度年次研究発表大会に行ってきたよ
-categories: report
+categories: 
+    - report
 ---
 
 一体お前はいつの話をしているのかという声が聞こえてきそうですが、行ったので記録を。<a href="http://warikiru.blogspot.com/2008/07/vol1.html">アックゼロヨンシンポジウム</a>の次の日に行ったのだよ。

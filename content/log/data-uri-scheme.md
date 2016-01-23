@@ -2,7 +2,8 @@
 date: 2010-04-07
 title: データURIスキーム
 subtitle: Data URI scheme
-categories: development
+categories: 
+    - development
 excerpt: 今回の記事の主題はデータURIスキームとはなんぞいねってことなんですが、簡単に言いますと、このスキームを使うとサーバにリクエストすることなく、ページ内のコードに画像を埋め込むことができるという話です。
 ---
 

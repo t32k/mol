@@ -1,7 +1,8 @@
 ---
 date: 2009-03-20
 title: Google Analyticsで都道府県別セッションを調べる
-categories: analytics
+categories: 
+    - analytics
 excerpt: ほぼ受け折りで恐縮ですが、自分でもやってみたかったので...都道府県別セッション数をカスタムレポートで作ってみようっていう主旨。
 ---
 

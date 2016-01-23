@@ -2,7 +2,8 @@
 date: 2015-09-28
 title: UNIXという考え方
 subtitle: その設計思想と哲学
-categories: books
+categories: 
+    - books
 excerpt: YAPC Asiaでやたらと耳にした『一つのことをうまくやる』という言葉の出典である、『UNIXという考え方』を読んだ。
 ogimage: http://t32k.me/mol/images/2015/0928-00.jpg
 ---

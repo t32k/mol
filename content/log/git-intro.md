@@ -1,7 +1,8 @@
 ---
 date: 2014-04-07
 title: 開発効率をUPする Git逆引き入門
-categories: blog
+categories: 
+    - blog
 excerpt: "id:Layzieさんより本頂いた。僕からはどちらからと言えば、デザイナー側からのレビューをしたいと思う。"
 ---
 

@@ -2,7 +2,8 @@
 date: 2013-11-05
 title: WebPagetest in 5 minutes
 subtitle: Frontrend x Chrome Tech Talk Night Extended
-categories: performance
+categories: 
+    - performance
 excerpt: "10/30にCAで行われたFrontrend x Chrome Tech Talk Night ExtendedでWebPagetestでライトニングトークしてきたのでメモしておく。"
 cover_image: /2013/11-06-cover.jpg
 ---

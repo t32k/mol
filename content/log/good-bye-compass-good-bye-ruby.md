@@ -2,7 +2,8 @@
 date: 2013-11-08
 title: 部屋とYシャツと私
 subtitle: Good-bye Compass, Good-bye Ruby.
-categories: development
+categories: 
+    - development
 excerpt: "「部屋とYシャツと私」は、平松愛理の8枚目のシングル。"
 ---
 

@@ -2,7 +2,8 @@
 date: 2010-04-25
 title: 世界を変えるデザイン
 subtitle: ものづくりには夢がある
-categories: books
+categories: 
+    - books
 excerpt: 本当に必要とされる仕事がしたい。利用者の喜ぶ顔が見たい。夢を追うデザイナーや建築家、エンジニアや起業家たちの、アイデアと良心から生まれたデザイン・イノベーション実例集。
 ogimage: http://ecx.images-amazon.com/images/I/41kPyiovGCL.jpg
 ---

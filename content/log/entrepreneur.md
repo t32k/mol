@@ -2,7 +2,8 @@
 date: 2013-04-14
 title: 起業家
 subtitle: 魂をゆさぶる衝撃の告白。
-categories: books
+categories: 
+    - books
 excerpt: ベストセラー『渋谷ではたらく社長の告白』から8年。魂をゆさぶる衝撃の告白。
 ogimage: "http://ecx.images-amazon.com/images/I/51FBGPDrW8L._SL160_.jpg"	
 ---

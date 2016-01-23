@@ -1,7 +1,8 @@
 ---
 date: 2009-09-28
 title: Subject To Change - 予測不可能な世界で最高の製品とサービスを作る
-categories: books
+categories: 
+    - books
 ---
 <table border="0" cellpadding="5">
 <tbody>

@@ -2,7 +2,8 @@
 date: 2014-12-12
 title: Sublime Text Icon 2014
 subtitle: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
-categories: design
+categories: 
+    - design
 cover_image: "/2014/12-16-cover.png"
 excerpt: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 ---

@@ -1,7 +1,8 @@
 ---
 date: 2011-04-19
 title: kanazawa.js v1.2 開催報告
-categories: report
+categories: 
+    - report
 ---
 <img class="fig" src="/static/blog/2011/04/01.jpg" alt="" width="470" height="250" />
 

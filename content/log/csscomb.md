@@ -2,7 +2,8 @@
 date: 2012-10-17
 title: CSScomb
 subtitle: Makes your code beautiful
-categories: development
+categories: 
+    - development
 excerpt: うららかに晴れた秋の日、みなさんいかがお過ごしか？こんちわ @t32k だ。
 ogimage: http://t32k.me/mol/images/2012/10-17-csscomb.png
 ---

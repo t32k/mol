@@ -2,7 +2,8 @@
 date: 2010-09-06
 title: Coding Web Performance
 subtitle: Webパフォーマンス最適化のためのコーディング手法
-categories: performance
+categories: 
+    - performance
 excerpt: 今回の対策にあたり、私はHTMLを1から組み直したわけでもなく、サーバーの設定をカリカリにチューニングしたわけではありません。当初の目標に設定したとおり、HTTPリクエストを減らすという最小限の対策でこのような最大限の効果が得られたと考えています。
 ogimage: http://ecx.images-amazon.com/images/I/51GQNCMJsZL.jpg
 ---

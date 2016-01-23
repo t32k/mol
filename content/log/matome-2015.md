@@ -2,7 +2,8 @@
 date: 2015-12-16
 title: 2015年の振り返りと人気記事まとめ
 subtitle: 今年もいろいろあったわーJ( ‘ｰ`)し
-categories: blog
+categories: 
+    - blog
 excerpt: 今年もいろいろあったわーJ( ‘ｰ`)し
 ---
 

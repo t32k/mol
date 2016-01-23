@@ -2,7 +2,8 @@
 date: 2009-07-29
 title: さようならMSゴシック - これからはWebフォントの時代だ
 subtitle: DooGA Tech Talks 08
-categories: report
+categories: 
+    - report
 excerpt: 第8回社内TechTalksを開催しました。今回もまた我がデザイン部の中から選りすぐりの二人に講義をしてもらいました！
 ogimage: https://farm5.staticflickr.com/4149/4837811766_7c8ef60d62_b.jpg
 ---

@@ -2,7 +2,8 @@
 date: 2010-12-06
 title: Mac mini (Mid 2010) メモリ増設（8GB）
 subtitle: Apple Mac mini/2.4GHz Core 2 Duo MC270J/A
-categories: gadget
+categories: 
+    - gadget
 excerpt: Macbook Air が発売されたころ、Mac mini を買いました。字面どおりの意味です(Airも買いましたが)。
 ogimage: https://farm6.staticflickr.com/5170/5230613004_d059ceded2_o.jpg
 ---

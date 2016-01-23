@@ -2,7 +2,8 @@
 date: 2015-08-09
 title: StyleStatsにタイムラインチャートを追加した
 subtitle: Added timeline charts!
-categories: development
+categories: 
+    - development
 excerpt: 待望の期間グラフをStyleStats Web版に追加した。StyleStatsはCSSを解析ツールで、一回だけ使って、へぇー私の・僕の書いたCSSはこんな感じなんだぁーと理解してもらうのも結構だが、やはり継続的に解析してもらって、どのくらい改善したのか理解して欲しいと思っている。
 ogimage: http://t32k.me/mol/images/2015/0810-00.png
 ---

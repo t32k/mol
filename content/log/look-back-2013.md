@@ -1,7 +1,8 @@
 ---
 date: 2013-12-16
 title: 2013年の振り返りと人気記事まとめ
-categories: blog
+categories: 
+    - blog
 excerpt: "2013年振り返りと人気記事まとめなんてものをつらつら書き留めるなり。"
 ---
 

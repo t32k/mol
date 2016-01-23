@@ -1,7 +1,8 @@
 ---
 date: 2011-03-28
 title: お願いだから輝かないでくれ!!!
-categories: memo
+categories: 
+    - memo
 ---
 <img class="alignnone size-full wp-image-2673" title="ipon" src="/static/blog/2011/03/ipon.png" alt="" width="470" height="250" />
 

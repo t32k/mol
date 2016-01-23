@@ -2,7 +2,8 @@
 date: 2013-08-22
 title: HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避
 subtitle: Data URI scheme
-categories: performance
+categories: 
+    - performance
 excerpt: 4日目は、Data URI(インライン画像)ついて説明します。
 ogimage: http://t32k.me/static/blog/2013/08/image_0.png
 ---

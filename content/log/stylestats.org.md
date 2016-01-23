@@ -1,7 +1,8 @@
 ---
 date: 2014-04-10
 title: オンラインCSS解析 StyleStats.org
-categories: development
+categories: 
+    - development
 cover_image: "/2014/04-10-cover.png"
 excerpt: "前回スタイルシートの統計情報を出力するNode Packageを作ったわけだけど、やっぱりオンライン上で簡単に試せれたらいいよねー"
 ---

@@ -2,7 +2,8 @@
 date: 2010-11-24
 title: Long Life Web Performance Optimization
 subtitle: 心理学から考えるWebパフォーマンス
-categories: performance
+categories: 
+    - performance
 excerpt: 今回はLong Life Designのように長〜く使えるWPOを心理学などの人間側から考えてみようってのが今回のセッションの狙いです。
 ogimage: http://ecx.images-amazon.com/images/I/41VPCPBHRNL.jpg
 ---

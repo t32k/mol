@@ -2,7 +2,8 @@
 date: 2010-03-02
 title: 人を動かすスピーチの極意
 subtitle: Dale Breckenridge Carnegie
-categories: books
+categories: 
+    - books
 excerpt: 1対1だと落ち着いて、しっかりしたことをはっきり言えるのに、聞き手が少人数でも目の前に並ぶと、とたんに舌がもつれて恐怖に襲われる」という人は多いようです。会議で発言するのが怖いために出世の道を阻まれているビジネスマンもいます。しかし、きちんとした方法論と心構えを身につければ、その不安はだれでも克服できるのです。そう、必ず「だれでも」が。
 ogimage: http://ecx.images-amazon.com/images/I/51C8XXhE2gL.jpg
 ---

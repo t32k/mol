@@ -2,7 +2,8 @@
 date: 2009-11-29
 title: ウェブサイトパフォーマンス入門
 subtitle: Introduction to Website Performance
-categories: report
+categories: 
+    - report
 excerpt: 大企業で行われているノウハウを自分たちの仕事へ応用出来るレスポンスの改善方法を紹介します。
 ogimage: http://www.websiteoptimization.com/speed/tweak/average-web-page/growth-average-web-page2014.png
 ---

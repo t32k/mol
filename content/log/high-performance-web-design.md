@@ -2,7 +2,8 @@
 date: 2009-11-24
 title: High Performance Web Design
 subtitle: デザインから考えるハイパフォーマンスWebサイト
-categories: performance
+categories: 
+    - performance
 excerpt: パフォーマンスは収益やUXに大きく影響します。YSlowという計測ツールを手に入れました。パフォーマンスを上げるためにHTTPリクエストを減らすことが最優先事項です。そのためにはサイトで何をしたいのか、明確な目標を定めることが必要です。そうすれば、一貫性のあるデザインをすることができ、簡潔なコードにつながり、ハイパフォーマンスWebサイト！みんなHAPPY！
 ogimage: http://ecx.images-amazon.com/images/I/51hIDIWHmYL.jpg
 ---

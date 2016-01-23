@@ -1,7 +1,8 @@
 ---
 date: 2011-03-29
 title: iOS Developer Program に登録!!!!
-categories: memo
+categories: 
+    - memo
 ---
 <img class="alignnone size-full wp-image-2653" title="activationcode" src="/static/blog/2011/03/activationcode.png" alt="" width="470" height="369" />
 

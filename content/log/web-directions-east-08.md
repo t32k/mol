@@ -1,7 +1,8 @@
 ---
 date: 2008-11-30
 title: Web Directions East 08 カンファレンス
-categories: report
+categories: 
+    - report
 ---
 
 [Web Directions East 08](http://east.webdirections.org/)に行ってきた。当日の写真は[Flickr: "wde08"](https://www.flickr.com/photos/tags/wde08/)で共有されている。

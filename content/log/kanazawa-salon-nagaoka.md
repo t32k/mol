@@ -2,7 +2,8 @@
 date: 2008-05-18
 title: 第43回 金沢サロン：ナガオカケンメイ
 subtitle: D&DEPARTMENT PROJECT
-categories: report
+categories: 
+    - report
 excerpt: 金沢サロンとは、建築家でデザイナーの黒川雅之氏が毎回様々なゲストを招いて議論する会。会社の先輩から誘われて初めて行ったのだが、かなり充実した2時間だった。
 ogimage: http://ecx.images-amazon.com/images/I/31RQ9lkwOaL.jpg
 ---

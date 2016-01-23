@@ -1,7 +1,8 @@
 ---
 date: 2014-05-16
 title: Sketch3ハジメマシタ
-categories: design
+categories: 
+    - design
 cover_image: "/2014/05-16-cover.png"
 excerpt: "こんちわ、無職のt32kさんだよ。今日は職を失ってお金もないのでAdobe Creative Suiteに代わるソフトを探そうって話だ。"
 ---

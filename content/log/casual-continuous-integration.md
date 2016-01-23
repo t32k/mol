@@ -3,7 +3,8 @@ date: 2014-01-07
 title: 手軽にCIを体験してみたい
 subtitle: Proactive Web Performance Optimization with Travis-CI
 cover_image: /2014/01-07-cover.jpg
-categories: performance
+categories: 
+    - performance
 excerpt: "昨年のFrontrend/06では、全くもってながら個人的な趣向のもと継続インテグレーションをテーマに開催したんだけど..."
 ---
 

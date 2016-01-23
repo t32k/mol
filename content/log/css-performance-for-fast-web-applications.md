@@ -2,7 +2,8 @@
 date: 2009-12-04
 title: 高速ウェブアプリのためのCSSパフォーマンス
 subtitle: CSS Performance for Fast Web Applications
-categories: development
+categories: 
+    - development
 excerpt: 3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。
 ogimage: https://c1.staticflickr.com/3/2714/4103194252_f450e74618_b.jpg
 ---

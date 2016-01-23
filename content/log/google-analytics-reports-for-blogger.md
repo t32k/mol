@@ -1,7 +1,8 @@
 ---
 date: 2007-06-01
 title: ブロガーのための５つのGoogle Analyticsレポート
-categories: analytics
+categories: 
+    - analytics
 ---
 
 <cite class="citation">

@@ -2,7 +2,8 @@
 date: 2013-06-30
 title: 海外カンファレンスなるものに参加してきた！
 subtitle: Velocity 2013 - O'Reilly Conferences
-categories: blog
+categories: 
+    - blog
 excerpt: バスケットの国アメリカの空気を吸うだけで僕は高く跳べると思っていたのかなぁ・・・
 ogimage:
 ---

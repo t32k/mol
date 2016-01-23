@@ -1,7 +1,8 @@
 ---
 date: 2012-10-18
 title: CSSOとgrunt-csso
-categories: css
+categories: 
+    - css
 ---
 <a href="http://css.github.com/csso/"><img class="aligncenter size-full fig" title="CSSO" src="/static/blog/2012/10/csso.png" alt="" width="520" height="260" /></a>
 

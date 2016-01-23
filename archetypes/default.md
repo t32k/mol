@@ -1,7 +1,8 @@
 ---
 title:
 subtitle:
-categories: blog
+categories: 
+    - blog
 excerpt:
 ogimage:
 ---

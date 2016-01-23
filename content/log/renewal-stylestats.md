@@ -2,7 +2,8 @@
 date: 2015-04-27
 title: そんなに目新しくもない技術でWebアプリをリニューアルした2015年春
 subtitle: An evaluating tool for writing better CSS
-categories: development
+categories: 
+    - development
 excerpt: 世間はReactの話題で持ちきりのようだけど、Backbone.jsでStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことつらつらかきとめておく。
 ogimage: http://t32k.me/mol/images/2015/0427-00.png
 ---

@@ -2,7 +2,8 @@
 date: 2015-03-05T15:43:35-08:00
 title: 世界一わかりやすい英作文の授業
 subtitle: 1週間に2000人以上を教えている人気英語講師
-categories: books
+categories: 
+    - books
 excerpt: フィリピンに行く前にこの本読んでおけば、ディベートの授業とか多少楽になったかもしれないと後悔している。
 ogimage: http://ecx.images-amazon.com/images/I/51makWexBUL.jpg
 ---

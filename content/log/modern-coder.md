@@ -2,7 +2,8 @@
 date: 2013-12-05
 title: CSSを書くために必要なGruntプルギン集！！
 subtitle: CSS Loves Grunt
-categories: css
+categories: 
+    - css
 status: true
 excerpt: "プルギンッ！！プルギンッ！！プルギンッ！！"
 ---

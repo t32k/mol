@@ -2,7 +2,8 @@
 date: 2010-01-18
 title: ロボットとは何か
 subtitle: 人の心を映す鏡
-categories: books
+categories: 
+    - books
 excerpt: 「なぜ人間型ロボットにこだわるのか?」――それは、このような一連の研究は、著者にとって「人間とは何か」を問う自己探求の試みでもあるからです。
 ogimage: http://ecx.images-amazon.com/images/I/41VjIwsW4UL._SL160_.jpg
 ---

@@ -2,7 +2,8 @@
 date: 2008-09-09
 title: コトラーのマーケティング・コンセプト
 subtitle: Philip Kotler
-categories: books
+categories: 
+    - books
 excerpt: 世界的なマーケティングの権威がビジネスパーソンに向けた、待望の1冊である
 ---
 

@@ -2,7 +2,8 @@
 date: 2015-04-06
 title: コマンドラインからGoogle Analyticsにデータを記録するGAERをつくった
 subtitle: デベロッパーもGoogle Analyticsをもっと使おう！
-categories: development
+categories: 
+    - development
 excerpt: 表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。
 ogimage: http://t32k.me/mol/images/2015/0406-00.png
 ---

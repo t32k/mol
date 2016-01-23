@@ -2,7 +2,8 @@
 date: 2013-07-03
 title: nvmでnode.jsを管理する
 subtitle:
-categories: development
+categories: 
+    - development
 excerpt:
 ogimage:
 ---

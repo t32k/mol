@@ -2,7 +2,8 @@
 date: 2010-01-19
 title: 仮説思考
 subtitle: BCG流 問題発見・解決の発想法
-categories: books
+categories: 
+    - books
 excerpt: 「仮説思考」とは、情報が不十分だったり、分析が進んでいない段階でも、先に自分なりの「仮の答え」を持つという考え方だ。よく言われることだが実践するのは難しい。
 ogimage:
 ---

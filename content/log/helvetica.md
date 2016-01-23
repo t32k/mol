@@ -2,7 +2,8 @@
 date: 2008-12-10
 title: ヘルベチカ
 subtitle: 世界を魅了する書 [DVD]
-categories: books
+categories: 
+    - books
 excerpt: BMW、TOYOTA、Nestlé、MUJI 無印良品、THE NORTH FACE、FENDI・・・名だたる大企業がロゴに選んだ!世界中で最も愛されている書体の謎に迫る秀逸なドキュメンタリー!
 ogimage: http://ecx.images-amazon.com/images/I/21LrCRS8QlL.jpg
 ---

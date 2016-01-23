@@ -2,7 +2,8 @@
 date: 2009-05-29
 title: pageTracker._initData関数も廃止予定
 subtitle: _initData() _initData()Deprecated. 
-categories: analytics
+categories: 
+    - analytics
 excerpt: 数ヶ月前のGoogle Analyticsコードアップデートでスニペットにtry,catch文が挿入されたってことを書いた。でも、よくよく見たらpageTracker._initDataの関数もなくなっていない？ってことに気づいた。
 ---
 

@@ -2,7 +2,8 @@
 date: 2010-07-16
 title: 人間交際術
 subtitle: 智恵の贈り物
-categories: books
+categories: 
+    - books
 excerpt: 人を知り、幸福に生きる。100年以上、ヨーロッパで読み継がれてきた名著。賢い人づきあいの知恵151。
 ogimage: http://ecx.images-amazon.com/images/I/31TDzr09aVL.jpg
 ---

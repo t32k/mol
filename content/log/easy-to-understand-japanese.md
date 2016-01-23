@@ -2,7 +2,8 @@
 date: 2010-01-17
 title: 分かりやすい日本語の作文技術
 subtitle: Moneyball- The Art of Winning an Unfair Game
-categories: books
+categories: 
+    - books
 excerpt: あの新聞記事もあのベストセラーも大臣の国会答弁も裁判の判決文も大企業のお詫び広告も(日本語なのに)、どうしてこんなに意味がわかりづらいのか!?日本を代表するジャーナリスト本多勝一が根本からわかりやすく徹底的に分析。
 ---
 

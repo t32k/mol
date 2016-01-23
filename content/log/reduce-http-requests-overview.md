@@ -2,7 +2,8 @@
 date: 2013-08-19
 title: HTTPリクエストを減らすために【序章】HTTPリクエストは甘え
 subtitle: You have to reduce number of HTTTP requests.
-categories: performance
+categories: 
+    - performance
 excerpt: 1日目は、HTTPリクエストの概要について説明します。
 ogimage: http://t32k.me/static/blog/2013/08/requests.gif
 ---

@@ -2,7 +2,8 @@
 date: 2015-03-31
 title: gFaceeeに最新コミット日時を強調する機能追加した
 subtitle: A Chrome Extension for displaying avatar on GitHub
-categories: development
+categories: 
+    - development
 excerpt: Webフロントエンド技術に関して非常に多くの技術情報を日々捌いているLayzieさん曰く、『記事の日付は必ず確認』しなければならない。
 ogimage: http:t32k.me/mol/images/2015/0331-00.png
 ---

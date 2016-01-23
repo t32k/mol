@@ -1,7 +1,8 @@
 ---
 date: 2012-08-08
 title: パフォーマンスからみるSass/Compass 番外編：MSは青かった
-categories: css
+categories: 
+    - css
 ---
 2回も続いてないのにまさかの番外編！ここぞ変化球！キエル消える魔球！！
 

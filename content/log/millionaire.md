@@ -2,7 +2,8 @@
 date: 2009-01-25
 title: ユダヤ人大富豪の教え
 subtitle: 幸せな金持ちになる17の秘訣
-categories: books
+categories: 
+    - books
 excerpt: 大な人物のもとに弟子入りし、密度の濃いレッスンを受ければ、きっと人生は飛躍的に変化する
 ogimage:
 ---

@@ -1,7 +1,8 @@
 ---
 date: 2012-09-06
 title: Sassの親セレクタ参照&について
-categories: css
+categories: 
+    - css
 ---
 
 <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_">Sassの親セレクター参照の<strong>&amp;</strong></a>の話。

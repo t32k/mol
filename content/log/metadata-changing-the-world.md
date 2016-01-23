@@ -2,7 +2,8 @@
 date: 2007-11-17
 title: ウェブは菩薩である
 subtitle: Metadata changing the world
-categories: books
+categories: 
+    - books
 excerpt: ウェブ2.0ブームが去り、次のウェブの姿を見出そうとする議論がかまびすしい昨今、ところがそこで議論されている内容は、セマンティックウェブなど技術的にかなり高度で、ウェブ技術に詳しくない方が理解するにはちょっと大変だと思います。
 ogimage: http://ecx.images-amazon.com/images/I/31qXPyX7reL.jpg
 ---

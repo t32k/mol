@@ -3,7 +3,8 @@ date: 2014-12-23
 title: GoアプリをHerokuにデプロイする
 subtitle: Go on Heroku!
 cover_image: /2014/12-23-cover.png
-categories: development
+categories: 
+    - development
 excerpt: Heroku Advent Calendar 2014 - Qiita
 ---
 

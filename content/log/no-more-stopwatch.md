@@ -1,7 +1,8 @@
 ---
 date: 2013-04-15
 title: サイトの速度
-categories: analytics
+categories: 
+    - analytics
 ---
 
 <a href="http://www.flickr.com/photos/wwarby/3296379139/">Stopwatch | By wwarby Flickr!</a>

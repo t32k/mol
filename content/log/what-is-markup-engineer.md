@@ -1,7 +1,8 @@
 ---
 date: 2008-01-22
 title: マークアップエンジニアとは？
-categories: blog
+categories: 
+    - blog
 excerpt: 違和感を覚える今日この頃
 ---
 

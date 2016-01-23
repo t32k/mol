@@ -1,7 +1,8 @@
 ---
 date: 2013-08-06
 title: Chrome CanaryとAndroid Debug BridgeとChrome for Android betaでReverse Port Forwarding
-categories: development
+categories: 
+    - development
 ---
 <img class="alignnone size-full wp-image-5100" title="debug" src="/static/blog/2013/08/debug.png" alt="" width="900" height="200" />
 

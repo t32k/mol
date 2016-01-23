@@ -2,7 +2,8 @@
 date: 2011-08-08
 title: JavaScriptを学ぶために役立つ本 85選
 subtitle: JavaScript Bibliography - O’Reilly Media
-categories: books
+categories: 
+    - books
 ---
 
 前の翻訳記事でも述べらているけど、やっぱりデザイナーもプログラミングはある程度書けたほうがいいと思う。んで、その言語はJavaScript！

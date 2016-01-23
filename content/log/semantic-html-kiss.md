@@ -2,7 +2,8 @@
 date:  2009-07-08
 title: セマンティックなマーク付けとメタデータ活用
 subtitle: 『セマンティックHTML/XHTML』の出版を記念して
-categories: books
+categories: 
+    - books
 excerpt:  本書では、ウェブ文書に含まれる情報(マイクロデータ)を明示的に記述する「セマンティック・マーク付け」というアプローチを取り上げ、XHTMLを中心に据えコンピュータの力を活用する方法を考えます。 
 ogimage: http://ecx.images-amazon.com/images/I/51oaN2iq9xL.jpg
 ---

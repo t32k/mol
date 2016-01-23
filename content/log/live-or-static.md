@@ -1,7 +1,8 @@
 ---
 date: 2011-01-02
 title: querySelectorとquerySelectorAllというかLive NodeListとStatic NodeList
-categories: javascript
+categories: 
+    - javascript
 ---
 
 先日、`getElementsByClassName`便利だぜ！とブログに書いたら、to-Rの西畑先生より`querySelectorAll`アルヨ！と言われたので、調べてみる。

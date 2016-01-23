@@ -2,7 +2,8 @@
 date: 2010-12-02
 title: ModernizrでHTML5時代のWeb技術をトラッッキング
 subtitle: JavaScript Advent Calendar 2010
-categories: analytics
+categories: 
+    - analytics
 excerpt: こうゆうおもしろい催し事があるみたいなので僕からは便利なJSライブラリの紹介をばしたいと思います。
 ogimage: http://t32k.me/static/blog/2010/12/newt.jpg
 ---

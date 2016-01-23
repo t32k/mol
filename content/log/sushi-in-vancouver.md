@@ -2,7 +2,8 @@
 date: 2014-12-17
 title: 炙り寿司 Miku
 subtitle: 寿司の紹介がてらバンクーバーも紹介
-categories: blog
+categories: 
+    - blog
 cover_image: "/2014/12-17-cover.jpg"
 excerpt: 寿司 Advent Calendar 2014 - Adventar
 ---

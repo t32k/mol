@@ -2,7 +2,8 @@
 date: 2009-10-01
 title: プレゼンテーションzen
 subtitle: スライドプレゼンテーションの改善法に関する本
-categories: books
+categories: 
+    - books
 excerpt: 本書はアマゾン「Best Of 2008」ビジネス書部門 Customer Favorites 分野第3位に選ばれた大ベストセラー「Presentation Zen」の邦訳版。
 ---
 

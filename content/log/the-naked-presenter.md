@@ -2,7 +2,8 @@
 date: 2010-12-15
 title: The Naked Presenter
 subtitle: 裸のプレゼンター
-categories: books
+categories: 
+    - books
 excerpt: 本書はベストセラー「Presentation Zen」「Presentation Zen Design」に続く、第3弾「The Naked Presenter」。プレゼン実施の10のポイント～The 10 Ps of Delivery～をベースにした、聴衆と「自然に」心を通わせ、「参加」を促し、インパクトのある、効果的なプレゼンのためのユニークかつパワフルなアイデアが満載。「風呂とプレゼンテーションの共通点」を探求した 「風呂から学ぶ７つの教訓」 は必読。
 ---
 

@@ -1,5 +1,6 @@
 ---
-categories: translation
+categories: 
+    - translation
 date: 2015-02-11T01:08:56-08:00
 title: 【翻訳】ビジュアルデザインはつまらなくなってしまったのか？
 subtitle: HAS VISUAL DESIGN FALLEN FLAT?

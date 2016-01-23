@@ -2,7 +2,8 @@
 date: 2010-02-02
 title: 勉強会という装置
 subtitle: Community of practice
-categories: blog
+categories: 
+    - blog
 excerpt: 最近、勉強会というか実践コミュニティに興味がある。そして、その実践として前回、紹介した社内TechTalksがあったりする。
 ---
 

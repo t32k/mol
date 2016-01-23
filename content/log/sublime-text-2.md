@@ -1,7 +1,8 @@
 ---
 date: 2012-07-09
 title: Sublime Text 2にしてみた
-categories: development
+categories: 
+    - development
 ---
 
 こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。

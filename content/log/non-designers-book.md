@@ -2,7 +2,8 @@
 date: 2009-11-01
 title: ノンデザイナーズ・デザインブック
 subtitle: Robin Williams
-categories: books
+categories: 
+    - books
 excerpt: プロデザイナーでなくったって、かっこいいデザインをしたい! そういう人のための、レイアウトデザインの基本書。
 ogimage:
 ---

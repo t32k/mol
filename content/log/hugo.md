@@ -3,7 +3,8 @@ date: 2015-01-16T09:44:52-08:00
 title: JekyllからHugoへ
 subtitle: Hugo - A fast and modern static website engine
 excerpt: JelyllからHugoにブログシステムを移行しました。
-categories: blog
+categories: 
+    - blog
 ogimage: /mol/images/2015/0115-00.png
 ---
 

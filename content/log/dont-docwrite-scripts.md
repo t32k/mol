@@ -2,7 +2,8 @@
 date: 2012-04-11
 title: 【翻訳】document.writeでSCRIPTを書き出すなやで！
 subtitle: Don’t docwrite scripts
-categories: translation
+categories: 
+    - translation
 excerpt: Don’t docwrite scripts | High Performance Web Sites
 ---
 

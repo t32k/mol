@@ -1,7 +1,8 @@
 ---
 date: 2009-02-27
 title: Vegur
-categories: blog
+categories: 
+    - blog
 excerpt: Vegurはdot colonのロゴタイプ用に開発されたヒューマニストサンセリフフォントです。
 ---
 

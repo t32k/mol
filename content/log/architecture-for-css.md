@@ -2,7 +2,8 @@
 date: 2014-08-04
 title: 修正しやすいCSSとは
 subtitle: 『CSS設計の教科書』はモダンCSSを探る最適なマップ
-categories: books
+categories: 
+    - books
 cover_image: "/2014/08-04-cover.jpg"
 excerpt: "Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法"
 ---

@@ -2,7 +2,8 @@
 date: 2015-03-25
 title: Grunt/Gulpで憔悴したおっさんの話
 subtitle: Hello, npm run-script!
-categories: development
+categories: 
+    - development
 excerpt: 先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的には下記の記事読んだら分かります。要はGulpとかGruntといったモノ使わずにnpm run-scriptでビルドしよーぜって話です。
 ogimage: http://ecx.images-amazon.com/images/I/518ME653H3L.jpg
 ---

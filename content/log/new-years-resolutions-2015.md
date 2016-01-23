@@ -1,7 +1,8 @@
 ---
 date: 2015-01-01
 title: 2015年の抱負
-categories: blog
+categories: 
+    - blog
 excerpt: 書かないよりマシということで書いとく。
 ---
 

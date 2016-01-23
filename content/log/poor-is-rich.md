@@ -2,7 +2,8 @@
 date: 2009-11-05
 title: 貧乏はお金持ち
 subtitle: 「雇われない生き方」で格差社会を逆転する
-categories: books
+categories: 
+    - books
 excerpt: グローバル資本主義の台頭とともに、楽園を追われるようになったサラリーマン。望むと望まざるとにかかわらず、すべてのものがフリーエージェント化していく。残酷なまでに自由な世界を、どう生き抜くべきなのか？　「雇われない生き方」とそのための「ファイナンスの技術」を描いたベストセラー！
 ogimage: http://ecx.images-amazon.com/images/I/51zYuQQVyUL.jpg
 ---

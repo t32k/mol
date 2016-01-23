@@ -2,7 +2,8 @@
 date: 2015-01-07
 title: 【翻訳】移民は安価な労働力のためではなく優秀な人材の確保のため
 subtitle: Immigration is about talent, not costs
-categories: translation
+categories: 
+    - translation
 excerpt: Immigration is about talent, not costs | AeroFS
 ---
  

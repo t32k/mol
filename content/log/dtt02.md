@@ -2,7 +2,8 @@
 date: 2009-12-14
 title: インタラクティブな作品づくり
 subtitle: DooGA Tech Talks 02
-categories: report
+categories: 
+    - report
 excerpt: 社内勉強会（Tech Talks）を開催した。今回はご近所のWeb制作会社から@takumi0605さんを招いて、『インタラクティブな作品づくり』という題で講演してもらった。
 ogimage: http://lh4.ggpht.com/_1drnogi3vdg/SyTpDiK1thI/AAAAAAAAAv8/Fm4u_BjolZs/dtt02.jpg
 ---

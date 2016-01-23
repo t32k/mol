@@ -2,7 +2,8 @@
 date: 2008-05-01
 title: ハイパフォーマンスWebサイト
 subtitle: 高速サイトを実現する14のルール
-categories: books
+categories: 
+    - books
 excerpt: 米Yahoo!のパフォーマンス担当責任者が導き出した「高速サイトを実現する14のルール」を実例とともに紹介します。
 ---
 

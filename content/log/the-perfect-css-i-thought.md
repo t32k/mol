@@ -2,7 +2,8 @@
 date: 2013-07-29
 title: ぼくのかんがえたさいきょうのしーえしゅえしゅ
 subtitle: Realistic preprocessors-based CSS framework for mobile.
-categories: css
+categories: 
+    - css
 cover_image: /2013/07-29-cover.jpg
 excerpt: "俺ももう30だし、夏なんで、CSSフレームワークはじめました。"
 ---

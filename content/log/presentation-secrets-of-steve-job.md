@@ -2,7 +2,8 @@
 date: 2010-08-17
 title: スティーブジョブズ 驚異のプレゼン
 subtitle: スティーブ・ジョブズのプレゼンの魅力を解き明かす！
-categories: books
+categories: 
+    - books
 excerpt: アップルCEOのスティーブ・ジョブズのプレゼンテーションは、なぜあれほど人々を魅了し、熱狂させるのか―
 ---
 

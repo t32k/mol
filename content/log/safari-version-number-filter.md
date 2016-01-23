@@ -1,7 +1,8 @@
 ---
 date: 2010-03-04
 title: Google AnalyticsでSafariのバージョンを確認するフィルタ
-categories: analytics
+categories: 
+    - analytics
 ---
 Safariのシェア並びにバージョン別のシェアが知りたくて、Google Analyticsで確認してみたらびっくり、バージョンじゃなくてビルド番号なんだね、こやつは。
 

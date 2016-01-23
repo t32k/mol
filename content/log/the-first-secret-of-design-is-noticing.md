@@ -2,7 +2,8 @@
 date: 2016-01-04
 title: デザインの秘訣はまずは気づくこと
 subtitle: The first secret of design is noticing
-categories: design
+categories: 
+    - design
 excerpt: 人は「そういうものなのだ」とすぐに慣れていく。でもデザイナーにとっては「そういうものなのだ」こそがチャンス。もっと良くなるのでは？どうやって？iPodやNestサーモスタットの仕掛人が変化に気付き、さらに加速させる上でのコツを伝授。
 ogimage: http://t32k.me/mol/images/people/tony_fadell.jpg
 ---

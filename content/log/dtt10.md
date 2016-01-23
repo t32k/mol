@@ -2,7 +2,8 @@
 date: 2010-10-02
 title: Progressionで始めるFlasher Life ～ActionScript書かなくてもFlashコンテンツ作れますよ～
 subtitle: DooGA Tech Talks 10
-categories: report
+categories: 
+    - report
 excerpt: 月イチの社内勉強会も今回で10回目となった。いろいろ感慨深いところはありつつ記念すべき10回目を飾るスピーカーは福井のスーパーデザイナー @shirokuro331さんだ。
 ogimage: http://t32k.me/static/blog/2010/10/dtt10.jpg
 ---

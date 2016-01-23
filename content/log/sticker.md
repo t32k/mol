@@ -2,7 +2,8 @@
 date: 2015-01-15
 title: JS Girlsのステッカー発注仕様
 subtitle: コミュニティ活動の必需品
-categories: blog
+categories: 
+    - blog
 excerpt: たまに聞かれるので、シェアしとく。
 ---
 

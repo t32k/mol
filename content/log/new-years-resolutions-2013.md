@@ -1,7 +1,8 @@
 ---
 date: 2013-01-01
 title: 2013年の抱負
-categories: blog
+categories: 
+    - blog
 ---
 
 書かないよりマシということで書いとく。

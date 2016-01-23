@@ -2,7 +2,8 @@
 date: 2014-12-01
 title: FROG HOUSEにジョインしました
 subtitle: （入居的な意味で）
-categories: blog
+categories: 
+    - blog
 cover_image: "/2014/12-01-cover.jpg"
 excerpt: t32k、バンクーバーに渡る。
 ---

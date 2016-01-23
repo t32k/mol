@@ -2,7 +2,8 @@
 date: 2014-01-11
 title: MacBook Pro 15" のみという選択
 subtitle: MacBook Pro Retinaディスプレイ 2000/15.4 ME293J/A
-categories: gadget
+categories: 
+    - gadget
 excerpt: "最近、数年に一度来る『断捨離』のブームで、いらないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。"
 ogimage: http://t32k.me/mol/images/2014/mbp/01.jpg
 ---

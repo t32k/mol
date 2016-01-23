@@ -2,7 +2,8 @@
 date: 2015-05-20
 title: 【翻訳】Web世代のデベロッパーのためのmake
 subtitle: Make for the Web Generation
-categories: translation
+categories: 
+    - translation
 excerpt: makeなんてしらないおっさん向け。
 ogimage: http://t32k.me/mol/images/people/casper_beyer.png
 ---

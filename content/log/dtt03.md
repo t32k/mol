@@ -2,7 +2,8 @@
 date: 2010-01-31
 title: Webディレクターズハック
 subtitle: DooGA Tech Talks 03
-categories: report
+categories: 
+    - report
 excerpt: 第3回社内TechTalksを開催した。今回もまたご近所のWeb会社の@ichigamiさんを招いて、Webディレクションについて話してもらった。ディレクションがテーマなのでディレクター部も誘って和気藹々な感じで開催することできた。
 ogimage: http://lh5.ggpht.com/_1drnogi3vdg/S2ROxI1wooI/AAAAAAAAAxQ/SLS2qZciPHk/dtt03.jpg
 ---

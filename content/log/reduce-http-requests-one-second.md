@@ -2,7 +2,8 @@
 date: 2013-08-23
 title: HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない
 subtitle: Optimize CSS Delivery
-categories: performance
+categories: 
+    - performance
 excerpt: 最終日は、我々フロントエンドデベロッパーに課せられた理想と現実のはざまについて冷静と情熱のあいだらへんで考えていきます。まずは下記のブログを読んでくださいませ。
 ogimage: http://t32k.me/static/blog/2013/08/tcp.png
 ---

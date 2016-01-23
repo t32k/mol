@@ -2,7 +2,8 @@
 date: 2009-08-17
 title: 理科系の作文技術
 subtitle: 木下 是雄
-categories: books
+categories: 
+    - books
 excerpt: 調査報告、出張報告、技術報告、研究計画の申請書など、好むと好まざるとにかかわらず、書かなければならない書類は多い。
 ogimage: http://ecx.images-amazon.com/images/I/31818M220JL.jpg
 ---

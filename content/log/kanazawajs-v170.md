@@ -1,7 +1,8 @@
 ---
 date: 2012-04-02
 title: kanazawa.js v1.7 - Back to Basics - 開催しました
-categories: report
+categories: 
+    - report
 ---
 <p style="text-align: center;"><a href="http://www.facebook.com/media/set/?set=a.314736818592584.73653.109048162494785&amp;type=1"><img class="aligncenter fig" src="/static/blog/2012/04/kanaj.jpg" alt="" width="500" height="250" /></a></p>
 

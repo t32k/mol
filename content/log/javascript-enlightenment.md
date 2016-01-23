@@ -1,5 +1,6 @@
 ---
-categories: books
+categories: 
+    - books
 date: 2015-01-23T13:48:04-08:00
 excerpt: JavaScriptの言語的特性で知っておくべきポイントをまとめた書籍
 ogimage: http://www.oreilly.co.jp/books/images/picture_large978-4-87311-621-1.jpeg

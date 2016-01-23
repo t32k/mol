@@ -2,7 +2,8 @@
 date: 2009-08-15
 title: TextMateをProcessingのエディタ代わりにする
 subtitle: The Missing Editor for Mac OS X
-categories: development
+categories: 
+    - development
 excerpt: IAMASのオープンキャンパスに行って以来、Processingをちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。
 ogimage: http://lh5.ggpht.com/_1drnogi3vdg/SnrLKtoIT3I/AAAAAAAAAgc/3Q5un_J7fSU/pt.png
 ---

@@ -1,7 +1,8 @@
 ---
 date: 2009-06-22
 title: 複数のGoogle Analytics Tracker Codeを併用する
-categories: analytics
+categories: 
+    - analytics
 ---
 
 『[Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ](https://www.suzukikenichi.com/blog/tracking-access-by-mutiple-google-analytics-accounts/)』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は`_gat._getTracker()`で初期化する際に、変数を2つ用意してあげればいいってこと。

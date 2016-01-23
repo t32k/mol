@@ -2,7 +2,8 @@
 date: 2014-02-14
 title: フロントエンドエンジニア（仮）
 subtitle: 〜え、ちょっとフロントやること多すぎじゃない！？〜
-categories: development
+categories: 
+    - development
 excerpt: "フロントエンドのワークフロー(Grunt)、最適化（パフォーマンス）について考えたことを紹介します。"
 ---
 

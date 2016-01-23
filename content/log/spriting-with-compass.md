@@ -2,7 +2,8 @@
 date: 2012-12-02
 title: パフォーマンスからみるSass/Compass 第2回：CompassによるCSS Sprite
 subtitle: CSS Preprocessor Advent Calendar 2012
-categories: development
+categories: 
+    - development
 excerpt: パフォーマンスの勉強ができてなおかつSass/Compassのお勉強にもなるお得なシリーズまさかの2回目。Adventにぶつけてきた！
 ogimage: http://t32k.me/static/blog/2012/12/compile.png
 ---

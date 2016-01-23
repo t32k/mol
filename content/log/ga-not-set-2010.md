@@ -1,7 +1,8 @@
 ---
 date: 2010-09-30
 title: Google Analytics、 (not set) エントリの異常増加
-categories: analytics
+categories: 
+    - analytics
 excerpt: 最近、ユーザー > PC環境 > 画面の解像度 のメニューにおいて、 (not set) エントリが異常に多いことを同僚から指摘されました。
 ogimage: http://t32k.me/static/blog/2010/09/screenresolution.png
 ---

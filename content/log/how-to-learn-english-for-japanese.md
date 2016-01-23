@@ -1,5 +1,6 @@
 ---
-categories: books
+categories: 
+    - books
 date: 2015-03-05T14:43:35-08:00
 excerpt: タイトルから見て分かるように、これは英語の参考書の類ではない。在日39年のジェームス氏から見る、日本人の英語に対する誤解をバッサバッサぶった斬りながら解説している本である。
 ogimage: http://ecx.images-amazon.com/images/I/51OSHX2xwSL.jpg

@@ -2,7 +2,8 @@
 date: 2013-12-01
 title: 今どきのGruntを使ったフロントエンド開発（HTML/CSS編）
 subtitle: HTML5 Conference 2013
-categories: report
+categories: 
+    - report
 excerpt: "あらゆる作業をGruntに任せてより効率的な開発環境を手に入れてみませんか"
 ---
 

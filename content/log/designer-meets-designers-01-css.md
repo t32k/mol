@@ -2,7 +2,8 @@
 date: 2007-08-12
 title: Designer meets Designers 01
 subtitle: Designer meets Designers
-categories: report
+categories: 
+    - report
 excerpt: 「Designer meets Designers」（D2）はweb creators編集部がお送りする“デザイナーのための”イベントです。Designer meets Designersではひとつの大きなテーマのもとWebデザイン業界の「いま」を見据えたデザインとテクニック、それに最新知識を網羅し「本当にデザイナーの方々の役に立つ情報」を提供すべく複数のSESSIONから構成されています。
 ogimage: http://www.mdn.co.jp/webcre/d2/img/header_common.gif
 ---

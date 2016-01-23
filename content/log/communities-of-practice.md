@@ -2,7 +2,8 @@
 date: 2011-04-19
 title: Communities of Practice
 subtitle: kanazawa.js結成までの軌跡
-categories: blog
+categories: 
+    - blog
 excerpt: コミュニティ・オブ・プラクティス(実践コミュニティ)とは、あるテーマに関する関心や問題、熱意などを共有し、その分野における知識や技能を、持続的な相互作用を通じて深めていく人々の集団である。
 ogimage:
 ---

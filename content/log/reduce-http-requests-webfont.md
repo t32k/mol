@@ -2,7 +2,8 @@
 date: 2013-08-21
 title: HTTPリクエストを減らすために【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ
 subtitle: grunt-webfont
-categories: performance
+categories: 
+    - performance
 excerpt: 3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用について考慮しても、やぶさかではないでしょう。
 ogimage: http://t32k.me/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png
 ---

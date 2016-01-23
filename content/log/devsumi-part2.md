@@ -1,7 +1,8 @@
 ---
 date: 2008-02-24
 title: デブサミ2008 Day2
-categories: report
+categories: 
+    - report
 ---
 
 ### 【14-C-1】　ロボットで分かった、人の構造が動きを導く

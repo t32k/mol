@@ -2,7 +2,8 @@
 date: 2011-02-09
 title: kanazawa.js v1.0 開催しました
 subtitle: kanazawa.js v1.0 〜JavaScriptコトハジメ〜 
-categories: blog
+categories: 
+    - blog
 excerpt: kanazawa.js v1.0 〜JavaScriptコトハジメ〜を開催しました。初の有料のセミナー主催&東京・福井から大切なスピーカーを招いての絶対に失敗できないセミナーでしたが、なんとか無事に進行することができました。
 ---
 
