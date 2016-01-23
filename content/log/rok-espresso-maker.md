@@ -4,6 +4,7 @@ title: ROKエスプレッソメーカーを購入
 subtitle: 自宅で手動でエスプレッソを作る
 categories: 
     - blog
+    - coffee
 excerpt: 最近、燃え尽き症候群な感じでとりあえずエスプレッソ飲んで人生見つめ直したいと思ってROK エスプレッソメーカーを購入した。
 ogimage: http://t32k.me/mol/images/2015/rok/01.jpg
 ---

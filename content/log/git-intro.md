@@ -2,12 +2,11 @@
 date: 2014-04-07
 title: 開発効率をUPする Git逆引き入門
 categories: 
-    - blog
+    - books
 excerpt: "id:Layzieさんより本頂いた。僕からはどちらからと言えば、デザイナー側からのレビューをしたいと思う。"
 ---
 
-<table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4863541465/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51RtoUsheVL._SL160_.jpg" border="0" alt="開発効率をUPする Git逆引き入門" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92UP%E3%81%99%E3%82%8B-Git%E9%80%86%E5%BC%95%E3%81%8D%E5%85%A5%E9%96%80-%E6%9D%BE%E4%B8%8B-%E9%9B%85%E5%92%8C/dp/4863541465%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863541465" target="_blank">開発効率をUPする Git逆引き入門</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br />松下 雅和 船ヶ山 慶 平木 聡 土橋 林太郎 三上 丈晴 <br /><br />シーアンドアール研究所  2014-04-09<br />売り上げランキング : 306<br /><br /><a href="http://www.amazon.co.jp/%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92UP%E3%81%99%E3%82%8B-Git%E9%80%86%E5%BC%95%E3%81%8D%E5%85%A5%E9%96%80-%E6%9D%BE%E4%B8%8B-%E9%9B%85%E5%92%8C/dp/4863541465%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863541465" target="_blank">Amazonで詳しく見る</a></font> <font size="-2">by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
-
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4863541465/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51RtoUsheVL._SL160_.jpg" alt="開発効率をUPする Git逆引き入門" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4863541465/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">開発効率をUPする Git逆引き入門</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.1.23</div></div><div class="azlink-detail">松下 雅和,船ヶ山 慶,平木 聡,土橋 林太郎,三上 丈晴<br />シーアンドアール研究所<br />売り上げランキング: 366953<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4863541465/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 [id:Layzie](http://layzie.hatenablog.com/entry/20140403/1396509428)さんより本頂いた。なお著者は全員緑の会社の人である。この本はデザイナー・エンジニア両方をターゲットとしているみたいなので、僕からはどちらからと言えば、デザイナー側からのレビューをしたいと思う。
 
