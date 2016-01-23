@@ -11,7 +11,12 @@
         {{ .Content }}
     </section>
 </article>
-    <div class="post-tag"><a href="/mol/categories/{{ .Params.categories }}">{{ .Params.categories }}</a></div>
+
+    <div class="post-tag">
+        {{ with .Params.categories }}<div>Categories:{{ range . }} <a href="/categories/{{ . }}/">{{ . }}</a>{{ end }}</div>{{ end }}
+
+        <a href="/mol/categories/{{ .Params.categories }}">{{ .Params.categories }}</a>
+    </div>
     {{ partial "social.html" .}}
 <hr>
 {{ partial "ad.html" . }}
