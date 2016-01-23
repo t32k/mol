@@ -289,7 +289,35 @@ a:hover .social-links-linkedin {
     text-transform: uppercase;
 }
 
-
+.cse-box {
+    color: #4f4f4;
+    text-align: center;
+}
+.cse-box .text {
+    width: 200px;
+    line-height: 36px;
+    margin: 0 1em 0 0;
+    padding: 0 1em;
+    border: 0;
+    border-radius: 2px;
+    background-position: 1em center !important;
+    background-color: white;
+    font-size: 16px;
+}
+.cse-box .button {
+    line-height: 34px;
+    margin: 1px 0;
+    padding: 0 2em;
+    border: 1px #cfcfcf solid;
+    border-radius: 2px;
+    color: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.05);
+    font-size: 14px;
+}
+.cse-box .button:hover {
+    color: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.1);
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
