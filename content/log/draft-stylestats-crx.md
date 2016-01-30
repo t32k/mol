@@ -1,5 +1,5 @@
 ---
-date: 2016-01-20
+date: 2016-02-01
 title: StyleStatsのChrome拡張機能ができました
 subtitle: StyleStats Chrome Extension
 categories: 
@@ -9,11 +9,11 @@ ogimage:
 draft: true
 ---
 
-![StyleStats Chrome拡張機能](/mol/images/2016/0120-00.gif)
+[![StyleStats Chrome拡張機能](/mol/images/2016/0120-00.gif)](https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki)
 
 [StyleStats](https://github.com/t32k/stylestats)のChrome拡張を作った。
 
-+ [stylestats/stylestats-chrome-extension](https://github.com/stylestats/stylestats-chrome-extension)
++ [StyleStats - Chrome ウェブストア](https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki)
 
 StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
 
@@ -34,6 +34,8 @@ $ npm install -g stylestats
 ![StyleStats.org](/mol/images/2016/0120-01.png)
 
 そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、`Unique Font Families`、　`Unique Colors` がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
+
+あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。
 
 ### CRX
 
