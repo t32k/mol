@@ -1,7 +1,7 @@
 ---
-date: 2016-02-02
-title: 私の名前は高城 剛。住所不定、職業不明。
-subtitle: 144 Q&A ABOUT TSUYOSHI TAKASHIRO
+date: 2016-02-03
+title: 10年後の仕事のカタチ10のヒント
+subtitle: シリコンバレーと、アジア新興国から考える、僕達の仕事のゆくえ
 categories: 
     - books
 excerpt: 世の中がグチャグチャになっている今こそ、『自分』と向き合うことが一番重要だ。最注目パースン高城剛のすべてがわかるQA144。
