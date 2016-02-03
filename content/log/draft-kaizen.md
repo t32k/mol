@@ -1,6 +1,6 @@
 ---
-date: 2016-02-04
-title: 
+date: 2016-02-28
+title: kaizen
 subtitle: 
 categories: 
     - design
