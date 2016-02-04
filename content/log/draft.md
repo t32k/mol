@@ -1,9 +1,10 @@
 ---
-date: 2016-02-28
-title: kaizen
+date: 2016-02-10
+title: なぜ私はKaizen Platformで働いているのか。
 subtitle: 
 categories: 
     - design
+    - blog
 excerpt:
 ogimage: 
 draft: true
@@ -31,6 +32,7 @@ https://www.wantedly.com/projects/42902
 デザインのGitHubになりうるか？
 
 個の時代
+
 
 The Dribbblisation of Design http://article.enja.io/articles/the-dribbblisation-of-design.html
 
