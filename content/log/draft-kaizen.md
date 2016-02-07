@@ -1,5 +1,5 @@
 ---
-date: 2016-02-10
+date: 2016-12-31
 title: なぜ私はKaizen Platformで働いているのか。
 subtitle: 
 categories: 
