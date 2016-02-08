@@ -6,10 +6,9 @@ categories:
     - gadget
 excerpt: スマートフォンはデバイス・OSともに成熟してるのだなぁと感じた。やっぱこれが安心のNexusブランドだからでしょうか。
 ogimage: http://t32k.me/mol/images/2016/0209-00.jpg
-draft: true
 ---
 
-![](/mol/images/2016/0209-00.jpg)
+![Google Nexus 5X](/mol/images/2016/0209-00.jpg)
 
 - Google Nexus 5X： ¥42,120
 - クーポン： ¥-2,000
@@ -19,7 +18,6 @@ draft: true
 ***
 
 - 合計： ¥41,820
-
 
 フィリピンで買った赤色のNexus 5が気に入っていて、Android Nが出るまで全然もちそうだったが、[EXPANSYS](http://www.expansys.jp/)で、セールをしていたので、つい購入してしまった（今見たら更に安くなってる...）。TwitterでEXPANSYSをフォローしたりすると、クーポンも貰える！
 
