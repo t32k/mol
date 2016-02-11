@@ -10,10 +10,10 @@ ogimage: http://ecx.images-amazon.com/images/I/51zYuQQVyUL.jpg
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51zYuQQVyUL._SL160_.jpg" alt="貧乏はお金持ち　「雇われない生き方」で格差社会を逆転する (講談社＋α文庫)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" name="azlinklink" target="_blank">貧乏はお金持ち</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.4</div></div><div class="azlink-detail">橘玲<br />講談社<br />売り上げランキング: 1515<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-前回,読んだ「黄金の羽根の拾い方」を肉付けしたような感じだ。言ってること自体も
+前回読んだ「黄金の羽根の拾い方」を肉付けしたような感じだ。
 
 1. 出来る限り税金を払わない
-2. 出来る限り.再分配はもらう
+2. 出来る限り再分配はもらう
 
 の2つだけだ。ただ「黄金の羽根〜」に比べて、なぜそう考えるのか、雇用問題などの社会情勢の話も盛り込まれているので全部で300ページとちょっとお腹一杯な内容になっている。
 
