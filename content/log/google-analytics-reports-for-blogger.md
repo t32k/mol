@@ -1,5 +1,5 @@
 ---
-date: 2007-06-01
+date: 2007-08-01
 title: 【翻訳】ブロガーのための５つのGoogle Analyticsレポート
 subtitle: Top 5 Google Analytics Reports for Bloggers
 categories: 
