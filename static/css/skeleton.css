@@ -46,6 +46,7 @@ blockquote {
 }
 .ad:after {
     content: "AD";
+    display: block;
     color: #4f4f4f;
     font-size: 12px;
 }
