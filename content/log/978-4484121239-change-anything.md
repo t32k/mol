@@ -22,6 +22,8 @@ ogimage: ttp://ecx.images-amazon.com/images/I/41rITBuOw%2BL.jpg
 
 このマシュマロテストは意志の強さが、いかに大事か紹介するための事例になってるような気がする。それと同時に『マシュマロを食べてしまう僕はダメな子なんだ、意志が弱いからだ』という免罪符を与えている。
 
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484121239/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41rITBuOw%2BL._SL160_.jpg" alt="自分を見違えるほど変える技術" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484121239/warikiru-22/" name="azlinklink" target="_blank">自分を見違えるほど変える技術</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.2.28</div></div><div class="azlink-detail">ケリー・パターソン<br />CCCメディアハウス<br />売り上げランキング: 201948<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484121239/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+
 それって思考停止だよねってことを本書は教えてくれる。本書で紹介されている追加の実験では、マシュマロを食べないようにするテクニック（マシュマロを見ないとか歌って違うことをするとか）を教えた子はそうでない子に比べてマシュマロを食べる確率が減ったという。
 
 結局、そのテクニックを知ってるかそうでないかで、マシュマロの呪縛から、簡単にってわけでもないが、解き放たれる可能性はあると教えてくれる。
@@ -30,7 +32,6 @@ ogimage: ttp://ecx.images-amazon.com/images/I/41rITBuOw%2BL.jpg
 
 しかし、思考停止しない場合は、ではなぜ、アイスを食べてしまったのか？ちょっとコンビニにお金を下ろしたついでにうっかり購入してしまった。なら今度からは銀行でお金を下ろせばいい。そんな具合に打開策を講ずることができる。
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484121239/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41rITBuOw%2BL._SL160_.jpg" alt="自分を見違えるほど変える技術" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484121239/warikiru-22/" name="azlinklink" target="_blank">自分を見違えるほど変える技術</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.2.28</div></div><div class="azlink-detail">ケリー・パターソン<br />CCCメディアハウス<br />売り上げランキング: 201948<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4484121239/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 本書ではそういったテクニック・事例を、**個人・社会・構造**レベル x **モチベーション・能力**の6つのカテゴリーで分解して解説している点がおもしろい。
 
