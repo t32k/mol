@@ -114,12 +114,13 @@ a:hover .site-author-pic {
 
 .social-links li {
     display: inline;
+    margin-right: 8px;
 }
 
 .social-links svg {
     fill: #BDBDBD;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     transition-property: fill;
     transition-duration: .5s;
     transition-timing-function: ease-out;
@@ -137,8 +138,8 @@ a:hover .social-links-github {
     fill: #444;
 }
 
-a:hover .social-links-behance {
-    fill: #5C6BC0;
+a:hover .social-links-dribbble {
+    fill: #FE378A;
 }
 
 a:hover .social-links-linkedin {
