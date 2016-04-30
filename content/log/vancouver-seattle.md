@@ -3,7 +3,7 @@ date: 2015-06-07
 title: バンクーバーからシアトル日帰り旅行
 subtitle: Watching Seattle Marinaes
 categories: 
-    - blog
+    - trip
 excerpt: そうゆうわけで、出不精t32kのアドベンチャーの始まりだ。
 ogimage: http://t32k.me/mol/images/2015/seattle/11.jpg
 ---

@@ -3,7 +3,7 @@ date: 2016-04-30
 title: タイに1週間旅行してきた
 subtitle: TG 676 A380 Bangkok - Narita
 categories: 
-    - blog
+    - trip
 excerpt: ここのところずっと人生に生きる意味を見出せなかったのだが...
 ---
 
