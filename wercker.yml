@@ -1,4 +1,4 @@
-box: wercker/golang
+box: golang
 build:
   steps:
     - arjen/hugo-build:
