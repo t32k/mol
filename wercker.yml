@@ -1,4 +1,4 @@
-box: samueldebruyn/hugo-build
+box: debian
 build:
   steps:
     - arjen/hugo-build:
