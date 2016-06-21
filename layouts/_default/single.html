@@ -1,5 +1,8 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
+
+{{ with .Params.hero }}<div class="hero" style="background-image:url('{{ . }}')"></div>{{ end }}
+
 <div class="container">
 <article role="main" class="post">
     <header class="post-header">
