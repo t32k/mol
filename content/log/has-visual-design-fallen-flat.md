@@ -5,11 +5,9 @@ date: 2015-02-11T01:08:56-08:00
 title: 【翻訳】ビジュアルデザインはつまらなくなってしまったのか？
 subtitle: HAS VISUAL DESIGN FALLEN FLAT?
 excerpt: それはビジュアルデザインにおいて非常に大きな変化だった。Microsoftの急進的でモダンなMetro UIはその前兆だった。iOS7のリリースよって大衆化し、UIのトレンドは2極化した。Google Material Designによって、おおかた完成した。
+hero: /mol/images/2015/0211-00.png
 ogimage: http://t32k.me/mol/images/2015/0211-00.png
 ---
-
-![](/mol/images/2015/0211-00.png)
-
 <cite class="citation">
 ![Emmet Connolly](/mol/images/people/emmet_connolly.jpg)
 Original：[HAS VISUAL DESIGN FALLEN FLAT?
