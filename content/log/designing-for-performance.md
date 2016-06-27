@@ -13,7 +13,7 @@ ogimage: http://ecx.images-amazon.com/images/I/51ckdAnKBoL.jpg
 
 <small>画像： [Tufted coquette - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tufted_coquette)</small>
 
-ハンドメイドのマーケットプレイスを運営しており、Webパフォーマンスの取り組みが素晴らしいことでも有名な[Etsy社のエンジニアリング](https://codeascraft.com/)マネージャーが書いたフロントエンドのパフォーマンスに関する本。フロントエンドのパフォーマンスと言うと、Steve Souders氏の『[ハイパフォーマンスWebサイト](https://www.amazon.co.jp/dp/487311361X/?tag=warikiru-22)』は有名だが、基本的なことは変わってはいながいが、原著が出版されたのが2007年といささか古い。
+ハンドメイドのマーケットプレイスを運営しており、Webパフォーマンスの取り組みが素晴らしいことでも有名な[Etsy社のエンジニアリング](https://codeascraft.com/)マネージャーが書いたフロントエンドのパフォーマンスに関する本。フロントエンドのパフォーマンスと言うと、Steve Souders氏の『[ハイパフォーマンスWebサイト](https://www.amazon.co.jp/dp/487311361X/?tag=warikiru-22)』は有名だが、基本的なことは変わっていないものの、原著が出版されたのが2007年といささか古い。
 
 『Googleの検索結果で何秒遅れたら〜』、『Amazonのサイトで何秒遅れたら〜』と言った使いされた事例などが本書ではアップデートされ、新しい事例や、新しい技術が紹介されており、とっつきやすきなっている。ただ原著の出版されたのが2014年なので[AMP](https://www.ampproject.org/)とかそういった最新のものは解説されていないが、監訳者著の付録でHTTP2の話にも触れてあるので、良いと思う。
 
