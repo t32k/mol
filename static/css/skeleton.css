@@ -79,7 +79,7 @@ blockquote {
 }
 .site-header a:hover {
     color: #4C566C;
-    border-bottom: 3px #88E18E solid;
+    border-bottom: 3px #1ABC9C solid;
 }
 
 .site-footer {
@@ -104,7 +104,7 @@ blockquote {
 }
 
 a:hover .site-author-pic {
-    border: 3px #88E18E solid;
+    border: 3px #1ABC9C solid;
 }
 
 .site-author-info {
