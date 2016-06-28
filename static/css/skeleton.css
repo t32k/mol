@@ -53,7 +53,7 @@ blockquote {
 
 .hero {
     width: 100%;
-    height: 400px;
+    height: 340px;
     margin: -3rem 0 3rem;
     background: #efefef top center no-repeat;
     background-size: cover;
@@ -305,7 +305,7 @@ a:hover .social-links-linkedin {
 .cse-box .text {
     width: 200px;
     line-height: 36px;
-    margin: 0 1em 0 0;
+    margin: 0.5em 1em;
     padding: 0 1em;
     border: 0;
     border-radius: 2px;
