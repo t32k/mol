@@ -23,6 +23,6 @@ ogimage: http://ecx.images-amazon.com/images/I/51ckdAnKBoL.jpg
 
 そうゆうわけで、本書では偉い人を巻き込んだりする方法が書かれてたりする。百聞には一見にしかずというが、やっぱり、そうゆう人たちには比較動画やfilmstrip的なものを見せると良い。本書に書かれていることは、たいてい実践してきたつもりなので、自分のブログのPerformanceタグの記事を参考にしてもらいたい。
 
-- [Performance - MOL](http://localhost:1313/mol/categories/performance/)
+- [Performance - MOL](/mol/categories/performance/)
 
 コンパクトに比較的最近のパフォーマンス事情が分かる良い書籍なので、ぜひ組織に一冊、部署ごとに一冊置いておくと良いかと思う。
