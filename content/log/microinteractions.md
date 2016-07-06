@@ -43,15 +43,15 @@ Kaizen Platform, Inc. フロントエンドデベロッパーのt32kです。皆
 > ちゃんとしたWebアプリケーションのUIを考えたらSPAにならざるを得ないということが多い
  ― [SPAである価値 - nobkzのブログ](http://nobkz.hatenadiary.jp/entry/2016/06/02/005114)
  
-皆がスマホを持ちネイティブアプリが普通に使われている現在、当然ユーザーはその使いごごちやルック&フィールをWebアプリにも求めることでしょう。そのような中で、SSR（サーバーサイドレンダリング）でページ単位でリクエストしていると、ページ間遷移時のトランジションエフェクトが適用できなかったりします。
+皆がスマホを持ちネイティブアプリが普通に使われている現在、当然ユーザーはその使い心地やルック&フィールをWebアプリにも求めることでしょう。そのような中で、SSR（サーバーサイドレンダリング）でページ単位でリクエストしていると、ページ間遷移時のトランジションエフェクトが適用できなかったりします。
 
-そういった面から、KAIZEN DASHBOARDを振り返ってみると、toBのビジネスのためか、なにか硬い印象をもつギョームアプリケーションになっています。SPAで作っているので基本的にはAPIのデータのやりとりだけでページを警戒に切り替えることができるはずですが、やはりキャッシュ制御は難しく、理想には程遠いです。さらには複雑なフロントエンド開発で疲労困憊な状態です。
+そういった面から、KAIZEN DASHBOARDを振り返ってみると、toBのビジネスのためか、なにか硬い印象をもつザ・ギョーム・アプリケーションになっています。SPAで作っているので基本的にはAPIのデータのやりとりだけでページを警戒に切り替えることができるはずですが、やはりキャッシュ制御は難しく、理想には程遠いです。さらには複雑なフロントエンド開発で疲労困憊な状態です。
 
-このような状況でフロントエンドエンジニアとしてユーザーに価値を提供できているのか？と疑問を持つようになりました。両方SPAである、AngularからReactに作り変えて何の意味があるのか。それよりもSPAの良さを引き出すべきなのではないかという思いが強くなってきました。
+このような状況でフロントエンドエンジニアとしてユーザーに価値を提供できているのか？と疑問を持つようになりました。両方SPAである、AngularからReactに作り変えて何の意味があるのか。それよりもSPAの良さを引き出す努力をすべきなのではないかという思いが強くなってきました。
 
 ## 光明
 
-SPAの良さ、つまりネイティブアプリのような操作感とはどのようなものか？インタラクションデザインの研究者である渡邊恵太氏は、iPhoneの使いやすさに関してこう評しています。
+SPAのメリット、つまりネイティブアプリのような操作感とはどのようなものか？インタラクションデザインの研究者である渡邊恵太氏は、iPhoneの使いやすさに関してこう評しています。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41AgS62PXgL._SL160_.jpg" alt="融けるデザイン ―ハード×ソフト×ネット時代の新たな設計論" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">融けるデザイン</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.7.6</div></div><div class="azlink-detail">渡邊恵太<br />ビー・エヌ・エヌ新社<br />売り上げランキング: 56189<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
@@ -68,13 +68,14 @@ SPAの良さ、つまりネイティブアプリのような操作感とはど�
 
 このことから私は以下のように目標を設定しました。
 
-トリガーに対するフィードバックのプロセスを表示することで、ユーザーの理解を促進する。適切で即座なフィードバックを返すことでユーザーをフロー（に近い）状態にさせる
+『トリガーに対するフィードバックの**プロセス**を表示することで、ユーザーの理解を促進する。適切で即座なフィードバックを返すことでユーザーをフロー（に近い）状態にさせる』
 
-この目標に対して、フロントエンドエンジニアとしてモーションやインタラクションをデザインについて考える必要がありました。ただ、一から考えるのは大変なので、GoogleのMaterial Designを参考にしました。Material Designはモーションに関しても詳細なガイドラインがあるので、大変参考になります。
+この目標に対して、フロントエンドエンジニアとしてモーションやインタラクションをデザインについて考える必要がありました。ただ、一から考えるのは大変なので、GoogleのMaterial Designを参考にしました。[Material Designはモーションに関しても詳細なガイドライン](https://material.google.com/motion/material-motion.html)があるので、大変参考になります。
 
 - **Meaningful transitions** 意味のあるトランジションを心がけよう
 - **Visual continuity** ビジュアルの一貫性に気をつけよう
 - **Delightful details** 遊び心もあればいいよね！
+
 
 ## 実装
 
