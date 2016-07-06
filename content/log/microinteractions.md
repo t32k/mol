@@ -79,6 +79,8 @@ SPAのメリット、つまりネイティブアプリのような操作感と�
 
 ## 実装
 
+![](http://t32k.me/slides/2016/microinteractions/img/animation.png)
+
 まずはじめに、汎用アニメーションを定義したCSSをいくつか用意しました。このCSSを動かしたい要素に対して指定するだけで、その要素の状態が変化したときにfadeやzoomといったアニメーションが作動します。これを実現しているのはAngularの[ngAnimate](https://docs.angularjs.org/api/ngAnimate)という機能を使っているからです。これは、ng-showやng-hideディレクティブが指定されている要素のモデルに変更があった場合、A
 ngular側で、`.ng-enter`や`.ng-leave`などのアニメーションのフックとなるCSSクラスを自動的に付与してくれるので事前にアニメーションを定義できるのです。同様な機能はReactやVue.jsにもあるので利用可能です。
 
@@ -125,3 +127,10 @@ ngAnimateを使ったサンプルをCodePenにあげときましたので、い�
 あ、あと、インタラクションとかもできちゃうフロントエンドエンジニアを弊社では募集しております。よろっしゃお願いしすm(_ _)m
 
 - [Kaizen Platform, Inc. - Frontend Engineer/ フロントエンドエンジニア](https://jobs.lever.co/kaizenplatform/8a4371bd-8a4f-465c-81b1-8a28b9851a48)
+
+--- 
+
+今回アニメーションGIFを載せたかったので、KeynoteやめてHTMLスライドを使用した。使ったのはTalkie。PDF化まで名古屋人によるもの。あーなごやか。
+
+- [ahomu/Talkie: Simple slide presentation library.](https://github.com/ahomu/Talkie)
+- [TalkieのスライドをPDF化するツール作った | ブログ :: Web notes.log](http://blog.wnotes.net/blog/article/talkie-slide-to-pdf-tool)
