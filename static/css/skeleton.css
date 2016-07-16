@@ -6,8 +6,10 @@
 * http://www.opensource.org/licenses/mit-license.php
 */
 
+
 /* MOL
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 img {
     vertical-align: middle;
 }
@@ -33,17 +35,20 @@ blockquote {
     width: 100% !important;
     height: 100% !important;
 }
+
 .ad {
     margin-bottom: 10px;
     padding: 10px 10px 0;
     background: #efefef;
     text-align: center;
 }
+
 .ad a,
-.ad iframe{
+.ad iframe {
     display: block;
     margin: auto;
 }
+
 .ad:after {
     content: "AD";
     display: block;
@@ -58,8 +63,11 @@ blockquote {
     background: #efefef top center no-repeat;
     background-size: cover;
 }
+
+
 /* Site
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .site-header {
     margin-bottom: 3rem;
     background: #F5F8FC;
@@ -77,6 +85,7 @@ blockquote {
     font-size: 14px;
     border-bottom: 3px transparent solid;
 }
+
 .site-header a:hover {
     color: #4C566C;
     border-bottom: 3px #1ABC9C solid;
@@ -164,9 +173,11 @@ a:hover .social-links-linkedin {
     border-width: 0;
     border-bottom: 1px solid #E1E1E1;
 }
-.c-article:last-child  {
+
+.c-article:last-child {
     border: 0;
 }
+
 .c-article h3 {
     margin-bottom: 1rem;
 }
@@ -190,7 +201,6 @@ a:hover .social-links-linkedin {
 
 .post-h1 {
     margin: 1rem 0 0 0 !important;
-    letter-spacing: -0.2rem;
 }
 
 .post-desc {
@@ -204,6 +214,7 @@ a:hover .social-links-linkedin {
 .post-social {
     margin: 4rem 0 0;
 }
+
 .post-social svg {
     margin-right: 12px;
     width: 24px;
@@ -239,14 +250,17 @@ a:hover .social-links-linkedin {
     width: 100%;
     border-collapse: collapse;
 }
+
 .post tr {
     border-top: 1px solid #CCC;
 }
+
 .post th,
 .post td {
     padding: 6px 12px;
     border: 1px solid #DDD;
 }
+
 .post table tr:nth-child(2n) {
     background-color: #f8f8f8
 }
@@ -282,18 +296,20 @@ a:hover .social-links-linkedin {
 }
 
 .post-tags a {
-     display: inline-block;
-     line-height: 22px;
-     padding: 5px 10px;
-     border-radius: 3px;
-     color: rgba(0,0,0,0.6);
-     background: rgba(0,0,0,0.05);
-     font-size: 13px;
- }
-.post-tags a:hover {
-    color: rgba(0,0,0,0.6);
-    background: rgba(0,0,0,0.1);
+    display: inline-block;
+    line-height: 22px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    font-size: 13px;
 }
+
+.post-tags a:hover {
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.1);
+}
+
 .post-tags a::first-letter {
     text-transform: uppercase;
 }
@@ -302,6 +318,7 @@ a:hover .social-links-linkedin {
     color: #4f4f4;
     text-align: center;
 }
+
 .cse-box .text {
     width: 200px;
     line-height: 36px;
@@ -313,23 +330,27 @@ a:hover .social-links-linkedin {
     background-color: white;
     font-size: 16px;
 }
+
 .cse-box .button {
     line-height: 34px;
     margin: 1px 0;
     padding: 0 2em;
     border: 1px #cfcfcf solid;
     border-radius: 2px;
-    color: rgba(0,0,0,0.6);
-    background: rgba(0,0,0,0.05);
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
     font-size: 14px;
 }
+
 .cse-box .button:hover {
-    color: rgba(0,0,0,0.6);
-    background: rgba(0,0,0,0.1);
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.1);
 }
+
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .container {
     position: relative;
     width: 90%;
@@ -345,7 +366,9 @@ a:hover .social-links-linkedin {
     box-sizing: border-box;
 }
 
+
 /* For devices larger than 400px */
+
 @media (min-width: 400px) {
     .container {
         width: 85%;
@@ -353,7 +376,9 @@ a:hover .social-links-linkedin {
     }
 }
 
+
 /* For devices larger than 550px */
+
 @media (min-width: 550px) {
     .container {
         width: 80%;
@@ -367,152 +392,125 @@ a:hover .social-links-linkedin {
     .columns {
         margin-left: 4%;
     }
-
     .column:first-child,
     .columns:first-child {
         margin-left: 0;
     }
-
     .one.column,
     .one.columns {
         width: 4.66666666667%;
     }
-
     .two.columns {
         width: 13.3333333333%;
     }
-
     .three.columns {
         width: 22%;
     }
-
     .four.columns {
         width: 30.6666666667%;
     }
-
     .five.columns {
         width: 39.3333333333%;
     }
-
     .six.columns {
         width: 48%;
     }
-
     .seven.columns {
         width: 56.6666666667%;
     }
-
     .eight.columns {
         width: 65.3333333333%;
     }
-
     .nine.columns {
         width: 74.0%;
     }
-
     .ten.columns {
         width: 82.6666666667%;
     }
-
     .eleven.columns {
         width: 91.3333333333%;
     }
-
     .twelve.columns {
         width: 100%;
         margin-left: 0;
     }
-
     .one-third.column {
         width: 30.6666666667%;
     }
-
     .two-thirds.column {
         width: 65.3333333333%;
     }
-
     .one-half.column {
         width: 48%;
     }
-
     /* Offsets */
     .offset-by-one.column,
     .offset-by-one.columns {
         margin-left: 8.66666666667%;
     }
-
     .offset-by-two.column,
     .offset-by-two.columns {
         margin-left: 17.3333333333%;
     }
-
     .offset-by-three.column,
     .offset-by-three.columns {
         margin-left: 26%;
     }
-
     .offset-by-four.column,
     .offset-by-four.columns {
         margin-left: 34.6666666667%;
     }
-
     .offset-by-five.column,
     .offset-by-five.columns {
         margin-left: 43.3333333333%;
     }
-
     .offset-by-six.column,
     .offset-by-six.columns {
         margin-left: 52%;
     }
-
     .offset-by-seven.column,
     .offset-by-seven.columns {
         margin-left: 60.6666666667%;
     }
-
     .offset-by-eight.column,
     .offset-by-eight.columns {
         margin-left: 69.3333333333%;
     }
-
     .offset-by-nine.column,
     .offset-by-nine.columns {
         margin-left: 78.0%;
     }
-
     .offset-by-ten.column,
     .offset-by-ten.columns {
         margin-left: 86.6666666667%;
     }
-
     .offset-by-eleven.column,
     .offset-by-eleven.columns {
         margin-left: 95.3333333333%;
     }
-
     .offset-by-one-third.column,
     .offset-by-one-third.columns {
         margin-left: 34.6666666667%;
     }
-
     .offset-by-two-thirds.column,
     .offset-by-two-thirds.columns {
         margin-left: 69.3333333333%;
     }
-
     .offset-by-one-half.column,
     .offset-by-one-half.columns {
         margin-left: 52%;
     }
-
 }
+
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
 /* NOTE
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
+
 html {
     font-size: 10px;
 }
@@ -520,16 +518,23 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-size: 18px; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 18px;
+    /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
-    font-weight: 400;
-    font-family: "Noto Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
     color: rgba(0, 0, 0, 0.87);
 }
 
+
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 300;
@@ -538,61 +543,52 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 30px;
     line-height: 1.2;
-    letter-spacing: -.1rem;
 }
 
 h2 {
     font-size: 26px;
     line-height: 1.25;
-    letter-spacing: -.1rem;
 }
 
 h3 {
     font-size: 20px;
     line-height: 1.3;
-    letter-spacing: -.1rem;
 }
 
 h4 {
     font-size: 14px;
     line-height: 1.35;
-    letter-spacing: -.08rem;
 }
 
 h5 {
     font-size: 8px;
     line-height: 1.5;
-    letter-spacing: -.05rem;
 }
 
 h6 {
     font-size: 6px;
     line-height: 1.6;
-    letter-spacing: 0;
 }
 
+
 /* Larger than phablet */
+
 @media (min-width: 550px) {
     h1 {
         font-size: 40px;
     }
-
     h2 {
         font-size: 32px;
     }
-
     h3 {
         font-size: 26px;
     }
-
     h4 {
         font-size: 20px;
     }
-
     h5 {
         font-size: 14px;
     }
-
     h6 {
         font-size: 8px;
     }
@@ -602,8 +598,10 @@ p {
     margin-top: 0;
 }
 
+
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 a {
     color: #5FA9FF;
     text-decoration: none;
@@ -613,8 +611,10 @@ a:hover {
     color: #477fbf;
 }
 
+
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 ul {
     list-style: circle inside;
 }
@@ -623,7 +623,8 @@ ol {
     list-style: decimal inside;
 }
 
-ol, ul {
+ol,
+ul {
     padding-left: 0;
     margin-top: 0;
 }
@@ -640,8 +641,10 @@ li {
     margin-bottom: 1rem;
 }
 
+
 /* Code
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 code {
     padding: .2rem .5rem;
     margin: 0 .2rem;
@@ -660,8 +663,10 @@ pre > code {
     overflow: hidden;
 }
 
+
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 button,
 .button {
     margin-bottom: 1rem;
@@ -691,8 +696,10 @@ p {
     margin-top: 0;
 }
 
+
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .u-full-width {
     width: 100%;
     box-sizing: border-box;
@@ -730,12 +737,15 @@ p {
 .u-mbn {
     margin-bottom: 0 !important;
 }
+
 .u-mrm {
     margin-right: 10px !important;
 }
 
+
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 hr {
     margin-top: 3rem;
     margin-bottom: 3.5rem;
@@ -743,10 +753,13 @@ hr {
     border-top: 1px solid #E1E1E1;
 }
 
+
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+
 /* Self Clearing Goodness */
+
 .container:after,
 .row:after,
 .u-cf {
@@ -754,6 +767,7 @@ hr {
     display: table;
     clear: both;
 }
+
 
 /* github.com style (c) Vasily Polovnyov <vast@whiteants.net> */
 
