@@ -116,15 +116,19 @@ ngAnimateを使ったサンプルをCodePenにあげときましたので、い�
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51LgvWft-IL._SL160_.jpg" alt="マイクロインタラクション ―UI/UXデザインの神が宿る細部" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">マイクロインタラクション<br>UI/UXデザインの神が宿る細部</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.7.6</div></div><div class="azlink-detail">Dan Saffer,武舎 広幸,武舎 るみ<br />オライリージャパン<br />売り上げランキング: 60411<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-実装したら他の同僚に共有しましょう。共有するときに、動きやモノに名前が決まっていると説明しやすいです。例えば、先ほどのインタラクションも、トリガーをクリックすると絞り込みフォームが`.a-compress-right`で出てきて、次にユーザーリストが`.a-compress-bottom`で出現。ユーザーをクリックすると`.a-move-right`でremoveされ、`.a-fade`でディレクションとして出現する。といった感じで表現できます。
+実装したら他の同僚に共有しましょう。共有するときに、動きやモノに名前が決まっていると説明しやすいです。例えば、先ほどのインタラクションは、
 
-私はデザイナー上がりのフロントエンドエンジニアでこのようなインタラクションやモーションに関して疎くないのですが、エンジニア上がりのフロントエンドエンジニアと一緒に作業するときはこういった取り決めがあるとスムーズに進むことでしょう。またデザイナーも必ずしもコードがかけたりインタラクションに造詣があるといったこともないので、みんなで作っていく姿勢が大事かと思います。
+トリガーをクリックすると絞り込みフォームが`.a-compress-right`で出てきて、次にユーザーリストが`.a-compress-bottom`で出現。ユーザーをクリックすると`.a-move-right`でremoveされ、`.a-fade`でディレクションとして出現する。
+
+といった感じで表現できます。
+
+私はデザイン畑出身のフロントエンドエンジニアでこのようなインタラクションやモーションに関して疎くないのですが、エンジニア畑出身のフロントエンドエンジニアと一緒に作業するときはこういった取り決めがあるとスムーズに進むことでしょう。またデザイナーも必ずしもコードがかけたりインタラクションに造詣があるといったこともないので、みんなで作っていく姿勢が大事かと思います。
 
 最後になりましたが、あまり大げさに捉えることなく、できることから、小さなところから手を付けて行くのが良いかと思います。そういった小さな、つまりマイクロインタラクションの集合が使いやすいアプリケーションとなりユーザーに価値を提供できるのではないかと考えています。
 
 ありがとうございましたm(_ _)m
 
-あ、あと、インタラクションとかもできちゃうフロントエンドエンジニアを弊社では募集しております。よろっしゃお願いしすm(_ _)m
+あと、弊社ではインタラクションデザインとかもできちゃうフロントエンドエンジニアを募集しております。よろっしゃお願いしすm(_ _)m
 
 - [Kaizen Platform, Inc. - Frontend Engineer/ フロントエンドエンジニア](https://jobs.lever.co/kaizenplatform/8a4371bd-8a4f-465c-81b1-8a28b9851a48)
 
