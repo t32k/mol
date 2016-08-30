@@ -2,7 +2,8 @@
 date: 2010-05-28
 title: Google Analytics トラッキング スニペット再考（2010）
 subtitle:
-categories: analytics
+categories:
+    - analytics
 excerpt: 非同期トラッキングコードが公式に推奨されるようになったので、ようやく重い腰を上げて調べてみました。
 ---
 
