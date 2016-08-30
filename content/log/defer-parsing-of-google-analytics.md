@@ -1,8 +1,7 @@
 ---
 date: 2012-09-28
-title: Google Analytics トラッキングスニペット再考（2012年モバイル版）
-categories: 
-    - analytics
+title: Google Analytics トラッキング スニペット再考（2012）
+categories: analytics
 ---
 
 
