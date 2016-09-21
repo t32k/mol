@@ -1,18 +1,13 @@
 ---
 date: 2010-05-28
-title: Google Analytics 非同期トラッキングコード再考（2010）
+title: Google Analytics トラッキング スニペット再考（2010）
 subtitle:
-categories: 
-    - books
-excerpt:
-ogimage:
+categories:
+    - analytics
+excerpt: 非同期トラッキングコードが公式に推奨されるようになったので、ようやく重い腰を上げて調べてみました。
 ---
 
-![](http://t32k.me/static/blog/2010/05/a.jpg)
-
-by [Subharnab](https://www.flickr.com/photos/subharnab/3779676969/)
-
-+ [アナリティクス 日本版 公式ブログ: 成長し続ける Google Analytics のエコシステム](http://analytics-ja.blogspot.ca/2010/05/growing-google-analytics-ecosystem.html)
++ [アナリティクス公式ブログ: 成長し続ける Google Analytics のエコシステム](http://analytics-ja.blogspot.ca/2010/05/growing-google-analytics-ecosystem.html)
 
 非同期トラッキングコードが公式に推奨されるようになったので、ようやく重い腰を上げて調べてみました。長文です。
 
@@ -113,7 +108,7 @@ IE6でなんかパーシングエラーになるそうです。その解決策�
 GoogleでWebパフォーマンスのエバンジェリストしているSteve Soudersさんのブログ記事なんですが、Google Analyticsの非同期トラッキングコードの変遷について解説しています。
 
 
-```javascript
+```js
 // 2009年12月段階のベータ版のトラッキングコード
 var ga = document.createElement('script');
 ga.src = ('https:' == document.location.protocol ?
@@ -123,7 +118,7 @@ ga.setAttribute('async', 'true');
 document.documentElement.firstChild.appendChild(ga);
 ```
 
-```javascript
+```js
 // 2010年の2月の段階のトラッキングコード
 var ga = document.createElement('script');
 ga.type = 'text/javascript'; ga.async = true;
@@ -134,7 +129,7 @@ var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(ga, s);
 ```
 
-どこが変わったのですかね。。。まぁちょいちょい微妙に違うのですが、ここでもっとも重要な変更点はSCRIPT要素をDOMで生成した後、ページに挿入するメソッドを、appendChildからinsertBeforeに変更した点です。
+どこが変わったのですかね…まぁちょいちょい微妙に違うのですが、ここでもっとも重要な変更点はSCRIPT要素をDOMで生成した後、ページに挿入するメソッドを、appendChildからinsertBeforeに変更した点です。
 
 なんでこんなことをしたのかとSteve Souders考えるにjQueryで同じような問題があったので参考にしたのではないかと。
 
@@ -174,7 +169,3 @@ Brian… あなたにもっと早く出会えていれば….
 JavaScriptを嗜む程度の自分なのであまり詳しくないですが、このコードを初めて見たとき、なんか見慣れないなと思いました。なんでこうゆう書き方をしているのかなと。Google Code Blogを読む分には、ga.jsが読み込まれていない状態でvar _gaqにはただの配列が代入されて、そのコマンドが配列中に記録されてキュー待ち状態になる。んで、ga.jsが読み込まれると_gaqはオブジェクトになってキュー待ちのコマンドを実行していくという感じです。
 
 まぁ、よく分かりませんが、とりあえず、コードの実行順序を維持するためにこのような書き方になったということが理解できて良かったです。ということで、ga.jsが読み込まれなかったとしてもただの配列の中に蓄えられるだけなのでエラーになる可能性が低くなったということです。
-
-## まとめ
-
-というわけで、非同期トラッキングコードについて、Webデザイナーの自分が背伸びをして調べたわけですが、ほんっと【急募】アクセス解析エンジニアって感じました。
