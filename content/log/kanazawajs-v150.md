@@ -24,7 +24,7 @@ categories:
 
 ますい△!!
 <div class="amazlet-box" style="margin-bottom: 0px;">
-<div class="amazlet-image" style="float: left; margin: 0px 12px 1px 0px;"><a name="amazletlink" href="http://www.amazon.co.jp/exec/obidos/ASIN/4798123986/warikiru-22/ref=nosim/" target="_blank"></a><a href="http://www.amazon.co.jp/gp/product/4798123986/ref=as_li_ss_tl?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=4798123986"><img class="fig" src="http://ecx.images-amazon.com/images/I/51xs9gdl3mL._SL160_.jpg" alt="Titanium Mobileで開発するiPhone/Androidアプリ (Smart Mobile Developer)" width="127" height="160" /></a></div>
+<div class="amazlet-image" style="float: left; margin: 0px 12px 1px 0px;"><a name="amazletlink" href="http://www.amazon.co.jp/exec/obidos/ASIN/4798123986/warikiru-22/ref=nosim/" target="_blank"></a><a href="http://www.amazon.co.jp/gp/product/4798123986/ref=as_li_ss_tl?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=4798123986"><img class="fig" src="https://images-na.ssl-images-amazon.com/images/I/51xs9gdl3mL._SL160_.jpg" alt="Titanium Mobileで開発するiPhone/Androidアプリ (Smart Mobile Developer)" width="127" height="160" /></a></div>
 <div class="amazlet-info" style="line-height: 120%; margin-bottom: 10px;">
 <div class="amazlet-name" style="margin-bottom: 10px; line-height: 120%;">
 

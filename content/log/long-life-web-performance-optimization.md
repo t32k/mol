@@ -5,7 +5,7 @@ subtitle: 心理学から考えるWebパフォーマンス
 categories: 
     - performance
 excerpt: 今回はLong Life Designのように長〜く使えるWPOを心理学などの人間側から考えてみようってのが今回のセッションの狙いです。
-ogimage: http://ecx.images-amazon.com/images/I/41VPCPBHRNL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/41VPCPBHRNL.jpg
 ---
 
 WCAF Seminar Vol.4での講演ログ。
@@ -138,7 +138,7 @@ __認知・知覚・感受・体感 | Perception__
 
 え、これって、スピードって重要じゃないってこと？
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41VPCPBHRNL._SL160_.jpg" alt="フロー体験 喜びの現象学 (SEKAISHISO SEMINAR)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/" name="azlinklink" target="_blank">フロー体験 喜びの現象学 (SEKAISHISO SEMINAR)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.18</div></div><div class="azlink-detail">M. チクセントミハイ,Mihaly Csikszentmihalyi,今村 浩明<br />世界思想社<br />売り上げランキング: 5514<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/41VPCPBHRNL._SL160_.jpg" alt="フロー体験 喜びの現象学 (SEKAISHISO SEMINAR)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/" name="azlinklink" target="_blank">フロー体験 喜びの現象学 (SEKAISHISO SEMINAR)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.18</div></div><div class="azlink-detail">M. チクセントミハイ,Mihaly Csikszentmihalyi,今村 浩明<br />世界思想社<br />売り上げランキング: 5514<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 このことを理解するのに重要なキーワードを持つ人物がアメリカの心理学者のミハイチクセントミハイです。彼が提唱した概念にフローというのがあります。
 

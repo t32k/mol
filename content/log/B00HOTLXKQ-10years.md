@@ -5,10 +5,10 @@ subtitle: シリコンバレーと、アジア新興国から考える、僕達�
 categories: 
     - books
 excerpt: 10年後に自分はまだ必要とされる人材であり続けられるだろうか？ 
-ogimage: http://ecx.images-amazon.com/images/I/51x6JuikHtL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/51x6JuikHtL.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00HOTLXKQ/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51x6JuikHtL._SL160_.jpg" alt="10年後の仕事のカタチ10のヒント　シリコンバレーと、アジア新興国から考える、僕達の仕事のゆくえ" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00HOTLXKQ/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">10年後の仕事のカタチ10のヒント</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.2.3</div></div><div class="azlink-detail">松井博,大石哲之<br />tyk publishing<br />売り上げランキング: 18350<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00HOTLXKQ/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00HOTLXKQ/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/51x6JuikHtL._SL160_.jpg" alt="10年後の仕事のカタチ10のヒント　シリコンバレーと、アジア新興国から考える、僕達の仕事のゆくえ" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00HOTLXKQ/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">10年後の仕事のカタチ10のヒント</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.2.3</div></div><div class="azlink-detail">松井博,大石哲之<br />tyk publishing<br />売り上げランキング: 18350<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00HOTLXKQ/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 これも安いから買ったのだけど、対談形式の軽いやつだった。安いのにはわけがある...内容自体もこの手の本を読んだことある人なら既視感のある内容だと思う。
 

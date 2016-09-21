@@ -5,10 +5,10 @@ subtitle: 「雇われない生き方」で格差社会を逆転する
 categories: 
     - books
 excerpt: グローバル資本主義の台頭とともに、楽園を追われるようになったサラリーマン。望むと望まざるとにかかわらず、すべてのものがフリーエージェント化していく。残酷なまでに自由な世界を、どう生き抜くべきなのか？　「雇われない生き方」とそのための「ファイナンスの技術」を描いたベストセラー！
-ogimage: http://ecx.images-amazon.com/images/I/51zYuQQVyUL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/51zYuQQVyUL.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51zYuQQVyUL._SL160_.jpg" alt="貧乏はお金持ち　「雇われない生き方」で格差社会を逆転する (講談社＋α文庫)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" name="azlinklink" target="_blank">貧乏はお金持ち</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.4</div></div><div class="azlink-detail">橘玲<br />講談社<br />売り上げランキング: 1515<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/51zYuQQVyUL._SL160_.jpg" alt="貧乏はお金持ち　「雇われない生き方」で格差社会を逆転する (講談社＋α文庫)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" name="azlinklink" target="_blank">貧乏はお金持ち</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.4</div></div><div class="azlink-detail">橘玲<br />講談社<br />売り上げランキング: 1515<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DQ4SKM2/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 前回読んだ「[黄金の羽根の拾い方](/mol/log/978-4344026421/)」を肉付けしたような感じだ。
 

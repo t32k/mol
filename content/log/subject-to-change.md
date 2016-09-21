@@ -7,7 +7,7 @@ categories:
 <table border="0" cellpadding="5">
 <tbody>
 <tr>
-<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873113857/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="http://ecx.images-amazon.com/images/I/51Ckb3wB3sL._SL160_.jpg" border="0" alt="Subject To Change -予測不可能な世界で最高の製品とサービスを作る" width="114" height="160" /></a></td>
+<td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873113857/warikiru-22/ref=nosim/" target="_blank"><img class="fig" src="https://images-na.ssl-images-amazon.com/images/I/51Ckb3wB3sL._SL160_.jpg" border="0" alt="Subject To Change -予測不可能な世界で最高の製品とサービスを作る" width="114" height="160" /></a></td>
 <td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Subject-Change-%E4%BA%88%E6%B8%AC%E4%B8%8D%E5%8F%AF%E8%83%BD%E3%81%AA%E4%B8%96%E7%95%8C%E3%81%A7%E6%9C%80%E9%AB%98%E3%81%AE%E8%A3%BD%E5%93%81%E3%81%A8%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E3%82%8B-Peter-Merholz/dp/4873113857%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873113857" target="_blank">Subject To Change
 -予測不可能な世界で最高の製品とサービスを作る</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9" border="0" alt="" width="1" height="1" />
 高橋 信夫</span>

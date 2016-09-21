@@ -5,10 +5,10 @@ subtitle: 男がわからなかった 女が商品を選ぶ本当の理由
 categories: 
     - books
 excerpt: 女性心理がわかれば、不思議なくらい会社もグングン伸びる!女性マーケティングのパイオニア(ハー・ストーリイ)チーフプロデューサーが明かす、女ゴコロマーケティングの極意。
-ogimage: http://ecx.images-amazon.com/images/I/31gRk0pDLWL._SL160_.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/31gRk0pDLWL._SL160_.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4767806976/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31gRk0pDLWL._SL160_.jpg" alt="彼女があのテレビを買ったワケ―男がわからなかった 女が商品を選ぶ本当の理由" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4767806976/warikiru-22/" name="azlinklink" target="_blank">彼女があのテレビを買ったワケ</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.25</div></div><div class="azlink-detail">木田 理恵<br />エクスナレッジ<br />売り上げランキング: 111024<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4767806976/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4767806976/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/31gRk0pDLWL._SL160_.jpg" alt="彼女があのテレビを買ったワケ―男がわからなかった 女が商品を選ぶ本当の理由" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4767806976/warikiru-22/" name="azlinklink" target="_blank">彼女があのテレビを買ったワケ</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.25</div></div><div class="azlink-detail">木田 理恵<br />エクスナレッジ<br />売り上げランキング: 111024<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4767806976/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 
 女性マーケティングのパイオニアの著者だが、男女の購買行動の違いとして以下のように述べている。

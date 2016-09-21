@@ -5,10 +5,10 @@ subtitle: 智恵の贈り物
 categories: 
     - books
 excerpt: 人を知り、幸福に生きる。100年以上、ヨーロッパで読み継がれてきた名著。賢い人づきあいの知恵151。
-ogimage: http://ecx.images-amazon.com/images/I/31TDzr09aVL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/31TDzr09aVL.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4781603890/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31TDzr09aVL._SL160_.jpg" alt="人間交際術 (智恵の贈り物)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4781603890/warikiru-22/" name="azlinklink" target="_blank">人間交際術 (智恵の贈り物)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.3.14</div></div><div class="azlink-detail">アドルフ F.V.クニッゲ,服部 千佳子<br />イースト・プレス<br />売り上げランキング: 168743<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4781603890/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4781603890/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/31TDzr09aVL._SL160_.jpg" alt="人間交際術 (智恵の贈り物)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4781603890/warikiru-22/" name="azlinklink" target="_blank">人間交際術 (智恵の贈り物)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.3.14</div></div><div class="azlink-detail">アドルフ F.V.クニッゲ,服部 千佳子<br />イースト・プレス<br />売り上げランキング: 168743<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4781603890/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 ヨーロッパで100年以上読まれ続けてきた本だけあって、さすがにおもしろい。人間なんて嫉妬深いものだから謙虚であれ的な印象を全体を通して感じた。日本人は基本的にそんなに「俺が俺が」ってこともないと思うけど、世の中どこで妬みを持たれるかわかりませんので、謙虚にいきましょう。人様、おかげ様です。
 

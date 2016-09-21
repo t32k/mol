@@ -5,10 +5,10 @@ subtitle: 木下 是雄
 categories: 
     - books
 excerpt: 調査報告、出張報告、技術報告、研究計画の申請書など、好むと好まざるとにかかわらず、書かなければならない書類は多い。
-ogimage: http://ecx.images-amazon.com/images/I/31818M220JL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/31818M220JL.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31818M220JL._SL160_.jpg" alt="理科系の作文技術 (中公新書 (624))" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" name="azlinklink" target="_blank">理科系の作文技術 (中公新書 (624))</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.13</div></div><div class="azlink-detail">木下 是雄<br />中央公論新社<br />売り上げランキング: 366<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/31818M220JL._SL160_.jpg" alt="理科系の作文技術 (中公新書 (624))" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" name="azlinklink" target="_blank">理科系の作文技術 (中公新書 (624))</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.13</div></div><div class="azlink-detail">木下 是雄<br />中央公論新社<br />売り上げランキング: 366<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4121006240/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 タイトルに『理科系』と書いてあるが、すべてのコミュニケーションに携わる人に読んでもらいたい。本書で扱う__＜作文技術＞__の大切さは米国では早くから認知されており、大学の一般教育課程にイングリッシュ・コンポジションというコースがあるほどだ。もし、日本でもこのようなジャパニーズ・コンポジションという単位があるのならば、本書は間違いなく必須テキストに採用されると思う。
 

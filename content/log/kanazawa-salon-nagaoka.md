@@ -5,7 +5,7 @@ subtitle: D&DEPARTMENT PROJECT
 categories: 
     - report
 excerpt: 金沢サロンとは、建築家でデザイナーの黒川雅之氏が毎回様々なゲストを招いて議論する会。会社の先輩から誘われて初めて行ったのだが、かなり充実した2時間だった。
-ogimage: http://ecx.images-amazon.com/images/I/31RQ9lkwOaL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/31RQ9lkwOaL.jpg
 ---
 
 + [第43回：金沢サロン報告](http://www.kanazawa-bidai.ac.jp/salon/080516report.html)
@@ -68,4 +68,4 @@ ogimage: http://ecx.images-amazon.com/images/I/31RQ9lkwOaL.jpg
 
 ○○○らしい3つって決めるのはかなり難しいよね。それが金沢らしい、日本らしいってことになると。でも、大切なのはそうやって何にするかとか、どうするかとみんなで考え議論する姿勢だと思う。なんか効率的ではないし、簡単ではないけど、それだからこそ愛着もわくのだろう。だから、今回のサロンなどもとても意義のあるものだったと思う。
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4101306214/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/31RQ9lkwOaL._SL160_.jpg" alt="ナガオカケンメイの考え (新潮文庫)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4101306214/warikiru-22/" name="azlinklink" target="_blank">ナガオカケンメイの考え (新潮文庫)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.6.30</div></div><div class="azlink-detail">ナガオカ ケンメイ<br />新潮社<br />売り上げランキング: 195013<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4101306214/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4101306214/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/31RQ9lkwOaL._SL160_.jpg" alt="ナガオカケンメイの考え (新潮文庫)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4101306214/warikiru-22/" name="azlinklink" target="_blank">ナガオカケンメイの考え (新潮文庫)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.6.30</div></div><div class="azlink-detail">ナガオカ ケンメイ<br />新潮社<br />売り上げランキング: 195013<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4101306214/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>

@@ -5,10 +5,10 @@ subtitle: 人の心を映す鏡
 categories: 
     - books
 excerpt: 「なぜ人間型ロボットにこだわるのか?」――それは、このような一連の研究は、著者にとって「人間とは何か」を問う自己探求の試みでもあるからです。
-ogimage: http://ecx.images-amazon.com/images/I/41VjIwsW4UL._SL160_.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/41VjIwsW4UL._SL160_.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00APR9CCU/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41VjIwsW4UL._SL160_.jpg" alt="ロボットとは何か　人の心を映す鏡 (講談社現代新書)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00APR9CCU/warikiru-22/" name="azlinklink" target="_blank">ロボットとは何か　人の心を映す鏡 (講談社現代新書)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.11</div></div><div class="azlink-detail">石黒浩<br />講談社<br />売り上げランキング: 4021<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00APR9CCU/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00APR9CCU/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/41VjIwsW4UL._SL160_.jpg" alt="ロボットとは何か　人の心を映す鏡 (講談社現代新書)" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00APR9CCU/warikiru-22/" name="azlinklink" target="_blank">ロボットとは何か　人の心を映す鏡 (講談社現代新書)</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.2.11</div></div><div class="azlink-detail">石黒浩<br />講談社<br />売り上げランキング: 4021<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00APR9CCU/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 [TEDxSeeds](http://tedxseeds.org/talk/robots-are-mirrors-of-human-heart/)で講演されていて、そのテーマのおもしろさもさることながら人柄まで気に入ってしまったので、本書を読んでみた。
 

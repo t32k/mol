@@ -5,7 +5,7 @@ subtitle: Webパフォーマンス最適化のためのコーディング手法
 categories: 
     - performance
 excerpt: 今回の対策にあたり、私はHTMLを1から組み直したわけでもなく、サーバーの設定をカリカリにチューニングしたわけではありません。当初の目標に設定したとおり、HTTPリクエストを減らすという最小限の対策でこのような最大限の効果が得られたと考えています。
-ogimage: http://ecx.images-amazon.com/images/I/51GQNCMJsZL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/51GQNCMJsZL.jpg
 ---
 
 CSS Nite LP, Disk 9での講演ログ。
@@ -148,7 +148,7 @@ CSS3は事例のサイトでは使ってはいないのですが、来るべき�
 
 今まで、4つの対策を見てきたのですが、どれもなにかしらの弱点があります。非常にコマッタピョンです。なにか一発お手軽簡単な方法はないかなーないかなーとt32k考えました。考えた考えた上でデザイン変えればいいんじゃね？（※コーダーさんに向けてのセッションでした）
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg" alt="続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" name="azlinklink" target="_blank">続・ハイパフォーマンスWebサイト</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.18</div></div><div class="azlink-detail">Steve Souders,武舎 広幸,福地 太郎,武舎 るみ<br />オライリージャパン<br />売り上げランキング: 348233<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg" alt="続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" name="azlinklink" target="_blank">続・ハイパフォーマンスWebサイト</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.18</div></div><div class="azlink-detail">Steve Souders,武舎 広幸,福地 太郎,武舎 るみ<br />オライリージャパン<br />売り上げランキング: 348233<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 
 これはちょっと冗談でなく、実体験からの考えです。WDE2009でNicole Sulivanさん(続・ハイパフォーマンスWebサイトにも寄稿している)のワークショップに参加しました。そこで僕は今回の改善事例のサイトを題材にパフォーマンスに関してアドバイスをいただきました。そこで言われたことは「JSファイルが重いようだけど、どこで使っているの？」と問われ、スムーススクロールを実現するためにjQueryとそのプラグインを読み込んでいますと言うと、「コストをかけすぎじゃない？」と言われました。彼女は元はJavaのエンジニアで、そういったエンジニアの方からデザイン・振る舞いに関して何かを言われたということはあまりないことでとても印象的でした。というか、ちょっと凹みました。

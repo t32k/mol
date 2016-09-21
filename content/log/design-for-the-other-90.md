@@ -5,10 +5,10 @@ subtitle: ものづくりには夢がある
 categories: 
     - books
 excerpt: 本当に必要とされる仕事がしたい。利用者の喜ぶ顔が見たい。夢を追うデザイナーや建築家、エンジニアや起業家たちの、アイデアと良心から生まれたデザイン・イノベーション実例集。
-ogimage: http://ecx.images-amazon.com/images/I/41kPyiovGCL.jpg
+ogimage: https://images-na.ssl-images-amazon.com/images/I/41kPyiovGCL.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862760589/warikiru-22/" name="azlinklink" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41kPyiovGCL._SL160_.jpg" alt="世界を変えるデザイン――ものづくりには夢がある"></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862760589/warikiru-22/" name="azlinklink" target="_blank">世界を変えるデザイン</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.20</div></div><div class="azlink-detail">シンシア スミス,槌屋 詩野,北村 陽子<br />英治出版<br />売り上げランキング: 74193<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862760589/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862760589/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/41kPyiovGCL._SL160_.jpg" alt="世界を変えるデザイン――ものづくりには夢がある"></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862760589/warikiru-22/" name="azlinklink" target="_blank">世界を変えるデザイン</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.20</div></div><div class="azlink-detail">シンシア スミス,槌屋 詩野,北村 陽子<br />英治出版<br />売り上げランキング: 74193<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4862760589/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
 Webデザインは、決してPhotoshopやFireworksを使ってサーフェイスをデザインすることだけではないし、パフォーマンス対策やアクセス解析などしてても『デザイン』をしているという感覚が僕にはある。
 
