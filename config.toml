@@ -1,4 +1,4 @@
-baseurl = "http://t32k.me/mol/"
+baseurl = "https://t32k.me/mol/"
 languageCode = "ja"
 title = "MOL"
 publishdir = "public"

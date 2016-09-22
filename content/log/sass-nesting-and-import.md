@@ -96,7 +96,7 @@ li {
 
 これってどんだけの程度なのよ！？ってことが気になります。詳しくは下記翻訳でまとめられています。
 <ul>
-	<li><a href="http://t32k.me/mol/log/impact-of-css-selector/">CSSセレクタのパフォーマンスへの影響 | MOL </a></li>
+	<li><a href="https://t32k.me/mol/log/impact-of-css-selector/">CSSセレクタのパフォーマンスへの影響 | MOL </a></li>
 </ul>
 1000個のCSSセレクタを改善しても20msくらいしか変わらなかったという結論です。これは2009年の話でして、世の中進歩しています。
 <ul>

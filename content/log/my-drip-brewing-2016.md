@@ -6,7 +6,7 @@ categories:
     - coffee
     - gadget
 excerpt: そんな時間、毎朝あるわけない。夜明けに起きれるか！ボケ！でもよいコーヒーを毎朝手軽に飲みたいというわがままな私の実践。
-ogimage: http://t32k.me/mol/images/2016/0208-00.jpg
+ogimage: https://t32k.me/mol/images/2016/0208-00.jpg
 ---
 
 ![](/mol/images/2016/0208-00.jpg)

@@ -5,7 +5,7 @@ subtitle: デベロッパーもGoogle Analyticsをもっと使おう！
 categories: 
     - development
 excerpt: 表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。
-ogimage: http://t32k.me/mol/images/2015/0406-00.png
+ogimage: https://t32k.me/mol/images/2015/0406-00.png
 ---
 
 [![GAER](/mol/images/2015/0406-00.png)](https://github.com/t32k/gaer)
@@ -91,11 +91,11 @@ $ stylestats -f json -n https://google.com | gaer -t UA-xxxxxxx-x -r Google
 
 だもんで、上記のような感じで、JSONで書きだした結果をパイプでGAERに渡しても、Googleアナリティクスにレコードさせればよい。
 
-[![](/mol/images/2015/0406-01.png)](http://t32k.me/mol/images/2015/0406-01.png)
+[![](/mol/images/2015/0406-01.png)](https://t32k.me/mol/images/2015/0406-01.png)
 
 記録したデータは、Googleアナリティクスの『行動』＞『イベント』のメニューで確認できる。
 
-[![](/mol/images/2015/0406-02.png)](http://t32k.me/mol/images/2015/0406-02.png)
+[![](/mol/images/2015/0406-02.png)](https://t32k.me/mol/images/2015/0406-02.png)
 
 まだデータ貯まってなくてアレだけど、まぁこんな感じで確認できるようになった。あとはこれを一日一回とか定期実行させればよい（これも若干面倒だけど、[Heroku Scheduler](https://addons.heroku.com/scheduler)を使うのがお手軽かも）。ほか、PushしたタイミングでCIサーバーのほうで実行するのもありかな。
 

@@ -9,7 +9,7 @@ excerpt: バスケットの国アメリカの空気を吸うだけで僕は高�
 
 ![](https://farm6.staticflickr.com/5471/11819134325_6c18fb697a_b.jpg)
 
-[2013年の抱負](http://t32k.me/mol/log/new-years-resolutions-2013/)にも掲げた『海外カンファレンスに参加する』を実行したのでここに報告する。
+[2013年の抱負](https://t32k.me/mol/log/new-years-resolutions-2013/)にも掲げた『海外カンファレンスに参加する』を実行したのでここに報告する。
 
 
 ## 渡航前準備とか

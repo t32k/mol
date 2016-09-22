@@ -5,7 +5,7 @@ subtitle: Make for the Web Generation
 categories: 
     - translation
 excerpt: makeなんてしらないおっさん向け。
-ogimage: http://t32k.me/mol/images/people/casper_beyer.png
+ogimage: https://t32k.me/mol/images/people/casper_beyer.png
 ---
 
 <cite class="citation">

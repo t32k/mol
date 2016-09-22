@@ -5,7 +5,7 @@ subtitle: A big step for small.
 categories: 
     - gadget
 excerpt: やっぱり、iPhoneいいわー(●´ϖ`●) 
-ogimage: http://t32k.me/mol/images/2016/0404-00.jpg
+ogimage: https://t32k.me/mol/images/2016/0404-00.jpg
 ---
 
 ![iPhone SE](/mol/images/2016/0404-00.jpg)

@@ -4,7 +4,7 @@ title: 株式会社メルカリに入社しました！
 categories: 
     - blog
 excerpt: メルカリ族になりました！
-ogimage: http://t32k.me/mol/images/2016/0716-00.jpg
+ogimage: https://t32k.me/mol/images/2016/0716-00.jpg
 ---
 
 ![](/mol/images/2016/0716-00.jpg)

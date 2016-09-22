@@ -5,7 +5,7 @@ subtitle: An evaluating tool for writing better CSS
 categories: 
     - development
 excerpt: 世間はReactの話題で持ちきりのようだけど、Backbone.jsでStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことつらつらかきとめておく。
-ogimage: http://t32k.me/mol/images/2015/0427-00.png
+ogimage: https://t32k.me/mol/images/2015/0427-00.png
 ---
 
 [![StyleStats](/mol/images/2015/0427-00.png)](http://www.stylestats.org/)
@@ -34,7 +34,7 @@ ogimage: http://t32k.me/mol/images/2015/0427-00.png
 
 でも、最近じゃ[ES6のimport](http://www.2ality.com/2014/09/es6-modules-final.html)ってのもあるのね、どうしよう。まぁいいや。[es6ify](http://thlorenz.com/es6ify/)や[babelify](https://github.com/babel/babelify)というのもある。なんだこれ？まぁいいや。あ、そうそう。BrowserifyでHandlebarsのtemplateをプリコンパイルしたかったら[hbsfy](https://github.com/epeli/node-hbsfy)っての使うらしいい。ファイファイやかましいわ。とにかく最近のES6,7事情ついていけてない、つらい。
 
-あと[Grunt/Gulpで憔悴した話](http://t32k.me/mol/log/npm-run-script/)したけど、やっぱなんやかんやでGulp使った。起動させるインターフェイスとしては`npm run script`使っているので許して欲しい（誰）。
+あと[Grunt/Gulpで憔悴した話](https://t32k.me/mol/log/npm-run-script/)したけど、やっぱなんやかんやでGulp使った。起動させるインターフェイスとしては`npm run script`使っているので許して欲しい（誰）。
 
 ## CSSとか
 

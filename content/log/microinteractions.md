@@ -5,14 +5,14 @@ subtitle: Microinteractions
 categories: 
     - slides
 excerpt: 先日、とある社内勉強会にて発表する機会があったので書き残しておく。要は、最近のフロントエンド開発の流れに疲れて、もうちょっと違う方向で頑張ろうと思った話
-ogimage: http://t32k.me/mol/images/2016/0704-00.png
+ogimage: https://t32k.me/mol/images/2016/0704-00.png
 ---
 
 <small>（アニGIFあるのでちょっと重いです...）</small>
 
-[![](/mol/images/2016/0704-00.png)](http://t32k.me/slides/2016/microinteractions/)
+[![](/mol/images/2016/0704-00.png)](https://t32k.me/slides/2016/microinteractions/)
 
-- [マイクロインタラクション事始め以前 @Yahoo!Japan 2016.07.04](http://t32k.me/slides/2016/microinteractions/)　　
+- [マイクロインタラクション事始め以前 @Yahoo!Japan 2016.07.04](https://t32k.me/slides/2016/microinteractions/)　　
 
 先日、とある社内勉強会にて発表する機会があったので書き残しておく。要は最近のフロントエンド開発の流れに疲れて、もうちょっと違う方向で頑張ろうと思った話。
 
@@ -34,7 +34,7 @@ Kaizen Platform, Inc. フロントエンドデベロッパーのt32kです。皆
 
 このまま未来永劫、同じ開発環境でいくとは限らないので、順次アップデートしていかなければならないのですが、フロントエンドの流れに若干疲れました(´・ω・｀)。疲れることに定評のあるt32kですが、以前にもビルドツールで消耗した記事を書きました。
 
-- [Grunt/Gulpで憔悴したおっさんの話 - MOL](http://t32k.me/mol/log/npm-run-script/)
+- [Grunt/Gulpで憔悴したおっさんの話 - MOL](https://t32k.me/mol/log/npm-run-script/)
 
 今回はSPAのJSフレームワークに関してです。現在Angular v1.xを使っていますが、これをv2.0にするのか、それともReactなのか、それとも他のSPAフレームワークに置き換えることが目下の課題です。
 
@@ -79,7 +79,7 @@ SPAのメリット、つまりネイティブアプリのような操作感と�
 
 ## 実装
 
-![](http://t32k.me/slides/2016/microinteractions/img/animation.png)
+![](https://t32k.me/slides/2016/microinteractions/img/animation.png)
 
 まずはじめに、汎用アニメーションを定義したCSSをいくつか用意しました。このCSSを動かしたい要素に対して指定するだけで、その要素の状態が変化したときにfadeやzoomといったアニメーションが作動します。これを実現しているのはAngularの[ngAnimate](https://docs.angularjs.org/api/ngAnimate)という機能を使っているからです。これは、ng-showやng-hideディレクティブが指定されている要素のモデルに変更があった場合、A
 ngular側で、`.ng-enter`や`.ng-leave`などのアニメーションのフックとなるCSSクラスを自動的に付与してくれるので事前にアニメーションを定義できるのです。同様な機能はReactやVue.jsにもあるので利用可能です。
@@ -95,20 +95,20 @@ ngAnimateを使ったサンプルをCodePenにあげときましたので、い�
 
 #### デザイン案いいね！アニメーション
 
-![](http://t32k.me/slides/2016/microinteractions/img/mm_like.gif)
+![](https://t32k.me/slides/2016/microinteractions/img/mm_like.gif)
 
 さて、実際の実践例ですが、まずはじめに作ったのが、デザイン案いいね！アニメーションです。
 これは、グロースハッカーさんが作ったデザイン案に対して、他の人がいいね！をつけれる機能です。まぁ作ったと言っても、イージングを少しいじった程度です。アニメーションなどに気にも留めていなかったら、いいね！機能実装タスクなんてものは、この場合、ハートの色をグレーからピンクに変えただけで終わっていたでしょう。これでなにか劇的に変わるといったものではないですが、このようなDelightful detailsの積み重ねが大事だと考えています。
  
 #### 同オファー複数デザイン案の展開トランジション
 
-![](http://t32k.me/slides/2016/microinteractions/img/mm_expand.gif)
+![](https://t32k.me/slides/2016/microinteractions/img/mm_expand.gif)
 
 いいね！のアニメーションが同僚に好評で、調子に乗ったt32kが、次にやったのが同オファー複数デザイン案の展開トランジションです。これは同じオファーでグロースハッカーさんが複数デザイン案を投稿した場合、たいていそのデザイン案は色違いやキャッチコピーの違いだけであまりビジュアル的差分がないので、一番改善率が高いものだけ表示して他はまとめているといった状態です。これをもし、トランジション無しに他のデザイン案が展開されたら、パッと見、いったいどこまで同じオファーグループのデザイン案か分かりにくい状態だったかと思います。これはMeaningful transitions意識したもので、代表デザイン案のカード（左）から`.a-compress-right`で出てくることで同グループであることを理解させたいためでした。
 
 #### ディレクション割り当てインタラクション
 
-![](http://t32k.me/slides/2016/microinteractions/img/mm_direction.gif)
+![](https://t32k.me/slides/2016/microinteractions/img/mm_direction.gif)
 
 トランジションやアニメーションに慣れてきたので、今度はそれらを組み合わせることで、ちょっとしたマイクロインタラクション的なものを実装できるようになりました。ディレクション割り当てインタラクションはオファーに対してグロースハッカーではなくディレクターをアサインする機能です。従来の方法でこの機能を実装すれば、『ディレクションをアサインする』ボタンを置き、そのボタンを押すとモーダル画面が展開され、ユーザー一覧からアサインさせるといったのが普通です。現にそのような手法はDashboardでも多く使われています。ただそれだと、モードの切替のコストも高いですし、手順も多いです。今回のインタラクションはトリガーとそれのフィードバックも近いところで発生しており、Visual continuityもあり直感的なインタラクションになってるかと思います。
 

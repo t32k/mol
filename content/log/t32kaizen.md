@@ -5,7 +5,7 @@ subtitle:
 categories: 
     - blog
 excerpt: プロフェッショナルな大人が集まるこの会社で、自分も恥じないように一員として頑張っていく所存。今後はこの会社と一緒に世界に向けて挑戦したい！！
-ogimage: http://t32k.me/mol/images/2015/kaizen.jpg
+ogimage: https://t32k.me/mol/images/2015/kaizen.jpg
 ---
 
 ![](/mol/images/2015/kaizen.jpg)

@@ -22,7 +22,7 @@ categories:
 
 はい、私のセッションです。特にJSに関係ないんですけど、個人的に勉強会とか好きなのでこれまでやってきたことを簡単にお話させていただきました。特にまとまったことも言えない感じでしたが、コミュニティは育てるものだと思っていますので、みなさんと一緒に<a href="http://kanazawajs.tumblr.com/">kanazawa.j</a>sを育てていければ幸いです。
 <ul>
-	<li><strong><a href="http://t32k.me/mol/log/communities-of-practice/">コミュニティ・オブ・プラクティス – kanazawa.js結成までの軌跡 -</a></strong></li>
+	<li><strong><a href="https://t32k.me/mol/log/communities-of-practice/">コミュニティ・オブ・プラクティス – kanazawa.js結成までの軌跡 -</a></strong></li>
 </ul>
 <h3>■ ないものは作ってしまえ！楽しいブックマークレットの世界</h3>
 <strong><a href="http://twitter.com/in0in0">@in0in0</a></strong>

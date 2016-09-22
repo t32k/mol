@@ -5,7 +5,7 @@ subtitle: Makes your code beautiful
 categories: 
     - development
 excerpt: うららかに晴れた秋の日、みなさんいかがお過ごしか？こんちわ @t32k だ。
-ogimage: http://t32k.me/mol/images/2012/10-17-csscomb.png
+ogimage: https://t32k.me/mol/images/2012/10-17-csscomb.png
 ---
 
 ![](/mol/images/2012/10-17-csscomb.png)
@@ -45,11 +45,11 @@ gzipってテキストファイルとかを圧縮する技術なんですが、�
 
 試しに、Apple Storeのbase.cssで実験してみましょう。別にApple StoreのCSSが汚いって言ってるわけじゃなくてある程度分量があったから良いサンプルかなと思ったのです。
 
-![](http://t32k.me/static/blog/2012/10/b4.png)
+![](/static/blog/2012/10/b4.png)
 
 素のbase.cssとCSScombをかけた奴。もともとminifyされてるから綺麗になったかどうかわかんないけど多分ソートされたのでしょう。なぜかCombしたほうがファイルサイズが大きくなってますが、重要なのはgzipされた状態でのサイズです。
 
-![](http://t32k.me/static/blog/2012/10/a5.png)
+![](/static/blog/2012/10/a5.png)
 
 はい、これをgzipコマンドにかけてみるとどーでしょう！わお、400バイトほど軽くなってるじゃないですか！うそーまじー！！
 

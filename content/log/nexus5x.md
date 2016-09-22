@@ -5,7 +5,7 @@ subtitle: Google Nexus 5X LG-H791 Unlocked
 categories: 
     - gadget
 excerpt: スマートフォンはデバイス・OSともに成熟してるのだなぁと感じた。やっぱこれが安心のNexusブランドだからでしょうか。
-ogimage: http://t32k.me/mol/images/2016/0209-00.jpg
+ogimage: https://t32k.me/mol/images/2016/0209-00.jpg
 ---
 
 ![Google Nexus 5X](/mol/images/2016/0209-00.jpg)

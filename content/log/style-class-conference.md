@@ -30,7 +30,7 @@ Smashing Conferenceで登壇していた[John Allsopp](https://twitter.com/johna
 
 Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピクセルとしてレンダリングする必須処理までの間の段階のことを言い、Critical CSSとはページの最初のレンダリングをブロックする可能性のあるCSSのことを言う。
 
-[![Critical Rendering Path](http://t32k.me/static/blog/2013/07/31.png)](https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present?slide=id.p19)
+[![Critical Rendering Path](/static/blog/2013/07/31.png)](https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present?slide=id.p19)
 
 なぜCSSがレンダリングをブロックするのかというと、上図の通り、レンダリングを完成するにあたってブラウザはDOMとCSSOM(CSSオブジェクトモデル)が必要なわけでして、スタイルシートがダウンロードされない限りレンダリングが開始されないわけだ。
 
@@ -56,7 +56,7 @@ Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピ�
 
 基本的には外部スタイルシートとして読み込むファイルを1個にまとめれば、HTML読み込んで、そのCSSを読み込むのがCritical Path Lengthの最短じゃねーのかと思うが、それではGoogle様が認めてくれない。
 
-試しに、[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=ja)で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：[t32k.me](http://t32k.me/)を計測してみると、『__スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する__』なことを言われモバイル評価で89点といった結果が返ってきた。
+試しに、[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=ja)で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：[t32k.me](https://t32k.me/)を計測してみると、『__スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する__』なことを言われモバイル評価で89点といった結果が返ってきた。
 
 ![PageSpeed Insights：Before](/mol/images/2014/12-24-fig03.png)
 
@@ -70,8 +70,8 @@ Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピ�
 
 でも、だからといって全部CSSをインライン化しちゃうとHTMLが膨れ上がっちゃう。TCPスロースタートのせいで1回目のレスポンスで送信できるサイズは14KBなので、オーバーしちゃう。この辺りは以前に__HTTPリクエストを減らすためにシリーズ__で記事を書いたので参照してほしい。
 
-+ [【序章】HTTPリクエストは甘え — MOL](http://t32k.me/mol/log/reduce-http-requests-overview/)
-+ [【終章】我々には1000msの猶予しか残されていない — MOL](http://t32k.me/mol/log/reduce-http-requests-one-second/)
++ [【序章】HTTPリクエストは甘え — MOL](https://t32k.me/mol/log/reduce-http-requests-overview/)
++ [【終章】我々には1000msの猶予しか残されていない — MOL](https://t32k.me/mol/log/reduce-http-requests-one-second/)
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/51x2sA8N%2BTL._SL160_.jpg" alt="ハイパフォーマンス ブラウザネットワーキング―ネットワークアプリケーションのためのパフォーマンス最適化" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">ハイパフォーマンス ブラウザネットワーキング</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2014.12.24</div></div><div class="azlink-detail">Ilya Grigorik,和田 祐一郎,株式会社プログラミングシステム社<br />オライリージャパン<br />売り上げランキング: 130931<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
@@ -151,7 +151,7 @@ loadCSS('/skeleton.min.css');
 
 そんなこんなで現時点で一番有用な指標と個人的に考えているのが、WebPagetestで計測できる[Speed Index](https://github.com/t32k/webpagetest-doc-ja/blob/master/using-webpagetest/metrics/speed-index/index.md)だ。Speed Indexに関しても以前記事を書いた。
 
-+ [WebPagetest in 5 minutes — MOL](http://t32k.me/mol/log/webpagetest-5-minutes/)
++ [WebPagetest in 5 minutes — MOL](https://t32k.me/mol/log/webpagetest-5-minutes/)
 
 > So how fast is fast enough? A Speed Index of under 1000. And for professionals that get there, they should shoot for delivering the critical-path view (above the fold) in the first 14Kb of the page. — Paul Irish
 

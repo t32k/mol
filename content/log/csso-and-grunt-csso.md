@@ -8,7 +8,7 @@ categories:
 
 読書の秋、ご勉学の方はいかがでしょうか。 I'm your <a href="https://twitter.com/t32k">@t32k.</a>
 
-今日は__<a href="http://css.github.com/csso/">CSSO (CSS Optimizer) – A CSS minimizer unlike others</a>__の紹介だ。<a href="http://t32k.me/mol/log/csscomb/">前回のCSSComb</a>は単純にプロパティのソートをしてくれるものだったが、今回のはminimizerだ。
+今日は__<a href="http://css.github.com/csso/">CSSO (CSS Optimizer) – A CSS minimizer unlike others</a>__の紹介だ。<a href="https://t32k.me/mol/log/csscomb/">前回のCSSComb</a>は単純にプロパティのソートをしてくれるものだったが、今回のはminimizerだ。
 
 普段はSassの:compressed出力で最後デプロイしてるんだけど、もっとマシなものはないかなーと特には探してはないけど、<a href="https://twitter.com/cssradar">@cssradar</a>パイセンがCSSOがいいって言ったとか言わないとかあったので調べてみた。
 
@@ -66,7 +66,7 @@ CSSOが他のminimizerとどのへんがunlikeなのかというと、上の対�
 
 このブログのCSSをminifyしてみた結果が以下。
 
-+ [http://t32k.me/mol/wp-content/themes/quickchic/style.css](http://t32k.me/mol/wp-content/themes/quickchic/style.css)
++ [https://t32k.me/mol/wp-content/themes/quickchic/style.css](https://t32k.me/mol/wp-content/themes/quickchic/style.css)
 
 <p style="text-align: center;"><a href="/static/blog/2012/10/filesize.png"><img class="aligncenter  fig" title="Size" src="/static/blog/2012/10/filesize.png" alt="" width="500" height="225" /></a></p>
 元が14Kあるのに対して、CSSOでmiifyしたほうが8,979 byteで、YUIの9,342 byteよりも400byteほど軽くなっています。うん、素敵！

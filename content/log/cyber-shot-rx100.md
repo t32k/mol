@@ -15,7 +15,7 @@ ogimage:
 
 NEX-5もミラーレス一眼なので普通の一眼に比べればコンパクトなほうだが、やっぱデカイなと3年経ってようやく理解した。特にズームレンズとか装着したり、持ち歩いたりしてるとほんと場所をとる。しかも、たいして写真がうまくないのにレンズをいろいろ買い足していってしまう悪循環に陥るのもこわい。
 
-決定的だったのは、[海外カンファレンスに参加](http://t32k.me/mol/log/velocity2013/)してきたときに、極力荷物を減らしたかったので[DSC-WX300](http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-Cyber-shot-DSC-WX300-B-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00BQ6VHQI%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00BQ6VHQI)を購入したのだけど、これがコンパクトで写真もいい感じに撮れたので気に入ってた。けどもNYで失くした(´Д⊂ヽ
+決定的だったのは、[海外カンファレンスに参加](https://t32k.me/mol/log/velocity2013/)してきたときに、極力荷物を減らしたかったので[DSC-WX300](http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-Cyber-shot-DSC-WX300-B-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00BQ6VHQI%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00BQ6VHQI)を購入したのだけど、これがコンパクトで写真もいい感じに撮れたので気に入ってた。けどもNYで失くした(´Д⊂ヽ
 
 のでRX100を買った。ネット上の評判も良いので。
 

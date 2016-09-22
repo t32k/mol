@@ -93,4 +93,4 @@ grunt/gulpのプラグインもある！
 
 Sketchプラグインつくりました。
 
-+ [Material Design Color Paletteプラグインつくった - MOL](http://t32k.me/mol/log/my-sketch-plugin/)
++ [Material Design Color Paletteプラグインつくった - MOL](https://t32k.me/mol/log/my-sketch-plugin/)

@@ -32,8 +32,8 @@ Ilya Grigorik氏の『ハイパフォーマンス ブラウザネットワーキ
 
 最近ではフロントエンドのパフォーマンスも細分化されてきて、Network、Render、Computeの3つに大別されるようになってきたが、僕はやっぱり『HTTPリクエストを減らす』の精神でネットワークの分野に一番興味があるし、大抵の場合においてネットワークが問題の主要な要因になってるのは間違いないと思っている。
 
-+ [HTTPリクエストを減らすために【序章】HTTPリクエストは甘え — MOL](http://t32k.me/mol/log/reduce-http-requests-overview/)
-+ [HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない — MOL](http://t32k.me/mol/log/reduce-http-requests-one-second/)
++ [HTTPリクエストを減らすために【序章】HTTPリクエストは甘え — MOL](https://t32k.me/mol/log/reduce-http-requests-overview/)
++ [HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない — MOL](https://t32k.me/mol/log/reduce-http-requests-one-second/)
 
 そんなとき、いつも参考にしてきたのがIlya Grigorik氏の記事であったりスライド・動画だ。
 

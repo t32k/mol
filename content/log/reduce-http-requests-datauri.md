@@ -5,7 +5,7 @@ subtitle: Data URI scheme
 categories: 
     - performance
 excerpt: 4日目は、Data URI(インライン画像)ついて説明します。
-ogimage: http://t32k.me/static/blog/2013/08/image_0.png
+ogimage: /static/blog/2013/08/image_0.png
 ---
 
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
@@ -41,7 +41,7 @@ ogimage: http://t32k.me/static/blog/2013/08/image_0.png
 
 次に、画像のloadイベントが発生した時を完了と見なしている、そして通常の画像パスでの読み込みはブラウザキャッシュがある状態としている。
 
-![Binary vs Data URI](http://t32k.me/static/blog/2013/08/image_0.png)
+![Binary vs Data URI](/static/blog/2013/08/image_0.png)
 
 結果が上記のグラフ、Android2系はほっといてAndroid4系、iOS6の差を見てみるとだいたい100ms ~ 150msくらいだ。この差をどう捉えるかがネックだ。実際のケースで考えれば、17.6KBの画像を3G回線でHTTPリクエストすればラウンドトリップだけで200ms以上はかかるだろうし、また画像リクエストで同時接続数の1つを失ってしまい、後続のリソースのブロッキングをする可能性も出てくると考えれば、 150msくらい許容範囲ではないだろうか？
 
@@ -61,7 +61,7 @@ HTTPリクエストを減らすという観点から言えば、大抵のもの�
 
 まぁ、こうゆうのだろうね。
 
-![サンプル](http://t32k.me/static/blog/2013/08/ss1.png)
+![サンプル](/static/blog/2013/08/ss1.png)
 
 ボタンの文字が決め打ちだったり、幅が決まってたりする場合は、単純にその画像をスプライトすればよい。だが、そうでもない場合は`border-image`にしたほうが、都合がよい。もちろん左端と右端と中央で画像を分けて各背景画像で対応するのもいいけど、やっぱり`border-image`がなにかと都合がよい。
 
@@ -107,7 +107,7 @@ HTTPリクエストを減らすという観点から言えば、大抵のもの�
 
 遅延読み込みしたのが上記。
 
-![](http://t32k.me/static/blog/2013/08/ss11.png)
+![](/static/blog/2013/08/ss11.png)
 
 + [WebPagetest - Visual Comparison](http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G)
 

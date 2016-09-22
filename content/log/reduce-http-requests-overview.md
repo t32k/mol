@@ -5,7 +5,7 @@ subtitle: You have to reduce number of HTTTP requests.
 categories: 
     - performance
 excerpt: 1日目は、HTTPリクエストの概要について説明します。
-ogimage: http://t32k.me/static/blog/2013/08/requests.gif
+ogimage: /static/blog/2013/08/requests.gif
 ---
 
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
@@ -18,9 +18,9 @@ ogimage: http://t32k.me/static/blog/2013/08/requests.gif
 
 1日目は、HTTPリクエストの概要について説明する。
 
-例えに、私の[ポートフォリオページ](http://t32k.me/)（t32k.me）が表示されるまでの流れを見ていく。まず、検索からでも方法はなんでもよいが、ブラウザのURLバーにt32k.meと打ち込んでアクセスする。そのページを見にいくということは、つまりt32k.meに対してHTTPスキームでリクエストするということを意味している。
+例えに、私の[ポートフォリオページ](https://t32k.me/)（t32k.me）が表示されるまでの流れを見ていく。まず、検索からでも方法はなんでもよいが、ブラウザのURLバーにt32k.meと打ち込んでアクセスする。そのページを見にいくということは、つまりt32k.meに対してHTTPスキームでリクエストするということを意味している。
 
-![HTTPリクエストの流れ](http://t32k.me/static/blog/2013/08/requests.gif)
+![HTTPリクエストの流れ](/static/blog/2013/08/requests.gif)
 
 クライアントであるブラウザは入力されたURLを判断して、リソース（この場合、HTMLファイル）を要求しにいきます。このとき、t32k.meというドメインはあくまで人間が覚えやすいように考えられた名前なので、ブラウザはこれだけではリソースに到達出来ない。
 
@@ -38,7 +38,7 @@ IPアドレスが分かったので今度はサーバーに接続しにいく。
 
 そして最後のパケットが送り終えた時点までが、__Receiving__の時間になる。ここがいわゆるファイルのダウンロード時間にかかる時間。
 
-![リクエストの段階](http://t32k.me/static/blog/2013/08/network1.png)
+![リクエストの段階](/static/blog/2013/08/network1.png)
 
 ちなみに、これらのタイミングにかかる時間は[Google ChromeのDeveloper ToolsのNetworkパネル](https://developer.chrome.com/devtools/docs/network?hl=ja)のTimingタブで確認できる。
 
@@ -50,13 +50,13 @@ t32k.meのネットワークにかかる情報をまとめたHARファイルに�
 
 + HAR - [HTTP Archive format](http://www.softwareishard.com/blog/har-12-spec/)
 
-![HAR例](http://t32k.me/static/blog/2013/08/har.png)
+![HAR例](/static/blog/2013/08/har.png)
 
 どうだろうか、見た感じで紫色のバーが多いことに気づくことだろう。つまり__Watitingに多くの時間がかかっている__ことが理解できる。これは単純にサーバーの処理が遅くて時間がかかっているのではなく（かかっているあるが）、たいていはホスト名ごとの同時接続数に起因するものだ。
 
 ひとつの完全修飾ドメイン名 (FQDN: Fully Qualified Domain Name)に対して、同時接続できる数はたいてい6つまでだ。これを超える数のリクエストがくると、7つ目のリクエストは、最初の6つのリクエスト処理がどれかが完了される間、待たなければならない。この時間も待ち時間になる。
 
-![各ブラウザの接続数上限](http://t32k.me/static/blog/2013/08/connections.png)
+![各ブラウザの接続数上限](/static/blog/2013/08/connections.png)
 
 このような制限のため、静的ファイルはstatic.t32k.meなどの別ドメインから読み込むことによって、この同時接続数の上限を最大化しようとするのがドメイン・シャーディング（Domain Sharding）という手法が一般的にとられる。
 

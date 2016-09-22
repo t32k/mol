@@ -5,10 +5,10 @@ subtitle: DooGA Tech Talks 09
 categories: 
     - report
 excerpt: 月イチの社内勉強会、第9回目は某メーカー勤務の@mathmeさんが『Web担当者』をテーマに講義をしてくれた。
-ogimage: http://t32k.me/static/blog/2010/08/dtt09.jpg
+ogimage: /static/blog/2010/08/dtt09.jpg
 ---
 
-![](http://t32k.me/static/blog/2010/08/dtt09.jpg)
+![](/static/blog/2010/08/dtt09.jpg)
 
 月イチの社内勉強会、第9回目は某メーカー勤務の[@mathme](https://twitter.com/mathme)さんが『Web担当者』をテーマに講義をしてくれた。
 

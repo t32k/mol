@@ -18,7 +18,7 @@ excerpt: "フロントエンドのワークフロー(Grunt)、最適化（パフ
 
 ## 自己紹介
 
-+ [Koji Ishimoto - t32k.me](http://t32k.me/)
++ [Koji Ishimoto - t32k.me](https://t32k.me/)
 + Web Performance
 	+ [High Performance Web Design](http://www.slideshare.net/t32k/high-performance-web-design)
 	+ [Coding Web Performance](http://www.slideshare.net/t32k/coding-web-performance)
@@ -167,7 +167,7 @@ $ grunt
 
 + [High Performance Web Sites - O'Reilly Media](http://shop.oreilly.com/product/9780596529307.do)
 + [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)
-+ [WebPagetest in 5 minutes — MOL](http://t32k.me/mol/log/webpagetest-5-minutes/)
++ [WebPagetest in 5 minutes — MOL](https://t32k.me/mol/log/webpagetest-5-minutes/)
 + [marcelduran/webpagetest-api](https://github.com/marcelduran/webpagetest-api)
 + [TAP Plugin - Jenkins - Jenkins Wiki](https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin)
 + [Velocity 2013 レポート｜サイバーエージェント 公式エンジニアブログ](http://ameblo.jp/principia-ca/entry-11561132297.html)

@@ -5,10 +5,10 @@ subtitle: DooGA Teck Talks 06
 categories: 
     - report
 excerpt: 月イチの社内勉強会、第6回目は同僚の@in0in0氏が『ユーザビリティ』をテーマに講義をしてくれた。
-ogimage: http://t32k.me/static/blog/2010/06/dtt.jpg
+ogimage: /static/blog/2010/06/dtt.jpg
 ---
 
-![](http://t32k.me/static/blog/2010/06/dtt.jpg)
+![](/static/blog/2010/06/dtt.jpg)
 
 月イチの社内勉強会、第6回目は同僚の@in0in0氏が『ユーザビリティ』をテーマに講義をしてくれた。
 

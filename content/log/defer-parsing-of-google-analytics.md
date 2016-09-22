@@ -27,25 +27,25 @@ PCサイトで、それも単純にドキュメント閲覧のようなページ
 </script>
 ```
 
-+ [Google Analytics 非同期トラッキングコード再考（2010） - MOL](http://t32k.me/mol/log/asynchronous-tracking/)
++ [Google Analytics 非同期トラッキングコード再考（2010） - MOL](https://t32k.me/mol/log/asynchronous-tracking/)
 
 はい、2年前にこの記事を書いたのは僕でして、そこでは`</head>`の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
 
 ## script要素の読み込みと評価
 
-[![fig_1.png (500×300)](http://t32k.me/static/blog/2012/09/fig_1.png)](http://calendar.perfplanet.com/2011/lazy-evaluation-of-commonjs-modules/)
+[![fig_1.png (500×300)](/static/blog/2012/09/fig_1.png)](http://calendar.perfplanet.com/2011/lazy-evaluation-of-commonjs-modules/)
 
 script要素を入れることでかかるコストについて上記の図のような感じですね。LatencyとDownloadが読み込みに関わるところで、普通にscript要素を読み込むと、通常のリソースは並列ダウンロードできるのに対して、script要素は他のリソースのダウンロードをブロッキングします。まぁ、scriptを早い段階で読み込むとそれだけページ表示に余計に時間がかかってしまいます。この点でノンブロッキングな読み込みを実現したのがGoogle Analyticsの非同期トラッキングコードで並列ダウンロードが可能となりました。また、トラッキング用のJSファイルにはga.jsには12時間の有効期限が設定されているので、次ページビュー、当日中くらいのセッション再開後もキャッシュが有効となり、LatencyとDownloadの部分は省略できます。
 
 ただ、お気付きの通りParsingとEvaluationはキャッシュがあろうがなかろうが毎回コストを支払わなければなりません。しかもParsingとEvaluationの実行中はレンダリングが止まってしまいます。PCサイトであればこの点が無視できるほど短い時間で完了するので、head要素においても大した影響がないということでした。事実、@tobieさんの記事でもjQeuryのParsingとEvaluationのコストはMacBook Proが35msに対して、iPhone4が320msかかっている調査結果でした。つまり、jQueryを使おうが使わまいが、キャッシュが効いてようが効いてまいが、iPhone４ユーザーはjQueryが読み込まれている時点で毎回320ms（設置場所によっては）レンダリングが止まる時間ができるということです。
 
-![ Google Analyticsの非同期トラッキングコードはノンブロッキングに読み込みできるがscript実行中はレンダリングを止める](http://t32k.me/static/blog/2012/09/load_scripts_async.png)
+![ Google Analyticsの非同期トラッキングコードはノンブロッキングに読み込みできるがscript実行中はレンダリングを止める](/static/blog/2012/09/load_scripts_async.png)
 
 ## Google Analyticsの実行コスト
 
 そこでjQueryのテストのGoogle Analytics版を作ってみました。Google Analyticsは基本的にページビュー計測を目的に入れると思いますので、単純に評価だけでなく毎ページごと実行（ビーコン画像発行）されると想定したテストです。10回アクセスしてその平均値をグラフにしました。
 
-![](http://t32k.me/static/blog/2012/09/fig2.png)
+![](/static/blog/2012/09/fig2.png)
 
 iPhone3Gは論外ですけど、今現在でも広く使われてそうな機種（iPhone4やGALAXY S2）でも100ms~200msくらい実行に時間がかかっています。これがhead要素に入ってるこということは、それ以降のレンダリングが100ms~200msストップしているということになります。（実際の実装状況をかんがみるともう少し掛かりそうな気がする）
 

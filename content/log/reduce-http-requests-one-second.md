@@ -5,7 +5,7 @@ subtitle: Optimize CSS Delivery
 categories: 
     - performance
 excerpt: 最終日は、我々フロントエンドデベロッパーに課せられた理想と現実のはざまについて冷静と情熱のあいだらへんで考えていきます。まずは下記のブログを読んでくださいませ。
-ogimage: http://t32k.me/static/blog/2013/08/tcp.png
+ogimage: /static/blog/2013/08/tcp.png
 ---
 
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
@@ -36,7 +36,7 @@ ogimage: http://t32k.me/static/blog/2013/08/tcp.png
 
 ということで、今回は1000msに挑戦してみよう！という内容。
 
-![](http://t32k.me/static/blog/2013/08/life.png)
+![](/static/blog/2013/08/life.png)
 
 ※ 括弧内の文字はDevToolsでの名称を記述
 
@@ -44,7 +44,7 @@ ogimage: http://t32k.me/static/blog/2013/08/tcp.png
 
 上記は私のサイトをWebPagetestにかけた結果（TOKYOリージョン、Chrome 3G回線をエミュレート）。分かりやすくするために読み込むリソースをHTMLだけにしている（Image/CSS/JavaScript読み込んでいない）。しかし、それでも1.7秒近く読み込みに時間がかかっている。
 
-![](http://t32k.me/static/blog/2013/08/1stimeline.png)
+![](/static/blog/2013/08/1stimeline.png)
 
 + [PageSpeed Insights でのモバイル解析 — Google Developers](https://developers.google.com/speed/docs/insights/mobile)
 
@@ -56,7 +56,7 @@ Serverレスポンスタイムは完全のバックエンドのエンジニア�
 
 結局、我々フロントエンドに残された時間は200msしかない(´・ω・`)
 
-[![PageSpeed Insights](http://t32k.me/static/blog/2013/08/ps.png)](https://developers.google.com/speed/pagespeed/insights/)
+[![PageSpeed Insights](/static/blog/2013/08/ps.png)](https://developers.google.com/speed/pagespeed/insights/)
 
 最近リニューアルしたPageSpeed Insightではモバイル版も評価してくれる。当然モバイル環境はシビアなのでデスクトップ評価と比べて点数は下がってしまう。そこではモバイル版ならではのアドバイスもあり、200msでレンダリングするヒントになる。
 
@@ -67,7 +67,7 @@ Serverレスポンスタイムは完全のバックエンドのエンジニア�
 
 above-the-fold内にサードパーティなど重いコンテンツがあるのはアウト。可能な限り軽くしなければならない。ちなみにHTTPリクエスト・レスポンス、この場合、HTMLが200ms内でダウンロードされる前提だが、[InitialTCP Window Size](http://yougo.ascii.jp/caltar/%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%82%B5%E3%82%A4%E3%82%BA)が10の場合、[TCPスロースタート](http://yougo.ascii.jp/caltar/%E3%82%B9%E3%83%AD%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88)のため1回目のレスポンスで送信できるサイズは__14KB__まで。それ以上のサイズとなると1回のラウンドトリップで収まらない。だから、HTMLに重いインライン画像を記述するのはもってのほかであり、CSS/JSだけでなくHTMLのMinifyも考えなければならない。
 
-![](http://t32k.me/static/blog/2013/08/tcp.png)
+![](/static/blog/2013/08/tcp.png)
 
 HTMLが無事に1回のラウンドトリップで取得できても、残り200ms内にabove-the-foldのレンダリングを完成しなければならない。ここでCSSファイルが必要となってくるのだが、CSSファイルがダウンロードされるまでレンダリングはブロックされる。
 
@@ -81,7 +81,7 @@ HTMLが無事に1回のラウンドトリップで取得できても、残り200
 
 とはいってもQUIC, SPDYやHTTP 2.0が普及してくると、また話が違ってくるので、その辺もちゃんとキャッチアップしていかなければならない。
 
-![](http://t32k.me/static/blog/2013/08/concept_2.jpg)
+![](/static/blog/2013/08/concept_2.jpg)
 
 一連の記事で最も言いたかったのはWebパフォーマンス対策において、これさえやっておけばよい！という銀の弾丸はないということだ。HTTPリクエストの削減さえHTTPの仕様が変われば、気にしなくても良いかもしれない。
 

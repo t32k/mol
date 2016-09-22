@@ -5,7 +5,7 @@ subtitle: warikiru
 categories: 
     - blog
 excerpt: JavaScript全然わかんない文系Webデザイナー。実際、HTMLもCSSもよく分かってない。とりあえず似たような境遇の人たちの役にたてたらなと思い、ちびちび書いていこうと思う。
-ogimage: http://t32k.me/static/assets/img/me.jpg
+ogimage: /static/assets/img/me.jpg
 ---
 
 JavaScript全然わかんない文系Webデザイナー。実際、HTMLもCSSもよく分かってない。とりあえず似たような境遇の人たちの役にたてたらなと思い、ちびちび書いていこうと思う。

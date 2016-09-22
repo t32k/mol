@@ -5,7 +5,7 @@ subtitle: CSS Sprite Automation.
 categories: 
     - performance
 excerpt: 2日目は、HTTPリクエストを減らす最もポピュラーな手法、CSSスプライトについて説明します。
-ogimage: http://t32k.me/static/blog/2013/08/requests.gif
+ogimage: /static/blog/2013/08/requests.gif
 ---
 
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
@@ -27,7 +27,7 @@ ogimage: http://t32k.me/static/blog/2013/08/requests.gif
 
 左が30個のアイコン画像を一つ一つimg要素として読み込んでいるのに対して、右は１つの背景画像（CSSスプライト）として読み込んでいる。この場合、表示完了までの差はCSSスプライトのほうが圧倒的に速い。
 
-![](http://t32k.me/static/blog/2013/08/waterfall.png)
+![](/static/blog/2013/08/waterfall.png)
 
 これは前回のHTTPリクエストの仕組みを理解していれば当然のことだろう。つまり、ホスト名ごとの同時接続数とRTTが大いに関係している。上記のimg画像読み込みのウォーターフォールチャートを確認してみれば一目瞭然だ。CSSスプライトすることで一つの画像ファイルサイズは重くなるが、この場合、重要なのはReceivingの時間というよりWaitingの時間なので、結果的にアイコン表示までの時間を短縮できている。
 
@@ -55,7 +55,7 @@ $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –
 
 `grunt-init maple`を実行すると以下のようにMapleプロジェクトに必要なファイルがスキャフォルディングされる。
 
-![Demo maple](http://t32k.me/static/blog/2013/08/grunt-init.gif)
+![Demo maple](/static/blog/2013/08/grunt-init.gif)
 
 落ちてきたら、/src/tools（Gruntfile, package.jsonがある場所）に移動し、必要なGruntプラグインをインストール（npm install）しておく。これで下準備はOK。
 
@@ -98,7 +98,7 @@ $map-tabs: sprite-map(“/files/img/sprite/tabs/*.png”, $date: horizontal);
 
 説明すると`$map-tabs:`で、スプライトしたい画像を指定。imgディレクトリ配下にspriteディレクトリを作って、そこにスプライト画像をおいておけば、普通の画像と区別できて便利。このディレクトリの中にスプライト前の１個１々独立した画像が入っている。これらの画像をCompassがまとめてくれる。
 
-![Dir](http://t32k.me/static/blog/2013/08/dir.jpg)
+![Dir](/static/blog/2013/08/dir.jpg)
 
 .sprt-aで指定してある。`@include sprite(parent, $map-tabs)`は、各スプライト画像の共通プロパティを吐き出す用に指定する。各スプライトのclassすべてに同じbackground-imageのプロパティを吐き出されては冗長だから。
 
@@ -118,7 +118,7 @@ parentは親（共通）classであることを示し、$map-tabsは展開する
 
 また、Compassで生成したPNG画像は減色やメタ情報のストリップなどされていないので、そのままではデプロイしてしまうのはいかんともしがたい。通常、ImageOptim.appなどのツールで画像を最適化する必要性があるが、ドラッグ&ドロップもめんどくさいので、というか忘れるので、Gruntタスクにgrunt-imageoptimというものを組み込んだ。これはなんてことのないタスクで指定した画像を自動的に（imageOptim.appが立ち上がって）最適化してくれる。
 
-![Build](http://t32k.me/static/blog/2013/08/build.gif)
+![Build](/static/blog/2013/08/build.gif)
 
 Mapleプロジェクトでは、`grunt build`でCSSがlintされ、Compassでコンパイルされ、CSSがminifyされ、画像がimageOptimされるというタスクを組んであるので忘れることもない。
 

@@ -14,7 +14,7 @@ excerpt: ちょっとヨセミティ？ちょっとSketch使ってみぃ？
 
 そんなわけで、ひと通り使い方を学習したので何を作ろうかなと思いまして、そういえば、昔[Sublime Text](http://www.sublimetext.com/)のアイコン作ったなーと思いだしまして、それをリデザインしてみようかと思います。
 
-![旧バージョン](http://t32k.me/static/blog/2012/12/icon2.jpg)
+![旧バージョン](/static/blog/2012/12/icon2.jpg)
 
 + [Sublime Text 2 のアイコンをなんとかする — MOL](/mol/log/present-for-you/)
 

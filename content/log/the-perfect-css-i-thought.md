@@ -44,7 +44,7 @@ $experimental-support-for-microsoft: false;
 
 WebパフォーマンスにおいてHTTPリクエストを削減することは真っ先に優先されるべきことだが、あまり何でもかんでも画像をDataURI化してCSSファイルの中に記述してしまうと、CSSファイルの肥大化が問題になってしまう。CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
 
-ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、<a href="http://t32k.me/mol/log/data-uri-scheme/">仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい</a>。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。
+ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、<a href="https://t32k.me/mol/log/data-uri-scheme/">仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい</a>。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。
 
 ### Nestが深い
 
@@ -196,11 +196,11 @@ CSSのLintです。IDとか使ってたら怒られます。IEとか古いブラ
 
 ### grunt-csso
 
-より高い率でミニファイしてくれるCSSOのgrunt pluginです。<a href="http://t32k.me/mol/log/csso-and-grunt-csso/">過去に記事かいたのでそこ参照。</a>
+より高い率でミニファイしてくれるCSSOのgrunt pluginです。<a href="https://t32k.me/mol/log/csso-and-grunt-csso/">過去に記事かいたのでそこ参照。</a>
 
 ### grunt-csscomb
 
-CSSプロパティをソートしてくれるgrunt pluginです。<a href="http://t32k.me/mol/log/csscomb/">過去に記事かいたのでそこ参照。</a>最初からMapleのルールでCSSでかけばそこまであれだけど、１つのセレクタに何十ものプロパティを書いてる時などは、これでプロパティ順を揃えればgzipの圧縮率を高めてくれます。
+CSSプロパティをソートしてくれるgrunt pluginです。<a href="https://t32k.me/mol/log/csscomb/">過去に記事かいたのでそこ参照。</a>最初からMapleのルールでCSSでかけばそこまであれだけど、１つのセレクタに何十ものプロパティを書いてる時などは、これでプロパティ順を揃えればgzipの圧縮率を高めてくれます。
 
 ### grunt-webfont
 

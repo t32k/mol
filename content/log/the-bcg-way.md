@@ -16,7 +16,7 @@ ogimage:
 
 どこかで見覚えがある… そういえばそうゆう考え方したことある。
 
-+ [Google Analyticsの(other)とはなんぞや？ - MOL](http://t32k.me/mol/log/google-analytics-other-entry/)
++ [Google Analyticsの(other)とはなんぞや？ - MOL](https://t32k.me/mol/log/google-analytics-other-entry/)
 
 ここでは、問題の原因がなんなのかを探るために仮説を立ててというと、大げさだが、ある程度の予測を立てて検証していった。この時、仮説思考で考えず、出来る限り情報を集めてから問題に当たっていれば、Google Analyticsの膨大なメニューの仕様を一つ一つ確認するはめになっただろう。そんなことをすれば僕のリソースのうち1、2ヶ月はこの問題に費やされる結果になり、上司からも怒られるはめになっただろう。
 

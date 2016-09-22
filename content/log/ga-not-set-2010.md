@@ -4,14 +4,14 @@ title: Google Analytics、 (not set) エントリの異常増加
 categories: 
     - analytics
 excerpt: 最近、ユーザー > PC環境 > 画面の解像度 のメニューにおいて、 (not set) エントリが異常に多いことを同僚から指摘されました。
-ogimage: http://t32k.me/static/blog/2010/09/screenresolution.png
+ogimage: /static/blog/2010/09/screenresolution.png
 ---
 
 最近、ユーザー > PC環境 > 画面の解像度 のメニューにおいて、 (not set) エントリが異常に多いことを同僚から指摘されました。調べてみると、一部のプロファイルでそのような現象を確認することが出来ました。
 
 Google Analytics で (not set)  と言えば、[キャンペーントラッキングでのキーワード](http://analytics-ja.blogspot.ca/2010/02/not-set-entries.html)問題が有名ですね。キーワードが取れていないから (not set) であるので、画面の解像度 においても解像度が取れてないのだろうと考えましたが、全体の中で10％も (not set) というのは、ちょっとどうゆう状況なのか考えらませんでした。数件、数十件であれば、トラッキングコード実行時になんらかのエラーがあって取れないということも考えられるでしょうが、今回の場合は多すぎます。
 
-![](http://t32k.me/static/blog/2010/09/screenresolution.png)
+![](/static/blog/2010/09/screenresolution.png)
 
 そこで、年次スパンで (not set) エントリの推移を見てみますと、どうやら5/3から急激に増加しているのが分かります。ということで、該当の期間にトラッキングコード、フィルタの変更を行ったかといえば、それも思い当たるふしがありません。
 

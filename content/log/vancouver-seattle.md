@@ -5,7 +5,7 @@ subtitle: Watching Seattle Marinaes
 categories: 
     - trip
 excerpt: そうゆうわけで、出不精t32kのアドベンチャーの始まりだ。
-ogimage: http://t32k.me/mol/images/2015/seattle/11.jpg
+ogimage: https://t32k.me/mol/images/2015/seattle/11.jpg
 ---
 
 せっかく、バンクーバーに住んでいてアメリカも近いことなのでシアトルにメジャーリーグ観戦しに行くことにした。本来であれば交通手段はバスを使うのが最安なのだが、これまたせっかくなので、行きは列車、帰りはバスにしてみることにした。そうゆうわけで、出不精t32kのアドベンチャーの始まりだ。

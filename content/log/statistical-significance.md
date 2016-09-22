@@ -5,7 +5,7 @@ subtitle:
 categories: 
     - analytics
 excerpt: はい、タイトルのとおりでございます。とある改善を行いまして、その効果というのが誤差の範疇なのか、それとも効果があったのか（プラスマイナス問わず）知りたい状況に陥りましたんで、いろいろ調べてみましたよというお話。
-ogimage: http://t32k.me/mol/images/2015/statics/01.jpg
+ogimage: https://t32k.me/mol/images/2015/statics/01.jpg
 ---
 
 ![](/mol/images/2015/statics/01.jpg)
@@ -186,7 +186,7 @@ A,Bも標本数8なので自由度は14です。
 
 #### 6. 棄却か採択か
 
-![](http://t32k.me/static/blog/2011/02/t.png)
+![](/static/blog/2011/02/t.png)
 
 #### 7. 結論を決める
 

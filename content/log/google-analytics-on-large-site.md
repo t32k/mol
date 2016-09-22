@@ -106,7 +106,7 @@ Google アナリティクスを大規模サイトで使用する上で問題に�
 
 結果はどーなったのでしょうか。
 
-施策前後8週間の購入確認から購入完了の遷移率を調べてみました。こんな感じです。赤が改善後、青が改善前を現してます。平均して1.52%上昇しました。一応<a href="http://t32k.me/mol/log/statistical-significance/">有意差検定</a>もしてるので、たまたま上がったとは考えにくいです。
+施策前後8週間の購入確認から購入完了の遷移率を調べてみました。こんな感じです。赤が改善後、青が改善前を現してます。平均して1.52%上昇しました。一応<a href="https://t32k.me/mol/log/statistical-significance/">有意差検定</a>もしてるので、たまたま上がったとは考えにくいです。
 
 <img class="aligncenter size-full wp-image-3900" title="1000" src="/static/blog/2012/01/19.053-001.png" alt="" width="500" height="375" />
 
@@ -125,8 +125,8 @@ Google アナリティクスや他の解析ツールでも言えることです�
 ということで、まだアクセス解析の取り組みはスタートラインに立ったという現状なので暖かく見守って頂ければ幸いです。
 <h2>リソース</h2>
 <ul>
-	<li><a href="http://t32k.me/mol/log/google-analytics-other-entry/">Google Analyticsの(other)とはなんぞや？ | MOL </a></li>
-	<li><a href="http://t32k.me/mol/log/statistical-significance/">施策前後のCV率に有意差はあるのか？ | MOL </a></li>
+	<li><a href="https://t32k.me/mol/log/google-analytics-other-entry/">Google Analyticsの(other)とはなんぞや？ | MOL </a></li>
+	<li><a href="https://t32k.me/mol/log/statistical-significance/">施策前後のCV率に有意差はあるのか？ | MOL </a></li>
 	<li><a href="http://code.google.com/intl/ja/apis/analytics/docs/">Google アナリティクス開発者向けドキュメント - Google Code</a></li>
 	<li><a href="http://higashizm.sakura.ne.jp/reg/http://higashizm.sakura.ne.jp/reg/%0D">はじめての正規表現</a></li>
 	<li><a href="http://an-k.jp/blog/archives/2289">ハイレベルサイトマップの作り方 | dIG iT</a></li>

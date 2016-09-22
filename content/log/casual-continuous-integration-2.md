@@ -95,7 +95,7 @@ WebPagetestはこのブログでも何回か紹介しているが、Webパフォ
 + [how can i get an api key? · Issue #8 · marcelduran/webpagetest-api](https://github.com/marcelduran/webpagetest-api/issues/8)
 
 ```
-webpagetest test http://t32k.me/maple/test/fixtures/perf_test.html --server $1 --poll 3 --specs test/spec.json --reporter xunit > webpagetest.xml
+webpagetest test https://t32k.me/maple/test/fixtures/perf_test.html --server $1 --poll 3 --specs test/spec.json --reporter xunit > webpagetest.xml
 ```
 
 + [maple/test/test.sh · t32k/maple](https://github.com/t32k/maple/blob/master/test/test.sh)

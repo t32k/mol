@@ -5,7 +5,7 @@ subtitle: iMac Retina 5K 27-inch, Late 2015
 categories: 
     - gadget
 excerpt: そういえば、去年の年末にいっちゃんえーモデルのiMacを購入した。現状、Macのラインナップで唯一Skylakeを採用してるので、まぁ買っといて損はないだろうと思ったのだ。
-ogimage: http://t32k.me/mol/images/2016/0307-00.jpg
+ogimage: https://t32k.me/mol/images/2016/0307-00.jpg
 ---
 
 ![iMac Retina 5K 27-inch, Late 2015](/mol/images/2016/0307-00.jpg)

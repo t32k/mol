@@ -63,7 +63,7 @@ __Answer:__ nothing, one has an m and one has a v - that's it.
 
 ## The Story of the HTML5 Shiv
 
-行き詰まり感たっぷりだったところに、<a href="http://t32k.me/mol/log/trackhtml5inga-with-modernizr/">Modernizr</a> の開発者でも有名なPaul Irishさんが、<a href="http://paulirish.com/2011/the-history-of-the-html5-shiv/">The Story of the HTML5 Shiv </a>というドンピシャなタイトルの記事をあげていました。
+行き詰まり感たっぷりだったところに、<a href="https://t32k.me/mol/log/trackhtml5inga-with-modernizr/">Modernizr</a> の開発者でも有名なPaul Irishさんが、<a href="http://paulirish.com/2011/the-history-of-the-html5-shiv/">The Story of the HTML5 Shiv </a>というドンピシャなタイトルの記事をあげていました。
 
 この記事の前半部分をざっくりまとめてみると、
 

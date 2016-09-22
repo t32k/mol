@@ -5,10 +5,10 @@ subtitle: DooGA Tech Talks 10
 categories: 
     - report
 excerpt: 月イチの社内勉強会も今回で10回目となった。いろいろ感慨深いところはありつつ記念すべき10回目を飾るスピーカーは福井のスーパーデザイナー @shirokuro331さんだ。
-ogimage: http://t32k.me/static/blog/2010/10/dtt10.jpg
+ogimage: /static/blog/2010/10/dtt10.jpg
 ---
 
-![](http://t32k.me/static/blog/2010/10/dtt10.jpg)
+![](/static/blog/2010/10/dtt10.jpg)
 
 月イチの社内勉強会も今回で10回目となった。いろいろ感慨深いところはありつつ記念すべき10回目を飾るスピーカーは福井のスーパーデザイナー [@shirokuro331](https://twitter.com/shirokuro331)さんだ。
 

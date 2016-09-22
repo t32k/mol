@@ -5,7 +5,7 @@ subtitle: CSS Preprocessor Advent Calendar 2012
 categories: 
     - development
 excerpt: パフォーマンスの勉強ができてなおかつSass/Compassのお勉強にもなるお得なシリーズまさかの2回目。Adventにぶつけてきた！
-ogimage: http://t32k.me/static/blog/2012/12/compile.png
+ogimage: /static/blog/2012/12/compile.png
 ---
 
 > Sass、Less、StylusなどCSS Preprocessorに関するAdvent Calendarです。― [CSS Preprocessor Advent Calendar 2012 - Adventar](http://www.adventar.org/calendars/1)
@@ -14,8 +14,8 @@ ogimage: http://t32k.me/static/blog/2012/12/compile.png
 
 これまでの：
 
-+ [パフォーマンスからみるSass/Compass 第1回：Nestingと@import - MOL](http://t32k.me/mol/log/sass-nesting-and-import/)
-+ [パフォーマンスからみるSass/Compass 番外編：MSは青かった - MOL](http://t32k.me/mol/log/compass-ie-hex-str-function/)
++ [パフォーマンスからみるSass/Compass 第1回：Nestingと@import - MOL](https://t32k.me/mol/log/sass-nesting-and-import/)
++ [パフォーマンスからみるSass/Compass 番外編：MSは青かった - MOL](https://t32k.me/mol/log/compass-ie-hex-str-function/)
 
 ## CSS Spriteの利点・欠点
 
@@ -67,7 +67,7 @@ CSS Sprite Generatorのような便利なオンラインツールが存在する
 
 また上記のコードではmy-iconsディレクトリ以下にある個々の画像をひとつのスプライト画像にまとめてくれる。 
 
-![](http://t32k.me/static/blog/2012/12/compile.png)
+![](/static/blog/2012/12/compile.png)
 
 ただ、基本的な利用方法ではRetina対応や、自分のコードスタイルに合わず、独自でmixinを作成する必要があった。
 
@@ -126,7 +126,7 @@ i {
 + [CSS Sprite Helpers for Compass | Compass Documentation](http://compass-style.org/reference/compass/helpers/sprites/)
 + [Spriting with Compass | Compass Documentation](http://compass-style.org/help/tutorials/spriting/)
 
-![](http://t32k.me/static/blog/2012/12/sprites.png)
+![](/static/blog/2012/12/sprites.png)
 
 また気をつけなければならないことに、簡単にCSS Spriteできるようになったからといってすべての画像をスプライト画像にまとめることがないようにしたい。可能な限りHTTPリクエストを減らすことは良いことだが、何事も限度がある。たとえばサイトで使うすべての画像をまとめてしまえば、そのどれか一つでも更新があれば再度リクエストしなければならない。
 

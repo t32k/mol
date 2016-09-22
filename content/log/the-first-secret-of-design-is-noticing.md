@@ -5,7 +5,7 @@ subtitle: The first secret of design is noticing
 categories: 
     - design
 excerpt: 人は「そういうものなのだ」とすぐに慣れていく。でもデザイナーにとっては「そういうものなのだ」こそがチャンス。もっと良くなるのでは？どうやって？iPodやNestサーモスタットの仕掛人が変化に気付き、さらに加速させる上でのコツを伝授。
-ogimage: http://t32k.me/mol/images/people/tony_fadell.jpg
+ogimage: https://t32k.me/mol/images/people/tony_fadell.jpg
 ---
 
 <div class="fluid"><iframe src="https://embed-ssl.ted.com/talks/tony_fadell_the_first_secret_of_design_is_noticing.html" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>

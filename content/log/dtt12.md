@@ -5,10 +5,10 @@ subtitle: DooGA Tech Talks 12
 categories: 
     - report
 excerpt: 月イチの社内勉強会、第12回目はHTML5＋CSS3で作る 魅せるiPhoneサイトの著者であり、関西Web業界の重鎮、@hiloki さんによる「Designing for the iPhone」だった！
-ogimage: http://t32k.me/static/blog/2010/12/dtt12.jpg
+ogimage: /static/blog/2010/12/dtt12.jpg
 ---
 
-![](http://t32k.me/static/blog/2010/12/dtt12.jpg)
+![](/static/blog/2010/12/dtt12.jpg)
 
 月イチの社内勉強会、第12回目はHTML5＋CSS3で作る 魅せるiPhoneサイトの著者であり、関西Web業界の重鎮、[@hiloki](https://twitter.com/hiloki)さんによる「Designing for the iPhone」だった！
 

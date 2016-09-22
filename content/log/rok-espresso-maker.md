@@ -6,7 +6,7 @@ categories:
     - blog
     - coffee
 excerpt: 最近、燃え尽き症候群な感じでとりあえずエスプレッソ飲んで人生見つめ直したいと思ってROK エスプレッソメーカーを購入した。
-ogimage: http://t32k.me/mol/images/2015/rok/01.jpg
+ogimage: https://t32k.me/mol/images/2015/rok/01.jpg
 ---
 
 [コーヒー Advent Calendar 2015](http://www.adventar.org/calendars/895) の4日目です。たぶん、しらんけど。

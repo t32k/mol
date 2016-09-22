@@ -5,7 +5,7 @@ subtitle: grunt-webfont
 categories: 
     - performance
 excerpt: 3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用について考慮しても、やぶさかではないでしょう。
-ogimage: http://t32k.me/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png
+ogimage: /static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png
 ---
 
 このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。
@@ -20,7 +20,7 @@ ogimage: http://t32k.me/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png
 
 まずは下記の画像をご覧頂きたい。
 
-![](http://t32k.me/static/blog/2013/08/arrows.png)
+![](/static/blog/2013/08/arrows.png)
 
 これはプロジェクトで私が使用していたスプライト画像だが（実際は縦にして使用）、このような単純な形状、単色のアイコンであれば、Webフォント化したほうがなにかと都合がよい。
 
@@ -46,11 +46,11 @@ $ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2
 + [cognitom/symbols](https://github.com/cognitom/symbols)
 
 
-![](http://t32k.me/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png)
+![](/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png)
 
 テンプレートを使ってMapleでは上記のようなイラレファイルを作成した。[iconmonstr](http://iconmonstr.com/)にはいろいろ使い勝手がいいアイコンが無料で配布されているので、ここから必要なものをとってくるのもいいだろう。Illustratorでアートボード別に書きだして、SVGファイルとして保存する。要注意なのはこのアートボードの空白部分も含めてSVGファイルなので気をつける。
 
-![](http://t32k.me/static/blog/2013/08/fontdir.png)
+![](/static/blog/2013/08/fontdir.png)
 
 基本的にこの部分はデザイナーさんにやってもらえればよいことなので、フロントエンドデベロッパーは完成したSVGファイルを、`/src/files/font/svg`ディレクトリに投げ込んでコマンド打つだけだ。
 
@@ -76,7 +76,7 @@ content:"\f100";
 
 _myfont.scssは_setting.scssで`@import`されていますので、特にCSSをいじる必要性はない。
 
-![](http://t32k.me/static/blog/2013/08/icon.png)
+![](/static/blog/2013/08/icon.png)
 
 上記のように、`.icon-{SVGファイル名}`のクラスを当てれば、すぐさま使える。
 

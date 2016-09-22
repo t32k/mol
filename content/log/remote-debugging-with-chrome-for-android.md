@@ -54,6 +54,6 @@ PATHが通ったので、次回からは下記コマンドだけOK。
 
 weinreでもNetworkとかTimeline使えるけど、Chrome for Androidでのリモートデバッグのほうがより細かいとこまで見れたり全体的に高機能かつサクサク動きますです、はい。個人的に一番バビったのが拡張機能のPageSpeedが普通に動いてて、なおかつ評価設定がちゃんと<strong>【モバイル】</strong>として評価されていたの感動しました。
 
-これまでも、デベロッパーツールの設定でUAをスマホにしたりしてスマホサイトをPageSpeedで評価できたのですが、これはあくまでデスクトップ基準での評価でして、例えばオンラインのPageSpeedで<a href="http://t32k.me/">t32k.me</a>を評価してみると、<a href="https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ft32k.me_2F&amp;mobile=false">デスクトップ版92点</a>なのに対して、<a href="https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ft32k.me_2F&amp;mobile=true">モバイル版は88点</a>と厳しめの評価です。改善策のサジェスチョンも微妙に違ったり（違いに関しては<a href="https://developers.google.com/speed/docs/insights/faq#howonlinemobilediff">ここ参照</a>）しますので、Chrome for Androidのリモートデバッグ調べてたら思わぬ収穫を得たなという感じですね。
+これまでも、デベロッパーツールの設定でUAをスマホにしたりしてスマホサイトをPageSpeedで評価できたのですが、これはあくまでデスクトップ基準での評価でして、例えばオンラインのPageSpeedで<a href="https://t32k.me/">t32k.me</a>を評価してみると、<a href="https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ft32k.me_2F&amp;mobile=false">デスクトップ版92点</a>なのに対して、<a href="https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ft32k.me_2F&amp;mobile=true">モバイル版は88点</a>と厳しめの評価です。改善策のサジェスチョンも微妙に違ったり（違いに関しては<a href="https://developers.google.com/speed/docs/insights/faq#howonlinemobilediff">ここ参照</a>）しますので、Chrome for Androidのリモートデバッグ調べてたら思わぬ収穫を得たなという感じですね。
 
 そんな感じで、こんな機能もあるぜってのあったら教えて下さい。

@@ -3,17 +3,17 @@ categories:
     - development
 date: 2015-01-28T18:14:51-08:00
 excerpt: 誰も傷つけない、傷つけたくない、そんなかわいいCSSライブラリです。
-ogimage: http://t32k.me/wisteria/img/hero.jpg
+ogimage: https://t32k.me/wisteria/img/hero.jpg
 subtitle: A class selectors based harmless CSS library
 title: Wisteria：デザインツールとしてのCSS
 ---
 
-![](http://t32k.me/wisteria/img/hero.jpg)
+![](https://t32k.me/wisteria/img/hero.jpg)
 
-+ [Wisteria.css: A class selectors based harmless CSS library.](http://t32k.me/wisteria/)
++ [Wisteria.css: A class selectors based harmless CSS library.](https://t32k.me/wisteria/)
 + [t32k/wisteria](https://github.com/t32k/wisteria)
 
-[Wisteria](http://t32k.me/wisteria/)というCSSライブラリ作った。基本的な用途としてはモックアップや後方互換とかそこまで考えなくていい、小規模の個人用のページとかで使われることを想定している。
+[Wisteria](https://t32k.me/wisteria/)というCSSライブラリ作った。基本的な用途としてはモックアップや後方互換とかそこまで考えなくていい、小規模の個人用のページとかで使われることを想定している。
 
 [Skeleton](http://getskeleton.com/)という、すごくシンプルなCSSライブラリがあるのだが、僕はこれが好きで、ちょっとしたものとか作るときによく使用している。このブログもSkeletonをベースにしているくらいだ。
 

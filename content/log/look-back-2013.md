@@ -10,13 +10,13 @@ excerpt: "2013年振り返りと人気記事まとめなんてものをつらつ
 
 ## 振り返り
 
-+ [2013年の抱負](http://t32k.me/mol/log/new-years-resolutions-2013/)
++ [2013年の抱負](https://t32k.me/mol/log/new-years-resolutions-2013/)
 
 今年元旦に書いた記事だがずいぶん昔のように感じる。それもこの一年が濃密だったということだろう。がんばった。
 
 ### 海外カンファレンスに参加する
 
-+ [海外カンファレンスなるものに参加してきた！](http://t32k.me/mol/log/velocity2013/)
++ [海外カンファレンスなるものに参加してきた！](https://t32k.me/mol/log/velocity2013/)
 
 この目標に関しては十分すぎるほど達成した。元々貯めていたマイルがそれなりの量になりアメリカまで行けるようになっていた。ただアメリカ旅行するのはアレな（観光にあまり興味ない）ので、ついでにWebカンファレンスで行ってみようと思ったのがキッカケ。いざ行ってみると英語分かんないし、一人ぼっちで寂しいし、もう嫌やー＞＜ッて思ったけど、終わってみれば良い出会いもあったし良い旅だったと思う。
 
@@ -47,13 +47,13 @@ excerpt: "2013年振り返りと人気記事まとめなんてものをつらつ
 
 1位がメモリ交換とかアフィリエイト(ﾟдﾟ)ｳﾏｰですね。ほんとありがとうございますね。
 
-1. [MacBook Pro’13 Mid 2012 のメモリ交換して16GBにした](http://t32k.me/mol/log/macbook-pro-how-to-remove-and-install-memory/)
-2. [HTTPリクエストを減らすために【序章】HTTPリクエストは甘え](http://t32k.me/mol/log/reduce-http-requests-overview/)
-3. [ぼくのかんがえたさいきょうのしーえしゅえしゅ](http://t32k.me/mol/log/the-perfect-css-i-thought/)
-4. [HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない](http://t32k.me/mol/log/reduce-http-requests-one-second/)
-5. [今どきのGruntを使ったフロントエンド開発（HTML/CSS編）](http://t32k.me/mol/log/modern-development-workflow-with-grunt/)
-6. [サイトの速度](http://t32k.me/mol/log/no-more-stopwatch/)
-7. [HTTPリクエストを減らすために【CSS Sprite編】スプライト地獄からの解放](http://t32k.me/mol/log/reduce-http-requests-css-sprite/)
-8. [CSS Sprite画像はDataURI画像にすべきか？](http://t32k.me/mol/log/sprite-image-vs-inline-image/)
-9. [VagrantでCentOSを入れてJenkinsを導入してみる](http://t32k.me/mol/log/vagrant1-2-centos6-4-jenkins1-5/)
-10. [CSSプロパティの継承：inherit 忘れてたわー](http://t32k.me/mol/log/inheriting-link-colour/)
+1. [MacBook Pro’13 Mid 2012 のメモリ交換して16GBにした](https://t32k.me/mol/log/macbook-pro-how-to-remove-and-install-memory/)
+2. [HTTPリクエストを減らすために【序章】HTTPリクエストは甘え](https://t32k.me/mol/log/reduce-http-requests-overview/)
+3. [ぼくのかんがえたさいきょうのしーえしゅえしゅ](https://t32k.me/mol/log/the-perfect-css-i-thought/)
+4. [HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない](https://t32k.me/mol/log/reduce-http-requests-one-second/)
+5. [今どきのGruntを使ったフロントエンド開発（HTML/CSS編）](https://t32k.me/mol/log/modern-development-workflow-with-grunt/)
+6. [サイトの速度](https://t32k.me/mol/log/no-more-stopwatch/)
+7. [HTTPリクエストを減らすために【CSS Sprite編】スプライト地獄からの解放](https://t32k.me/mol/log/reduce-http-requests-css-sprite/)
+8. [CSS Sprite画像はDataURI画像にすべきか？](https://t32k.me/mol/log/sprite-image-vs-inline-image/)
+9. [VagrantでCentOSを入れてJenkinsを導入してみる](https://t32k.me/mol/log/vagrant1-2-centos6-4-jenkins1-5/)
+10. [CSSプロパティの継承：inherit 忘れてたわー](https://t32k.me/mol/log/inheriting-link-colour/)

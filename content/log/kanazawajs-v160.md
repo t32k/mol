@@ -3,10 +3,10 @@ date: 2011-09-25
 title: kanazawa.js v1.6 開催しました
 categories: 
     - books
-ogimage: http://t32k.me/static/blog/2011/09/16.jpg
+ogimage: /static/blog/2011/09/16.jpg
 ---
 
-![](http://t32k.me/static/blog/2011/09/16.jpg)
+![](/static/blog/2011/09/16.jpg)
 
 フルートとピアノの音色が響く中、kanazawa.js v1.6 開催しました。こじんまりゆるゆると開催できました。ありがとうございます＞＜
 

@@ -5,7 +5,7 @@ subtitle: バージョン番号ではまるの巻
 categories: 
     - development
 excerpt: 前出したバージョンより、CFBundleVersionが低いからダメってことよね？1.2から1.2.1ってどーみても上がってんじゃん！てめぇ数字数えられねーのかよ!?てことで調べてみた。
-ogimage: http://t32k.me/static/blog/2011/06/itunes.png
+ogimage: /static/blog/2011/06/itunes.png
 ---
 
 こないだ[Nyars](/mol/log/nyars/)のバージョンを1.2から1.2.1にアップデートした。アップデート理由は文言修正など細かな修正だったので1.0, 1.1, 1.2 ときたバージョンアップだが、今回はマイナーアップデートてことで、1.2.1にして申請を出してみた。
@@ -18,11 +18,11 @@ ogimage: http://t32k.me/static/blog/2011/06/itunes.png
 
 ## Version (tiapp.xml)
 
-![Titanium Developer](http://t32k.me/static/blog/2011/06/tidev.png)
+![Titanium Developer](/static/blog/2011/06/tidev.png)
 
 バージョンに関して記入するところと言えば、Titanium Developer 1.2.2では上図。
 
-![Titanium Studio](http://t32k.me/static/blog/2011/06/tistudio.png)
+![Titanium Studio](/static/blog/2011/06/tistudio.png)
 
 Titanium Studioでは上図。
 
@@ -35,7 +35,7 @@ Titanium Studioでは上図。
 
 ## Bundle version (CFBundleVersion)
 
-![Xcode](http://t32k.me/static/blog/2011/06/info.png)
+![Xcode](/static/blog/2011/06/info.png)
 
 前述のtiapp.xmlの内容が、`/APPLICATION_PROJECT/build/iphone/Info.plist` のBundle version (CFBundleVersion) に反映される。通常のテキストエディタでInfo.plistを開いてみると、
 
@@ -68,7 +68,7 @@ Titanium Studioでは上図。
 ## Version Number (iTunes Connect)
 
 
-![iTunes Connect](http://t32k.me/static/blog/2011/06/itunes.png)
+![iTunes Connect](/static/blog/2011/06/itunes.png)
 
 ということで今回は、1.2.0って最初から出しとけば問題なかったわけですな。けどもVersion1.2.0でたぜ！ってゆうのもアレだと思った方、心配ご無用。CFBundleVersionはいわゆる内部バージョン番号みたいなものなので、iTunes Connect（お店に並ぶときのバージョン）に出すのは別でよいので、そこは1.2って提出しとこう。
 

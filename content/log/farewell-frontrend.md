@@ -30,7 +30,7 @@ Frontrendを通じてお世話になった人、与えられたリソースで�
 
 私はFrontrendのおかげで多くの人と知り合うことができたし、成長させてもらったし、本当にこのコミュニティには感謝している。Frontrendは終わるが、[別にFront-end（Web）が終わるわけではない](http://takoratta.hatenablog.com/entry/2015/01/08/014826)。
 
-今後の最新のフロントエンドの流れは、__[Frontend Weeklyを購読](http://t32k.me/mol/log/frontend-weekly/)__していれば把握できるだろう。Frontend Weeklyはただのニュースレターでは終わらずに、フロントエンドデベロッパーの新たなHubとなれるよう、これから整備していくつもりだ。
+今後の最新のフロントエンドの流れは、__[Frontend Weeklyを購読](https://t32k.me/mol/log/frontend-weekly/)__していれば把握できるだろう。Frontend Weeklyはただのニュースレターでは終わらずに、フロントエンドデベロッパーの新たなHubとなれるよう、これから整備していくつもりだ。
 
 そうゆうわけで、2/21、皆さんに会えることを楽しみにしております。
 
