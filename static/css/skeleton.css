@@ -616,11 +616,11 @@ a:hover {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 ul {
-    list-style: circle inside;
+    list-style: circle;
 }
 
 ol {
-    list-style: decimal inside;
+    list-style: decimal;
 }
 
 ol,
