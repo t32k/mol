@@ -7,36 +7,46 @@ categories:
 
 ありがたくも、<a href="http://lp19.cssnite.jp/">CSS Nite LP, Disk 19「アクセス解析」</a>で話した「大規模サイトにおけるGoogleアナリティクス導入から成果まで〜Webデザイナーがアクセス解析に携わってみて〜」が 、<a href="http://cssnite.jp/archives/best-session2011.html">CSS Niteベストセッション2011</a> のベスト20に選ばれたので、文字に起こしてみるの巻。
 
-<object id="__sse10814106" width="500" height="426" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="wmode" value="transparent" /><param name="src" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=lp19ishimoto-120105025806-phpapp02&amp;stripped_title=lp19-ishimoto&amp;userName=t32k" /><param name="allowscriptaccess" value="always" /><param name="allowfullscreen" value="true" /><embed id="__sse10814106" width="500" height="426" type="application/x-shockwave-flash" src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=lp19ishimoto-120105025806-phpapp02&amp;stripped_title=lp19-ishimoto&amp;userName=t32k" allowFullScreen="true" allowScriptAccess="always" wmode="transparent" allowscriptaccess="always" allowfullscreen="true" /> </object>
+<div class="fluid"><iframe src="//www.slideshare.net/slideshow/embed_code/key/ncKY9A3GA8Yth" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe></div>
 
 DMM.com Laboの石本です。よろしくお願いします。今日は大規模サイトでのGoogleアナリティクス運用について話します。そんなに難しいことではないので、リラックスして読んでもらえれば幸いです。
-<h2>アジェンダ</h2>
+
+## アジェンダ
+
 本日の流れはこんな感じでやっていきます。
-<ol>
-	<li>自己紹介</li>
-	<li>アクセス解析への動機</li>
-	<li>プロファイルの適正化</li>
-	<li>コンバージョン設定から改善施策へ</li>
-	<li>まとめと今後の課題</li>
-</ol>
-<div><!--more--></div>
-<h2>自己紹介</h2>
+
+- 自己紹介
+- アクセス解析への動機
+- プロファイルの適正化
+- コンバージョン設定から改善施策へ
+- まとめと今後の課題
+
+
+## 自己紹介
+
 では、やっていきましょう。まずは自己紹介させてください。Twitter IDは<a href="https://twitter.com/#!/t32k">@t32k</a>でWebデザイナーをしています。
 
 2011/9/26ですね。共著ですが「<a href="http://www.amazon.co.jp/gp/product/4844362232/ref=as_li_ss_tl?ie=UTF8&amp;tag=warikiru-22&amp;linkCode=as2&amp;camp=247&amp;creative=7399&amp;creativeASIN=4844362232">スマートフォンサイト制作の教科書</a>」という本を書きました。初めてスマートフォンサイトを作る方、入門者向けですので、今後のスマートフォンサイトの概要を知る上でもマーケッターさんの方も買ってもらってもいいんじゃないかなと思います。オールカラーで読みやすいです。
 
 あとは趣味でiPhoneアプリを作ったりしています。左が<a href="http://itunes.apple.com/app/nyars/id433610083?mt=8">Nyars</a>というアプリで、なんてことのないただの猫耳をオーバーレイして写真が取れるというものです。右が<a href="http://itunes.apple.com/app/tissa/id464594372?mt=8">tissa</a>というアプリで、なんてことのないただのタイマーアプリで350円で売ってます。
-<h2>アクセス解析への動機</h2>
+
+## アクセス解析への動機
 と言うわけで、本題に入ってきます。見た感じ完全に制作サイドのWebデザイナーがなにゆえアクセス解析に興味をもったのかと話していきます。
 
 まず私の毎日仕事しているフィールドです、みなさんもご存知かと思いますがDVDレンタルなどで有名な<a href="http://www.dmm.com/">DMM.com</a>です。レンタル以外にも動画配信や、通販事業なども行っています。そこで私も含めたWebデザイナーこのような、商品の特集ページであったりヘルプページ、バナーなど制作しています。
+
 <p style="text-align: center;"><img class="aligncenter size-full wp-image-3895" title="DEM" src="/static/blog/2012/01/19.010-002.png" alt="" width="500" height="375" /></p>
+
 当たり前ですが、Webサイトはデザイナーだけでは作れません。サイトをしっかりと運用していくにはデザイナー以外にもエンジニアの力も必要ですし、マーケッターさんの力も不可欠です。しかし、お互いが協力していくには相手の言葉を知らなすぎるような気がします。例えば、マーケッターさんがデザイナーにCPCがどーたらCPAがどーたらといってもピンとこないでしょうし、反対にデザイナーがマーケッターさんにUXDやIAがどーたらと言っても理解してもらえないと思います。まぁ大げさな例ですが、多かれ少なかれ似たようなケースがそこかしこで起きているでしょう。私はデザイナー5年目ですが、この人らは同じ日本語を喋りますが、違う言語の中で生きてると理解しています。
+
 <p style="text-align: center;"><a href="http://ja.wikipedia.org/wiki/%E3%83%A8%E3%83%8F%E3%83%B3%E3%83%BB%E3%83%B4%E3%82%A9%E3%83%AB%E3%83%95%E3%82%AC%E3%83%B3%E3%82%B0%E3%83%BB%E3%83%95%E3%82%A9%E3%83%B3%E3%83%BB%E3%82%B2%E3%83%BC%E3%83%86"><img class="aligncenter fig" title="Johann Wolfgang von Goethe" src="/static/blog/2012/01/19.012-001.png" alt="" width="500" height="375" /></a></p>
+
 これは私の好き言葉でもありますが、外国語を知らないもの者は母国語を知らないとゲーテは言っています。相手の言っていることは理解したいですし、そうすることで自分の言語：デザインに関しても理解が深まれば好都合です。そうゆうことで自分に対してはこのようなスタンスで臨めば良いかもしれませんが、これを他者に求めるのは酷なこともかもしれません。ましてや、クライアントや上司の方に、あんたデザインなんでわかってないんや！などとは言えません。
 
 そこで皆が共通に理解できるモノが必要となってきます。はい、数字ですね。3は3でありそれ以上でもそれ以下でもありません。3が4になれば増えたということ、2になれば減ったということは、どんな職種の人だろうと同じ理解を得られるわけです。そして、Webサイトの数字といえばアクセス解析であり、それが切実に必要だと感じています。
-<h2>プロファイルの適正化</h2>
+
+## プロファイルの適正化
+
 というわけで、デザイナーですけどアクセス解析をやってこうと考えたわけですが、そう簡単にうまくはいきません。プロファイル（Google アナリティクスのレポート）の閲覧の段階でまずつまづきましたという話をしていきます。
 
 その前に、DMM.comのサイト規模を紹介したいと思います。DMM.comはクレジット登録しているなどすぐに課金可能な会員が362万人。月間ユニークユーザーが1900万人の8.6億ページビュー。Google アナリティクスのプロファイル数は83個、Google アナリティクスにアクセスできるユーザー数は119人ほどです。
@@ -77,7 +87,9 @@ Google アナリティクスを大規模サイトで使用する上で問題に�
 冒頭に見せました0PVのページもdetailとlistをまとめてゆとりがでたのか、ちゃんと計測されるようになりました。めでたしめでたし。
 
 これでデータの嵐だった海が、人が理解できる・役立つInformation・情報の湖となりました。今度はこの湖をうまくこぐ必要がでてきます。
-<h2>コンバージョン設定から改善施策へ</h2>
+
+## コンバージョン設定から改善施策へ
+
 次は実際にGoogle アナリティクスを使って改善施策をしてみます。ここまでサラッと言いましたが、実際はプロファイルの適正化に1年くらいかかかってます（当時はGoogle アナリティクスの情報も少なかったですし、開発者ドキュメントも翻訳されていない状態でした&gt;&lt;）。そろそろ、結果ださないと社内に居場所ないなーって空気になってきたので本気で成果を出さなければなりません。
 
 ということで今一度、成果・ゴールとは何かとゆうのを確認してみましょう。DMM.comの場合は簡単ですね。Eコマースサイトなので お金を稼ぐことです。 商品をいっぱい売ることが目標です。これ自体は至極簡単な話です。
@@ -106,12 +118,14 @@ Google アナリティクスを大規模サイトで使用する上で問題に�
 
 結果はどーなったのでしょうか。
 
-施策前後8週間の購入確認から購入完了の遷移率を調べてみました。こんな感じです。赤が改善後、青が改善前を現してます。平均して1.52%上昇しました。一応<a href="https://t32k.me/mol/log/statistical-significance/">有意差検定</a>もしてるので、たまたま上がったとは考えにくいです。
+施策前後8週間の購入確認から購入完了の遷移率を調べてみました。こんな感じです。赤が改善後、青が改善前を現してます。平均して1.52%上昇しました。一応<a href="/mol/log/statistical-significance/">有意差検定</a>もしてるので、たまたま上がったとは考えにくいです。
 
 <img class="aligncenter size-full wp-image-3900" title="1000" src="/static/blog/2012/01/19.053-001.png" alt="" width="500" height="375" />
 
 これがどれだけの売上へのインパクトだったかと、1回当たりの平均購入金額 * 1ヶ月当たりの1%平均ＣＶ数 * 改善率でおおよその金額が分かります。はい、1000万ほどの売上アップさせることができました。少なくとも翌月も改善の効果が見受けられたので2000万は確実です。工数もエンジニアとデザイナー2人が実質、3営業日くらいでやったのでコストパフォーマンスの高い仕事ができたのではないかと思っています。
-<h2>まとめと今後の課題</h2>
+
+## まとめと今後の課題
+
 URLを設計するのはエンジニアなので、そうゆうことを気にしてもらえるだけでも正規表現とかも簡単なもので済みますし、デベロッパーを味方に付けておいて損はないかと思います。じゃないと自分で勉強してやらないとダメでしんどいです＞＜
 
 あと、お金じゃなくてもいいですけど、コンバージョンに近いところから手をつけ始めるのは、施策がダイレクトに成果に直結するので 分かりやすくて良いかと思います。やっぱり、どうしてもトップページなどの華やかなところから改修しがちですが、改修した結果それがどれだけコンバージョンアップに寄与できたの？ってことを考えるとちょっとあやふやになってしまいがちです。今回の購入フローページのように、目立たないところですが結果を出せたことで、同様のページにも目を向けさせることができたのは良いことだと思っています。
@@ -123,13 +137,14 @@ URLを設計するのはエンジニアなので、そうゆうことを気に�
 Google アナリティクスや他の解析ツールでも言えることですが、ページ間の流れを理解するのは便利ですが、1つのページの中の要素がどのようにユーザーに受け止めらているのかってのを理解するにはちょっと役不足なので、Google アナリティクスを補完するという意味でVOYAGE GROUPナビさんもおすすめの<a href="http://www.clicktale.com/">ClickTale</a>を導入中です。
 <p style="text-align: center;"><a href="http://www.flickr.com/photos/avinashkaushik/4056840164/"><img class="fig aligncenter" title="The McDonald triplets!!" src="/static/blog/2012/01/19.057-001.png" alt="" width="500" height="375" /></a></p>
 ということで、まだアクセス解析の取り組みはスタートラインに立ったという現状なので暖かく見守って頂ければ幸いです。
-<h2>リソース</h2>
-<ul>
-	<li><a href="https://t32k.me/mol/log/google-analytics-other-entry/">Google Analyticsの(other)とはなんぞや？ | MOL </a></li>
-	<li><a href="https://t32k.me/mol/log/statistical-significance/">施策前後のCV率に有意差はあるのか？ | MOL </a></li>
-	<li><a href="http://code.google.com/intl/ja/apis/analytics/docs/">Google アナリティクス開発者向けドキュメント - Google Code</a></li>
-	<li><a href="http://higashizm.sakura.ne.jp/reg/http://higashizm.sakura.ne.jp/reg/%0D">はじめての正規表現</a></li>
-	<li><a href="http://an-k.jp/blog/archives/2289">ハイレベルサイトマップの作り方 | dIG iT</a></li>
-	<li><a href="http://www.cms-ia.info/news/google-analytics-premium-launched/">Google Analytics Premiumについてのまとめ :: 実践CMS*IA</a></li>
-	<li><a href="http://uio.ecnavi.co.jp/category/%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB/clicktale/">ClickTale « VOYAGE GROUP UIO戦略室ブログ </a></li>
-</ul>
+
+
+## リソース
+
+ - <a href="/mol/log/google-analytics-other-entry/">Google Analyticsの(other)とはなんぞや？ | MOL </a>
+ - <a href="/mol/log/statistical-significance/">施策前後のCV率に有意差はあるのか？ | MOL </a>
+ - <a href="http://code.google.com/intl/ja/apis/analytics/docs/">Google アナリティクス開発者向けドキュメント - Google Code</a>
+ - <a href="http://higashizm.sakura.ne.jp/reg/http://higashizm.sakura.ne.jp/reg/%0D">はじめての正規表現</a>
+ - <a href="http://an-k.jp/blog/archives/2289">ハイレベルサイトマップの作り方 | dIG iT</a>
+ - <a href="http://www.cms-ia.info/news/google-analytics-premium-launched/">Google Analytics Premiumについてのまとめ :: 実践CMS*IA</a>
+ - <a href="http://uio.ecnavi.co.jp/category/%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB/clicktale/">ClickTale « VOYAGE GROUP UIO戦略室ブログ </a>
