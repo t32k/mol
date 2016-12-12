@@ -523,6 +523,9 @@ body {
     line-height: 1.6;
     font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
     color: rgba(0, 0, 0, 0.87);
+    -moz-font-feature-settings: "palt";
+    -webkit-font-feature-settings: "palt";
+    font-feature-settings: "palt";
 }
 
 
