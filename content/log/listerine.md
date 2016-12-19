@@ -11,7 +11,7 @@ excerpt: お口のトラブルはこれ1本。進化したマウスウォッシ�
 
 # リステリン紫
 
-<iframe style="float:left" src="https://rcm-fe.amazon-adsystem.com/e/cm?t=warikiru-22&o=9&p=8&l=as1&asins=B00X5M7TTK&IS1=1&ref=tf_til&fc1=000000&lt1=_top&m=amazon&lc1=0000FF&bc1=FFFFFF&bg1=FFFFFF&f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" width="140" height="260"></iframe>
+<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B015MDHZMA/warikiru-22/ref=nosim/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/51d6Pe6XqpL._SL160_.jpg" alt="【まとめ買い】薬用 LISTERINE リステリン トータルケア 1000ml×2個" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B015MDHZMA/warikiru-22/ref=nosim/" name="azlinklink" target="_blank">LISTERINE リステリン トータルケア</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.12.19</div></div><div class="azlink-detail"><br />ジョンソン・エンド・ジョンソン<br />売り上げランキング: 270<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B015MDHZMA/warikiru-22/ref=nosim/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
   
 年に2,3回は必ず口内炎になる質なのだけど、今年はリステリン紫でうがいをするようになって一度もなってない！リステリン紫サボってて、口内炎になりそうだなって感じたときもすぐリステリン紫でうがいして寝たら、完全回復ってこともあった。リステリン紫様様である。
 
