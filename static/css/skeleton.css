@@ -315,7 +315,7 @@ a:hover .social-links-linkedin {
 }
 
 .cse-box {
-    color: #4f4f4;
+    color: #4f4f4f;
     text-align: center;
 }
 
@@ -523,9 +523,6 @@ body {
     line-height: 1.6;
     font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
     color: rgba(0, 0, 0, 0.87);
-    -moz-font-feature-settings: "palt";
-    -webkit-font-feature-settings: "palt";
-    font-feature-settings: "palt";
 }
 
 
@@ -541,6 +538,9 @@ h6 {
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 300;
+    -moz-font-feature-settings: "palt";
+    -webkit-font-feature-settings: "palt";
+    font-feature-settings: "palt";
 }
 
 h1 {
