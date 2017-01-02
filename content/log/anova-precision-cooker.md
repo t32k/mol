@@ -4,6 +4,7 @@ title: 2017年買ってよかったもの：anova
 categories: 
     - blog
 excerpt: やっぱり、脂の部分はおいしいでぶな。
+ogimage: https://t32k.me/mol/images/2017/0102-11.jpg
 ---
 
 ウェッブ業界の[あの人](https://havelog.ayumusato.com/food/e721-anova_niku.html)や[この人](http://ymotongpoo.hatenablog.com/entry/2016/12/31/110228)、[そんな人](https://portalshit.net/2016/12/27/easy-roast-beefing)まで2016年買ってよかったものとして、[anova](https://anovaculinary.com/anova-precision-cooker/)を紹介しているのを見て、いってもいたってもいらなれくて元旦購入した。
