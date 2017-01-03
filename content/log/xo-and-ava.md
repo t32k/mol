@@ -3,8 +3,8 @@ date: 2017-01-04
 title: xoとavaでお手軽リント・テスト環境構築
 categories: 
     - development
-excerpt: できるかぎり開発環境構築に手間を取らず、アプリケーションのコードに集中したいものですな( ˘ω˘)
-draft: true
+excerpt: できるかぎり開発環境構築に手間を取らず、アプリケーションのコードに集中したいものですな(˘ω˘)
+ogimage: https://t32k.me/mol/images/2017/0104-01.png
 ---
 
 元旦に[StyleStats v7.0](https://github.com/t32k/stylestats/releases/tag/v7.0.0)をリリースした。めでたいことだ（知らんけど）。バージョンアップ作業は例のごとく依存するnpm modulesをアップデートして終わりというのがt32kの伝家の宝刀だが、せっかくなので今回はES6に書き換えようと思った。
