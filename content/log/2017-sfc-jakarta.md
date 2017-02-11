@@ -4,7 +4,8 @@ title: 【SFC修行'17】 第一章 ジャカルタ編
 subtitle: Soekarno–Hatta International Airport
 categories: 
     - trip
-excerpt: 
+excerpt: 前回の方針より、プレミアムエコノミーで東南アジア路線を狙う。幸い、バンコク・シンガポール・ジャカルタとオトクな運賃となっていたので購入した
+ogimage: https://t32k.me/mol/images/2017/jakarta/28.jpg
 ---
 
 前回の方針より、プレミアムエコノミーで東南アジア路線を狙う。幸い、バンコク・シンガポール・ジャカルタとオトクな運賃となっていたので購入した。
