@@ -4,8 +4,8 @@ title: 【SFC修行'17】 第三章 シドニー編
 subtitle: Sydney Kingsford Smith Airport
 categories: 
     - trip
-excerpt: 
-ogimage: 
+excerpt: 今回は旅作ではないんだけど、4月出発のプレミアムエコノミー・シドニー路線がなかなかコスパ良かったので買ってみた。去年、メルボルン行ったばっかだけど、オペラハウスっていうやつをこの目で見たかったのだ。
+ogimage: https://t32k.me/mol/images/2017/sydney/14.jpg
 ---
 
 ![](/mol/images/2017/sydney/00.jpg)
