@@ -1,5 +1,5 @@
 ---
-date: 2017-06-30
+date: 2017-06-26
 title: Ethereumをマイニングしてみる（2017夏）
 subtitle: How to mine Ethereum on a Windows PC
 categories: 
