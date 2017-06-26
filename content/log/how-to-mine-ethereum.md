@@ -12,13 +12,13 @@ ogimage: https://t32k.me/mol/images/2017/mining/00.jpg
 
 年初に立てた目標である[ANA SFC獲得](/mol/log/2017-sfc-outro/)を早々に達成してしまい、生きる意味を失いかけていた。幸い、最近は仮想通貨にご執心で日々デイトレーダーのごとく生活していた。ただ、豆腐メンタルな自分にとって、デイトレは命を削るようなもので、こんなこと続けられない。まっとうに生きようと思い仮想通貨のマイニングを決意した2017年の夏である。
 
-仮想通貨と聞けばビットコインを思い出すだろうが、ビットコインのマイニングに関しては専用のマシンを使い、工場などで大規模に行うのが主流であり、なおかつ中国のような電気代が安い国でやるのがセオリーであり、個人ではどうこうするものではない。
+仮想通貨と聞けばビットコインを思い出すだろうが、ビットコインのマイニングに関しては専用のマシンを使い、工場などで大規模に行うのが主流であり、なおかつ中国のような電気代が安い国でやるのがセオリーであり、個人ではどうこうできるものではない。
 
-ただ[Ethereum](https://www.ethereum.org/)などのほかのいくつかの仮想通貨に関しては、をグラフィックボード複数積めば、そこそこ稼げるという噂を聞き、手を出して見た次第である。
+ただ[Ethereum](https://www.ethereum.org/)などの他のいくつかの仮想通貨に関してはグラフィックボードを複数積めば、そこそこ稼げるという噂を聞き手を出して見た次第である。
 
 ## Windows PCの準備
 
-コスパよくグラボを複数積むために、まずデスクトップWindowsを用意しなければならない。大学の時に初めて買ったパソコンがVaioで、それ以降はずっとMacだった自分にとっては自作Windows PCは未知の部分だ。詳しい同僚の助けを得ながら、Amazonでポチッとな！
+コスパよくグラボを複数積むために、まずデスクトップWindowsを用意しなければならない。大学の時に初めて買ったパソコンがVaio Wで、それ以降はずっとMacだった自分にとっては自作Windows PCは未知の部分だ。詳しい同僚の助けを得ながら、Amazonでポチッとな！
 
 ### マザーボード PRIME X370-PRO
 
@@ -26,15 +26,17 @@ ogimage: https://t32k.me/mol/images/2017/mining/00.jpg
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WD4N297/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="https://images-fe.ssl-images-amazon.com/images/I/51T1YHLsxRL._SL160_.jpg" alt="ASUSTeK AMD X370搭載 マザーボード PRIME X370-PRO【ATX】" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WD4N297/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">ASUSTeK AMD X370搭載<br>マザーボード PRIME X370-PRO【ATX】</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2017.6.25</div></div><div class="azlink-detail"><br />Asustek<br />売り上げランキング: 3616<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WD4N297/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-基本的に一番重要なのはグラボなので、自作PC詳しい人はすっ飛ばしてもらって問題ない。
+基本的に一番重要なのはグラボなので、自作PCに詳しい人はすっ飛ばしてもらって問題ない。
 
 最近のマザーボードならグラボが6枚くらい積めそうなので、価格.comで人気そうなの選んだ。選ぶポイントはPCI Express x1 or 16xのスロットが何個ついてるかだ。
+
+なお、GPUの計算結果を映像出力する必要がないので、PCI Expressはx1スロットで十分なのだそうだ。というわけで、PCI Express x1 5スロット、PCI Express x16 1スロットみたいな[マイニング専用マザーボード](http://akiba-pc.watch.impress.co.jp/docs/news/news/1067153.html)なるものも発売されるそうだ。
 
 ### CPU AMD Ryzen7 1700 with WraithSpire 65W
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WP5YCX6/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="http://ecx.images-amazon.com/images/G/09/nav2/dp/no-image-no-ciu.gif" alt="AMD CPU Ryzen7 1700 with WraithSpire 65W cooler AM4 YD1700BBAEBOX" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WP5YCX6/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">AMD CPU Ryzen7 1700 with WraithSpire 65W<br>cooler AM4 YD1700BBAEBOX</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2017.6.25</div></div><div class="azlink-detail">Windows<br />AMD<br />売り上げランキング: 724<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B06WP5YCX6/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-GPUでマイニングするのでCPUの性能は関係ない。ので別にそんなにいいCPUを買う必要はないが、最近よくRyzen!Ryzen!と聞くので、流行りに乗ってみた。
+GPUでマイニングするのでCPUの性能は関係ない。ので別にそんなにいいCPUを買う必要はないが、最近よくRyzen!Ryzen!と聞くので、流行りに乗ってみた。ただあんまりにも古い（しょぼい）CPUだとグラボを6枚ちゃんと認識できない可能性もある。
 
 ### DDR4 メモリ
 
@@ -46,7 +48,7 @@ GPUでマイニングするのでCPUの性能は関係ない。ので別にそ�
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH3RWW/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="https://images-fe.ssl-images-amazon.com/images/I/41KNYzGI4GL._SL160_.jpg" alt="Samsung SSD 250GB 850 EVO ベーシックキット V-NAND搭載 2.5インチ 内蔵型  MZ-75E250B/IT" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH3RWW/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">Samsung SSD 250GB 850 EVO<br>V-NAND搭載 2.5インチ 内蔵型  MZ-75E250B/IT</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2017.6.25</div></div><div class="azlink-detail"><br />日本サムスン<br />売り上げランキング: 324<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH3RWW/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-これも250GBの買ったけど、120GBとかで十分そう。 なんのアレも無しに、SATAの2.5インチのSSDを買ったけど、最近だとM.2インターフェースのSSDというのがあって、メモリみたいな形で消費電力が少なくて良い（大事！）とマイナーコミュニティなかでは評判のようだった。
+これも250GBの買ったけど、120GBとかで十分そう。 なんのアレも無しに、SATA 2.5インチのSSDを買ったけど、最近だとM.2インターフェースのSSDというのがあって、メモリみたいな形で消費電力が少なくて良い（大事！）とマイナーコミュニティなかでは評判のようだった。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01N1PMFNU/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="https://images-fe.ssl-images-amazon.com/images/I/414em8i5YVL._SL160_.jpg" alt="Samsung SSD 250GB 960 EVO M.2 Type2280 PCIe3.0×4 NVMe1.2 V-NAND搭載 3年保証 日本サムスン正規品 MZ-V6E250B/IT" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01N1PMFNU/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">Samsung SSD 250GB 960 EVO M.2 Type2280<br>PCIe3.0×4 NVMe1.2 V-NAND搭載</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2017.6.25</div></div><div class="azlink-detail"><br />日本サムスン<br />売り上げランキング: 922<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01N1PMFNU/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
@@ -68,7 +70,7 @@ GPUでマイニングするのでCPUの性能は関係ない。ので別にそ�
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0190M0DS2/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="https://images-fe.ssl-images-amazon.com/images/I/51FP3-XhrQL._SL160_.jpg" alt="Corsair RM1000x 80PLUS GOLD認証取得 1000W静音電源ユニット PS596 CP-9020094-JP" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0190M0DS2/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">Corsair RM1000x 80PLUS GOLD認証取得 <br>1000W静音電源ユニットPS596 CP-9020094-JP</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://sakuratan.biz/azlink/dp/Corsair%20RM1000x%2080PLUS%20GOLD%E8%AA%8D%E8%A8%BC%E5%8F%96%E5%BE%97%201000W%E9%9D%99%E9%9F%B3%E9%9B%BB%E6%BA%90%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%20PS596%20CP-9020094-JP/B0190M0DS2/warikiru-22" target="_blank">AZlink</a>  at 2017.6.25</div></div><div class="azlink-detail"><br />Corsair<br />売り上げランキング: 4157<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0190M0DS2/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
-あと、ブロンズとかシルバーとかゴールドとかクラスがあって、これが高いほど電源効率が良かったり、安全性が高いらしい。マイニングするとずっとフル稼働させるので、気になる所。最初よくわからなかったのでブロンズのものを買ったけど、ゴールドのものに買い直した。
+あと、ブロンズとかシルバーとかゴールドとか[クラスがあって](http://ascii.jp/elem/000/000/432/432066/)、これが高いほど電源効率が良かったり、安全性が高いらしい。マイニングすると24時間フル稼働させるので、ちょっとの差が大きな電気代へと変化する。最初よくわからなかったのでブロンズのものを買ったけど、ゴールドのものに買い直した。
 
 ### OS
 
@@ -91,8 +93,7 @@ Radeon RX 580・570, 480・470が主力のビデオカードとなるが、500�
 
 というわけで秋葉原に足を運んで、なんとかRX560 4GBを3枚ゲットできたので、はじめはこれでがんばる。x80・x70に比べると性能は半減だが、消費電力も半分なので、まぁよい。現在だとGPUメモリが2GBだと採掘できないので4GB以上のものを買おう。
 
-最近のRadeon RX不足により、マイナーコミュニティの方々は割高だがNvidia GeForceにシフトチェンジしているようにみえる。
-
+最近のRadeon RX不足により、マイナーコミュニティの方々は割高だがNvidia GeForceにシフトチェンジしているようにみえる。あと7月には映像出力のない[マイニング専用のRadeon](http://akiba-pc.watch.impress.co.jp/docs/news/news/1066400.html)が発売予定なので、これもチェックだ！
 
 ## 採掘
 
@@ -122,13 +123,13 @@ RX570が22~23Mh/sぐらいのハッシュレートなので、ほんとうに半
 
 ![](/mol/images/2017/mining/pool.png)
 
-このレートだとシュミレーター的には電気代差し引いても月フル稼働させて1万円くらいの利益がでるかもしれない。
+このレートだと[シュミレーター](https://www.cryptocompare.com/mining/calculator/eth?HashingPower=90&HashingUnit=MH%2Fs&PowerConsumption=800&CostPerkWh=0.3)的には電気代差し引いても月フル稼働させて1万円くらいの利益がでるかもしれない。
 
 ## 所感
 
 ![](/mol/images/2017/mining/04.jpg)
 
-結局、PCケースだと熱がこもるので家庭用メタルラックかってむき出しで使っている。RX560は消費電力も少ないし、補助電源もいらないので、いまのところ電源と熱の問題はそれほどではない。はやくRX570、6枚づけしたい。
+結局、PCケースだと熱がこもるので家庭用メタルラックかってむき出しで使っている（最初からマイニング専用と振り切っていればよかったｗ）。今のところRX560は消費電力も少ないし、補助電源もいらないので、いまのところ電源と熱の問題はそれほどではない。はやくRX570、6枚づけしたい。
 
 <div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00H8JXRD8/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="https://images-fe.ssl-images-amazon.com/images/I/41%2B-BIhfykL._SL160_.jpg" alt="アイリスオーヤマ メタルラック カラーメタルシリーズ  ハンガーラック ポール径19mm カラーメタルラック 3段 幅55×奥行35×高さ80㎝ ホワイト CMM-55083" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00H8JXRD8/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">アイリスオーヤマ メタルラック　CMM-55083</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2017.6.26</div></div><div class="azlink-detail"><br />アイリスオーヤマ(IRIS)<br />売り上げランキング: 9394<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00H8JXRD8/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
 
