@@ -7,6 +7,9 @@
 */
 
 
+
+
+
 /* MOL
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -314,39 +317,27 @@ a:hover .social-links-linkedin {
     text-transform: uppercase;
 }
 
-.cse-box {
-    color: #4f4f4f;
-    text-align: center;
+.post .__media {
+    margin-bottom: 2rem;
 }
-
-.cse-box .text {
-    width: 200px;
-    line-height: 36px;
-    margin: 0.5em 1em;
-    padding: 0 1em;
-    border: 0;
-    border-radius: 2px;
-    background-position: 1em center !important;
-    background-color: white;
-    font-size: 16px;
+.post .__media:after {
+    content: "";
+    display: table;
+    clear: both;
 }
-
-.cse-box .button {
-    line-height: 34px;
-    margin: 1px 0;
-    padding: 0 2em;
-    border: 1px #cfcfcf solid;
-    border-radius: 2px;
-    color: rgba(0, 0, 0, 0.6);
-    background: rgba(0, 0, 0, 0.05);
-    font-size: 14px;
+.post .__media__body > div {
+    margin-bottom: 2rem;
 }
-
-.cse-box .button:hover {
-    color: rgba(0, 0, 0, 0.6);
-    background: rgba(0, 0, 0, 0.1);
+.post .__media__text {
+    color: rgba(0, 0, 0, 0.87);
 }
-
+@media (min-width: 550px) {
+    .post .__media__image {
+        float: left;
+        margin-right: 1rem;
+        width: 250px;
+    }
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -502,6 +493,17 @@ a:hover .social-links-linkedin {
     }
 }
 
+/* Affiliate
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.__m {
+    display: block !important;
+    margin: 1em 0 !important;
+}
+.__m_i {
+    float: left !important;
+    width: 100px !important;
+    margin: 10px !important;
+}
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
