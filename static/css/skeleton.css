@@ -334,8 +334,8 @@ a:hover .social-links-linkedin {
 @media (min-width: 550px) {
     .post .__media__image {
         float: left;
-        margin-right: 1rem;
-        width: 250px;
+        margin-right: 1.5rem;
+        width: 140px;
     }
 }
 

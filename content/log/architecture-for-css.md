@@ -26,8 +26,15 @@ excerpt: "Web制作者のためのCSS設計の教科書 モダンWeb開発に欠
 
 本書で扱っている、[BEM](http://bem.info/)や[CSSO](http://css.github.io/csso/)、[CSScomb](http://csscomb.com/)とかはロシアのYandex社の人が中心に開発してたり、毎回イケてるCSS記事を書いてくれる[CSS Wizardry](http://csswizardry.com/)はイギリスだったり、[SMACSS](https://smacss.com/ja)の[Jonathan Snook](http://snook.ca/)はカナダだし、[Kite](https://github.com/hiloki/kitecss)や[FLOCSS](https://github.com/hiloki/flocss)（by @hiloki）、[Maple](https://github.com/t32k/maple)や[StyleStats](https://github.com/t32k/stylestats)（by @t32k）はもちろん日本から発信してるものだったりして、このチョイスで一冊の本にまとめられるのは世界中でも@hilokiしかいないだろう。
 
-余談だけど、本書の『はじめに』で[@cssradar](https://twitter.com/cssradar)に感謝を述べているが、僕からも感謝の意を述べたい。@cssradarのSMACSS翻訳プロジェクトに参加したのをキッカケに、CSSってこんなに奥深いものなのかと知り、僕らは互いに切磋琢磨してCSSに関する技術を向上させることができた。しかも、それを実践する環境は当時の緑の会社にあって、本当に良い環境だったと今は思う。
+余談だけど、本書の『はじめに』で[@cssradar](https://twitter.com/cssradar)に感謝を述べているが、僕からも感謝の意を述べたい。cssradarのSMACSS翻訳プロジェクトに参加したのをキッカケに、CSSってこんなに奥深いものなのかと知り、僕らは互いに切磋琢磨してCSSに関する技術を向上させることができた。しかも、それを実践する環境は当時の緑の会社にあって、本当に良い環境だったと今は思う。
 
 決して、これを読んだからといてすぐに理想的なCSSを書けるわけではないが、すくなくとも混沌としたCSSの開発現場をサバイバルするための最適なマップとして活用できることだろう。
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00M0ESXUI/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow"><img src="https://images-na.ssl-images-amazon.com/images/I/51nSEOKWSrL._SL160_.jpg" alt="Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00M0ESXUI/warikiru-22/ref=nosim/" name="azlinklink" target="_blank" rel="nofollow">Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2016.7.18</div></div><div class="azlink-detail">谷 拓樹<br />インプレス<br />売り上げランキング: 7548<br /></div><div class="azlink-review" style="margin-top:10px;margin-bottom:10px"></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00M0ESXUI/warikiru-22/ref=nosim/" target="_blank" rel="nofollow">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="__media"><a href="https://www.amazon.co.jp/dp/4844336355/?tag=warikiru-22" target="_blank" rel="noopener">
+  <img src="https://images-na.ssl-images-amazon.com/images/I/51rsbQOrZ0L._SX390_BO1,204,203,200_.jpg" class="__media__image">
+  <div class="__media__body">
+    <div>Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法</div>
+    <div class="__media__text">本</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+  </div>
+</a></div>
