@@ -4,7 +4,7 @@ title: Ethereumをマイニングしてみる（2017夏・改）
 subtitle: How to build an Ethereum mining rig
 categories: 
     - gadget
-excerpt:  
+excerpt: 一ヶ月間。マイニングリグをまともに動かすにかかった時間である。グラボ最大搭載数である6枚で最高のパフォーマンスがでなかったので、ほぼ全部買い直した。
 ogimage: https://t32k.me/mol/images/2017/0802-00.jpg
 --- 
 
