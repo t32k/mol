@@ -6,10 +6,6 @@
 * http://www.opensource.org/licenses/mit-license.php
 */
 
-
-
-
-
 /* MOL
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -19,7 +15,7 @@ img {
 
 blockquote {
     margin: 0;
-    font-size: 14px;
+    font-size: 0.8rem;
     color: #999;
     border-left: .4rem #ddd solid;
     padding-left: 3rem;
@@ -56,7 +52,7 @@ blockquote {
     content: "AD";
     display: block;
     color: #4f4f4f;
-    font-size: 12px;
+    font-size: 0.6rem;
 }
 
 .hero {
@@ -85,7 +81,7 @@ blockquote {
     float: left;
     padding: 1.5rem 1.5rem 1.1rem;
     color: #4C566C;
-    font-size: 14px;
+    font-size: 0.8rem;
     border-bottom: 3px transparent solid;
 }
 
@@ -104,7 +100,7 @@ blockquote {
 
 .site-author {
     margin: auto;
-    font-size: 12px;
+    font-size: 0.6rem;
 }
 
 .site-author-pic {
@@ -211,7 +207,7 @@ a:hover .social-links-linkedin {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .post-social {
@@ -225,7 +221,7 @@ a:hover .social-links-linkedin {
 }
 
 .post-pager {
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .post-next {
@@ -243,7 +239,7 @@ a:hover .social-links-linkedin {
     background: #fafafa;
     border-left: .4rem #BBDEFB solid;
     color: #777;
-    font-size: 14px;
+    font-size: 0.8rem;
     font-style: normal;
     padding: .75em;
     display: block;
@@ -305,7 +301,7 @@ a:hover .social-links-linkedin {
     border-radius: 3px;
     color: rgba(0, 0, 0, 0.6);
     background: rgba(0, 0, 0, 0.05);
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 
 .post-tags a:hover {
@@ -508,22 +504,15 @@ a:hover .social-links-linkedin {
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-
-/* NOTE
-html is set to 62.5% so that all the REM measurements throughout Skeleton
-are based on 10px sizing. So basically 1.5rem = 15px :) */
-
 html {
-    font-size: 10px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-size: 18px;
-    /* currently ems cause chrome bug misinterpreting rems on body element */
-    line-height: 1.6;
-    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
     color: rgba(0, 0, 0, 0.87);
 }
 
@@ -540,39 +529,34 @@ h6 {
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 300;
+    line-height: 1.2;
     -moz-font-feature-settings: "palt";
     -webkit-font-feature-settings: "palt";
     font-feature-settings: "palt";
 }
 
 h1 {
-    font-size: 30px;
-    line-height: 1.2;
+    font-size: 2.2rem;
 }
 
 h2 {
-    font-size: 26px;
-    line-height: 1.25;
+    font-size: 2rem;
 }
 
 h3 {
-    font-size: 20px;
-    line-height: 1.3;
+    font-size: 1.5rem;
 }
 
 h4 {
-    font-size: 14px;
-    line-height: 1.35;
+    font-size: 1rem;
 }
 
 h5 {
-    font-size: 8px;
-    line-height: 1.5;
+    font-size: .8rem;
 }
 
 h6 {
-    font-size: 6px;
-    line-height: 1.6;
+    font-size: .6rem;
 }
 
 
@@ -580,22 +564,22 @@ h6 {
 
 @media (min-width: 550px) {
     h1 {
-        font-size: 40px;
+    	font-size: 3rem;
     }
     h2 {
-        font-size: 32px;
+    	font-size: 2.5rem;
     }
     h3 {
-        font-size: 26px;
+    	font-size: 2rem;
     }
     h4 {
-        font-size: 20px;
+    	font-size: 1.5rem;
     }
     h5 {
-        font-size: 14px;
+    	font-size: 1rem;
     }
     h6 {
-        font-size: 8px;
+        font-size: 0.8rem;
     }
 }
 
@@ -639,7 +623,6 @@ ul ol,
 ol ol,
 ol ul {
     margin: 1.5rem 0 1.5rem 3rem;
-    font-size: 16px;
 }
 
 li {
@@ -732,7 +715,7 @@ p {
 }
 
 .u-txs {
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .u-mtn {
@@ -771,126 +754,4 @@ hr {
     content: "";
     display: table;
     clear: both;
-}
-
-
-/* github.com style (c) Vasily Polovnyov <vast@whiteants.net> */
-
-.hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    color: #333;
-    background: #f8f8f8;
-    -webkit-text-size-adjust: none;
-}
-
-.hljs-comment,
-.diff .hljs-header,
-.hljs-javadoc {
-    color: #998;
-    font-style: italic;
-}
-
-.hljs-keyword,
-.css .rule .hljs-keyword,
-.hljs-winutils,
-.nginx .hljs-title,
-.hljs-subst,
-.hljs-request,
-.hljs-status {
-    color: #333;
-    font-weight: bold;
-}
-
-.hljs-number,
-.hljs-hexcolor,
-.ruby .hljs-constant {
-    color: #008080;
-}
-
-.hljs-string,
-.hljs-tag .hljs-value,
-.hljs-phpdoc,
-.hljs-dartdoc,
-.tex .hljs-formula {
-    color: #d14;
-}
-
-.hljs-title,
-.hljs-id,
-.scss .hljs-preprocessor {
-    color: #900;
-    font-weight: bold;
-}
-
-.hljs-list .hljs-keyword,
-.hljs-subst {
-    font-weight: normal;
-}
-
-.hljs-class .hljs-title,
-.hljs-type,
-.vhdl .hljs-literal,
-.tex .hljs-command {
-    color: #458;
-    font-weight: bold;
-}
-
-.hljs-tag,
-.hljs-tag .hljs-title,
-.hljs-rules .hljs-property,
-.django .hljs-tag .hljs-keyword {
-    color: #000080;
-    font-weight: normal;
-}
-
-.hljs-attribute,
-.hljs-variable,
-.lisp .hljs-body {
-    color: #008080;
-}
-
-.hljs-regexp {
-    color: #009926;
-}
-
-.hljs-symbol,
-.ruby .hljs-symbol .hljs-string,
-.lisp .hljs-keyword,
-.clojure .hljs-keyword,
-.scheme .hljs-keyword,
-.tex .hljs-special,
-.hljs-prompt {
-    color: #990073;
-}
-
-.hljs-built_in {
-    color: #0086b3;
-}
-
-.hljs-preprocessor,
-.hljs-pragma,
-.hljs-pi,
-.hljs-doctype,
-.hljs-shebang,
-.hljs-cdata {
-    color: #999;
-    font-weight: bold;
-}
-
-.hljs-deletion {
-    background: #fdd;
-}
-
-.hljs-addition {
-    background: #dfd;
-}
-
-.diff .hljs-change {
-    background: #0086b3;
-}
-
-.hljs-chunk {
-    color: #aaa;
 }
