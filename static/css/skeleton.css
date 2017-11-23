@@ -228,6 +228,11 @@ a:hover .social-links-linkedin {
     text-align: right;
 }
 
+.post p {
+    font-size: 18px;
+    line-height: 2;
+}
+
 .post img {
     position: relative;
     z-index: 1;
@@ -564,16 +569,16 @@ h6 {
 
 @media (min-width: 550px) {
     h1 {
-    	font-size: 3rem;
+    	font-size: 2.4rem;
     }
     h2 {
-    	font-size: 2.5rem;
+    	font-size: 2.2rem;
     }
     h3 {
-    	font-size: 2rem;
+    	font-size: 1.8rem;
     }
     h4 {
-    	font-size: 1.5rem;
+    	font-size: 1.2rem;
     }
     h5 {
     	font-size: 1rem;
