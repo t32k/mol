@@ -205,9 +205,6 @@ Hash Rateの推移
 
 4日目の[@sonatard](//twitter.com/sonatard)がもっと詳しい[記事](//medium.com/@sonatard12/asicboost%E3%81%A8segwit%E3%81%AE%E9%96%A2%E4%BF%82-56a7c8429341)書いてくれてる。
 
-
-https://medium.com/@sonatard12/asicboost%E3%81%A8segwit%E3%81%AE%E9%96%A2%E4%BF%82-56a7c8429341
-
 ## 参考
 
 - [ブロックチェーンの健全性を支えるマイニング](http://gaiax-blockchain.com/pow)
