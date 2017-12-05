@@ -1,18 +1,20 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
     <meta charset="utf-8">
     <title>{{ .Title }} - {{ .Site.Title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ with .Params.excerpt }}<meta name="description" content="{{ . }}">{{ end }}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {{ with .Params.excerpt }}
+    <meta name="description" content="{{ . }}">{{ end }}
     <meta property="og:type" content="article">
-    <meta property="og:site_name" content="MOL">
-    {{ with .Params.ogimage }}<meta property="og:image" content="{{ . }}">{{ end }}
+    <meta property="og:site_name" content="MOL"> {{ with .Params.ogimage }}
+    <meta property="og:image" content="{{ . }}">{{ end }}
     <meta property="fb:app_id" content="212646065416408">
     <link rel="canonical" href="{{ .Permalink }}">
-    <link rel="stylesheet" href="/mol/css/skeleton.css?20170804">
+    <link rel="stylesheet" href="/mol/css/skeleton.css?20171206">
     <link rel="author" href="//plus.google.com/+kojiishimoto">
     <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="{{ .Site.Title }}">
 </head>
+
 <body>
-{{ partial "svg.html" . }}
+    {{ partial "svg.html" . }}
