@@ -25,35 +25,35 @@ new Intl.DateTimeFormat(locales, {
 
 該当のコード。
 
-Node.js側のIntlオブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、放っておいた。
+Node.js側の`Intl`オブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、しばらく放っておいた。
 
 ![](/mol/images/2018/0119-00.png)
 
 - [Internationalization Support \| Node\.js v9\.4\.0 Documentation](https://nodejs.org/api/intl.html#intl_options_for_building_node_js)
 
-国際化のサポートがビルドの設定で違うらしいことに気づいた。デフォルトのビルドでは`--with-intl=small-icu`というもので、部分的なサポートでしかない。それとは別に`full-icu`という全サポートがあるらしく、これ入れたら、サーバーとクライアントでの差異はなくなった。
+あとで国際化のサポートがビルドの設定ごとで違うらしいと気づいた。デフォルトのビルドでは`--with-intl=small-icu`というもので、部分的なサポートでしかない。それとは別に`full-icu`という全サポートがあるらしく、これ入れたら、サーバーとクライアントでの差異はなくなった。
 
 - [Intl · nodejs/node Wiki](https://github.com/nodejs/node/wiki/Intl)
 
 ちなみにICUとは[International Components for Unicode](http://site.icu-project.org/)の略らしい。確かに全言語対応のデータ毎回入れてたら重いよね。
 
-Node.jsのバージョンマネージャーは`nvm`使ってるんだけど、nvmインストールするときに下記のようなオプションつけると`full-icu`でビルドできる。
+Node.jsのバージョンマネージャーは`nvm`使ってるんだけど、nvmインストールするときに下記のようなオプションつけると`full-icu`でビルドしたものをインストールできる。
 
 ```
 nvm install -s v9.4.0 --with-intl=full-icu --download=all
 ```
 
-でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsとかどこでNode.jsのビルドしてんだ？って感じなので、
+でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、
 
 - [unicode\-org/full\-icu\-npm: npm module to autoload full ICU data\.](https://github.com/unicode-org/full-icu-npm)
 
-あと付けで言語データをインストールができるnpmがある。
+後づけで言語データをインストールができるnpmがある。
 
 ```
 NODE_ICU_DATA=node_modules/full-icu/
 ```
 
-あとは環境変数に`NODE_ICU_DATA`にfull-icuの言語データへのパスを設定するだけでよい。
+あとは環境変数`NODE_ICU_DATA`にfull-icuの言語データへのパスを設定するだけでよい。
 
 国際化とかホント苦手だわと思ったけど、今回の場合、日付の`/`と`-`が違うだけだったので、あんまり考えがめぐらなかったのが反省点。
 
