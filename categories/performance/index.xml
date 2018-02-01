@@ -1,0 +1,1905 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/performance/</link>
+        <language>ja</language>
+        
+        
+        <updated>Thu, 09 Jan 2014 00:00:00 UTC</updated>
+        
+        <item>
+            <title>手軽にCIを体験してみたい・その2</title>
+            <link>https://t32k.me/mol/log/casual-continuous-integration-2/</link>
+            <pubDate>Thu, 09 Jan 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/casual-continuous-integration-2/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/casual-continuous-integration/&#34;&gt;前回の記事&lt;/a&gt;が全然手軽じゃない気がしてきたので、今回も幾分かマシにCIを体験するというかCIサーバ立てずにがんばってみる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-08-fig01.png&#34; alt=&#34;Jenkins・WPT・GitHub&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前回はTravisとYSlowを使ってパフォーマンステストをしたけど、今回はJenkinsとWebPagetestを使って全く同じことをしてみる。&lt;/p&gt;
+
+&lt;p&gt;やっぱしTravisの設定が慣れないんだなぁ。ちなみに普通のユニットテストとかだったら、アクセストークンとか必要ないのでもっと簡単にできる。僕はGruntプラグインの開発で使用している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/grunt-csso/blob/master/.travis.yml&#34;&gt;grunt-csso/.travis.yml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/grunt-csso/blob/master/package.json&#34;&gt;grunt-csso/package.json&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例えば、grunt-cssoの設定は上記みたいな感じ。ymlは実行環境指定してあるだけだし、package.jsonは&lt;code&gt;grunt test&lt;/code&gt;のコマンドを実行してるだけで、要はnodeunitテストだ。ローカルでやるのとたいして変わらない。&lt;/p&gt;
+
+&lt;p&gt;なので、おもしろくない。&lt;/p&gt;
+
+&lt;h2 id=&#34;jenkins&#34;&gt;Jenkins&lt;/h2&gt;
+
+&lt;p&gt;やっぱり私、Jenkins触りたいんですですおおおお＾q＾！ってことで、世の中にはクラウドサービスとしてJenkinsを使えるそうで、CloudBeesってとこのDEV@cloud使ってみる。便利な世の中だ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cloudbees.com/&#34;&gt;CloudBees: The Java PaaS Company&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Freeでは月300分までのビルドまでしかできなかったり制限あるけど、ちょっとJenkinsに触りたいんです欲求ぐらいなら満たせる。&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkinsシステム設定&#34;&gt;Jenkinsシステム設定&lt;/h3&gt;
+
+&lt;p&gt;まず、GitHubとJenkinsの連携だけどDEV@cloudのJenkinsは&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin&#34;&gt;Git Plugin&lt;/a&gt;がデフォルトでインストールしてあるのでこちらでインストールしなくてもいいので楽です。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CloudBees DEV@cloud Authorization&lt;/strong&gt;でCloudBees Public KeyをGitHubのAccount Settingsの&lt;a href=&#34;https://github.com/settings/ssh&#34;&gt;SSH Keys&lt;/a&gt;に登録しておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-08-fig02.png&#34; alt=&#34;NodeJS&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;次に後述するWebPagetest(WPT)をNode.jsから利用するのでJenkinsにNode.jsをインストールしたい。NodeJS Pluginを検索してインストールすれば、Jenkinsのシステム設定からNode.jsをバージョン管理できるようになる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/NodeJS+Plugin&#34;&gt;NodeJS Plugin - Jenkins - Jenkins Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また&lt;code&gt;webpagetest&lt;/code&gt;パッケージが必要なので、&lt;strong&gt;Global npm packages to install&lt;/strong&gt;からインストールできるようにしておく。&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkinsビルド設定&#34;&gt;Jenkinsビルド設定&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;新規ジョブ作成&lt;/strong&gt;から『フリースタイル・プロジェクトのビルド』を選択する。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ソースコード管理システム&lt;/strong&gt;はGitを選択しレポジトリURLを設定する。ここでは&lt;code&gt;git@github.com:t32k/maple.git&lt;/code&gt;を指定。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-08-fig03.png&#34; alt=&#34;SCMをポーリング&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;次は&lt;strong&gt;ビルド・トリガ&lt;/strong&gt;で、『SCMをポーリング』にチェックを入れ、スケジュールには本来Cronの設定を書くが今回はGitHubのServer Hookをトリガとするので、何も入力しない（便宜上、チェックをいれるらしい）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-08-fig04.png&#34; alt=&#34;Service Hooks&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHubのMapleのSettingsから&lt;strong&gt;Service Hooks&lt;/strong&gt;で、Jenkins (Git plugin)を選択肢、Jenkins Urlを入力し、Activeにする。これでGitフックの設定は終わり。MapeレポジトリにコミットするとJenkinsがビルドする。&lt;/p&gt;
+
+&lt;p&gt;ほかにもいろいろ方法があるらしいので下記ページを参照してほしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/mechamogera/items/dbeb3a540f636bfed7af&#34;&gt;GithubからJenkinsへのServer Hook - Qiita [キータ]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;次は&lt;strong&gt;ビルド環境&lt;/strong&gt;で、Provide Node &amp;amp; npm bin/ folder to PATHにチェックをする。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ビルド&lt;/strong&gt;には『シェルの実行』を選択し、下記のようなコマンドを設定。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git checkout gh-pages
+git rebase origin/master
+git push origin gh-pages
+git checkout master
+test/test.sh YOUR_PRIVATE_INSTANCE_URL
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;要はmasterの内容をgh-pagesのブランチにマージしてWebPagetestを走らせているのだ。このへんはシェルでどうにでもできるので使い勝手がいい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-08-fig05.png&#34; alt=&#34;JUnitテスト結果の集計&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で最後に、&lt;strong&gt;ビルド後の処理&lt;/strong&gt;としてJUnitテスト結果の集計を選択して、WebPagetestのテスト結果XMLのファイル名を選択すれば、Jenkinsのひと通りの設定は終わりだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;webpagetest&#34;&gt;WebPagetest&lt;/h2&gt;
+
+&lt;p&gt;WebPagetestはこのブログでも何回か紹介しているが、Webパフォーマンスの計測サービスだ。それをNode.jsのラッパーでCLIからテストを実行できるようにしたのが&lt;strong&gt;webpagetest-api&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marcelduran/webpagetest-api&#34;&gt;marcelduran/webpagetest-api&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これを利用するには自分でプライベートインスタンスを作ってそこでテストを実行させるか、パブリックインスタンス上でテストを実行させるかの2つだけど、後者はWPTの作者にメールしてAPIキーをもらわなきゃいけない。&lt;/p&gt;
+
+&lt;p&gt;もうこの辺りから全然お手軽でもないんだけども、プライベートインスタンスとか立ち上げるのだるいし（弊社にはあるのでウェーイ♪、今回の例ではAPIキーを利用していない）、とりあえず、Please API Key!ってメール投げてみましょう。1日200回までなら実行可能っぽいす。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marcelduran/webpagetest-api/issues/8&#34;&gt;how can i get an api key? · Issue #8 · marcelduran/webpagetest-api&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;webpagetest test https://t32k.me/maple/test/fixtures/perf_test.html --server $1 --poll 3 --specs test/spec.json --reporter xunit &amp;gt; webpagetest.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/test/test.sh&#34;&gt;maple/test/test.sh · t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とりま、このラッパーを使って上記のようなコマンドをシェルファイルとして実行している。今回は&lt;code&gt;--server $1&lt;/code&gt;でプライベートインスタンスのURLを指定しているけど、みなさんは代わりに&lt;code&gt;--key $1&lt;/code&gt;でAPIキーを引数でとるようにしてもらえればよいかと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;--poll 3&lt;/code&gt;は、WPTのテストを実行しただけでは結果がかえってくるまで時間がかかるので3秒ごとにポーリングして結果が帰ってくるまで待ってるって意味。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;--specs test/spec.json&lt;/code&gt;にはどの項目がどの程度のパフォーマンスまで許容できるのかしきい値を書いておく。&lt;/p&gt;
+
+&lt;p&gt;MapleのスペックではfistViewでリクエストが50、renderタイムが5000ms、loadTimeが10000msを超えるようであれば失敗とみなしている。ここら辺りは今はちょっと適当にやってるのだけど、YSlowに比べていろんな指標をWPTではチェックできるのでこんな風にしてスペック書くんだよってことを理解してもらえればよいです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/test/spec.json&#34;&gt;maple/test/spec.json · t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;reporter xunit &amp;gt; webpagetest.xml&lt;/code&gt; 最後はXML形式でテスト結果を保存するよーって意味です。これをJenkinsに読み取らせて、Jenkins上でテスト結果が確認できるのです。&lt;/p&gt;
+
+&lt;p&gt;細かな設定に関してはここをみるとよいです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marcelduran/webpagetest-api/wiki/Test-specs#jenkins-integration&#34;&gt;Test specs · marcelduran/webpagetest-api Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ほんとは、TAP形式のレポートのほうが見やすくて良いのだけど、CloudBeesのJenkinsにはTAPレポートを表示させるJenkinsプラグインがインストール出来ないからJUnit形式にしている。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-08-fig06.png&#34; alt=&#34;テスト結果&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で、適当になんかPushしてやると、Jenkinsたんがビルドを走らせて上記のような結果を頂けます。&lt;/p&gt;
+
+&lt;p&gt;んなわけでやっぱJenkinsでこれだけいろいろできるのはよいなーと思いました。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>手軽にCIを体験してみたい</title>
+            <link>https://t32k.me/mol/log/casual-continuous-integration/</link>
+            <pubDate>Tue, 07 Jan 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/casual-continuous-integration/</guid>
+            <description>
+
+&lt;p&gt;昨年の&lt;a href=&#34;http://frontrend.github.io/events/06/&#34;&gt;Frontrend/06&lt;/a&gt;では、全くもってながら個人的な趣向のもと継続インテグレーション（CI:Continuous Integration）をテーマに開催した。もはや、フロントエンドとは！という感じだが、非常に良いイベントだったと思う。&lt;/p&gt;
+
+&lt;p&gt;基本的に昨今のフロントエンドは膨大なタスクに追われている、そのようなタスクを手動でちまちまやっていては手戻りやミスなど必ず発生するので自動化すべきである。フロントエンドの自動化は&lt;a href=&#34;https://t32k.me/mol/mol/log/modern-development-workflow-with-grunt/&#34;&gt;Grunt&lt;/a&gt;などがあるが、結局フロントだけで問題を解決しようとすると問題（限界）があったりするので、CIサーバーとか使ったほうがいいよね。てかフロントエンドの人も慣れておいたほうがいいよねって話。&lt;/p&gt;
+
+&lt;p&gt;しかし、フロントエンドの人が&lt;a href=&#34;https://t32k.me/mol/mol/log/vagrant1-2-centos6-4-jenkins1-5/&#34;&gt;いちからJenkinsを立ち上げたり&lt;/a&gt;するのもさほど面倒でもないが多少の心理的障壁があるので、もっとカジュアルに利用したい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-07-fig01.png&#34; alt=&#34;Build・Test・Commit&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/st44100/ss-28353683&#34;&gt;Frontend/06の佐竹さんのセッション&lt;/a&gt;でCIを構成する要素として、Build・Test・Commitの3つがあると紹介されていた。Commitは普段Gitを使ってるから馴染み深いというかGitHub使ってるよね？みんな！！ってことで問題無いとして、Build/TestをなんとかCIサーバーでやってもらいたい。Testに関してはJavaScriptのTestなんかフロントエンドの人もやるので問題ないかと思うけど僕はそんなJavaScriptとか書かないのでよくわからないので、今回はWeb Performanceのテストをやってみるよ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/01-07-fig02.png&#34; alt=&#34;Travis・YSlow・GitHub&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今回のGitHubのレポジトリ(master)にPushしたら、Travisがgh-pagesブランチに同じ内容をコミットして反映された(gh-pagesの)ページのパフォーマンスをYSlowで検証してみるという流れだ。&lt;/p&gt;
+
+&lt;p&gt;gh-pagesをDev環境と見立てて、Dev環境でBuildした内容がパフォーマンス的に不適切（テストが失敗）ならProduction環境にはリリースできない・させないというようなサイクルを想定している。&lt;/p&gt;
+
+&lt;h2 id=&#34;travis-ci&#34;&gt;Travis-CI&lt;/h2&gt;
+
+&lt;p&gt;CIサーバーはなにもJenkinsだけではない。GitHub上でレポジトリを管理しているのなら連携している&lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis-CI&lt;/a&gt;を使用するのが何かと都合がよい。&lt;/p&gt;
+
+&lt;p&gt;Travisを使うにはアカウントを連携して、自分の&lt;a href=&#34;https://travis-ci.org/profile&#34;&gt;プロフィール&lt;/a&gt;から検証したいレポジトリを&lt;code&gt;ON&lt;/code&gt;にする。&lt;/p&gt;
+
+&lt;p&gt;Travisをどのように使用するかは&lt;code&gt;.travis.yml&lt;/code&gt;というファイルに記述する。Mapleでの設定は下記ファイルを見てもらえればよい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/.travis.yml&#34;&gt;maple/.travis.yml at master · t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;language: node_js
+node_js: 0.10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最初の行は実行環境を指定する。node.jsを使ったテストがしたいので、&lt;code&gt;node_js&lt;/code&gt;を指定する。バージョンは0.8、0.10とか複数指定できる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;env:
+  global:
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+    - GIT_AUTHOR_NAME=YOUR_ID
+    - GIT_AUTHOR_EMAIL=YOUR_MAIL_ADDRESS
+    - GIT_COMMITTER_NAME=YOUR_ID
+    - GIT_COMMITTER_EMAIL=YOUR_MAIL_ADDRESS
+=======
+    - GIT_AUTHOR_NAME=your-name
+    - GIT_AUTHOR_EMAIL=your-mail
+    - GIT_COMMITTER_NAME=your-name
+    - GIT_COMMITTER_EMAIL=your-mail
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; bc00bb731570eceb7f151001eafb282b7ce2fe56
+    - secure: &amp;quot;Xtk................&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;TravisからGitHubにコミットするには、OAuth access tokensが必要になので&lt;a href=&#34;https://github.com/settings/applications&#34;&gt;ここから発行する&lt;/a&gt;。そんでトークンをこんなパブリックなところに公開できないので、コマンドラインの&lt;code&gt;travis&lt;/code&gt;で暗号化したのが&lt;code&gt;secure&lt;/code&gt;のところ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ gem install travis
+$ travis encrypt -r t32k/maple &amp;quot;GH_TOKEN=&amp;lt;生成したトークン&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じで暗号化する。詳しくは下記のサイトを参照して欲しい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tricknotes.hateblo.jp/entry/2013/06/17/020229&#34;&gt;Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://1000ch.net/2013/08/30/MiddlemanAndGruntOnTravis/&#34;&gt;MiddlemanとTravis CIでgh-pagesを運用したら身長が伸びた | 1000ch.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ、GitHubの設定をしてるとこです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;before_script:
+  - &amp;quot;git clone --quiet https://github.com/t32k/maple.git&amp;quot;
+  - &amp;quot;git checkout -b gh-pages&amp;quot;
+  - &amp;quot;git rebase master&amp;quot;
+  - &amp;quot;[ \&amp;quot;$TRAVIS_BRANCH\&amp;quot; == \&amp;quot;master\&amp;quot; ] &amp;amp;&amp;amp; [ $GH_TOKEN ] &amp;amp;&amp;amp; git push --quiet https://$GH_TOKEN@github.com/t32k/maple.git gh-pages 2&amp;gt; /dev/null&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;before_script&lt;/code&gt;はtestが実行する前に実行しておきたいコマンドで、ここでは、masterブランチの内容をgh-pagesにマージしてプッシュしてる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;script:
+  - &amp;quot;npm test&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、最後にテストコマンドを実行って流れ。&lt;/p&gt;
+
+&lt;h2 id=&#34;yslow&#34;&gt;YSlow&lt;/h2&gt;
+
+&lt;p&gt;で、次はパフォーマンスのテスト内容に関して。&lt;a href=&#34;http://yslow.org/&#34;&gt;YSlow&lt;/a&gt;はFirefoxとかChromeの拡張機能でみんな使ったことあるよね？君のサイトはパフォーマンス的にAランクですよ！とか教えてくれるツール。それをPhantom.jsを使ってTravis上でも実行できるように解説してるのが以下のページ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yslow.org/phantomjs/#travisci-integration&#34;&gt;YSlow - Official Open Source Project Website&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基本的にこの通りにやっていく。さっきの&lt;code&gt;.travis.yml&lt;/code&gt;で指定した&lt;code&gt;npm test&lt;/code&gt;ってのは&lt;code&gt;package.json&lt;/code&gt;
+の以下の部分が実行されるということ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/package.json#L15&#34;&gt;maple/package.json at master · t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、&lt;code&gt;yslow.sh&lt;/code&gt;を実行するって書いてあるから、yslow.shのファイルは以下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/test/yslow.sh&#34;&gt;maple/test/yslow.sh at master · t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;./node_modules/phantomjs/bin/phantomjs test/yslow.js --info grade --format tap --threshold &#39;{&amp;quot;ycdn&amp;quot;: 10, &amp;quot;yexpires&amp;quot;: 10}&#39; t32k.me/maple/test/fixtures/perf_test.html?${CACHE_CLEAR}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;長ったらしく書いてあってややこいけど、基本的には以下のような構造になってる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;phantomjs yslow.js [オプション] &amp;lt;テストしたいURL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、重要なオプションである、しきい値の設定も忘れずに。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--threshold &#39;{&amp;quot;ycdn&amp;quot;: 10, &amp;quot;yexpires&amp;quot;: 10}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;単純にテストしたいだけなので『CDN使えよ！』の項目や、gh-pagesでホストしてるのでサーバーの設定とかできないので、キャッシュの項目とか10点でもOKなように（テストが通るように）しておく（もちろん、その他の項目がダメならテストが失敗したよってメールが飛んでくる（飛んでこないようにも設定できる））。&lt;/p&gt;
+
+&lt;p&gt;てな感じで、これでmasterにpushするとその内容をgh-pagesにマージしてホストされたURLをパフォーマンステストするって流れが出来ました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://travis-ci.org/t32k/maple&#34;&gt;Travis CI - Free Hosted Continuous Integration Platform for the Open Source Community&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ今回のテストページとか適当だし、そもそもgh-pagesのホストにデプロイしてる間にtestが実行されちゃって残念な状態にもなってるのであれですけど、雰囲気つかんで貰えれば幸いっす＞ｍ＜&lt;/p&gt;
+
+&lt;h3 id=&#34;参考リソース&#34;&gt;参考リソース&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://calendar.perfplanet.com/2012/proactive-web-performance-optimization/&#34;&gt;Performance Calendar » Proactive Web Performance Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>WebPagetest in 5 minutes</title>
+            <link>https://t32k.me/mol/log/webpagetest-5-minutes/</link>
+            <pubDate>Tue, 05 Nov 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/webpagetest-5-minutes/</guid>
+            <description>
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;2194dea0233401314f283ee30ec95e6c&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vimeo.com/78323495&#34;&gt;WebPagetest in 5 minutes // Vimeo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/t32k/webpagetest-in-5-minutes&#34;&gt;WebPagetest in 5 minutes // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;webpagetest&#34;&gt;WebPagetest&lt;/h2&gt;
+
+&lt;p&gt;2013年10月30日にサイバーエージェントで行われた&lt;a href=&#34;http://frontrend.github.io/events/chrome/&#34;&gt;Frontrend x Chrome Tech Talk Night Extended&lt;/a&gt;でWebPagetestでライトニングトークしてきたのでメモしておく。&lt;/p&gt;
+
+&lt;p&gt;公式サイトにはAddyやJake、Paulの動画も既に公開されている。しかも通訳付きなので参加できなかった方もぜひ見てほしい。&lt;/p&gt;
+
+&lt;p&gt;さて、今回紹介する&lt;a href=&#34;http://www.webpagetest.org/&#34;&gt;WebPagetest&lt;/a&gt;だが、いまいち日本で人気のないようだから紹介してみる。&lt;/p&gt;
+
+&lt;p&gt;私の仕事はWebパフォーマンス改善のタスクを主な業務としている。弊社がリリースしているWebアプリで遅いことが確認されるとその原因を調査する。その時に使うツールがChromeの拡張機能の&lt;a href=&#34;https://chrome.google.com/webstore/detail/pagespeed-insights-by-goo/gplegfbjlmmehdoakndmohflojccocli&#34;&gt;PageSpeed Insights&lt;/a&gt;と、WebPagetestだ。PageSpeedはサクッと調べたい時に使い、WebPagetestを腰を据えてじっくり調べたい時に使う。今回紹介するのはWebPagetestのほうだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/&#34;&gt;WebPagetest - Website Performance and Optimization Test&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;WebPagetestを使うには上記のサイトから、調べたいページのURLを入力して『START TEST』のボタンを押すだけだ。しばらくするとテスト結果画面が表示されるのでここからボトルネックを見つける。さまざまなオプションがあるが基本的な使い方はこの通りである。&lt;/p&gt;
+
+&lt;p&gt;WebPagetestはPageSpeed(DevTools)に似たような機能も提供しているが、多くの機能がある。First ByteやStart Render、DOM Elementsなどといった指標を取得することも可能であれば、Waterfall View、Connection View、FilmstripやScripted Testといったことも可能である。ここでは全部紹介しきれないのでWebPagetestの最も素晴らしい機能と言っても過言ではない&lt;strong&gt;Speed Index&lt;/strong&gt;について紹介する。&lt;/p&gt;
+
+&lt;h2 id=&#34;speed-index&#34;&gt;Speed Index&lt;/h2&gt;
+
+&lt;p&gt;Speed Indexは、端的に言えば体感速度を指標化したようなものだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index&#34;&gt;Speed Index - WebPagetest Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;詳しくは上記のドキュメントを読んでもらいたい。簡単に説明するとページのVisual Progressというのがあって、文字通りページがどれだけ描画されているかの進捗度である。スライドのA：青とB：赤のVisual Progressだと、どっちが良いかは自明だろう。どちらも12秒ほどの読み込み時間がかかっているが、青のほうは、1秒の段階で90%ほど描画が完了しているのに対して、赤のほうは11秒くらいまで20%未満のVisual Progressだ。当然、青のほうが体感速度的には早いと感じるであろう。&lt;/p&gt;
+
+&lt;p&gt;Speed Indexというのはこの単位時間辺りのVisual Completeしていない度合いの総和である。つまり、Speed Indexは小さい方はがよりよいということである。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2013/11-06-fig.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上記の数式の意味は、0秒から読み込みが完了するまでのミリセカンド毎に、1からVisual Completeをひいたものを足した総和ということを意味している。&lt;/p&gt;
+
+&lt;p&gt;これにより、同じ読み込み時間であってもSpeed Indexを見ればどちらが良いのか判断できるようになる。&lt;/p&gt;
+
+&lt;h2 id=&#34;let-s-improve-performance&#34;&gt;Let&amp;rsquo;s Improve Performance&lt;/h2&gt;
+
+&lt;p&gt;ということで、試しにこれらのツールを使ってパフォーマンスを改善していく。改善対象サイトは&lt;a href=&#34;https://t32k.me/&#34;&gt;t32k.me&lt;/a&gt;、私のポートフォリオサイト。このページの改善前のPageSpeed Scoreは80点（ちなみに、PageSpeed Insightsの言語設定を日本語にしているとScoreが出ない）。このページのどこが重いのか、軽く見てみるとページ下部にソーシャルウィジェットを発見したので、これを取り除いてみることにする。&lt;/p&gt;
+
+&lt;p&gt;ソーシャルウィジェットを取り除いた改善後のPageSpeed Scoreは93点。やったね、たえちゃん！ってことで素晴らしい改善結果だ。&lt;/p&gt;
+
+&lt;p&gt;しかし、改善前後のWebPagetestの結果を見てみよう。Visual Progressはほぼ変わっていないし、Speed Indexはほぼおなじの3105だorz&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;ここで言いたいことは、決してソーシャルウィジェットを取り除くことが意味のないことだということではない。事実、ソーシャルウィジェットを読み込んでいる方は当然、総読み込み時間は読み込んでいないものより長くなる。しかし、&lt;strong&gt;体感速度&lt;/strong&gt;の改善という意味では効果のないことかもしれない。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Speed is the second biggest engagement driver on the internet - just after perceived speed.  - &lt;a href=&#34;https://twitter.com/maccaw/status/380385677390516224&#34;&gt;@maccaw&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;この辺りの話題は最近のWeb Performance界隈ではホットな話題だ。PageSpeedで最低限のアドバイス（gzipしろとか）を達成した場合、次はどうすればいいのか？体感速度をどう速めるのか？そしてどうやってそれを計測するのか？&lt;/p&gt;
+
+&lt;p&gt;ちょうど&lt;a href=&#34;http://velocityconf.com/velocityny2013/public/schedule/detail/31344&#34;&gt;Velocity NY 2013で似たような話題を取り扱っていたセッション&lt;/a&gt;があった。そこでSpeed Indexはもちろん紹介されていたし、UserTimingでキーとなるビジュアルを設定し、そのレンダリング速度を計測するといった方法（この場合コンテキスト依存になるので自動化できない..）や、Microsoftの&lt;a href=&#34;http://programming.oreilly.com/2013/10/page-phase-time.html&#34;&gt;PPT&lt;/a&gt;（パワーポイントではない、Page Phaze Time）といった新しい概念もでてきている。要チェックやで！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://frontrend.github.io/events/chrome/#paul&#34;&gt;Paulのセッション&lt;/a&gt;の最後のほうで、Speed Indexは1000以下にするのは理想だとか言ってたような気がするけど、無理じゃね？&lt;/p&gt;
+
+&lt;h2 id=&#34;private-instance-for-ameba&#34;&gt;Private Instance for Ameba&lt;/h2&gt;
+
+&lt;p&gt;あ、そうそうWebPagetestはWebサービスとして使用するのが一般的だが、&lt;a href=&#34;https://github.com/WPO-Foundation/webpagetest&#34;&gt;オープンソース&lt;/a&gt;として公開されていて、自社のネットワーク上に&lt;a href=&#34;https://sites.google.com/a/webpagetest.org/docs/private-instances&#34;&gt;プライベートインスタンス&lt;/a&gt;を置くことも可能だ。なので、UIとかいじりまくりだぜ、ひゃっほーい♪&lt;/p&gt;
+
+&lt;p&gt;我々はWebPagetestを使いテストを自動的に実行し、各種指標を収集するといったことをやっていきたいと考えている。開発中だお(´・ω・｀)&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない</title>
+            <link>https://t32k.me/mol/log/reduce-http-requests-one-second/</link>
+            <pubDate>Fri, 23 Aug 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/reduce-http-requests-one-second/</guid>
+            <description>&lt;p&gt;このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-overview/&#34;&gt;【序章】HTTPリクエストは甘え&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-css-sprite/&#34;&gt;【CSS Sprite編】スプライト地獄からの解放&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-webfont/&#34;&gt;【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-datauri/&#34;&gt;【DataURI編】遅延ロードでレンダリングブロックを回避&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【終章】我々には1000msの猶予しか残されていない&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最終日は、我々フロントエンドデベロッパーに課せられた理想と現実のはざまについて冷静と情熱のあいだらへんで考えていく。まずは下記のブログを読んでもらいたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://googlewebmastercentral-ja.blogspot.jp/2013/08/making-smartphone-sites-load-fast.html&#34;&gt;Google ウェブマスター向け公式ブログ: スマートフォンサイトの読み込み速度を改善するために&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ読まなくてもいいのだが、ここで述べられている重要なことは2つ。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;モバイルの平均読み込み時間は7秒&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;しかし、ユーザーは1秒未満を求めている&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;平均読み込み時間の7秒というのは、&lt;a href=&#34;https://t32k.me/mol/mol/log/no-more-stopwatch/&#34;&gt;Googleアナリティクスのサイトの速度&lt;/a&gt;という機能があって、そこから集計し出されたデータによるものだ。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;入力に対して0.1秒以上1秒未満でコンピューターからの応答があるとき、我々はその間にコンピューターが結果を表示しようとしているように感じる。ユーザーは多少遅いとは思っても、1秒間は進行中の一連の自分の考えに集中したままでいる。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.usability.gr.jp/alertbox/20091005_timeframes.html&#34;&gt;10の累乗： ユーザーエクスペリエンスにおける時間スケール － U-Site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1秒未満というのはヤコブ・ニールセン博士というユーザビリティの偉い人がいるのだが、彼のブログで述べられていたことだ。要は1秒以内にコンピューターから応答があった場合は、自分がそれをダイレクトに操作している感覚をあたえ、ユーザーエクスペリエンス的によろしいということ。それ以上の時間をかかってしまうとユーザーはストレスを抱え、タスクを放棄しかねないと言っている。&lt;/p&gt;
+
+&lt;p&gt;ということで、今回は1000msに挑戦してみよう！という内容。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/life.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;※ 括弧内の文字はDevToolsでの名称を記述&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130820_P5_K2H/&#34;&gt;WebPagetest Test Result - Tokyo : t32k.me/ - 08/20/13 05:04:45&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記は私のサイトをWebPagetestにかけた結果（TOKYOリージョン、Chrome 3G回線をエミュレート）。分かりやすくするために読み込むリソースをHTMLだけにしている（Image/CSS/JavaScript読み込んでいない）。しかし、それでも1.7秒近く読み込みに時間がかかっている。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/1stimeline.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/speed/docs/insights/mobile&#34;&gt;PageSpeed Insights でのモバイル解析 — Google Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さすがに1秒以内に読み込み完了するのは不可能に近いので、レンダリングを1秒以内にしようというのがGoogleさんの教え。&lt;/p&gt;
+
+&lt;p&gt;ここに書かれていることに、3G回線だとラウンドトリップタイムが約200~300msかかると言われており、仮に200msとした場合、DNS Lookupに1回ラウンドトリップ、TCPコネクション接続に1回ラウンドトリップ、HTTPリクエストとレスポンスで1回ラウンドトリップと合計3回のラウンドトリップで必ず600msは消費する。&lt;/p&gt;
+
+&lt;p&gt;Serverレスポンスタイムは完全のバックエンドのエンジニアさんの領域なので、 New Relicとか使ってボトルネック見つけてね！としか僕からは言えない。&lt;/p&gt;
+
+&lt;p&gt;結局、我々フロントエンドに残された時間は200msしかない(´・ω・`)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/ps.png&#34; alt=&#34;PageSpeed Insights&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近リニューアルしたPageSpeed Insightではモバイル版も評価してくれる。当然モバイル環境はシビアなのでデスクトップ評価と比べて点数は下がってしまう。そこではモバイル版ならではのアドバイスもあり、200msでレンダリングするヒントになる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent&#34;&gt;スクロールせずに見える範囲のコンテンツのサイズを削減する — Google Developers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery&#34;&gt;CSS の配信を最適化する — Google Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これらの記事で述べられていることは、&lt;a href=&#34;https://www.suzukikenichi.com/blog/above-the-fold%E3%81%A8%E3%81%AF/&#34;&gt;above-the-fold&lt;/a&gt;コンテンツを速く見せろということ。&lt;/p&gt;
+
+&lt;p&gt;above-the-fold内にサードパーティなど重いコンテンツがあるのはアウト。可能な限り軽くしなければならない。ちなみにHTTPリクエスト・レスポンス、この場合、HTMLが200ms内でダウンロードされる前提だが、&lt;a href=&#34;http://yougo.ascii.jp/caltar/%E3%82%A6%E3%82%A3%E3%83%B3%E3%83%89%E3%82%A6%E3%82%B5%E3%82%A4%E3%82%BA&#34;&gt;InitialTCP Window Size&lt;/a&gt;が10の場合、&lt;a href=&#34;http://yougo.ascii.jp/caltar/%E3%82%B9%E3%83%AD%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88&#34;&gt;TCPスロースタート&lt;/a&gt;のため1回目のレスポンスで送信できるサイズは&lt;strong&gt;14KB&lt;/strong&gt;まで。それ以上のサイズとなると1回のラウンドトリップで収まらない。だから、HTMLに重いインライン画像を記述するのはもってのほかであり、CSS/JSだけでなくHTMLのMinifyも考えなければならない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/tcp.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;HTMLが無事に1回のラウンドトリップで取得できても、残り200ms内にabove-the-foldのレンダリングを完成しなければならない。ここでCSSファイルが必要となってくるのだが、CSSファイルがダウンロードされるまでレンダリングはブロックされる。&lt;/p&gt;
+
+&lt;p&gt;あと200msしかないのにHTTPリクエストなんかできない。そう、HTTPリクエストは甘えだ。そこで、above-the-foldエリアで必要なスタイルの記述だけをHTML内のstyle要素に記述し、残りのスタイルはlink要素で遅延読み込みするといったことが提案されている。前回の記事でやったようなことだ。&lt;/p&gt;
+
+&lt;p&gt;このように、ここまでやって初めて1000msでレンダリングが完成できるのだ。サイトの運用上全てのページでこのような手法を取り入れることは不可能かもしれないが、求められる理想を実現するにはここまでやらなければならない現実を認識してもらえればと思う。&lt;/p&gt;
+
+&lt;p&gt;初回の記事にHTTPリクエスト甘えと書いたが、今回の手法は基本的にはHTMLのリクエスト1回しかしていない。そもそも、いかにリクエスト数を減らすか？と考えるのではなく、リクエストさせずにどうするか？と初めから考えといたほうがちょうど良いのかもしれない（それはそれは難しいことだが…）。&lt;/p&gt;
+
+&lt;p&gt;また、単純に読み込み時間を短縮するのではなく、体感速度をあげるのかといった視点からリソースの優先度を考えたり、あえてCSSを遅延読み込みするなどといったテクニックも必要なんだなとも感じる。&lt;/p&gt;
+
+&lt;p&gt;とはいってもQUIC, SPDYやHTTP 2.0が普及してくると、また話が違ってくるので、その辺もちゃんとキャッチアップしていかなければならない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/concept_2.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;一連の記事で最も言いたかったのはWebパフォーマンス対策において、これさえやっておけばよい！という銀の弾丸はないということだ。HTTPリクエストの削減さえHTTPの仕様が変われば、気にしなくても良いかもしれない。&lt;/p&gt;
+
+&lt;p&gt;またレンダリングブロックされているのにもかかわらず読み込み時間だけ見ていて、読み込み時間は速くなったけど、体感速度は遅くなったってゆうことも十分ありえる。&lt;/p&gt;
+
+&lt;p&gt;1000msレンダリングに関してもabove-the-foldのデザインから考え直さないといけないし、above-the-foldに何を載せるかなどはコンテンツ設計の段階からデベロッパーが関わらないと実現できない。ユーザーエクスペリエンスにおいてWebパフォーマンスを考慮することは、すべての段階、すべての役割の人間が責任をもっていかなければならない。&lt;/p&gt;
+
+&lt;p&gt;日々の改善はミクロに行いつつも、時には一歩下がって全体から評価してみる。なにごともバランスが重要だ。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51x2sA8N%2BTL._SL160_.jpg&#34; alt=&#34;ハイパフォーマンス ブラウザネットワーキング ―ネットワークアプリケーションのためのパフォーマンス最適化&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ハイパフォーマンス ブラウザネットワーキング&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.26&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Ilya Grigorik,和田 祐一郎,株式会社プログラミングシステム社&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 169563&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避</title>
+            <link>https://t32k.me/mol/log/reduce-http-requests-datauri/</link>
+            <pubDate>Thu, 22 Aug 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/reduce-http-requests-datauri/</guid>
+            <description>
+
+&lt;p&gt;このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-overview/&#34;&gt;【序章】HTTPリクエストは甘え&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-css-sprite/&#34;&gt;【CSS Sprite編】スプライト地獄からの解放&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-webfont/&#34;&gt;【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【DataURI編】遅延ロードでレンダリングブロックを回避&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-one-second/&#34;&gt;【終章】我々には1000msの猶予しか残されていない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4日目は、本ブログでも何回か話題にしているインライン画像についてです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/data-uri-scheme/&#34;&gt;データURIスキーム&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/sprite-image-vs-inline-image/&#34;&gt;CSS Sprite画像はDataURI画像にすべきか？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;data-uri画像のテスト結果について&#34;&gt;Data URI画像のテスト結果について&lt;/h2&gt;
+
+&lt;p&gt;以前の記事で私は以下のように述べましたが、これはいやらしい表現だ。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;DataURIの画像は、通常の画像に比べて6倍遅いとかゆう&lt;a href=&#34;http://www.mobify.com/blog/data-uris-are-slow-on-mobile/&#34;&gt;記事&lt;/a&gt;もある&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;このような『xxx倍高速化』、『xxx倍遅い』と言った表現は、わかりやすい反面、本質を見失ってしまう危険性がある。例えば、&lt;strong&gt;10秒が1秒になるのも、1秒が0.1秒になるのもどちらも同じく『10倍速くなった』と表現&lt;/strong&gt;できる。&lt;/p&gt;
+
+&lt;p&gt;似たような例として、毎年のようにブラウザのJavaScriptエンジンがx倍高速化した！といったようなニュースを一度は聞いてるかと思うが、実体感としては、それほど速くなっていないように感じる。これも結局はブラウザのJS処理なんてものは何msという単位（あるいはもっと細かい単位かもしれません）での改善なので、そのような文脈での『x倍』というのは、実際は0.数ms程度の違いしかないということだろう。&lt;/p&gt;
+
+&lt;p&gt;このように『x倍速くなった・遅くなった』という表現をしているときは、注意が必要だ！（大人はみんな騙そうとしてくる）どうゆう文脈での何倍なのか、ちゃんと確認する必要がある。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In the first condition, the src image attribute was specified to an image location known to be in the browser cache. This is called the binary condition.In the second condition, the src image attribute was specified to a pre- fetched data URI of the same image as in the first condition. This is called the data URI condition.Both conditions used the same image, a 17.8kB PNG. In both conditions, the same image was materialized 5 times. Materialization completion was measured by using the “load” event of the image object.When the load event for all 5 images fired, the test was marked as “complete” and results were recorded.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mobify.com/blog/data-uris-are-slow-on-mobile/&#34;&gt;On Mobile, Data URIs are 6x Slower than Source Linking | Mobify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;件のテスト条件は上記のとおりだ。まずテストに使われる画像だが17.8KBのPNGって結構でかい。。ちょっとしたアイコンどころじゃないよね？そもそも、その大きさの画像でテストする事自体どうなんだって気もする。&lt;/p&gt;
+
+&lt;p&gt;次に、画像のloadイベントが発生した時を完了と見なしている、そして通常の画像パスでの読み込みはブラウザキャッシュがある状態としている。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/image_0.png&#34; alt=&#34;Binary vs Data URI&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;結果が上記のグラフ、Android2系はほっといてAndroid4系、iOS6の差を見てみるとだいたい100ms ~ 150msくらいだ。この差をどう捉えるかがネックだ。実際のケースで考えれば、17.6KBの画像を3G回線でHTTPリクエストすればラウンドトリップだけで200ms以上はかかるだろうし、また画像リクエストで同時接続数の1つを失ってしまい、後続のリソースのブロッキングをする可能性も出てくると考えれば、 150msくらい許容範囲ではないだろうか？&lt;/p&gt;
+
+&lt;p&gt;許容範囲であるかないかは、各々の状況というのがあると思うので各人で判断してもられば良いのだが、少なくとも『DataURI？あ、6倍遅いからダメ！』って短絡的に片付けるの良くない。&lt;/p&gt;
+
+&lt;h2 id=&#34;data-uri画像の使いどころ&#34;&gt;Data URI画像の使いどころ&lt;/h2&gt;
+
+&lt;p&gt;Data URI（インライン）画像ってどうゆうときに使うのだろうか？使わざるを得ないのだろうか？&lt;/p&gt;
+
+&lt;p&gt;HTTPリクエストを減らすという観点から言えば、大抵のものは前々回で話したようにCSSスプライトにしてしまえばよい。また単純な図形・アイコンでカラーバリエーションがあるようなものであればWebフォントにすればよい。&lt;/p&gt;
+
+&lt;p&gt;しかし世の中そんなに甘くない。下記のようなものはCSSスプライトできない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;border-image&lt;/li&gt;
+&lt;li&gt;background-image(縦横リピート)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ、こうゆうのだろうね。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/ss1.png&#34; alt=&#34;サンプル&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ボタンの文字が決め打ちだったり、幅が決まってたりする場合は、単純にその画像をスプライトすればよい。だが、そうでもない場合は&lt;code&gt;border-image&lt;/code&gt;にしたほうが、都合がよい。もちろん左端と右端と中央で画像を分けて各背景画像で対応するのもいいけど、やっぱり&lt;code&gt;border-image&lt;/code&gt;がなにかと都合がよい。&lt;/p&gt;
+
+&lt;p&gt;あと背景画像は、X軸もしくはY軸リピートならなんとかできるが、縦横リピートになるとCSSスプライトではどうしようもできない。しかし、全体の背景にテクスチャ画像を貼るのもよくある表現だ。&lt;/p&gt;
+
+&lt;p&gt;ということで、DataURI使いたいと思います。インライン画像を考える上で重要なのは以下の3つ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;インライン画像はリクエストを発生させない&lt;/li&gt;
+&lt;li&gt;ファイルサイズが重くなる&lt;/li&gt;
+&lt;li&gt;スタイルシートに含めるとレンダリングブロックに繋がる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみにCompassだと&lt;a href=&#34;http://compass-style.org/reference/compass/helpers/inline-data/&#34;&gt;下記のような関数&lt;/a&gt;を使うとbase64エンコードしてくれます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sass&#34;&gt;.border{
+    border-image: inline-image(&amp;quot;/path/to/border-image.png&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;では、3つめのインライン画像をCSSファイルに含んだ時のレンダリングブロック回避について考えていく。通常のスタイルとインライン画像の指定をしたCSSを分けてみることにする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/app.css&amp;quot;&amp;gt;
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/base64.css&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.dropboxusercontent.com/u/356242/test/include-datauri/block.html&#34;&gt;Block : Include DataURI Source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;感覚的には、こういったマークアップをしてしまいがちだが、これでも結局、インライン画像を含んだ重いbase64.cssが読み込まれるまでレンダリングが始まらない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&amp;lt;script&amp;gt;
+(function(d){
+  var c = d.createElement(&#39;link&#39;);
+  c.rel = &#39;stylesheet&#39;;
+  c.href = &#39;css/base64.css&#39;;
+  var s = d.getElementsByTagName(&#39;script&#39;)[0];
+  s.parentNode.insertBefore(c, s);
+})(document);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.dropboxusercontent.com/u/356242/test/include-datauri/index.html&#34;&gt;Defer : Include DataURI Source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;遅延読み込みしたのが上記。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/ss11.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/video/compare.php?tests=130815_WY_66F,130815_9R_66G&#34;&gt;WebPagetest - Visual Comparison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;BlockとDeferをVideo Comparisonした結果が上記。Video Comparisonのテスト仕様上、Dulles, VA - IE 9の環境でしかテストできない、それゆえborder-imageが対応していない。遅延読み込みしたのが、0.2秒でレンダリングが始まっているのに対して、通常読み込みは0.5秒で完成している。&lt;/p&gt;
+
+&lt;p&gt;差を分かりやすくするために、base64.cssにはコメントアウトした長ーい文字列を記述し意図的にファイルサイズを増加させている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130815_HC_66Z/&#34;&gt;Defer : WebPagetest Test Result - Tokyo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130817_22_D68/&#34;&gt;Block : WebPagetest Test Result - Tokyo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chrome・3G回線でテストした詳細な結果でも、遅延読み込みしている方のStart Renderは1.786sに対して、通常読み込みは3.564sとかなり違う結果になった。もちろん遅延読み込みしている分、最終的なFully Loadedは遅くなる。&lt;/p&gt;
+
+&lt;p&gt;以上のように、懸念していたインライン画像を含む重いCSSによるレンダリングブロックを回避できるかと思うが、遅延読み込みが銀の弾丸かと言われれば、とうてい、そんな上等なものでない。苦肉の策感がにじみ出ている。&lt;/p&gt;
+
+&lt;p&gt;今回のような&lt;code&gt;border-image&lt;/code&gt;を使ったボタンも高さや幅を限定してパターン数を絞ればCSSスプライトでまかなえることも可能だし、背景画像も&lt;code&gt;no-repeat&lt;/code&gt;にできればCSSスプライトで収まる場合もある。そのようなことを考慮した上で、はじめて遅延読み込みするといった手段を採用すべきであろう。&lt;/p&gt;
+
+&lt;p&gt;なにごともバランスが重要だ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>HTTPリクエストを減らすために【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ</title>
+            <link>https://t32k.me/mol/log/reduce-http-requests-webfont/</link>
+            <pubDate>Wed, 21 Aug 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/reduce-http-requests-webfont/</guid>
+            <description>&lt;p&gt;このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-overview/&#34;&gt;【序章】HTTPリクエストは甘え&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-css-sprite/&#34;&gt;【CSS Sprite編】スプライト地獄からの解放&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-datauri/&#34;&gt;【DataURI編】遅延ロードでレンダリングブロックを回避&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-one-second/&#34;&gt;【終章】我々には1000msの猶予しか残されていない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用を考慮しても、やぶさかではないだろう。&lt;/p&gt;
+
+&lt;p&gt;まずは下記の画像をご覧頂きたい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/arrows.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これはプロジェクトで私が使用していたスプライト画像だが（実際は縦にして使用）、このような単純な形状、単色のアイコンであれば、Webフォント化したほうがなにかと都合がよい。&lt;/p&gt;
+
+&lt;p&gt;このスプライトであれば、&lt;strong&gt;カラー&lt;/strong&gt; × &lt;strong&gt;矢印の向き&lt;/strong&gt; × &lt;strong&gt;シャドウの有無&lt;/strong&gt; パターンの可能性があり、スプライトすれば1リクエストでおさまるが、それでも画像が肥大化していけば、&lt;strong&gt;Receiving&lt;/strong&gt;が無視できない状況になってくる。&lt;/p&gt;
+
+&lt;p&gt;そこでWebフォント化すれば色は自由に変更可能だし、フォントなので&lt;code&gt;text-shadow&lt;/code&gt;で影を当てることも可能、&lt;code&gt;font-size&lt;/code&gt;で大きさも変更でき柔軟に対応することができる。&lt;/p&gt;
+
+&lt;p&gt;それではWebフォントって一体どうやって作るのだろうか？高いフォント作成アプリを購入しなければならないのだろうか？オンライン作成ツールもあるようだが、毎回、新規アイコン追加の度にそのツールのサイトを訪問しなければならないのだろうか？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://icomoon.io/&#34;&gt;❍ IcoMoon - icon font &amp;amp; SVG icon sets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以前は上記オンラインツールを使っていたが、やはり更新対応を考えるとめんどうだった。そうゆうわけで、&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;Maple&lt;/a&gt;プロジェクトでは&lt;a href=&#34;https://github.com/sapegin/grunt-webfont&#34;&gt;grunt-webfont&lt;/a&gt;を導入している。&lt;/p&gt;
+
+&lt;p&gt;前回の記事を見ながらMapleプロジェクトを準備してもらいたい。そのほかの必要環境として以下のものインストールしておく。&lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;も入っていなければインストールする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install fontforge ttfautohint
+$ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あと事前に必要になるのはフォントの元となるSVGファイル。SVGファイルを作るうえで便利なテンプレートがあるのでそれを拝借する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cognitom/symbols&#34;&gt;cognitom/symbols&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;テンプレートを使ってMapleでは上記のようなイラレファイルを作成した。&lt;a href=&#34;http://iconmonstr.com/&#34;&gt;iconmonstr&lt;/a&gt;にはいろいろ使い勝手がいいアイコンが無料で配布されているので、ここから必要なものをとってくるのもいいだろう。Illustratorでアートボード別に書きだして、SVGファイルとして保存する。要注意なのはこのアートボードの空白部分も含めてSVGファイルなので気をつける。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/fontdir.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;基本的にこの部分はデザイナーさんにやってもらえればよいことなので、フロントエンドデベロッパーは完成したSVGファイルを、&lt;code&gt;/src/files/font/svg&lt;/code&gt;ディレクトリに投げ込んでコマンド打つだけだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ grunt webfont
+Running “webfont:dist” (webfont) task
+Font ‘myfont-b5fd89266afbbfbfc281a0ce9a5bf50e’ with 13 glyphs created.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、&lt;code&gt;/src/tools/&lt;/code&gt;で&lt;code&gt;grunt webfont&lt;/code&gt;を実行すれば上記のようなログとともに、.woffと.ttfと_myfont.scssが作成される。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sass&#34;&gt;// _setting.scss
+//-------------------------------------
+@import &amp;quot;../vendors/myfont&amp;quot;;
+
+// _myfont.scss
+.icon-hoge:before {
+content:&amp;quot;\f100&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;_myfont.scssは_setting.scssで&lt;code&gt;@import&lt;/code&gt;されていますので、特にCSSをいじる必要性はない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/icon.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上記のように、&lt;code&gt;.icon-{SVGファイル名}&lt;/code&gt;のクラスを当てれば、すぐさま使える。&lt;/p&gt;
+
+&lt;p&gt;Webフォント使えば、CSSスプライトに頼らなくても大丈夫だー＼(-o-)／って使う前は思っていたが、やはり単純な表現に限定される。グラデーションカラーかつシャドウ有りや、部分的に色を変えるなどはWebフォントでは無理があるので、そこはCSSスプライトを採用するか、デザインを少し調整してWebフォント化するかはデザイナーと相談すべきだろう。&lt;/p&gt;
+
+&lt;p&gt;またWebフォントも複数のアイコンのリクエストをまとめることができるが、Webフォント自体のリクエストが必要になるので、フォントがダウンロードされるまでは、当たり前だが表示されない。そのため数種類のパターンで収まることがわかっていればWebフォント化可能でもCSSスプライトでまとめることも考慮すべきだろう。&lt;/p&gt;
+
+&lt;p&gt;なにごともバランスが重要だ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>HTTPリクエストを減らすために【CSS Sprite編】スプライト地獄からの解放</title>
+            <link>https://t32k.me/mol/log/reduce-http-requests-css-sprite/</link>
+            <pubDate>Tue, 20 Aug 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/reduce-http-requests-css-sprite/</guid>
+            <description>&lt;p&gt;このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-overview/&#34;&gt;【序章】HTTPリクエストは甘え&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【CSS Sprite編】スプライト地獄からの解放&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-webfont/&#34;&gt;【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-datauri/&#34;&gt;【DataURI編】遅延ロードでレンダリングブロックを回避&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-one-second/&#34;&gt;【終章】我々には1000msの猶予しか残されていない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2日目は、HTTPリクエストを減らす最もポピュラーな手法、CSSスプライトについて説明する。&lt;/p&gt;
+
+&lt;p&gt;まずは動画をご覧頂きたい。&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;//www.youtube-nocookie.com/embed/s__XwfwxMW8&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130816_VR_9E8/&#34;&gt;img要素読み込み | WebPagetest Test Result&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130816_J6_9EG/&#34;&gt;CSS Sprite読み込み | WebPagetest Test Result&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;左が30個のアイコン画像を一つ一つimg要素として読み込んでいるのに対して、右は１つの背景画像（CSSスプライト）として読み込んでいる。この場合、表示完了までの差はCSSスプライトのほうが圧倒的に速い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/waterfall.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これは前回のHTTPリクエストの仕組みを理解していれば当然のことだろう。つまり、ホスト名ごとの同時接続数とRTTが大いに関係している。上記のimg画像読み込みのウォーターフォールチャートを確認してみれば一目瞭然だ。CSSスプライトすることで一つの画像ファイルサイズは重くなるが、この場合、重要なのはReceivingの時間というよりWaitingの時間なので、結果的にアイコン表示までの時間を短縮できている。&lt;/p&gt;
+
+&lt;p&gt;CSSスプライトの仕組み自体は簡単もので、任意の要素の中で背景画像の位置を調整して表示している。実際に表示されるのは要素で指定したwidth/heightの分だけなので、あたかも1個の独立した画像のように見えるだけだ。&lt;/p&gt;
+
+&lt;p&gt;CSSスプライトは非常に便利だが問題点もある。スプライトのジレンマというのがあり、&lt;strong&gt;ページ数&lt;/strong&gt;、&lt;strong&gt;保守性&lt;/strong&gt;、&lt;strong&gt;最適化&lt;/strong&gt; の観点から評価し、スプライトをする上でこの3つの中から2つしかとれない。&lt;/p&gt;
+
+&lt;p&gt;例えば、多くのページ数を保守性を保ちながらスプライトすると、最適化はちょっとあきらめなければいけない。また、多くのページ数を可能な限り最適化すれば保守性はあきらめなければならない。また、保守性を意識しつつ最適化すれば、適用できるページ数は少なくなってしまうようにだ。&lt;/p&gt;
+
+&lt;p&gt;画像の変更があるたびにPhotoshopを開いて、画像を置き直して、その位置をルーラーで割り出す。それがRetina画像であれば、実際のbackground-positionサイズから半分にしないといけない。気の遠くなるような面倒くさいタスクだ。面倒くさくなくてもヒューマンエラーというのは起こるもので、単純な割り算（この場合Retina対策として背景位置を半分にする）でも、何回も繰り返せば、ミスは必ずでてくる。そしてそのミスに気づかず数時間ロスをすることもままだ。&lt;/p&gt;
+
+&lt;p&gt;もう、なんというかCSSスプライトが嫌すぎてデザイナーと喧嘩することもしばしば。これでは精神衛生上よくない。&lt;/p&gt;
+
+&lt;p&gt;そこでそのめんどくさいタスクSass/CompassのMixinにやってもらおうと思う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/t32k/e65534b5a8bb124e1cbe&#34;&gt;CSS Sprite for Retina Display Maple.css&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まず、Mixinの説明する前に私が作っている&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;Maple&lt;/a&gt;プロジェクトをダウンロードしてくる（Node.js, Ruby, Sass, Compassがインストールされていること前提）次に、grunt-init-mapleをインストールする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g grunt-cli
+$ npm install -g grunt-init
+$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –recursive
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;grunt-init maple&lt;/code&gt;を実行すると以下のようにMapleプロジェクトに必要なファイルがスキャフォルディングされる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/grunt-init.gif&#34; alt=&#34;Demo maple&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;落ちてきたら、/src/tools（Gruntfile, package.jsonがある場所）に移動し、必要なGruntプラグインをインストール（npm install）しておく。これで下準備はOK。&lt;/p&gt;
+
+&lt;p&gt;その場所で&lt;code&gt;grunt develop&lt;/code&gt;して&lt;code&gt;http://localhost:8080/components/&lt;/code&gt;を見にいく。そこにスプライトした画像が表示されていますからDevToolsなどで確認してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.sprt-a {
+  background-image: url(/files/img/sprite/tabs-s3217a038c5.png);
+  background-repeat: no-repeat;
+  background-size: 120px 25px;
+}
+.sprt-a-bird1 {
+  width: 30px;
+  height: 25px;
+  background-position: 0 0;
+}
+.sprt-a-bird2 {
+  width: 30px;
+  height: 25px;
+  background-position: -30px 0;
+…
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記のようなスタイルが当たっているかと思う。コレ自体はCSSなので普通のCSSスプライトのコードだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sass&#34;&gt;$map-tabs: sprite-map(“/files/img/sprite/tabs/*.png”, $date: horizontal);
+
+// 共通クラス
+.sprt-a { @include sprite(parent, $map-tabs); } 
+
+// 個別クラス 
+.sprt-a-bird1 { @include sprite(child, $map-tabs, bird1); } 
+.sprt-a-bird2 { @include sprite(child, $map-tabs, bird2); } 
+.sprt-a-bird3 { @include sprite(child, $map-tabs, bird3); } 
+.sprt-a-bird4 { @include sprite(child, $map-tabs, bird4); }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実際のSassコードは上記。特に煩わしいbackground-positionが書いてないことが見てとれる。各画像のbackground-positionの算出はspriteというMixinで定義してあるので、使う人は画像の位置をいちいちPhotoshopで測るといったことをしなくてもよくなる。&lt;/p&gt;
+
+&lt;p&gt;説明すると&lt;code&gt;$map-tabs:&lt;/code&gt;で、スプライトしたい画像を指定。imgディレクトリ配下にspriteディレクトリを作って、そこにスプライト画像をおいておけば、普通の画像と区別できて便利。このディレクトリの中にスプライト前の１個１々独立した画像が入っている。これらの画像をCompassがまとめてくれる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/dir.jpg&#34; alt=&#34;Dir&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;.sprt-aで指定してある。&lt;code&gt;@include sprite(parent, $map-tabs)&lt;/code&gt;は、各スプライト画像の共通プロパティを吐き出す用に指定する。各スプライトのclassすべてに同じbackground-imageのプロパティを吐き出されては冗長だから。&lt;/p&gt;
+
+&lt;p&gt;parentは親（共通）classであることを示し、$map-tabsは展開するスプライト画像を指定している。&lt;/p&gt;
+
+&lt;p&gt;.sprt-a-bird1のchildは子（個別）classであることを示し、$map-tabsは上記と同じく、第3引数でそのスプライト画像で使いたい画像名を指定している。ここではbird1を指定しているので、/files/img/sprite/tabs/bird1.pngのbackground-positionが生成される。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sass&#34;&gt;// 個別クラスにwidth/height吐き出さない場合
+.sprt-a { @include sprite(parent, $map-tabs, bird1, true); }
+.sprt-a-bird1 { @include sprite(child, $map-tabs, bird1, true); }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もし、個別のスプライト画像が全て同じサイズの場合、第4引数にtrueをつけて@includeすれば、個別クラスにはサイズ指定されず、共通クラスにwidth/heightが記述されて、コード量を節約することができる。&lt;/p&gt;
+
+&lt;p&gt;このようにMixinを活用出来れば、フロントエンドデベロッパーはデザイナーからもらったアイコン画像を任意のディレクトリに放り込んで、コマンドを打つだけでスプライト画像を生成することができる。冷えきったデザイナーとの関係にも終止符をうてる。&lt;/p&gt;
+
+&lt;p&gt;また、Compassで生成したPNG画像は減色やメタ情報のストリップなどされていないので、そのままではデプロイしてしまうのはいかんともしがたい。通常、ImageOptim.appなどのツールで画像を最適化する必要性があるが、ドラッグ&amp;amp;ドロップもめんどくさいので、というか忘れるので、Gruntタスクにgrunt-imageoptimというものを組み込んだ。これはなんてことのないタスクで指定した画像を自動的に（imageOptim.appが立ち上がって）最適化してくれる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/build.gif&#34; alt=&#34;Build&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mapleプロジェクトでは、&lt;code&gt;grunt build&lt;/code&gt;でCSSがlintされ、Compassでコンパイルされ、CSSがminifyされ、画像がimageOptimされるというタスクを組んであるので忘れることもない。&lt;/p&gt;
+
+&lt;p&gt;Sass/Compassを使えばスプライトのジレンマから開放される。しかし、なんでもかんでもスプライト画像に詰め込んでしまえば、今度はRTTではなくDLタイムが問題になってくる。&lt;/p&gt;
+
+&lt;p&gt;CSSスプライトに取り込む前に、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;本当に画像で表現しなければいけないのか？&lt;/li&gt;
+&lt;li&gt;CSSで表現できないのか？&lt;/li&gt;
+&lt;li&gt;どこを調整したらCSSだけで表現できるようになるのか？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などデザイナーさんと相談してみよう。&lt;/p&gt;
+
+&lt;p&gt;なにごともバランスが重要だ。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg&#34; alt=&#34;続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;続・ハイパフォーマンスWebサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.18&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Steve Souders,武舎 広幸,福地 太郎,武舎 るみ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 361407&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>HTTPリクエストを減らすために【序章】HTTPリクエストは甘え</title>
+            <link>https://t32k.me/mol/log/reduce-http-requests-overview/</link>
+            <pubDate>Mon, 19 Aug 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/reduce-http-requests-overview/</guid>
+            <description>&lt;p&gt;このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【序章】HTTPリクエストは甘え&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-css-sprite/&#34;&gt;【CSS Sprite編】スプライト地獄からの解放&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-webfont/&#34;&gt;【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-datauri/&#34;&gt;【DataURI編】遅延ロードでレンダリングブロックを回避&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-one-second/&#34;&gt;【終章】我々には1000msの猶予しか残されていない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1日目は、HTTPリクエストの概要について説明する。&lt;/p&gt;
+
+&lt;p&gt;例えに、私の&lt;a href=&#34;https://t32k.me/&#34;&gt;ポートフォリオページ&lt;/a&gt;（t32k.me）が表示されるまでの流れを見ていく。まず、検索からでも方法はなんでもよいが、ブラウザのURLバーにt32k.meと打ち込んでアクセスする。そのページを見にいくということは、つまりt32k.meに対してHTTPスキームでリクエストするということを意味している。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/requests.gif&#34; alt=&#34;HTTPリクエストの流れ&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;クライアントであるブラウザは入力されたURLを判断して、リソース（この場合、HTMLファイル）を要求しにいきます。このとき、t32k.meというドメインはあくまで人間が覚えやすいように考えられた名前なので、ブラウザはこれだけではリソースに到達出来ない。&lt;/p&gt;
+
+&lt;p&gt;そこで、この名前であるドメインをIPアドレス（eg. 192.0.2.0）に正引き（変換）する必要性がある。この作業を&lt;strong&gt;DNS Lookup&lt;/strong&gt;（名前解決）という。たいていISPのDNSサーバーに問い合わせたりして解決する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DNS - Domain Name System&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;IPアドレスが分かったので今度はサーバーに接続しにいく。クライアントは『サーバーさんいる？』と聞き、サーバーは『いるで！』と答える。このやりとりを&lt;strong&gt;Connecting&lt;/strong&gt;といい、ソケット接続が確立することを意味する。&lt;/p&gt;
+
+&lt;p&gt;なぜ最初からリクエストを通さないのかというと、それだと受け手の状況がわからないので通信の信頼性が担保されないからだ。詳しくはTCPの&lt;a href=&#34;http://ja.wikipedia.org/wiki/3%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%BB%E3%83%8F%E3%83%B3%E3%83%89%E3%82%B7%E3%82%A7%E3%82%A4%E3%82%AF&#34;&gt;スリーウェイハンドシェイク&lt;/a&gt;という仕組みを参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TCP - Transmission Control Protocol&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;サーバーとの接続が確立したので、ここでやっとHTTPリクエスト、つまり、&lt;code&gt;index.html&lt;/code&gt;を要求する。このとき、動的ファイルだったらファイル生成などプロセスが走る。そのあと見つけた・生成したファイルをクライアントに送信する。送信した最初のパケットがクライアントに届いた時点までが、&lt;strong&gt;Waiting&lt;/strong&gt;の時間になる。&lt;/p&gt;
+
+&lt;p&gt;そして最後のパケットが送り終えた時点までが、&lt;strong&gt;Receiving&lt;/strong&gt;の時間になる。ここがいわゆるファイルのダウンロード時間にかかる時間。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/network1.png&#34; alt=&#34;リクエストの段階&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみに、これらのタイミングにかかる時間は&lt;a href=&#34;https://developer.chrome.com/devtools/docs/network?hl=ja&#34;&gt;Google ChromeのDeveloper ToolsのNetworkパネル&lt;/a&gt;のTimingタブで確認できる。&lt;/p&gt;
+
+&lt;p&gt;このHTTPリクエストの中身を確認して言えることは、クライアントとサーバーとのやりとりにかかる時間、ラウンドトリップタイム(RTT)と、リソースのダウンロードにかかる時間（DL）が重要だということ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RTT - Round Trip Time&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;t32k.meのネットワークにかかる情報をまとめたHARファイルに保存して（DevToolsのネットワークパネルで右クリック保存）、&lt;a href=&#34;http://www.softwareishard.com/har/viewer/&#34;&gt;HAR Viewr&lt;/a&gt;で見たものが以下。分かりやすくするために、3G回線でエミュレートした結果を表示している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HAR - &lt;a href=&#34;http://www.softwareishard.com/blog/har-12-spec/&#34;&gt;HTTP Archive format&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/har.png&#34; alt=&#34;HAR例&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;どうだろうか、見た感じで紫色のバーが多いことに気づくことだろう。つまり&lt;strong&gt;Watitingに多くの時間がかかっている&lt;/strong&gt;ことが理解できる。これは単純にサーバーの処理が遅くて時間がかかっているのではなく（かかっているあるが）、たいていはホスト名ごとの同時接続数に起因するものだ。&lt;/p&gt;
+
+&lt;p&gt;ひとつの完全修飾ドメイン名 (FQDN: Fully Qualified Domain Name)に対して、同時接続できる数はたいてい6つまでだ。これを超える数のリクエストがくると、7つ目のリクエストは、最初の6つのリクエスト処理がどれかが完了される間、待たなければならない。この時間も待ち時間になる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/08/connections.png&#34; alt=&#34;各ブラウザの接続数上限&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このような制限のため、静的ファイルはstatic.t32k.meなどの別ドメインから読み込むことによって、この同時接続数の上限を最大化しようとするのがドメイン・シャーディング（Domain Sharding）という手法が一般的にとられる。&lt;/p&gt;
+
+&lt;p&gt;このおかげで並列ダウンロードできる数を増やし、リソースのWaitingを可能な限り少なくしている。並列ダウンロード数が増えるからといって、例えば10個の違うドメインから読み込んだとすれば、クライアントの最大コネクション数を大きく超えて意味がなかったり、また最初に説明したDNSルックアップの時間が増えたりして、逆に弊害をもたらすようになるので、2,3つあたりのドメインを使うのが無難だろう。&lt;/p&gt;
+
+&lt;p&gt;すべてのHTTPリクエストで以上のようなことが行われているかというと、そうでもないだろうが、HTTPリクエストをするということは非常にコストの高い行為だということが分かって頂けたかと思う。&lt;/p&gt;
+
+&lt;p&gt;ネイティブアプリは初回のアプリダウンロードで、アプリ内にリソースがまとめているので、このようなことは気にしなくてもほぼ良いだろう。しかしWebアプリとなると、いかにサーバーとクライアントのやりとりを減らすか、がボトルネックとなる。特にRTTに関しては、根本的に改善するにはサーバーをユーザーの近くに置く(Akamai等)ことしかできないので、フロントエンドの人間にとっては&lt;strong&gt;ラウンドトリップさせない&lt;/strong&gt;ということが重要になってくる。&lt;/p&gt;
+
+&lt;p&gt;次回からはCSSスプライト、Webフォント、DataURIなど実践的なテクニックを使ってHTTPリクエストの減らし方について学んでいきます。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51hIDIWHmYL._SL160_.jpg&#34; alt=&#34;ハイパフォーマンスWebサイト ―高速サイトを実現する14のルール&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ハイパフォーマンスWebサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.18&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Steve Souders&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 156067&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CSS Sprite画像はDataURI画像にすべきか？</title>
+            <link>https://t32k.me/mol/log/sprite-image-vs-inline-image/</link>
+            <pubDate>Wed, 31 Jul 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/sprite-image-vs-inline-image/</guid>
+            <description>
+
+&lt;p&gt;最近、スプライト画像はDataURIにすべきですか？という質問が多くて、調べてみました。てか、前のもそんな話題があったような。DataURIってなんぞって方は下記を見てほしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/data-uri-scheme/&#34;&gt;データURIスキーム | MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。 ― &lt;a href=&#34;https://t32k.me/mol/log/the-perfect-css-i-thought/&#34;&gt;ぼくのかんがえたさいきょうのしーえしゅえしゅ &lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;あ、ホントそうだっけーなーと思いつつ、どこぞの資料見たんだっけなーと探してたらあった。&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.youtube.com/embed/YV1nKLWoARQ&#34; frameborder=&#34;0&#34; width=&#34;560&#34; height=&#34;315&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present#slide=id.gc57996a9_0168&#34;&gt;Optimizing the Critical Rendering Path for Instant Mobile Websites - Velocity SC 2013&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このセッションはすごく分かりやすいのでオススメです（該当の箇所は12分位から）。というかIlya Grigorik ++&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/11.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;セッション中の資料には、ご覧のとおり、HTMLがパースされてDOMが完成したところで、画面には何も表示されない。感覚的には、スタイルのついてない『Hello world!』くらい表示されてもいいじゃんか！と思うんだけど、表示されない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/21.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;次に、CSSがパースされてCSSOM（CSSのDOMみたいなもの？Style Rulesとかとも言ったりする）が構築されるが、まだ画面は空白のままだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/31.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレイアウト情報が加わって初めて描画となるんだね。この辺りの更に詳しい情報はHTML5 Rocksの以下の記事がすばらしいので読んでほしい（すぐ眠たくなるけど）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/&#34;&gt;ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ここで重要なのはHTMLと（読み込んでいる）スタイルシート（CSS）が無い限り、描画はされないということだ。つまり、CSSの読み込みに手間取ればCSSレンダリングをブロックするということが考えられる。&lt;/p&gt;
+
+&lt;p&gt;レンダリングをブロックするのはJSファイルだけかと思ってたけど、スタイルシート（CSS）も気をつけなければならないということが分かる。&lt;/p&gt;
+
+&lt;p&gt;そこで冒頭にも述べたように、CSSファイルを出来る限り軽くし、読み込みを速くすることでレンダリングのブロックを回避するという考えになってくると思うが、実際どんなもんなのよ？と思ったので、テストファイル作ってみた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.dropboxusercontent.com/u/356242/test/httprequests/normal_sprite.html&#34;&gt;Normal CSS Sprites&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dl.dropboxusercontent.com/u/356242/test/httprequests/inline_sprite.html&#34;&gt;Inline image CSS Sprites&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;30個くらいのアイコン画像をスプライト化して読み込んでいるのと、それをさらにDataURIにしているもの比較だ。それらを&lt;a href=&#34;http://www.webpagetest.org/&#34;&gt;WebPagetest&lt;/a&gt;にかけてみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/filmstrip.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;ビジュアル比較テスト結果&#34;&gt;ビジュアル比較テスト結果&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/video/compare.php?tests=130730_2V_G48,130730_7X_G49&#34;&gt;WebPagetest - Visual Comparison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;各テスト結果&#34;&gt;各テスト結果&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130730_2V_G48/1/details/&#34;&gt;WebPagetest Test Details - Dulles : Normal&amp;hellip;/normal_sprite.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/result/130730_7X_G49/3/details/&#34;&gt;WebPagetest Test Details - Dulles : DataURI&amp;hellip;inline_sprite.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;どうでしょうか？&lt;/p&gt;
+
+&lt;p&gt;Fully Loadedがノーマルで&lt;strong&gt;1.187s&lt;/strong&gt;で、DataURIが&lt;strong&gt;0.994s&lt;/strong&gt;で、ビジュアル比較においても、表示完了までの時間がDataURIを使用した方が速い。まぁHTTPリクエストが2つと3つじゃ、リクエストの少ないほうが速いのは当たり前なんですけど、ここではレンダリング過程を見てほしい。&lt;/p&gt;
+
+&lt;p&gt;ノーマルは0.7秒あたりから画像なしだけどレンダリングが始まっているのに対して、その時点ではDataURIは真っ白な画面のままだ。&lt;a href=&#34;https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide#TOC-Start-Render:&#34;&gt;Start Render&lt;/a&gt;を見ても、ノーマルが、&lt;strong&gt;0.697s&lt;/strong&gt;に対して、DataURIは&lt;strong&gt;0.920s&lt;/strong&gt;で、普通の画像のほうがレンダリングが速く始まっている。&lt;/p&gt;
+
+&lt;p&gt;これは先程の、Ilya Grigorik氏のプレゼン内容を理解していれば当然の現象と理解できるだろう。DataURI化した文字列を含んだCSSは&lt;strong&gt;59KB&lt;/strong&gt;サイズもあるのに対して、画像パスで読み込んだCSSは&lt;strong&gt;3KB&lt;/strong&gt;と軽量だ。この読み込みの差が反映された結果になっている。&lt;/p&gt;
+
+&lt;p&gt;比較のテストはシンプルな実装だが、現実問題のサイトはもっと複雑だ。どのようなレンダリング過程になるのかはサイトそれぞれだし、DataURIにして読み込み時間を最小限するというのもひとつの手段かと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index#TOC-Measuring-Visual-Progress&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/vp.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ただ、我々は機械ではないので、数値を機械的に判断するのではなく、&lt;strong&gt;体感速度&lt;/strong&gt;という観点からも考えなければならない。ノーマルのテストのようなブログレッシブレンダリングは、ユーザーに即座のフィードバックを返している点で、ユーザーに安心感を与えている。&lt;/p&gt;
+
+&lt;p&gt;このような事例として、&lt;a href=&#34;https://t32k.me/mol/log/long-life-web-performance-optimization/&#34;&gt;検索サイトのBingはプログレッシブレンダリングをすることでユーザーの満足度を0.7％向上させた&lt;/a&gt; （サイトリニューアル並に上昇したようです）という例もある。&lt;/p&gt;
+
+&lt;p&gt;であるので、CSSにレイアウト情報をしっかり記述したり、画像が読み込まれていない時点でのスタイルのケア（background-imageだけでなく似たような色のbackground-colorも指定しておくなど）もしておけば、後は画像が当て込まれていくだけなので体感速度は向上するといったことも考えられるだろう。&lt;/p&gt;
+
+&lt;p&gt;セッションでは、AFT(Above-the-fold time)、つまりファーストビューで見える範囲だけのCSSをHTMLにインラインで記述し、残りCSSファイルは遅延読み込みするといったテクニックが披露されているが、実際の運用ベースで使うとなると厳しいだろう。&lt;/p&gt;
+
+&lt;p&gt;そもそも的な話で、&lt;/p&gt;
+
+&lt;blockquote&gt;
++ Base64 encoding incurs transfer size overhead of 1.37 times the original data, with another 814 bytes of header data. Server gzip compression reduces this overhead to around 3% so the penalty is relatively small.
++ The content must be decoded back into it’s original form by the browser. This operation consumes CPU &amp;amp; battery on mobile devices.
++ If data URIs are included in HTML or uncached CSS, the content of the data URI will be sent to the browser from the HTTP server with each request.
++ Regardless of whether the data URI content exists in a cached CSS or HTML file, the browser must decode the image each time a page renders: the decoding cost is paid repeatedly every time a page is viewed.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mobify.com/blog/data-uris-are-slow-on-mobile/&#34;&gt;DataURIの画像は、通常の画像に比べて6倍遅いとかゆう記事&lt;/a&gt;もありますし、ファイルサイズ自体も元より増加するし、毎回デコードしなければならなかったり、&lt;/p&gt;
+
+&lt;blockquote&gt;
+Inline images judiciously
+    + Inlining increases parse time
+    + External images don&#39;t block the parser
+    + Can defer resource discovery and execution
+    + SPDY server push &amp;gt; image inlining
+&lt;/blockquote&gt;
+
+&lt;p&gt;また、Velocity2012での&lt;a href=&#34;https://perf-metrics-velocity2012.appspot.com/#41&#34;&gt;nderstanding and Optimizing Web Performance Metrics&lt;/a&gt;でも、DataURIは慎重に使用しろと言われてますので、用法用量お守りの上、お使いくださいませ。&lt;/p&gt;
+
+&lt;p&gt;個人的な意見としては一回ぐらいしか出てこない画像をDataURIするのであれば、そこのビューに埋め込めばいいし、かと言って何回も出てくるような画像であれば、毎回のデコードコストが気にかかるし、ならスプライトでまとめてキャッシュさせたほうが無難でしょ！と思う。またスプライト画像も今回述べたようにレンダリングのブロックにつながる可能性があるので絶対CSSファイルには入れない、使わない。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考&#34;&gt;参考&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery&#34;&gt;Optimize CSS Delivery - Google Developers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent&#34;&gt;Reduce the size of the above-the-fold content - Google Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>パフォーマンスからみるSass/Compass 第1回：Nestingと@import</title>
+            <link>https://t32k.me/mol/log/sass-nesting-and-import/</link>
+            <pubDate>Thu, 12 Jul 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/sass-nesting-and-import/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;Sass&lt;/a&gt;とかいろんな機能ありますよね、でもぶっちゃけそんなにいっぱい機能あっても使わないし( ･´ω･｀)　案外、//ダブスラでコメントアウトできるのが一番嬉しかったりもします今日このごろです。&lt;/p&gt;
+
+&lt;h2 id=&#34;import&#34;&gt;@import&lt;/h2&gt;
+
+&lt;p&gt;というわけで、そんな僕がSassを使うと思ったのも@importを使いたかったからという至極単純な動機によるものです。@import自体は普通のCSSでも使えますが、パフォーマンス的に難がありまして、あんまり使う気になれない、かといってファイル管理はページ単位やコンポーネント単位でちゃんとやらないと後々めんどいなというジレンマもあります。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、なんで普通の@importがダメなのか説明します。
+&lt;blockquote&gt;IEにおいて@importはページ下部に置いた&amp;lt;link&amp;gt;タグのような挙動をします。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://developer.yahoo.com/performance/rules.html/rules.html#csslink&#34;&gt;Best Practices for Speeding Up Your Web Site &lt;/a&gt;&lt;/blockquote&gt;
+Yahoo!のパフォーマンスベスト・プラクティスにおいて、上記のような記述がありました。Styleの情報というのはできる限りページ上部に置いてレンダリングを早く開始させる必要があるのでこれは頂けませぬ。&lt;/p&gt;
+
+&lt;p&gt;まぁ基本的に@importのパフォーマンス的問題はIE以外ならOKであれば使ってもいいのかなと思ってたんですけど、よくよく調べてみるとそうでもなかったですという話。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* first.css */
+@import url(&amp;quot;second.css&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まぁ上記のような&amp;lt;link&amp;gt;で読み込んだfirst.cssでsecond.cssを@importするといった例があるとします。これがどのような挙動をするのかと言いますと、&lt;/p&gt;
+
+&lt;blockquote&gt;ブラウザーはsecond.cssをダウンロード可能と発見する前に、必ずfirst.cssのダウンロード、パース、実行をする。
+
+&lt;a href=&#34;https://developers.google.com/speed/docs/best-practices/rtt#AvoidCssImport&#34;&gt;Minimize round-trip times - Make the Web Faster — Google Developers&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Googleの方には上記のようなことが書かれていました。つまり、first.cssを読み込み完了してからsecond.cssを読み込みに行くので並列ダウンロードができないってことです。これってIEに限ったことではなくてすべてのブラウザーで起こりうることらしいです。マジかいや！てことで、&lt;a href=&#34;http://stevesouders.com/tests/atimport/link-with-import.php&#34;&gt;Steve Soudersセンセのテストケース&lt;/a&gt;を最新のChromeのNetworkパネルで見てみると本当にそうでした。さーせん！ということで、やっぱり普通の@importは使うべきではないですな。&lt;/p&gt;
+
+&lt;p&gt;詳しくは下記ブログ読むと良いよ。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://www.stevesouders.com/blog/2009/04/09/dont-use-import/&#34;&gt;don’t use @import | High Performance Web Sites &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+まぁ、そうゆうわけでSassの@importですよ。基本ローカル環境でコンパイルして一つのCSSファイルにまとめるので、読み込むのは実質1ファイルだけになるんですね。それでいて、ページ単位やコンポーネント単位でファイル分割できるのでコードの見通しも悪くならない、素敵です。sass &amp;ndash;watchとか&lt;a href=&#34;http://mhs.github.com/scout-app/&#34;&gt;Scout&lt;/a&gt;とか使えば毎回手動でコンパイルしなくても更新があれば自動的にコンパイルしてくれます。
+&lt;pre&gt;&lt;code&gt;// Sass
+ @import &amp;ldquo;_reset&amp;rdquo;;
+ @import &amp;ldquo;_common&amp;rdquo;;
+ @import &amp;ldquo;_header&amp;rdquo;;
+ @import &amp;ldquo;_main&amp;rdquo;;
+ @import &amp;ldquo;_footer&amp;rdquo;;&lt;/code&gt;&lt;/pre&gt;
+これだけのためにでもSass導入してもいいんじゃないかと個人的には思っています。&lt;/p&gt;
+
+&lt;h2 id=&#34;nesting&#34;&gt;Nesting&lt;/h2&gt;
+
+&lt;p&gt;あと、便利っちゃー便利なのがネストです。下記のようにセレクタ、プロパティの重複する部分ってのを省略して書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Sass
+table.hl {
+  margin: 2em 0;
+  td.ln {
+    text-align: right;
+  }
+}
+li {
+  font: {
+    family: serif;
+    weight: bold;
+    size: 1.2em;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記は下記のようにコンパイルされます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* CSS */
+table.hl {
+  margin: 2em 0;
+}
+table.hl td.ln {
+  text-align: right;
+}
+li {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;子孫セレクタとか何回も同じセレクタを宣言するのはめんどいですよね。あとモジュール単位で、例えば.module{}以下に必要なスタイルをネストしておけば、そのモジュールが要らなくなったりとか修正が必要になった時とか対応が楽です。&lt;/p&gt;
+
+&lt;p&gt;とは言いつつも、そのモジュールの見通しが甘くて案外複雑なことをやらないとだめになりネストが3階層、4階層となってしまう時があります。そうなるとコンパイルされたCSSというのは子孫セレクタとかでつながった長いセレクタになってしまいます。&lt;/p&gt;
+
+&lt;p&gt;これってどーなのよ？って話ですよね。はじめに言っておきますが気にしなくてもいい。&lt;/p&gt;
+
+&lt;p&gt;世の中には&lt;a href=&#34;https://developer.mozilla.org/ja/Writing_Efficient_CSS&#34;&gt;CSSセレクタの最適化&lt;/a&gt;というものがありまして、要はCSSセレクタの解釈というのは&lt;strong&gt;右から左へ&lt;/strong&gt;とされていくわけでして、セレクタが長ければ長いほど解釈するのに時間がかかるので、単一のクラスセレクタとかにしたらいいよーみたいな話です。&lt;/p&gt;
+
+&lt;p&gt;これってどんだけの程度なのよ！？ってことが気になります。詳しくは下記翻訳でまとめられています。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/impact-of-css-selector/&#34;&gt;CSSセレクタのパフォーマンスへの影響 | MOL &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+1000個のCSSセレクタを改善しても20msくらいしか変わらなかったという結論です。これは2009年の話でして、世の中進歩しています。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://calendar.perfplanet.com/2011/css-selector-performance-has-changed-for-the-better/&#34;&gt;Performance Calendar » CSS Selector Performance has changed! (For the better) &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+2011年の年末に書かれた上記の記事ではwebkitに関してですが、CSSセレクタのマッチング処理ってのはブラウザ側で最適化されているという話です。
+&lt;ol&gt;
+    &lt;li&gt;Style Sharing&lt;/li&gt;
+    &lt;li&gt;Rule Hashes&lt;/li&gt;
+    &lt;li&gt;Ancestor Filters&lt;/li&gt;
+    &lt;li&gt;Fast Path&lt;/li&gt;
+&lt;/ol&gt;
+上記のような改善がされていてるとのことでして、詳しいことは日本語で解説されてる以下のブログで（素敵！）
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34; http://memolog.org/2012/05/css_selector_performance.php  &#34;&gt;CSS Selector Performance - メモログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+まぁ要するに2009年段階でも気にしなくてもいいレベルだったのにそれから2年経ってさらに気にしなくてもいいレベルになってきた感じです。
+&lt;pre&gt;&lt;code&gt;/* Baseline
+　コード量の差をなくすためにマッチングしないセレクタが記述されている*/
+.noclass0001 { background: #CFD; }&lt;/p&gt;
+
+&lt;p&gt;/* Descendant*/
+DIV DIV DIV P A.class0001 { background: #CFD; }&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://stevesouders.com/tests/css-selectors/baseline.php&#34;&gt;CSS Selectors: Baseline &lt;/a&gt;（ベースライン）&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://stevesouders.com/tests/css-selectors/descendant.php&#34;&gt;CSS Selectors: Descendant &lt;/a&gt;（子孫セレクタ）&lt;/li&gt;
+&lt;/ul&gt;
+試しに、最新のChromeで上記のSoudersセンセのテストケースをもう一度やってみると、数ミリ秒しか変わんなかったです。1000個のセレクタ改善しても数ミリ秒しか違わないのは費用対効果悪すぎです。&lt;/p&gt;
+
+&lt;p&gt;ってことで、Sassでネストしまくって、それによるセレクタの解釈遅延ってのは気にしなくてもいいのかなという個人的結論。もちろん、ネストしまくったら何がなんだかわからないCSSになってしまうので、可読性のために、2,3階層程度でとどめておくほうが良いでしょう。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Long Life Web Performance Optimization</title>
+            <link>https://t32k.me/mol/log/long-life-web-performance-optimization/</link>
+            <pubDate>Wed, 24 Nov 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/long-life-web-performance-optimization/</guid>
+            <description>
+
+&lt;p&gt;WCAF Seminar Vol.4での講演ログ。&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/5860661&#34; width=&#34;512&#34; height=&#34;421&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:3rem; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;p&gt;タイトルのLong Life Web Performance Optimization、長いのでLong Life WPOって略します。これは、Long Life Designからもじりました。Long Life Design というのはD&amp;amp;DEPARTMENT PROJECTのナガオカケンメイさんが行っているプロジェクトで、60年代とか70年代の昔の優れたデザインを今にも伝えて使い続けていこうって趣旨だったと思います。&lt;/p&gt;
+
+&lt;p&gt;それに対して、Webの世界はどうでしょう？移り変わりが早いですよね。「お！これが90年代のテーブルレイアウトかぁ〜エクセレント！」なんてことはない。そこで今回はLong Life Designのように長〜く使えるWPOを心理学などの人間側から考えてみようってのが今回のセッションの狙いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;最近のパフォーマンス事情&#34;&gt;最近のパフォーマンス事情&lt;/h2&gt;
+
+&lt;p&gt;最近パフォーマンスの話、聞かないですよね？去年の暮れあたりが賑わい的にピークだったかと思います。(※Googleのランキングアルゴリズ追加に関しても情報全くないですし…)とはいえ、結構パフォーマンス事情は賑やかですってのをこれから紹介していきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;web-performance-working-group&#34;&gt;Web Performance Working Group&lt;/h3&gt;
+
+&lt;p&gt;もっともビッグなニュースと言えば、W3Cで8/19にWeb Performance Working Groupが設立されたことです。このWorking GroupのミッションはWebアプリケーションのパフォーマンス計測のための仕様を作ることです。共同議長にはMicrosoftとGoogleの方がいます。この辺からMSのWebパフォーマンスに対する本気度が伺えますよね。今後に期待です。&lt;/p&gt;
+
+&lt;h3 id=&#34;api-for-measuring-web-performance&#34;&gt;API for Measuring Web Performance&lt;/h3&gt;
+
+&lt;p&gt;そこで策定されていくのが計測のためのAPIです。で、そのAPIとはなんぞや？ってことなんですけども、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Navigation Timing ネットワークや読み込みなどの時間、リクエスト回数などの情報を取得することができます。&lt;/li&gt;
+&lt;li&gt;Resource Timing 画像やスクリプトなどのリソースを読み込むときの時間、情報を取得することができます。&lt;/li&gt;
+&lt;li&gt;User Timing UAがコードを実行した時間を取得することができます。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://standards.mitsue.co.jp/archives/001473.html&#34;&gt;2010年8月のW3C | Web標準Blog | ミツエーリンクス&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;window.performance.navigation.loadEnd みたいな感じでページの読み込み時間が簡単に分かるようになるんですね。つまり、YSlow や PageSpeed などのプラグインなしでも詳細な情報が取得することができます。このAPIを実装しているブラウザは共同議長の選出先と同じようにIE9とChrome6からとなっています。&lt;/p&gt;
+
+&lt;h3 id=&#34;boomerang-js&#34;&gt;Boomerang.js&lt;/h3&gt;
+
+&lt;p&gt;それじゃ利用するにはまだまだ先の話だと思うのですが、そうでもないんですね。次に紹介するのはオープンソースのパフォーマンス計測ライブラリのBoomerang.js です。開発者は Yahoo! Inc. の Philip Tellis さんです。この Boomerang.js 先に紹介したパフォーマンス計測APIに似た機能を提供してくれます。（はてブコメントより、ブラウザがそのAPIをサポートしていればそれを利用するみたいですね。ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;普通、自前でページのパフォーマンス計測しようと思うと、HEAD要素あたりに、new DateしてgetTimeで現在時刻を取ってきて、BODYの最後のほうでまたgetTimeして、その差分の時間を計測するといったことをするかと思います。これですと、最初のnew Dateから次のnew Dateするまでの時間、つまりドキュメント内での時間しか計測できてないわけですね。もっと重要なサーバーとのやりとりの時間、ネットワークのレイテンシなども考慮されていないわけです。これじゃいかんやろうと言うことで、このBoomerang.js を使うとどうなるかと言うと、BODY要素の最後らへんでBoomerang.jsを読み込み、初期化関数を書くだけで、ネットワークのレイテンシなどの時間を計測することが可能です。また取得した情報を任意のサーバーに送れることも可能です。
+これをうまく利用できたら、Google Analytics と連携してパフォーマンスの良いユーザーがどれだけコンバージョンがあげたかなど詳細に記録できるかと思います。楽しみですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;beyond-design&#34;&gt;Beyond Design&lt;/h3&gt;
+
+&lt;p&gt;最後に話題を変えて、今年5月に開かれたGoogle I/O 。GoogleとYouTubeの人が話したセッションより良いユーザーエクスペリエンスの作り方の原則として、第1に速くあれ！ってことを挙げていました。もともと、Googleのデザインガイドラインでも速さってのは重要だと言ってきているので、これ自体は特に珍しいことではないのですが、そこで引用されていた言葉が興味深かったので挙げてみました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;“Speed is the most important feature. If your application is slow, people won’t use it. I see this more with mainstream users than I do with power users. I think that power users sometimes have a bit of sympathetic eye to the challenges of building really fast web apps, and maybe they’re willing to live with it, but when I look at my wife and kids, they’re my mainstream view of the world. If something is slow, they’re just gone.” —Fred Wilson (Union Square Ventures)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;フレッド・ウィルソンさんはTwitterにも投資している有名なベンチャー投資家ですね。この人が言った言葉に「スピードはもっとも重要な特徴だ、もしアプリケーションが遅ければ誰も使わなくなるだろう。この傾向はパワーユーザーよりもメインストリームのユーザーで顕著だ」と。パワーユーザーというのは日本で言えば、はてなを使っているような人たちでしょう。彼らはそれなりの知識があるので、ページが遅くても同情的な感情になるらしいです。負荷分散大変だろうなとか。大して、メインストリームユーザー、つまりノンデベロッパーの人はそんなこと知りませんから、なんで遅いん？は？みたいな感じですぐ去ってしまうんですね。&lt;/p&gt;
+
+&lt;p&gt;ここで重要なのは、スピードというのは決して一部のパフォーマンスオタクのだけのもではないということです。フレッドさん自体、投資家であり開発者ではありませんので、スピードというのは全ての人が当然のように期待するモノなのかなと考えます。&lt;/p&gt;
+
+&lt;p&gt;これまで見てきたように言わずもがなWPOというのは私たちにとって常に最重要課題なのではないかと考えます。さらに、前述のパフォーマンス計測の標準化が進めば、皆が同じルールの環境下で比較されるので、パフォーマンスが良いということはセールスポイントになることはもちろん、今後はミリ秒単位での厳しい争いになったりするのかなと考えます。&lt;/p&gt;
+
+&lt;h2 id=&#34;機械は進化する&#34;&gt;機械は進化する&lt;/h2&gt;
+
+&lt;p&gt;Webパフォーマンスというのは重要なのは理解できたかと思うので、今度はそれを対策するために機械（コンピュータ）の部分に目を向けてみましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;ムーアの法則&#34;&gt;ムーアの法則&lt;/h3&gt;
+
+&lt;p&gt;機械というのは当然のことながらものすごく進化が速いです。有名なムーアの法則で半導体の集積密度は18〜24ヶ月で倍増するというのがあります。まぁ簡単に言ったら、半導体の性能はものすごいスピード向上していくことになります。２年前の自分と比べて今の自分が２倍成長してるかと言うと、そうではないですよね？人間と比べれば進化のスピードというのは比較にならないほど速いものです。&lt;/p&gt;
+
+&lt;p&gt;Webの世界においても同じことが言えます。現在、WPO でもっとも有効な対策であるHTTPリクエストを減らすこと。これまで２度クライアントサイドでのパフォーマンスについて話してきましたが、言っていることはただ一つです。HTTPリクエストを減らすことしか僕は言っていません。現状はリクエストを減らすには、イメージマップ、CSSスプライト、インライン画像、ファイルの結合といったことが挙げられます。では、こういった対策がブラウザ（機械）の改善（進化）が進めばどのように変わるのか次は見ていきましょう&lt;/p&gt;
+
+&lt;h3 id=&#34;css3&#34;&gt;CSS3&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2010/1124-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まずはCSS3。画像はコニッターさんのiPhone4をCSS3で描いてみたです！このような込み入ったものもCSS3で描けるということは、言わずもがなグラデーションボタンや見出しの背景画像といった比較的簡単なものならCSS３で十分事足りる可能性は大きいわけです。&lt;/p&gt;
+
+&lt;p&gt;ちなみにGoogleが42億ページ調べた結果、１ページにあるリソースの和は平均44個でそのうち画像の平均は29個と最も多く全体の60-70％に当たるらしいです。このようなデータからも画像を減らすことはHTTPリクエストを減らす有効な対策だと考えます。&lt;/p&gt;
+
+&lt;h3 id=&#34;application-cache&#34;&gt;Application Cache&lt;/h3&gt;
+
+&lt;p&gt;アプリケーションキャッシュは、HTML5のオフライン機能ですね。マニフェストファイルというテキストファイルにキャッシュさせたいファイル名（パス）を記述しHTMLのマニフェスト属性に指定するだけで、セッションを越えての、オフラインでのキャッシュが可能になります。&lt;/p&gt;
+
+&lt;p&gt;つまり、１回リクエストしてキャッシュしてしまえば、次回以降は余計なリクエストは発生させないということです。この機能と同じことを実現しようと思うと、サーバーの方でEXPIREヘッダに遠い未来を指定しなければならないんですけど、アプリケーションキャッシュの場合クライアント側ですべてできるのは使い勝手がよいですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;resource-package&#34;&gt;Resource Package&lt;/h3&gt;
+
+&lt;p&gt;次に、リソースパッケージなんですがこれはMozillaの中の人提案した機能で、簡潔にゆうとZIPでくれ！ってことです。何回もリクエストするから効率が悪いので全部ZIPでまとめて、そのZIPファイルだけリクエストするというやり方です。いやーこれ考えた頭いいですね。てかなんで今までなかったのか分からないほどクレバーな技術なんですけど、Firefox3.7に実装されるかどうかって話しだったんですけど、全然話にきかないので、たぶんFirefox5とかになるのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;実装方法はZIPで配信したいファイル + マニフェストテキストにリソースのパスを書いてlink要素でリクエストするといった感じですね。考え方としてはCSS Sprite（1つの画像に複数の役割を持たせる）に近いのですが、Background Positionをちまちま設定しなくてもいい分、リソースパッケージのほうが圧倒的に管理が楽です。&lt;/p&gt;
+
+&lt;h3 id=&#34;spdy&#34;&gt;SPDY&lt;/h3&gt;
+
+&lt;p&gt;最後は、Googleが提案したSPDYというプロトコルです。こちらはブラウザの機能改善というより現状のHTTP通信変えようぜってことです。だからといって、&lt;a href=&#34;http://example.com&#34;&gt;http://example.com&lt;/a&gt; のところが spdy://example.com となるということではありません。もっと裏側の部分が変わるんですね。SPDY で実現できるのはこの３つです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;多重化ストリーム&lt;/li&gt;
+&lt;li&gt;リクエストの優先付け&lt;/li&gt;
+&lt;li&gt;HTTPヘッダーの圧縮&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一番重要なのは多重化ストリームです。これは現状のHTTP通信だと、1のホスト名に同時に2つのリクエストしかできません。2コネクション貼られて2リクエストするわけですから、つまり1コネクション1リクエストの原則です。&lt;/p&gt;
+
+&lt;p&gt;これを解消するために、最新のブラウザは6つまでコネクションを貼ることができるのですが、これが1000ユーザー、10000ユーザーが同時接続してきたらどうでしょう？6万コネクションがサーバーに貼られるわけですからあまり効率のよいことではないですよね。。&lt;/p&gt;
+
+&lt;p&gt;そこで、SPDYでは1コネクションにリクエストする制限撤廃しました。1つのコネクションを何度も再利用するんですね。これが多重化ストリームです。なぜ、HTTPリクエストがコストが高いのかというと、リクエストするたびに接続・解除を繰り返すから効率が悪いので、SPDYはこの点を解決できるのではないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;これまで4つ見てきたように、現在最も注意しなければならないHTTPリクエストも、近い将来、ブラウザの機能改善やネットワークの仕組みが変われば特に意識する必要はなくなるかもしれません。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、実際問題、各ブラウザが一斉に改善（アップデート）されるわけではありませんので、各ブラウザの実装度を見つつ対応しなければならない状況は続きます。つまり、私たち製作者はは常に走り続けなければなりません(‘･ω･｀）…&lt;/p&gt;
+
+&lt;h2 id=&#34;人間は変わらない&#34;&gt;人間は変わらない&lt;/h2&gt;
+
+&lt;p&gt;そこで、人間側に着目する必要があります。人間というのは昔から何も変わっていません。オギャーって生まれて恋をしてカクカクシカジカで死んでいくわけですよ。少なくとも、2年毎に2倍成長しているかといえばそうではありません。&lt;/p&gt;
+
+&lt;p&gt;要はこれまでは機械側ばっかりに着目してきたわけですけど、ここは進化が速い、ついて行くのはしんどいってことで、もっと変化の遅い人間側に着目しましょう。そうすればもっと楽できるかもしれませんってのが今回のセッションの狙いでもあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;認知・知覚・感受・体感 | Perception&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;そこで、人間は知るうえで重要になってくるのが知覚の問題です。理論的に人間は最大で、1秒間126bit、 1分感で7560ビット、1時間50万ビットくらいの大量の情報を処理できるそうです。でも実際は毎秒10ビットくらいしか処理していません。つまり、結構省エネ、 相対的に判断したり、これまでの知識を元に判断したりして情報を簡略して処理しています。 つまり、世界をありのままにインプットしているわけではありません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2010/1124-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このことを理解するのに良い例があります。上記の図のA、Bのマスの色は違いますよね、実は2つは同じ色なんですね。2本のグレーの線を引きますと、同じ#6B6B6Bのグレーだと理解できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2010/1124-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;もう1つ例がありますので紹介します。こちらは2つのオレンジ色の円の大きさは左の円の大きさの方が小さく感じます。しかし、これも周りのオブジェクトを消してみると同じ大きさというのが分かりますよね。&lt;/p&gt;
+
+&lt;p&gt;つまり、人間というのは曖昧に世界を知覚しているのが理解できるかと思います。&lt;/p&gt;
+
+&lt;p&gt;これは、別に視覚だけに限ったことではありません。時間感覚においても同じようなこと言えます。アメリカの神経科学学会の人が発表したレポートによると、同じ3分という時間でも、若い人とお年を召した方では体感時間が違うといったデータが報告されています。この調査によると若い人にとっては3分は自分で秒数をカウントするとで実際は平均3:03秒くらいだったそうです。対して、60歳以上の人にとって3分は3:40秒に感じられたようです。つまり、お年を召した方のほうが流れている時間は速く感じているようです。&lt;/p&gt;
+
+&lt;p&gt;時間感覚は年齢以外にも、地理的条件で違ったり、文化気候、体温によっても影響をうけるようです。もうちょっと具体的にWebではどんな事例があるかと言いますと、User Interface Engineering Blog が2001年に調べた調査があります。ユーザーに10個の違うサイトを使ってもらってどのサイトが一番速く感じたか？という調査です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.uie.com/articles/download_time/&#34;&gt;The Truth About Download Time&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;調査結果を見てみると、About.comは実際の平均読み込み時間が8秒で一番速かった（※2001年調べです）にもかかわらず、ユーザーからは一番遅いと判断されました。対して、amazon.comは実際の平均読み込み時間が36秒ともっとも遅かったにもかかわらず、ユーザーからは最も速いと評価されました。&lt;/p&gt;
+
+&lt;p&gt;この調査のまとめでは、実際のダウンロード時間と体感速度に相関性はなく、それよりもユーザーのタスク処理の成功度具合と体感速度に相関性があると締めくくっていました。&lt;/p&gt;
+
+&lt;p&gt;え、これって、スピードって重要じゃないってこと？&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41VPCPBHRNL._SL160_.jpg&#34; alt=&#34;フロー体験 喜びの現象学 (SEKAISHISO SEMINAR)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;フロー体験 喜びの現象学 (SEKAISHISO SEMINAR)&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.18&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;M. チクセントミハイ,Mihaly Csikszentmihalyi,今村 浩明&lt;br /&gt;世界思想社&lt;br /&gt;売り上げランキング: 5514&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790706141/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;このことを理解するのに重要なキーワードを持つ人物がアメリカの心理学者のミハイチクセントミハイです。彼が提唱した概念にフローというのがあります。&lt;/p&gt;
+
+&lt;p&gt;フローつまり流れるというこの言葉の意味は、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;１つの活動に深く没入し他の何ものも問題とならなくなる状態&lt;br /&gt;
+注意が自由に個人の目標達成のために投射されている状態&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;のことを指します。つまり、完全に集中している状態のことですね。皆さんも経験ありませんか？コーディングがのりに乗って気づいたらお昼だった。またはもう定時？といったことないですかね？ああいった感じを想像してもらえれば理解が速いかと思います。&lt;/p&gt;
+
+&lt;p&gt;フローの構成要素にはこうっいったものが挙げられます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;明確な目的&lt;/li&gt;
+&lt;li&gt;専念と集中&lt;/li&gt;
+&lt;li&gt;活動と意識の融合&lt;/li&gt;
+&lt;li&gt;時間感覚のゆがみ&lt;/li&gt;
+&lt;li&gt;直接的で即座な反応&lt;/li&gt;
+&lt;li&gt;能力の水準と難易度とのバランス&lt;/li&gt;
+&lt;li&gt;自分で制御している感覚&lt;/li&gt;
+&lt;li&gt;活動に本質的な価値がある&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;明確な目的をもって集中している状態ですよね。ここで重要なのは時間感覚のゆがみです。つまり、先程のamazon.comの結果をフローを用いて、もう1度説明すると実際速度が遅かったにも関わらず速いと評価されたのはタスクの成功率、使いやすさのおかげで集中することができ、軽いフローみたいな状態にユーザが近づいたため、時間感覚がゆがみ、実際の速度以上に速いと感じるようになったのではと考えられます。&lt;/p&gt;
+
+&lt;p&gt;つまり、このフローをうまく利用することができれば、サイトの体感速度も向上させることができるのではないでしょうか？&lt;/p&gt;
+
+&lt;p&gt;この人間編をまとめますと、人間を曖昧で相対的です。しかし、フローといったモデルをうまく利用することでWPOにもうまく利用できると考えます。&lt;/p&gt;
+
+&lt;h2 id=&#34;実践編&#34;&gt;実践編&lt;/h2&gt;
+
+&lt;p&gt;さて、ここからはWebサイトにフローを落とし込むためにはどうしたら良いのか考えてみましょう。&lt;/p&gt;
+
+&lt;p&gt;ここまで人間側の部分を考えてきました。しかし、体感速度を向上させるために人間の頭をこねくりまわすことはできないので、知覚される前になにか対策する必要性がありますね。つまり、インターフェイスが重要になってくるわけです。&lt;/p&gt;
+
+&lt;p&gt;Webインターフェイスをデザインするパターンはいろいろあるのですが、ここではフローの構成要素から、直接的で即座な反応と、自分で制御している感覚から考えるに、フィードバックというパターンがフローを作り出すに最適なパターンかと今回は考えます。では、実際にフローのためにどのようなフィードバックをしたらよいのか見ていきましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;live-preview&#34;&gt;Live Preview&lt;/h3&gt;
+
+&lt;p&gt;まずはライブプレビュー。Twitterのパスワード設定とかナイスだと思うんですね。まぁなんてこたないんですけども、パスワードの安全度をタイプするたびに提示（プレビュー）してくれるんですね。もしこれがライブではなくて、とりあえず入力して、設定ボタン押してページが切り替わってから「パスワードに不備があります。もう一度設定しなおしてください。」言われたらどうでしょう。さらに一度入力したフォームの情報もクリアになってたらどうでしょうか？完全にフローは断ち切られますよね。ライブプレビューはそういった意味で、即座の反応と自分で操作している感からフローを作るのに最適化と考えます。&lt;/p&gt;
+
+&lt;h3 id=&#34;progressive-rendering&#34;&gt;Progressive Rendering&lt;/h3&gt;
+
+&lt;p&gt;次のフィードバックはもう少し短いスパンにおいてのフィードバックです。プログレッシブレンダリングとは、まぁプログレッシブエンハンスメントという言葉もあるように、漸次的、段階的レンダリングと考えればよいでしょう。つまり、真っ白なページから、いきなりページが表示されるのではなく、ヘッダー、サイドナビ、メインコンテンツといった具合に順々にレンダリングしていく具合です。&lt;/p&gt;
+
+&lt;p&gt;プログレッシブレンダリングで有名なBingの事例のよると、Bingの検索結果画面はそれまでプログレッシブレンダリングしてませんでした。検索クエリを入力して結果が表示されるまでに真っ白な画面をユーザーに表示させていました。そこで、スライドの紫色の選より上の部分、ビジュアルヘッダーの部分是が非でもまず表示させるように対応したようです。そうしただけで、各種評価は軒並み上昇しました。中でも、ユーザーの満足度は0.7％上昇と、ページをリニューアルしたとき並の効果があったようです。&lt;/p&gt;
+
+&lt;p&gt;ここで重要なのは全体のページの読み込み速度自体は変わってはいないのですが、まず何か見せておくことでユーザーに安心感を与えるいるわけですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;progress-indication&#34;&gt;Progress Indication&lt;/h3&gt;
+
+&lt;p&gt;最後はお馴染みのインジケータですね。ページの読み込み速度が速いことにこしたことはないのですが、やはり、どうしても読み込みに時間がかかる場合もあるわけですよね、FLASHサイトとか。そういった場合に、ユーザーをつなぎとめとくために、フィードバックを返しつづけることで安心感を与えることは大切です。それは、読み込み中… ていった文言でもいいですし、くるくるとか、 プログレスバーなどのケアを心がけたいところです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clear navigation&lt;/li&gt;
+&lt;li&gt;Match challenge to skills&lt;/li&gt;
+&lt;li&gt;Simplicity&lt;/li&gt;
+&lt;li&gt;Importance&lt;/li&gt;
+&lt;li&gt;Design for fun and utility&lt;/li&gt;
+&lt;li&gt;Avoid cutting-edge technology&lt;/li&gt;
+&lt;li&gt;Minimize animation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.websiteoptimization.com/speed/2/&#34;&gt;Flow in Web Design - designing sites for optimal user experience or flow state - Chapter 2 - Speed Up Your Site&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Web Designにフローを落としこむテクニックはフィードバック以外にも上記のようなものがありますので、みなさんも取り入れてみてはどうでしょうか？&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;これからもブラウザは進化し続けます。結局、何のためにWebパフォーマンス最適化をするのか？といったことですよね。決して、YSlow のスコアのためでもなければ、開発者の自己満足のためにでもありまん。ユーザーのために最適化するわけです。&lt;/p&gt;
+
+&lt;p&gt;そうしたらやっぱりユーザー（人間）側についても考える必要性があるのではないでしょうか。知覚や認知ついて知れば、それは今後数十年といったスパンで使える知識です。&lt;/p&gt;
+
+&lt;p&gt;そういった知識をWebに落としこむことで、冒頭で申し上げました Long Life Web Performance Optimization は可能になると考えます。みなさんもより良いWeb Developer Lifeにしてみてください。&lt;/p&gt;
+
+&lt;p&gt;ありがとうございました。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Coding Web Performance</title>
+            <link>https://t32k.me/mol/log/coding-web-performance/</link>
+            <pubDate>Mon, 06 Sep 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/coding-web-performance/</guid>
+            <description>
+
+&lt;p&gt;CSS Nite LP, Disk 9での講演ログ。&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/5026478&#34; width=&#34;510&#34; height=&#34;420&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;h2 id=&#34;ビジネスインパクトとスタンス&#34;&gt;ビジネスインパクトとスタンス&lt;/h2&gt;
+
+&lt;p&gt;Webパフォーマンスがビジネスにおける大きなインパクトといえば、Googleのランキングアルゴリズムにページの読み込み速度が組み込まれたことではないでしょうか。2010年4月9日の時点ではgoogle.comで英語で検索された場合にしか適用されません。また、パフォーマンスが考慮された検索クエリも1％未満とまだまだな状況ですが、いずれ日本でも適用される日がくるかと思われますので、今日はそのWebパフォーマンスについて、お勉強をしましょう。&lt;/p&gt;
+
+&lt;p&gt;しかし、このGoogleの評価は何をもって速いとするのでしょうか？公式ブログでは様々な指標をもとに比較検討しています…とのことでした。一体何を言っているのでしょうか… とりあえず、分かっている計測基準として2つあるので紹介したいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;google-adwords&#34;&gt;Google AdWords&lt;/h3&gt;
+
+&lt;p&gt;まずはAdWords、Googleの広告サービスですね。実はAdWordsの方では2008年4月の段階から品質スコアの評価にページの読み込み速度が取り込まれていました。品質スコアが高ければ、広告の掲載順位は高くなり、料金も安く抑えられます。この計測方法なんですけども、AdWordのヘルプの方にはHTMLのダウンロード時間と記載されています。現在はまだHTMLファイルだけなんですけども、後々画像やJSファイルといった外部ファイルの計測も行われるようです。スライドの黄色部分に「リンク先ページの読み込み時間に、問題ありません」と書かれています。つまり、もしあなたの会社がAdWordsに出稿しているのであれば、Webパフォーマンスは既に対処しなければならない案件になっているということです。&lt;/p&gt;
+
+&lt;h3 id=&#34;google-webmaster-tools&#34;&gt;Google Webmaster Tools&lt;/h3&gt;
+
+&lt;p&gt;次にウェブマスターツールなんですけども、2009年の12月に「サイトのパフォーマンス」という項目が追加されました。これは文字通りサイトの読み込み速度に関する情報が表示されます。では、何をもって速い・遅いとするのかですが、このツールではGoogleが収集したデータの上位20％が早く、残りの80%が遅いと決めているようです。そのラインが平均読み込み速度が1.4秒、スライドの赤いラインです。そうゆうわけで、私たちの目下の目標としてはこの1.4秒以下に読み込み速度を抑えるということになります。こちらの計測方法ですが、Googleツールバーをインストールしたブラウザでなおかつページランク機能を有効にしたユーザーの読み込み込み時間となっています。AdWordsの方はHTMLファイルだけの読み込み時間ですが、こちらは実際の状態に近い計測手法となっています。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、ほかにもいろんな計測をしていると思うのですが、とりあえずはこの2つを意識して対策をしていけば良いでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;高速サイトがもたらす利益&#34;&gt;高速サイトがもたらす利益&lt;/h3&gt;
+
+&lt;p&gt;高速サイトがもたらす利益としては、検索だけではありません。ベージが速く読み込まれればそれだけユーザのストレスがなくなるわけですから、再訪問数の増加やセッションあったりのPV数増加にもつながります。そうすればおのずとコンバージョン率の改善、そして収益増加。また、売上が上がるということは顧客満足の向上した結果とも言えます。そういった売上の増加だけでなく、ページをコンパクトにまとめることでサーバーの転送量が少なくすることができれば、インフラコストや帯域幅の節約などにもつながります。&lt;/p&gt;
+
+&lt;p&gt;さて、こういったビジネスインパクトがコーダーに与える影響の面を考えると、コーダーはパフォーマンスという武器を手に入れることになるのではないでしょうか。というのも、デザイナーもそうですが、ただ単純にキレイなデザイン・キレイなコードというのはクライアントさんや、その上のマネジメント層にとっては興味のないことであって、彼らが知りたいのは売上です（そもそも彼らの仕事は数字を見ることですからね）。&lt;/p&gt;
+
+&lt;p&gt;ですから、商品をできるだけ目立たそうとして、デザイン的に無理な要求であったり、例外処理ばかりのコードになることも多々あります。そこで、私はデザイナーとして「トーンアンドマナーが…」など言うのですが全然聞いてくれません。ところが隣のSEOチームが「いや、それはSEO的に良くないのでやめて下さい」と言えば、素直に従ってくれます。&lt;/p&gt;
+
+&lt;p&gt;これはまぁ、SEO的に悪い＝検索順位が下がる＝売上が下がるといった思考パターンですよね。つまり、今回WebパフォーマンスがGoogleのランキングアルゴリズムに組み込まれたということで、その程度はどうであれ、SEOとパフォーマンスを絡めることができる。そしてパフォーマンス対策できるコーダーの存在感が高まるのではないでしょうか。社内の存在感が高まれば、それだけ自分の好きなこと・やりたいことを貫ける可能性も高まるのではないかと私は考えます。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、コーダー・デザイナーは忙しいです。HTML5/CSS3は次から次へといろんなAPI、プロパティが出てきています。最近、jQueryナウいよねってことでJavaScriptを多用すれば、アクセシビリティやユーザービリティに関しても気を使わなければなりません。またサイト全体の情報アーキテクチャも考えなければならないし、アクセス解析も嗜みたいところ。そこで、今回取り上げるWebパフォーマンスですか？それはちょっと、無理無理カタツムリよーってことで。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、来週あなたの上司が「パフォーマンス対策はどうなっとらんやー！」って聞いてきたらどうしましょうか？HTMLのコード量を減らしましょうか？JSの変数名やCSSセレクタを短いものに置き換えていきましょうか？そういった明後日の方向に進まない（まず最初に取り組まなければならない問題ではない）ためにも今回のセッションの目的は最小限の対策で最大限の効果をあげれるような対策を紹介します。&lt;/p&gt;
+
+&lt;h2 id=&#34;ボトルネックはどこか&#34;&gt;ボトルネックはどこか？&lt;/h2&gt;
+
+&lt;p&gt;最小限の対策で最大限の効果をあげるためには、ボトルネックを探しそれを取り除いてあげればいいんですね。とは言っても、Webパフォーマンスという目に見えないものを対策するにあたって、それをビジュアライズするツールが必要になってきます、それが、このHTTPWatchです。こういったツールは他にもFirebugの接続パネルやSafariのリソースパネルなどがありますが、HTTPWatchはWindows上でIEとFxで動作するので採用しています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.httpwatch.com/&#34;&gt;HttpWatch: HTTP Sniffer for IE, Firefox, iPhone and iPad&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このツール最大の機能はウォーターフォールチャートです。これが何を表しているのかというと、ページの読み込まれ方を表しています。この1つ1つのバーがページのコンポーネント、画像であったり、CSS、JSファイルであったりページの部品を表しています。横軸が時間経過を表しているのでこれが横に長ければ長いほど読み込み時間に時間がかかかっているのが読み取れます。とは言っても、バーの赤色とか緑色は何を表しているの？って感じですよね。HTTPWatchのヘルプには以下のように記載されていました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ブロッキング&lt;/li&gt;
+&lt;li&gt;DNSルックアップ&lt;/li&gt;
+&lt;li&gt;コネクト - 接続&lt;/li&gt;
+&lt;li&gt;センド - 送信&lt;/li&gt;
+&lt;li&gt;ウェイト - 待機&lt;/li&gt;
+&lt;li&gt;レシーブ - 受信&lt;/li&gt;
+&lt;li&gt;キャッシュ読み込み&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用語だけ言われても分かりませんので、具体的に見ていきますと。まず、サーバーとクライアントであるブラウザがあります。例えばCSS Niteの公式サイトを見たいとするのならば、ブラウザのURL欄にcssnite.jpと打ち込むでしょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2010/0906-00.png&#34; alt=&#34;リクエストの各段階&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そうすると、ブラウザは打ち込まれたURLをIPアドレスに変換するためにISPなどに問い合わせにいきます。そして問い合わせた結果が届いた時間までがDNSルックアップです。&lt;/p&gt;
+
+&lt;p&gt;次に、そのIPアドレス上にあるサーバーに接続を試み、うまく接続できたならばOKのレスポンスを返します。ここまでがコネクトです。ソケット接続とかTCP接続などと呼ぼれる部分です。この部分は持続接続可能なので2回目以降は省略されます。&lt;/p&gt;
+
+&lt;p&gt;そして次がもっとも大事なHTTPリクエスト。cssnite.jpのindex.htmlなどのリソースを探しにいきます。そしてサーバーがこれねこれね、ということで見つけたリソースの最初のパケットデータが届いた時点がウェイトです。&lt;/p&gt;
+
+&lt;p&gt;そして残りのデータをすべて送りブラウザに届いた時点がレシーブです。このレシーブが一般的にファイルのダウンロード時間と考えらています。&lt;/p&gt;
+
+&lt;p&gt;このことをふまえて、もう一度先ほどのウォーターフォールチャートを見て見ますと、どうでしょうか？何色が目立ちますか？どう見たって赤色ですよね。&lt;/p&gt;
+
+&lt;p&gt;Webパフォーマンスと言われるとファイルのダウンロード時間を短くすればいいんじゃね？と考えがちなんですが、この場合、緑色の部分はなんてほとんどないですよね。&lt;/p&gt;
+
+&lt;p&gt;そもそもこのウォーターフォールチャートはどこのページを読み込んでいるかというと、後ほど紹介するとある一般的な企業サイトです。どのコンポーネントも数キロバイトの画像です。&lt;/p&gt;
+
+&lt;p&gt;このスライドから読み取れるに、4キロバイトの画像も5キロバイトの画像もダウンロードにかかっている時間はそう変わらなくて（だからと言って画像の最適化を怠ってはいいということではありません）、ダウンロード時間の何倍もの時間をウェイト時間に費やされているのが分かります。ウェイト時間はサーバーの待ち時間なので、私たちデザイナー・コーダーにとってはどうしようもできない部分です。必ずかかる税金のようなものです。&lt;/p&gt;
+
+&lt;p&gt;この状況をハンバーガー屋さんで例えてみますと、レシーブ時間をハンバーガーを作る時間、ウェイト時間をお会計にかかる時間とします。さらにこのお店は一回の注文につき一つの商品（リクエスト）しかできません。つまりチーズバーガーが2個欲しければ、チーズバーガー１つくださいと言って、作ってもらってお会計をして、またチーズバーガー１つのくださいと言って作ってもらってお会計するというようなめんどくさいことをしなければなりません。&lt;/p&gt;
+
+&lt;p&gt;もう一度、先ほどのウォーターフォールチャートを見てみますと、これは実はIE6で読み込まれたウォーターフォールチャートです。ここにはもう一つ重要なことが隠されていてます。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、この同じページをFirefox3.6で読み込んでみますとこのようなウォーターフォールチャートになりました。皆さん、一体どこが違うでしょうか？ここでは、バー1つ1つの長さは比較対象にはしていません。それよりも、なんだかコンポーネントの読み込まれ方が違いませんか？どうやらIEのほうはなだらかに読み込まれていて、Fxの方は急な勾配になっているのが分かりますね。これがどういった違いによるものかと言いますと、&lt;/p&gt;
+
+&lt;h3 id=&#34;ホスト名毎の同時接続数&#34;&gt;ホスト名毎の同時接続数&lt;/h3&gt;
+
+&lt;p&gt;ホスト名毎の同時接続数によるものなんですね。HTTP/1.1の仕様ではひとつのホスト名（www.cssnite.jpのような完全修飾ドメイン）に対して同時接続できるコンポーネントは2つまでと決まっています。実際のブラウザの実装はどうなっているかと言いますと、FxやChrome,Safariなどは6や5つ同時接続できるのですが、ここで着目してほしいのはIE6,7のようなシェアの高いブラウザのが2つだという点です。&lt;/p&gt;
+
+&lt;p&gt;先ほどのウォータフォールチャートを見てみますと、実装どうりの挙動をしているのがわかりますね。より多く同時接続できている方が早いです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2010/0906-01.png&#34; alt=&#34;ブロッキング&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これをふまえた上でもう1度ウォーターフォールチャートみてみますと、このIE6のなだらかな階段状になっているのは冒頭で紹介したブロッキング時間（灰色の部分）に時間を費やされているのががわかります。サーバーに同時接続できるのは2つまでなので、それ以降のコンポーネントはダウンロードが完了するまで待たなければいけません。そしてダウンロード完了すれば次のコンポーネントが1つだけ接続されて、また次のコンポーネントは待たなければいけない。つまり、接続出来ていないコンポーネントは順番待ちをしている状態です。一番最後のコンポーネントを見ますとかなりの時間を順番待ち（ブロッキング）に時間を費やしているのが読み取れます。&lt;/p&gt;
+
+&lt;p&gt;この状態をまたとあるハンバーガー屋さんで例えてみますと、先程紹介したお店は1回の注文につき1つの商品しか頼めません。しかも、このお店はレジが2つしかないんですね。ですから、当然大勢のお客さんが群がれば（大量のコンポーネントをリクエストすれば）待ち時間が多くなる。当然、ページの読み込み時間も遅くなるということです。&lt;/p&gt;
+
+&lt;p&gt;つまり、ウェイト時間とブロッキング時間から、HTTPリクエストは非常にコストが高いものだということが理解できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;とあるサイトの改善事例&#34;&gt;とあるサイトの改善事例&lt;/h2&gt;
+
+&lt;p&gt;ボトルネックはHTTPリクエストだということが理解できたので、今度は実際にどのようにHTTPリクエストを減らしていくのか、とあるサイトを例に考えていきましょう。&lt;/p&gt;
+
+&lt;p&gt;改善手法として使ったのは以下の5つです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CSSスプライト&lt;/li&gt;
+&lt;li&gt;データURIスキーム&lt;/li&gt;
+&lt;li&gt;CSS,JSファイルの結合&lt;/li&gt;
+&lt;li&gt;CSS3プロパティ&lt;/li&gt;
+&lt;li&gt;奥の手&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;cssスプライト&#34;&gt;CSSスプライト&lt;/h3&gt;
+
+&lt;p&gt;まずは、CSSスプライトなんですが皆さんも使ったことがある人は多いのではないでしょうか。CSSスプライトを改めて紹介しますと、複数の画像を1つの合成画像としてグループ化して背景の位置指定を使って表示する方法です。簡単に言えば、1つの画像を使い回ししているのですね。例えば、通常であればグローバルナビメニューなどは各メニューごとに画像を切りだしてコーディングしていくと思うのですが、そうしてしまいますと、先程言いましたようにその画像1つ1つにHTTPリクエストが発生してしまいます。それでは良くないので、全部まるっとまとめちゃっいますと、それだけHTTPリクエストが減らすことができます。&lt;/p&gt;
+
+&lt;p&gt;実際どうなのかというところをHTTPWatchで確認してみますと、私の環境ではスプライト前とスプライト後では150msも変化が置きました。使っている画像も同じでコーディングの仕方を変更するだけでこれほど違いが出るのはとても有効な手段かと感じます。&lt;/p&gt;
+
+&lt;p&gt;そう考えますと、CSSスプライト最強じゃね？全部スプライトしちゃえばいいんじゃね？って考えがちですが、スプライトのジレンマというのがあります。ページ数、保守性、最適化。スプライトをする上でこの3つの中から2つしかとれないんですね。例えば、多くのページ数を保守性を保ちながらスプライトすると、最適化はちょっとあきらめなければいけない。また、多くのページ数を可能な限り最適化すれば保守性はごめんってなります。はたまた、保守性を意識しつつ最適化すれば、適用できるページ数は少なくなってしまいます。&lt;/p&gt;
+
+&lt;p&gt;先程の改善事例もHTTPリクエストを可能な限り少なくするには全部まとめれば良いのですが、それではグローバルナビに変更が起きた場合、関係ないローカルナビの位置も変更しなければならない手間も増えてしまいます。ですので、この改善事例の場合は3つのグループに分けて運用しています。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、HTTPリクエストはスプライトを適用する前から11-&amp;gt;3になったので8つも減らすことができました。&lt;/p&gt;
+
+&lt;h3 id=&#34;データuriスキーム&#34;&gt;データURIスキーム&lt;/h3&gt;
+
+&lt;p&gt;次にデータURIスキームですが、これは画像ファイルをリクエストすることなく画像をマークアップ中に埋め込むことできるシロモノです。一体何を言ってるのか分かんねぇと思うが、起こったことをありのまま話すぜ。まぁ、上記のスライドを見ればわかると思います。単にリソースのパスを書けばリクエストしにいっちゃいますんで、そうではなくて長ーい文字列に画像を変換しているのですね。このような変換はオンラインの変換ツールがありますので、利用すれば良いと思います。&lt;/p&gt;
+
+&lt;p&gt;これまたデータURIスキーム最強じゃね？って思うのですが、これにも弱点がありまして、まずIE7以下が非対応であること。改善事例のサイトでは残念ながらこのようなブラウザに対してはCSSハックで分岐処理して通常の画像を読み込ませています。次に、サイズ制限の問題。一番厳しいOpera7.2で4.1KBとなっています。なので、データURIスキームを適用できるのはアイコン画像のような比較的小さな画像だけと考えておきましょう。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、データURIスキームのおかげでIE7以下以外は HTTPリクエストを1個減らせることができました。&lt;/p&gt;
+
+&lt;h3 id=&#34;javascript-cssファイルの結合&#34;&gt;JavaScript/CSSファイルの結合&lt;/h3&gt;
+
+&lt;p&gt;これはそのままです、単にまとめるだけです。例えば、事例のサイトではリセットCSSにYUIのreset.css,font.cssを使用し、プラス、ページの構造を記述したCSSを使ってました。これでは3つのリクエストが発生してしまいますので、全部まとめてcommon.cssなどにします。また、JSファイルもjQueryを読み込んでいたのと、そのプラグインJSを2つほど読み込んでいたのでこれもまたcommon.jsにまとめちゃいました。このサイトは僕1人で運営しているので、これで特に問題ないのですが、中・大規模サイトであれば複数人でのコーディングが考えられますので、ファイルのバッティングなどの問題があります。今、俺触ってるから君触っちゃだめ！みたいな。そうゆう場合は、PHPのinclude文など使って擬似的に@importを再現すれば良いでしょう。ただ@importすれば、それはHTTPリクエストしたことと同じですので注意が必要です。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、HTTPリクエストは6つから2つに。4つ減らすことができました。&lt;/p&gt;
+
+&lt;h3 id=&#34;css3プロパティ&#34;&gt;CSS3プロパティ&lt;/h3&gt;
+
+&lt;p&gt;CSS3は事例のサイトでは使ってはいないのですが、来るべき時代に備えときましょう。ここであげたプロパティに関して共通して言えることは、今まで画像を使わないと表現できなかったことがCSSのコード数行で実現できる点です。とはいえ、ここにいない子のことを考えますと、そのようなブラウザに対してどのような対応していくのかサイトオーナー、方針などともに考えていく必要性があるでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;奥の手&#34;&gt;奥の手&lt;/h3&gt;
+
+&lt;p&gt;今まで、4つの対策を見てきたのですが、どれもなにかしらの弱点があります。非常にコマッタピョンです。なにか一発お手軽簡単な方法はないかなーないかなーとt32k考えました。考えた考えた上でデザイン変えればいいんじゃね？（※コーダーさんに向けてのセッションでした）&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg&#34; alt=&#34;続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;続・ハイパフォーマンスWebサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.18&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Steve Souders,武舎 広幸,福地 太郎,武舎 るみ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 348233&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;これはちょっと冗談でなく、実体験からの考えです。WDE2009でNicole Sulivanさん(続・ハイパフォーマンスWebサイトにも寄稿している)のワークショップに参加しました。そこで僕は今回の改善事例のサイトを題材にパフォーマンスに関してアドバイスをいただきました。そこで言われたことは「JSファイルが重いようだけど、どこで使っているの？」と問われ、スムーススクロールを実現するためにjQueryとそのプラグインを読み込んでいますと言うと、「コストをかけすぎじゃない？」と言われました。彼女は元はJavaのエンジニアで、そういったエンジニアの方からデザイン・振る舞いに関して何かを言われたということはあまりないことでとても印象的でした。というか、ちょっと凹みました。&lt;/p&gt;
+
+&lt;p&gt;そこで、帰ってもう1度対策を考えてみました。まず、指摘されたスムーススクロール。これは長いページでページ内遷移する場合、通常であれば瞬間的に移動するのでページ遷移したと感じてしまう可能性があるので、ゆっくりスクロールして移動することでページ内遷移であることを示す効果があります。とはいえ、改善事例のサイトではそのような必要性があるような長いページもほとんどありませんでした。また、本当に使われていないかGoogle Analyticsで「このページの先頭へ」というリンクがどれほどクリックされているのか計測してみたところ月で数回程度、このサイトは月間2万PVあるので、ほとんど使用されていないことが分かりましたので、不採用としました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2010/0906-02.png&#34; alt=&#34;デザインを考えなおしてみる&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;また、検索ボタンの画像も、画像だからといって検索されやすいこともないだろうと考えブラウザデフォルトのSubmitボタンに変更しました。（これも月数回程度の利用率だったので）&lt;/p&gt;
+
+&lt;p&gt;一般的にWebデザイナーというのはビジュアル重視しがちであまり数値を気にしない職種かもしれません。（かもねかもね.. ）そこでコーダーさんは今回Webパフォーマンス対するコスト意識を学んだので、それをデザイナーさんに説明することでデザインを変更してもらうというのも１つの手段になるかと考えます。&lt;/p&gt;
+
+&lt;p&gt;以上のような対策をしてきた結果、冒頭で紹介したこのサイトのパフォーマンスは常時、1.4秒以下に抑えることができました。もう少し詳しく説明しますとトップページのHTTPリクエスト数は32から17に減少。平均読み込み時間は0.5秒。Googleが収集しているデータ全体の中で上位2%にはいる高速サイトとなりました。（2010/4/8）&lt;/p&gt;
+
+&lt;p&gt;今回の対策にあたり、私はHTMLを1から組み直したわけでもなく、サーバーの設定をカリカリにチューニングしたわけではありません。当初の目標に設定したとおり、HTTPリクエストを減らすという最小限の対策でこのような最大限の効果が得られたと考えています。&lt;/p&gt;
+
+&lt;h2 id=&#34;今日のまとめ&#34;&gt;今日のまとめ&lt;/h2&gt;
+
+&lt;p&gt;Webパフォーマンスがビジネスに与える影響は非常に大きなものですので、それをうまく利用することでコーダーさんの武器にしてください。&lt;/p&gt;
+
+&lt;p&gt;パフォーマンスをあげるにはHTTPリクエストを減らすことが一般的に最も効果が高いと思われます（そうでない場合はHTTPWatchなどのツールを使って検証してみてください）。ボトルネックはHTTPリクエストです。&lt;/p&gt;
+
+&lt;p&gt;しかし改善事例から学ぶに、 HTTPリクエストを減らす、1発簡単お手軽な方法は皆無です。それぞれ何かしらの問題を抱えています。そこでこれ以上減らすことができないのであればデザイナーさんに相談してみるのも1つの手でしょう。&lt;/p&gt;
+
+&lt;p&gt;反対にデザイナーはなぜそこで画像を使わなければならないのか？なぜそのデザインなのか？という説明責任を果たす必要があります。&lt;/p&gt;
+
+&lt;p&gt;長々、喋ってきたましたがコーダーさんもデザイナーさんもエンジニアさんも仲良くWebパフォーマンスに取り組んでいけたら幸いです。&lt;/p&gt;
+
+&lt;p&gt;ありがとうございました。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>High Performance Web Design</title>
+            <link>https://t32k.me/mol/log/high-performance-web-design/</link>
+            <pubDate>Tue, 24 Nov 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/high-performance-web-design/</guid>
+            <description>
+
+&lt;p&gt;CSS Nite in ISHIKAWA, Vol.1での講演ログ。&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/2352987&#34; width=&#34;510&#34; height=&#34;420&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;h2 id=&#34;what-s-high-performance&#34;&gt;What’s High Performance?&lt;/h2&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51hIDIWHmYL._SL160_.jpg&#34; alt=&#34;ハイパフォーマンスWebサイト ―高速サイトを実現する14のルール&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ハイパフォーマンスWebサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.17&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Steve Souders,スティーブ サウダーズ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 101136&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/487311361X/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ここでいうパフォーマンスというのはWebサイトの表示高速化についてです。つまり、ページをいかに早く表示させるかという課題です。でも、そうゆうのってサーバー側の問題でしょ？システムエンジニアの管轄じゃないの？と思われがちですが「ハイパフォーマンスWebサイト」の著者であるSteve Soudersの調査によると、&lt;strong&gt;80:20&lt;/strong&gt;。一般的にユーザーの待ち時間の実に80%がブラウザ側、フロントエンドで費やされていて、サーバー側、バックエンドでの時間は全体の20%でしかないという結果が出ています。つまり、サーバー側でデータベースのチューニングやメモリ管理、アルゴリズムの見直しなどして処理時間を半分にできたとしても全体として見れば10%でしかないということです。要するにフロントエンドを預かるWebデザイナーの責任が重大と言うことです。&lt;/p&gt;
+
+&lt;h2 id=&#34;why-high-performance&#34;&gt;Why High Performance?&lt;/h2&gt;
+
+&lt;p&gt;では、なぜパフォーマンスが重要なのでしょうか？パフォーマンスが悪いと何か都合が悪いのでしょうか？パフォーマンスをないがしろにしていると怖いよっていうデータを見せたいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;google&#34;&gt;Google&lt;/h3&gt;
+
+&lt;p&gt;0.5秒遅くなると、検索数が20%減少する うん、怖いですね、メインの事業ですからね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cnet.com/news/were-all-guinea-pigs-in-googles-search-experiment/&#34;&gt;We&amp;rsquo;re all guinea pigs in Google&amp;rsquo;s search experiment - CNET&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;amazon&#34;&gt;Amazon&lt;/h3&gt;
+
+&lt;p&gt;0.1秒遅くなると、売り上げが1%減少する 怖いですね、たった0.1秒遅くなることで数十億、数百億ぐらいの影響になってくるということです。このようにパフォーマンスが低下すれば収益に直に影響してくるといったケースが考えられます。だけども、うちはAmazonみたいに大きくないから考えすぎだよとおっしゃりたいかもしれません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.scribd.com/doc/4970486/Make-Data-Useful-by-Greg-Linden-Amazon-com&#34;&gt;Make Data Useful by Greg Linden, Amazon.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;aberdeen-group&#34;&gt;Aberdeen Group&lt;/h3&gt;
+
+&lt;p&gt;Aberdeen Groupというリサーチ会社が出したレポートによると、一般的に表示スピードが1秒遅くなると、PVは11%、CVは7%、顧客満足度は16%ダウンするといったことが報告されています。こういった数値を知っていればパフォーマンス対策をするための目標を決めやすいのではないでしょうか。またユーザービリティ的に見てもパフォーマンス低下は避けた方良いということが分かります。&lt;/p&gt;
+
+&lt;h3 id=&#34;反応時間の3つの重要限界&#34;&gt;反応時間の3つの重要限界&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;心理的・感情的な違和感を感じないのは0.1秒まで&lt;/li&gt;
+&lt;li&gt;思考の流れが妨げられないのは1秒まで&lt;/li&gt;
+&lt;li&gt;注意力を維持できる限界の時間は10秒まで&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結局のところ、Time is Money！と言えるのではないでしょうか。つまり、ページをハイパフォーマンス化することでユーザーのストレスをなくし、ユーザーエクスペリエンス（体験）の質を向上させることで、結果収益にもつながってくるこということです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.nngroup.com/articles/response-times-3-important-limits/&#34;&gt;Response Time Limits: Article by Jakob Nielsen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;how-do-i-measure-it&#34;&gt;How do I measure it?&lt;/h2&gt;
+
+&lt;p&gt;次はどうやってページを計測・評価するのかといった面を考えてみましょう。&lt;/p&gt;
+
+&lt;p&gt;計測するためにはパフォーマンスツールが必要です。いろいろあるのですが、大きくは2つに分けられると思います。Packet SniffersはWebページのコンポーネントつまり画像などの部品がどのようにダウンロードされているのか教えてくれます。Performance Analyzersはあらかじめ決められた項目を評価してくれるツールです。まぁ、見てみましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;packet-sniffers&#34;&gt;Packet Sniffers&lt;/h3&gt;
+
+&lt;p&gt;Fiddler, Firebug Net Panel, Web Inspector Resources Panel ひとつひとつがバーチャートがコンポーネントを表しています。チャートの長さがダウンロードにかかった時間ですね。このようにグラフィカルに表示してくれるので、どのバーチャートが一番長いのか着目すれば、ボトルネックがすぐ見つかります。これを取り去るか縮小させれば表示速度改善につながりますね。とはいっても、このように差がはっきりしていないときもありますので、パフォーマンス初心者にとってはちょっと敷居高いかもしれません。&lt;/p&gt;
+
+&lt;h3 id=&#34;performance-analyzers&#34;&gt;Performance Analyzers&lt;/h3&gt;
+
+&lt;p&gt;GoogleつくったPage Speedというのものありますが、これ見た感じ文字ばっかて嫌になっちゃいますよね評価項目も細かいことばかりです。これはGoogleだからやっていることなので普通のサイトに当てはめるのはちょっと酷です。ということで、僕はこちらをお薦めします。YahooがつくったYSlowです。&lt;/p&gt;
+
+&lt;p&gt;13項目の視点からWebページをABCDEFの6段階でランク付けてくれます。これは良いですね。先程のPacket Sniffersは見たいに読み取る必要がないためです。総合評価がDと言われば次はCを目指そうと思うじゃないですか。各項目毎に評価してくれるのでちょっと見てみるとHTTPリクエストを減らしなさいよなどと注意されています。Componentsはページの部品・パーツがどのくらいの数ダウンロードされているのか教えてくれます。Statisticsはコンポーネントの種類毎の容量が全体でのどのくらいの割合を占めているのか円グラフで表示してくれます。どうでしょうか、分かりやすい機能でやる気になってきませんか？僕は勝手にやる気になってきたので日本の主要なサイトをYSlowで評価してみました。&lt;/p&gt;
+
+&lt;p&gt;D, E, Cとか低い評価が目立ちますよね、これは仕方ないのかもしれません。というのも大抵のパフォーマンスを意識していないサイトはDかEといった評価になります（Ruleset:Classic(V1)で）。Cぐらいになって初めてここはちょっとパフォーマンスを意識しているなと感じるくらいです。Aにいたっては僕は2サイトしか知らないですね。GoogleとYSlowを作った米Yahoo!です。&lt;/p&gt;
+
+&lt;p&gt;そのGoogleなんですが、シンプルなページだからA評価当たり前だよねと思っちゃいそうですが、実は裏側を見てみますと。10個以上あったアイコンはCSSスプライトで1つの画像にまとまっていたり、シンプルなページであるのにも関わらず、さらに改行など取り除いてHTMLを圧縮しているなどの努力が見られます。こういった面もYSlowなら見逃さず評価してくれます。&lt;/p&gt;
+
+&lt;p&gt;YSlowの使い方ですが、最初のインストールをしてしまえば、ほんの2,3ステップでチェックできるので、是非皆さんも、自分のサイト、競合他社、大手のサイトなどチェックしてみて自分がどういう位置にいるのか確認してみてください。&lt;/p&gt;
+
+&lt;p&gt;というわけで、計測できないものは改善のしようがないということです。つまり、何か対策を行って評価しなければ次につながりません。対策→評価→対策→評価、このサイクルを回していくことで自ずとパフォーマンスは向上していくでしょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;what-should-i-do-to-improve&#34;&gt;What should I do to improve?&lt;/h2&gt;
+
+&lt;p&gt;では、パフォーマンスを改善するために私たちは何をすべきなんでしょうか？ Yahoo!が出している高速サイトを実現するための14のルールは先程紹介したYSlowの評価項目に対応しているので、ハイパフォーマンスWebサイトの本と共に対策していけば良いでしょう。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;HTTPリクエストを減らす&lt;/li&gt;
+&lt;li&gt;CDNを使う&lt;/li&gt;
+&lt;li&gt;Expiresヘッダを設定する&lt;/li&gt;
+&lt;li&gt;コンポーネントをgzipする&lt;/li&gt;
+&lt;li&gt;スタイルシートは先頭に置く&lt;/li&gt;
+&lt;li&gt;スクリプトは最後に置く&lt;/li&gt;
+&lt;li&gt;CSS expressionの使用を控える&lt;/li&gt;
+&lt;li&gt;JavaScriptとCSSは外部ファイル化する&lt;/li&gt;
+&lt;li&gt;DNSルックアップを減らす&lt;/li&gt;
+&lt;li&gt;JavaScriptを縮小化する&lt;/li&gt;
+&lt;li&gt;リダイレクトを避ける&lt;/li&gt;
+&lt;li&gt;スクリプトを重複させない&lt;/li&gt;
+&lt;li&gt;ETagの設定を変更する&lt;/li&gt;
+&lt;li&gt;AJAXをキャッシュ可能にする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;さらにYSlowでA評価とった人のためにもっと細かい20のルールとしてこんなことも提示されています。&lt;/p&gt;
+
+&lt;p&gt;はたまた、Yahoo!に重複するところもありますが、GoogleのPerformance Best Practicesというのもあります。&lt;/p&gt;
+
+&lt;p&gt;てか、多いですよねｗ　Too Many!&lt;/p&gt;
+
+&lt;p&gt;これら全て対策しようと思ったらWebページのパフォーマンスがあがる前に、制作者のパフォーマンスがダウンしてしまいます。しかも、ほとんどの会社にはWebパフォーマンスを専門で担当する人なんていないと思います。僕もパフォーマンスばかりやってるわけではないですから。ここで重要なのは対策を闇雲にこなすのではなく、効果的なものから優先度をつけて順にやれるところから行っていくことです。つまり、使えるリソースは有限だということです。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Make Fewer HTTP Requests / HTTPリクエストを減らす&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ということで、今回最も有効な対策、一番始めに考えるべき対策としてこれを挙げます。今日はこれだけです。本当にこれだけです。先程の14の対策を紹介したのですが、14全てやれば100%パフォーマンスが改善されるのかというと、そうでもありません。先のルールは有効的な対策として考えられるものから列挙してあるので、一番最初に紹介されているHTTPリクエストを減らすに対応するだけサイトが50%も速く表示されるようになったと言うケースも報告されています。&lt;/p&gt;
+
+&lt;h3 id=&#34;what-s-http-requests&#34;&gt;What’s HTTP Requests?&lt;/h3&gt;
+
+&lt;p&gt;HTTPリクエストとはなんぞ？ってことですが、画像、スクリプト、スタイルシート、FlashなどのサーバーにHTTPプロトコルでサーバーにリクエストしているものですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;make-fewer-http-requests&#34;&gt;Make Fewer HTTP Requests&lt;/h3&gt;
+
+&lt;p&gt;HTTPリクエストを減らす方法としてハイパフォーマンスWebサイトの本では以下のようなことを挙げています。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Image Maps&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;うん、Webをまったく知らなかった大学生の頃に多用した。ボタンなどの画像を1個1個切り出すよりもまとめて1枚画像としたほうがリクエスト減らせますよと言うことです。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CSS Sprites&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;先程のGoogleのように、CSSを用いて一枚の画像を複数の画像のように見せることでリクエスト数を減らしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Inline Images&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;URLに画像データを長っい文字列として表現してそこから画像を生成するのでリクエストをしない。が多用するとコード量が増えるのが難点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Combined Scripts and Stylesheets&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;JSとかCSSファイルをモジュール毎に管理するのは良いのだけれど、パフォーマンス的にはそれら１個にまとめた方が良いよとのこと。（開発時はモジュールで管理してページ生成時に動的にファイルを結合するやり方もあるのでシステムさんに相談してみよう。modconcatとか）&lt;/p&gt;
+
+&lt;p&gt;というか、めんどくさいっすよねｗｗ なんでこんなめんどくさいことをやらなければいけないのか。 そうは思いませんか。僕は思います。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;アメリカのNASAは、宇宙飛行士を最初に宇宙に送り込んだとき、無重力状態ではボールペンが書けないことを発見した。これではボールペンを持って行っても役に立たない。NASAの科学者たちはこの問題に立ち向かうべく、10年の歳月と120億ドルの開発費をかけて研究を重ねた。その結果ついに、無重力でも上下逆にしても水の中でも氷点下でも摂氏300度でも、どんな状況下でもどんな表面にでも書けるボールペンを開発した！！&lt;br /&gt;
+一方ロシアは鉛筆を使った。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;似たような話でSpace Penという話がありますのでちょっと紹介。 ここで重要なのはボールペンという枠組みに固執することなく鉛筆という解を導き出したということです。今回のケースにおいてこの鉛筆にあたるのは何でしょうか？僕はデザインだと考えます。&lt;/p&gt;
+
+&lt;p&gt;つまり、デザイン・設計の段階からパフォーマンス意識すれば難しいことはしなくてもいいんです。最初からHTTPリクエストを増やすようなデザインにしなければいいんです。&lt;/p&gt;
+
+&lt;p&gt;じゃなぜ、HTTPリクエスト一杯のデザインになってしまうのでしょうか？そう考えたときに、僕の短いWebデザイナー人生とネットサーフィンをしてて思うサイト制作者が陥りやすい3つの欲求としてこんなことが挙げられるんではないかと思います。自分も含めて。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;目立たせたい！&lt;/strong&gt;&lt;br /&gt;
+あれやこれやと目立たせることで画像だらけになってリクエストが増えてしまう。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;多機能にしたい！&lt;/strong&gt;&lt;br /&gt;
+あれやこれやと機能を付加することでJSファイルの読み込みすぎといったことが考えられます。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;とりあえず、全部載せたい！&lt;/strong&gt;&lt;br /&gt;
+あれやこれやと自サイトのセールスポイントを挙げてしまい長大なページになってリクエストも増える。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4839914192/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51RNR0CRG8L._SL160_.jpg&#34; alt=&#34;ウェブ戦略としての「ユーザーエクスペリエンス」―5つの段階で考えるユーザー中心デザイン (Web designing books)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4839914192/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ウェブ戦略としての「ユーザーエクスペリエンス&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.18&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Jesse James Garrett,ソシオメディア&lt;br /&gt;毎日コミュニケーションズ&lt;br /&gt;売り上げランキング: 155875&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4839914192/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;これらを考える上で、Jesse James Garrettの5 Planes Modelをフレームワークとして使うと、第1の目立たせたい！は表層、骨格に当たる問題だと考えます。&lt;/p&gt;
+
+&lt;h3 id=&#34;目立たせたい&#34;&gt;目立たせたい！&lt;/h3&gt;
+
+&lt;p&gt;そもそも目立つとは何なのでしょうか。目立つ目立たないは周りとのオブジェクトの対比であって、必ずしも画像にすれば良いというわけでありません。&lt;/p&gt;
+
+&lt;p&gt;このCaseのようにさまざまなステークホルダーが主張を通した結果、1ページに沢山の画像が溢れています。このようなページが本当に制作側の思い通り、見られるのか検証してみる必要あります。Feng-GUIという人間の視覚の動きをシミュレートしてくれるサービスがあるので、先程のページデザインをシミュレートしてみると、全ての画像が目立っていないことが分かります。&lt;/p&gt;
+
+&lt;p&gt;また、本当に画像にすれば目立つのかという疑問が僕の中で大きかったので実験してみました。自分のブログにて、右上部に「CSS Nite 石川に出ることになりました」というバナーを置いて、テキストリンク・画像ボタンで「詳細はこちら」表現したものを比較してみました。結果、テキストリンクで表示したほうが画像ボタンに比べて、90%以上多くクリックされました。&lt;/p&gt;
+
+&lt;p&gt;また、クックパッドのプレミアム会員への入会導線比較においても、バナー画像よりも、テキストリンクの方が3倍の効果を挙げたというデータが出ています。文脈（このケースの場合、プレミアムサービスに検索結果の並べ替えが含まれていたので、検索結果ページでの誘導が効果を発揮したということが分かる）を理解すれば必ずしも画像にする必要はないということが分かります。&lt;/p&gt;
+
+&lt;p&gt;つまり、デザインというのはデコレーションではありません。大事なのはコンテンツです。厚化粧することコンテンツを見えにくくしてはいけません。デザインというのはコンテンツをうまく伝えるための最適な手段を考えることです。&lt;/p&gt;
+
+&lt;h3 id=&#34;多機能にしたい&#34;&gt;多機能にしたい！&lt;/h3&gt;
+
+&lt;p&gt;骨格、構造、要件、多岐にわたる要素を含んでいます。この背景にはjQueryやPrototype.jsなどのAJAXライブラリが普及してきたことによって、Webデザイナーでも比較的簡単にインタラクティブなサイトを制作できるようになってきたことが考えられます。&lt;/p&gt;
+
+&lt;p&gt;また、個人レベルにおいてもブログパーツの浸透などで、安易にブログパーツは貼り付けていけば、それに伴いJSファイルなどの増加の危険性が考えられます。自分のブログが何位だとかそういった自己顕示欲を主張するパーツなどはどんどん取り去っていけば良いのですが、リッチインタラクションと呼ばれる部分は難しいものがあります。&lt;/p&gt;
+
+&lt;p&gt;カルーセル、アコーディオン、ドラッグ&amp;amp;ドロップなどのリッチインタラクションはある人にとっては便利と感じるかもしれません、しかしある人にとってはよく分からないと映るかもしれません。何を採用して何を採用しないか判断するためにはウェブ解析をする必要あります。&lt;/p&gt;
+
+&lt;p&gt;Google Analyticsであなたのサイトのユーザーが使っているブラウザが何なのか分かります。もし、IE6などの古いブラウザのユーザーが大半ならば、リッチインタラクションを実現するためのJSファイルでブラウザがもたつくかもしれません。そうゆう場合はやめておいたほうが無難でしょう。&lt;/p&gt;
+
+&lt;p&gt;Google Website Optimizerでは先程のバナーテストのように多変量テスト、A/Bテストが可能です。テストした結果、リッチインタラクションがあったほうが、コンバージョン率がいいというのなら採用しても良いかもしれません。&lt;/p&gt;
+
+&lt;p&gt;User HeatはFeng-GUIのように大まかなヒートマップを作成してくれます。もし、該当の機能部分がまったく見向きもされていなければ、素直に外しておきましょう。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;何かを追加するのと、価値を追加するのはまったく別のことです。我々の仕事は価値を提供しているでしょうか。ときとして価値を追加することは何かを取り去ることでもあります。フライドポテトにケチャップをかけすぎればだいなしになります。価値とは加えることと取り去ることのバランスなのです。―&lt;a href=&#34;http://www.ideaxidea.com/archives/2008/03/37_signals.html&#34;&gt;37 Signalsが仕事中に自問していること&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;何かを追加すれば、誰からしらの役に立つから良いのではないかと考えがちですが、37Signalsも自問していることに、”価値とは加えることと取り去ることのバランスなのです”とあるように、時としては引き算をすることで価値を増やせることも可能なのです。&lt;/p&gt;
+
+&lt;p&gt;結局はユーザーが何を欲しているのか、聞かなければなりません。Webデザイナーであろうとも、ウェブ解析ツールなど使うことで（今回紹介したツールはすべて無料）ユーザーのフィードバックを得ることできます。そして、無用な機能を実現するためのリクエストを削減することができます。&lt;/p&gt;
+
+&lt;h3 id=&#34;とりあえず-全部載せたい&#34;&gt;とりあえず、全部載せたい！&lt;/h3&gt;
+
+&lt;p&gt;これは要件、戦略にあたる内容でしょうか。長すぎるページというのが存在します。果たして、このようなページは本当に読まれているのでしょうか？Click Tale社の調査によると、ページの露出は上部から540pxを境に急激に下降しており、ユーザーが流し読みしていることが考えられます。なぜユーザーは流し読みするのでしょうか。Jakob Nielsenは以下のことを挙げています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コンピュータ画面で読むのは目が疲れる。&lt;/li&gt;
+&lt;li&gt;ウェブはユーザ主導型のメディアである。&lt;/li&gt;
+&lt;li&gt;他の何億ものページと競争しなくてはならない。&lt;/li&gt;
+&lt;li&gt;現代生活はあわただしい。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;読まれないのなら読まれないで結構なのですが、Webサイトが存在する以上、なんらかのビジネスゴール：サイトの目的、ページレベルで言えば、してほしいアクションがあると思います。企業サイトであれば、資料請求のボタンを押すとかEコマースサイトならば商品をカートに入れるなどのアクションが考えられます。そういったアクションが長大なページの中に存在すれば、コンバージョンを下げる可能性も出てきます。&lt;/p&gt;
+
+&lt;p&gt;決断に要する時間は、選択肢が増えるほど長くなる。 ヒック・ハイマンの法則&lt;/p&gt;
+
+&lt;p&gt;つまり、目的を分割する必要があります。この辺はiPodの戦略がうまいかと思います。iPod, iTunes, iTunes Storeで目的を分けることで最適なエクスペリエンスを提供しています。考えてもみれば、iPodの小さな画面で曲名なんて編集したくないですよね。&lt;/p&gt;
+
+&lt;p&gt;Webサイトも同じで1ページ 1テーマ 1スクリーンを心がけることで、サイト制作者はユーザーに伝えたいことをより正確に伝えられるわけで、ユーザーもより理解が早くなる。そしてHTTPリクエストが必要以上に増えることもない。そのためには自分がサイトで何を伝えたいのか、ユーザーにどうしてほしいのか考えることで無駄をそぎ落とすことが可能です。&lt;/p&gt;
+
+&lt;p&gt;結局は人は求める結果が利益となると思うのなら待つのです。おいしいと評判のお店があると聞いたら並んで待つでしょ？僕もFlashの神様と言われる中村勇吾さんが制作したFlashサイトなら3分でも待ちますよ。&lt;/p&gt;
+
+&lt;p&gt;しかし、一般的に、ユーザーが検索でたまたま見つけたサイトでは、あなたのサイトが本当は素晴らしいモノを提供していてもユーザーはその時点では知らないのです。ですので、そこで機会損失してしまうよりかはパフォーマンスをできる限り向上させておくのが吉となるのではないでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;パフォーマンスは収益やUXに大きく影響します。YSlowという計測ツールを手に入れました。パフォーマンスを上げるためにHTTPリクエストを減らすことが最優先事項です。そのためにはサイトで何をしたいのか、明確な目標を定めることが必要です。そうすれば、一貫性のあるデザインをすることができ、簡潔なコードにつながり、ハイパフォーマンスWebサイト！みんなHAPPY！&lt;/p&gt;
+
+&lt;p&gt;ありがとうございました。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Design Fast Websites</title>
+            <link>https://t32k.me/mol/log/design-fast-websites/</link>
+            <pubDate>Wed, 24 Dec 2008 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/design-fast-websites/</guid>
+            <description>
+
+&lt;p&gt;『&lt;a href=&#34;http://www.atmarkit.co.jp/news/analysis/200812/22/chrome.html&#34;&gt;Chromeはなぜ速いのか&lt;/a&gt;』の記事が話題になっていて、少し内容がリンクしていたので紹介する。YSlowでおなじみのYahoo! Performance Teamのスライドだ。&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/658403&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;p&gt;パフォーマンスに関するデザインの話なので、興味があった。まず、なぜパフォーマンスを意識しなければならないのか？ということに関して3つの理由を挙げている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Because fast is better&lt;/li&gt;
+&lt;li&gt;Because sites are bigger&lt;/li&gt;
+&lt;li&gt;Time is money&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1つ目は、速いは正義。Webを速く表示することで誰も困らない。 2つ目は、年々Webサイトは大容量化してるそうだ。Ajaxを使ったWebアプリケーション、ディスプレイの大型化に伴うサイトのワイド化など考えられる。 3つ目、時は金なりということで、以下のようになっている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;+100ms Amazon : 1% drop in sales&lt;/li&gt;
+&lt;li&gt;+400ms Yahoo! : 5-9% drop in full-page traffic&lt;/li&gt;
+&lt;li&gt;+500ms Google : 20% fewer searches&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Amazonで0.1秒遅くなれば、1%売り上げが落ち、Yahoo!で0.4秒遅くなれば、全ページで5~9％のトラフィックが減少し、 Googleで0.5秒遅くなれば、検索数が20%落ちるそうだ。&lt;/p&gt;
+
+&lt;p&gt;Web開発の理念としては：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デザインに敬意を払いなさい&lt;/li&gt;
+&lt;li&gt;デザイナーは私たちのコードを内側から見たときと同じくらいに美しく巧みなビジュアルにしてくれる&lt;/li&gt;
+&lt;li&gt;元のデザインビジョンを尊重しなさい（一貫したデザインはクリーンなコードを生み、それがサイトを早くする）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などのようなことを挙げられている。&lt;/p&gt;
+
+&lt;p&gt;9つの実践としては、 あんまりというかほとんど聞き取れなかったので話半分に。&lt;/p&gt;
+
+&lt;h4 id=&#34;1-スマートなオブジェクトのコンポーネントライブラリを作りなさい&#34;&gt;1. スマートなオブジェクトのコンポーネントライブラリを作りなさい&lt;/h4&gt;
+
+&lt;p&gt;これはそのままだね。レゴを作るかのようにモジュールを決めて冗長性を避けるってこと。&lt;/p&gt;
+
+&lt;h4 id=&#34;2-セマンティックなスタイルを一貫して使用しなさい&#34;&gt;2. セマンティックなスタイルを一貫して使用しなさい&lt;/h4&gt;
+
+&lt;p&gt;意味に即したスタイルを指定しなさいということかな。見出しなのに、10pxなんてありえないだろみたいな。&lt;/p&gt;
+
+&lt;h4 id=&#34;3-透明になるように-内部で-モジュールをデザインしなさい&#34;&gt;3. 透明になるように（内部で）モジュールをデザインしなさい&lt;/h4&gt;
+
+&lt;p&gt;透過画像を使ってうまくデザイン要素を組み合わせることかな。&lt;/p&gt;
+
+&lt;h4 id=&#34;4-画像の最適化とcssスプライト&#34;&gt;4. 画像の最適化とCSSスプライト&lt;/h4&gt;
+
+&lt;p&gt;この辺はsmush it!なんか使って画像を最適化しろみたいな内容。&lt;/p&gt;
+
+&lt;h4 id=&#34;5-非標準のブラウザのフォントを避けなさい&#34;&gt;5. 非標準のブラウザのフォントを避けなさい&lt;/h4&gt;
+
+&lt;p&gt;これはブラウザに搭載していないフォントを使いたいがために画像で書き出すことをやめろというのか、それともほんとに、font-familiyでマニアックな書体を指定するなってことかな。よく聞き取れなかった。&lt;/p&gt;
+
+&lt;h4 id=&#34;6-行よりも列-コラム-を使用しなさい&#34;&gt;6. 行よりも列（コラム）を使用しなさい&lt;/h4&gt;
+
+&lt;p&gt;rows これも、CSSでは縦のラインは合わせられるけど、水平ライン（ボックスの高さ）を合わせようとしたら、JavaScriptとか使わなきゃいけないから、コラムレイアウトの方がいいよーみたいなことだと思う。&lt;/p&gt;
+
+&lt;h4 id=&#34;7-キラキラなデザインは慎重に採用しなさい&#34;&gt;7. キラキラなデザインは慎重に採用しなさい&lt;/h4&gt;
+
+&lt;p&gt;いわゆる Web 2.0 的なグラデーションを多用すれば画像サイズも膨らむし、本当にターゲットとしたユーザーが必要としているのか考えるべき。&lt;/p&gt;
+
+&lt;h4 id=&#34;8-フレキシブルに&#34;&gt;8. フレキシブルに&lt;/h4&gt;
+
+&lt;h4 id=&#34;9-グリッドを愛することを学びなさい&#34;&gt;9. グリッドを愛することを学びなさい&lt;/h4&gt;
+
+&lt;p&gt;グリッドレイアウトの方がコンテンツの追加・削除が容易なんだと思う。 それでコードをクリーンに保てるんだと思う。&lt;/p&gt;
+
+&lt;p&gt;とまぁ、こんな感じの内容のプレゼン（適当）&amp;hellip;&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg&#34; alt=&#34;続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;続・ハイパフォーマンスWebサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.9&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Steve Souders,武舎 広幸,福地 太郎,武舎 るみ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 364143&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
