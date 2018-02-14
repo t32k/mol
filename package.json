@@ -1,6 +1,6 @@
 {
   "name": "mol",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Powered by [Hugo](http://gohugo.io/). Hosted by [GitHub Pages](https://pages.github.com/).",
   "main": "index.js",
   "scripts": {
