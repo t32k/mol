@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/design/</link>
+        <language>ja</language>
+        
+        
+        <updated>Mon, 04 Jan 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>デザインの秘訣はまずは気づくこと</title>
+            <link>https://t32k.me/mol/log/the-first-secret-of-design-is-noticing/</link>
+            <pubDate>Mon, 04 Jan 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/the-first-secret-of-design-is-noticing/</guid>
+            <description>&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;https://embed-ssl.ted.com/talks/tony_fadell_the_first_secret_of_design_is_noticing.html&#34; frameborder=&#34;0&#34; scrolling=&#34;no&#34; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ted.com/talks/tony_fadell_the_first_secret_of_design_is_noticing?language=en&#34;&gt;Tony Fadell: The first secret of design is &amp;hellip; noticing | TED Talk | TED.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ときどき、使えないUIデザインのWebサービスに触れていると、中のデザイナーはなにをやってるんだ！と思うことがある。しかし、実際の中の人になるといろんなしがらみや諸事情により仕方がないと諦めてることが多々ある。&lt;/p&gt;
+
+&lt;p&gt;10年以上続いてるWebサービスでデザイナーをしていた自分にとっても他人事ではなかった。問題意識があってできていないのならまだ良いほうで、それが当たり前だとなんの疑問も思っていなかったら最悪だ。新米デザイナーのときに必要以上に熱くデザインの理想を追っていた時代から、いつのまにか事なかれ主義になって、そのどうしようもないデザインが当たり前だと思い込んではなかっただろうか。&lt;/p&gt;
+
+&lt;p&gt;これはなにもデザインだけの話ではない。例えば僕はしがないHTML/CSSコーダーなのでバックエンドのことはからっきしだ。エンジニアさんから言われるがままにmysqlのコマンドを打ってる。そこに疑問はないと言ったら嘘になる。なんでこんな念仏みたいないろいろコマンド打たなきゃいけないんだとか。&lt;/p&gt;
+
+&lt;p&gt;AppleでデザイナーをしていたTony Fadell氏の講演（上記の動画）は、そういった当たり前になる・習慣化した事象を見つけるためのヒントをくれる。そして、「そういうものなのだ」と思っていることにこそ、もっと良くなるチャンスが隠されている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;視野をより広げる&lt;/li&gt;
+&lt;li&gt;より近くで見る&lt;/li&gt;
+&lt;li&gt;より若く考える&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁこのようなことを言ってるのだけど、当たり前のことを当たり前じゃないことに気づいて、新たな解決法が次の当たり前になる。デザインってすごくanonymousだなと10年ぶりくらいに大学の先生が言ってたことを思い出した。&lt;/p&gt;
+
+&lt;p&gt;まずは気づくこと、そして声をあげること、さらに実装（解決）力も持っていたら君は最高のデザイナーになるじゃないかな。新年早々よい刺激を受けた。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Sublime Text Icon 2014</title>
+            <link>https://t32k.me/mol/log/sublime-text-icon-2014/</link>
+            <pubDate>Fri, 12 Dec 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/sublime-text-icon-2014/</guid>
+            <description>
+
+&lt;p&gt;今日はSketchを使ってYosemiteライクなアイコンを作ってみようって話です。&lt;/p&gt;
+
+&lt;p&gt;今年の5月に&lt;a href=&#34;https://t32k.me/mol/mol/log/sketch3/&#34;&gt;Sketch3ハジメマシタ&lt;/a&gt;って言っておきながら、それ以来まったくSketchを使ってなかったことを反省したので、最近、&lt;a href=&#34;http://www.sketchcasts.net/&#34;&gt;SketchCasts&lt;/a&gt;を見ながら勉強してました。余談ですが、SketchCastsは月$8でSketch.appの使い方をスクリーンキャストで学習できるサービスです。やっぱ実際に動かす・制作してるとこ見るのが一番理解が速いと思います。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、ひと通り使い方を学習したので何を作ろうかなと思いまして、そういえば、昔&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;のアイコン作ったなーと思いだしまして、それをリデザインしてみようかと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2012/12/icon2.jpg&#34; alt=&#34;旧バージョン&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/present-for-you/&#34;&gt;Sublime Text 2 のアイコンをなんとかする — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のアイコンですが、2年前に作った、いわゆるスキューモーフィズムっぽいやつで、しかもiOSのアイコンベースにしていたので、デスクトップアプリのアイコンとして使うにはなんだか野暮ったいです。もっと現代っぽくしたいです。もっとフラットっぽくしたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;yosemite&#34;&gt;Yosemite&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://martiancraft.com/blog/2014/07/inspecting-yosemite-icons/&#34;&gt;Inspecting Yosemite&amp;rsquo;s Icons&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最新のYosemiteのアイコンの仕様に関しては上記の記事を読むと良いです。僕は読んでないですが、とりあえずはなんかガイドラインが引いてあるテンプレートみたいなものがあるのだろう、そしてそれに沿って作れば、それっぽくなるんじゃね？って思い探してみました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sketchappsources.com/free-source/630-os-x-yosemite-icon-grid-sketch-freebie-resource.html&#34;&gt;OS X Yosemite Icon Grid Sketch freebie - Sketch App Sources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sketchappsources.com/free-source/563-osx-yosemite-icons-sketch-freebie.html&#34;&gt;Apple OS X Yosemite Icons Sketch freebie - Sketch App Sources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;はい、ありました。Sketchのこうゆうエコシステムはほんと素敵ですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-16-fig01.jpg&#34; alt=&#34;新バージョン&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとはガイドにそって光源とか注意してあまりゴテゴテしないようにすれば、できあがりです♪&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/sublime-text-icon&#34;&gt;t32k/sublime-text-icon - GitHub&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ダウンロードは上記からどうぞ。自分でも作ってみたいって方は上記のレポジトリをフォークして作ってみるといいよ。Sketchファイルも入ってるよ。なんだか人にSketchファイルの中見られるの恥ずいですな(ﾉ´∀｀*)&lt;/p&gt;
+
+&lt;h2 id=&#34;icns&#34;&gt;ICNS&lt;/h2&gt;
+
+&lt;p&gt;あとファイルを作るときに、下記のオンラインツールを作ってたんだけど、どうも高解像度のアイコンが生成されなくて、Appleの標準のICNSファイル見たら10サイズあったのだけど、オンラインだと5サイズしか生成されなかったので、&lt;a href=&#34;https://itunes.apple.com/us/app/iconvert-icons/id515197296?mt=12&amp;amp;ign-mpt=uo%3D4&#34;&gt;Macアプリ&lt;/a&gt;買ったらちゃんとフルサイズ作れました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://iconverticons.com/online/&#34;&gt;Online icon converter for png, ico, and icns - iConvertIcons&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで知ったけど、&lt;code&gt;iconutil&lt;/code&gt;ってコマンドで作成できるらしい！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/iconutil.1.html&#34;&gt;iconutil(1) Mac OS X Manual Page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで知ったけど、Sketchのプラグインがあった！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NathanRutzky/Generate-ICNS&#34;&gt;NathanRutzky/Generate-ICNS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで知ったけど、作ってるアイコンをすぐさまDockでプレビューできるプラグインもあるよ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fnky/sketch-dockpreview&#34;&gt;fnky/sketch-dockpreview&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Sketch3ハジメマシタ</title>
+            <link>https://t32k.me/mol/log/sketch3/</link>
+            <pubDate>Fri, 16 May 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/sketch3/</guid>
+            <description>
+
+&lt;p&gt;こんちわ、無職のt32kさんだよ。今日は職を失ってお金もないのでAdobe Creative Suiteに代わるソフトを探そうって話だ。そうゆうことで、いま世間を騒がしている&lt;a href=&#34;http://bohemiancoding.com/sketch/&#34;&gt;Sketch.app&lt;/a&gt;を触ってみたよ。&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;//player.vimeo.com/video/93348231&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;Sketchってどんなソフトかはこもりさんの紹介動画を見てみるとよい。ついでに、こもりさんが書いている『Sketch 3 Book for Beginner』電子書籍も買っておくとスタートダッシュが決めれると思う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://gumroad.com/l/QOto&#34;&gt;Sketch 3 Book for Beginner w/ Video&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;電子書籍ならではというか、Sketch.app自体の更新も速いので、電子書籍も随時アップデートされているし、説明動画もついているので分かりやすい。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、5/13に&lt;a href=&#34;http://kokemusazu.com/&#34;&gt;こけむさズ&lt;/a&gt;で行われたSketch3勉強会にも行ってきた。勉強会は最初こもりさんからSketch.appの概要を説明してもらって、後半はこもりさんの画面操作を見ながら自分でも動かしてみるってスタイルだった。なにせ、&lt;a href=&#34;https://github.com/timuric/Content-generator-sketch-plugin&#34;&gt;Content-generator-sketch-plugin&lt;/a&gt;ハンパない！&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、やはりこれは来る！というSublime Textが出てきた頃のような感覚を得た。特に僕が気に入ったのは以下の2つの点だ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keynote.appっぽい&lt;/li&gt;
+&lt;li&gt;エコシステムができてる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;keynote-appっぽい&#34;&gt;Keynote.appっぽい&lt;/h2&gt;
+
+&lt;p&gt;普段一番使用しているソフトといえばSublime Textだろうか。まぁテキストエディタは使うよね、ってことで次に使うソフトはプレゼンなどで重宝しているKeynote.app。プレゼンだけでなく簡単な企画書的なものを作成するのにも使っているので、このインターフェイスに僕は慣れている。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/05-16-fig02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;たいして、Sketch.appはどうだろう。UIはクリソツである。それもそのはずで、SKetch.appはQuartzであったりCocoaであったりMacの技術に強く依存しているので、Mac標準ソフトとUIが同じである。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Is Sketch available for Windows or Linux&lt;/strong&gt;&lt;br /&gt;
+Sketch relies on a lot of technology that is exclusive to OS X and the fact that no other OS provide a clear business model for software development, we&amp;rsquo;re not considering supporting it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bohemiancoding.com/sketch/support/faq/02-general/5-windows.html&#34;&gt;Bohemian Coding - Default&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こんなこと言ってるくらいなのでWindows用とか当分出てこないよね。。。&lt;/p&gt;
+
+&lt;p&gt;まぁKeynote.appはあくまでプレゼンソフトなのでレイアウト機能が弱かったりするが、Sketch.appはそこを上手くカバーしている。Make Gridであったり、Show Layoutなどは欠かせない機能といえるだろう。SymbolとかShared Style、Shared Textみたいなスタイルが共有されるシステムも有していてすごく便利である。&lt;/p&gt;
+
+&lt;p&gt;世間的には、Illustratorの代替であったりFireworksの代替と表されるSketch.appであるが、個人的にはKeynote.appの延長線上だと認識するのが一番しっくりきている。&lt;/p&gt;
+
+&lt;p&gt;Fireworksは使ったことないから分かんないけど、やっぱりパスのコントロールとかは細かいとこでは現時点ではIllustoratorのほうが使いやすかったりする。けどもKeynote.appの延長だと考えれば上出来な結果と言える（お値段もほどほどだし）、さらにWebサイト制作に便利な機能も豊富だし満足している。最近のフラットデザインっぽいシンプルなデザインのサイト・アプリならSketch3の機能で十分まかなえるじゃないかな。&lt;/p&gt;
+
+&lt;h3 id=&#34;エコシステムができてる&#34;&gt;エコシステムができてる&lt;/h3&gt;
+
+&lt;p&gt;足りない機能、IllustratorでできるのにSketch3でできないの？って機能はプラグインを探してみるといいだろう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sketchplugins/plugin-directory&#34;&gt;sketchplugins/plugin-directory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sketchpack.in/&#34;&gt;Sketch App Plugin Registry - Sketchpack.in&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHubにいっぱいまとめてある（レジストリも最近できた！）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mkdown.com/ccfa37b1bf412aca28c8&#34;&gt;こもりプラグインリスト&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみにこもりさんお墨付きのプラグインリストは上記。プラグインだけじゃなくて、自分たちが作ったテンプレートであったりUIコンポーネントも投稿できるサイトがある。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/05-16-fig01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sketchappsources.com/&#34;&gt;Sketch App Sources - Free graphical resources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;オープンソースとまで言わないが、比較的安価なソフトなのでいろんな人が使って便利なものやクールなものを共有していて、エンジニアっぽい文化が好きだ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sketchshortcuts.com/&#34;&gt;Keyboard Shortcuts for Sketch App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/sketch-app/6681ae0b118a&#34;&gt;Import web pages into Sketch — .Sketch App — Medium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こんなのもある（ショートカットバンバン使いこなしたい）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bohemiancoding.com/sketch/tool/&#34;&gt;Bohemian Coding - SketchTool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとは、SketchToolというコマンドラインからエクスポートできるツールがあって、これとか&lt;a href=&#34;https://github.com/layervault/psd.rb&#34;&gt;psd.rb&lt;/a&gt;みたいにSketchファイルのデータを将来的に読み込めれるようになったら面白いよなーと勝手に妄想している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/CodeCatalyst/grunt-sketch&#34;&gt;CodeCatalyst/grunt-sketch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cognitom/gulp-sketch&#34;&gt;cognitom/gulp-sketch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;grunt/gulpのプラグインもある！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bohemiancoding.com/sketch/support/developer/&#34;&gt;Bohemian Coding - Sketch Developer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみに、Pluginの開発に関しては&lt;del&gt;&lt;a href=&#34;http://jstalk.org/&#34;&gt;JSTalk&lt;/a&gt;っていう&lt;/del&gt;（v3.0.2からは&lt;a href=&#34;https://github.com/sketchplugins/cocoascript-migration/&#34;&gt;CocoaScriptで開発するとのこと&lt;/a&gt;）JSからCocoaライブリにアクセスできるやつを使うらしい。ちょっと慣れないけど、JSなら作れないこともない！やるっきゃない！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://framerjs.com/&#34;&gt;Framer – A prototyping toolkit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bomberstudios/sketch-framer&#34;&gt;bomberstudios/sketch-framer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あと、現時点ではPhotoshopしか正式対応してないけど、Framer.jsってのを使うと、PSDとかsketchファイルからビューファイルを作ってくれるのもあったりするので今後に期待したい。&lt;/p&gt;
+
+&lt;p&gt;というわけで、Sketch.app使うとデザイナーだけでなくエンジニアの方も、みんながハッピーになれる可能性を持っているソフトなんじゃないかなと思うのでした。&lt;/p&gt;
+
+&lt;p&gt;[追記]&lt;/p&gt;
+
+&lt;p&gt;Sketchプラグインつくりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/my-sketch-plugin/&#34;&gt;Material Design Color Paletteプラグインつくった - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Sublime Text 2 のアイコンをなんとかする</title>
+            <link>https://t32k.me/mol/log/present-for-you/</link>
+            <pubDate>Tue, 25 Dec 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/present-for-you/</guid>
+            <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.adventar.org/calendars/20&#34;&gt;Sublime Text 2 Advent Calendar 2012&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;とりあえず作ってみました！ Sublime Text 2に関することであれば何でもOKです。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ということで、Advent Calendarでは与えられたテーマから外れた内容で記事を書くことに定評のある&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;がラストを飾ってやんよ(o°3°b)b&lt;/p&gt;
+
+&lt;p&gt;私、恥ずかしながらSublime Textのプラグインを作ろうと思ってもPythonも書けない最下級サブライムテキスターなので、そんな僕でもいつかはPythonとかRubyとかSublime Textで書きたいと思うわけです。そこで今はその悔しい気持ちをアイコンにぶつけるわけです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2012/12/st2.jpg&#34; alt=&#34;現実&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ST2のアイコンですけど、まぁそんなに、いまいち、いわんや、それほど、ましてや、はたまた、それでいて、かっこよろしくないわけですね。なんだろう色かなぁ、角度？形状？S?&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、こう思っているのは万国共通なのか「&lt;a href=&#34;https://www.google.co.jp/search?hl=ja&amp;amp;amp;safe=off&amp;amp;amp;tbo=d&amp;amp;amp;q=sublime+text+icon+replacement&amp;amp;amp;oq=sublime+text+icon&amp;amp;amp;gs_l=serp.3.2.0j0i30l4j0i8i30l3j0i5i30l2.2066.2066.0.3949.1.1.0.0.0.0.123.123.0j1.1.0...0.0...1c.1.2aW1JbqCr-s&#34;&gt;Sublime text icon replacement&lt;/a&gt;」なんかでググりますと、いろいろ出てきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jerodsanto.net/2012/01/sublime-text-2-icon-replacement-roundup/&#34;&gt;Sublime Text 2 Icon Replacement Roundup | Jerod Santo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;世界中のデザイナーが作品を投稿するSNSサイト「Dribbble」でも検索してみるといろいろ出てきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dribbble.com/search?q=sublime+text&#34;&gt;Dribbble - Show and tell for designers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;既存のアイコンをブラッシュアップしたもの、「S」をモチーフにしたもの、「Lime」をモチーフにしたもの、やたらシンプルなもの、いろいろです。ここで自分のお気に入りのアイコン、DLできるアイコンが見つかれば問題ないのですが、これじゃ満足できないなんでも欲しがる子はやっぱり自分で作るしか無いわけです。&lt;/p&gt;
+
+&lt;h2 id=&#34;the-icon&#34;&gt;The Icon&lt;/h2&gt;
+
+&lt;p&gt;自分でSublime Textアイコンを作る前に、アイコンの予習をば。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2012/12/insta1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;なにごとも、最初からオリジナルなものを作るのは難しいです。プログラミングでもそうでしょ？最初は良いコードを写経するもんでしょ？なので、僕も勉強がてらinstagramのアイコンとか写経してみました。いろいろ詰めが甘いですが、光の付け方とかこーすればそれっぽく見えるんだなとか一回やってみるといろいろ勉強になります。&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34; http://iosicongallery.com/&#34;&gt;iOS Icon Gallery | iOS Icon Design Gallery&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://app-icons.net/&#34;&gt;APP icons &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のサイトとか見てると綺麗なアイコンがいっぱいでテンションあがります。ただ、こういったところにあがっているものを最初から作れるわけないので（&lt;a href=&#34;http://dribbble.com/shots/200993-Boxing-Glove-App-icon&#34;&gt;こうゆうのとか&lt;/a&gt;どっから手を付けたらよいかわかりません＞＜）、部分的にパクるとか、Psdtuts+などでは比較的簡単な、よく使われる表現のチュートリアルがあるので、そういったものをやってみて表現できるボキャブラリーを増やしていけばよいと思います。
+&lt;ul&gt;
+    &lt;li&gt;
+&lt;p style=&#34;display: inline !important;&#34;&gt;&lt;a href=&#34;http://psd.tutsplus.com/tutorials/icon-design/mobile-app-icon/&#34;&gt;Create a Mobile App Icon in Photoshop | Psdtuts+&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://psd.tutsplus.com/tutorials/icon-design/create-a-camera-lens-icon-in-photoshop-screencast/&#34;&gt;Create a Camera Lens Icon in Photoshop – Screencast | Psdtuts+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Sublime Text Icon&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/dmatarazzo/Sublime-Text-2-Icon&#34;&gt;&lt;strong&gt;dmatarazzo/Sublime-Text-2-Icon · GitHub &lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+さて、Sublime Textのアイコンを作っていきますか。幸いにもひな形というか、Sublime Textで必要となるフォーマットは上記のGitHubからフォークすることできます。なるほどデザインデータもGitHubで管理する時代ですかなるほど(・ω&amp;lt;) ご丁寧にもPSDデータまであるので、見てみますと512pxサイズで作っておけばあと問題ない感じですかね。&lt;/p&gt;
+
+&lt;p&gt;個人的にはテキストエディタのアイコンなので、テキストブック&amp;hellip;ブック&amp;hellip;.本( ・∀・)!!みたいなアイコンにしたいと思いました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-4622&#34; src=&#34;https://t32k.me/mol/static/blog/2012/12/icon1.jpg&#34; alt=&#34;icon1&#34; width=&#34;900&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon&#34;&gt;https://github.com/t32k/Sublime-Text-2-Icon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+最初に作ったのこれ。縫い目の表現をしたかったので個人的に満足したのですけれどもロゴマーク的（S）なものがしっくりきてないのと、iOSアイコンのテンプレートで作ってるのMac Appアイコンとして見てると少し平べったい印象です。&lt;/p&gt;
+
+&lt;p&gt;なんかもうちょっとモッコリしてみたいなと思ったのと、本の「地」みせた感じのあの表現やってみたいなと思ってぐぐってみるてると、見つけました。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://dmonzon.com/freebies/book-icon-template/&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-4630&#34; title=&#34;book&#34; src=&#34;https://t32k.me/mol/static/blog/2012/12/book.jpg&#34; alt=&#34;&#34; width=&#34;900&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;
+&lt;p style=&#34;display: inline !important;&#34;&gt;&lt;a href=&#34;http://dmonzon.com/freebies/book-icon-template/ &#34;&gt;Book Icon Template&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+おお！アレアレ！ということですが、これをそのまま使うのは芸がないので変えてみましょう。なんかいいのないかなと思ったら手元に&lt;a href=&#34;http://www.moleskine.co.jp/&#34;&gt;某有名なメモ帳&lt;/a&gt;があったのでこれを真似てみましょう。
+
+なんでこんなにテカってる本なのでしようね、テクスチャを落ち着いたレザーに変えたいものです。
+&lt;ul&gt;
+    &lt;li&gt;
+&lt;p style=&#34;display: inline !important;&#34;&gt;&lt;a href=&#34;http://subtlepatterns.com/&#34;&gt;Subtle Patterns | Free textures for your next web project&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ということで、いつもテクスチャ系でお世話になってるのが上記のサイトでSubtleというだけあって主張し過ぎない、ギラつかない、いい感じのテクスチャがいっぱいあります。
+
+&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-4623&#34; src=&#34;https://t32k.me/mol/static/blog/2012/12/icon2.jpg&#34; alt=&#34;icon2&#34; width=&#34;900&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+&lt;p style=&#34;display: inline !important;&#34;&gt;&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine&#34;&gt;https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+で、ちょいちいといじりますとこんな感じに出来上がりました。
+
+あとは、出来上がったPNG形式の画像を下記サイトでicoやicnsに出力します。
+&lt;ul&gt;
+    &lt;li&gt;
+&lt;p style=&#34;display: inline !important;&#34;&gt;&lt;a href=&#34;http://iconverticons.com/online/  &#34;&gt;iConvert: ico、icns、pngアイコンをオンラインでWindows用、Mac OS X用、Linux用へと変換する&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;いかがでしたでしょうか？デザインってのそんなに難しくないですよね？いや難しいか&amp;hellip; いや僕も絵とか書けないんですけど、最近のプログラミングみたいに便利なオープンソースフレームワークを使ってちゃちゃっとWebアプリケーションを作るような感じで、アイコンとかも便利な素材やチュートリアルがたくさん出回っているので、うまく活用してお気に入りのアイコンを作ってみたらいいんじゃないかと思います。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ブラウザ私感</title>
+            <link>https://t32k.me/mol/log/browser/</link>
+            <pubDate>Fri, 13 Mar 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/browser/</guid>
+            <description>&lt;p&gt;なんか、初心忘るべからずというか大事なこと忘れてそうな感じがするのでメモ。&lt;br /&gt;&lt;br /&gt;自分、現在25歳、1983年生まれの男。小中高と家にパソコンはなかったけど、パソコンに触ってみたいという欲求はあった。&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Sbp5IgS6BLI/AAAAAAAAASs/XTPj7sBfrUI/s1600-h/ie6.png&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 50px; height: 50px;&#34; src=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Sbp5IgS6BLI/AAAAAAAAASs/XTPj7sBfrUI/s400/ie6.png&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5312691897452070066&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;2002年大学入学、初めてパソコン買う。&lt;a href=&#34;http://www.sony.jp/products/Consumer/PCOM/PCV-W101/&#34;&gt;VAIOのW&lt;/a&gt;だったと思う。当時は&lt;a href=&#34;http://www.microsoft.com/japan/windows/products/winfamily/ie/default.mspx&#34;&gt;Internet Explorer&lt;/a&gt;＝インターネットだと思ってた。Explorerの『e』のアイコンもeコマースとかeビジネスとかを連想させたから。大学の情報処理室のパソコンには&lt;a href=&#34;http://ja.wikipedia.org/wiki/Netscape%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA&#34;&gt;Netscape&lt;/a&gt;しか入ってなかった。（いや、入ってたかも、とりあえず先生からネスケ使えといわれた）正直心&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://4.bp.blogspot.com/_1drnogi3vdg/Sbp5Tde2IVI/AAAAAAAAAS0/19LTpzYZ-wE/s1600-h/ns.png&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 50px; height: 50px;&#34; src=&#34;http://4.bp.blogspot.com/_1drnogi3vdg/Sbp5Tde2IVI/AAAAAAAAAS0/19LTpzYZ-wE/s400/ns.png&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5312692085675401554&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;底使いにくかった記憶がある。というか、慣れない。Nの文字のアイコンも意味わかんないよね、インターネットとどういう関係があるんだと思ったｗ。しかもなんで、IEで問題ないのにこんなん使わなければならないんだと思ってた。&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Sbp5dokaBvI/AAAAAAAAAS8/RZM5kHfnjHQ/s1600-h/safari.png&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 50px; height: 50px;&#34; src=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Sbp5dokaBvI/AAAAAAAAAS8/RZM5kHfnjHQ/s400/safari.png&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5312692260450207474&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;大学2年頃、まぁデザイン専攻だったので、Macを買う。&lt;a href=&#34;http://www.apple.com/jp/safari/&#34;&gt;Safari&lt;/a&gt;ってゆうブラウザがあったけど、当時は文字化けがひどくてMacIE5を使ってた。サポート停止されてもIE5使ってた。2005,6年くらいからさすがにIE5で見れない（崩れるサイト）が多くなってきて(Appleのサイトが崩れたのは衝撃的だった)、Safariに乗り換える。が、はじめは慣れなかった。&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Sbp5oQh79hI/AAAAAAAAATE/NPKJJhi4MbM/s1600-h/firefox.png&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 50px; height: 50px;&#34; src=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Sbp5oQh79hI/AAAAAAAAATE/NPKJJhi4MbM/s400/firefox.png&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5312692442975958546&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;2007年,卒業してWebデザイナーになる。&lt;a href=&#34;http://www.fenrir.co.jp/sleipnir/&#34;&gt;Sleipnir&lt;/a&gt;と&lt;a href=&#34;http://magic3.net/text/tabbrowser-donut.html&#34;&gt;Donut&lt;/a&gt;、&lt;a href=&#34;http://www.lunascape.jp/&#34;&gt;Lunascape&lt;/a&gt;の存在を初めて知る。もうその頃には、Safariに慣れていてIEとか使いたくなかった。でも&lt;a href=&#34;http://mozilla.jp/firefox/&#34;&gt;Firefox&lt;/a&gt;はもっと慣れていなかったので、しばらく会社ではIE6を使ってた。CSSレイアウトが普及するにつれて検証にFirefoxを使うようになってきた。アドオン便利！と知る。&lt;br /&gt;&lt;br /&gt;2008年Windows版Safari登場。もう、会社：WinFx、家：MacFxだったけど、Windows環境でのアンチエイリアスのキレイさに惹かれて会社では現在Safariをメインに使ってる。&lt;br /&gt;&lt;br /&gt;まぁそんな感じで、一度慣れたブラウザを変えるのは余程のメリットが（仕事が楽になる）有る、もしくはデメリット（サイトが崩れる）が無い限り難しいんじゃないかなと思う。これはIEを使っているユーザーだけでない。大学の後輩（MacユーザーでSafariを使用）にFxの便利さを伝えても、Safariで良いと言う。別にSafariでプラグインを使用してカスタマイズしているわけでもないのに。なんだろうこの拒絶感は。やっぱり、ブラウザというかアプリケーション自体が複雑だからかな。例えばボールペンなんかもいろいろな材質とか種類あるけど、割ところころ変えるし、それは基本的に「鉛筆を持つ」という動作の仕方にはあまり変化がないからだと思う。マウスも3つボタン５つボタンもあるけど基本的には左、右クリックとスクロール、選択肢は10個以下が普通だと思う。でもブラウザ（アプリケーション）となるとメニューの名前（ラベリング）も微妙に違ったり、同じことをしようとしてもメニューの位置（グルーピング）が違ったりする。サブメニュー、サブサブメニューなどもあわせれば選択肢は50〜ぐらいの数になるだろうか。これらがブラウザの変更によって全て変わるのだからユーザーにとってはかなりの負担だと思う。&lt;br /&gt;&lt;br /&gt;そういえば、アプリケーションではないけれどサイトをリニューアルした際、制作側としてはちゃんとしたグルーピングにしてすっきりしたと思っても、以前の見にくいサイトで慣れてしまっているユーザーにとっては迷惑のなにものでもない。事実サポートセンターに苦情がきた。（へこんだ＞＜）。&lt;br /&gt;&lt;br /&gt;結局、なにが言いたいのかとゆうと、十人十色。&lt;br /&gt;&lt;br /&gt;そんな感じで。&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://3.bp.blogspot.com/_1drnogi3vdg/Sbp5zBJqHvI/AAAAAAAAATM/_Vt9jIZyQhQ/s1600-h/opera.png&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer; width: 50px; height: 50px;&#34; src=&#34;http://3.bp.blogspot.com/_1drnogi3vdg/Sbp5zBJqHvI/AAAAAAAAATM/_Vt9jIZyQhQ/s400/opera.png&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5312692627826155250&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;br /&gt;あ、&lt;a href=&#34;http://jp.opera.com/&#34;&gt;Opera&lt;/a&gt;!!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/</link>
+        <language>ja</language>
+        
+        
+        <updated>Wed, 14 Feb 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>チャットデプロイしたい2018</title>
+            <link>https://t32k.me/mol/log/chat-deploy/</link>
+            <pubDate>Wed, 14 Feb 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/chat-deploy/</guid>
+            <description>
+
+&lt;p&gt;タイトルの通り、チャットデプロイしたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;開発環境 &lt;code&gt;master&lt;/code&gt;ブランチ&lt;/li&gt;
+&lt;li&gt;QA環境 &lt;code&gt;deployment/qa&lt;/code&gt;ブランチ&lt;/li&gt;
+&lt;li&gt;本番環境 &lt;code&gt;deployment/production&lt;/code&gt; ブランチ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;自分のところは、上記みたいに環境とブランチがマッチングしていて、そのブランチにコミットなりマージするとCircleCIのほうでデプロイしてくれる。&lt;/p&gt;
+
+&lt;p&gt;例えば、開発環境でおおかた確認してQA環境に反映したいときは&lt;code&gt;master&lt;/code&gt;から&lt;code&gt;deployment/qa&lt;/code&gt;にPRを作成しマージして、デプロイしてた。それめんどいので、そこをボットでやらせたいと思った。要はこうゆう感じ。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;slack上から任意の言葉でbotにデプロイを指示する&lt;/li&gt;
+&lt;li&gt;slackのbotがGitHub APIでプルリクエスト作成・マージを実行する&lt;/li&gt;
+&lt;li&gt;CircleCIがGAEにデプロイする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/circleci2-yml-nodejs/&#34;&gt;3.はもう出来てる&lt;/a&gt;ので、1.2.を見てみよう。&lt;/p&gt;
+
+&lt;h2 id=&#34;1-slack-bot&#34;&gt;1. Slack Bot&lt;/h2&gt;
+
+&lt;p&gt;SlackのBotってどうやって作るんだっけなー、Hubotってあったよなーと思いつつ、今はBotkitが安定して開発されているっぽいからそれを使う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://botkit.ai/&#34;&gt;Botkit: Building Blocks for Building Bots&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Custom Integrations &amp;gt; Botsからボットを登録して、API Tokenを取得しておく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/howdyai/botkit/blob/master/examples/slack_bot.js&#34;&gt;botkit/slack_bot.js at master · howdyai/botkit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとは、レポジトリのexamplesディレクトリのなかにあるslack_bot.jsに先程のトークンを渡して起動させればおｋ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;controller.hears([&#39;hello&#39;], &#39;direct_mention&#39;, (bot, message) =&amp;gt; {
+    bot.reply(message, &#39;Hello!&#39;);
+    // ここからGitHubのAPIを叩く
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;controller.hears&lt;/code&gt;でなんか受け取って、それで反応してあげれば良いのが分かる。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-github-apps&#34;&gt;2. GitHub Apps&lt;/h2&gt;
+
+&lt;p&gt;まぁGitHubでゴニョゴニョしたいので、GitHub API v3を叩く。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;GitHub API v3 | GitHub Developer Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Node.jsのAPIクライアントはoctokitがよさそうってことで使ったのだが、Authenticationがむずい、ドハマリした。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/octokit/rest.js&#34;&gt;octokit/rest.js: GitHub REST API client for Node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まず、いろいろ認証の仕方が多い。どれを選べばいいんだ！一番簡単なのはPersonal access tokensだったけど、これだと僕のアカウントでプルリクエストが作成され、マージされてしまう。やはりBotとして実行してもらいたいので、だめ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/icoxfog417/items/fe411b94b8e7ae229e3e&#34;&gt;GitHubと連携する新しいアプリの形：GitHub Appsの作り方 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これを読む限り、GitHub Appsがいちばんオサレそうなので、この方法でやってみる。
+GitHub Appsとして認証するためには、まず&lt;a href=&#34;https://jwt.io/introduction/&#34;&gt;JSON Web Token&lt;/a&gt;を作らないといけないらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps/#authenticating-as-a-github-app&#34;&gt;Authentication options for GitHub Apps | GitHub Developer Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHubのドキュメント見ると、Rubyコードの例が書いてあるけど、Node.jsでやるにはどーしたらいいんだー！と悩んだあげく、こんな感じに書いた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const fs = require(&amp;quot;fs&amp;quot;);
+const jwt = require(&amp;quot;jsonwebtoken&amp;quot;);
+const key = fs.readFileSync(`${__dirname}/private-key.pem`);
+const opts = { algorithm: &amp;quot;RS256&amp;quot; };
+const payload = {
+  iat: Math.floor(Date.now() / 1000) - 30,
+  exp: Math.floor(Date.now() / 1000) + 60 * 10,
+  iss: YOUR_ISSUE_NUMBER
+};
+const jwtToken = jwt.sign(payload, key, opts);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まずはGitHubのWebからGitHubAppsを登録する。パーミッションの設定も忘れなく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.github.com/v3/apps/permissions/&#34;&gt;GitHub App Permissions | GitHub Developer Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;んでprivate-key.pemを生成しとく。それと、アプリの発行IDもその設定画面にあるのでメモっとく。あとは、&lt;code&gt;jsonwebtoken&lt;/code&gt;というnpmを使って、トークンを生成する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const octokit = require(&amp;quot;@octokit/rest&amp;quot;)({
+  headers: {
+    accept: &amp;quot;application/vnd.github.machine-man-preview+json&amp;quot;,
+    authorization: `Bearer ${jwtToken}`
+  }
+});
+const installationToken = await octokit.apps.createInstallationToken({
+  installation_id: YOUR_INSTALLATION_ID
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;んで、octokitを初期化するときに、&lt;code&gt;headers&lt;/code&gt;に先程のJWTトークンをBearerのあとにひっつける。&lt;code&gt;installation_id&lt;/code&gt;がなんぞやってことだけど、Appの設定のAdvancedでなんかアクセスがあるっぽいので、そこから知る。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;octokit.authenticate({
+  type: &amp;quot;integration&amp;quot;,
+  token: installationToken
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;んで、この&lt;code&gt;installationToken&lt;/code&gt;を&lt;code&gt;octokit.authenticate&lt;/code&gt;に渡してようやくAPIが叩けるようになる。PR作成したかったら&lt;code&gt;octokit.pullRequests.create(opts)&lt;/code&gt;とか叩けばよい。すごく長かった。。。&lt;/p&gt;
+
+&lt;h2 id=&#34;google-compute-engine&#34;&gt;Google Compute Engine&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは、Botのメッセージを&lt;code&gt;attachments&lt;/code&gt;を使うとボットっぽくてよい。成功失敗とかバーの色変えられるのでよい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bot.reply(message, {
+  attachments: [
+    {
+      fallback: &amp;quot;Success&amp;quot;,
+      color: &amp;quot;good&amp;quot;,
+      title: `#${result.number} ${result.title}`,
+      title_link: result.html_url,
+      text: &amp;quot;プルリクできたのだー:smirk_cat:&amp;quot;
+    }
+  ]
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;んで、いつもBotとかホストするのにherokuにホストしてたけど、最近GCPまわり触ってるからせっかくなので、GCEにホストした。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/operandoOS/items/01dd36264f735782f64b&#34;&gt;Google Compute Engine上でSlackのBotkitを動かすぞい！ - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;すごく簡単だった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;token=your_token nohup node slack_bot.js &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとバックグラウンドでもプロセスを活かすためには、&lt;code&gt;nohup [command] &amp;amp;&lt;/code&gt;と打てばよいと教えてもらった。ありがとう。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ（改）</title>
+            <link>https://t32k.me/mol/log/circleci2-yml-nodejs/</link>
+            <pubDate>Tue, 30 Jan 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/circleci2-yml-nodejs/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/circleci2-yml/&#34;&gt;前回の記事&lt;/a&gt;で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+      - run:
+          name: System information
+          command: |
+            echo &amp;quot;Node $(node -v)&amp;quot;
+            echo &amp;quot;Yarn v$(yarn --version)&amp;quot;
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn run build
+      - run:
+          name: Test
+          command: yarn test
+      - save_cache:
+          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
+          paths:
+            - ~/repo/.cache/yarn
+            - ~/repo/dist
+            - ~/repo/node_modules
+            - ~/repo/package.json  
+  
+  deploy:
+    working_directory: ~/repo
+    docker:
+      - image: google/cloud-sdk
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
+      - run:
+          name: Deploy to Google App Engine
+          command: |
+            echo &amp;quot;$GOOGLE_AUTH&amp;quot; | base64 -i --decode &amp;gt; &amp;quot;$HOME/gcp-key.json&amp;quot;
+            gcloud auth activate-service-account --key-file &amp;quot;$HOME/gcp-key.json&amp;quot;
+            gcloud --quiet config set project &amp;quot;$GOOGLE_PROJECT_ID&amp;quot;
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &amp;quot;s/\//\-/g&amp;quot;)
+          no_output_timeout: 20m
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;build&lt;/code&gt;と&lt;code&gt;deploy&lt;/code&gt;でDockerイメージが違うのが嫌だなーって思っていて、これをどうすうるのがいいんだろうと考えたら、やっぱり &lt;code&gt;circleci/node&lt;/code&gt;のイメージをベースに&lt;a href=&#34;https://cloud.google.com/sdk/downloads?hl=ja&#34;&gt;Google Cloud SDKをインストール&lt;/a&gt;したイメージを用意するのがいいんだろうと思ったけど、ぼくのDocker力が足りないので、うまくいかず、すぐ諦めた。&lt;/p&gt;
+
+&lt;h2 id=&#34;google-cloud-sdk-インストール&#34;&gt;Google Cloud SDK インストール&lt;/h2&gt;
+
+&lt;p&gt;そしたら去年の10月頃にこうゆうものが出ていたことを知る。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package&#34;&gt;GoogleCloudPlatform/cloud-sdk-npm-package: A metapackage that installs Google Cloud Platform&amp;rsquo;s gcloud CLI through NPM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;npmインストールでCloud SDKをインストールできる代物。うん便利。ローカルで試したところ本当にnpmインストールで、PATHも設定してないのに、&lt;code&gt;gcloud&lt;/code&gt;コマンドが打てた。&lt;/p&gt;
+
+&lt;p&gt;CI上で試してみるとなぜかうまくいかない。&lt;code&gt;gcloud&lt;/code&gt;コマンドなんてないよ！と怒られる。どうやら、CircleCI上の&lt;code&gt;$SHELL&lt;/code&gt;の環境変数が&lt;code&gt;/bin/bash&lt;/code&gt;になってないと、うまく環境を認識できず（&lt;code&gt;zsh&lt;/code&gt;とか&lt;code&gt;fish&lt;/code&gt;と区別できない）、&lt;a href=&#34;https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package/blob/master/helpers-unix.js#L93&#34;&gt;PATHが設定できてないっぽい&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;なので、↓みたいに明示的に指定してあげる必要がある。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &#39;source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39; &amp;gt;&amp;gt; $BASH_ENV
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というわけで、無事打てました。&lt;/p&gt;
+
+&lt;h2 id=&#34;job間のデータ共有&#34;&gt;Job間のデータ共有&lt;/h2&gt;
+
+&lt;p&gt;これで&lt;code&gt;circleci/node&lt;/code&gt;のイメージひとつだけ使えるようになった。勘違いしてたのだけど、前回のyamlでJob間dでデータ共有できなかったのはJobのDockerイメージが異なるものだからだと思っていたけど、そうではなかった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://circleci.com/blog/persisting-data-in-workflows-when-to-use-caching-artifacts-and-workspaces/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0130-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;同じ（種類の）イメージでも、&lt;code&gt;build&lt;/code&gt;Jobで生成したデータを次の&lt;code&gt;deploy&lt;/code&gt;Jobには持ち越せない。通常データの共有はできない。そうゆうときはCachingを使えばよいのかと思っていたけど、微妙に違ってた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://circleci.com/blog/persisting-data-in-workflows-when-to-use-caching-artifacts-and-workspaces/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0130-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cachingは異なるWorkflow間でのデータ共有であり、異なるJob間のデータ共有はWorkspaceという機能を使うのが正しい。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;persist_to_workspace&lt;/code&gt;という項目で、共有したいデータを指定し、&lt;code&gt;attach_workspace&lt;/code&gt;で取り出す。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: 2
+
+# =============================================
+# References: Reusable Sets
+# =============================================
+references:
+  container_config: &amp;amp;container_config
+    docker:
+      - image: circleci/node
+    working_directory: ~/repo
+
+  restore_npm: &amp;amp;restore_npm
+    restore_cache:
+      keys:
+        - v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &amp;quot;package-lock.json&amp;quot; }}
+        - v1-cache-{{ arch }}-{{ .Branch }}
+        - v1-cache
+
+# =============================================
+# Jobs: Build and Deploy
+# =============================================
+jobs:
+  build:
+    &amp;lt;&amp;lt;: *container_config
+    steps:
+      - checkout
+      - *restore_npm
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &amp;quot;package-lock.json&amp;quot; }}
+          paths:
+            - node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - . 
+      - run:
+          name: Test
+          command: npm test
+
+  deploy:
+    &amp;lt;&amp;lt;: *container_config
+    steps:
+      - checkout
+      - *restore_npm
+      - run:
+          name: Set $PATH for `gcloud` command
+          command: echo &#39;source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39; &amp;gt;&amp;gt; $BASH_ENV
+      - attach_workspace:
+          at: dist
+      - run:
+          name: Deploy to Google App Engine
+          command: gcloud app deploy app.yaml
+          no_output_timeout: 20m
+          
+# Workflowsの設定・・・
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というわけで、こんな感じになった。&lt;code&gt;&amp;amp;&lt;/code&gt;と&lt;code&gt;*&lt;/code&gt;は&lt;a href=&#34;https://qiita.com/gctfuji/items/5f8e4c5795ce41b214d1&#34;&gt;YAML記法&lt;/a&gt;アンカーとエイリアスで、変数っぽく使える。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/circleci/frontend/blob/master/.circleci/config.yml&#34;&gt;frontend/config.yml at master · circleci/frontend&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あと、本家の本気のconfig.ymlを見て参考にしたが、Jobが分割されすぎて震えた。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>SeverとClientでレンダリング結果が違う</title>
+            <link>https://t32k.me/mol/log/full-icu/</link>
+            <pubDate>Fri, 19 Jan 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/full-icu/</guid>
+            <description>&lt;p&gt;Reactをアイソモーフィックに実行しているのだけど、下記のようなエラーが出てた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Warning: Text content did not match. Server: &amp;ldquo;1970-1-18 22:09&amp;rdquo; Client: &amp;ldquo;1970/1/18 22:09&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;SeverとClientでレンダリング結果が微妙に違うとのこと。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;new Intl.DateTimeFormat(locales, {
+  year: &amp;quot;numeric&amp;quot;,
+  month: &amp;quot;numeric&amp;quot;,
+  day: &amp;quot;numeric&amp;quot;,
+  hour: &amp;quot;numeric&amp;quot;,
+  minute: &amp;quot;numeric&amp;quot;
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;該当のコード。&lt;/p&gt;
+
+&lt;p&gt;Node.js側の&lt;code&gt;Intl&lt;/code&gt;オブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、しばらく放っておいた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0119-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://nodejs.org/api/intl.html#intl_options_for_building_node_js&#34;&gt;Internationalization Support | Node.js v9.4.0 Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで国際化のサポートがビルドの設定ごとで違うらしいと気づいた。デフォルトのビルドでは&lt;code&gt;--with-intl=small-icu&lt;/code&gt;というもので、部分的なサポートでしかない。それとは別に&lt;code&gt;full-icu&lt;/code&gt;という全サポートがあるらしく、これ入れたら、サーバーとクライアントでの差異はなくなった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nodejs/node/wiki/Intl&#34;&gt;Intl · nodejs/node Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみにICUとは&lt;a href=&#34;http://site.icu-project.org/&#34;&gt;International Components for Unicode&lt;/a&gt;の略らしい。確かに全言語対応のデータ毎回入れてたら重いよね。&lt;/p&gt;
+
+&lt;p&gt;Node.jsのバージョンマネージャーは&lt;code&gt;nvm&lt;/code&gt;使ってるんだけど、nvmインストールするときに下記のようなオプションつけると&lt;code&gt;full-icu&lt;/code&gt;でビルドしたものをインストールできる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nvm install -s v9.4.0 --with-intl=full-icu --download=all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unicode-org/full-icu-npm&#34;&gt;unicode-org/full-icu-npm: npm module to autoload full ICU data.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;後づけで言語データをインストールができるnpmがある。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NODE_ICU_DATA=node_modules/full-icu/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは環境変数&lt;code&gt;NODE_ICU_DATA&lt;/code&gt;にfull-icuの言語データへのパスを設定するだけでよい。&lt;/p&gt;
+
+&lt;p&gt;国際化とかホント苦手だわと思ったけど、今回の場合、日付の&lt;code&gt;/&lt;/code&gt;と&lt;code&gt;-&lt;/code&gt;が違うだけだったので、あんまり考えがめぐらなかったのが反省点。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>2018年の抱負</title>
+            <link>https://t32k.me/mol/log/new-years-resolutions-2018/</link>
+            <pubDate>Mon, 01 Jan 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/new-years-resolutions-2018/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2017/&#34;&gt;去年の抱負&lt;/a&gt;は、そうそうに達成してしまった。というか、2016年の段階で予約を済ましており、あとは飛行機に乗るだけだったので、目標達成というか予定通りことが進んだだけである。&lt;/p&gt;
+
+&lt;p&gt;ということで、最近は旅行系ブロガーになっているので、本業のほうが疎かになっているを痛感している。2018年こそ、コードを書いていくぞ。やっぱりなんかしら、小さくてもいいので趣味Webサービスを出したいと思っている。&lt;/p&gt;
+
+&lt;p&gt;最近、仮想通貨関連が熱いのでなんか出したいけど、いろいろ力不足なので周辺知識の吸収とともに、幅を広げていきたい。&lt;/p&gt;
+
+&lt;p&gt;あと体の幅はもう広げたくない。ジム行こ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>2017年フライト総括</title>
+            <link>https://t32k.me/mol/log/matome-2017/</link>
+            <pubDate>Sun, 31 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/matome-2017/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1231-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;年初に&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2017/&#34;&gt;SFC取得するぞ！&lt;/a&gt;と抱負に決めて、4月早々にこれを&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-outro/&#34;&gt;果たしてしまい&lt;/a&gt;、若干燃え尽き症候群になったが、それでもSFCのメリットを享受するべく、取得後、3回の海外と1回の国内旅行をした。やはり、無料でラウンジは使用できるのありがたいし、取得前は優先レーンとかあまり期待してなかったけど、やっぱり気分がいいものである。特にラストのベトナム航空では無料プレミアムエコノミークラスアップグレードもあったし、幸先がいい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-jakarta/&#34;&gt;SFC修行：ジャカルタ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;3月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-bangkok/&#34;&gt;SFC修行：バンコク&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;4月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-sydney/&#34;&gt;SFC修行：シドニー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;6月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-hongkong/&#34;&gt;海外：香港&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;8月：海外：バンコク&lt;/li&gt;
+&lt;li&gt;11月：国内：札幌&lt;/li&gt;
+&lt;li&gt;12月：&lt;a href=&#34;https://t32k.me/mol/mol/log/vietnam-2017/&#34;&gt;海外：ホーチミン（ベトナム航空）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一瞬、JGCもとっちゃおうかと思ったけど、やっぱりスターアライアンス加盟会社のほうが好きなので、SFCだけで良いと思っている。それよりも来年はホテル系の上級会員を取ってみようかと思いつつ、国内旅行ももっと多くしたいなと思っている。&lt;/p&gt;
+
+&lt;p&gt;あと、今年取得した17万マイルで初ヨーロッパを特典ファーストクラスで行ってみたいものである。あとまだ行っていない東南アジアの国々も行ってみたい。お金が足りませんね！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>2017年買ってよかったもの</title>
+            <link>https://t32k.me/mol/log/bestbuy-2017/</link>
+            <pubDate>Sun, 31 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/bestbuy-2017/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/ipad/00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2016年の買ってよかったものは&lt;a href=&#34;https://t32k.me/mol/mol/log/listerine/&#34;&gt;リステリン紫&lt;/a&gt;だが、本当に優秀で、ここ二年、口内炎になってないのもこいつのおかげといえる。2017年も完全リステリン推しだったが、年末に急遽ランクインしてベストバイをかっさらったのは、iPad Pro + Smart Keyboardの組み合わせだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;がっつり作業はしない&#34;&gt;がっつり作業はしない&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/ipad/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;基本的に軽量なノートPCはいつもほしいと思っていて、ここまでChromebookなり、いろいろ試してみた。自分の行動パターン的にカフェでコーディングとかしないし、勉強会でもTwitter実況とかしないので、軽さを考えるとMacBookがいいんだろうけど、そこまでちゃんとしたものはいらない。&lt;/p&gt;
+
+&lt;p&gt;かといって、タブレットだけだと、それはそれで物足りないというか、少し文章を書きたい（旅先での日記とか）ときは、やはり物理キーボードがほしいところ。そこで、いつぞかもiPadとサードパーティーのキーボードカバーを買ってみたがタッチ感が悪かったり、重くなったり、統一性のなさから来るコレジャナイ感がある。&lt;/p&gt;
+
+&lt;h2 id=&#34;脱着式のキーボード&#34;&gt;脱着式のキーボード&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/ipad/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;やっぱりMacBookのシンプルさは捨てがたいと思うのだが、やはり安くても15万円以上はかかるので購入には躊躇する。あと飛行機の機内とかでおもむろにMacを取り出すのはダルいというか、使い勝手がわるい。やはり、キーボードがいらないときはタブレットだけで楽しみたいのだ。&lt;/p&gt;
+
+&lt;p&gt;あと、サードパーティーのキーボードだとはめ込み式でがっちり固定されているものもあったりして、着脱がめんどうという点がある。&lt;/p&gt;
+
+&lt;h2 id=&#34;ipad-pro-smart-keyboard&#34;&gt;iPad Pro + Smart Keyboard&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/ipad/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで行き着いたのはこれでした。そもそも無印のiPadを持っていたのだけどこれは純正のスマートキーボードをつけれないので、また新たにiPad Proを買わなくてはならなかった。&lt;/p&gt;
+
+&lt;p&gt;純正のキーボードは100点満点とは言えないが、及第点は超えているような感触のキーボード。あと脱着式が磁石で簡単でよい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/ipad/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;僕の場合は、飛行機の機内でエンターテイメントを楽しむためにAmazonプライムやNetflixでダウンロードしたコンテンツをiPadで見ている。このときはキーボード手荷物に預けていて鞄の中。そいで、現地のホテルについたらキーボードと一緒に使用して日記などを書く。これが実に自分の行動パターンに合っていて、これだよ！欲しかったモノは！と腑に落ちた。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B0736V1QHQ/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41pzuyTeErL.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Apple iPad Pro 10.5インチ Wi-Fi 64GB MQDT2J/A [スペースグレイ]&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Apple(アップル)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B072MKYRHR/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61oqBTv%2Be2L._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Apple 10.5インチiPad Pro用 スマートキーボード/日本語 JIS/MPTL2J/A&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Apple(アップル)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;来年はこの組み合わせでもっと旅行に連れて行こうとおもう。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>グランクラスで帰省した（北陸新幹線E7系）</title>
+            <link>https://t32k.me/mol/log/gran-class-2017/</link>
+            <pubDate>Sat, 30 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/gran-class-2017/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今日は飛行機じゃなくて、新幹線の話。&lt;/p&gt;
+
+&lt;p&gt;新幹線の路線によっては&lt;a href=&#34;http://www.jreast-shinkansen.com/granclass/&#34;&gt;グランクラス&lt;/a&gt;というグリーン車よりも上のクラスの席がある。飛行機で言えばファーストクラスだろう。北海道・東北・北陸新幹線だと利用できる。&lt;/p&gt;
+
+&lt;p&gt;いつものこの時期になると、&lt;a href=&#34;https://hokudev.doorkeeper.jp/&#34;&gt;北陸ディベロッパーズ交流会&lt;/a&gt;という名の忘年会のために帰省する。GW・お盆・年末年始など人が移動するのがわかっている、もとい、混雑するのが分かっているのに移動するのは基本的に嫌だ。心底嫌だ。しかし、忘年会のスケジュールは相手都合なので致し方ない。当然、年末の帰省ラッシュなんてのは人混みマックス状態なので、せめても回避するために今回はグランクラスを選択してみた。&lt;/p&gt;
+
+&lt;p&gt;去年もそんな理由で北陸新幹線のグリーン車で帰省したが、まぁ普通というかグリーン車だよねという感想しかなかった。今回はグランクラスということで期待が上がる。せっかくのグランクラスなので、一分でも長く座っていたいと思う人が多いのか、北陸新幹線はくたか（停車駅多い、3時間以上かかる）のグランクラスシートはほぼ満席で、かがやき（停車駅少ない、最短の2時間半で東京ー金沢を結ぶ）の席ぐらいしか残ってなかった。とりあえず、2 - 1の1の席を手に入れたので東京駅に向かう。&lt;/p&gt;
+
+&lt;p&gt;東京駅はほんとごった返している、新幹線のプラットフォームはもっとごった返している。新幹線の改札入ったらなんもスペースないので、みんなプラットフォームにいて、まともに動けない。&lt;/p&gt;
+
+&lt;p&gt;あとで気づいたが、東京駅発のグランクラスだと&lt;a href=&#34;https://www.jreast.co.jp/card/first/viewgoldplus/vglounge/&#34;&gt;ビューゴールドラウンジ&lt;/a&gt;が利用できるらしい。とはいえ普通改札前などで、まぁあきらめた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;やっぱり人が多くて、車内の清掃が大変なのか出発2分前で寒いホームで待っていた。ここらへん飛行機のファーストクラスならありえないので、ちょっと残念なUX。&lt;/p&gt;
+
+&lt;p&gt;18席あるシートは満席。金持ちそうな人ばかりだった。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;良いシート(・∀・)！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;二列側。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;シェル型になってるので全開に倒しても、後ろの人に迷惑かからない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いろいろ調節できる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;足元も広々！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/07.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;タダ！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;軽食うまー！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/09.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;軽食食べたら眠たくなって、居眠りしてしまいすぐに金沢駅についてしまった。もったいない。。。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、せっかくSFCになったので、&lt;a href=&#34;https://www.anaihghotels.co.jp/ihgrewardsclub/amc/sfc-list.html&#34;&gt;特典を利用&lt;/a&gt;するために、IHG系ホテルのANAクラウンプラザホテルに宿泊した。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SFC特典、水とホッカイロとウェルカムドリンクと朝食券。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/11.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;金沢駅を見下ろす。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/12.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;よく眠れました。あと朝食ビュッフェの写真撮り忘れたけど、加賀野菜とかふんだんに使った地元料理も多く、かなりレベルが高かった。おすすめ。&lt;/p&gt;
+
+&lt;p&gt;といわけで、かなり贅沢な帰省になってしまった。もちろん帰りの東京行きの新幹線は普通席を取って帰りました。飛行機に比べたら、新幹線の普通席も全然広いしずっと、パソコンとか開いていれるし、やっぱり飛行機のそれと比べると、そんなに無理しなくてもいいのかなと思ったりしなかったり。来年は何で帰ろうかな。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ホーチミンに旅行してきた</title>
+            <link>https://t32k.me/mol/log/vietnam-2017/</link>
+            <pubDate>Sat, 23 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/vietnam-2017/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;せっかくSFCを取得したので、どうせなら東南アジアの国全部訪れてみたいなと思い、今回はベトナムにいってみようと思う。&lt;/p&gt;
+
+&lt;h2 id=&#34;ベトナム航空&#34;&gt;ベトナム航空&lt;/h2&gt;
+
+&lt;p&gt;ベトナムに行くんだからベトナム航空でしょ！ということでチョイス。というのアレでたまたま良いタイミングでセールをやっていたのと、ANAとのコードシェア便であればSFCの特典を享受できるっぽい（ベトナム航空はスターアライアンスではなくスカイチーム）ので選んでみた。まぁ単純にいろんな航空会社に乗ってみたいよね。&lt;/p&gt;
+
+&lt;p&gt;ということで、ホーチミンにレッツゴー。&lt;/p&gt;
+
+&lt;h2 id=&#34;京成線&#34;&gt;京成線&lt;/h2&gt;
+
+&lt;p&gt;VN301便が成田9:30発なので、初めて前日入りなるものをしてみる。時間にゆとりがあるので、今まで使ったことないスカイライナーでも乗ってみるかと思い、上野に向かう。&lt;/p&gt;
+
+&lt;p&gt;京成上野駅に19時くらい付くと、イブニングライナーのチケットはこちらみたいな誘導している。オレの乗りたいのはスカイライナーなんだ！イブニングではない！と内心思ったけど、まぁ夕方のスカイライナーのことをそう言ってるんだろうと思ってチケット買ったが、どうも心配で改札の駅員さんに聞いたら、今の時間だとアクセス特急が良いですよと言われた。また新しい単語だ。。。と内心思ったが、じゃそれ乗る！ってことで乗ったけど、普通車両だった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;スカイライナー：スカイライナーの車両で成田スカイアクセス線を走るやつ&lt;/li&gt;
+&lt;li&gt;モーニング・イブニングライナー：スカイライナーの車両で京成本線を走るやつ&lt;/li&gt;
+&lt;li&gt;アクセス特急：普通の車両で成田スカイアクセス線を走るやつ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで調べたら、こうゆうことらしい。別に急いではなかったけど、指定席でゆったりと行きたかったものである。&lt;/p&gt;
+
+&lt;h2 id=&#34;ホテル日航成田&#34;&gt;ホテル日航成田&lt;/h2&gt;
+
+&lt;p&gt;Agodaでそれなりに安かったやつ。成田空港のバス乗り場からシャトルバスが20分間隔くらいで出てる。バスで10分くらいで着く。一階にローソンがあって便利だった。外国人の宿泊者が多かった気がする。&lt;/p&gt;
+
+&lt;h2 id=&#34;プレミアムエコノミーへのご変更&#34;&gt;プレミアムエコノミーへのご変更&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;無事朝ちゃんと起きれたので行きと同じくシャトルバスで空港へ向かう。ベトナム航空のカウンター前についた。スターアライアンスだとSFC優先チェックインできるけど、それっぽいアナウンスもされてなかったので、案内係をしているおねーさんに聞いてみると、もちろん使えますよとのこと。ということで、スカイプライオリティのカウンターへ！&lt;/p&gt;
+
+&lt;p&gt;荷物を預けると優先タグをつけてもらい、ラウンジの案内もされた。さらにはプレミアムエコノミー席に空きがあるということで無料のアップグレードまでしてもらった。そこまでは予想してなかったので嬉しかった。セールで買ったので往復で5万くらいだったのにプレエコまでのさせてもらいほんとすみませんって感じだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ラウンジはデルタラウンジを案内された。スターアライアンス会員なのにスカイチームのラウンジに入るのは不思議な感じだ。ラウンジは広くてよかったが、食べ物がパンばかりだったのが残念。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;プレエコのシートは全席モニターがアームレストに収納されてあるタイプだった。ずっとiPad ProにいれたAmazon Primeビデオの動画を見てたので機内エンターテイメントは見なかった。あとデフォルトでリクライニング担ってるのかと思うくらいな傾斜角だったｗ隣の人もいなくて、快適な空の旅だった。B787の最新機もいい。&lt;/p&gt;
+
+&lt;h2 id=&#34;タンソンニャット国際空港&#34;&gt;タンソンニャット国際空港&lt;/h2&gt;
+
+&lt;p&gt;ホーチミンにつくと、気温30度くらいで東南アジア来たなって感じる。あと、ベトナムは入国書類を書かなくてよいらしく、いつも機内でボールペン忘れた！ってならないのはよい。というわけでイミグレではパスポートを渡すだけでよい。&lt;/p&gt;
+
+&lt;p&gt;それが終わるとSIMカード購入とATMで現地通貨カードキャッシングのルーチンをする。キャッシングはドンの単位が大きいというか、100万ドン＝約5000円なので、ATMに入力するゼロの数が多くてビビる。&lt;/p&gt;
+
+&lt;p&gt;SIMはVIETMLというところで買ったけど、ほかのところではタクシーチケットと一緒に販売してるので、そっちでも買ってもよいかもしれない。ただ呼び込みが激しいので、うさんくさいというか斜めに構えてしまう。されどもターミナル出れば人混みがすごいので、ここでタクシーチケットを買っといたほうが安全だろうと思い購入。22万ドンだった。メータータクシーでぼったくらなければ15〜18万ドンくらいって事前に調べたら書いてあったので、まぁ割高かも知れないが仕方がない。&lt;/p&gt;
+
+&lt;p&gt;チケットを買うと、領収書みたいなの渡されて10番出口へ行けと言われたのでテクテク歩いてると、インカム付けたあんちゃんから、タクシー？と聞かれ、なされるがままタクシーに誘導される。この人がさっき買ったタクシーチケットの会社の人かどうかわからなくて、不安なまま乗ったが結果的には大丈夫だった。フィリピンとかタクシーでいい思い出がないので、疑いまくって、ノーマニーだからな！オレ払わないからな！とタクシーの誘導かかりに言ってしまったくらいだｗおっちゃんも、お、おう。みたいなリアクションだった。&lt;/p&gt;
+
+&lt;p&gt;とりま、外は魑魅魍魎のごとくぼったくりタクシーが多いので気をつけたほうがよい。&lt;/p&gt;
+
+&lt;h2 id=&#34;カラベルサイゴン&#34;&gt;カラベルサイゴン&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ドンコイ通りという活気のある通り沿いにあるので立地は最強。市民劇場の隣。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;朝食のレベルが高かった。フォーやバインミーが食べれる。２日続けてバインミー食べた。&lt;/p&gt;
+
+&lt;h2 id=&#34;徒然なるままに&#34;&gt;徒然なるままに&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;有名な市民劇場。フレンチ・コロニアル様式。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/07.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;宿泊ホテルと市民劇場の間は地下鉄工事中。市内、多くの場所でこうゆう工事現場見かけた。2020年には完成なので、またそのとき使ってみたい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;町並みがオシャレ、交通量が多いのは残念。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/09.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;サイゴン大教会。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;聞いてはいたけど、バイクほんと多い。みんなマスクしてた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/11.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ズラ～っとな。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/12.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;でも公園とか緑おおい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/13.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;フォー！食事は下記の記事を見てチェーン店を選んだけど、どれもおいしかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gucci-vietnam.com/vietnamese-restaurant-chain&#34;&gt;旅行者でも気軽に入れる♪ベトナム料理のチェーン店6店&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/14.jpg&#34; alt=&#34;Trung Nguyen Coffee&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ベトナムコーヒーとか。チュングエンコーヒーというベトナム最王手のお店らしい。コーヒー器具とかもオシャレでいっぱい買い物した。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/15.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ドバイっぽいビルとかもあった。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/16.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ホーチミン人民委員会庁舎前&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/17.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;サークルK多かった。&lt;/p&gt;
+
+&lt;h2 id=&#34;帰国&#34;&gt;帰国&lt;/h2&gt;
+
+&lt;p&gt;最終日は香辛料がだめだったのか、とてつもない下痢で、ずっとホテルで寝込んでた。ホテルのレビューを見てみると無料でレイトチェックアウトできるっぽいことが書いてあったので、頼んでみたら、13時ならOKよと言われたけど、帰国が深夜フライトであったり、お腹の調子も良くないので、18時でプラス90USD払ってレイトチェックアウトしてもらった。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/18.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;帰りもSFC特典をフルに使い、優先チェックインからのベトナム航空のラウンジであるロータスクラブを利用した。ただ、フライトが同時刻なのが多いのか、座る席がぜんぜんないほどごった返していた。これなら普通の待合席にいたほうが人口密度低いわと思い、早々に抜け出した。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/vietnam/19.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;帰りは、普通のエコノミーでした。まぁ当たり前か。アイマスクとマスクとボールペンとSIMの取り替えのピンを忘れないようにしようと思った機内だった。&lt;/p&gt;
+
+&lt;p&gt;帰りは成田エクスプレスで東京駅まで言ったけど、ホームが地下５階とかで上がってくるの大変だった。とりあえず今回の度はいろいろ課題が多かった気がする。。。反省。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>12人で「銀行」をつくってみた</title>
+            <link>https://t32k.me/mol/log/978-4478083963-jnb/</link>
+            <pubDate>Mon, 11 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4478083963-jnb/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4478083967/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51thPCz47qL._SX344_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;12人で「銀行」をつくってみた&lt;br&gt;「いつでも、どこでも」、便利な日本初のネット銀行はこうしてできた。&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;岡田 晴彦&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;最近のFinTechは銀行業務（融資とか決済とか）をアンバンドリング（切り出し）して、サービスを成り立たせているが、この本の話は、銀行そのものをつくった話。ただの銀行ではなく、インターネット専業銀行である。&lt;/p&gt;
+
+&lt;p&gt;今でこそ、ネットを介していろいろなサービスを利用することは普通になってきてるが、本書の主役であるジャパンネット銀行が設立された2000年当初は、インターネットがようやく普及しはじめたという時代だ(17年前何してただろう..iモードとか？)。そのころから店舗を持たないインターネット専業の銀行を作ろうとしたのは、よほどの先見性やチャレンジ精神を併せ持っていたのだろうと感心する。&lt;/p&gt;
+
+&lt;p&gt;信頼の塊みたいな銀行を店舗をもたないでやることでどうやって信頼を担保するのか？と思いがちだが、結局は、実利は信頼に勝るということだと本書を読んで理解した。もちろん、セキュリティなど基本的な基盤は普通の銀行もネット銀行もちゃんとしなければいけないが、ジャパンネット銀行が普及したきっかけはヤフオクとの提携が大きかったと知って、いくら、これからはインターネットだとか、ネットだからいつでも利用可能とか抽象的な美辞麗句を述べても、ピンと来ないのだ。&lt;/p&gt;
+
+&lt;p&gt;それよりも、ジャパンネット銀行を使うとヤフオクの支払いがスムーズというファクトが大切だと理解した。結局、今の時代も仮想通貨という目に見えない通貨に対して、あれやこれや言われているが、決済手数料や送金手数料がほとんどかからないとかそうゆう実利が浸透していけば、おのずと普及していくんだろうなと思った。&lt;/p&gt;
+
+&lt;p&gt;あと、当時はネット銀行は普通の銀行に比べてシンプルで使いやすい、時代の最先端みたいな論調で書かれているけど、今現在みてみると、文字は多いし、なんか色々取り扱っている金融商品は多いし、全然シンプルじゃないよねと思った。FinTechのさきがけと言われるネット銀行だけど、時代はもっと便利でシンプルなのを求めているのかもしれない。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>2017年買ったヘッドホンとか</title>
+            <link>https://t32k.me/mol/log/the-best-wireless-headphones-2017/</link>
+            <pubDate>Sun, 10 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/the-best-wireless-headphones-2017/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1210-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2017年買ってよかったモノとかやりたかったのだけど、今年はイヤホンばっかり買ったような気がするので、せっかくなので過程を紹介したい。&lt;/p&gt;
+
+&lt;h2 id=&#34;1月-beats-powerbeats3-wireless&#34;&gt;1月: Beats Powerbeats3 Wireless&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B01LWD47K3/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71goJTEKktL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Beats by Dr.Dre ワイヤレスイヤホン PowerBeats3 密閉型 Bluetooth対応 カナル型 耐汗 防沫 ブラック ML8V2PA/A&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Beats by Dr.Dre&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;年始の1月にフィットネスジム用に購入。ホールド感もしっかりで激しい運動には適している（そんなに動かないけど）。ただ、耳掛けの部分が合ってないのか、ちょっと長時間つけていると耳が痛くなるので、あくまでジム用にした。音質的にはまぁこんなもんだろう。W1チップ初搭載のイヤホンでiPhoneの連携もよい。&lt;/p&gt;
+
+&lt;h2 id=&#34;2月-beatsx&#34;&gt;2月: BeatsX&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B01LW6TXGV/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/718WV1sKl8L._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Beats by Dr.Dre ワイヤレスイヤホン BeatsX 密閉型 Bluetooth対応 ブラック MLYE2PA/A&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Beats by Dr.Dre&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/beatsx/&#34;&gt;BeatsX イヤフォンを購入した - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2月にBeatXが発売され、AppleのCMもおしゃれでつい購入したが、上記の記事で言及したとおりケーブルがダブつく感じで不快だったので、徐々に使わなくなった。&lt;/p&gt;
+
+&lt;h2 id=&#34;3月-bose-quietcontrol-30-wireless&#34;&gt;3月: Bose QuietControl 30 wireless&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1210-01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B01G16PY2A/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61mKNHUnNNL._SL1327_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Bose QuietControl 30 wireless headphones ワイヤレスノイズキャンセリングイヤホン ブラック&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Bose(ボーズ)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;友達の何人か購入してて、好評っぽいので購入したかったが、何ぶん3万オーバーなので躊躇していた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/2017-sfc-bangkok/&#34;&gt;【SFC修行&amp;rsquo;17】 第二章 バンコク編 - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SFC修行中の副産物というか、3月にバンコクへ行ったときの国際線機内販売で免税扱いになり、かつANAカード支払いで10%OFFというラッキー価格3万円未満で購入できた。&lt;/p&gt;
+
+&lt;p&gt;さすがのノイズキャンセリング性能でよかったので、常用のヘッドホンとなった。&lt;/p&gt;
+
+&lt;h2 id=&#34;9月-bose-soundlink-revolve-bluetooth-speaker&#34;&gt;9月: Bose SoundLink Revolve Bluetooth speaker&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1210-02.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B06Y3PCMPR/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/A1MD%2Btz%2B6rL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Bose SoundLink Revolve Bluetooth speaker ポータブルワイヤレススピーカー トリプルブラック&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Bose(ボーズ)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;時は移り、9月。家でいい音が聞きたくて購入。うん、いいんじゃないでしょうか。&lt;/p&gt;
+
+&lt;h2 id=&#34;10月-apple-airpods&#34;&gt;10月: Apple AirPods&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B01N2VMGT6/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/311k6OfaSdL.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Apple AirPods 完全ワイヤレスイヤホン Bluetooth対応 マイク付き MMEF2J/A&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Apple(アップル)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;イヤホンに戻って、完全ワイヤレスってのにも憧れがあって、買ってみたのだけど。今までずっとインイヤーというか、イヤピースがあるのが当たり前だったので、AirPodsはスカスカ感というか、すぐ外れそうで気になって仕方がない。これはダメだと思い、すぐに返品してしまった。&lt;/p&gt;
+
+&lt;p&gt;ただ、イヤホンを耳から外すと音楽が止まるなどiPhoneとの連携まじ半端ないと思った。&lt;/p&gt;
+
+&lt;h2 id=&#34;10月-bose-soundsport-free-wireless-headphones&#34;&gt;10月: Bose SoundSport Free wireless headphones&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1210-04.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B074TBPV5Z/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71mi0QkRETL._SL1408_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Bose SoundSport Free wireless headphones 完全ワイヤレスイヤホン トリプルブラック&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Bose(ボーズ)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;といわけで、完全ワイヤレスでイヤピースがついてるのがBoseから発売されるので即購入。うーん、可もなく不可もない感じの印象だが、しばらく使ってた。&lt;/p&gt;
+
+&lt;p&gt;これはBoseだからというわけでないんだけど、完全ワイヤレスのイヤホンに言えることだけど、イヤホンを外すとき、机なりどっかに置かないとダメなんだよね。普通のイヤホンみたいに首から下げられないんだー！！ってことに買ってから気づいた。これが地味に不便で、作業中に誰かから話しかけらたとき、一時イヤホンを取って会話をして、終わってつけようと思うと、あれ？どこいった？みたいなことが二回くらいあった（机の下に落ちてた）。&lt;/p&gt;
+
+&lt;p&gt;また地味に充電器のケースに入れるのもめんどくさいし、ケースも持ち運ぶのもめんどくさい。&lt;/p&gt;
+
+&lt;h2 id=&#34;11月-google-home&#34;&gt;11月: Google Home&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1210-03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;閑話休題で、ノリでGoogle Homeを購入した。音声コマンドに興味があったのでGoogle Home Miniで十分よかったのだけど、大きいほうのが先に発売ということで購入した。それが思った以上に音質がよくてビビる。たしかにBose SoundLinkのほうが、音質はいいのだけど、どうせ『ねぇGoogle!音楽つけて』というとGoogle Homeから流れるので、圧倒的にGoogle Homeを使うようになってしまった。Chromecast Audioを使えば、Google
+HomeからBoseに音楽を流せれるのだけど、そこまでする必要も感じられない。&lt;/p&gt;
+
+&lt;h2 id=&#34;12月-beatsx&#34;&gt;12月: BeatsX&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B01LW6TXGV/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/718WV1sKl8L._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Beats by Dr.Dre ワイヤレスイヤホン BeatsX 密閉型 Bluetooth対応 ブラック MLYE2PA/A&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Beats by Dr.Dre&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;で、完全ワイヤレスは合わないということを理解したので、BoseのQC30に戻ろうかなと持ったけど、あれはあれで首にいすわってる感が強くて、肩がこる。んで、考えた結果、BeatsXにまた戻ってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp//dp/B01GDJNF3A/?tag=warikiru-22&#34;&gt;サードパーティのイヤピース&lt;/a&gt;買えば、ピッタリフィットし、静音性も高められるし、なによりケーブルのダブつきのせいで耳から外れることがない！&lt;/p&gt;
+
+&lt;p&gt;ということで、僕が本当に欲しかったのはBeatsX + イヤピースだと理解した師走だった。&lt;/p&gt;
+
+&lt;h2 id=&#34;2018年-sony-wh-1000xm2&#34;&gt;2018年: SONY WH-1000XM2&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B0756KQ4JH/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61ZU1Gt9quL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ソニー SONY ワイヤレスノイズキャンセリングヘッドホン WH-1000XM2 : ハイレゾ/Bluetooth対応 最大30時間連続再生 密閉型 マイク付き 2017年モデル ブラック WH-1000XM2 B&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ソニー(SONY)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;あとは、CA勢に人気のこれ買えば、一通りコンプリートできそう。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>金融庁の基礎知識</title>
+            <link>https://t32k.me/mol/log/b076m92fck-fsa/</link>
+            <pubDate>Tue, 05 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/b076m92fck-fsa/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B076M92FCK/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-fe.ssl-images-amazon.com/images/I/41sIb%2BGXEZL.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;金融庁の基礎知識&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;きんたま&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;『金融庁の基礎知識』というタイトルと素っ気ない表紙のせいで、すごく小難しい本かと思ったが、内容はどちらかというと、きんたまの著者名が体を表しているようで、俗っぽい内容ｗ&lt;/p&gt;
+
+&lt;p&gt;仮想通貨関連で最近、『金融庁』という単語を耳にするが、そもそも自分は&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E9%87%91%E8%9E%8D%E5%BA%81&#34;&gt;金融庁&lt;/a&gt;ができた経緯など全然知らなかったので勉強になった。&lt;/p&gt;
+
+&lt;p&gt;要は、昔の金融業界は&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E8%AD%B7%E9%80%81%E8%88%B9%E5%9B%A3%E6%96%B9%E5%BC%8F&#34;&gt;護送船団方式&lt;/a&gt;のもと、金融業者と旧大蔵省が接待・接待・ズブズブの関係で、銀行や証券も倒産するわで阿鼻叫喚だったので、大蔵省から監査の機能を取り出して金融庁ができた。&lt;/p&gt;
+
+&lt;p&gt;できた金融庁は、それまで反省をいかし金融業界と接触を避けバッサバッサ処分していく。これが金融&lt;strong&gt;処分&lt;/strong&gt;庁といわれる所以だ。テレビドラマの半沢直樹で出てきた金融庁の人のイメージ。&lt;/p&gt;
+
+&lt;p&gt;ところが時代が移り、銀行に不良債権がなくなってくると金融庁の監視という仕事自体がなくなってくる。これでは存在意義がないので困った金融庁は、現在の&lt;a href=&#34;https://forbesjapan.com/articles/detail/17848&#34;&gt;森金融庁長官&lt;/a&gt;のもと金融&lt;strong&gt;育成&lt;/strong&gt;庁のポジションへと変容していく。&lt;/p&gt;
+
+&lt;p&gt;個人的に興味深かったのは、金融庁はその成り立ち的に、THE・官僚組織ではなく、民間からの中途採用なども多く、どちらかというとスタートアップ組織な雰囲気と聞いて、親近感を持った。&lt;/p&gt;
+
+&lt;p&gt;また我らがビットコインについてどのように書かれていたかというと、金融庁的には無関心というか期待してない分野で、それよりも『テロ対策・脱税防止』ちゃんとしたいってスタンスだった。それは日本がどうこうっていうよりも世界的にそうゆう流れだからだ。そこがちゃんとすれば産業育成という流れになるだろうとのこと。&lt;/p&gt;
+
+&lt;p&gt;おもしろかったので、同じ著者の&lt;a href=&#34;https://www.amazon.co.jp/dp/B075D85PR7/?tag=warikiru-22&#34;&gt;森信親長官の金融庁は金融機関をどうしたいのか？&lt;/a&gt;も読んだが、こちらは内容がちと薄かった。『森信親長官』で検索すれば事足りるだろう。&lt;/p&gt;
+
+&lt;p&gt;金融ってお硬い分野だけど平易な文章で書かれているのでオススメ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>超速！ Webページ速度改善ガイド</title>
+            <link>https://t32k.me/mol/log/978-4774194004-chou-soku/</link>
+            <pubDate>Mon, 04 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4774194004-chou-soku/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/477419400X/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/514Ksy1fNTL._SX350_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;超速!  Webページ速度改善ガイド&lt;br&gt;使いやすさは「速さ」から始まる (WEB+DB PRESS plus)&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;佐藤 歩、泉水 翔吾&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;//twitter.com/1000ch&#34;&gt;@1000ch&lt;/a&gt;から頂いた。&lt;/p&gt;
+
+&lt;p&gt;昔、&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-overview/&#34;&gt;HTTPリクエストを減らすために&lt;/a&gt;という一連の記事を書いた（もう4年も前になるのか&amp;hellip;）。当時はCSSの表現力が弱かったので、画像をてんこ盛りにしたようWebサイトが一般的だった。そのため、その画像をいかに減らすかが、Webサイトのパフォーマンスを決定する大きな要因だった。なぜならHTTP/1.xではホストごとのコネクション数に制限があったからだ。多くの画像をダウンロードするには、先にリクエストした画像がダウンロードされるまで、あとの画像リクエストは待たなければならず、これが体感速度に大きな悪影響を及ぼしていたことが多かった。&lt;/p&gt;
+
+&lt;p&gt;時代は移り、ときに2017年。&lt;a href=&#34;//developers.google.com/web/fundamentals/performance/http2/?hl=ja&#34;&gt;HTTP/2&lt;/a&gt;の普及が進み、リクエストとレスポンスの多重化が可能になり、以前よりはHTTPリクエストについてはあまり気にしなくてもよい時代になったかもしれない。代わりにSPAなどJavaScriptゴリゴリのWebアプリケーションの普及により、ランタイムのパフォーマンスを気をつけなければならないかもしれない。&lt;/p&gt;
+
+&lt;p&gt;かもしれないというのは、必ずしもあなたの開発しているのがSPAじゃないかもしれないし、必ずしも皆がみなHTTP/2で配信しているわけでもないので、これさえやっとけば大丈夫！みたいなパフォーマンス改善のための銀の弾丸はますますなくなってきている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Don’t guess, measure!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;そうゆうわけで、本書でも『推測するな！計測せよ！』と口酸っぱく言っている。目次を見てもらえれば分かるが、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;調査方法&lt;/li&gt;
+&lt;li&gt;改善方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ほとんどの章が&lt;strong&gt;調査&lt;/strong&gt;と&lt;strong&gt;改善&lt;/strong&gt;がセットになった硬派な構成だ。100人いれば100人さまざまなように、あなたが開発しているWebサイト・アプリケーションのどこにパフォーマンスのボトルネックがあるのかはあなたにしかわからない。そのための調査なのだ。&lt;/p&gt;
+
+&lt;p&gt;幸い、ページロード・ランタイム両方の速度改善についてこと細かく解説されてあるので、なんかしら改善の役に立つことだろう（僕はランタイム側が苦手なので助かる&amp;hellip;）。本書では、アップデートの激しいGoogle ChromeのDevToolsを主に使って説明しており、時とともにUIの変更がなされ、キャプチャと差異がでるかもしれないが、本書を通して学べる &lt;strong&gt;Don’t guess, measure!&lt;/strong&gt; の精神はフロントエンドエンジニアとして、一生役に立つことだろう。&lt;/p&gt;
+
+&lt;p&gt;今買っといて損はない2017年冬のマストバイアイテムだ！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ブロックチェーンとマイニング</title>
+            <link>https://t32k.me/mol/log/how-bitcoin-mining-works/</link>
+            <pubDate>Sun, 03 Dec 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/how-bitcoin-mining-works/</guid>
+            <description>
+
+&lt;p&gt;この記事は、&lt;a href=&#34;//qiita.com/advent-calendar/2017/blockchain&#34;&gt;ブロックチェーン Advent Calendar 2017&lt;/a&gt;の3日目です、たぶん、知らんけど。なんだか&lt;a href=&#34;https://medium.com/@sucoshi/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%8C%E6%94%B9%E3%81%96%E3%82%93%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E4%BB%95%E7%B5%84%E3%81%BF-1b2435af607&#34;&gt;前の人&lt;/a&gt;と記事の内容が被ってる気もするが、がんばってやっていき。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-01.png&#34; width=&#34;300&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;proof-of-work&#34;&gt;Proof of Work&lt;/h2&gt;
+
+&lt;p&gt;みんな、マイニングしてるか！僕はイーサリアムだけど&lt;a href=&#34;https://t32k.me/mol/mol/log/mining-rig-v2/&#34;&gt;ちょっとやってた&lt;/a&gt;。ブロックチェーンはその名の通り、ある程度のトランザクション情報をまとめたブロックをチェーンのように繋いでいく分散型台帳システム。&lt;/p&gt;
+
+&lt;p&gt;そのブロックを繋げる際に、ビットコインであればproof of work（PoW）というコンセンサス（合意）アルゴリズムを採用しているので、莫大な計算量（Work）を用いて、新たに台帳に記載されるブロックが正しいかどうか承認する作業（Proof）が行われる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-00.png&#34; width=&#34;200&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;この作業を一番早く正しく終えた人が、その報酬として一定量のビットコイン(2017年現在：12.5BTC)とブロックに含まれるすべてのトランザクション手数料を貰えることができるので、この作業を金の採掘に例えてマイニングと言っている。&lt;/p&gt;
+
+&lt;p&gt;なぜ、このような事をするのかというと、前述の通りブロックチェーンは&lt;strong&gt;分散&lt;/strong&gt;台帳なので、誰でも手元にダウンロードすることができ、もし悪意のある誰かが自分のアドレスに100BTC振り込むといった偽の情報をブロックに入れたとしたら大変。しかし、そのような偽のチェーンはマイニングするのは、微々たる計算量しかもたない、その人しかおらず、チェーンを続けることはできないので、正当性のあるチェーンだけが生き残る算段。&lt;/p&gt;
+
+&lt;p&gt;中央集権的なデータベースであれば、このようなマイニングをする必要はないが、特定の誰か（個人・企業）を信じなければならいし、その人が善人であったとしても、また他の誰かからハッキングされるかもしれない。それに比べて、ブロックチェーンであれば誰も信頼する必要がないし、
+マイニング報酬というインセンティブで多くのマイナーが計算量を提供しシステムを維持しているので改ざんは極めて困難だ。&lt;/p&gt;
+
+&lt;p&gt;と、こんなことぜんぜん分からなくても、僕自身イーサリアムでマイニングしてたので問題はないんだけど、もうちょっと技術的に理解したいと思い、積読してあったマスタリングビットコインを読んでみたよ。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4757103670/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51NjHWZBJJL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Mastering Bitcoin&lt;br&gt;ビットコインとブロックチェーン:暗号通貨を支える技術&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;アンドレアス・M・アントノプロス&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;cryptographic-hash-functions&#34;&gt;Cryptographic Hash Functions&lt;/h2&gt;
+
+&lt;p&gt;マイニングで計算、計算って言ってるけど、実際に何してるのってことで、ハッシュ関数をいっぱい実行している。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ハッシュ関数 (ハッシュかんすう、英: hash function) あるいは要約関数とは、あるデータが与えられた場合にそのデータを代表する数値を得る操作、または、その様な数値を得るための関数のこと。ハッシュ関数から得られた数値のことを要約値やハッシュ値または単にハッシュという。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;//ja.wikipedia.org/wiki/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0&#34;&gt;Wikipedia&lt;/a&gt;はかくゆう。&lt;/p&gt;
+
+&lt;p&gt;実際に動かしたほうが早いので、Node.jsの&lt;code&gt;crypto&lt;/code&gt;モジュールを使って、&lt;code&gt;t32k&lt;/code&gt;という文字列をハッシュ化してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const crypto = require(&#39;crypto&#39;);
+const shas256 = crypto.createHash(&#39;sha256&#39;);
+shas256.update(&#39;t32k&#39;);
+const hash = shas256.digest(&#39;hex&#39;);
+console.log(hash);
+
+&amp;gt;&amp;gt; 69511c70d742fda9555512fea208338e1c49cb3e9ab0a1e3246e262952517806
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ビットコインではSHA-256（Secure Hash Algorithm）を用いて、ハッシュ化されるので、&lt;code&gt;t32k&lt;/code&gt;の元データが64文字の16進数文字列に変換された。これは何回実行したところで&lt;code&gt;t32k&lt;/code&gt;の文字列は&lt;code&gt;69511c7...&lt;/code&gt;の同じハッシュ値である。&lt;/p&gt;
+
+&lt;p&gt;また変換する文字列&lt;code&gt;t32k&lt;/code&gt;から、&lt;code&gt;t33k&lt;/code&gt;に変更してみると以下のようハッシュ値ができあがる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; 719e66ad70e70e39b9627ec4fd5dfb8a7015c3be5ac35f48c4d3a60b8aeed4f9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;たった一文字だけ違うのに、全く異なるハッシュ値ができあがるので、生成されたハッシュ値から元データを推測するのは困難であり、暗号数理的性質をもつ。&lt;/p&gt;
+
+&lt;p&gt;では、ビットコインのマイニングでハッシュ関数はどのように使われてるか見てみる前に、ここではマイニングをチョー簡略化した例をやってみよう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-07.png&#34; width=&#34;200&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;t32k&lt;/code&gt;の文字列のお尻に数字を付けてインプットとし、出来上がるハッシュ値の先頭が0で始まる数字を見つけることにする。&lt;/p&gt;
+
+&lt;p&gt;試しに0~9の数値で試してみることにする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const crypto = require(&#39;crypto&#39;);
+
+let n = 0;
+
+while (n &amp;lt; 10) {
+	const shas256 = crypto.createHash(&#39;sha256&#39;);
+	const input = &#39;t32k&#39; + n;
+	shas256.update(input);
+	const hash = shas256.digest(&#39;hex&#39;);
+	console.log(`HASH-${n}`, hash);
+	n++;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;HASH-0 46a26cdf4f1f6825d191e66f2c2c00cea62993909b559ddc9682a102bf5c44ed
+HASH-1 ea179996e7010c1cf52a6e291dc8c052fc8e9bad41f5007b2a403bfa8b758ad1
+HASH-2 39e402b62052d67cd97d469a792b2147cfde04bea6ed1826a88d1fffff9fccd9
+HASH-3 c5015b15ae1f3f7b48bd0a21b93efa36ab5909078e8d0ff6104fc66e8c8281f7
+HASH-4 033e3bf0ca03bd4ae08ab1578fce35ae1f1edeeb753cd0ebe1813012e8522d45
+HASH-5 f2a87d02c46abbbba83a2d04c600faf4df5a04d438753eb86e92d9f3e4c0899a
+HASH-6 8a91c41c4fedacba77199887745996b5064e678dbdee63870253e8cb3e653ddd
+HASH-7 ae040ca8afcb5f6ecc5ab21471c1d1064c1612f20b6ab83098f59a4d508cdcc9
+HASH-8 7629b92d6e54b01065e17d131215bfae92f1a772e47fe7faf2412d179bcb8e00
+HASH-9 1e04407ced654405978eacd00f66537b931f6e5d5c750e7d222b3b7d0b099a5d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;運良く、5回目で&lt;code&gt;033e3bf0ca...&lt;/code&gt;というハッシュ値を見つけることができた。ということで与えられた課題に対する答え（数値）は&lt;code&gt;4&lt;/code&gt;になる。ビットコインのマイニングも掛け合わせる文字列はもっと多いが基本的にやってることといえば、この数値、ナンス（nonce：暗号通信で用いられる使い捨てのランダムな値）を探すことにほかならない。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/block/000000000000000000b41bd9306ac5f21340f8e704e861695ca0d7274257b852&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-03.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ただ、求められる難易度はこのサンプルケースの場合と桁違いに難しい。2017年12月現在のビットコインのブロックハッシュ値は先頭から0が18個続くようなとても小さい値になっている。0が1個だけじゃ到底だめだし、16個や17個のような大きな数値はハッシュ値としては認められないのである。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-02.png&#34; width=&#34;200&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;サイコロの例に使えば、２つのサイコロ振り、出た目の総和が12より小さくしろ！と言われれば、両方6が出ない限りほぼ成功できるが、総和が5の場合だったらどうだろう。とたんに難しくなる。このように値が小さければ小さいほど難易度は格段に難しくなるので、ビットコインマイニングの場合は、サイコロを何千兆回と振らなければならない（ナンスを探さなければならない）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;hash-chaining&#34;&gt;Hash Chaining&lt;/h2&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;フィールド&lt;/th&gt;
+&lt;th&gt;サイズ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Version&lt;/td&gt;
+&lt;td&gt;4バイト&lt;/td&gt;
+&lt;td&gt;ソフトウェア・プロトコルバージョン番号&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Previous Block Hash&lt;/td&gt;
+&lt;td&gt;32バイト&lt;/td&gt;
+&lt;td&gt;1つ前のブロックのハッシュ&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Merkle Root&lt;/td&gt;
+&lt;td&gt;32バイト&lt;/td&gt;
+&lt;td&gt;ブロック内すべてのTXに関するマークルツリーのrootハッシュ&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Timestamp&lt;/td&gt;
+&lt;td&gt;4バイト&lt;/td&gt;
+&lt;td&gt;ブロックのおおよその生成時刻（Unix秒）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Difficulty Target&lt;/td&gt;
+&lt;td&gt;4バイト&lt;/td&gt;
+&lt;td&gt;ブロック生成時のdifficulty&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Nonce&lt;/td&gt;
+&lt;td&gt;4バイト&lt;/td&gt;
+&lt;td&gt;！！！コイツを求める！！！&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;ブロックチェーンはある程度のトランザクション情報がまとまったブロックがチェーンでつながっていると述べたが、各ブロックは上記のヘッダー情報を持っている。フィールドに &lt;code&gt;Previous Block Hash&lt;/code&gt;が入ってるので、求めるハッシュは前のブロックに影響を受ける。&lt;/p&gt;
+
+&lt;p&gt;このブロックヘッダをSHA-256で2回ハッシュした値が、Difficulty Targetよりも小さな値（先頭から0が何十個も続くようなハッシュ値）であれば、ブロックをチェーンにつなげることができる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+	&amp;quot;hash&amp;quot;: &amp;quot;0000000000000000001b09f6b279c46eca668d8403f7667c8420f6af0e091fff&amp;quot;,
+	&amp;quot;confirmations&amp;quot;: 3,
+	&amp;quot;strippedsize&amp;quot;: 983850,
+	&amp;quot;size&amp;quot;: 1046572,
+	&amp;quot;weight&amp;quot;: 3998122,
+	&amp;quot;height&amp;quot;: 497327,
+	&amp;quot;version&amp;quot;: 536870912,
+	&amp;quot;versionHex&amp;quot;: &amp;quot;20000000&amp;quot;,
+	&amp;quot;merkleroot&amp;quot;: &amp;quot;137e5fede907ce0702b5b6fa200887decbeecdd4cfdad924fb253b475ed31c77&amp;quot;,
+	&amp;quot;tx&amp;quot;: [
+		&amp;quot;f3810f2f169c43741cf43796d675efe170875af58bfd7577b9da0a1adc84b782&amp;quot;,
+		........
+		&amp;quot;9590f9fecc80b62022ba21c9e3c2eef391d3dfebc42837f18a1a4117bcd49244&amp;quot;
+	],
+	&amp;quot;time&amp;quot;: 1512287387,
+	&amp;quot;mediantime&amp;quot;: 1512284779,
+	&amp;quot;nonce&amp;quot;: 3429537634,
+	&amp;quot;bits&amp;quot;: &amp;quot;1800d0f6&amp;quot;,
+	&amp;quot;difficulty&amp;quot;: 1347001430558.57,
+	&amp;quot;chainwork&amp;quot;: &amp;quot;000000000000000000000000000000000000000000bf0b7d29b7b36413c84f60&amp;quot;,
+	&amp;quot;previousblockhash&amp;quot;: &amp;quot;000000000000000000883f5ccff5b7140e4d10bf85f6aed570b8bc6f62330542&amp;quot;,
+	&amp;quot;nextblockhash&amp;quot;: &amp;quot;000000000000000000605538204e452c5cfdd9937a3ffe157ff2d91f692ba313&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/block/0000000000000000001b09f6b279c46eca668d8403f7667c8420f6af0e091fff&#34;&gt;ブロック#497327&lt;/a&gt;のブロック情報の例（Transactionは一部省略）&lt;/p&gt;
+
+&lt;p&gt;なお、このDifficultyは2016ブロック生成（約2週間）されるたびに、直近の2016ブロック生成にかかった時間を元に調整される。&lt;/p&gt;
+
+&lt;h2 id=&#34;merkle-trees&#34;&gt;Merkle Trees&lt;/h2&gt;
+
+&lt;p&gt;ブロックのヘッダーにひとつ解せさないものがある。Merkle Rootとはなんだ？ということで、マークルツリーに興味を持った。マークルツリーというのは、公開鍵暗号の開発者の一人であるラルフ・マークルによって発明された、データを要約したハッシュツリーのことだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-06.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ビットコインではブロック内のトランザクション全体の要約のために使われている。ブロック内のトランザクションデータはハッシュ関数にかけられ、さらに隣り合うハッシュ値をあわせてハッシュ関数にかけられる。このようにかけあわせていくことで、何百というトランザクションはひとつのハッシュで表すことができる。これがマークルルートのハッシュだ。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、先頭のトランザクションはコインベーストランザクションと呼ばれるものである。通常のトランザクションは必ずインプット元のトランザクションデータがあるが、コインベースにはない。それはマイニングで得た報酬を得るマイナーのアドレスが含まれたトランザクションであるため、無からビットコインが生まれる瞬間である。&lt;/p&gt;
+
+&lt;p&gt;さらちなみに、ハッシュレートの向上により、4バイトのナンスでは一瞬で探索できるようになってきたので、コインベーストランザクションの一部をエキストラナンス8バイトも使うことで毎秒2の96乗通り試すことができる。&lt;/p&gt;
+
+&lt;h2 id=&#34;51-attack&#34;&gt;51% Attack&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/charts/hash-rate?timespan=all&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-09.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;
+Hash Rateの推移&lt;/p&gt;
+
+&lt;p&gt;マイニングには莫大な計算量が必要だと理解できたが、現在のビットコインマイニングは個人がどうこうレベルではない。CPUやGPUよりも多くの計算ができるASIC（特定用途向け集積回路）を何千台と用意した事業者が幅をきかせている。だからといって、個人はマイニングに参加できないかというとそうでもない。&lt;/p&gt;
+
+&lt;p&gt;マイニングプールというマイナー同士が協力しあって計算リソースを提供し、その貢献度によってマイニングで得た報酬を分配されるしくみがある。マイニングプールに参加しているマイナーが、もし実際にナンスを見つけたとしても、その人には12.5BTC全部はもらえない、そのプールに貢献した計算リソース分しかもらえないのである。まぁそんなことは一般個人には確率的にほぼない
+に等しいので、マイニングプールで少量ながらも稼ぐのが現実的である。&lt;/p&gt;
+
+&lt;p&gt;そういうわけで、そんな人のために世界にはいくつかのマイニングプールがある。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/pools&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-05.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上記グラフは2017年12月のマイニングシェアを表したものだが、上位はほぼ中国勢に抑えられている。各プール業者の割合は10%前後だが、もしこれらの業者が5つ、6つ結託して、マイニングシェアの51%以上を取ったとしたらどうなるだろう。多くの個人マイナーが参加しているマイニングプールとはいえ、それはマネージドされた環境であり、我々の計算リソースはプールの管理者に委ねられているので、悪意のあるデータに改ざんしたチェーンを作成、維持していくには十分なりソースがあるということになる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-08.png&#34; width=&#34;250&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;51％以上のシェアがあるからといって、誰かのビットコインを盗むことも、署名なしにビットコインを使うことも、ビットコインの支払先をか書き換えることも、過去のトランザクションや記録の所有者を変えることもできない。しかし、これから行われる取引に対して、ダブルスペンド（二重使用）が可能となる。ただこれも改ざん不可能と考えられている6承認（Six Confirmations）を待ってからビットコインの支払いを受けつけるようにすれば回避できるかもしれない。&lt;/p&gt;
+
+&lt;p&gt;なににせよ、特定の誰かがマイニングシェアを牛耳ることは、非中央集権のシステムではよくない。GMO、DMM、SBIなどの日本勢がマイニング事業に乗り出すということなので、願わくば頑張っていい感じにして欲しい（雑）。&lt;/p&gt;
+
+&lt;p&gt;おわり。&lt;/p&gt;
+
+&lt;p&gt;4日目の&lt;a href=&#34;//twitter.com/sonatard&#34;&gt;@sonatard&lt;/a&gt;がもっと詳しい&lt;a href=&#34;//medium.com/@sonatard12/asicboost%E3%81%A8segwit%E3%81%AE%E9%96%A2%E4%BF%82-56a7c8429341&#34;&gt;記事&lt;/a&gt;書いてくれてる。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/pow&#34;&gt;ブロックチェーンの健全性を支えるマイニング&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/halving&#34;&gt;マイニングの報酬額を半減させるタイミング「半減期」&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/utxo&#34;&gt;ブロックチェーンの取引データをひとつなぎにする仕組み「UTXO」&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/merkle-tree&#34;&gt;トランザクションデータを要約する技術「マークルツリー」&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/51-percent&#34;&gt;ブロックチェーンが特定のグループに支配されてしまう問題「51%問題」&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</title>
+            <link>https://t32k.me/mol/log/circleci2-yml/</link>
+            <pubDate>Thu, 14 Sep 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/circleci2-yml/</guid>
+            <description>
+
+&lt;p&gt;基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。今年の7月にCircleCI 2.0がリリースされ、config.ymlの記法も刷新されたとかで、ググって出て来るのは1.0の記法ばかりで苦労したので、メモ代わりに残しとく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.stormcat.io/post/entry/circleci2.0-overview01/&#34;&gt;CircleCI2.0事始め -新しいcircle.ymlとworkflows編 · tehepero note(・ω&amp;lt;) 2.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基本は上記のブログがわかりやすい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - checkout
+      - run:
+          name: System information
+          command: |
+            echo &amp;quot;Node $(node -v)&amp;quot;
+            echo &amp;quot;Yarn v$(yarn --version)&amp;quot;
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn run build
+      - run:
+          name: Test
+          command: yarn test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;version: 2&lt;/code&gt; で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。&lt;code&gt;yarn&lt;/code&gt; がデフォルトで入ってるらしく、GAE/Node.jsも&lt;code&gt;yarn&lt;/code&gt;が使えるので&lt;code&gt;yarn&lt;/code&gt;を使っていく。&lt;/p&gt;
+
+&lt;p&gt;あとは&lt;code&gt;run&lt;/code&gt;でステップを指定していく。&lt;code&gt;command&lt;/code&gt;は&lt;code&gt;|&lt;/code&gt;を置けば、複数行でも書ける。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      - save_cache:
+          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
+          paths:
+            - ~/repo/.cache/yarn
+            - ~/repo/dist
+            - ~/repo/node_modules
+            - ~/repo/package.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://circleci.com/docs/2.0/caching/#using-keys-and-templates&#34;&gt;Using Keys and Templates - Caching Dependencies - CircleCI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;{{ hoge }}&lt;/code&gt;はテンプレートで、&lt;code&gt;checksum&lt;/code&gt; は base64でハッシュを作ってくれる。
+ここではユニークなkey名を指定したくて、こんな風にしている。あとはキャッシュさせたいパス。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;build&lt;/code&gt;ステップは終わり。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  deploy:
+    working_directory: ~/repo
+    docker:
+      - image: google/cloud-sdk
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
+      - run:
+          name: Deploy to Google App Engine
+          command: |
+            echo &amp;quot;$GOOGLE_AUTH&amp;quot; | base64 -i --decode &amp;gt; &amp;quot;$HOME/gcp-key.json&amp;quot;
+            gcloud auth activate-service-account --key-file &amp;quot;$HOME/gcp-key.json&amp;quot;
+            gcloud --quiet config set project &amp;quot;$GOOGLE_PROJECT_ID&amp;quot;
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &amp;quot;s/\//\-/g&amp;quot;)
+          no_output_timeout: 20m
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;つぎに、&lt;code&gt;deploy&lt;/code&gt;ステップ。&lt;code&gt;gcloud app deploy&lt;/code&gt;のコマンドでデプロイするので、&lt;code&gt;gcloud&lt;/code&gt;が入ったdockerイメージを指定。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;restore_cache&lt;/code&gt; で先のステップで保存しといたファイルを呼び出す。&lt;/p&gt;
+
+&lt;p&gt;あとはデプロイコマンド。CI上でデプロイするので権限をもったサービスアカウントを作らなければならない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://int128.hatenablog.com/entry/2017/08/12/153538&#34;&gt;Circle CIでCloud Functionをデプロイする - GeekFactory&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記はCloud Functionだけど、認証の部分は同じなので真似するとよい。んで、エンコードしたものをCircleCIの環境変数として登録しておく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://circleci.com/docs/2.0/env-vars/#build-details&#34;&gt;Using Environment Variables - CircleCI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;$CIRCLE_BRANCH&lt;/code&gt;はCircleCIが設定している環境変数。ビルド番号とかもある。&lt;/p&gt;
+
+&lt;p&gt;あと&lt;code&gt;no_output_timeout&lt;/code&gt;は、GAE/Node.jsへのデプロイがくっそ遅くて、タイムアウト（デフォルト10分）になるので20分に伸ばしてる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最後はワークフローの設定。&lt;a href=&#34;https://circleci.com/docs/2.0/configuration-reference/#filters&#34;&gt;フィルター&lt;/a&gt;とかでmasterブランチのときだけ実行とか、必須条件とか決めれる。便利。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://engineer.crowdworks.jp/entry/2017/04/04/202719&#34;&gt;CircleCI 2.0に移行して新機能を活用したらCIの実行時間が半分になった話 - クラウドワークス エンジニアブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>なめらかなお金がめぐる社会。</title>
+            <link>https://t32k.me/mol/log/978-4799321591/</link>
+            <pubDate>Sun, 03 Sep 2017 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4799321591/</guid>
+            <description>
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4799321595/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51NjTOj7VNL._SX334_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+  &lt;div&gt;なめらかなお金がめぐる社会。あるいは、なぜあなたは小さな経済圏で生きるべきなのか、ということ。&lt;/div&gt;
+  &lt;div class=&#34;__media__text&#34;&gt;家入 一真&lt;/div&gt;
+  &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;お金をもっとなめらかに&#34;&gt;お金をもっとなめらかに。&lt;/h2&gt;
+
+&lt;p&gt;ジャケ買いならぬ、タイトル買い。『お金をもっとなめらかに』って言葉がいいなぁと思い購入した。あと、家入さんという人が、どういう人なのか、知りたかったというのもある。&lt;/p&gt;
+
+&lt;p&gt;なぜ『なめらかに』という言葉が好きなのかは、本書を読んでいて理解できた。なめらかというのはグラデーションなのだ。本書では大きい経済圏と小さい経済圏と説明していたが、大きい経済圏
+では、ゼロかイチか、白か黒か、その境界線がハッキリしている。良い方に入れなかったら何も得られない。家入さんはそうゆう世界に対して可能な限り選択肢を増やそうとしている。&lt;/p&gt;
+
+&lt;p&gt;クラウドファンディングの&lt;a href=&#34;https://camp-fire.jp/&#34;&gt;CAMPFIRE&lt;/a&gt;が、最近の活動だが、例えば、画家志望の人がいても必ずしもその人達全員が画家として生活していけるわけではない。実力はもちろん、需要と供給であったり、運であったり、いろいろな理由で諦めざるを得ない。だがクラウドファンディングのようなものがあれば、画家一本で食べていくことは難しいことかもしれないが、少なくとも画家としてある程度の収入が得られるチャンスがある。その人が画家なのか、サラリーマンなのか、曖昧になる。画家としての収入が増えていけばそれでやっていけばいいし、だめならサラリーマンを続ければいいし、また違うことにチャレンジしてもいいだろう。&lt;/p&gt;
+
+&lt;p&gt;なめらかなお金がめぐるということはこうゆうことだろう。&lt;/p&gt;
+
+&lt;p&gt;いろんな選択肢が増えることで、今までチャンスを得られなかった人々が可能性が得ることになる。そうゆう家入さんの言う住みやすい世界を見てみたいものである。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

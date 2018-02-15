@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/slides/</link>
+        <language>ja</language>
+        
+        
+        <updated>Mon, 04 Jul 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>マイクロインタラクション事始め以前</title>
+            <link>https://t32k.me/mol/log/microinteractions/</link>
+            <pubDate>Mon, 04 Jul 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/microinteractions/</guid>
+            <description>
+
+&lt;p&gt;&lt;small&gt;（アニGIFあるのでちょっと重いです&amp;hellip;）&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/slides/2016/microinteractions/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0704-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/slides/2016/microinteractions/&#34;&gt;マイクロインタラクション事始め以前 @Yahoo!Japan 2016.07.04&lt;/a&gt;　　&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;先日、とある社内勉強会にて発表する機会があったので書き残しておく。要は最近のフロントエンド開発の流れに疲れて、もうちょっと違う方向で頑張ろうと思った話。&lt;/p&gt;
+
+&lt;h2 id=&#34;葛藤&#34;&gt;葛藤&lt;/h2&gt;
+
+&lt;p&gt;Kaizen Platform, Inc. フロントエンドデベロッパーのt32kです。皆さん、ご存知かもしれませんが、Kaizen PlatformはA/Bテストツールを提供しています。そのA/Bテストのデザイン案も国内外約2千名のグロースハッカーと呼ばれる方々から、クラウドソーシングで調達することができます。なので、自社内にデザイナー抱えてなくてもA/Bテストが実行可能です。&lt;/p&gt;
+
+&lt;p&gt;グロースハッカーの登録自体は無料ですので、デザイナーの方はぜひ登録してもらうと、コンバージョン率の高いデザインとはどうゆうものなのかとか勉強になってよいかと思います。いろいろな企業からオファーという形でA/Bデザイン案が募集されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kaizenplatform.com/ja/about_growth_hacker.html&#34;&gt;グロースハッカー | Kaizen Platform, Inc.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;私はそのKAIZEN DASHBOARDと呼ばれる、A/Bテストのレポート・オファー募集などの画面を作っています。2015年の夏にリニューアルしたので、フロントエンドの開発環境は以下の通り、若干、最新とは言えない状況です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular.js v1.x&lt;/li&gt;
+&lt;li&gt;Jade/Slim&lt;/li&gt;
+&lt;li&gt;SCSS&lt;/li&gt;
+&lt;li&gt;CoffeeScript&lt;/li&gt;
+&lt;li&gt;webpack/Gulp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このまま未来永劫、同じ開発環境でいくとは限らないので、順次アップデートしていかなければならないのですが、フロントエンドの流れに若干疲れました(´・ω・｀)。疲れることに定評のあるt32kですが、以前にもビルドツールで消耗した記事を書きました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/npm-run-script/&#34;&gt;Grunt/Gulpで憔悴したおっさんの話 - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回はSPAのJSフレームワークに関してです。現在Angular v1.xを使っていますが、これをv2.0にするのか、それともReactなのか、それとも他のSPAフレームワークに置き換えることが目下の課題です。&lt;/p&gt;
+
+&lt;p&gt;そもそも、最近ではSPA必要なの？問題が話題となっていました。そのアンサー記事のなかで下記の一文に個人的に同意できました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ちゃんとしたWebアプリケーションのUIを考えたらSPAにならざるを得ないということが多い
+ ― &lt;a href=&#34;http://nobkz.hatenadiary.jp/entry/2016/06/02/005114&#34;&gt;SPAである価値 - nobkzのブログ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;皆がスマホを持ちネイティブアプリが普通に使われている現在、当然ユーザーはその使い心地やルック&amp;amp;フィールをWebアプリにも求めることでしょう。そのような中で、SSR（サーバーサイドレンダリング）でページ単位でリクエストしていると、ページ間遷移時のトランジションエフェクトが適用できなかったりします。&lt;/p&gt;
+
+&lt;p&gt;そういった面から、KAIZEN DASHBOARDを振り返ってみると、toBのビジネスのためか、なにか硬い印象をもつザ・ギョーム・アプリケーションになっています。SPAで作っているので基本的にはAPIのデータのやりとりだけでページを軽快に切り替えることができるはずですが、やはりキャッシュ制御は難しく、理想には程遠いモッサリ感です。さらには複雑なフロントエンド開発で疲労困憊な状態です。&lt;/p&gt;
+
+&lt;p&gt;このような状況でフロントエンドエンジニアとしてユーザーに価値を提供できているのか？と疑問を持つようになりました。両方SPAである、AngularからReactに作り変えて何の意味があるのか。それよりもSPAの良さを引き出す努力をすべきなのではないかという思いが強くなってきました。&lt;/p&gt;
+
+&lt;h2 id=&#34;光明&#34;&gt;光明&lt;/h2&gt;
+
+&lt;p&gt;SPAのメリット、つまりネイティブアプリのような操作感とはどのようなものか？インタラクションデザインの研究者である渡邊恵太氏は、iPhoneの使いやすさに関してこう評しています。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41AgS62PXgL._SL160_.jpg&#34; alt=&#34;融けるデザイン ―ハード×ソフト×ネット時代の新たな設計論&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;融けるデザイン&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.6&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;渡邊恵太&lt;br /&gt;ビー・エヌ・エヌ新社&lt;br /&gt;売り上げランキング: 56189&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;指とグラフィックとの高い動きの連動性が道具的存在となり、自己帰属感ををもたらす。そしてその結果、道具としての透明性を得るためだ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;道具が道具として意識されず、身体の拡張のような状態になっていると言っています。このような状態は、他の言葉でも表せることが可能かと思います。フローとは、完全に集中してのめり込んでいる状態のことをいいます。ユーザーがこのような状態になっているとき、アプリケーションに対する評価は高いものとなっています。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790714799/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41GrqvZVxsL._SL160_.jpg&#34; alt=&#34;フロー体験入門―楽しみと創造の心理学&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790714799/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;フロー体験入門&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.6&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;M.チクセントミハイ,大森 弘&lt;br /&gt;世界思想社&lt;br /&gt;売り上げランキング: 11959&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790714799/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;では、このようなフローをどのように起こさせるのでしょう。フローを構成する要素としてはいくつかありますが、ここでは2点を挙げます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;直接的で即座な反応(活動の過程における成功と失敗が明確で、行動が必要に応じて調節される)&lt;/li&gt;
+&lt;li&gt;状況や活動を自分で制御している感覚&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このことから私は以下のように目標を設定しました。&lt;/p&gt;
+
+&lt;p&gt;『トリガーに対するフィードバックの&lt;strong&gt;プロセス&lt;/strong&gt;を表示することで、ユーザーの理解を促進する。適切で即座なフィードバックを返すことでユーザーをフロー（に近い）状態にさせる』&lt;/p&gt;
+
+&lt;p&gt;この目標に対して、フロントエンドエンジニアとしてモーションやインタラクションをデザインについて考える必要がありました。ただ、一から考えるのは大変なので、GoogleのMaterial Designを参考にしました。&lt;a href=&#34;https://material.google.com/motion/material-motion.html&#34;&gt;Material Designはモーションに関しても詳細なガイドライン&lt;/a&gt;があるので、大変参考になります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Meaningful transitions&lt;/strong&gt; 意味のあるトランジションを心がけよう&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visual continuity&lt;/strong&gt; ビジュアルの一貫性に気をつけよう&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delightful details&lt;/strong&gt; 遊び心もあればいいよね！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実装&#34;&gt;実装&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/animation.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まずはじめに、汎用アニメーションを定義したCSSをいくつか用意しました。このCSSを動かしたい要素に対して指定するだけで、その要素の状態が変化したときにfadeやzoomといったアニメーションが作動します。これを実現しているのはAngularの&lt;a href=&#34;https://docs.angularjs.org/api/ngAnimate&#34;&gt;ngAnimate&lt;/a&gt;という機能を使っているからです。これは、ng-showやng-hideディレクティブが指定されている要素のモデルに変更があった場合、A
+ngular側で、&lt;code&gt;.ng-enter&lt;/code&gt;や&lt;code&gt;.ng-leave&lt;/code&gt;などのアニメーションのフックとなるCSSクラスを自動的に付与してくれるので事前にアニメーションを定義できるのです。同様な機能はReactやVue.jsにもあるので利用可能です。&lt;/p&gt;
+
+&lt;p&gt;Build In-Outは表示・非表示になるものに対して。Actionはアニメーション後もその場に残るものに対して適用するのがよいでしょう。ちなみに、個人的にアニメーションが定義しているCSSに関しては&lt;code&gt;a-&lt;/code&gt;というプレフィックスをつけてグルーピングしています。&lt;/p&gt;
+
+&lt;p&gt;Durationに関しては、あまり長い時間を指定すると体感速度を遅く感じさせてしまう危険性があります。Material Designではデバイスの解像度にもよりますが150ms~375msくらいが適切だと記述してあります。&lt;/p&gt;
+
+&lt;p&gt;ngAnimateを使ったサンプルをCodePenにあげときましたので、いろいろいじってみるとよいです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://codepen.io/t32k/pen/obroxj&#34;&gt;ngAnimation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://codepen.io/t32k/pen/KzKLKL&#34;&gt;ngAnimation playground&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;デザイン案いいね-アニメーション&#34;&gt;デザイン案いいね！アニメーション&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/mm_like.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、実際の実践例ですが、まずはじめに作ったのが、デザイン案いいね！アニメーションです。
+これは、グロースハッカーさんが作ったデザイン案に対して、他の人がいいね！をつけれる機能です。まぁ作ったと言っても、イージングを少しいじった程度です。アニメーションなどに気にも留めていなかったら、いいね！機能実装タスクなんてものは、この場合、ハートの色をグレーからピンクに変えただけで終わっていたでしょう。これでなにか劇的に変わるといったものではないですが、このようなDelightful detailsの積み重ねが大事だと考えています。&lt;/p&gt;
+
+&lt;h4 id=&#34;同オファー複数デザイン案の展開トランジション&#34;&gt;同オファー複数デザイン案の展開トランジション&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/mm_expand.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いいね！のアニメーションが同僚に好評で、調子に乗ったt32kが、次にやったのが同オファー複数デザイン案の展開トランジションです。これは同じオファーでグロースハッカーさんが複数デザイン案を投稿した場合、たいていそのデザイン案は色違いやキャッチコピーの違いだけであまりビジュアル的差分がないので、一番改善率が高いものだけ表示して他はまとめているといった状態です。これをもし、トランジション無しに他のデザイン案が展開されたら、パッと見、いったいどこまで同じオファーグループのデザイン案か分かりにくい状態だったかと思います。これはMeaningful transitions意識したもので、代表デザイン案のカード（左）から&lt;code&gt;.a-compress-right&lt;/code&gt;で出てくることで同グループであることを理解させたいためでした。&lt;/p&gt;
+
+&lt;h4 id=&#34;ディレクション割り当てインタラクション&#34;&gt;ディレクション割り当てインタラクション&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/mm_direction.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;トランジションやアニメーションに慣れてきたので、今度はそれらを組み合わせることで、ちょっとしたマイクロインタラクション的なものを実装できるようになりました。ディレクション割り当てインタラクションはオファーに対してグロースハッカーではなくディレクターをアサインする機能です。従来の方法でこの機能を実装すれば、『ディレクションをアサインする』ボタンを置き、そのボタンを押すとモーダル画面が展開され、ユーザー一覧からアサインさせるといったのが普通です。現にそのような手法はDashboardでも多く使われています。ただそれだと、モードの切替のコストも高いですし、手順も多いです。今回のインタラクションはトリガーとそれのフィードバックも近いところで発生しており、Visual continuityもあり直感的なインタラクションになってるかと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;共有&#34;&gt;共有&lt;/h2&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51LgvWft-IL._SL160_.jpg&#34; alt=&#34;マイクロインタラクション ―UI/UXデザインの神が宿る細部&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;マイクロインタラクション&lt;br&gt;UI/UXデザインの神が宿る細部&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.6&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Dan Saffer,武舎 広幸,武舎 るみ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 60411&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;実装したら他の同僚に共有しましょう。共有するときに、動きやモノに名前が決まっていると説明しやすいです。例えば、先ほどのインタラクションは、&lt;/p&gt;
+
+&lt;p&gt;トリガーをクリックすると絞り込みフォームが&lt;code&gt;.a-compress-right&lt;/code&gt;で出てきて、次にユーザーリストが&lt;code&gt;.a-compress-bottom&lt;/code&gt;で出現。ユーザーをクリックすると&lt;code&gt;.a-move-right&lt;/code&gt;でremoveされ、&lt;code&gt;.a-fade&lt;/code&gt;でディレクションとして出現する。&lt;/p&gt;
+
+&lt;p&gt;といった感じで表現できます。&lt;/p&gt;
+
+&lt;p&gt;私はデザイン畑出身のフロントエンドエンジニアでこのようなインタラクションやモーションに関して疎くないのですが、エンジニア畑出身のフロントエンドエンジニアと一緒に作業するときはこういった取り決めがあるとスムーズに進むことでしょう。またデザイナーも必ずしもコードがかけたりインタラクションに造詣があるといったこともないので、みんなで作っていく姿勢が大事かと思います。&lt;/p&gt;
+
+&lt;p&gt;最後になりましたが、あまり大げさに捉えることなく、できることから、小さなところから手を付けて行くのが良いかと思います。そういった小さな、つまりマイクロインタラクションの集合が使いやすいアプリケーションとなりユーザーに価値を提供できるのではないかと考えています。&lt;/p&gt;
+
+&lt;p&gt;ありがとうございましたm(_ _)m&lt;/p&gt;
+
+&lt;p&gt;あと、弊社ではインタラクションデザインとかもできちゃうフロントエンドエンジニアを募集しております。よろっしゃお願いしすm(_ _)m&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jobs.lever.co/kaizenplatform/8a4371bd-8a4f-465c-81b1-8a28b9851a48&#34;&gt;Kaizen Platform, Inc. - Frontend Engineer/ フロントエンドエンジニア&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今回アニメーションGIFを載せたかったので、KeynoteやめてHTMLスライドを使用した。使ったのはTalkie。PDF化まで名古屋人によるもの。あーなごやか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ahomu/Talkie&#34;&gt;ahomu/Talkie: Simple slide presentation library.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.wnotes.net/blog/article/talkie-slide-to-pdf-tool&#34;&gt;TalkieのスライドをPDF化するツール作った | ブログ :: Web notes.log&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

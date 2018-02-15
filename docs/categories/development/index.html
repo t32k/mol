@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>Development - MOL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MOL"> 
+    <meta property="fb:app_id" content="212646065416408">
+    <link rel="canonical" href="https://t32k.me/mol/categories/development/">
+    <link rel="stylesheet" href="/mol/css/skeleton.css?20171206">
+    <link rel="author" href="//plus.google.com/+kojiishimoto">
+    <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="MOL">
+</head>
+
+<body>
+    <svg class="u-dn">
+  <symbol id="post-fb" viewBox="0 0 24 24"><path d="M21.087 0H2.913C1.303 0 0 1.304 0 2.913v18.174C0 22.697 1.304 24 2.913 24h18.174C22.697 24 24 22.696 24 21.087V2.913C24 1.303 22.696 0 21.087 0zm-5.14 6.446h-1.864c-.658 0-.795.27-.795.95V9.04h2.658l-.256 2.887h-2.402v8.623H9.845v-8.587h-1.79V9.04h1.79V6.738c0-2.16 1.155-3.288 3.717-3.288h2.384v2.996z" fill="#334F8D" fill-rule="evenodd"/></symbol>
+  <symbol id="post-tw" viewBox="0 0 24 24"><path d="M21.087 0H2.913C1.303 0 0 1.304 0 2.913v18.174C0 22.697 1.304 24 2.913 24h18.174C22.697 24 24 22.696 24 21.087V2.913C24 1.303 22.696 0 21.087 0zm-2.333 9.153c.207 4.605-3.228 9.74-9.307 9.74-1.85 0-3.57-.542-5.02-1.47 1.738.204 3.472-.278 4.848-1.357-1.432-.027-2.642-.973-3.058-2.274.513.098 1.018.07 1.478-.056C6.12 13.42 5.035 12 5.07 10.484c.44.245.945.393 1.482.41-1.458-.975-1.87-2.9-1.013-4.372 1.614 1.98 4.027 3.285 6.748 3.42-.478-2.047 1.076-4.02 3.19-4.02.94 0 1.792.398 2.39 1.035.745-.147 1.446-.42 2.08-.795-.246.765-.765 1.406-1.44 1.812.66-.08 1.292-.255 1.88-.516-.44.657-.994 1.233-1.634 1.695z" fill="#55ACEE" fill-rule="evenodd"/></symbol>
+  <symbol id="post-gp" viewBox="0 0 24 24"><path d="M9.267 10.757c-1.3-.04-2.538-1.232-2.762-2.94-.225-1.71.648-3.018 1.95-2.98 1.3.04 2.413 1.442 2.637 3.15.225 1.71-.524 2.81-1.825 2.77zM9 14.254c-1.938-.02-3.58 1.225-3.58 2.67 0 1.474 1.4 2.702 3.338 2.702 2.478 0 3.676-1.152 3.676-2.627 0-1.406-1.283-2.746-3.434-2.746zm15-11.34v18.173C24 22.697 22.696 24 21.087 24H2.913C1.303 24 0 22.696 0 21.087V2.913C0 1.303 1.304 0 2.913 0h18.174C22.697 0 24 1.304 24 2.913zm-9.897 13.914c0-1.36-.508-2.25-2.045-3.402-1.56-1.138-1.94-1.78-.452-2.93.838-.65 1.426-1.514 1.426-2.58 0-1.164-.475-2.22-1.37-2.73h1.268l1.08-1.133H9.18c-3.013 0-4.49 1.806-4.49 3.793 0 2.03 1.392 3.63 4.113 3.63-.422.852-.253 1.638.437 2.2-4.646 0-5.64 2.04-5.64 3.61 0 2.034 2.34 3.244 5.144 3.244 3.835 0 5.36-2.032 5.36-3.702zM20.4 6.502h-2.227V4.275H17.06v2.227H14.83v1.114h2.227v2.227h1.113V7.616H20.4V6.502z" fill="#DD4B39" fill-rule="evenodd"/></symbol>
+  <symbol id="post-hb" viewBox="0 0 24 24">
+    <path d="M0 21.12C0 22.71 1.29 24 2.88 24h18.24c1.59 0 2.88-1.29 2.88-2.88V2.88C24 1.29 22.71 0 21.12 0H2.88C1.29 0 0 1.29 0 2.88v18.24zm16.765-6.65c-.78 0-1.412.632-1.412 1.412 0 .78.632 1.412 1.412 1.412.78 0 1.412-.632 1.412-1.412 0-.78-.633-1.41-1.412-1.41zM15.53 6.707H18v7.06h-2.47v-7.06zm-2.288 5.668c-.418-.467-1-.73-1.745-.787.663-.18 1.145-.445 1.45-.798.303-.35.454-.823.454-1.42 0-.47-.102-.888-.302-1.248-.205-.36-.5-.645-.886-.86-.338-.186-.74-.317-1.21-.395-.47-.075-1.295-.113-2.478-.113H5.647v10.492H8.61c1.192 0 2.05-.042 2.575-.122.525-.082.965-.22 1.32-.41.442-.234.778-.565 1.013-.99.236-.426.353-.918.353-1.48 0-.78-.208-1.404-.628-1.87zM8.302 9.08h.615c.71 0 1.187.08 1.433.24.243.16.367.437.367.83 0 .38-.132.647-.393.804-.264.153-.745.23-1.45.23h-.57V9.08zm2.437 6.017c-.28.17-.762.255-1.437.255h-1V13.06h1.043c.694 0 1.173.087 1.428.262.26.174.387.482.387.924 0 .396-.14.68-.42.85z" fill="#00A4DE" fill-rule="evenodd"/>
+  </symbol>
+	<symbol id="shape-github" viewBox="0 0 24 24">
+		<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.218 18.616c-.354.069-.468-.149-.468-.336v-1.921c0-.653-.229-1.079-.481-1.296 1.56-.173 3.198-.765 3.198-3.454 0-.765-.273-1.389-.721-1.879.072-.177.312-.889-.069-1.853 0 0-.587-.188-1.923.717-.561-.154-1.159-.231-1.754-.234-.595.003-1.193.08-1.753.235-1.337-.905-1.925-.717-1.925-.717-.379.964-.14 1.676-.067 1.852-.448.49-.722 1.114-.722 1.879 0 2.682 1.634 3.282 3.189 3.459-.2.175-.381.483-.444.936-.4.179-1.413.488-2.037-.582 0 0-.37-.672-1.073-.722 0 0-.683-.009-.048.426 0 0 .46.215.777 1.024 0 0 .405 1.25 2.353.826v1.303c0 .185-.113.402-.462.337-2.782-.925-4.788-3.549-4.788-6.641 0-3.867 3.135-7 7-7s7 3.133 7 7c0 3.091-2.003 5.715-4.782 6.641z"/></symbol>
+	<symbol id="shape-dribbble" viewBox="0 0 24 24">
+		<path d="M11.455 9.985c-1.419.417-3.11.632-5.067.646.405-1.654 1.518-3.03 3.003-3.784.777 1.016 1.464 2.063 2.064 3.138zm.965 1.93c-.124-.28-.254-.559-.391-.835-1.622.51-3.561.769-5.804.772l-.008.148c0 1.404.504 2.692 1.34 3.695 1.266-1.901 2.891-3.164 4.863-3.78zm-3.97 4.641c1.569 1.225 3.671 1.589 5.624.836-.252-1.488-.65-2.94-1.19-4.352-1.819.542-3.285 1.714-4.434 3.516zm7.075-9.13c-.977-.754-2.197-1.209-3.525-1.209-.49 0-.964.068-1.418.184.764 1.028 1.441 2.086 2.035 3.172 1.236-.524 2.204-1.24 2.908-2.147zm8.475 4.574c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12zm-5 0c0-3.866-3.135-7-7-7s-7 3.134-7 7 3.135 7 7 7 7-3.134 7-7zm-5.824-1.349c.157.324.305.651.447.98 1.26-.217 2.641-.204 4.143.042-.073-1.292-.566-2.474-1.354-3.403-.807 1.005-1.89 1.798-3.236 2.381zm.914 2.132c.489 1.309.865 2.651 1.119 4.023 1.312-.88 2.241-2.284 2.497-3.909-1.317-.228-2.522-.268-3.616-.114z"/></symbol>
+	<symbol id="shape-rss" viewBox="0 0 24 24">
+		<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.374 17c-.897 0-1.626-.727-1.626-1.624s.729-1.624 1.626-1.624 1.626.727 1.626 1.624-.729 1.624-1.626 1.624zm3.885 0c-.03-3.022-2.485-5.474-5.511-5.504v-2.406c4.361.03 7.889 3.555 7.92 7.91h-2.409zm4.081 0c-.016-5.297-4.303-9.571-9.592-9.594v-2.406c6.623.023 11.985 5.384 12 12h-2.408z"/></symbol>
+	<symbol id="shape-linkedin" viewBox="0 0 24 24">
+		<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+	</symbol>
+</svg>
+<header class="site-header">
+  <div class="container">
+  <nav role="navigation u-cf">
+    <a href="/mol/">MOL</a>
+    <a href="/">About</a>
+    <a href="/mol/log/">Logs</a>
+  </nav>
+  </div>
+</header>
+<div class="container">
+
+<section role="main">
+    <h1>Development</h1>
+    <hr>
+    <div class="site-ad">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</div>
+    <hr>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, February 14, 2018</time>
+            <h4><a href="https://t32k.me/mol/log/chat-deploy/">チャットデプロイしたい2018</a></h4>
+            <p class="post-desc">タイトルの通り、チャットデプロイしたい。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, January 30, 2018</time>
+            <h4><a href="https://t32k.me/mol/log/circleci2-yml-nodejs/">CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ（改）</a></h4>
+            <p class="post-desc">前回の記事で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, January 19, 2018</time>
+            <h4><a href="https://t32k.me/mol/log/full-icu/">SeverとClientでレンダリング結果が違う</a></h4>
+            <p class="post-desc">SeverとClientでレンダリング結果が微妙に違うとのこと。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Thursday, September 14, 2017</time>
+            <h4><a href="https://t32k.me/mol/log/circleci2-yml/">CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</a></h4>
+            <p class="post-desc">基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, May 5, 2017</time>
+            <h4><a href="https://t32k.me/mol/log/react-custom-event/">Reactコンポーネントを外から操作したい</a></h4>
+            <p class="post-desc">最近、Reactを触っているのだけど、Reactコンポーネント外から任意のReactコンポーネントを操作したい事情に駆られた（何を言ってるのか分からねぇと思うが俺も（ｒｙ）。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, April 25, 2017</time>
+            <h4><a href="https://t32k.me/mol/log/nextjs-invalid-build-id/">Deploying Multiple Instances for Next.js</a></h4>
+            <p class="post-desc">最近、Next.jsを触っている。ほぼゼロ設定で、サーバーサイドでReactをレンダリングできたり、ルーティングがめちゃ簡単だったり、今のところいい感じである。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, January 24, 2017</time>
+            <h4><a href="https://t32k.me/mol/log/accelerated-mobile-links/">Accelerated Mobile Linksを試してみる</a></h4>
+            <p class="post-desc">モバイルWeb全体が速くなりますように( ˘ω˘)ｽﾔｧ</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, January 4, 2017</time>
+            <h4><a href="https://t32k.me/mol/log/xo-and-ava/">xoとavaでお手軽リント・テスト環境構築</a></h4>
+            <p class="post-desc">できるかぎり開発環境構築に手間を取らず、アプリケーションのコードに集中したいものですな(˘ω˘)</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Thursday, September 22, 2016</time>
+            <h4><a href="https://t32k.me/mol/log/secure-and-fast-github-pages/">カスタムドメインのGitHub PagesをSSL対応する</a></h4>
+            <p class="post-desc">HTTPSってええやん？</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Monday, February 1, 2016</time>
+            <h4><a href="https://t32k.me/mol/log/stylestats-crx/">StyleStatsのChrome拡張機能を作った</a></h4>
+            <p class="post-desc">StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Sunday, August 9, 2015</time>
+            <h4><a href="https://t32k.me/mol/log/stylestats-charts/">StyleStatsにタイムラインチャートを追加した</a></h4>
+            <p class="post-desc">待望の期間グラフをStyleStats Web版に追加した。StyleStatsはCSSを解析ツールで、一回だけ使って、へぇー私の・僕の書いたCSSはこんな感じなんだぁーと理解してもらうのも結構だが、やはり継続的に解析してもらって、どのくらい改善したのか理解して欲しいと思っている。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Monday, April 27, 2015</time>
+            <h4><a href="https://t32k.me/mol/log/renewal-stylestats/">そんなに目新しくもない技術でWebアプリをリニューアルした2015年春</a></h4>
+            <p class="post-desc">世間はReactの話題で持ちきりのようだけど、Backbone.jsでStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことつらつらかきとめておく。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Monday, April 6, 2015</time>
+            <h4><a href="https://t32k.me/mol/log/gaer/">コマンドラインからGoogle Analyticsにデータを記録するGAERをつくった</a></h4>
+            <p class="post-desc">表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, March 31, 2015</time>
+            <h4><a href="https://t32k.me/mol/log/gfaceee/">gFaceeeに最新コミット日時を強調する機能追加した</a></h4>
+            <p class="post-desc">Webフロントエンド技術に関して非常に多くの技術情報を日々捌いているLayzieさん曰く、『記事の日付は必ず確認』しなければならない。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, March 25, 2015</time>
+            <h4><a href="https://t32k.me/mol/log/npm-run-script/">Grunt/Gulpで憔悴したおっさんの話</a></h4>
+            <p class="post-desc">先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的には下記の記事読んだら分かります。要はGulpとかGruntといったモノ使わずにnpm run-scriptでビルドしよーぜって話です。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, January 28, 2015</time>
+            <h4><a href="https://t32k.me/mol/log/wisteria/">Wisteria：デザインツールとしてのCSS</a></h4>
+            <p class="post-desc">誰も傷つけない、傷つけたくない、そんなかわいいCSSライブラリです。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, December 24, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/style-class-conference/">Smashing Magazineのパフォーマンス改善ケースが凄まじい件</a></h4>
+            <p class="post-desc">12/13にバンクーバーで開催されたThe Style &amp; Class Conference 2014に参加して感銘を受けたのでVitaly Friedman氏のセッションを紹介するよ。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, December 23, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/go-on-heroku/">GoアプリをHerokuにデプロイする</a></h4>
+            <p class="post-desc">Heroku Advent Calendar 2014 - Qiita</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Saturday, December 13, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/heroku-dropbox-sync/">Heroku Dropbox Syncで実現するWeb開発の未来</a></h4>
+            <p class="post-desc">2014年11月にHerokuからDropbox Sync機能のアナウンス（Beta版）がありました。今日はこれを使ってみようと思います。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Thursday, April 10, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/stylestats.org/">オンラインCSS解析 StyleStats.org</a></h4>
+            <p class="post-desc">前回スタイルシートの統計情報を出力するNode Packageを作ったわけだけど、やっぱりオンライン上で簡単に試せれたらいいよねー</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Monday, March 24, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/badge-driven-development/">バッジ駆動開発（2014:Node.js）</a></h4>
+            <p class="post-desc">みんなバッジ好き？(　ﾟ∀ﾟ)o彡ﾟバッジ！バッジ！バッジ！</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, March 7, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/stylestats/">StyleStats</a></h4>
+            <p class="post-desc">スタイルシートの統計情報を出力するNode Packageを作った。Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, February 14, 2014</time>
+            <h4><a href="https://t32k.me/mol/log/i-wanna-be-a-front-end-engineer/">フロントエンドエンジニア（仮）</a></h4>
+            <p class="post-desc">フロントエンドのワークフロー(Grunt)、最適化（パフォーマンス）について考えたことを紹介します。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Thursday, November 28, 2013</time>
+            <h4><a href="https://t32k.me/mol/log/peerdependency/">peerDependency</a></h4>
+            <p class="post-desc">暮らし、安心、魔鎖狩あん♪</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, November 8, 2013</time>
+            <h4><a href="https://t32k.me/mol/log/good-bye-compass-good-bye-ruby/">部屋とYシャツと私</a></h4>
+            <p class="post-desc">「部屋とYシャツと私」は、平松愛理の8枚目のシングル。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, August 6, 2013</time>
+            <h4><a href="https://t32k.me/mol/log/charles-bandwidth-throttling/">CharlesでBandwidth Throttlingを設定しChrome for AndroidでRemote Debugする</a></h4>
+            <p class="post-desc">僕のAndroid端末は3G回線契約していない、いわゆる白ロムなので、WiFiしか使えない。これだと、3G回線の低速さが体感できない、低帯域でどうアプリケーションが振る舞うのかわからないので不便だ。ということで、CharlesでBandwidth Throttlingできたよねと思い、組み合わせて使ってみる。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Tuesday, August 6, 2013</time>
+            <h4><a href="https://t32k.me/mol/log/reverse-port-forwarding/">Chrome CanaryとAndroid Debug BridgeとChrome for Android betaでReverse Port Forwarding</a></h4>
+            
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, July 3, 2013</time>
+            <h4><a href="https://t32k.me/mol/log/using-node-version-manager/">nvmでnode.jsを管理する</a></h4>
+            
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, June 28, 2013</time>
+            <h4><a href="https://t32k.me/mol/log/vagrant1-2-centos6-4-jenkins1-5/">VagrantでCentOSを入れてJenkinsを導入してみる</a></h4>
+            <p class="post-desc">我もJenkins触ってみたかったんや...</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Sunday, December 2, 2012</time>
+            <h4><a href="https://t32k.me/mol/log/spriting-with-compass/">パフォーマンスからみるSass/Compass 第2回：CompassによるCSS Sprite</a></h4>
+            <p class="post-desc">パフォーマンスの勉強ができてなおかつSass/Compassのお勉強にもなるお得なシリーズまさかの2回目。Adventにぶつけてきた！</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, October 17, 2012</time>
+            <h4><a href="https://t32k.me/mol/log/csscomb/">CSScomb</a></h4>
+            <p class="post-desc">うららかに晴れた秋の日、みなさんいかがお過ごしか？こんちわ @t32k だ。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, September 26, 2012</time>
+            <h4><a href="https://t32k.me/mol/log/remote-debugging-with-chrome-for-android/">Chrome for Androidでリモートデバッグ</a></h4>
+            
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Monday, July 9, 2012</time>
+            <h4><a href="https://t32k.me/mol/log/sublime-text-2/">Sublime Text 2にしてみた</a></h4>
+            
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, March 23, 2012</time>
+            <h4><a href="https://t32k.me/mol/log/jsoff/">jsoff：ワンクリックでJavaScriptをOFFれるChrome拡張機能</a></h4>
+            <p class="post-desc">This is a chrome extension to disable JavaScript execution with one click.</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, June 22, 2011</time>
+            <h4><a href="https://t32k.me/mol/log/cfbundleversion/">Version Number (iTunes Connect) と Bundle version (CFBundleVersion)</a></h4>
+            <p class="post-desc">前出したバージョンより、CFBundleVersionが低いからダメってことよね？1.2から1.2.1ってどーみても上がってんじゃん！てめぇ数字数えられねーのかよ!?てことで調べてみた。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, April 27, 2011</time>
+            <h4><a href="https://t32k.me/mol/log/uirequireddevicecapabilities/">UIRequiredDeviceCapabilities</a></h4>
+            <p class="post-desc">初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Wednesday, April 7, 2010</time>
+            <h4><a href="https://t32k.me/mol/log/data-uri-scheme/">データURIスキーム</a></h4>
+            <p class="post-desc">今回の記事の主題はデータURIスキームとはなんぞいねってことなんですが、簡単に言いますと、このスキームを使うとサーバにリクエストすることなく、ページ内のコードに画像を埋め込むことができるという話です。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Friday, December 4, 2009</time>
+            <h4><a href="https://t32k.me/mol/log/css-performance-for-fast-web-applications/">高速ウェブアプリのためのCSSパフォーマンス</a></h4>
+            <p class="post-desc">3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。</p>
+        </article>
+    
+        <article>
+            <time class="u-txs u-mute">Saturday, August 15, 2009</time>
+            <h4><a href="https://t32k.me/mol/log/textmate-loves-processing/">TextMateをProcessingのエディタ代わりにする</a></h4>
+            <p class="post-desc">IAMASのオープンキャンパスに行って以来、Processingをちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。</p>
+        </article>
+    
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+      <div class="site-author u-cf">
+      <p class="u-pull-left"><a href="/">
+        <img src="/mol/images/people/me.jpg" width="80" height="80" alt="t32k" class="site-author-pic"></a></p>
+      <div class="site-author-info">
+        <p class="site-author-desc">石本 光司（いしもと こうじ）1983年石川県生まれ。大学でデザインを専攻後、晴れてWebデザイナーになるが、コーディング好きが高じてWebデベロッパーに転身。</p>
+        <ul class="social-links">
+          <li><a href="//t32k.me/mol/index.xml" title="RSS">
+            <svg class="social-links-rss"><use xlink:href="#shape-rss"/></svg>
+          </a></li>
+          </a></li>
+          <li><a href="//github.com/t32k" title="GitHub">
+            <svg class="social-links-github"><use xlink:href="#shape-github"/></svg>
+          </a></li>
+          <li><a href="//dribbble.com/t32k" title="Dribbble">
+            <svg class="social-links-dribbble"><use xlink:href="#shape-dribbble"/></svg>
+          </a></li>
+          <li><a href="//www.linkedin.com/in/kojiishimoto" title="LinkedIn">
+            <svg class="social-links-linkedin"><use xlink:href="#shape-linkedin"/></svg>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-copyright"><small role="contentinfo">&copy; 2007 t32k.me</small></p>
+  </div>
+</footer>
+
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
+  ga('create', 'UA-2317436-26', 'auto'); ga('send', 'pageview');
+</script>
+<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

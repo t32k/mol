@@ -1,7 +1,7 @@
 baseurl = "https://t32k.me/mol/"
 languageCode = "ja"
 title = "MOL"
-publishdir = "public"
+publishdir = "docs"
 MetaDataFormat = "yaml"
 [params]
   description = "Designing for a Mobile World."
