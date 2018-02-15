@@ -4,5 +4,5 @@ title = "MOL"
 publishdir = "docs"
 MetaDataFormat = "yaml"
 [params]
-  description = "Designing for a Mobile World."
+  description = "Designing for User Interface"
   author = "Koji Ishimoto"

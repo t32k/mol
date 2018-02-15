@@ -4,7 +4,7 @@
   "description": "Powered by [Hugo](http://gohugo.io/). Hosted by [GitHub Pages](https://pages.github.com/).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "hugo && cp docs/index.xml docs/feed.xml"
   },
   "repository": {
     "type": "git",
