@@ -1,7 +1,8 @@
-box: golang
+box: golang:latest
 build:
   steps:
-    - arjen/hugo-build@1.29.0
+    - arjen/hugo-build:
+        version: "HEAD"
     - script:
         name: Copy RSSfeed to feed.xml
         code: cp public/index.xml public/feed.xml
