@@ -7,7 +7,40 @@
         <language>ja</language>
         
         
-        <updated>Sat, 10 Mar 2018 00:00:00 UTC</updated>
+        <updated>Sun, 11 Mar 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>デザイン組織のつくりかた</title>
+            <link>https://t32k.me/mol/log/978-4802510837-org-design/</link>
+            <pubDate>Sun, 11 Mar 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4802510837-org-design/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4802510837/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/515p1Uo6rcL._SX350_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;デザイン組織のつくりかた&lt;br&gt;デザイン思考を駆動させるインハウスチームの構築＆運用ガイド&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ピーター・メルホルツ&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;たまにはデザインの本を読んでみようかと手にとってみた。&lt;/p&gt;
+
+&lt;p&gt;最初に断っておくけど、タイトルに『デザイン組織のつくりかた』と書いてあるからといって、あなたがデザイナーの部下を数十人、数百人抱えるようなデザイン部長である必要はない。&lt;/p&gt;
+
+&lt;p&gt;本書はどのようにしたらデザインを組織全体に浸透させ、ワークさせるのか解説しているので、いちデザイナーとしてどのように自分が与えられた役割を果たすべきなのか理解することは非常に大切だ。&lt;/p&gt;
+
+&lt;p&gt;また、あなたがデザイナーではなくエンジニアだとしても読んでおいて損はないだろう。デザインをエンジニアリングとして置き換えて読めば、十分エンジニアとしても、（組織論なので）役に立つことが書いてある。またデザイナーと一言でいっても、いろいろなデザイナーがいるので、その＊＊＊デザイナーの各肩書の説明もしてあるので、デザイナーを理解するのにもよいだろう。&lt;/p&gt;
+
+&lt;p&gt;エンジニアの求人でよくネタにされる『フルスタックエンジニア』と同様に、デザイナーの求人においても『ユニコーンデザイナー』（コードもかけるデザイナー）なんていないから、そんなもの求めるな！それよりもここのデザイナーの強みを活かしてチームを作れ！と書いてあったのは、おもしろかった。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;深く考えもせずにデザインとユーザーエクスペリエンスを一緒にしてしまうと、ユーザーエクスペリエンスに関連する他のすべての領域を軽視することになる。ユーザーエクスペリエンスはデザインだけでなく、エンジニアリング、マーケティング、顧客ケアなど、数多くの部門の貢献が結果となって表れたものだ。（中略）ユーザーエクスペリエンスはすべての人々の責務でなければならない。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;あと個人的に、UXデザインって言葉使ってなくて好感が持てた。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>SONY HUISを購入した</title>
@@ -1275,128 +1308,6 @@ Hash Rateの推移&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/utxo&#34;&gt;ブロックチェーンの取引データをひとつなぎにする仕組み「UTXO」&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/merkle-tree&#34;&gt;トランザクションデータを要約する技術「マークルツリー」&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/51-percent&#34;&gt;ブロックチェーンが特定のグループに支配されてしまう問題「51%問題」&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</title>
-            <link>https://t32k.me/mol/log/circleci2-yml/</link>
-            <pubDate>Thu, 14 Sep 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/circleci2-yml/</guid>
-            <description>
-
-&lt;p&gt;基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。今年の7月にCircleCI 2.0がリリースされ、config.ymlの記法も刷新されたとかで、ググって出て来るのは1.0の記法ばかりで苦労したので、メモ代わりに残しとく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.stormcat.io/post/entry/circleci2.0-overview01/&#34;&gt;CircleCI2.0事始め -新しいcircle.ymlとworkflows編 · tehepero note(・ω&amp;lt;) 2.0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;基本は上記のブログがわかりやすい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
-jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:8
-
-    steps:
-      - checkout
-      - run:
-          name: System information
-          command: |
-            echo &amp;quot;Node $(node -v)&amp;quot;
-            echo &amp;quot;Yarn v$(yarn --version)&amp;quot;
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Build
-          command: yarn run build
-      - run:
-          name: Test
-          command: yarn test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;version: 2&lt;/code&gt; で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。&lt;code&gt;yarn&lt;/code&gt; がデフォルトで入ってるらしく、GAE/Node.jsも&lt;code&gt;yarn&lt;/code&gt;が使えるので&lt;code&gt;yarn&lt;/code&gt;を使っていく。&lt;/p&gt;
-
-&lt;p&gt;あとは&lt;code&gt;run&lt;/code&gt;でステップを指定していく。&lt;code&gt;command&lt;/code&gt;は&lt;code&gt;|&lt;/code&gt;を置けば、複数行でも書ける。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;      - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-          paths:
-            - ~/repo/.cache/yarn
-            - ~/repo/dist
-            - ~/repo/node_modules
-            - ~/repo/package.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://circleci.com/docs/2.0/caching/#using-keys-and-templates&#34;&gt;Using Keys and Templates - Caching Dependencies - CircleCI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;{{ hoge }}&lt;/code&gt;はテンプレートで、&lt;code&gt;checksum&lt;/code&gt; は base64でハッシュを作ってくれる。
-ここではユニークなkey名を指定したくて、こんな風にしている。あとはキャッシュさせたいパス。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;build&lt;/code&gt;ステップは終わり。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  deploy:
-    working_directory: ~/repo
-    docker:
-      - image: google/cloud-sdk
-
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-      - run:
-          name: Deploy to Google App Engine
-          command: |
-            echo &amp;quot;$GOOGLE_AUTH&amp;quot; | base64 -i --decode &amp;gt; &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud auth activate-service-account --key-file &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud --quiet config set project &amp;quot;$GOOGLE_PROJECT_ID&amp;quot;
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &amp;quot;s/\//\-/g&amp;quot;)
-          no_output_timeout: 20m
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;つぎに、&lt;code&gt;deploy&lt;/code&gt;ステップ。&lt;code&gt;gcloud app deploy&lt;/code&gt;のコマンドでデプロイするので、&lt;code&gt;gcloud&lt;/code&gt;が入ったdockerイメージを指定。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;restore_cache&lt;/code&gt; で先のステップで保存しといたファイルを呼び出す。&lt;/p&gt;
-
-&lt;p&gt;あとはデプロイコマンド。CI上でデプロイするので権限をもったサービスアカウントを作らなければならない。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://int128.hatenablog.com/entry/2017/08/12/153538&#34;&gt;Circle CIでCloud Functionをデプロイする - GeekFactory&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記はCloud Functionだけど、認証の部分は同じなので真似するとよい。んで、エンコードしたものをCircleCIの環境変数として登録しておく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://circleci.com/docs/2.0/env-vars/#build-details&#34;&gt;Using Environment Variables - CircleCI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;$CIRCLE_BRANCH&lt;/code&gt;はCircleCIが設定している環境変数。ビルド番号とかもある。&lt;/p&gt;
-
-&lt;p&gt;あと&lt;code&gt;no_output_timeout&lt;/code&gt;は、GAE/Node.jsへのデプロイがくっそ遅くて、タイムアウト（デフォルト10分）になるので20分に伸ばしてる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;最後はワークフローの設定。&lt;a href=&#34;https://circleci.com/docs/2.0/configuration-reference/#filters&#34;&gt;フィルター&lt;/a&gt;とかでmasterブランチのときだけ実行とか、必須条件とか決めれる。便利。&lt;/p&gt;
-
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://engineer.crowdworks.jp/entry/2017/04/04/202719&#34;&gt;CircleCI 2.0に移行して新機能を活用したらCIの実行時間が半分になった話 - クラウドワークス エンジニアブログ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>
