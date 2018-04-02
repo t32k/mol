@@ -1,167 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>MOL</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://t32k.me/mol/categories/memo/</link>
-        <language>ja</language>
-        
-        
-        <updated>Tue, 29 Mar 2011 00:00:00 UTC</updated>
-        
-        <item>
-            <title>iOS Developer Program に登録!!!!</title>
-            <link>https://t32k.me/mol/log/ios-developer-program/</link>
-            <pubDate>Tue, 29 Mar 2011 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/ios-developer-program/</guid>
-            <description>&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-2653&#34; title=&#34;activationcode&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/activationcode.png&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;369&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;有料プログラム的な意味でってことです。初めに言っておきますが、これかなりの無理ゲーですわ&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;せっかく、Titanium MobileでiPhone App制作するんだから、iPhoneっぽいことしたいよねってことでカメラ使いたい！カメラ使いたい！そうゆうわけで、カメラの動作はiOSシュミレーター上ではできませんから、iOS Developer Programの有料登録をして、作ったアプリを実機に転送できるようにしてもらわないといけません。たったそれだけの願いです。たったそれだけのためにかれこれ2週間はかかりました。&lt;/p&gt;
-
-&lt;p&gt;基本的に実機に転送する手順は以下の2つの記事を見てもらえればたぶん大丈夫だとおもう。
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;http://gihyo.jp/dev/serial/01/iphone/0009&#34;&gt;目指せ！iPhoneアプリ開発エキスパート：第9回　デバイスでアプリを動かす｜gihyo.jp &lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;http://kentaro-shimizu.com/lecture/iphone/step3.html&#34;&gt;iPhoneアプリを実機で動かす | iPhoneアプリ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-問題なのは登録です！
-&lt;blockquote&gt;な…　何を言ってるのか　わからねーと思うが
-おれも何をされたのかわからなかった…&lt;/blockquote&gt;
-ってことで、ここから登録してみるよ。
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;http://developer.apple.com/jp/programs/ios/&#34;&gt;iOS Developer Program - Apple Developer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;1順目&lt;/h3&gt;
-無料のApple Developerは以前に登録していたので
-&lt;blockquote&gt;Existing Apple Developer&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m registered as a developer with Apple and would like to enroll in a paid Apple Developer Program.&lt;/blockquote&gt;
-を選んで individualで登録。AppleStoreでiOS DeveloperProgramを購入して、Activation Codeが記載されたメールをもらう。そこからActivation Codeが認証されて、晴れてDeveloperProgramに登録となるのですが、なんせ、いかにも、はたまた、どうしてか、Activation Code認証の時にエラーになります。&lt;/p&gt;
-
-&lt;p&gt;で、ちょっとググッてみるとこんな記事が。
-&lt;blockquote&gt;※エラーが発生し、アクティベーションできない可能性大。ほとんどの場合、アカウント情報の文字化けが原因なのでADCのサポートにメールでアクティベーションできない旨を連絡する（リージョンを日本語にすれば日本語のメールで問題なし）
-&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;a href=&#34;http://ameblo.jp/mbdev/entry-10186919672.html&#34;&gt; iPhone Developer Programへの参加｜iPhone 開発雑記帳&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
-なんとまぁー。たしかに、最初にDeveloper登録したときに漢字で入力してた！急いでManage Accountで英語表記に直すが、肝心の氏名の部分が修正できない！あれ？詰んだ？&lt;/p&gt;
-
-&lt;p&gt;ということで、エラーはあいかわらず出るので、エラーが出たときに案内されるところからヘルプミーする。日本語で送っても大丈夫そうなので問題ない。&lt;/p&gt;
-
-&lt;p&gt;1週間経過しても、メール帰ってこない。（3週間くらいしたら返答来ました！）
-&lt;h3&gt;2順目&lt;/h3&gt;
-待ちきれなかったので、今度は新規アカウント作成し最初から英語で全部入力する。お！なんかいけそうな感じ。iOS DeveloperProgramを購入して、再度Activation Codeのメールを待つ。&lt;/p&gt;
-
-&lt;p&gt;恐る恐る、Activation Codeを入力するとまたエラー
-&lt;blockquote&gt;&lt;strong&gt;We are unable to activate your Apple Developer Programmembership.&lt;/strong&gt;
-We are unable to activate your Apple Developer Programmembership because we are unable to successfully verifyyour identity. Please contact us and reference EnrollmentID# xxxxxxx  for further assistance.&lt;/blockquote&gt;
-でも今度は、エラーの内容違う。なんかお前の身元が認証できないみたいなこと言ってるのね。iOS Developer Centerにも公的な証明書のコピーをアメリカにFAXしてくれみたいなこと書いてある。そんな言われたってアメリカにFAXなんてちょっと。。ねぇ。めんどくさすぎますよね。
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/thata/20100404/1270370400&#34;&gt;iPhone Developer Programへの入会がProgram Activation On Holdで完了しない件 - ちくわプログラマにっき&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-でも、ここ見たら問い合わせしたらFax送らずに済むみたい。でも前回のメールの返答もないしな。とりあえず、「Fax送らずに済む方法を教えてください」って問い合わせのメールも送っておく。
-&lt;h3&gt;3順目&lt;/h3&gt;
-ちょっと時間的に余裕がなくなってきたので、自分なりに推測してみる。身元が認証できないのはクレジットの個人情報が日本語なのに対して（iOS Developer Programはクレジット支払いで購入）、AppleのDeveloperに登録した情報は英語だから認証できないのでは？と思ったので、氏名以外を日本語に修正して再度購入してみる！Activation来る！エラー！！！ orz&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.&lt;/p&gt;
-
-&lt;p&gt;もう、待ってられないので、電話してみる。
-&lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://developer.apple.com/jp/contact/phone.html&#34;&gt;Worldwide Telephone Support - Apple Developer&lt;/a&gt; &lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-アジアパシフィック/日本の言語に日本語って書いてあるから大丈夫だろうと思い、TEL！案外待たされずでた！&lt;/p&gt;
-
-&lt;p&gt;おれ：用件伝える！&lt;/p&gt;
-
-&lt;p&gt;あぽー：Apple ID 教えて！&lt;/p&gt;
-
-&lt;p&gt;あぽー：修正しといたよ！&lt;/p&gt;
-
-&lt;p&gt;おれ：ハヤッ！！&lt;/p&gt;
-
-&lt;p&gt;ってことで無事Activation Codeが認証されました。
-あとは、最初にあげた２つの記事見ながら実機に転送するだけす。
-&lt;h3&gt;結論&lt;/h3&gt;
-Activation Codeでつまづいたら、すぐにコールコール♪
-絶対エラー起きる無理ゲーみたいなもんですから。&lt;/p&gt;
-
-&lt;p&gt;[追記]&lt;/p&gt;
-
-&lt;p&gt;Activation Codeが認証されなくてもActivation Codeが発行された時点でクレジット課金されます。なので、今回僕は3回発行したので3万円請求されましたが、サポートセンターに電話すればキャンセル（返金）してくれます。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>お願いだから輝かないでくれ!!!</title>
-            <link>https://t32k.me/mol/log/ios-prerendered-icon/</link>
-            <pubDate>Mon, 28 Mar 2011 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/ios-prerendered-icon/</guid>
-            <description>&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-2673&#34; title=&#34;ipon&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/ipon.png&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
+  <channel>
+    <title>Memo on MOL</title>
+    <link>https://t32k.me/mol/categories/memo/</link>
+    <description>Recent content in Memo on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 29 Mar 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://t32k.me/mol/categories/memo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>iOS Developer Program に登録!!!!</title>
+      <link>https://t32k.me/mol/log/ios-developer-program/</link>
+      <pubDate>Tue, 29 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/ios-developer-program/</guid>
+      <description>有料プログラム的な意味でってことです。初めに言っておきますが、これかなりの無理ゲーですわ&amp;hellip;
+せっかく、Titanium MobileでiPhone App制作するんだから、iPhoneっぽいことしたいよねってことでカメラ使いたい！カメラ使いたい！そうゆうわけで、カメラの動作はiOSシュミレーター上ではできませんから、iOS Developer Programの有料登録をして、作ったアプリを実機に転送できるようにしてもらわないといけません。たったそれだけの願いです。たったそれだけのためにかれこれ2週間はかかりました。
+基本的に実機に転送する手順は以下の2つの記事を見てもらえればたぶん大丈夫だとおもう。  目指せ！iPhoneアプリ開発エキスパート：第9回　デバイスでアプリを動かす｜gihyo.jp  iPhoneアプリを実機で動かす | iPhoneアプリ  問題なのは登録です！ な…　何を言ってるのか　わからねーと思うが おれも何をされたのかわからなかった… ってことで、ここから登録してみるよ。  iOS Developer Program - Apple Developer  1順目 無料のApple Developerは以前に登録していたので Existing Apple Developer
+I&amp;rsquo;m registered as a developer with Apple and would like to enroll in a paid Apple Developer Program. を選んで individualで登録。AppleStoreでiOS DeveloperProgramを購入して、Activation Codeが記載されたメールをもらう。そこからActivation Codeが認証されて、晴れてDeveloperProgramに登録となるのですが、なんせ、いかにも、はたまた、どうしてか、Activation Code認証の時にエラーになります。
+で、ちょっとググッてみるとこんな記事が。 ※エラーが発生し、アクティベーションできない可能性大。ほとんどの場合、アカウント情報の文字化けが原因なのでADCのサポートにメールでアクティベーションできない旨を連絡する（リージョンを日本語にすれば日本語のメールで問題なし） iPhone Developer Programへの参加｜iPhone 開発雑記帳 なんとまぁー。たしかに、最初にDeveloper登録したときに漢字で入力してた！急いでManage Accountで英語表記に直すが、肝心の氏名の部分が修正できない！あれ？詰んだ？
+ということで、エラーはあいかわらず出るので、エラーが出たときに案内されるところからヘルプミーする。日本語で送っても大丈夫そうなので問題ない。
+1週間経過しても、メール帰ってこない。（3週間くらいしたら返答来ました！） 2順目 待ちきれなかったので、今度は新規アカウント作成し最初から英語で全部入力する。お！なんかいけそうな感じ。iOS DeveloperProgramを購入して、再度Activation Codeのメールを待つ。</description>
+    </item>
+    
+    <item>
+      <title>お願いだから輝かないでくれ!!!</title>
+      <link>https://t32k.me/mol/log/ios-prerendered-icon/</link>
+      <pubDate>Mon, 28 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/ios-prerendered-icon/</guid>
+      <description>&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-2673&#34; title=&#34;ipon&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/ipon.png&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;アイコン的な意味でってことです。&lt;/p&gt;
 
-&lt;p&gt;iPhoneのアイコンってどれも個性的で素敵ですね。でもよーく見てみると、全部ってこともないけど、同じような光沢・輝き・テカリがついてますよね。あれを消したいというのが今回のエントリの主旨です。輝きも皆が同じように輝いていたらそれは没個性です。ではやっていきましょう。&lt;/p&gt;
-
-&lt;p&gt;
-&lt;h3&gt;-precomposed.png&lt;/h3&gt;
-とりあえず、iPhoneアイコン設定とかでググってみるとこの記事が出てきました。
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;http://web-tan.forum.impressrd.jp/e/2010/06/15/8178&#34;&gt;iPhone/iPadのホーム画面用アイコンapple-touch-icon.pngをサイトに設定しよう | Web担当者Forum&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-これはどうやらアプリアイコンではなく、Webサイトをホーム画面にブックマークしたときのアイコン設定ですね。Webサイトのルートにapple-touch-icon.pngを置いておけば認識してくれるのは知ってたのですが、apple-touch-icon&lt;strong&gt;-precomposed&lt;/strong&gt;.pngで、このブックマークアイコンの光沢をなくせるとは、知りませんでした。機会あれば作成したいものです。
-&lt;h3&gt;&amp;lt;UIPrerenderedIcon&amp;gt;&lt;/h3&gt;
-いや、ちゃうねんちゃうねん。僕はiPhone Appアイコンの輝きをなくしたいのです。僕の頭の方も輝かないで欲しいです。で、もうちょっとググッてみるとこうゆうのが出てきました。
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;http://blog.syuhari.jp/archives/966&#34;&gt;[iPhone 開発メモ] アイコンの透明感を付けない方法 | Sun Limited Mt.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-Info.plist（プロパティリスト）というのは、設定ファイルみたいですね。ここを書き換えればいいのですね。おｋ、余裕。ってことで、前回作成しましたTitanium Mobileのプロジェクトファイル内にInfo.plistがないか探してみました。ありました。
-&lt;pre&gt;/[YOUR_PROJECT_NAME]/build/iphone/info.plist&lt;/pre&gt;
-開くエディタによってはこうゆう感じで表示されます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;property_list_editor&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/property_list_editor.png&#34; alt=&#34;UIPrerenderedIcon&#34; width=&#34;320&#34; height=&#34;60&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;span style=&#34;color: #888888;&#34;&gt;Property List Editor
-&lt;/span&gt;&lt;/em&gt;
-&lt;img class=&#34;fig&#34; title=&#34;xcode&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/xcode.png&#34; alt=&#34;Icon already includes gloss effects&#34; width=&#34;320&#34; height=&#34;60&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;span style=&#34;color: #888888;&#34;&gt;Xcode
-&lt;/span&gt;&lt;/em&gt;
-ぼくはよく分からなかったので、普通のテキストエディタで
-&lt;pre&gt;&amp;lt;key&amp;gt;UIPrerenderedIcon&amp;lt;/key&amp;gt;
-&amp;lt;true/&amp;gt;&lt;/pre&gt;
-と追加しました。&lt;/p&gt;
-
-&lt;p&gt;よし、これでイケル！ってことで、Titanium Developerでビルドしてみましょう。
-ほーらできた&amp;hellip;.できてない&amp;hellip;&amp;hellip;&amp;hellip;
-&lt;h3&gt;&amp;lt;prerendered-icon&amp;gt;&lt;/h3&gt;
-ミスタイプしてるわけでもなく、Titanium Developer再起動しても、いつまでたってもアイコンの輝きは失ってくれません。そう、ダイヤモンドは永遠の輝きです。&lt;/p&gt;
-
-&lt;p&gt;試しに、Titanium Developerじゃなくて、Xcodeでビルドしてみるとうまくいった(・∀・)！試しに、Titanium Developerでビルドした後に、Info.plistを見てみると、UIPrerenderedIconが消えてる(・∀・;)！&lt;/p&gt;
-
-&lt;p&gt;ってことで、さらにググッてたら、どうやらTitanium側での設定が必要っぽいです。
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;http://code.google.com/p/titanium-mobile-doc-ja/wiki/tiapp_xml&#34;&gt;tiapp_xml - titanium-mobile-doc-ja&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-いわゆる、Titanium側でのinfo.plistにあたるのがtiapp.xmlなのですね。&lt;/p&gt;
-
-&lt;p&gt;ここのprerendered-iconがfalseになっているからノー光沢ノーサンキューなわけなんですね、なるほどー。
-&lt;pre&gt;&amp;lt;prerendered-icon&amp;gt;true&amp;lt;/prerendered-icon&amp;gt;&lt;/pre&gt;
-ってことでここをtrueにしてTitanium Developerでビルド！！！！！&lt;/p&gt;
-
-&lt;p&gt;ほーらできた&amp;hellip;.できてない&amp;hellip;&amp;hellip;&amp;hellip;もういややーーー！
-&lt;h3&gt;Full Rebuild&lt;/h3&gt;
-またつまづいてしまいました。でもまた立ち上がればいいじゃない！再度ググるとこんなものがでてきました。
-&lt;blockquote&gt;&lt;strong&gt;なぜかエラーが起こる。&lt;/strong&gt;
-何の問題もないはずなのに、エラーが起こる場合があります。信じられないかもしれません。私も信じられません。でも本当です。しかも、エラー内容が表示されずに、スタックトレースが表示されます。どうしようもありません。試されてます。この場合は、Project/build/iphoneフォルダ以下をのファイルをすべて削除して、再度実行するとOKです。ちなみに、iphoneフォルダを消すと、デバッグできなくなりますので注意してください。
-&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;a href=&#34;http://d.hatena.ne.jp/shunsuk/20110304/1299229674&#34;&gt; Titanium Mobileの暗黒ノウハウを公開します。 - このブログは証明できない。&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
-信じられませんキタ━━━(゜∀゜)━━━━ッ!!&lt;/p&gt;
-
-&lt;p&gt;ちなみに本当にデバッグできないのか確かめたかったのか、単に間違えちゃったのか今ではわかりませんがiphoneフォルダごと消しちゃったら、本当にRun Emulatorの部分にiPhoneの項目がでてきませんでした！&lt;/p&gt;
-
-&lt;p&gt;そう、私の心は常にATフィールド全開です。&lt;/p&gt;
-
-&lt;p&gt;てことで、まるっと削除して再度ビルドしたらいけました。やた！！！ここまで来るのに丸２日かかったので、誰かのためになればと思います。まとめると、Titanium Mobileで光沢の無いアイコンにしたければビルドするまえに、tiapp.xmlの修正すればOK！既にビルドしちゃってたら、プロジェクトの/build/iphone/以下をまるっと削除でFull Rebuildでおｋ！&lt;/p&gt;
-
-&lt;p&gt;それではみんなもれっつたいたん！&lt;/p&gt;</description>
-        </item>
-        
-    </channel>
+&lt;p&gt;iPhoneのアイコンってどれも個性的で素敵ですね。でもよーく見てみると、全部ってこともないけど、同じような光沢・輝き・テカリがついてますよね。あれを消したいというのが今回のエントリの主旨です。輝きも皆が同じように輝いていたらそれは没個性です。ではやっていきましょう。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
 </rss>

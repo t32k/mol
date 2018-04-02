@@ -2,8 +2,7 @@
   "name": "mol",
   "author": "Koji Ishimoto",
   "version": "1.0.0",
-  "description":
-    "Powered by [Hugo](http://gohugo.io/). Hosted by [GitHub Pages](https://pages.github.com/).",
+  "description": "Powered by [Hugo](http://gohugo.io/). Hosted by [GitHub Pages](https://pages.github.com/).",
   "scripts": {
     "build": "hugo && cp docs/index.xml docs/feed.xml"
   },

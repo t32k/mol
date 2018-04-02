@@ -1,148 +1,168 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>MOL</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://t32k.me/mol/categories/</link>
-        <language>ja</language>
-        
-        
-        <updated>Thu, 27 Oct 2016 00:00:00 UTC</updated>
-        
-        <item>
-            <title>Analytics</title>
-            <link>https://t32k.me/mol/categories/analytics/</link>
-            <pubDate>Thu, 27 Oct 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/analytics/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Blockchain</title>
-            <link>https://t32k.me/mol/categories/blockchain/</link>
-            <pubDate>Sun, 03 Dec 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/blockchain/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Blog</title>
-            <link>https://t32k.me/mol/categories/blog/</link>
-            <pubDate>Mon, 01 Jan 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/blog/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Book</title>
-            <link>https://t32k.me/mol/categories/book/</link>
-            <pubDate>Sun, 03 Sep 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/book/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Books</title>
-            <link>https://t32k.me/mol/categories/books/</link>
-            <pubDate>Sun, 11 Mar 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/books/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Coffee</title>
-            <link>https://t32k.me/mol/categories/coffee/</link>
-            <pubDate>Mon, 08 Feb 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/coffee/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Css</title>
-            <link>https://t32k.me/mol/categories/css/</link>
-            <pubDate>Mon, 01 Feb 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/css/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Design</title>
-            <link>https://t32k.me/mol/categories/design/</link>
-            <pubDate>Mon, 04 Jan 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/design/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Development</title>
-            <link>https://t32k.me/mol/categories/development/</link>
-            <pubDate>Wed, 14 Feb 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/development/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Gadget</title>
-            <link>https://t32k.me/mol/categories/gadget/</link>
-            <pubDate>Sat, 10 Mar 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/gadget/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Javascript</title>
-            <link>https://t32k.me/mol/categories/javascript/</link>
-            <pubDate>Fri, 06 Sep 2013 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/javascript/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Memo</title>
-            <link>https://t32k.me/mol/categories/memo/</link>
-            <pubDate>Tue, 29 Mar 2011 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/memo/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Performance</title>
-            <link>https://t32k.me/mol/categories/performance/</link>
-            <pubDate>Thu, 09 Jan 2014 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/performance/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Report</title>
-            <link>https://t32k.me/mol/categories/report/</link>
-            <pubDate>Sun, 01 Dec 2013 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/report/</guid>
-            <description></description>
-        </item>
-        
-        <item>
-            <title>Slides</title>
-            <link>https://t32k.me/mol/categories/slides/</link>
-            <pubDate>Mon, 04 Jul 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/categories/slides/</guid>
-            <description></description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Categories on MOL</title>
+    <link>https://t32k.me/mol/categories/</link>
+    <description>Recent content in Categories on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 27 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://t32k.me/mol/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analytics</title>
+      <link>https://t32k.me/mol/categories/analytics/</link>
+      <pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blockchain</title>
+      <link>https://t32k.me/mol/categories/blockchain/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/blockchain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://t32k.me/mol/categories/blog/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Book</title>
+      <link>https://t32k.me/mol/categories/book/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>https://t32k.me/mol/categories/books/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coffee</title>
+      <link>https://t32k.me/mol/categories/coffee/</link>
+      <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/coffee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Css</title>
+      <link>https://t32k.me/mol/categories/css/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://t32k.me/mol/categories/design/</link>
+      <pubDate>Mon, 04 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://t32k.me/mol/categories/development/</link>
+      <pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gadget</title>
+      <link>https://t32k.me/mol/categories/gadget/</link>
+      <pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/gadget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://t32k.me/mol/categories/javascript/</link>
+      <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Memo</title>
+      <link>https://t32k.me/mol/categories/memo/</link>
+      <pubDate>Tue, 29 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/memo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Performance</title>
+      <link>https://t32k.me/mol/categories/performance/</link>
+      <pubDate>Thu, 09 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Report</title>
+      <link>https://t32k.me/mol/categories/report/</link>
+      <pubDate>Sun, 01 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/report/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Slides</title>
+      <link>https://t32k.me/mol/categories/slides/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/slides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Translation</title>
+      <link>https://t32k.me/mol/categories/translation/</link>
+      <pubDate>Wed, 20 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/translation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trip</title>
+      <link>https://t32k.me/mol/categories/trip/</link>
+      <pubDate>Sun, 31 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/trip/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>
