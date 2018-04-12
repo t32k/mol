@@ -1,151 +1,766 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Css on MOL</title>
-    <link>https://t32k.me/mol/categories/css/</link>
-    <description>Recent content in Css on MOL</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Mon, 01 Feb 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://t32k.me/mol/categories/css/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>StyleStatsのChrome拡張機能を作った</title>
-      <link>https://t32k.me/mol/log/stylestats-crx/</link>
-      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
-      <description>StyleStatsのChrome拡張を作った。
- StyleStats - Chrome ウェブストア  StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
-これまでの流れ CLI $ npm install -g stylestats  npmからインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
-Web そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、Unique Font Families、　Unique Colors がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
-あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。
-CRX そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。Unique Font Sizesもプレビュー可能になった。
-使った技術とか ES2015 当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。
-Promise + Fetch API + Arrow functions Promise.all(links.map(link =&amp;gt; fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text()) )) .then(texts =&amp;gt; {});  ということで、&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるのでXMLHttpRequestみたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
-Let + Const あとまぁ特にそこまで便利になるわけでもないけど、一応letとかconstとかも使っといた。
-CSS3 object-fit .screenshot img { object-fit: cover; object-position: top; }  background-size的なことをimg要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にしてbackground-size:cover的なことをしたが、これだと印刷したときに表示されないので、そういえばobject-fitがあったのを思い出した。今のところIEではサポートされていない。</description>
-    </item>
-    
-    <item>
-      <title>CSS3開発者ガイドーモダンWebデザインのスタイル設計</title>
-      <link>https://t32k.me/mol/log/the-book-of-css3/</link>
-      <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/the-book-of-css3/</guid>
-      <description>CSS3開発者ガイド 第2版
-―モダンWebデザインのスタイル設計posted at 2015.12.14Peter Gasston,牧野 聡
-オライリージャパン
-売り上げランキング: 266853
-Amazon.co.jp で詳細を見る 冬なのでモチベーションだだ下がりですが、とりあえず生きていくには仕事をしなければならないのでコード書いている@t32kだよ。
-久しぶりに本読んだので紹介だよ。おっさん、ピクセルパーフェクトなCSSコーディングしてた時代がIE6/7が全盛期だったので、未だにその当時のCSSコーディングのクセが抜けない。最近はCSS設計だったり関連ツールに興味の対象が移っていて、CSS自体の機能をちゃんと把握していなかった。
-Flexbox何それおいしいの？ display:table 最強じゃん！って状態だし、 E:last-child擬似セレクタ使うのは甘え、男は黙ってclass属性に-last付けるべしって思ってるし、 アニメーションに関しては、transform、 translate、 transition、一体でどれがpropertyでvalueなのか、頭の中がごっちゃになってる状況だ。
-このままだと老害一直線だと感じたので、いわゆるCSS3の知識を詰め込まなければいけない。ということで表題の書籍がGOODだった。
-まぁ仕様書読めよ！って感じだけど、やっぱ小難しいのは嫌いなのですよ。あとCSS2.1以前のこととかはだいたい知ってるわけだから、そこは別いらないのです。その点、本書は新しめのCSSに絞って解説してるので全部で300Pほどと比較的コンパクトに収まっている（CSS全仕様解説するとなるとサイ本みたいな厚さになって読む気が失せる）。
-前述のFlexboxやCSSアニメーションなどのあやふやに覚えている新しめのプロパティの解説はもちろんあるし、hyphensプロパティや、background-repeat:spaceキーワードなんて新しい発見もあった。サクッと知識をブラッシュアップしたい人におすすめな1冊だ。</description>
-    </item>
-    
-    <item>
-      <title>CSSを書くために必要なGruntプルギン集！！</title>
-      <link>https://t32k.me/mol/log/modern-coder/</link>
-      <pubDate>Thu, 05 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/modern-coder/</guid>
-      <description>前回の続きというかセッションでは基本的な使い方とMapleの説明に終始したので、今回は僕が普段CSS書いてる時に便利だなーと思うプラグインを列挙してみたよ。
- 高いCSS圧縮率を誇るgrunt-cssoについて紹介するよ CSSプロパティをソートしてくれるgrunt-csscombについて紹介するよ CSS - イケてるスタイルガイドを簡単に作れるgrunt-kssについて紹介するよ CSS書く人なら絶対入れとけのgrunt-contrib-csslintについて紹介するよ CSSプロパティの重複を解析してくれるgrunt-csscssについて紹介するよ そのページで使われているCSSだけまとめてくれるgrunt-uncssについて紹介するよ  僕はCSS書きなのでCSSに関するプラグインが多いけど、Grunt Plugins Advent Calendar 2013 - Qiitaの他の参加者も便利なプラグインを紹介してるので見てみてね。
-あとなぜか、このアドベントカレンダーだけ時空の法則が乱れてて12/15（現在：12/5）まで進んでるからいっぱい見れるね♪
-僕のお気に入りGruntプルギンは@shoitoも書いているgrunt-pagespeedです！てか、PageSpeedが好きなんですけどね！！</description>
-    </item>
-    
-    <item>
-      <title>ぼくのかんがえたさいきょうのしーえしゅえしゅ</title>
-      <link>https://t32k.me/mol/log/the-perfect-css-i-thought/</link>
-      <pubDate>Mon, 29 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/the-perfect-css-i-thought/</guid>
-      <description>俺ももう30だし、夏なんで、CSSフレームワークはじめました。 とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。
-とりあえず、設計方針としてはマシなCSSを書くことを目標としている。この一年、スマホアプリのHTML/CSSコーディングをやってきたわけだが、度重なるUIの変更に耐えうるCSS、そして肥大化しないCSSとは何かずっと考えていて、特に答えという答えもで見つかっていわけだけど、とりあえずはこうしたほうがBetterなんじゃないかというの自分的に固まってきたので、公開してみた。
-てか、最強のCSSなんて存在しないからなっ！！
- t32k/maple - GitHub  ありがちな落とし穴 これを作るにあたって社内のほかのプロジェクトのCSSがどんな風に書いてるのか調べった結果、以下の点が気になった。
- 無用な Vendor Prefixes Data URI 多用 Nest が深い @extend 多用 ID セレクタ使用  無用な Vendor Prefixes 基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、
-$experimental-support-for-opera: false; $experimental-support-for-mozilla: false; $experimental-support-for-microsoft: false;  そういったものを吐き出さないように、変数で指定する必要がある。また-webkit-border-radiusのようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかはCan I use…で調べればよい（逆に正規プロパティを書いてないとこもあった）。
-Data URI 多用 WebパフォーマンスにおいてHTTPリクエストを削減することは真っ先に優先されるべきことだが、あまり何でもかんでも画像をDataURI化してCSSファイルの中に記述してしまうと、CSSファイルの肥大化が問題になってしまう。CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
-ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。
-Nestが深い ロケーションに基づいたスタイル付け、ページに基づいたCSSを書いていくと当然ネストが深くなっていく（ex. body.login-page a.login-btn &amp;gt; span）。ここではセレクタの数が増えることによるファイルサイズ増量が問題というわけでなく、詳細度が高まれば高まるほど、そこでしか使用できないセレクタになってしまうことが問題だ。結果、同じようなスタイルでも新しくCSSを記述しなければならずファイルサイズが増えていくことになる。
-これらの解決策はできるだけ小さなモジュールに基づいてスタイル付けしていくことだ。基本、ネストは3レベルまでが許容値だ。
-@extend 多用 @extendは素晴らしい機能だと思うが、あまりカジュアルに使用してしまえば、セレクタの増加につながる。マルチクラス（&amp;rdquo;class=&amp;ldquo;btn btn-primary&amp;rdquo;）でマークアップすれば基本的に代用できる機能だ。確かに、CSSファイル内で.btnを@extendして.btn-primaryを作ればclass=&amp;ldquo;btn-primary&amp;rdquo;だけになって簡潔だが、それ以上の意味は無い。ただいたずらに使えばCSSファイルが増えるだけなので、マルチクラスの使用を推奨する。
-ID セレクタ使用 CSSのスタイル付けにおいてIDセレクタを使用しなければならない理由などない。それどころかIDを使えば詳細度が複雑になり、このスタイルを上書きするためにさらにIDを使用したりなど、チキンレースが始まり、結果ファイルサイズが肥大化する。HTML内でJSのフックとして id=&amp;ldquo;js-getElement&amp;rdquo;など使用するのは問題ないが、そのセレクタに対してスタイルをつけてはならない。
-まぁ、そんな感じのことを考えつつ作りました。
-CSS設計方針 CSS全体に関しては、以下の様な感じで。
- 絶対にCSSを増やしたくない class名で悩みたくない 完璧じゃなくてもいい  絶対にCSSを増やしたくない CSSとは時とともに増えるものだ。新しいページが増えるイコール、CSSを新規に追加しなければならない。そこでモジュールとして設計しておけば、新しいページができたとしても再利用ができ、新規に作らなければならないスタイルを最小限に抑えることが出来る。しかし、必ずしもモジュールの再利用ができるのかといったら、それは難しい問題だ。モジュールAとは微妙にちがうモジュールA’などが当然のごとく登場してくる。</description>
-    </item>
-    
-    <item>
-      <title>OOCSSをbuildする</title>
-      <link>https://t32k.me/mol/log/make-oocss-styleguide/</link>
-      <pubDate>Sat, 29 Jun 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/make-oocss-styleguide/</guid>
-      <description>ちょいーんっす！あたーんっす！
-みなさん、OOCSSって知ってますか？僕は知らないです。嘘です。
-@stubbornellaが、4,5年前に言い出したオブジェクト指向なCSSの考え方みたいなもんです。CSSでこんなもの表現できた！とかそうゆうTips系の話題は事欠かないのですが、CSSの設計についての話はそれ以前には（今もそうですが）あまりなかったので、個人的にはとても衝撃的でした。  ちゃんとCSSを書くために - CSS/Sass設計の話（あ、最近イカス資料見つけたぞ！）  まぁそんなOOCSSですが、ここ一年は目立った更新はありませんでした。と思ってたら最近、GitHubのレポジトリ見たらなんかすごく変わってる！
-新しくなったドキュメントを読みたいのですが、Readmeを読むと、どうやらSassやらHandlebarsやら使っててbuildしなきゃいけないっぽいす。んで仮想環境をVagrantで提供してるとのこと。
-なんと！俺はただCSSのドキュメントを読みたいだけなのに、めんどくせ(๑･ิω･ิ๑)yー～
-と言っててもしょうがないのでがんばってみる。 事前インストール  Git (多分入ってると思うけど&amp;hellip;) VirtualBox (現状、4.2.14やめて、4.2.12を選択しとく) Vagrant (gemでインスコしたことある人はアンスコしとく)  OOCSSをbuild OOCSSをForkする(フォークボタン押すだけね！)
-git clone https://github.com/{user_name}/oocss.git Cloning into &#39;oocss&#39;... remote: Counting objects: 1800, done. remote: Compressing objects: 100% (1261/1261), done. remote: Total 1800 (delta 580), reused 1626 (delta 445) Receiving objects: 100% (1800/1800), 1.53 MiB | 121.00 KiB/s, done. Resolving deltas: 100% (580/580), done. ForkしたのをCloneしてくる
-cd oocss/oocss Vagrantfileのある場所に移動する
-$ vagrant up Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider.</description>
-    </item>
-    
-    <item>
-      <title>CSSプロパティの継承：inherit</title>
-      <link>https://t32k.me/mol/log/inheriting-link-colour/</link>
-      <pubDate>Mon, 08 Apr 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/inheriting-link-colour/</guid>
-      <description>最近のスマホサイトとかコーディングしてると上記のようなリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりアクションしたりする。
-これをコーディングするとなると、ul &amp;gt; li &amp;gt; aでaをBlock要素にすると思う。そのとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。
-body { color: black; } a { color: blue; }  下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。
-ul li { color: gray; }  それじゃ問題だから、ul &amp;gt; liにグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだaのcolorは継承しないんだったー』ってことが疲れてるとよくある。
-ul li, ul li a { color: gray; }  だもんで、めんどくさいけど、上記のようなスタイルを指定している（aで包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここでinheritさんの登場だ。
-a { color: inherit; } ul li { color: gray; }  こうしとけば、ul &amp;gt; li &amp;gt; aは、グレーの文字色を継承する。inheritなんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。
-スマホサイトはタップエリアを大きくするためにBlock化して、aに多くの内容物が放り込まれるきらいがある。だもんで、aも通常のspanとかdiv感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。
- Inheriting Link Colour - Snook.ca  </description>
-    </item>
-    
-    <item>
-      <title>CSSOとgrunt-csso</title>
-      <link>https://t32k.me/mol/log/csso-and-grunt-csso/</link>
-      <pubDate>Thu, 18 Oct 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/csso-and-grunt-csso/</guid>
-      <description>読書の秋、ご勉学の方はいかがでしょうか。 I&amp;rsquo;m your @t32k.
-今日はCSSO (CSS Optimizer) – A CSS minimizer unlike othersの紹介だ。前回のCSSCombは単純にプロパティのソートをしてくれるものだったが、今回のはminimizerだ。
-普段はSassの:compressed出力で最後デプロイしてるんだけど、もっとマシなものはないかなーと特には探してはないけど、@cssradarパイセンがCSSOがいいって言ったとか言わないとかあったので調べてみた。
-ちなみにSassの:compressedはこんな感じで出力しているらしい。 Compressed style takes up the minimum amount of space possible, having no whitespace except that necessary to separate selectors and a newline at the end of the file. It also includes some other minor compressions, such as choosing the smallest representation for colors. It’s not meant to be human-readable. http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id17 
- 改行とか空白とか色の値変換ですかね。まぁ特にそんな凝ったことはしてない模様。</description>
-    </item>
-    
-    <item>
-      <title>Sassの親セレクタ参照&amp;について</title>
-      <link>https://t32k.me/mol/log/referencing-parent-selectors/</link>
-      <pubDate>Thu, 06 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/referencing-parent-selectors/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_&#34;&gt;Sassの親セレクター参照の&lt;strong&gt;&amp;amp;&lt;/strong&gt;&lt;/a&gt;の話。&lt;/p&gt;
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/css/</link>
+        <language>ja</language>
+        
+        
+        <updated>Mon, 01 Feb 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>StyleStatsのChrome拡張機能を作った</title>
+            <link>https://t32k.me/mol/log/stylestats-crx/</link>
+            <pubDate>Mon, 01 Feb 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
+            <description>
 
-&lt;p&gt;Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>パフォーマンスからみるSass/Compass 番外編：MSは青かった</title>
-      <link>https://t32k.me/mol/log/compass-ie-hex-str-function/</link>
-      <pubDate>Wed, 08 Aug 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/compass-ie-hex-str-function/</guid>
-      <description>&lt;p&gt;2回も続いてないのにまさかの番外編！ここぞ変化球！キエル消える魔球！！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-00.gif&#34; alt=&#34;StyleStats Chrome拡張機能&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;StyleStatsのChrome拡張を作った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki&#34;&gt;StyleStats - Chrome ウェブストア&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;はCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。&lt;/p&gt;
+
+&lt;h2 id=&#34;これまでの流れ&#34;&gt;これまでの流れ&lt;/h2&gt;
+
+&lt;h3 id=&#34;cli&#34;&gt;CLI&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-00.png&#34; alt=&#34;Commandline&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g stylestats
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.npmjs.com/package/stylestats&#34;&gt;npm&lt;/a&gt;からインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-01.png&#34; alt=&#34;StyleStats.org&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、&lt;code&gt;Unique Font Families&lt;/code&gt;、　&lt;code&gt;Unique Colors&lt;/code&gt; がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。&lt;/p&gt;
+
+&lt;p&gt;あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。&lt;/p&gt;
+
+&lt;h3 id=&#34;crx&#34;&gt;CRX&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-02.png&#34; alt=&#34;Chrome Extension&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。&lt;code&gt;Unique Font Sizes&lt;/code&gt;もプレビュー可能になった。&lt;/p&gt;
+
+&lt;h2 id=&#34;使った技術とか&#34;&gt;使った技術とか&lt;/h2&gt;
+
+&lt;h3 id=&#34;es2015&#34;&gt;ES2015&lt;/h3&gt;
+
+&lt;p&gt;当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。&lt;/p&gt;
+
+&lt;h3 id=&#34;promise-fetch-api-arrow-functions&#34;&gt;Promise + Fetch API + Arrow functions&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;Promise.all(links.map(link =&amp;gt;
+  fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text())
+))
+.then(texts =&amp;gt; {});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;&lt;/code&gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるので&lt;code&gt;XMLHttpRequest&lt;/code&gt;みたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。&lt;/p&gt;
+
+&lt;h3 id=&#34;let-const&#34;&gt;Let + Const&lt;/h3&gt;
+
+&lt;p&gt;あとまぁ特にそこまで便利になるわけでもないけど、一応&lt;code&gt;let&lt;/code&gt;とか&lt;code&gt;const&lt;/code&gt;とかも使っといた。&lt;/p&gt;
+
+&lt;h2 id=&#34;css3&#34;&gt;CSS3&lt;/h2&gt;
+
+&lt;h3 id=&#34;object-fit&#34;&gt;object-fit&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.screenshot img {
+  object-fit: cover;
+  object-position: top;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;background-size&lt;/code&gt;的なことを&lt;code&gt;img&lt;/code&gt;要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にして&lt;code&gt;background-size:cover&lt;/code&gt;的なことをしたが、これだと印刷したときに表示されないので、そういえば&lt;code&gt;object-fit&lt;/code&gt;があったのを思い出した。今のところIEではサポートされていない。&lt;/p&gt;
+
+&lt;h3 id=&#34;currentcolor&#34;&gt;currentColor&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-hbs&#34;&gt;&amp;lt;ul&amp;gt;
+  {{#each body.uniqueColors}}
+  &amp;lt;li style=&amp;quot;color:{{this}}&amp;quot;&amp;gt;
+    &amp;lt;span class=&amp;quot;circle&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;{{this}}
+  &amp;lt;/li&amp;gt;
+  {{/each}}
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Unique Colors&lt;/code&gt;の色丸の部分は&lt;code&gt;span&lt;/code&gt;の&lt;code&gt;background-color&lt;/code&gt;で指定してあるのだけど、&lt;code&gt;.circle { background-color:　currentColor; }&lt;/code&gt;で、現在のその要素のcolorプロパティを指定できる。&lt;code&gt;currentColor&lt;/code&gt;キーワードが使えないと、&lt;code&gt;&amp;lt;span style=&amp;quot;background-color:{{this}}&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&lt;/code&gt;みたいな感じで&lt;code&gt;span&lt;/code&gt;の方にも指定しなきゃいけないというダルいことになる。&lt;code&gt;currentColor&lt;/code&gt;自体は、IE9以上で使えるので、そこまで最新技術ってことでもないけど良い使い道が見つかって嬉しかったのだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;chrome-extension-api&#34;&gt;Chrome Extension API&lt;/h2&gt;
+
+&lt;h3 id=&#34;chrome-tabs&#34;&gt;chrome.tabs&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;chrome.tabs.captureVisibleTab(screenshotUrl =&amp;gt; {})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでキャプチャ取れる！簡単！Phantom.jsなんて使わなくてもいい！&lt;/p&gt;
+
+&lt;h3 id=&#34;chrome-runtime&#34;&gt;chrome.runtime&lt;/h3&gt;
+
+&lt;p&gt;アイコンをクリックしたらcontent scriptを動かすとか。そんでcontent scriptの結果をbackground.jsに返すとか。&lt;a href=&#34;https://developer.chrome.com/extensions/messaging&#34;&gt;Message Passing&lt;/a&gt;というやつだ。いつも忘れるのでメモっとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-background.js&#34;&gt;// これでcontent.jsに送信
+chrome.browserAction.onClicked.addListener(tab =&amp;gt; {
+    chrome.tabs.query({active: true, currentWindow: true}, tabs =&amp;gt; {
+        let activeTab = tabs[0];
+        chrome.tabs.sendMessage(activeTab.id, {&#39;message&#39;: &#39;clicked&#39;});
+    });
+});
+// これで受ける
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) =&amp;gt; {})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-content.js&#34;&gt;// これで受けて
+chrome.runtime.onMessage.addListener(analyzeCSS);
+// これでbackground.jsに送信
+chrome.runtime.sendMessage({error: false, meta: meta, body: result});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;material-design-lite&#34;&gt;Material Design Lite&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.getmdl.io/&#34;&gt;Material Design Lite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;使ったと言えないほど、ほぼ既存のテンプレートをいじっただけだ。基本BEMっぽいかんじでクラス属性を付与していくのだけど、&lt;code&gt;mdl-color-text--grey-500&lt;/code&gt;こうゆう長いユーティリティのクラス属性とかもバンバンつけていく感じで、クラス属性値の見通しがあんまりだなと思った。まぁ、独自の接頭辞とかつけて名前空間区切ったりして汎用性を考慮しなければならないCSSライブラリの宿命か。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CSS3開発者ガイドーモダンWebデザインのスタイル設計</title>
+            <link>https://t32k.me/mol/log/the-book-of-css3/</link>
+            <pubDate>Mon, 14 Dec 2015 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/the-book-of-css3/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117259/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51vnf8h3ieL._SL160_.jpg&#34; alt=&#34;CSS3開発者ガイド 第2版 ―モダンWebデザインのスタイル設計&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117259/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;CSS3開発者ガイド 第2版&lt;br&gt;―モダンWebデザインのスタイル設計&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.12.14&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Peter Gasston,牧野 聡&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 266853&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117259/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;冬なのでモチベーションだだ下がりですが、とりあえず生きていくには仕事をしなければならないのでコード書いている@t32kだよ。&lt;/p&gt;
+
+&lt;p&gt;久しぶりに本読んだので紹介だよ。おっさん、ピクセルパーフェクトなCSSコーディングしてた時代がIE6/7が全盛期だったので、未だにその当時のCSSコーディングのクセが抜けない。最近はCSS設計だったり関連ツールに興味の対象が移っていて、CSS自体の機能をちゃんと把握していなかった。&lt;/p&gt;
+
+&lt;p&gt;Flexbox何それおいしいの？ &lt;code&gt;display:table&lt;/code&gt; 最強じゃん！って状態だし、 &lt;code&gt;E:last-child&lt;/code&gt;擬似セレクタ使うのは甘え、男は黙ってclass属性に&lt;code&gt;-last&lt;/code&gt;付けるべしって思ってるし、 アニメーションに関しては、&lt;code&gt;transform&lt;/code&gt;、 &lt;code&gt;translate&lt;/code&gt;、 &lt;code&gt;transition&lt;/code&gt;、一体でどれがpropertyでvalueなのか、頭の中がごっちゃになってる状況だ。&lt;/p&gt;
+
+&lt;p&gt;このままだと老害一直線だと感じたので、いわゆるCSS3の知識を詰め込まなければいけない。ということで表題の書籍がGOODだった。&lt;/p&gt;
+
+&lt;p&gt;まぁ仕様書読めよ！って感じだけど、やっぱ小難しいのは嫌いなのですよ。あとCSS2.1以前のこととかはだいたい知ってるわけだから、そこは別いらないのです。その点、本書は新しめのCSSに絞って解説してるので全部で300Pほどと比較的コンパクトに収まっている（CSS全仕様解説するとなるとサイ本みたいな厚さになって読む気が失せる）。&lt;/p&gt;
+
+&lt;p&gt;前述のFlexboxやCSSアニメーションなどのあやふやに覚えている新しめのプロパティの解説はもちろんあるし、&lt;code&gt;hyphens&lt;/code&gt;プロパティや、&lt;code&gt;background-repeat:space&lt;/code&gt;キーワードなんて新しい発見もあった。サクッと知識をブラッシュアップしたい人におすすめな1冊だ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CSSを書くために必要なGruntプルギン集！！</title>
+            <link>https://t32k.me/mol/log/modern-coder/</link>
+            <pubDate>Thu, 05 Dec 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/modern-coder/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/log/modern-development-workflow-with-grunt/&#34;&gt;前回の続きというかセッション&lt;/a&gt;では基本的な使い方とMapleの説明に終始したので、今回は僕が普段CSS書いてる時に便利だなーと思うプラグインを列挙してみたよ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/t32k/items/193c82e04e5383ead38f&#34;&gt;高いCSS圧縮率を誇るgrunt-cssoについて紹介するよ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/t32k/items/e59cebb51825347689f9&#34;&gt;CSSプロパティをソートしてくれるgrunt-csscombについて紹介するよ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/t32k/items/9e03e80061de21411765&#34;&gt;CSS - イケてるスタイルガイドを簡単に作れるgrunt-kssについて紹介するよ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/t32k/items/f2de0e934cf5e6d66058&#34;&gt;CSS書く人なら絶対入れとけのgrunt-contrib-csslintについて紹介するよ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/t32k/items/ba9e213d0253e369bf2e&#34;&gt;CSSプロパティの重複を解析してくれるgrunt-csscssについて紹介するよ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/t32k/items/a94820ceabd008243e8d&#34;&gt;そのページで使われているCSSだけまとめてくれるgrunt-uncssについて紹介するよ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;僕はCSS書きなのでCSSに関するプラグインが多いけど、&lt;strong&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2013/grunt-plugins&#34;&gt;Grunt Plugins Advent Calendar 2013 - Qiita&lt;/a&gt;&lt;/strong&gt;の他の参加者も便利なプラグインを紹介してるので見てみてね。&lt;/p&gt;
+
+&lt;p&gt;あとなぜか、このアドベントカレンダーだけ時空の法則が乱れてて12/15（現在：12/5）まで進んでるからいっぱい見れるね♪&lt;/p&gt;
+
+&lt;p&gt;僕のお気に入りGruntプルギンは&lt;a href=&#34;http://qiita.com/shoito/items/aed36f56ae9a3e46c215&#34;&gt;@shoitoも書いているgrunt-pagespeed&lt;/a&gt;です！てか、PageSpeedが好きなんですけどね！！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ぼくのかんがえたさいきょうのしーえしゅえしゅ</title>
+            <link>https://t32k.me/mol/log/the-perfect-css-i-thought/</link>
+            <pubDate>Mon, 29 Jul 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/the-perfect-css-i-thought/</guid>
+            <description>
+
+&lt;p&gt;俺ももう30だし、夏なんで、CSSフレームワークはじめました。
+とりあえず、UIエレメントとか作ってないし、CSSフレームワークとか言いながら、GithubのLanguage Staticsは98.3%、JavaScriptってな感じでGrunt Taskばかり充実してるような感じです、現状。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、設計方針としてはマシなCSSを書くことを目標としている。この一年、スマホアプリのHTML/CSSコーディングをやってきたわけだが、度重なるUIの変更に耐えうるCSS、そして肥大化しないCSSとは何かずっと考えていて、特に答えという答えもで見つかっていわけだけど、とりあえずはこうしたほうがBetterなんじゃないかというの自分的に固まってきたので、公開してみた。&lt;/p&gt;
+
+&lt;p&gt;てか、最強のCSSなんて存在しないからなっ！！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;t32k/maple - GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ありがちな落とし穴&#34;&gt;ありがちな落とし穴&lt;/h2&gt;
+
+&lt;p&gt;これを作るにあたって社内のほかのプロジェクトのCSSがどんな風に書いてるのか調べった結果、以下の点が気になった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;無用な Vendor Prefixes&lt;/li&gt;
+&lt;li&gt;Data URI 多用&lt;/li&gt;
+&lt;li&gt;Nest が深い&lt;/li&gt;
+&lt;li&gt;@extend 多用&lt;/li&gt;
+&lt;li&gt;ID セレクタ使用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;無用な-vendor-prefixes&#34;&gt;無用な Vendor Prefixes&lt;/h3&gt;
+
+&lt;p&gt;基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$experimental-support-for-opera: false;
+$experimental-support-for-mozilla: false;
+$experimental-support-for-microsoft: false;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そういったものを吐き出さないように、変数で指定する必要がある。また&lt;code&gt;-webkit-border-radius&lt;/code&gt;のようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかは&lt;a href=&#34;http://caniuse.com/#search=border-ra&#34;&gt;Can I use…&lt;/a&gt;で調べればよい（逆に正規プロパティを書いてないとこもあった）。&lt;/p&gt;
+
+&lt;h3 id=&#34;data-uri-多用&#34;&gt;Data URI 多用&lt;/h3&gt;
+
+&lt;p&gt;WebパフォーマンスにおいてHTTPリクエストを削減することは真っ先に優先されるべきことだが、あまり何でもかんでも画像をDataURI化してCSSファイルの中に記述してしまうと、CSSファイルの肥大化が問題になってしまう。CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。&lt;/p&gt;
+
+&lt;p&gt;ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、&lt;a href=&#34;https://t32k.me/mol/log/data-uri-scheme/&#34;&gt;仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい&lt;/a&gt;。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。&lt;/p&gt;
+
+&lt;h3 id=&#34;nestが深い&#34;&gt;Nestが深い&lt;/h3&gt;
+
+&lt;p&gt;ロケーションに基づいたスタイル付け、ページに基づいたCSSを書いていくと当然ネストが深くなっていく（ex. body.login-page a.login-btn &amp;gt; span）。ここではセレクタの数が増えることによるファイルサイズ増量が問題というわけでなく、詳細度が高まれば高まるほど、そこでしか使用できないセレクタになってしまうことが問題だ。結果、同じようなスタイルでも新しくCSSを記述しなければならずファイルサイズが増えていくことになる。&lt;/p&gt;
+
+&lt;p&gt;これらの解決策はできるだけ小さなモジュールに基づいてスタイル付けしていくことだ。基本、ネストは&lt;strong&gt;3レベル&lt;/strong&gt;までが許容値だ。&lt;/p&gt;
+
+&lt;h3 id=&#34;extend-多用&#34;&gt;@extend 多用&lt;/h3&gt;
+
+&lt;p&gt;@extendは素晴らしい機能だと思うが、あまりカジュアルに使用してしまえば、セレクタの増加につながる。マルチクラス（&amp;rdquo;class=&amp;ldquo;btn btn-primary&amp;rdquo;）でマークアップすれば基本的に代用できる機能だ。確かに、CSSファイル内で.btnを@extendして.btn-primaryを作ればclass=&amp;ldquo;btn-primary&amp;rdquo;だけになって簡潔だが、それ以上の意味は無い。ただいたずらに使えばCSSファイルが増えるだけなので、マルチクラスの使用を推奨する。&lt;/p&gt;
+
+&lt;h3 id=&#34;id-セレクタ使用&#34;&gt;ID セレクタ使用&lt;/h3&gt;
+
+&lt;p&gt;CSSのスタイル付けにおいてIDセレクタを使用しなければならない理由などない。それどころかIDを使えば詳細度が複雑になり、このスタイルを上書きするためにさらにIDを使用したりなど、チキンレースが始まり、結果ファイルサイズが肥大化する。HTML内でJSのフックとして id=&amp;ldquo;js-getElement&amp;rdquo;など使用するのは問題ないが、そのセレクタに対してスタイルをつけてはならない。&lt;/p&gt;
+
+&lt;p&gt;まぁ、そんな感じのことを考えつつ作りました。&lt;/p&gt;
+
+&lt;h2 id=&#34;css設計方針&#34;&gt;CSS設計方針&lt;/h2&gt;
+
+&lt;p&gt;CSS全体に関しては、以下の様な感じで。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;絶対にCSSを増やしたくない&lt;/li&gt;
+&lt;li&gt;class名で悩みたくない&lt;/li&gt;
+&lt;li&gt;完璧じゃなくてもいい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;絶対にcssを増やしたくない&#34;&gt;絶対にCSSを増やしたくない&lt;/h3&gt;
+
+&lt;p&gt;CSSとは時とともに増えるものだ。新しいページが増えるイコール、CSSを新規に追加しなければならない。そこでモジュールとして設計しておけば、新しいページができたとしても再利用ができ、新規に作らなければならないスタイルを最小限に抑えることが出来る。しかし、必ずしもモジュールの再利用ができるのかといったら、それは難しい問題だ。モジュールAとは微妙にちがうモジュールA’などが当然のごとく登場してくる。&lt;/p&gt;
+
+&lt;p&gt;これはデザイナーの責任とは100％言い切れない、クライアントの要望であったり、力のあるステークホルダーからの意見であったりと、UIとは最初に設計したものから変幻自在にその姿を変える。未来は誰にもわからないのである。&lt;/p&gt;
+
+&lt;p&gt;このため、私はモジュール単位で設計すると同時に、&lt;a href=&#34;https://github.com/t32k/maple/blob/master/src/files/css/sass/core/_helper.scss&#34;&gt;helper.sccs&lt;/a&gt;を充実させた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Directory structure
+├── maple.css
+└── sass
+    ├── maple.scss
+    ├── _core.scss
+    ├── core
+    │   ├── _base.scss
+    │   ├── _helper.scss
+    │   ├── _date.scss
+    │   ├── _reset.scss
+    │   └── _settings.scss
+    ├── _modules.scss
+    ├── modules
+    │   ├── _bars.scss
+    │   ├── _boxes.scss
+    │   ├── _buttons.scss
+    │   ├── _forms.scss
+    │   ├── _headlines.scss
+    │   ├── _listviews.scss
+    │   └── _misc.scss
+    └── vendors
+        └── _myfont.scss
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;helper.scssはユーティリティ的に使える便利classをまとめたものだ。&lt;code&gt;.c{ text-align:center !imporatnt}&lt;/code&gt; などのように単一のCSSプロパティだけを記述した短い名前のclassだ。&lt;/p&gt;
+
+&lt;p&gt;これらのCSSを充実させることで、パターンに外れたUIの変更、例えばこのページのこのモジュールだけ文字色はこれ！とか、このページの時は余白を大きく！などのケースは、&lt;code&gt;.module.helper&lt;/code&gt;のようにマルチクラスで、モジュールに任意のヘルパーclassを追加するだけで対応できるようになる。&lt;/p&gt;
+
+&lt;p&gt;また、モジュールにはmarginやpositionなどの位置を指定するプロパティを記述しないほうが無難だ。モジュールとして設計している以上、それはどの場所にもおけることを前提としているので、そのようなスタイルをつけていると問題になることが多い。&lt;/p&gt;
+
+&lt;p&gt;これらの考えを適用したHTMLは&lt;code&gt;class=&amp;quot;btn-primary mod mbx ca c&amp;quot;&lt;/code&gt;などのような属性値となるだろう、命名ルールはあとから説明するとして、このように複数のclass属性値を持つことは当然の流れなのではないかと最近痛感している。我々はWebアプリケーションを作っているのであって、Webドキュメントを作っているわけではない。しかし、CSS自体、ドキュメントをスタイル付けするために生まれたようなものである。CSS3になって表現的にはリッチになったものの、構文的には何も進化していない（だからCSSプリプロセッサがあるのだけど）、プロパティが増えただけだ。このような現状でやれば多少のほころびというか気になる点もでてくるのは仕方のないことだと思う。&lt;/p&gt;
+
+&lt;p&gt;モバイルアプリケーションフレームワークで有名なjQuery MobileやSencha Touchのclassの当て方を見てみれば分かるように、要素に対して3,4つのclass属性がついているのがざらだ。汎用性を持たせるにはこの方法が現実解なのだろう。&lt;/p&gt;
+
+&lt;h3 id=&#34;class名で悩みたくない&#34;&gt;class名で悩みたくない&lt;/h3&gt;
+
+&lt;p&gt;よく、class名とは『抽象的スギズ 具体的スギズ』なものが良いと言われているが、これを考えることはすごく難しい。ひどいときは2,3時間class名を考えているときがある。パッと思いつくこともあるが、先ほど述べたように、未来は誰にもわからない。もしこのモジュールが予定していたものと違った用途でも使われたら？などと考えはじめると、これでは具体的すぎるので、もうちょっと抽象的な名前にするか、いやこれでは抽象的すぎるといった具合に、英語辞書サイトをグルグル回ったりすることが日常である。&lt;/p&gt;
+
+&lt;p&gt;我々の仕事はclass名を考えることではない。確かに良い名前をつけることは良いことだが、頻繁なUI変更を繰り返せば、当初予定していた意味とは違った用途で使われることは予想できる。そこで私は、アルファベットの連番を採用した。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;.{moduleName}-{alphabet}&lt;/strong&gt;のように、btn-a, btn-b, btn-cといった具合だ。このような命名パターンで有名なのはbtn-primary, btn-secondaryといったものだろう。しかし、３つめのパターンのボタンが出てきた場合、なんてclass名になるのだろうか？btn-thirdlyだろうか？正解はbtn-tertiaryだそうだ。ちなみに、 quaternary, quinary, senary と続くそうだ。そもそも１つのサイトで何種類ものボタンが出てくること自体おかしいのだと言えばそうかもしれない。&lt;/p&gt;
+
+&lt;p&gt;が、現実問題、サイトにおいてボタンは何種類も出てくる。そこで、btn-tertiaryといった正しい名前をつけても我々はネイティブではないし、大抵の人が意味が分からないだろう。またbtn-primaryといった名前のつけたボタンも時がたてば&amp;rsquo;主要的な&amp;rsquo;使われ方もしなくなってくるのが現実世界だ。&lt;/p&gt;
+
+&lt;p&gt;そこで、できるかぎり意味性を排除したa,b,cであれば、破綻しない。なぜならもともと意味が無い、ニュートラルなものであるから。いかようにもパターンを増やしていける（増やさないほうがいいんだけど）。&lt;/p&gt;
+
+&lt;p&gt;よく、class名はセマンティックでなければならないとかほざいてる人がいるんだけど、&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There are no additional restrictions on the tokens authors can use in the class attribute, but authors are encouraged to use values that describe the nature of the content, rather than values that describe the desired presentation of the content.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#classes&#34;&gt;3.2 Elements — HTML Standard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなこと仕様書に書いていない。Webにおいてセマンティックと言えば、&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%9E%E3%83%B3%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E3%83%BB%E3%82%A6%E3%82%A7%E3%83%96&#34;&gt;セマンティック・ウェブ&lt;/a&gt;を指していると思われ、機械的にデータを再利用できるような仕組みのことを言っている。つまりあなたがセマンティックだと思ってつけたclass=&amp;ldquo;primaryButton&amp;rdquo;はclass属性値がprimaryButtonということでしかなく、ブラウザがそれを読み取って主要なボタンを抽出するといった芸当なんてことはしてくれない。&lt;/p&gt;
+
+&lt;p&gt;セマンティックなマークアップをしたければ、&lt;a href=&#34;https://support.google.com/webmasters/answer/176035?hl=ja&#34;&gt;microdata&lt;/a&gt;を利用するのが妥当だろう。（&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88&#34;&gt;microformats&lt;/a&gt;と混同してはいけない）&lt;/p&gt;
+
+&lt;h3 id=&#34;完璧じゃなくてもいい&#34;&gt;完璧じゃなくてもいい&lt;/h3&gt;
+
+&lt;p&gt;最近読んだ記事に、『&lt;a href=&#34;http://www.infoq.com/jp/articles/managing-technical-debt&#34;&gt;技術的負債を管理する&lt;/a&gt;』というものがある。技術的負債というのは素早くいい加減に実装したコードのことを言っている。この記事では技術的負債を受け入れるということが述べられている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;技術的負債が常にあること&lt;/li&gt;
+&lt;li&gt;技術的負債が常に悪い訳ではないこと&lt;/li&gt;
+&lt;li&gt;技術的負債は完全に支払わなければならないものではないこと&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CSSにおいて、技術的負債と言えば、&lt;code&gt;style=&amp;quot;margin-right:54px&amp;quot;&lt;/code&gt;などのようにstyle属性で書かれたものや、style要素など書かれたものを言うだろうか。CSS（じゃなくてもいいが）を管理する上において外部ファイルにまとめるのは当然だが、それではCSSファイルが肥大化する。&lt;/p&gt;
+
+&lt;p&gt;例えば、キャンペーンページなどそのページでしか存在しないスタイルを全ページで読み込む１つの外部CSSファイルに記述してしまうことは本当によいことだろうか？そのページを見ない人もそのスタイルの記述分のコストを負担させることになる。&lt;/p&gt;
+
+&lt;p&gt;私はそのような場合はキャンペーンページのビューにstyle要素として埋め込めば良いと思う。キャンペーンページなどは一度作ってしまえば、またキャンペーンが終わったりすればあまりコードを弄ることはない。この場合、このstyle要素で書かれたコードは技術的負債といえるのか？ということだが、負債として我々にのしかかって来るのかといえばそうでもない。&lt;/p&gt;
+
+&lt;p&gt;このキャンペーンが頻繁に更新する要な場合であればまた別途違った方法を考えるべきだが、そうなっていない以上はこのようなコードを受け入れる必要があると思う。同じようにヘルパーにないパターンのmarginが出てきた時も新しいヘルパーとしてhelper.scssに登録するのではなく、まずはstyle属性に書いて様子を見るのも１つの手段だと思う。&lt;/p&gt;
+
+&lt;p&gt;だって人間だもの、完璧じゃなくてもいいと思う。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;まぁそうゆう方針で作っています。前提として、CSSは１つの外部ファイルとしてまとめているもので、UIの変更が頻繁にあるケースを想定しています。なので、一回作って終わり！と言ったケースであれば、別にクラス名はシングルでもいいし、ロケーションに基づいたスタイル付けでもなんでも良いと思う。&lt;/p&gt;
+
+&lt;p&gt;世の中ベストなCSSといったものがあるかどうかわからないけど、あったとしてもそのプロジェクト（運用）で、ベストなわけであって、自分のプロジェクトでもベストなことはないと思う。ただ、『これどこからいじったらいいんじゃい！』ってな最悪な状況にならないためにも最低限なルールなり決まりをつくったほうがいいかなと思っている。&lt;/p&gt;
+
+&lt;h3 id=&#34;ロードマップ&#34;&gt;ロードマップ&lt;/h3&gt;
+
+&lt;p&gt;v1.0の正式リリースに向けて、UIスタイルを設けるつもりだけど、そんな格好いいものは用意できないので期待しないでほしい。むしろ、コーディングスタイルの例として設けるのが狙いです。&lt;/p&gt;
+
+&lt;p&gt;あと、この命名規則の弱点としてclass名からスタイルを類推しづらいというのが弱点なので、そこをカバーする上でスタイルガイドの作成というのは必須だろうと思っている。前にstyledoccoを使ったことがあるが自分的にしっくりきてないので、いいのを見つける必要性があるなーと。&lt;/p&gt;
+
+&lt;h2 id=&#34;cssのためのgrunt-task&#34;&gt;CSSのためのGrunt Task&lt;/h2&gt;
+
+&lt;p&gt;現時点でCSSは全然書いてないのはずーっとGrunt Taskの設定をしていたり、プラグイン作ってたりしてたという理由があります。マシなCSSを書くために必要なGrunt用意しましたー。&lt;/p&gt;
+
+&lt;p&gt;Mapleプロジェクトは&lt;a href=&#34;https://github.com/t32k/grunt-init-maple&#34;&gt;grunt-init-maple&lt;/a&gt;を使えば、gurnt-init mapleでプロジェクトをスキャフォルドできます。あとはプロジェクトに必要なnode_moduleを落としてくれば、すぐに使えます！&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --recursive
+$ git-init maple
+$ cd /path/to/maple_project/src/tools 
+$ npm install
+# ローカルサーバが立ち上がってSassがwatchの状態になる。
+$ grunt develop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;grunt-contrib-connect-grunt-contrib-watch&#34;&gt;grunt-contrib-connect / grunt-contrib-watch&lt;/h3&gt;
+
+&lt;p&gt;ローカルサーバーとウォッチ、ライブリロード機能を有効にしています。コンポーネントページでモジュールを開発したりするとき便利です。&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-contrib-compass&#34;&gt;grunt-contrib-compass&lt;/h3&gt;
+
+&lt;p&gt;Sass/Compassのコンパイルのために入れてます。Compassだけど、Retina用のCSSスプライト、&lt;a href=&#34;https://github.com/t32k/maple#mixins&#34;&gt;新たにリライト&lt;/a&gt;してみました。良かったら使ってね。&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-contrib-csslint&#34;&gt;grunt-contrib-csslint&lt;/h3&gt;
+
+&lt;p&gt;CSSのLintです。IDとか使ってたら怒られます。IEとか古いブラウザ対応のためのlintはオフにしてあります。どうゆう理由で&lt;a href=&#34;https://github.com/stubbornella/csslint/wiki/Rules&#34;&gt;そういったルール&lt;/a&gt;が設けてあるのか一度読んでおいたらタメになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-csso&#34;&gt;grunt-csso&lt;/h3&gt;
+
+&lt;p&gt;より高い率でミニファイしてくれるCSSOのgrunt pluginです。&lt;a href=&#34;https://t32k.me/mol/log/csso-and-grunt-csso/&#34;&gt;過去に記事かいたのでそこ参照。&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-csscomb&#34;&gt;grunt-csscomb&lt;/h3&gt;
+
+&lt;p&gt;CSSプロパティをソートしてくれるgrunt pluginです。&lt;a href=&#34;https://t32k.me/mol/log/csscomb/&#34;&gt;過去に記事かいたのでそこ参照。&lt;/a&gt;最初からMapleのルールでCSSでかけばそこまであれだけど、１つのセレクタに何十ものプロパティを書いてる時などは、これでプロパティ順を揃えればgzipの圧縮率を高めてくれます。&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-webfont&#34;&gt;grunt-webfont&lt;/h3&gt;
+
+&lt;p&gt;あと、最近webフォントを使ったのだけど、これを使う前はオンラインのwebフォント管理ツールとか使っていてすごく面倒くさいなと思っていた。けどこれ使えば、webフォントしたいSVGを任意のディレクトリにいれてgrunt webfontカマスだけさ！&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-imageoptim&#34;&gt;grunt-imageoptim&lt;/h3&gt;
+
+&lt;p&gt;Compassで生成されたスプライト画像（PNG）とかはPNG-24なので重いです。それをアルファ透過つきPNG-8にダウンコンバートしてサイズ量を減らしてくれます。要&lt;a href=&#34;http://imageoptim.com/&#34;&gt;ImageOptim (Mac app)&lt;/a&gt; です。忘れがちなので、buildタスクに入れておきましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;grunt-kss&#34;&gt;grunt-kss&lt;/h3&gt;
+
+&lt;p&gt;kss-nodeでスタイルガイドを生成してくれます。&lt;code&gt;.btn-a&lt;/code&gt;とかクラス名からスタイルが類推しづらいのでスタイルガイドの作成は必須になってきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;終わりに&#34;&gt;終わりに&lt;/h2&gt;
+
+&lt;p&gt;別にCSS使わなくても単純にGruntfileだけ拝借して使ってもらっても構わない、何かの役に立てて貰えればさいわいです。&lt;/p&gt;
+
+&lt;p&gt;フレームワークは所詮ツールでしかありません。これ使えばすべてがOKということは、もちろんなく。CSSだけでどんだけがんばってもデザインがくそだったらCSSもくそになります。逆を言えば、デザイナーさんとうまくルール（パターン）を予め決めて開発をすれば驚くほどCSSは軽くなります。その辺はデザイナーさんと協力・コミュニケーションしながら共通認識（ゴール）を持つことが一番重要です。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>OOCSSをbuildする</title>
+            <link>https://t32k.me/mol/log/make-oocss-styleguide/</link>
+            <pubDate>Sat, 29 Jun 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/make-oocss-styleguide/</guid>
+            <description>&lt;p&gt;ちょいーんっす！あたーんっす！&lt;/p&gt;
+
+&lt;p&gt;みなさん、&lt;a href=&#34;http://oocss.org/&#34;&gt;OOCSS&lt;/a&gt;って知ってますか？僕は知らないです。嘘です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/stubbornella&#34;&gt;@stubbornella&lt;/a&gt;が、4,5年前に言い出したオブジェクト指向なCSSの考え方みたいなもんです。CSSでこんなもの表現できた！とかそうゆうTips系の話題は事欠かないのですが、CSSの設計についての話はそれ以前には（今もそうですが）あまりなかったので、個人的にはとても衝撃的でした。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/hiloki/a-good-css-and-sass-architecture&#34;&gt;ちゃんとCSSを書くために - CSS/Sass設計の話&lt;/a&gt;（あ、最近イカス資料見つけたぞ！）&lt;/li&gt;
+&lt;/ul&gt;
+まぁそんなOOCSSですが、ここ一年は目立った更新はありませんでした。と思ってたら最近、&lt;a href=&#34;https://github.com/stubbornella/oocss&#34;&gt;GitHubのレポジトリ&lt;/a&gt;見たらなんかすごく変わってる！&lt;/p&gt;
+
+&lt;p&gt;新しくなったドキュメントを読みたいのですが、&lt;a href=&#34;https://github.com/stubbornella/oocss/tree/master/oocss&#34;&gt;Readme&lt;/a&gt;を読むと、どうやらSassやらHandlebarsやら使っててbuildしなきゃいけないっぽいす。んで仮想環境をVagrantで提供してるとのこと。&lt;/p&gt;
+
+&lt;p&gt;なんと！俺はただCSSのドキュメントを読みたいだけなのに、めんどくせ(๑･ิω･ิ๑)yー～&lt;/p&gt;
+
+&lt;p&gt;と言っててもしょうがないのでがんばってみる。
+&lt;h2&gt;事前インストール&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://git-scm.com/downloads&#34;&gt;Git&lt;/a&gt; (多分入ってると思うけど&amp;hellip;)&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;VirtualBox&lt;/a&gt; (現状、4.2.14やめて、4.2.12を選択しとく)&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://downloads.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt; (gemでインスコしたことある人はアンスコしとく)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;OOCSSをbuild&lt;/h2&gt;
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;img class=&#34;aligncenter  wp-image-4963&#34; src=&#34;https://t32k.me/mol/static/blog/2013/06/4f7c94e2ab3fb1d22b3c581a01721d3b.png&#34; alt=&#34;&#34; width=&#34;900&#34; /&gt;&lt;/p&gt;
+&lt;a href=&#34;https://github.com/stubbornella/oocss&#34;&gt;OOCSS&lt;/a&gt;をForkする(フォークボタン押すだけね！)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git clone https://github.com/{user_name}/oocss.git
+
+Cloning into &#39;oocss&#39;...
+remote: Counting objects: 1800, done.
+remote: Compressing objects: 100% (1261/1261), done.
+remote: Total 1800 (delta 580), reused 1626 (delta 445)
+Receiving objects: 100% (1800/1800), 1.53 MiB | 121.00 KiB/s, done.
+Resolving deltas: 100% (580/580), done.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ForkしたのをCloneしてくる&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;cd oocss/oocss&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vagrantfileのある場所に移動する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ vagrant up
+
+Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider...
+[default] Box &#39;stubbornella&#39; was not found. Fetching box from specified URL for
+the provider &#39;virtualbox&#39;. Note that if the URL does not have
+a box for this provider, you should interrupt Vagrant now and add
+the box yourself. Otherwise Vagrant will attempt to download the
+full box prior to discovering this error.
+Downloading or copying the box...
+Extracting box...te: 206k/s, Estimated time remaining: 0:00:01))
+Successfully added box &#39;stubbornella&#39; with provider &#39;virtualbox&#39;!
+[default] Importing base box &#39;stubbornella&#39;...&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;vagrant upで起動させる&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ vagrant ssh&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;vagrant sshで中に入る&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;vagrant@lucid32:/vagrant$ make build
+
+##################################################
+Clean the project
+##################################################
+Removing the build directory
+cleaning compass files...
+Remove Node modules
+##################################################
+Clean project                               ✔ Done
+##################################################
+
+##################################################
+Building OOCSS...
+##################################################
+
+
+##################################################
+Building CSS Files with Sass...
+
+##################################################
+Building Documentation...
+##################################################
+
+Build done at : Fri Jun 28 2013 20:36:15 GMT+0200 (CEST)
+
+##################################################
+##################################################
+
+OOCSS Build                                 ✔ Done
+##################################################&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;makeする&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:8080/docs/library.html&#34;&gt;http://localhost:8080/docs/library.html&lt;/a&gt; にアクセスしてドキュメントみる。わーい見れた！
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;https://t32k.me/mol/static/blog/2013/06/b37d8e01bd98623ba758276cde9747da.png&#34;&gt;&lt;img class=&#34;aligncenter  wp-image-4964&#34; src=&#34;https://t32k.me/mol/static/blog/2013/06/b37d8e01bd98623ba758276cde9747da.png&#34; alt=&#34;&#34; width=&#34;900&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+ほらね、簡単でしょ？&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ vagrant halt&lt;/code&gt;&lt;/pre&gt;
+ちなみにvagrant haltでVMを停止させることができます。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CSSプロパティの継承：inherit</title>
+            <link>https://t32k.me/mol/log/inheriting-link-colour/</link>
+            <pubDate>Mon, 08 Apr 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/inheriting-link-colour/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/04/link.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近のスマホサイトとかコーディングしてると上記のようなリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりアクションしたりする。&lt;/p&gt;
+
+&lt;p&gt;これをコーディングするとなると、&lt;code&gt;ul &amp;gt; li &amp;gt; a&lt;/code&gt;で&lt;code&gt;a&lt;/code&gt;をBlock要素にすると思う。そのとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;body { color: black; }
+a { color: blue; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;ul li { color: gray; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;それじゃ問題だから、&lt;code&gt;ul &amp;gt; li&lt;/code&gt;にグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだ&lt;code&gt;a&lt;/code&gt;の&lt;code&gt;color&lt;/code&gt;は継承しないんだったー』ってことが疲れてるとよくある。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;ul li,
+ul li a { color: gray; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だもんで、めんどくさいけど、上記のようなスタイルを指定している（&lt;code&gt;a&lt;/code&gt;で包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここで&lt;code&gt;inherit&lt;/code&gt;さんの登場だ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;a { color: inherit; }
+ul li { color: gray; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こうしとけば、&lt;code&gt;ul &amp;gt; li &amp;gt; a&lt;/code&gt;は、グレーの文字色を継承する。&lt;code&gt;inherit&lt;/code&gt;なんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。&lt;/p&gt;
+
+&lt;p&gt;スマホサイトはタップエリアを大きくするためにBlock化して、&lt;code&gt;a&lt;/code&gt;に多くの内容物が放り込まれるきらいがある。だもんで、&lt;code&gt;a&lt;/code&gt;も通常の&lt;code&gt;span&lt;/code&gt;とか&lt;code&gt;div&lt;/code&gt;感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://snook.ca/archives/html_and_css/inheriting_link&#34;&gt;Inheriting Link Colour - Snook.ca&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>CSSOとgrunt-csso</title>
+            <link>https://t32k.me/mol/log/csso-and-grunt-csso/</link>
+            <pubDate>Thu, 18 Oct 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/csso-and-grunt-csso/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://css.github.com/csso/&#34;&gt;&lt;img class=&#34;aligncenter size-full fig&#34; title=&#34;CSSO&#34; src=&#34;https://t32k.me/mol/static/blog/2012/10/csso.png&#34; alt=&#34;&#34; width=&#34;520&#34; height=&#34;260&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;読書の秋、ご勉学の方はいかがでしょうか。 I&amp;rsquo;m your &lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今日は&lt;strong&gt;&lt;a href=&#34;http://css.github.com/csso/&#34;&gt;CSSO (CSS Optimizer) – A CSS minimizer unlike others&lt;/a&gt;&lt;/strong&gt;の紹介だ。&lt;a href=&#34;https://t32k.me/mol/log/csscomb/&#34;&gt;前回のCSSComb&lt;/a&gt;は単純にプロパティのソートをしてくれるものだったが、今回のはminimizerだ。&lt;/p&gt;
+
+&lt;p&gt;普段はSassの:compressed出力で最後デプロイしてるんだけど、もっとマシなものはないかなーと特には探してはないけど、&lt;a href=&#34;https://twitter.com/cssradar&#34;&gt;@cssradar&lt;/a&gt;パイセンがCSSOがいいって言ったとか言わないとかあったので調べてみた。&lt;/p&gt;
+
+&lt;p&gt;ちなみにSassの:compressedはこんな感じで出力しているらしい。
+&lt;blockquote&gt;Compressed style takes up the minimum amount of space possible, having no whitespace except that necessary to separate selectors and a newline at the end of the file. It also includes some other minor compressions, such as choosing the smallest representation for colors. It’s not meant to be human-readable.
+&lt;p style=&#34;text-align: right;&#34;&gt;&lt;a href=&#34;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id17 &#34;&gt;&lt;a href=&#34;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id17 &#34;&gt;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id17 &lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+改行とか空白とか色の値変換ですかね。まぁ特にそんな凝ったことはしてない模様。&lt;/p&gt;
+
+&lt;h2 id=&#34;cssoとyui-compressor&#34;&gt;CSSOとYUI Compressor&lt;/h2&gt;
+
+&lt;p&gt;CSSのminimizerとして有名というか古くからあるのは&lt;a href=&#34;https://github.com/yui/yuicompressor&#34;&gt;YUI Compressor&lt;/a&gt;ですね。JavaScriptのminimizerとして有名ですがCSSも縮小化できます。んで、それよりもCSSOは良いってゆうもんだから、どのへんがいいのよ？と思って、CSSOの縮小化ルールを試してみた。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、YUI Compressor&amp;rsquo;s CSS minifierのルールに関しては&lt;a href=&#34;http://developer.yahoo.com/yui/compressor/css.html&#34;&gt;ここに書いてあった&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;どちらもオンラインで試せるデモツールがあったので、 &lt;a href=&#34;https://github.com/css/csso/blob/master/MANUAL.en.md&#34;&gt;CSSOのマニュアル&lt;/a&gt;に書いてあるサンプルを両方のツール試してみた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;YUI Compressor DEMO: &lt;a href=&#34;http://tools.w3clubs.com/cssmin/&#34;&gt;http://tools.w3clubs.com/cssmin/&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CSSO DEMO: &lt;a href=&#34;http://css.github.com/csso/csso.html&#34;&gt;http://css.github.com/csso/csso.html&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみに訳してみた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/css/csso/blob/master/docs/description/description.ja.md&#34;&gt;csso/docs/description/description.ja.md at master · css/csso · GitHub &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;基本的な変換&#34;&gt;基本的な変換&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ホワイトスペースの削除&lt;/li&gt;
+&lt;li&gt;最後尾の &amp;lsquo;;&amp;rsquo; の削除&lt;/li&gt;
+&lt;li&gt;コメントの削除&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不正な @charset と @import 宣言の削除&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;color プロパティの縮小化&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ゼロの縮小化&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;複数行文字列の縮小化&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;font-weight プロパティの縮小化&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;構造的な最適化&#34;&gt;構造的な最適化&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;同一セレクタブロックのマージ&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ブロック内の同一プロパティのマージ&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上書きされたプロパティの削除&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上書きされたショートハンドプロパティの削除&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;繰り返されているプロパティの削除&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ブロックの部分的なマージ&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ブロックの部分的な分割&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空のルールセット、ルールの削除&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;margin と padding プロパティの縮小化&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;太字になっているのがCSSOでできて、YUI Comoressorでは縮小化できなかったもの。colorプロパティの縮小化はYUIも一部できるとこはあったのですが、CSSOのほうが優秀でした。&lt;/p&gt;
+
+&lt;p&gt;CSSOが他のminimizerとどのへんがunlikeなのかというと、上の対応表を見てもらうと分かるように&lt;strong&gt;構造的な最適化（Structural optimization）&lt;/strong&gt;が出来るということですね。他のminimizerは基本的にホワイトスペースの削除といったものがベースですが、CSSOはそれだけでなくスタイルブロックのマージや分割といったアグレッシブなこともしてくれます。&lt;/p&gt;
+
+&lt;p&gt;さて、ほんとにこのCSSOはイケてるのか試してみましょう。&lt;/p&gt;
+
+&lt;p&gt;このブログのCSSをminifyしてみた結果が以下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/wp-content/themes/quickchic/style.css&#34;&gt;https://t32k.me/mol/wp-content/themes/quickchic/style.css&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;https://t32k.me/mol/static/blog/2012/10/filesize.png&#34;&gt;&lt;img class=&#34;aligncenter  fig&#34; title=&#34;Size&#34; src=&#34;https://t32k.me/mol/static/blog/2012/10/filesize.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;225&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+元が14Kあるのに対して、CSSOでmiifyしたほうが8,979 byteで、YUIの9,342 byteよりも400byteほど軽くなっています。うん、素敵！&lt;/p&gt;
+
+&lt;h2 id=&#34;grunt-csso&#34;&gt;grunt-csso&lt;/h2&gt;
+
+&lt;p&gt;んで、CSSOはCSSCombみたいにテキストエディタでのプラグインが配布されていない、くまったです(･ω･)。毎回コマンドライン打つのもめんぞい。そんなところに最近、&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e495-grunt_initialize.html&#34;&gt;同僚さんがgruntエバンジェリスト&lt;/a&gt;なので、ついついそそのかされて&lt;a href=&#34;https://npmjs.org/package/grunt-csso&#34;&gt;grunt-csso&lt;/a&gt;なるものを作ってみました。これで、Gruntfile(grunt.js)に設定しておけば、簡単にminifyできますね。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Sassの親セレクタ参照&amp;について</title>
+            <link>https://t32k.me/mol/log/referencing-parent-selectors/</link>
+            <pubDate>Thu, 06 Sep 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/referencing-parent-selectors/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_&#34;&gt;Sassの親セレクター参照の&lt;strong&gt;&amp;amp;&lt;/strong&gt;&lt;/a&gt;の話。&lt;/p&gt;
+
+&lt;p&gt;Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。&lt;/p&gt;
+
+&lt;p&gt;
+&lt;pre&gt;&lt;code&gt;// SCSS
+#main {
+  color: black;
+  a {
+    font-weight: bold;
+    &amp;amp;:hover { color: red; }
+    &amp;amp;:visited { color: blue; }
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+↑上がコンパイルされて↓こんな風になります。
+&lt;pre&gt;&lt;code&gt;/* CSS */
+#main {
+  color: black;}
+#main a {
+  font-weight: bold;}
+#main a:hover {
+  color: red;}
+#main a:visited {
+  color: blue;}&lt;/code&gt;&lt;/pre&gt;
+Sassのコードだと、aのセレクタの下層にリンクの擬似クラスのスタイルがまとまり、コードが見やすくなってますね。この例だと&lt;strong&gt;&amp;amp;&lt;/strong&gt;の部分が#main aに置き換わるわけです。はい。&lt;/p&gt;
+
+&lt;p&gt;ほかには、モジュールごとでスタイルを変えたい時とか。
+&lt;pre&gt;&lt;code&gt;// SCSS
+.mod {
+　color: black;
+　font-weight: bold;
+　&amp;amp;.hoge { color: red; }
+　&amp;amp;.fuga { color: blue; }
+}&lt;/code&gt;&lt;/pre&gt;
+.modでひとつのモジュールの基本的なスタイルを記述して、.mod.hogeといった感じでclassの複数づけしたときに、基本スタイルから微妙に変化をつけるみたいなやりかたのときとかも便利です。たぶん。&lt;/p&gt;
+
+&lt;p&gt;これもまた、.modのブロックの中に派生するスタイルが１つにまとまっていてナイスな気がします。&lt;/p&gt;
+
+&lt;p&gt;んで、調子こいてこんな風にも&amp;amp;を使うようになりました。
+&lt;pre&gt;&lt;code&gt;// local.scss
+.kanazawa {
+　color: blue;
+　.ishikawa &amp;amp; {
+　　color: red;
+　}
+}&lt;/code&gt;&lt;/pre&gt;
+親が違う親を持っていた時のスタイルみたいな。なんか文字にすると複雑な家庭事情ですね。心中お察しします。
+&lt;pre&gt;&lt;code&gt;/* CSS */
+.kanazawa {
+　color: blue;}
+.ishikawa .kanazawa {
+　color: red;}&lt;/code&gt;&lt;/pre&gt;
+展開するとなんてことのない感じです。.kanazawaだと横浜の金沢なのか、石川の金沢なのわかんねーから、石川の金沢のときは文字を赤くしましょうよって思想です。たぶん。しらんけど。&lt;/p&gt;
+
+&lt;p&gt;んで、このCSSを流用したい。北陸で流用したいという欲情に駆られたのがこんな感じのHTML。
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;ldquo;hokuriku&amp;rdquo;&amp;gt;
+ 北陸良いとこ～♪
+ &amp;lt;div class=&amp;ldquo;ishikawa&amp;rdquo;&amp;gt;
+  細長い県なの～♪
+  &amp;lt;div class=&amp;ldquo;kanazawa&amp;rdquo;&amp;gt;
+   そこの県庁所在地なの～♪
+  &amp;lt;/div&amp;gt;
+ &amp;lt;/div&amp;gt;
+ &amp;lt;div class=&amp;ldquo;kanazawa&amp;rdquo;&amp;gt;
+  どこの金沢よ～。それどこ情報よ～。俺が寝てないってどこ情報よ～。
+ &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+今まで地方レベルで考えてこなかったんだけど、急に、.hokuriku（北陸地方）という上位概念がでてきて、この中でさっきのlocal.scssを流用したい場合。こんな感じなると思う。
+&lt;pre&gt;&lt;code&gt;// SCSS
+.hokuriku {
+ @import &amp;ldquo;local.scss&amp;rdquo;;
+}
+// つまり↑これは↓これということ。
+.hokuriku {
+　.kanazawa {
+　　color: blue;
+　　.ishikawa &amp;amp; {
+　　　color: red;
+　　}
+　}
+}&lt;/code&gt;&lt;/pre&gt;
+んで、コンパイル。
+&lt;pre&gt;&lt;code&gt;.hokuriku .kanazawa {
+  color: blue;
+}
+.ishikawa .hokuriku .kanazawa {
+  color: red;
+}&lt;/code&gt;&lt;/pre&gt;
+問題は2個めのやつですよね。親参照使ったやつ。石川県北陸地方金沢市になっててイミフｗｗｗｗウケるｗｗｗｗｗ&lt;/p&gt;
+
+&lt;p&gt;HTML内では.hokurikuが最も祖先なので、この場合の.ishikawa .hokuriku .kanazawaのスタイルは有効になりませんね。実際のこの問題に出くわしたときは。もっとコード量が多くてなおかつ複雑で、この親参照の仕様をちゃんと理解せずにいたので、理解に時間がかかりました（スタイルがなぜか効かないので!importantしたりとか&amp;hellip;）。なんでメモがてら書いておきました。&lt;/p&gt;
+
+&lt;p&gt;だからといって、&lt;strong&gt;&amp;amp;&lt;/strong&gt;使うなよってことはないです。最初に紹介したリンクパターンやモジュールパターンのような単純に&lt;strong&gt;”親”&lt;/strong&gt;を参照しているものであれば、特に問題ないかと思います。親の更に親が〜といったような使い方も環境（HTML）が変わるようなことがないかぎり、特に問題無いと思うけど、いざ流用したいってなったとき（人生なにが起きるかわかりません）ネストの仕方によっては今回のようなことが起きてしまうなーって。て！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>パフォーマンスからみるSass/Compass 番外編：MSは青かった</title>
+            <link>https://t32k.me/mol/log/compass-ie-hex-str-function/</link>
+            <pubDate>Wed, 08 Aug 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/compass-ie-hex-str-function/</guid>
+            <description>&lt;p&gt;2回も続いてないのにまさかの番外編！ここぞ変化球！キエル消える魔球！！&lt;/p&gt;
 
 &lt;p&gt;ってことで、最近Androidの相手ばかりしていて、「IE&amp;hellip; そんな女もいたよね」って感じでしたが、ちょっとハマったので忘備録。グラデーションを使ったデザインをCSSで再現しようとした話。ということでCSSグラデーションのスニペットを&lt;a href=&#34;http://www.colorzilla.com/gradient-editor/&#34;&gt;Ultimate CSS Gradient Generator&lt;/a&gt;で吐き出してみたんですわ。
 &lt;pre&gt;&lt;code&gt;/* CSS */
@@ -158,43 +773,55 @@ a { color: inherit; } ul li { color: gray; }  こうしとけば、ul &amp;gt; l
  background: linear-gradient(to bottom, #000 0%,#595959 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&amp;lsquo;#000&amp;rsquo;, endColorstr=&amp;lsquo;#595959&amp;rsquo;,GradientType=0 );
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>じゃ僕もCSSプロパティの書き順とか</title>
-      <link>https://t32k.me/mol/log/css-property-order/</link>
-      <pubDate>Sat, 28 Feb 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/css-property-order/</guid>
-      <description>CSSプロパティ記述順序を晒すのが流行ってるみたいなのでｗ
-自分のプロパティの書き順とか｜CSS HappyLifeじゃあ俺もCSSの書き方を書くよ！ | Blog hamashun.comRedLine Magazine : 自分もプロパティの書き順とかCSS Property Order Sheet(PDF)
-基本Mozillaが薦める順序で書いてます（↑赤字部分）
-/Suggested order:
- display
-* list-style
-* position
-* float
-* clear
-* width
-* height
-* margin
-* padding
-* border
-* background
-* color
-* font
-* text-decoration
-* text-align
-* vertical-align
-* white-space
-* other text
-* content
-*/
-mozilla.org Base Styles
+&lt;/p&gt;
 
-んで、足りないとこをkaminogoyaさんのスタイルシートを書く時のガイドラインで補った感じです。チートシートないとわからんですね、はいｗ</description>
-    </item>
-    
-  </channel>
+&lt;p&gt;まぁ、こんな感じなのができますわな。で、意気揚々とIEでチェックしてみたらグラデーションが青かったんですよ！黒色のグラデーションが青かったんですよ！びっくりデスヨ！&lt;/p&gt;
+
+&lt;p&gt;同僚の&lt;a href=&#34;https://twitter.com/hiloki/&#34;&gt;@hiloki&lt;/a&gt;さん曰く、どうやら僕が&lt;em&gt;startColorstr&lt;/em&gt;の部分のHEXカラーを#000000ではなく、#000であとで修正したらからイケなかったらしいです。ちゃんと6バイトで記述したらイケました。どうやらこうゆうことらしいですよ↓
+&lt;blockquote&gt;IE does recognize hex colors, but not the kind you&amp;rsquo;re using. Only those with 6 hexadecimals (#RRGGBB) or 8 hexadecimals (#AARRGGBB; only works in the gradient filter!) will work. It will also accept named colors.
+&lt;p style=&#34;text-align: right;&#34;&gt;&lt;a href=&#34;http://stackoverflow.com/questions/4737477/why-does-this-css-gradient-show-up-with-the-wrong-colours-in-ie-7&#34;&gt;Why does this CSS gradient show up with the wrong colours in IE 7? - Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+短縮コード理解できないってどんだけ◯◯なんだよ！ったく！そんな！#000000とか見たら#000にしたくなっちゃうだろ！それが人の性ってもんでしょうに！って同僚に言ったら、そうでもないらしいですね&amp;hellip;.&lt;/p&gt;
+
+&lt;p&gt;まぁ今回は僕の手癖が悪かったからしょうが無いとしても、縮小化ツールによっては短縮しちゃうものもあるでしょ？というか&lt;a href=&#34;http://sass-lang.com/docs/yardoc/file.SASS_CHANGELOG.html#_style&#34;&gt;Sassの:compressedにしたら短縮&lt;/a&gt;してしまうやん（v3.1.20はしなかったけど）どーしたらいいですかね&amp;hellip;
+&lt;h2&gt;Compass: ie-hex-str()&lt;/h2&gt;
+まぁ&lt;a href=&#34;https://github.com/nex3/sass/issues/280&#34;&gt;同じような問題にぶち当たった人&lt;/a&gt;も多く、回避策としてはどうやらie-hex-str()ってCompassの関数を使えば良いとのこと。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://kuroir.com/post/14557689480/compass-ie-hex-str  &#34;&gt;Compass: ie-hex-str() | Mario &amp;ldquo;Kuroir&amp;rdquo; Ricalde&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+これを使うと、#000やblackと指定しても
+&lt;pre&gt;&lt;code&gt;// SASS
+@import &amp;ldquo;compass&amp;rdquo;;
+.ms-gradient {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&amp;lsquo;#{ie-hex-str(#000)}&amp;rsquo;, endColorstr=&amp;lsquo;#595959&amp;rsquo;,GradientType=0 );
+}&lt;/code&gt;&lt;/pre&gt;
+このようにコンパイルされます。
+&lt;pre&gt;&lt;code&gt;/* CSS */
+.ms-gradient {
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&amp;lsquo;#FF000000&amp;rsquo;, endColorstr=&amp;lsquo;#595959&amp;rsquo;,GradientType=0 );
+}&lt;/code&gt;&lt;/pre&gt;
+8バイトになってるのは、#AARRGGBBってことで、最初の2バイトはアルファ値でFFだから不透明度100%ってことですね。これはIEさん認識できるらしいです。いやしかしですよ、IEごときで、なにゆえCompassをインストールしなきゃならんのか！面倒くさい！ってことで、ブライトネス1%上げて短縮されないように#010101にしました。&lt;/p&gt;
+
+&lt;p&gt;そもそも画像でやれよ！って言うのは無しね！HTTPリクエスト減らしてなんぼだかんね！&lt;/p&gt;
+
+&lt;p&gt;んで、最初のバグに戻るけどなんで黒いのグラデーションが青色になったのかというと、startColorが#000で認識できなかったので、Default Color が青だからそれが適用されたんだね！
+&lt;blockquote&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;Default. Blue.&lt;/p&gt;
+&lt;p style=&#34;text-align: right;&#34;&gt;&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/ms532930(v=VS.85).aspx&#34;&gt;StartColorStr Property (Gradient) &lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/p&gt;
+
+&lt;p&gt;なるほど！バイバイ！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>じゃ僕もCSSプロパティの書き順とか</title>
+            <link>https://t32k.me/mol/log/css-property-order/</link>
+            <pubDate>Sat, 28 Feb 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/css-property-order/</guid>
+            <description>&lt;p&gt;CSSプロパティ記述順序を晒すのが流行ってるみたいなのでｗ&lt;br /&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;http://css-happylife.com/log/zakki/000738.shtml&#34;&gt;自分のプロパティの書き順とか｜CSS HappyLife&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://www.hamashun.com/blog/2009/02/css_11.html&#34;&gt;じゃあ俺もCSSの書き方を書くよ！ | Blog hamashun.com&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&#34;http://redline.hippy.jp/lab/css/post_55.php&#34;&gt;RedLine Magazine : 自分もプロパティの書き順とか&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;img src=&#34;http://lh6.ggpht.com/_1drnogi3vdg/SaiZMJhJDqI/AAAAAAAAASE/jVtYBAybC0s/css-property-order-sheet.png&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;&lt;a href=&#34;http://ijok.ijok.googlepages.com/css-property-order-sheet.pdf&#34;&gt;CSS Property Order Sheet(PDF)&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;基本Mozillaが薦める順序で書いてます（↑赤字部分）&lt;br /&gt;&lt;blockquote&gt;/&lt;em&gt;Suggested order:&lt;br /&gt;&lt;/em&gt; display&lt;br /&gt;* list-style&lt;br /&gt;* position&lt;br /&gt;* float&lt;br /&gt;* clear&lt;br /&gt;* width&lt;br /&gt;* height&lt;br /&gt;* margin&lt;br /&gt;* padding&lt;br /&gt;* border&lt;br /&gt;* background&lt;br /&gt;* color&lt;br /&gt;* font&lt;br /&gt;* text-decoration&lt;br /&gt;* text-align&lt;br /&gt;* vertical-align&lt;br /&gt;* white-space&lt;br /&gt;* other text&lt;br /&gt;* content&lt;br /&gt;*/&lt;br /&gt;&lt;div style=&#34;text-align: right;&#34;&gt;&lt;span style=&#34;font-size:85%;&#34;&gt;&lt;a href=&#34;http://www.mozilla.org/css/base/content.css&#34;&gt;mozilla.org Base Styles&lt;/a&gt;&lt;/span&gt;&lt;br /&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;br /&gt;んで、足りないとこをkaminogoyaさんの&lt;a href=&#34;http://2xup.org/log/2006/07/11-1956&#34;&gt;スタイルシートを書く時のガイドライン&lt;/a&gt;で補った感じです。チートシートないとわからんですね、はいｗ&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

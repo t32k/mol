@@ -1,42 +1,278 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Report on MOL</title>
-    <link>https://t32k.me/mol/categories/report/</link>
-    <description>Recent content in Report on MOL</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Sun, 01 Dec 2013 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://t32k.me/mol/categories/report/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>今どきのGruntを使ったフロントエンド開発（HTML/CSS編）</title>
-      <link>https://t32k.me/mol/log/modern-development-workflow-with-grunt/</link>
-      <pubDate>Sun, 01 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/modern-development-workflow-with-grunt/</guid>
-      <description>SassなどのCSSプリプロセッサを使うWebデザイナが増えてきました。Sassをコンパイルするだけなら黒い画面（ターミナル）を使わずともGUIアプリからの利用で問題ありません。が、ここは一歩踏み込んでGrunt（JavaScript製のタスクランナー）を使って、Sass以外のコンパイルやライブリロード、画像最適化、CSSのリントやスタイルガイド生成など、あらゆる作業をGruntに任せてより効率的な開発環境を手に入れてみませんか。
-ども、Front-end Developerをしております@t32kです。今日はがんばります。
-Frontrendというコミュニティ活動をしています。通常は東京で3~4ヶ月の周期でフロントエンドをテーマにした勉強会を開催しています。良かったらみなさんもご参加くださいませ。
-Agenda 今日の話す内容は以下のとおりです。
- なぜGruntを使うの？ Gruntの使い方 Gruntfileをカスタマイズしてみましょう  ちなみに今日の話のターゲットはGruntを使ったことのないHTML/CSSコーダーやWebデザイナーさんです。私自身、元Webデザイナーなので僕もできたことは皆さんもできるかと思います。
-Why use Grunt?  Grunt: The JavaScript Task Runner  まず、Gruntはなんでしょうか。公式サイトを見てみるとJavaScript Task Runnerと書いています。JavaScriptでTask（あなたがしてほしい処理）をしてくれるRunner（実行してくれるもの）といった意味です。
-Gruntの使い方としてはこのように黒い画面にgruntといったコマンド名を打つことで使います。
-Complexity 私達はWeb ドキュメント を作っているわけではない。Web アプリケーション を作っている。そのため以前よりもましてWeb制作は複雑性を増している。
-GUI Apps  CodeKit — THE Mac App For Web Developers Koala - a gui application for LESS, Sass, Compass and CoffeeScript compilation. Prepros :: Compile Sass, less or any preprocessing language  Sassとかのコンパイルや画像最適化処理などであったら、別に黒い画面(Grunt)を使わなくても上記のようなGUIアプリを使うことができます。デザイナーにとっては分かりやすいかもしれないGUIアプリですが、エンジニアさんが『ちょっとSass修正したいんだけど。。。』って言われた時に、これらのGUIアプリの使い方を説明するにあたって『ここのボタンを押して、ここのメニューからhogeを選択して、、、』といったまどろっこしい説明をしなければなりません。Gruntであれば後述するPackage.jsonとGruntfile.jsを渡して、任意のGruntタスクコマンドを打つだけです。
-またカスタマイズ性においても、私達は唯一無二のWebアプリケーションを制作しているわけですから、当然、最大公約数をターゲットとしているGUIアプリでは都合が悪い時があります（ウチの開発環境ではこれが使えない、これしたいんだけど負の遺産が。など）。そんな時はGUIアプリではその機能や設定が実装されるまで指を加えて待たないといけません。しかし、Gruntなら、タスクを組み合わせたりすることで、ある程度柔軟に対応することができます。
-余談ですが、弊社でGitHub Enterpriseを導入した時に私は『やったーこれでGitが使えるお！』と思い、喜び勇んでTowerというGUIのGitクライアントアプリ購入しました。それでエンジニアさんにTowerのGit設定をやってもらおうと思ったのですが、『いや俺、Towerの使い方わかんねーし、コマンドラインなら教えますよ』って言われたので、僕はコマンドラインでGit使ってます(ヽ´ω`)</description>
-    </item>
-    
-    <item>
-      <title>kanazawa.js v1.7 - Back to Basics - 開催しました</title>
-      <link>https://t32k.me/mol/log/kanazawajs-v170/</link>
-      <pubDate>Mon, 02 Apr 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawajs-v170/</guid>
-      <description>&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://www.facebook.com/media/set/?set=a.314736818592584.73653.109048162494785&amp;amp;type=1&#34;&gt;&lt;img class=&#34;aligncenter fig&#34; src=&#34;https://t32k.me/mol/static/blog/2012/04/kanaj.jpg&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;250&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/report/</link>
+        <language>ja</language>
+        
+        
+        <updated>Sun, 01 Dec 2013 00:00:00 UTC</updated>
+        
+        <item>
+            <title>今どきのGruntを使ったフロントエンド開発（HTML/CSS編）</title>
+            <link>https://t32k.me/mol/log/modern-development-workflow-with-grunt/</link>
+            <pubDate>Sun, 01 Dec 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/modern-development-workflow-with-grunt/</guid>
+            <description>
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;57a669003bb9013102323286f532ced0&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;SassなどのCSSプリプロセッサを使うWebデザイナが増えてきました。Sassをコンパイルするだけなら黒い画面（ターミナル）を使わずともGUIアプリからの利用で問題ありません。が、ここは一歩踏み込んでGrunt（JavaScript製のタスクランナー）を使って、Sass以外のコンパイルやライブリロード、画像最適化、CSSのリントやスタイルガイド生成など、あらゆる作業をGruntに任せてより効率的な開発環境を手に入れてみませんか。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;ども、Front-end Developerをしております&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;です。今日はがんばります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://frontrend.github.io/&#34;&gt;Frontrend&lt;/a&gt;というコミュニティ活動をしています。通常は東京で3~4ヶ月の周期でフロントエンドをテーマにした勉強会を開催しています。良かったらみなさんもご参加くださいませ。&lt;/p&gt;
+
+&lt;h2 id=&#34;agenda&#34;&gt;Agenda&lt;/h2&gt;
+
+&lt;p&gt;今日の話す内容は以下のとおりです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;なぜGruntを使うの？&lt;/li&gt;
+&lt;li&gt;Gruntの使い方&lt;/li&gt;
+&lt;li&gt;Gruntfileをカスタマイズしてみましょう&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみに今日の話のターゲットはGruntを使ったことのないHTML/CSSコーダーやWebデザイナーさんです。私自身、元Webデザイナーなので僕もできたことは皆さんもできるかと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;why-use-grunt&#34;&gt;Why use Grunt?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://gruntjs.com/&#34;&gt;Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まず、Gruntはなんでしょうか。公式サイトを見てみると&lt;strong&gt;JavaScript Task Runner&lt;/strong&gt;と書いています。JavaScriptでTask（あなたがしてほしい処理）をしてくれるRunner（実行してくれるもの）といった意味です。&lt;/p&gt;
+
+&lt;p&gt;Gruntの使い方としてはこのように黒い画面に&lt;code&gt;grunt&lt;/code&gt;といったコマンド名を打つことで使います。&lt;/p&gt;
+
+&lt;h3 id=&#34;complexity&#34;&gt;Complexity&lt;/h3&gt;
+
+&lt;p&gt;私達はWeb &lt;strong&gt;ドキュメント&lt;/strong&gt; を作っているわけではない。Web &lt;strong&gt;アプリケーション&lt;/strong&gt; を作っている。そのため以前よりもましてWeb制作は複雑性を増している。&lt;/p&gt;
+
+&lt;h4 id=&#34;gui-apps&#34;&gt;GUI Apps&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://incident57.com/codekit/&#34;&gt;CodeKit — THE Mac App For Web Developers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://koala-app.com/&#34;&gt;Koala - a gui application for LESS, Sass, Compass and CoffeeScript compilation.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://alphapixels.com/prepros/&#34;&gt;Prepros :: Compile Sass, less or any preprocessing language&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sassとかのコンパイルや画像最適化処理などであったら、別に黒い画面(Grunt)を使わなくても上記のようなGUIアプリを使うことができます。デザイナーにとっては分かりやすいかもしれないGUIアプリですが、エンジニアさんが『ちょっとSass修正したいんだけど。。。』って言われた時に、これらのGUIアプリの使い方を説明するにあたって『ここのボタンを押して、ここのメニューからhogeを選択して、、、』といったまどろっこしい説明をしなければなりません。Gruntであれば後述するPackage.jsonとGruntfile.jsを渡して、任意のGruntタスクコマンドを打つだけです。&lt;/p&gt;
+
+&lt;p&gt;またカスタマイズ性においても、私達は唯一無二のWebアプリケーションを制作しているわけですから、当然、最大公約数をターゲットとしているGUIアプリでは都合が悪い時があります（ウチの開発環境ではこれが使えない、これしたいんだけど負の遺産が。など）。そんな時はGUIアプリではその機能や設定が実装されるまで指を加えて待たないといけません。しかし、Gruntなら、タスクを組み合わせたりすることで、ある程度柔軟に対応することができます。&lt;/p&gt;
+
+&lt;p&gt;余談ですが、弊社でGitHub Enterpriseを導入した時に私は『やったーこれでGitが使えるお！』と思い、喜び勇んで&lt;a href=&#34;http://www.git-tower.com/&#34;&gt;Tower&lt;/a&gt;というGUIのGitクライアントアプリ購入しました。それでエンジニアさんにTowerのGit設定をやってもらおうと思ったのですが、『いや俺、Towerの使い方わかんねーし、コマンドラインなら教えますよ』って言われたので、僕はコマンドラインでGit使ってます(ヽ´ω`)&lt;/p&gt;
+
+&lt;h4 id=&#34;paid-apps&#34;&gt;Paid Apps&lt;/h4&gt;
+
+&lt;p&gt;また、これらのアプリの中には有料のものもあります。現在有料じゃなくても将来有料になるかもしれませんし、より良いサービスを受けようとおもうと有料プランを選択肢なければならないかもしれません。良いアプリにお金を払うこと自体、とても素晴らしいことだと思います。しかし、例えばさっきの例でエンジニア：『Sassコンパイルしたいんだけど』、デザイナー：『有料アプリ買ってね！』って言うのはなんか違うかと思います。Gruntなら各種プラグインは基本的に無料です。&lt;/p&gt;
+
+&lt;h3 id=&#34;web-performance&#34;&gt;Web Performance&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stevesouders.com/hpws/rules.php&#34;&gt;High Performance Web Sites&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;またWebパフォーマンスの観点から見れば、2007年にSteve Soudersが『&lt;a href=&#34;http://www.oreilly.co.jp/books/9784873113616/&#34;&gt;ハイパフォーマンスWebサイト&lt;/a&gt;』の著書で初めてフロントエンドのパフォーマンスの重要性について説きました。その当時は高速サイトの14のルールという基本的なルールさえ守れば、だいたい問題ありませんでした。&lt;/p&gt;
+
+&lt;p&gt;時は経ち、2013年、&lt;a href=&#34;https://twitter.com/search?q=%23perfmatters&amp;amp;src=hash&#34;&gt;#perfmatters&lt;/a&gt;の大号令を気に、Webパフォーマンスと言っても、&lt;strong&gt;Network&lt;/strong&gt;、&lt;strong&gt;Render&lt;/strong&gt;、&lt;strong&gt;Compute&lt;/strong&gt;の3つの分野に分類され、それぞれの分野ごとに本が出るほど、対応する対策というのは複雑、高度化してきました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://chimera.labs.oreilly.com/books/1230000000545&#34;&gt;High Performance Browser Networking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.oreilly.co.jp/books/9784873114903/&#34;&gt;O&amp;rsquo;Reilly Japan - ハイパフォーマンスJavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Render&lt;/strong&gt;は同僚の&lt;a href=&#34;https://speakerdeck.com/ahomu/web-frontend-rendering-performance-knowledge-and-tips&#34;&gt;ahomuさんの資料&lt;/a&gt;が一番まとまっているかと思います。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、フロントエンド(HTML/CSS)に関しても、画像の最適化、効率的なスタイルシートの管理、縮小化など対応すべきタスクは多くなってきています。これらの作業を一つ一つ手作業でやっていては抜けなどもありまうすし、面倒です。こういったものはGruntに任せ自動化すべきです。&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-use-grunt&#34;&gt;How to use Grunt&lt;/h2&gt;
+
+&lt;p&gt;次は使い方です。まずは、&lt;strong&gt;&lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt;&lt;/strong&gt;をインストールしましょう。公式サイトにはインストーラーが配布されているのでポチポチとボタンを押していくだけでインストールできます。Node.jsをインストールすると同時にNPM(Node Package Module)というパッケージ管理ツールも一緒にインストールされます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-cli -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なので、このコマンドの意味はnpmでinstallします、grunt-cliを。グローバルで。って意味です。grunt-cliってのgruntをCommandline Interfaceから使えるようにするパッケージで、グローバルと言うのはどのディレクトリにいても&lt;code&gt;grunt&lt;/code&gt;のコマンドを使えるようにするという意味で、これがなけばローカルです。&lt;/p&gt;
+
+&lt;h3 id=&#34;structure&#34;&gt;Structure&lt;/h3&gt;
+
+&lt;p&gt;これで下準備は整いました。つぎにGruntの構成ですが&lt;strong&gt;Package.json&lt;/strong&gt;と&lt;strong&gt;Gruntfile.js&lt;/strong&gt;(coffeescriptでも可)の2種類のファイルが必要です。&lt;/p&gt;
+
+&lt;p&gt;試しに、&lt;a href=&#34;https://npmjs.org/package/grunt-csso&#34;&gt;grunt-csso&lt;/a&gt;をというCSSを圧縮してくるれるGruntプラグインを使用できるところまで解説していきましょう。&lt;/p&gt;
+
+&lt;h4 id=&#34;package-json&#34;&gt;Package.json&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://npmjs.org/doc/json.html&#34;&gt;Package.json&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Package.jsonを作るには、上記のようなコマンドを打ちます。そうすると対話形式でいろいろ黒い画面が訪ねてきますので、適当にYESもしくはENTERキーを押し続けます。そうするとPackage.jsonのひな形が作成されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt --save-dev
+$ npm install grunt-csso --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次にローカルモジュールのインストールをしていきます。先ほどのgrunt-cliはあくまでコマンドラインからgruntを利用するためだけのパッケージなので、ここでインストールするgruntが実質のパッケージです。このような仕組みになっているので、現在gruntはv0.4ですが、grunt v0.5のバージョンが出てきた時にプロジェクトごとに違うバージョンのgruntを共存することができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;--save-dev&lt;/code&gt;というオプションは、パッケージをインストールする際にPackage.jsonに&lt;code&gt;devDependency&lt;/code&gt;を追記してくれるものです。このように自分の使っているパッケージを記録しておくことで、Aさんが作ったPackage.jsonをBさんに渡して、Bさんが&lt;code&gt;npm install&lt;/code&gt;することで、Aさんと同じパッケージを一度でインストールすることができます。&lt;/p&gt;
+
+&lt;h3 id=&#34;gruntfile&#34;&gt;Gruntfile&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/sample-gruntfile&#34;&gt;Sample Gruntfile - Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+$ grunt-init gruntfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次にGruntfileの作成ですが、少々面倒です。まず&lt;code&gt;grunt-init&lt;/code&gt;というプラグインをインストールする必要があります。そして、gruntfileを作るためのテンプレートを&lt;code&gt;git clone&lt;/code&gt;でダウンロードしてきます。そうすることで&lt;code&gt;grunt-init gruntfile&lt;/code&gt;を打つとまた&lt;code&gt;npm init&lt;/code&gt;のようにいろいろ黒い画面が問いてきますが、とりあえずはENTER押しておきましょう。&lt;/p&gt;
+
+&lt;p&gt;こうすることで、Gruntfileが作成されます。なんかいろいろ黒い画面いっぱいで面倒だなと思った方は、最初の内は同じようなことをしているGruntfileをGitHubで見つけてコピペして作れば問題無いです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// Load the task:
+grunt.loadNpmTasks(&#39;grunt-csso&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Gruntfileの中身はいろいろ書かかれていますが、大事なのは3つの部分です。最初にnpm installしたパッケージを読み込む記述です。これがないと&lt;code&gt;csso&lt;/code&gt;のタスクが使えません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// Configure the task:
+grunt.initConfig({
+  csso: {
+    dist: {
+      files: {
+        &#39;output.css&#39;: [&#39;input.css&#39;]
+      }
+    }
+  },
+  foo: { //....}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次がGruntファイルのメインとなる部分のタスクの設定の部分です。&lt;code&gt;initConfig&lt;/code&gt;配下にタスクを記述していきます。&lt;code&gt;dist&lt;/code&gt;の部分はターゲットを表します。この部分の名前は別になんでも構いません。例えばプロダクション環境とディベロプメント環境で圧縮するファイルが違うのなら&lt;code&gt;prod:&lt;/code&gt;や&lt;code&gt;dev:&lt;/code&gt;といった名前をつけ、&lt;code&gt;grunt csso:prod&lt;/code&gt;や&lt;code&gt;grunt csso:dev&lt;/code&gt;とコマンドを打てば、実行したいタスクを分離できます。&lt;code&gt;grunt csso&lt;/code&gt;と打つとprodとdev両方のタスクが実行されます。そしてdistの下の階層には大抵処理したいファイルのインプットと処理したあとのファイルのアウトプット先、あと必要であればプラグインのオプションを記述しまうす。&lt;/p&gt;
+
+&lt;p&gt;これらが基本的なタスクの設定で、この粒度でタスクをどんどん追加していきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// Register the task:
+grunt.registerTask(&#39;default&#39;, [&#39;csso&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最後にカスタムタスクを登録します。&lt;code&gt;default&lt;/code&gt;を文字通りデフォルトでこの文字列で指定したタスクは&lt;code&gt;grunt&lt;/code&gt;だけで実行できます。&lt;code&gt;grunt.registerTask(&#39;foo&#39;, [&#39;csso&#39;]);&lt;/code&gt;とすれば、&lt;code&gt;grunt foo&lt;/code&gt;でcssoタスクを実行できます。もちろん、CSSの縮小化、JSの縮小化、画像の最適化などの複数のタスクをまとめて任意のタスク名と登録することもできるので、かっこいタスク名考えときましょう。グラント・ティロ・フィナーレ！！！！！&lt;/p&gt;
+
+&lt;h2 id=&#34;customize-your-gruntfile&#34;&gt;Customize your Gruntfile!&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/plugins&#34;&gt;Plugins - Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さて基本的なGruntの使い方はわかったので、今度は自分好みのGruntfileにしていきましょう。あなたが『こうゆうのあったら便利だなー』って思うプラグインはたいてい公式サイトのプラグインを検索すれば見つかることでしょう。それほどGruntのエコステムは巨大なものとなっています。&lt;/p&gt;
+
+&lt;p&gt;また、同じような機能を提供するプラグインが2つ合った場合は基本的には&lt;code&gt;grunt-contirb-***&lt;/code&gt;の名前がついたプラグインを選択すれば問題ないです。これはGruntjsチームが公式にメンテナンスしているプラグインという証なので。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntplugin.git ~/.grunt-init/gruntplugin
+$ grunt-init gruntplugin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;また、もし自分のほしいプラグインが見つからなかったら自分で作っちゃいましょう。先ほどの&lt;code&gt;grunt-init&lt;/code&gt;でもgruntpluginのひな形を作ってくれるのでがんばってみましょう。&lt;/p&gt;
+
+&lt;p&gt;私もあまりJavaScriptは書かないのですが、なぜかgruntプラグインをちょこちょこ書いてますので、良かったら使ってみてください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://npmjs.org/~t32k&#34;&gt;t32k:npmjs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;maple&#34;&gt;Maple&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;t32k/maple&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さて最後は僕のGruntfileの設定を紹介しておきます。この一年スマホのWebアプリを制作してきてた集大成をCSSフレームワーク:Mapleとして公開しています。CSSフレームワークといいながら今は全然CSSの部分作ってないですが、ベターなHTML/CSSを書く、パフォーマンス性の高いアプリを作成するために必要なGrunt設定ある程度できていますのでぜひ参考にしてみてください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/Gruntfile.coffee&#34;&gt;maple/Gruntfile.coffee at master · t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基本的なことはコード読めば分かるかと思います。MapleのGruntfileはCoffeeScriptで書いてあります。っていいても全然CoffeeScript分かんないですけど、Gruntfileってほぼ設定ファイルのようなものなので、コーフィーで書いたほうがシンプルで見やすいかなと思ってます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;default&lt;/strong&gt;: [&amp;lsquo;develop&amp;rsquo;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;develop&lt;/strong&gt;: [&amp;lsquo;connect&amp;rsquo;, &amp;lsquo;watch&amp;rsquo;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;stylesheet&lt;/strong&gt;: [&amp;lsquo;sass&amp;rsquo;, &amp;lsquo;autoprefixer&amp;rsquo;, &amp;lsquo;csscomb&amp;rsquo;, &amp;lsquo;csslint&amp;rsquo;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;typeset&lt;/strong&gt;: [&amp;lsquo;webfont&amp;rsquo;, &amp;lsquo;stylesheet&amp;rsquo;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;publish&lt;/strong&gt;: [&amp;lsquo;stylesheet&amp;rsquo;, &amp;lsquo;kss&amp;rsquo;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;build&lt;/strong&gt;: [&amp;lsquo;stylesheet&amp;rsquo;, &amp;lsquo;csso&amp;rsquo;, &amp;lsquo;imageoptim&amp;rsquo;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;タスクの設定の詳しいことは過去のブログ読んで下さいまし！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/csscomb/&#34;&gt;CSScomb — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/csso-and-grunt-csso/&#34;&gt;CSSOとGRUNT-CSSO — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/good-bye-compass-good-bye-ruby/&#34;&gt;部屋とYシャツと私 — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-css-sprite/&#34;&gt;【CSS Sprite編】スプライト地獄からの解放 — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/reduce-http-requests-webfont/&#34;&gt;【WebFont編】ドラッグ＆ドロップでウェ～イ — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/grunt-init-yo/&#34;&gt;grunt-initとYeoman — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;jet-start&#34;&gt;Jet Start&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yeoman.io/&#34;&gt;Yeoman - Modern workflows for modern webapps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、ここまでいろいろ説明してきて頭がパンクされた方！大丈夫です！そんな方のために最速でGruntを動かす（Mapleプロジェクトを動かす）ためのコマンドを用意しました。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/U26K5NXvRxc&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;YeomanというGruntとBowerを内包したツールがあります。これだけ（node.js必要ですが）でgruntを実行できますので、ぜひためしてみてください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install yo -g
+$ npm install generator-maple -g
+$ mkdir your_proj &amp;amp;&amp;amp; cd $_
+$ yo maple
+$ grunt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;僕自身も1年前まで普通のHTMLコーダーでGUIアプリ大好きっ子でした。『黒い画面』ってのは必要そうだなとは思ってましたし、使ったら便利なんだろうなとも思ってましたけど、軽く触った程度でわかんなくなってGUIのほうがいいや！と何度も投げ出したものです。しかし、とりあえず触ってみる！動かす！ということを続けていれば、今ではGrunt（というかターミナル）無しではアプリ開発は考えれないほど手に慣れています。&lt;/p&gt;
+
+&lt;p&gt;多くのデザイナーさんたちがこちら側に来ていただければ、もっとデザイナーに便利なNodeパッケージやGemなどが出てくるでしょうし、みんなの制作環境がハッピーになると思っていますので、ぜひとも、まずは一歩を踏み出す、そして動かす、続けるってことを実践するキッカケとなってくれれば幸いです。&lt;/p&gt;
+
+&lt;p&gt;ありがとうございました。&lt;/p&gt;
+
+&lt;h3 id=&#34;追記&#34;&gt;追記&lt;/h3&gt;
+
+&lt;p&gt;普段使ってるGruntプラグインまとめてみました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://t32k.me/mol/log/modern-coder/&#34;&gt;CSSを書くために必要なGruntプルギン集！！ — MOL&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;この記事は&lt;a href=&#34;http://www.adventar.org/calendars/62&#34;&gt;Frontrend Advent Calendar 2013&lt;/a&gt;の1日目に寄稿した記事です。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>kanazawa.js v1.7 - Back to Basics - 開催しました</title>
+            <link>https://t32k.me/mol/log/kanazawajs-v170/</link>
+            <pubDate>Mon, 02 Apr 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/kanazawajs-v170/</guid>
+            <description>&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://www.facebook.com/media/set/?set=a.314736818592584.73653.109048162494785&amp;amp;type=1&#34;&gt;&lt;img class=&#34;aligncenter fig&#34; src=&#34;https://t32k.me/mol/static/blog/2012/04/kanaj.jpg&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;250&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;ul&gt;
     &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://kanazawajs.tumblr.com/v1-7/&#34;&gt;kanazawa.js v1.7 - Back to Basics -（2012年3月31日開催） &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
@@ -49,16 +285,80 @@ GUI Apps  CodeKit — THE Mac App For Web Developers Koala - a gui application f
 
 &lt;p&gt;ほんと講演者の皆さん、参加してくれた皆様ありがとうございます。改めてこのコミュニティが大好きだと理解できました。&lt;/p&gt;
 
-&lt;p&gt;んなこったで、早くも講演で使われたスライドが公開されております。参加できなかったもご覧いただければ幸いです。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>kanazawa.js v1.5 ー Hello Titanium Mobile! ー 開催報告</title>
-      <link>https://t32k.me/mol/log/kanazawajs-v150/</link>
-      <pubDate>Sun, 24 Jul 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawajs-v150/</guid>
-      <description>&lt;p&gt;&lt;a title=&#34;DSC05632 by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5970306952/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6029/5970306952_2358a71ac5.jpg&#34; alt=&#34;DSC05632&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;んなこったで、早くも講演で使われたスライドが公開されております。参加できなかったもご覧いただければ幸いです。&lt;/p&gt;
+
+&lt;p&gt;あと、イベントに参加された方はアンケートにご協力お願いします。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.google.com/spreadsheet/viewform?formkey=dFdoMXQwYno3WUFUWHVNN2NfcW9OUWc6MQ#gid=0&#34;&gt;kanazawa.js v1.7 - Back to Basics - アンケート &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;h2&gt;JavaScript 小史&lt;/h2&gt;
+&lt;blockquote&gt;今やフロントエンドのみならず、サーバサイドにおいても破竹の勢い。
+今回はそんな大人気となっている言語、JavaScriptの成り立ちとそれにまつわる悲喜こもごも、現在における状況までを取り上げます。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://speakerdeck.com/u/badatmath/p/javascript&#34;&gt;JavaScript小史 // Speaker Deck&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;JavaScript.Next&lt;/h2&gt;
+&lt;blockquote&gt;&amp;ldquo;HTML5&amp;rdquo; や Node.js などの発達と共に、JavaScript の重要性は高まり続け、適用範囲も広がり続けています。それと同時に JavaScript 言語自体も進化を続けていることはご存じでしょうか？
+JavaScript 言語のコア部分は ECMAScript として標準化されていますが、最新のブラウザで広くサポートされるようになった ECMAScript 5th の新機能、そして更に次世代 JavaScript に向けて標準化が進められている最新機能をまとめてご紹介します。
+次世代 JavaScript について知り、楽しく JavaScript を使っていきましょう。(・・).
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://speakerdeck.com/u/dynamis/p/kanazawajavascriptnext &#34;&gt;Kanazawa.JavaScript.Next // Speaker Deck &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;JSTDD Intro&lt;/h2&gt;
+&lt;blockquote&gt;TDD（テスト駆動開発：Test-Driven Developmen）とは何か。なぜTDDなのか。ここ数年開発者の間でとても熱いTDDを、できるだけ平易に、ノンプログラマにも実感できる形で紹介します。 JavaScriptのTDDを学ぶうえで最低限知っておきたい用語や分類を整理し、具体的なツールの紹介から開発の流れをお見せしたいと思います。 また実践においてぶつかりやすい課題や関連情報もある程度整理しますので、ぜひ持ち帰って実践へと繋いでいただければ幸いです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://speakerdeck.com/u/wtnabe/p/jstdd-intro-for-every-javascripters-kanazawajs-v17-2012-03-31&#34;&gt;JSTDD Intro for EVERY JavaScripters // Speaker Deck&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&amp;nbsp;
+&lt;h3&gt;Firefox Developer Tools Mini&lt;/h3&gt;
+&lt;blockquote&gt;Firefox には Web 開発者ツールが標準搭載されていることはご存じでしょうか？
+知らなかった方には驚きの機能を、知ってる方にはなかなか気づかない便利な機能をご紹介します。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://speakerdeck.com/u/dynamis/p/firefox-devtools&#34;&gt;Firefox DevTools // Speaker Deck&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;LESS楽しいれす（＾p＾）&lt;/h3&gt;
+&lt;blockquote&gt;JavaScriptでCoffeeScriptのようなメタ言語が流行っているように、CSSでもLESSやSassのようなメタ言語が巷で流行ってきています。
+Sass、LESSとCSSメタ言語がありますが、今回はkanazawa.jsということで、JavaScriptで動いているLESSを取り上げます。
+LESSが使えると何がうれしいの？ということや、JavaScriptで動いているからこその利点などをご紹介できればと思います。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/taiju/lessq&#34;&gt;LESS楽しいれす(＾q＾)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;CoffeeScriptってなんぞ？&lt;/h3&gt;
+&lt;blockquote&gt;CoffeeScriptはJavaScriptをより楽しく書くための簡易言語です。JavaScriptを書くことが億劫だとは思いませんが、CoffeeScriptを使ったほうがよりシンプルに書くことが出来ます。
+では、具体的にJavaScriptとはどう違うのでしょうか？シンタックスの話しを中心に、CoffeeScriptの面白さについてお伝え出来ればと思っています。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/hayatomizuno/coffeescript-12241689&#34;&gt;CoffeeScriptってなんぞ？&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Node.js 入門&lt;/h3&gt;
+&lt;blockquote&gt;サーバサイドJavaScriptプラットフォームであるNode.js。昨今はかなり注目され、プロダクションでの運用も始まっています。
+でもまだ使っていない、そんなあなたに贈るキャッチアップ特別編。フロントエンドからバックエンドまでJavaScriptでガシガシ開発していきましょう。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://speakerdeck.com/u/badatmath/p/nodejs&#34;&gt;Node.js入門 // Speaker Deck&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;blockquote&#34;&gt;&lt;/blockquote&gt;&lt;/h2&gt;
+
+&lt;p&gt;とうぎゃったー
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://togetter.com/li/281666&#34;&gt;kanazawa.js v1.7 - Back to Basics - - Togetter&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&amp;nbsp;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>kanazawa.js v1.5 ー Hello Titanium Mobile! ー 開催報告</title>
+            <link>https://t32k.me/mol/log/kanazawajs-v150/</link>
+            <pubDate>Sun, 24 Jul 2011 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/kanazawajs-v150/</guid>
+            <description>&lt;p&gt;&lt;a title=&#34;DSC05632 by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5970306952/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6029/5970306952_2358a71ac5.jpg&#34; alt=&#34;DSC05632&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;昨日、&lt;a href=&#34;http://kanazawajs.tumblr.com/v1-5/&#34;&gt;kanazawa.js v1.5 - Hello Titanium Mobile! -&lt;/a&gt; 開催しました。&lt;a href=&#34;http://kanazawajs.tumblr.com/v1-0/&#34;&gt;v1.0&lt;/a&gt;以来の大きめのセミナーとなりいろいろ大変でしたが、終わってみればセミナー・懇親会ともにほぼ満席で開催して良かったと思っています。
 &lt;ul&gt;
@@ -66,45 +366,199 @@ GUI Apps  CodeKit — THE Mac App For Web Developers Koala - a gui application f
 &lt;/ul&gt;
 &lt;div&gt;&lt;/div&gt;
 &lt;h2&gt;Titanium Mobileってなに？&lt;/h2&gt;
-&lt;a title=&#34;Titanium Mobileってなに？ by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5966327186/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6020/5966327186_e3581cc3bb.jpg&#34; alt=&#34;Titanium Mobileってなに？&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>kanazawa.js v1.2 開催報告</title>
-      <link>https://t32k.me/mol/log/kanazawajs-v120/</link>
-      <pubDate>Tue, 19 Apr 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawajs-v120/</guid>
-      <description>&lt;p&gt;&lt;img class=&#34;fig&#34; src=&#34;https://t32k.me/mol/static/blog/2011/04/01.jpg&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
+&lt;a title=&#34;Titanium Mobileってなに？ by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5966327186/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6020/5966327186_e3581cc3bb.jpg&#34; alt=&#34;Titanium Mobileってなに？&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これ以上無い人にTitanium Mobile入門のセッションをしてもらいました。増井（&lt;a href=&#34;https://twitter.com/#!/masuidrive&#34;&gt;@masuidrive&lt;/a&gt;）さんのセッションは何回か拝見したことあるのだけれども、毎回進化している印象。今回のセッションも単純にSDKがアップデートして機能追加もされているのもあるけど、それにともなって開発事例の多さ、またTitaniumで開発されているアプリのクオリティの向上といったものが印象深かったです。やっぱりTitanium Mobileアツイ！
+&lt;h2&gt;TitaniumでAndroidアプリをリリースまでやってみた&lt;/h2&gt;
+&lt;a title=&#34;TitaniumでAndroidアプリをリリースまでやってみた by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5965891117/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6148/5965891117_5cafd167f0.jpg&#34; alt=&#34;TitaniumでAndroidアプリをリリースまでやってみた&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;倉井（&lt;a href=&#34;https://twitter.com/#!/kurain&#34;&gt;@kurain&lt;/a&gt;）さんにはAndroidアプリの方の実践的なセッションをお願いしてたのですが、予想通り苦労されていたようでいろいろためになる内容でした。単純にプログラミングのTipsだけでなくアプリ作成の着想段階から解説して頂いて非常に興味深かったです。
+&lt;h2&gt;私が Appcelerator, Inc. に入ったワケ&lt;/h2&gt;
+&lt;a title=&#34;私が Appcelerator, Inc. に入ったワケ by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5970307526/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6026/5970307526_608cf0bec8.jpg&#34; alt=&#34;私が Appcelerator, Inc. に入ったワケ&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ますい△!!
+&lt;div class=&#34;amazlet-box&#34; style=&#34;margin-bottom: 0px;&#34;&gt;
+&lt;div class=&#34;amazlet-image&#34; style=&#34;float: left; margin: 0px 12px 1px 0px;&#34;&gt;&lt;a name=&#34;amazletlink&#34; href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4798123986/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4798123986/ref=as_li_ss_tl?ie=UTF8&amp;amp;tag=warikiru-22&amp;amp;linkCode=as2&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4798123986&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;https://images-na.ssl-images-amazon.com/images/I/51xs9gdl3mL._SL160_.jpg&#34; alt=&#34;Titanium Mobileで開発するiPhone/Androidアプリ (Smart Mobile Developer)&#34; width=&#34;127&#34; height=&#34;160&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&#34;amazlet-info&#34; style=&#34;line-height: 120%; margin-bottom: 10px;&#34;&gt;
+&lt;div class=&#34;amazlet-name&#34; style=&#34;margin-bottom: 10px; line-height: 120%;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4798123986/ref=as_li_ss_tl?ie=UTF8&amp;amp;tag=warikiru-22&amp;amp;linkCode=as2&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4798123986&#34;&gt;Titanium Mobileで開発するiPhone/Androidアプリ (Smart Mobile Developer)&lt;/a&gt;
+&lt;div class=&#34;amazlet-powered-date&#34; style=&#34;font-size: 80%; margin-top: 5px; line-height: 120%;&#34;&gt;posted with &lt;a title=&#34;Titanium Mobileで開発するiPhone/Androidアプリ (Smart Mobile Developer)&#34; href=&#34;http://www.amazlet.com/browse/ASIN/4798123986/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;amazlet&lt;/a&gt; at 11.07.24&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;amazlet-detail&#34;&gt;北尾 雅人
+翔泳社
+売り上げランキング: 11060&lt;/div&gt;
+&lt;div class=&#34;amazlet-sub-info&#34; style=&#34;float: left;&#34;&gt;
+&lt;div class=&#34;amazlet-link&#34; style=&#34;margin-top: 5px;&#34;&gt;&lt;a name=&#34;amazletlink&#34; href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4798123986/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;Amazon.co.jp で詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;最後は、世界初のTitanium Mobile本もプレゼントした。&lt;a href=&#34;https://twitter.com/#!/masuidrive&#34;&gt;@masuidrive&lt;/a&gt;、&lt;a href=&#34;https://twitter.com/#!/kurain&#34;&gt;@kurain&lt;/a&gt;、&lt;a href=&#34;https://twitter.com/#!/donayama&#34;&gt;@donayama&lt;/a&gt; お三方のサイン入りというスーパープレミアム本ですｗしっかり丁寧な解説がされている良い本なので、この本からTItanium Mobile始めるのが最適です！
+&lt;h2&gt;ちょっといろいろ雑感。&lt;/h2&gt;
+&lt;h3&gt;Livedoor++&lt;/h3&gt;
+&lt;a title=&#34;Sponsored By Livedoor by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5970306114/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6141/5970306114_a46cabaeb9.jpg&#34; alt=&#34;Sponsored By Livedoor&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;東京と京都からの講師を招いての80名規模のセミナーを無料で開催できたのでも、&lt;strong&gt;&lt;a href=&#34;http://blog.livedoor.jp/techblog/archives/66289449.html&#34;&gt;ライブドア技術部会様の支援&lt;/a&gt;&lt;/strong&gt;があったおかげです。セミナー当日も言いましたが、こんな地方の勉強会コミュニティに支援してくださるということは、自社の社員なら言わずもがな、大切にしてくれる、デベロッパーに優しい会社なのではないかと容易に想像できます。&lt;/p&gt;
+
+&lt;p&gt;無料にできたおかげで運営的に金銭管理の負担も少なくなったし、参加者的にも普段参加しないような人の敷居も下げられたのではないかと思う。ホント感謝です。Livedoor++
+&lt;h3&gt;プレスリリース&lt;/h3&gt;
+&lt;a href=&#34;http://www.fisc.jp/ugj/&#34;&gt;UPGRADE JAPAN!!&lt;/a&gt;の時、テレビと新聞社の取材が来ていてすごいなぁと思ってて、運営の方に聞いたらプレスリリース送ればいいよと聞いたので、今回は&lt;a href=&#34;https://t32k.me/mol/log/kanazawajs-v1-5-hello-titanium-mobile/&#34;&gt;ニュースリリース的なもの&lt;/a&gt;を書いてみた。結果、&lt;a href=&#34;http://www.facebook.com/photo.php?pid=435708&amp;amp;id=109048162494785&#34;&gt;北國新聞さんが後援となってくれて当日も取材にきてくれました&lt;/a&gt;。まぁだからどうやって話だけども、紙媒体に載ることで少しは信用力というのものもつくのかなと思っている。実際、今回施設借りるときも結構不信がられたし（苦笑）というか、僕の説明が至らないのもあったかと思う。それは北國新聞さんの記事を見ても分かるように一般の人に自分らのやっていることを説明するにはここまで噛み砕かないといけないのかと思ったし、いろいろ勉強になった。
+&lt;h3&gt;施設的なるもの&lt;/h3&gt;
+今回、近江交流プラザというところに借りたのだけど、お向かいにさんにITビジネスプラザ武蔵という北陸の勉強会でもよく使われる施設があって、そちらの会場と誤解して迷われた方もいらしゃって周知不足で申し訳なかった。また会場へのエレベーターが分かりにくい場所にあったのも難点だったなと&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;あとは、ネット環境と電源がほとんどないの痛かった。ネット環境はまだLANの接続口が室内にあれば自前の無線ルータとか持ってこれたけどそれもなかったのでお手上げでした。電源は90人規模の部屋なのに3箇所しかなかった。もともとこうゆうセミナーを想定していない設計なんだろう、安いから仕方がないといえばそれまでですな。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;Appcelerator &amp;amp; Hatena Bookmark by kanazawajs, on Flickr&#34; href=&#34;http://instagr.am/p/IUI5U/&#34;&gt;&lt;img src=&#34;http://farm7.static.flickr.com/6142/5966626645_cf472fbc72_m.jpg&#34; alt=&#34;Appcelerator &amp;amp; Hatena Bookmark&#34; width=&#34;240&#34; height=&#34;240&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最後、懇親会おわりに撮ったこの写真がお気に入り。8月はTitanium Mobileガンガル！！&lt;/p&gt;
+
+&lt;p&gt;次回は日本Androidの会金沢支部さんの方でハンズオン形式のセミナーだよ！AndroidもってなくてもiPhoneでもいいよ。&lt;a href=&#34;https://twitter.com/#!/masuidrive&#34;&gt;@masuidrive&lt;/a&gt;さんに手とり足とり教えてもらえるチャンスだよ！
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.android-group.jp/index.php?%A5%EF%A1%BC%A5%AD%A5%F3%A5%B0%A5%B0%A5%EB%A1%BC%A5%D7%2F%B6%E2%C2%F4%BB%D9%C9%F4%2F%C2%E8%B6%E5%B2%F3%CA%D9%B6%AF%B2%F1&#34;&gt;ワーキンググループ/金沢支部/第九回勉強会 - 日本Androidの会（日本アンドロイドの会） &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>kanazawa.js v1.2 開催報告</title>
+            <link>https://t32k.me/mol/log/kanazawajs-v120/</link>
+            <pubDate>Tue, 19 Apr 2011 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/kanazawajs-v120/</guid>
+            <description>&lt;p&gt;&lt;img class=&#34;fig&#34; src=&#34;https://t32k.me/mol/static/blog/2011/04/01.jpg&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;会いたくて震えるのが西野カナ、console便利すぎて震えるのが &lt;a href=&#34;http://twitter.com/#!/search?q=%23kanaj&#34;&gt;#kanaj&lt;/a&gt; ってことで、&lt;a href=&#34;http://atnd.org/events/13312&#34;&gt;kanazawa.js v1.2&lt;/a&gt; 開催しました。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>kanazawa.js v1.0.1 開催報告</title>
-      <link>https://t32k.me/mol/log/kanazawajs-v101/</link>
-      <pubDate>Tue, 08 Mar 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawajs-v101/</guid>
-      <description>とき既にお寿司ってことで、kanazawa.js v1.0.1 開催しました。
-だいたいの開催内容は第1回目の記事参照 -&amp;gt;&amp;gt; kanazawa.js v0.0.1 開催報告
-そんでもって日曜の僕は、スタバでバニララテ（ベンティってサイズ初めて頼んだ＞＜グランデよりも大きいの！）とサラダ巻きみたいなんとホットドッグ的なものを購入して、お昼はいわゆるぼっちらんちしました。ついでにコーディングしました。とても楽しかったです( ；∀；)あ、お腹くだしました。
-はい、冗談はさておき。勉強会のスタイルに関して徒然なるままに書きつけてみる。 参加者&amp;hellip;. v1.0が大盛況で終わった後の通常勉強会だったのでもうちょっと参加者伸びるかなと思ったけど、そんなことはなかったのだ。うーん。。。なんだろう、やっぱ見ず知らずの人と数時間一緒に過ごすのは抵抗あるのかな。。別に1,2時間でちゃっと帰ってもいいんだけどね。。基本的に自習なので各自のレベルがどうとか関係ないし。もっと気軽にみんなジョイナスだよ！
-個人的には土日なんて、なんにもなければ昼過ぎまで寝てグダグダすごすので、こうゆう朝からみっちりコーディングできる機会ができるのは都合が良いんだけど。みんなリア充なのか!?そうなのか!?コーディングしてる俺のほうがリア充だよ！（謎
-とはいえ、人数集まってくんないと会場費がまかなえないので、借りる部屋小さくするか、借りる時間短くするかどっちかだな。午前の時間借りるのやめて昼過ぎから開始やったら俺昼ぼっちランチじゃなくなるからいいんだけど。また考えよう。 ドットプラス あとは、大阪のドットプラスさんとスカイプ中継して合同勉強会したのだった。うん、なんてことはないただ映してただけなんだけど。いやースカイプって綺麗ね。全然中継できますやん！って思ったわけでした。うん、ただ映してただけだけど。いつもは #kanaj のハッシュタグなんだけど、ドットプラスと合同ってことで #kanajdot にしました。当日、急遽決めたことだったので、なんかおもしろいことになったわけでもないけど、おもしろくなりそうな感じはしたね。各会場で共通のお題だしてみるとか。「職種なんですか？」とか「つこてるエディタなんやねん？」とかそんなんで、もうちょっと連帯感ってのは醸成できたのではないかと感じた。まぁ今後機会あればもうちょっとおもしろくしたいね。
-あとは、BGMにJPOPは良くないね。歌詞が頭に入ってくるから。インストがいいね。
-あとは、エンジニアの@wtnabeさんと@kiyoharaさんが進んでデザイナー側に歩み寄ろうとしていたのが素敵だなと感じました。本当に感謝しています。ありがとうございます。  あーありがち - JavaScript Url DispatcherとかRouterについて調べた  kanazawa.js v1.2 セミナー んでもって、来月のkanajは4/16(土)でv1.2の開催でございます。今回は講義形式でやってみようと思いますんで。何分でもいいので喋ってくれる人募集中です。よろしくお願いします。  kanazawa.js v1.2 セミナー : ATND  kanazawa.js v1.0 〜JavaScriptコトハジメ〜 んでもって、v1.0の講演スライドが公開されていますので、そちらもチェックしておくとホクホクです。  kanazawa.js v1.0 〜JavaScriptコトハジメ〜（2011年2月5日開催）</description>
-    </item>
-    
-    <item>
-      <title>kanazawa.js v0.0.2 開催報告</title>
-      <link>https://t32k.me/mol/log/kanazawajs-v002/</link>
-      <pubDate>Sat, 08 Jan 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawajs-v002/</guid>
-      <description>&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;stb&#34; src=&#34;https://t32k.me/mol/static/blog/2011/01/stb.jpg&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;269&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;ちなみにkanazawa.jsのversion表記なんですが、
+&lt;ul&gt;
+    &lt;li&gt;v0.0.&lt;span style=&#34;color: #800080;&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt; ・・・通常の自習形式オンザフライ&lt;/li&gt;
+    &lt;li&gt;v0.&lt;span style=&#34;color: #800080;&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt; ・・・講義形式 or ハンズオン形式&lt;/li&gt;
+    &lt;li&gt;v&lt;span style=&#34;color: #800080;&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt; ・・・メジャーアップデートセミナー（華やかに）&lt;/li&gt;
+&lt;/ul&gt;
+って感じで運営しております。ということで今回は初の地元人による講義形式の勉強会でした。スピーカー不足の問題も協力的な皆様のおかげで早々と受付終了させてもらったりと感謝しきれません。ほんとありがとうございます。参加者の皆様もありがとうございます。キャンセル待ちも出ていまして、もっと広い会場予約しとけばよかったです。はい。次回はもうちっと大きめの会場にします。
+&lt;h3&gt;■ コミュニティ・オブ・プラクティス – kanazawa.js結成までの軌跡 -&lt;/h3&gt;
+&lt;strong&gt;&lt;a href=&#34;http://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、私のセッションです。特にJSに関係ないんですけど、個人的に勉強会とか好きなのでこれまでやってきたことを簡単にお話させていただきました。特にまとまったことも言えない感じでしたが、コミュニティは育てるものだと思っていますので、みなさんと一緒に&lt;a href=&#34;http://kanazawajs.tumblr.com/&#34;&gt;kanazawa.j&lt;/a&gt;sを育てていければ幸いです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://t32k.me/mol/log/communities-of-practice/&#34;&gt;コミュニティ・オブ・プラクティス – kanazawa.js結成までの軌跡 -&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;■ ないものは作ってしまえ！楽しいブックマークレットの世界&lt;/h3&gt;
+&lt;strong&gt;&lt;a href=&#34;http://twitter.com/in0in0&#34;&gt;@in0in0&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;in0in0さんは私の尊敬するメガネで残念なことに今回は東京出張が重なったためビデオ講義となりましたが、スクリーンに写った映像素子からもバンバンモチベーションを上げてくださいました。JavaScriptでHello World！て言われてもね、うちらガキじゃないんだよ！それがどーしたんだよ！て感じですわ。そのアナーキズムをうまくブックマークレットという形で昇華したinoinoさんはナイスでした。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.google.com/present/view?id=0AdzV0iTDeLpoZGRkNXRkNzRfMTA1Z3EzOWh0Z24&amp;amp;hl=ja&#34;&gt;ないものは作ってしまえ！楽しいブックマークレットの世界&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;■ JavaScriptの入口&lt;/h3&gt;
+&lt;strong&gt;&lt;a href=&#34;http://twitter.com/taki666&#34;&gt;@taki666&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;taki666さんは私のかわいい後輩で今回もかなりムチャぶりな感じでLTお願いしたんですけども快く引き受けてくれて感謝感激雨あられでございます。LTでは実はJavaScript嫌いだったっていう2年越しの告白をしてくれましていかに自分がゴーマンチキな男か痛感しました。そしてそんなtaki666はズルイ女です、はい。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/taki666/javascript-7665032&#34;&gt;JavaScriptの入口&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;■ Firebugの使い方を中心にそもそものWebの基礎的な内容&lt;/h3&gt;
+&lt;strong&gt; &lt;/strong&gt;&lt;strong&gt;&lt;a href=&#34;http://twitter.com/wtnabe&#34;&gt;@wtnabe&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;wtnabeさんはkanazawa.jsの頼れる兄貴分でお前らHTTPから教えてやんよ！ってことでFirebugのお話をして頂きたいとお願いしていたのですが、セッションの半分はHTTPヘッダのお話でした。が、最後でそうゆう伏線の回収の仕方か！と非常に納得がいくナイスなガイでしたわ。さすが兄貴っす。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://aligach.net/diary/20110416.html#p01&#34;&gt;kanazawa.js v1.2 に参加してきた - あーありがち(2011-04-16)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;■ jQuery Mobileで手軽にスマートフォンサイト制作&lt;/h3&gt;
+&lt;strong&gt;&lt;a href=&#34;http://twitter.com/ichigami&#34;&gt;@ichigami&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ichigamiさんはなぜかへしこの紹介にセッションの大半の時間を費やしていました。それ以外は放送コードぎりぎりのぶっちゃけトークばかりでここでは言えませんが、まさかへしこが&amp;hellip;.って感じで良かったです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/ICHIGAMI/jquery-mobile-7647253&#34;&gt;jQuery Mobileで手軽にスマートフォンサイト制作&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;■ JavaScript Dynamic Loading について&lt;/h3&gt;
+&lt;strong&gt;&lt;a href=&#34;http://twitter.com/kiyohara&#34;&gt;@kiyohara&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;kiyoharaさんは、いまホットな分野であるJSの動的読み込みに関して懇切丁寧に話してくださいました。最後のほうでkiyoharaさんも言うておりましたが、UIの部分、見せ方次第でも体感上のパフォーマンスというのは改善できると思いますし、やはりこのへんの分野はエンジニアリングとデザインの協力が必要だなとひしひしと感じました。いいもの作りたいっす。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.google.com/viewer?a=v&amp;amp;pid=explorer&amp;amp;chrome=true&amp;amp;srcid=0B3yWBVwF5g2IN2UzMWRiNTctMzI1My00MDgzLTk1OGYtZGVmNjk5MWM1YmFi&amp;amp;hl=ja&#34;&gt;JavaScript Dynamic Loading - レスポンス改善へのアプローチ -&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;■ JavaScriptのオブジェクトについて理解する&lt;/h3&gt;
+&lt;strong&gt;&lt;a href=&#34;http://twitter.com/taiju&#34;&gt;@taiju&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;トリはおなじみtaijuせんせでございます。ブログをスライドに使うというトリッキーな演出で会場のオーディエンスをたちまち自分のペースに誘いこみtaiju節を炸裂しておりました。イイです！
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://d.hatena.ne.jp/jdg/20110416/1302939377&#34;&gt;型とかオブジェクトとか基本的なことを理解する - あと味&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;まとめ&lt;/h3&gt;
+はい、そんな感じで結構見切り発車的な感じで企画したセミナー形式でしたが、素敵な講演者の皆様のおかげでいい感じに進めることができました。次回喋ってみたいという人も観測できましたし、またやりませう。ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;当日は、学生さんも来てたようで若い力良いですね。もっと参加してほしいです。なんか要望あればぜひに。ありがとうございます。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/beta_chelsea/20110416/1302961628&#34;&gt;kanazawa.js v1.2 セミナーを聞いてきた - てきとうだらけの雑記帳&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://mitarai.posterous.com/kanazawajs-v12-0&#34;&gt;kanazawa.js v1.2に参加しました - mitarai&amp;rsquo;s posterous&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+あと、&lt;a href=&#34;http://twitter.com/#!/pocotan001&#34;&gt;@pocotan001&lt;/a&gt;もv1.0で話した&lt;a href=&#34;http://www.slideshare.net/hayatomizuno/jquery-7665168 &#34;&gt;ノンプログラマーのためのjQuery入門&lt;/a&gt;のスライド公開してました。&lt;/p&gt;
+
+&lt;p&gt;次回開催はとりあえず未定ですが、また自習形式になるかと思いますので、そちらのほうもご参加頂ければ幸いです。ありがとうございます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;02&#34; src=&#34;https://t32k.me/mol/static/blog/2011/04/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;懇親会は&lt;a href=&#34;http://r.tabelog.com/ishikawa/A1701/A170101/17005709/&#34;&gt;SaiPe&lt;/a&gt;というお店でトンガ・島料理屋でした。リーズナブルなのにお腹いっぱい食べれて大満足です。店内が狭かったので懇親会これなかった人もいて恐縮っす。また行きませう！ありがとうございます。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>kanazawa.js v1.0.1 開催報告</title>
+            <link>https://t32k.me/mol/log/kanazawajs-v101/</link>
+            <pubDate>Tue, 08 Mar 2011 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/kanazawajs-v101/</guid>
+            <description>&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;k1&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/k1.jpg&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;とき既にお寿司ってことで、kanazawa.js v1.0.1 開催しました。&lt;/p&gt;
+
+&lt;p&gt;だいたいの開催内容は第1回目の記事参照 -&amp;gt;&amp;gt; &lt;a href=&#34;https://t32k.me/mol/2010/12/kanazawa-js-v001/&#34; target=&#34;_blank&#34;&gt;kanazawa.js v0.0.1 開催報告&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;そんでもって日曜の僕は、スタバでバニララテ（ベンティってサイズ初めて頼んだ＞＜グランデよりも大きいの！）とサラダ巻きみたいなんとホットドッグ的なものを購入して、お昼はいわゆるぼっちらんちしました。ついでにコーディングしました。とても楽しかったです( ；∀；)あ、お腹くだしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;k2&#34; src=&#34;https://t32k.me/mol/static/blog/2011/03/k2.jpg&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、冗談はさておき。勉強会のスタイルに関して徒然なるままに書きつけてみる。
+&lt;h3&gt;参加者&amp;hellip;.&lt;/h3&gt;
+&lt;a href=&#34;http://kanazawajs.tumblr.com/v1-0/&#34; target=&#34;_blank&#34;&gt;v1.0&lt;/a&gt;が大盛況で終わった後の通常勉強会だったのでもうちょっと参加者伸びるかなと思ったけど、そんなことはなかったのだ。うーん。。。なんだろう、やっぱ見ず知らずの人と数時間一緒に過ごすのは抵抗あるのかな。。別に1,2時間でちゃっと帰ってもいいんだけどね。。基本的に自習なので各自のレベルがどうとか関係ないし。もっと気軽にみんなジョイナスだよ！&lt;/p&gt;
+
+&lt;p&gt;個人的には土日なんて、なんにもなければ昼過ぎまで寝てグダグダすごすので、こうゆう朝からみっちりコーディングできる機会ができるのは都合が良いんだけど。みんなリア充なのか!?そうなのか!?コーディングしてる俺のほうがリア充だよ！（謎&lt;/p&gt;
+
+&lt;p&gt;とはいえ、人数集まってくんないと会場費がまかなえないので、借りる部屋小さくするか、借りる時間短くするかどっちかだな。午前の時間借りるのやめて昼過ぎから開始やったら俺昼ぼっちランチじゃなくなるからいいんだけど。また考えよう。
+&lt;h3&gt;ドットプラス&lt;/h3&gt;
+あとは、&lt;a href=&#34;http://dtps.jp/&#34; target=&#34;_blank&#34;&gt;大阪のドットプラスさん&lt;/a&gt;とスカイプ中継して合同勉強会したのだった。うん、なんてことはないただ映してただけなんだけど。いやースカイプって綺麗ね。全然中継できますやん！って思ったわけでした。うん、ただ映してただけだけど。いつもは &lt;a href=&#34;http://twitter.com/#!/saved-search/%23kanaj&#34; target=&#34;_blank&#34;&gt;#kanaj&lt;/a&gt; のハッシュタグなんだけど、ドットプラスと合同ってことで &lt;a href=&#34;http://twitter.com/#!/saved-search/%23kanajdot&#34; target=&#34;_blank&#34;&gt;#kanajdot&lt;/a&gt; にしました。当日、急遽決めたことだったので、なんかおもしろいことになったわけでもないけど、おもしろくなりそうな感じはしたね。各会場で共通のお題だしてみるとか。「職種なんですか？」とか「つこてるエディタなんやねん？」とかそんなんで、もうちょっと連帯感ってのは醸成できたのではないかと感じた。まぁ今後機会あればもうちょっとおもしろくしたいね。&lt;/p&gt;
+
+&lt;p&gt;あとは、BGMにJPOPは良くないね。歌詞が頭に入ってくるから。インストがいいね。&lt;/p&gt;
+
+&lt;p&gt;あとは、エンジニアの&lt;a href=&#34;http://twitter.com/#!/wtnabe&#34; target=&#34;_blank&#34;&gt;@wtnabe&lt;/a&gt;さんと&lt;a href=&#34;http://twitter.com/#!/kiyohara&#34; target=&#34;_blank&#34;&gt;@kiyohara&lt;/a&gt;さんが進んでデザイナー側に歩み寄ろうとしていたのが素敵だなと感じました。本当に感謝しています。ありがとうございます。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34; http://aligach.net/diary/20110306.html&#34; target=&#34;_blank&#34;&gt;あーありがち - JavaScript Url DispatcherとかRouterについて調べた&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;kanazawa.js v1.2 セミナー&lt;/h3&gt;
+んでもって、来月のkanajは4/16(土)でv1.2の開催でございます。今回は講義形式でやってみようと思いますんで。何分でもいいので喋ってくれる人募集中です。よろしくお願いします。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a title=&#34;kanazawa.js v1.2 セミナー : ATND&#34; href=&#34;http://atnd.org/events/13312&#34; target=&#34;_blank&#34;&gt;kanazawa.js v1.2 セミナー : ATND&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;kanazawa.js v1.0 〜JavaScriptコトハジメ〜&lt;/h3&gt;
+んでもって、v1.0の講演スライドが公開されていますので、そちらもチェックしておくとホクホクです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a title=&#34;kanazawa.js v1.0 〜JavaScriptコトハジメ〜&#34; href=&#34;http://kanazawajs.tumblr.com/v1-0/#sessions&#34; target=&#34;_blank&#34;&gt;kanazawa.js v1.0 〜JavaScriptコトハジメ〜（2011年2月5日開催）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>kanazawa.js v0.0.2 開催報告</title>
+            <link>https://t32k.me/mol/log/kanazawajs-v002/</link>
+            <pubDate>Sat, 08 Jan 2011 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/kanazawajs-v002/</guid>
+            <description>&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;stb&#34; src=&#34;https://t32k.me/mol/static/blog/2011/01/stb.jpg&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;269&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;kanazawa.js v0.0.2 開催しました。&lt;/p&gt;
 
@@ -112,486 +566,493 @@ GUI Apps  CodeKit — THE Mac App For Web Developers Koala - a gui application f
 
 &lt;p&gt;そんでもって今日の僕は、スタバでイングリッシュティーラテとベーコンと野菜のキッシュとイングリッシュマフィンを購入して、お昼はいわゆるぼっちらんちしました。ついでにコーディングしました。とても楽しかったです( ；∀；)&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>kanazawa.js v0.0.1 開催報告</title>
-      <link>https://t32k.me/mol/log/kanazawajs-v001/</link>
-      <pubDate>Sun, 05 Dec 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawajs-v001/</guid>
-      <description>&lt;p&gt;&lt;a title=&#34;DSC02581 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5234061816/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm6.static.flickr.com/5008/5234061816_f21554db49.jpg&#34; alt=&#34;DSC02581&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;fig&#34; title=&#34;lunch&#34; src=&#34;https://t32k.me/mol/static/blog/2011/01/lunch.jpg&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;269&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、冗談はさておき。勉強会のスタイルに関して徒然なるままに書きつけてみる。&lt;/p&gt;
+
+&lt;p&gt;kanazawa.jsの勉強会のスタイルは10数人くらい集まって、もくもくと各自自習しているわけだけど、もうちょっと集まることでのメリットを最大化したい。家でやっているよりも他人がいる分、集中できるわけだからそれはそれで良いことなんですが、それだと別にデザイナとプログラマ、2つの職種の人間じゃなくてもいいわけですよ。もっとデザイナとプログラマのケミストリー（謎 が見たいわけですよ。&lt;/p&gt;
+
+&lt;p&gt;何が問題か？まぁ単純に初めてあった人にほいほい質問できる人なんてそうそういないわけですな。このへんは懇親会とかお昼のランチで交流深めてもらえたらなーと思ってる。時間が解決してくれるさ。そうそう、懇親会まだしてないんだけど、しよ！今度しよ！&lt;/p&gt;
+
+&lt;p&gt;人見知りの点で言えば、僕はほとんど全員知っていたわけだけど、質問はしなかった。基本ググレカス型人間なところはあるが、やっぱりみんな勉強しているテーマが違うので、邪魔しちゃ悪いかなってところも若干あった。みんな同じテーマでなにかやっていれば、全員の課題となって議論に参加しやすいという利点があると思う。&lt;/p&gt;
+
+&lt;p&gt;ただ、参加者のレベルが全くの初心者からバリバリ書いてる人まで幅が広い。全員を満足させる（参加できる）テーマなんてないよなーと思ったり。ひねり出そうと考えるのもコストが高い。やっぱり各自レベルアップしてもらうしかないかなー。&lt;/p&gt;
+
+&lt;p&gt;自習ばっかりもあれなので、やっぱり講義スタイルの勉強会もやりたいな。次の次くらいにやろう。&lt;/p&gt;
+
+&lt;p&gt;基本的に出来る限り運営コストはかけたくない。それが勉強会を長く続けるコツだと理解しているので。90点取るために頑張って3回で力尽きるよりも60点でもいいから5回続けたほうが総得点多いだろ？（意味不明）&lt;/p&gt;
+
+&lt;p&gt;とりあえず、こういうことも考えるのもアレなのでゆるふわで生きたい。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、次回のkanajは待望のメジャーアップデート版だぜ！！
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://kanazawajs.tumblr.com/v1-0/&#34;&gt;kanazawa.js v1.0 〜JavaScriptコトハジメ〜（2011年2月5日開催）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>kanazawa.js v0.0.1 開催報告</title>
+            <link>https://t32k.me/mol/log/kanazawajs-v001/</link>
+            <pubDate>Sun, 05 Dec 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/kanazawajs-v001/</guid>
+            <description>&lt;p&gt;&lt;a title=&#34;DSC02581 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5234061816/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm6.static.flickr.com/5008/5234061816_f21554db49.jpg&#34; alt=&#34;DSC02581&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;先ほど、記念すべき&lt;a href=&#34;http://atnd.org/events/9901&#34;&gt; kanazawa.js v0.0.1 &lt;/a&gt;終了いたしました。まぁなんてことはないただの勉強会ですが。&lt;/p&gt;
 
 &lt;p&gt;11月に&lt;a href=&#34;https://t32k.me/mol/2010/11/kanazawajs/&#34;&gt;kanazawa.jsやる！&lt;/a&gt;と言ってから、どーなるやらと気を揉んでいましたが、なんとか無事に開催できてよかったす。10時から17時で途中1時間のお昼休憩あったんですが、6時間がっつり集中できたのは大きいかったですね。僕の場合は日曜はグダグダと過ごすことが多いのでとても有意義な一日だったと思います。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Designing for the iPhone</title>
-      <link>https://t32k.me/mol/log/dtt12/</link>
-      <pubDate>Fri, 03 Dec 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt12/</guid>
-      <description> 月イチの社内勉強会、第12回目はHTML5＋CSS3で作る 魅せるiPhoneサイトの著者であり、関西Web業界の重鎮、@hilokiさんによる「Designing for the iPhone」だった！
-大阪の虎 @hiloki さんとはセミナーで何回かお会いしていて、今年のdotcoder2と4にも参加させてもらって仲良くなったんで、ついでにうちの勉強会でも喋ってよって流れで今回実現した。
-大阪と石川でのスカイプ中継で今回の勉強会は開催したのだが、感想としてはネットワークの安定性が保証されれば全然イケルなと感じました。途中、何回か断線してしまったけど、そこはチワワの可愛さでカバー出来てたね（謎　うん、僕たちはボーダレスだｗ
-肝心の内容としては、さすがiPhone本の著者だけあって少ない時間ならでも基本から応用まで網羅してくれた安定感のあるプレゼンだった。44px大事！個人的に印象に残ったのは「細部にこだわる」。良いデザインのサイトの見本としていくつか紹介してくれたのだが、どれもかなり細部まで作りこんであって感心した。
-どうも僕は、パフォーマンスとかそっち系に頭が偏っていてデザインのこだわりをないがしろにしてしまうんだが、CSS3とかNEWTとよばれる技術を使えば、両方を両立できるんだなと感じたし、やっていかなければならないなと感じた。
-ほんと素敵なオンライン中継ありがとう、今度はオフラインでもまた会いましょうな！
-HTML5+CSS3で作る魅せるiPhoneサイトposted at 2015.4.1谷　拓樹
-ラトルズ
-売り上げランキング: 11570
-Amazon.co.jp で詳細を見る 終了のお知らせ 月イチの社内勉強会12回目ということでちょうど1年間続けてきたのでここいらで1回区切りをつけてやめようと思う。思い起こせば、@shoito さんのHokuriku.langでHTML5の話を聞きそびれたので、わざわざ彼が弊社まで話に来てもらったのをキッカケに、社外の人呼んで話してもらうのって面白いなと感じたのでここまでやってきた。
-1年やってきてうちのデザイン部が技術的にレベルアップしたかと言えば難しいところだが（技術的に向上させたいのならまた違うやり方があると思う）、社外から人を呼んで話してもらうときは前座でうちのデザイン部に LT させたり、デザイン部だけで LT 大会したりと人前でプレゼンするっていうのが前よりも特別なことではなくなったと思うし、そういう文化が根付いたとは思っている。
-また人前で自分の意見を言うことで、「あぁ、君はそんなこと考えてんのね、なるほど」的なことも感じたし、それは社外の人にも言えて、セミナーで軽く挨拶する程度から飲みにいって仕事について熱く語ったりとか、社内・社外ともに関係が深まったのが1年間やってきた印象ですかね。
-勉強会を運営する側としては、まぁそんなに楽しいことだけでもなくつらいこともあったし、前月分のフォロー、今月分の調整、来月分のメボシなど常に3か月分のタスクが同時進行してしんどかったし、途中なんでこんなことやらんねんて！って欝になることもしばしば。
- やりたくて始めたことなんだから、面倒になったらやりたくなるまで休んだって構わない
- これはどこかの勉強会の活動Wikiに書いてあった。ほんと途中この言葉がなかったらやめてた。いやいや継続するのもおかしいと思うし、とりあえず気楽に考えればいいと思う。とりあえず、１年間やってみて学んだことを次のステップに活かしたいと思う。そんで、またやりたくなったらやる。
-いや、ほんと僕のわがままに付き合ってくれた皆々様方にはほんと感謝カンゲキ雨嵐でありがとうございました。
-開催履歴  ベンチャーとHTML5と台風と僕 インタラクティブな作品づくり – @takumi0605 Webディレクターズハック – @ichigami CMSの観点から見たWordPress @ohumi_FB 第5回 社内 Tech Talks @金沢 それ、誰のためのユーザビリティ？ @in0in0 決してムズイもんじゃない 〜初めてのPHPプログラミング〜 さようならMSゴシック – これからはWebフォントの時代だ ある企業Web担の1週間 〜「なかのひと」のおしごと〜 Progressionで始めるFlasher Life マインドマップ 脳の仕組みを活かすメモ術 Designing for the iPhone  </description>
-    </item>
-    
-    <item>
-      <title>Progressionで始めるFlasher Life ～ActionScript書かなくてもFlashコンテンツ作れますよ～</title>
-      <link>https://t32k.me/mol/log/dtt10/</link>
-      <pubDate>Sat, 02 Oct 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt10/</guid>
-      <description>月イチの社内勉強会も今回で10回目となった。いろいろ感慨深いところはありつつ記念すべき10回目を飾るスピーカーは福井のスーパーデザイナー @shirokuro331さんだ。
-@shirokuro331さんとの出会いは、この勉強会の第1回目のスピーカーである@shoitoさんからの紹介で、「福井にスーパーデザイナーがいるよ」とのこと。それならば是非弊社で講演してもらいたいってゆうスーパーな流れで決まった！
-講演内容はProgressionというFlashのフレームワークについて話してもらった。僕はFlashが苦手どころか出来ないだけど、Flasherバリバリの人たちを見ていると、いつかあんな風になりたいって思うことがいっぱいある。けれどもすぐ挫折してしまう。。。
-今回は、まさしくそういった人向けの講義であって、ProgressionはFlashの入門の敷居を下げてくれる良いフレームワーク。スキルに応じてProgressionを使うスタイル（コンポーネントスタイル、タイムラインスタイル、クラススタイル）があるので、敷居が下がって飽きたらなくなってきても次の段階に進めばよいとのこと。うん、入門から次へのステップの道のりを提示してくれる素晴らしいプレゼンだったと思う。
-個人的に印象的だったのは、簡単なサンプルサイトをProgressionを使って作ってしまうデモ。あーデモってすごいなって、100の理論より1発のデモだなとすごく感じた。僕も取り入れたい！
-詳細！Progression 4 Flash入門ノートposted at 2015.3.31大重 美幸
-ソーテック社
-売り上げランキング: 757605
-Amazon.co.jp で詳細を見る 話し変わって、@shirokuro331さんの前に、弊社ActionScript部部長が自社サイトにどうFlashを組み込むんでいくかLTしてもらった。やっぱり、ASはゲームとかワクワク感を作るのには最適なのかなと思った。僕らJS部はサイ本を読んで標準！標準！って肩苦しいことをしてるけどこうゆう感覚も大事だなと再確認できた。JS部もAS部もお互い切磋琢磨していけたらいいなって思った。</description>
-    </item>
-    
-    <item>
-      <title>ある企業Web担の1週間 〜「なかのひと」のおしごと〜</title>
-      <link>https://t32k.me/mol/log/dtt09/</link>
-      <pubDate>Sat, 28 Aug 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt09/</guid>
-      <description>月イチの社内勉強会、第9回目は某メーカー勤務の@mathmeさんが『Web担当者』をテーマに講義をしてくれた。
-@mathmeさんとはちょくちょく出会っていて、Web担当的なことをしているとは聞いていたのですが、まぁ守備範囲が広い。SEOからコーディングまで幅広い知識をお持ちで、一度話を聞いてみたいなと思っていたので今回お願いした。
-感想は御社のリアルな現場の雰囲気が掴めました。「ええがにして」（訳：いい感じにして）は魔法の言葉！はかなりのあるある体験で、頭を悩ます問題だと感じた。またそうならないためにも1にも2にもコミニュケーションだということも凄まじく共感できた。最近、同僚と飲むといつも結論はここに落ち着く。やっぱり、相手にとっての「いい感じ」というのはどんなものか理解しておかないと出来上がってからのズレというのは出てくるよね。
-めんどくさくても掘り下げて掘り下げなければならないと思った。そして、他部署から若干めんどくさがられるような存在になりつつもコミニュケーションを怠らない@mathmeさんは素敵だと思った！
-話変わって、社外の人を講師として招く場合は前座として10分のLTを社内の人材からしてもらう形が定着していて、今回の前座は恐れ多くも先輩の@rihito81にお願いした。
-いやぁー、やっぱり尊敬する先輩。というのも勉強会前のお昼に、鷹野さんの「プレゼンテーションについて」の動画をみんなで見ていて、その後にプレゼンするのは、かなりハードルが高かったように思えますが軽々と超えたｗ
-一番感心したのは、話し方。ゆっくり確認をとって喋っていく。いや当たり前のことなんだけど、普通大勢の前で話すだけで、緊張して早口になると思うけど全然そんなことなかった。リハの時も落ち着いてたけど、本番はもっと落ち着いていてびっくりした。話し方ひとつでこうも変わるものかと、またびっくりした。やっぱりプレゼンって奥が深いなーと。もっといろんな人のプレゼン見てみたい。</description>
-    </item>
-    
-    <item>
-      <title>決してムズイもんじゃない 〜初めてのPHPプログラミング〜</title>
-      <link>https://t32k.me/mol/log/dtt07/</link>
-      <pubDate>Wed, 30 Jun 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt07/</guid>
-      <description>昨日は第7回社内TechTalksを開催した。今回は社内のシステム部の人に来てもらってPHPについて講義してもらった！
-自分たちデザイン部はPHPが入ったファイルなどは触るが、基本的にプログラム部分に関してはノータッチなので、初心者そのもの。そもそもプログラミング初心者といってもいいくらいなので、今回は基礎の部分から丁寧に教えてもらった。
-変数とか演算子とか文とか基礎の部分はやっぱり小難しくてそんなにおもしろいものではないけれども、しっかり勉強したいところ。デザイナーとPHPについてというかプログラミングについての取り組む姿勢に関しては、以下のエントリーが超絶同意なので参照してみて。
- RedLine Magazine : PHPを勉強する事についてデザイナが思う事。  「神」がいてくれたらがんばれるかもってのすごく分かる。右も左もわからないと、つまらないこと、あとで理解すればいいことにつまづいてそこでやめちゃうってことがある。そこで、「分からんくても全然問題ないよ」って言ってくれるだけでも十分続けるモチベーションになる。
-今回の講義でPHPが理解できたかというと、当たり前だけど１時間程度聞いたところで身につくはずもないわけで、PHPを学ぶキッカケになれば十分かなと思う。プラス、今回講師に来てくれたシステムさんをマイ神にして、いろいろ教えてもらえばいいんだよ。
-もらってばっかりでもあれなので、今度はデザイナー側からHTML/CSSとかについて講義できたらいいかなと思っている。BR連打とか無くしたい。</description>
-    </item>
-    
-    <item>
-      <title>それ誰のためのユーザビリティ？</title>
-      <link>https://t32k.me/mol/log/dtt06/</link>
-      <pubDate>Fri, 04 Jun 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt06/</guid>
-      <description>月イチの社内勉強会、第6回目は同僚の@in0in0氏が『ユーザビリティ』をテーマに講義をしてくれた。
-ただ理論を振りかざすだけの講義ではなく、自社サイトでどういった対策が考えられるかなどオリジナリティあふれる内容で大変勉強になった。
-製作者の「３ある」：欲望がある、知識がある、愛着がある
-いろんな情報を伝えたい、多くの商品を売りたいなど欲望があり、自社サイトがどんな構造でどんなナビゲーションか熟知していおり、長期間にわたってサイトを制作しているわけだから当然愛着もある。そんな自分がユーザーだと思い込んでサイト制作にあたるわけだから実際のユーザーとの乖離がでてくる。
-ユーザーの「3ない」：読まない、知らない、興味ない
-実際のユーザーというのは長い文章なんて読まないし、初めて訪れたサイトの構造なんて知る由もない。ましてや興味アリアリでサイトに訪問することなんて多くないだろう。
-これまでの勉強会は社外から人を招いてたけど、今回は純社内産で勉強会を開催できた。別に外から招かなくても社内にもすごい人はいっぱいいる。ただそれが見えていないだけなんだと思う。ちょっと前にでて喋るだけでそれ以上の価値・メリットが得られるから、皆もっとアピールしたらいいよ！勉強会終わった後で@in0in0が『皆も勉強になったかもしれないけど、一番勉強になったの俺だからね、あんだけ徹夜して作ったんだから絶対に忘れない』って言ってたのが印象的だった。
- 制作者の「３ある」、ユーザーの「３ない」 - in0in0の日記  話す内容はなんだっていいと思う。今回のユーザビリティは業務でも役に立つような知識だったわけだけど、@in0in0の前座で自分の最近の活動について喋ってくれた後輩くんは、職業デザイナーでは満たされない創作意欲をコンペで解消しているといった内容で、その作品の出来の素晴らしさだけでなく、その作品に対する姿勢ってのが普段仕事をしていて気づかない面だったのですごく驚きだったし、こちらとしてもモチベーションがあがった。彼も自分の考えをまとめることができてよかったのではないかと思っている。
-なんか、うん、だんだん良い方向にチームとして組織として向かっているのではないかと感じられはじめた日だった。</description>
-    </item>
-    
-    <item>
-      <title>Webディレクターズハック</title>
-      <link>https://t32k.me/mol/log/dtt03/</link>
-      <pubDate>Sun, 31 Jan 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt03/</guid>
-      <description>第3回社内TechTalksを開催した。今回もまたご近所のWeb会社の@ichigamiさんを招いて、Webディレクションについて話してもらった。ディレクションがテーマなのでディレクター部も誘って和気藹々な感じで開催することできた。
-「Webディレクターズハック ～実務に役立つWebディレクションのコツ～」という演題で@ichigamiさんがWebデザイナーからWebディレクターになられた経緯や、これまでの経験を踏まえてのディレクションのコツなど紹介してくれた。スライドの内容は@ichigamiさんのブログでも紹介しているみたいなので、そちらもチェックしてもらえれば良いかと思う。
-自分はWebデザイナーですが、サイト制作の前段階、受注を取ってくる話などすごく興味深かった。「こうゆう仕様だから、ハイ作れ！」って言われても、なんだかなと思う。やっぱりそこに至るまでの経緯やプロセスを理解していると、制作段階でも良いパフォーマンスを発揮できるのかなと考える。要はコミュニケーションなんだ！お互いを知るところから始めなきゃいけないんだよね。
-個人的に印象的だったのは懇親会にて、子供を持つ喜びとして以下のような例えをしていたのがとっても素敵でした。
- 子供が出来ると毎日がワールドカップ優勝並の喜び by @ichigami
- 家に帰って「パパ〜♪」と迎えに来てくれる娘を抱き上げる様が、まさにワールドカップを高々と上げる様そのものらしいｗ うん、いいね！</description>
-    </item>
-    
-    <item>
-      <title>インタラクティブな作品づくり</title>
-      <link>https://t32k.me/mol/log/dtt02/</link>
-      <pubDate>Mon, 14 Dec 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt02/</guid>
-      <description> 社内勉強会（Tech Talks）を開催した。今回はご近所のWeb制作会社から@takumi0605さんを招いて、『インタラクティブな作品づくり』という題で講演してもらった。 今回の勉強会の開催経緯は、CSS Nite in ISHIKAWAでの2次会で@takumi0605さんと出会ったのが始まり。というか、それ以前にProcessing+金沢とかでググってたらSoda Labというのを見つけていて、石川県にもこんなすごい人がいるんだと思ったら、その管理人が@takumi0605さんってことを後から知って、これはぜひ話が聞きたいと思い依頼した。
-仕事上、Flashをバリバリに使うことがないので@takumi0605さんのように、Flash+PHPとかProcessingでゴリゴリやってるのは非常に羨ましく、尊敬の念すらある。というか、@takumi0605さんも本業の方ではディレクションがメインになってきてFlashをいじれていないとのこと。そこはプライベートな時間を利用してコンペに出すなどモチベーションの維持に努めているとのことだった。
-いやぁ、コンペとか忘れていた。クリエィティブな心忘れてたよ。ほんとイイ刺激になった。今回はありがとうございました。
-おすすめの本 ハッカーと画家 コンピュータ時代の創造者たちposted at 2015.3.26ポール グレアム,Paul Graham,川合 史朗
-オーム社
-売り上げランキング: 10342
-Amazon.co.jp で詳細を見る Built with Processing[Ver. 1.x対応版]posted at 2015.3.26田中 孝太郎,前川 峻志
-ビー・エヌ・エヌ新社
-売り上げランキング: 302012
-Amazon.co.jp で詳細を見る </description>
-    </item>
-    
-    <item>
-      <title>ウェブサイトパフォーマンス入門</title>
-      <link>https://t32k.me/mol/log/introduction-to-web-performance/</link>
-      <pubDate>Sun, 29 Nov 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/introduction-to-web-performance/</guid>
-      <description>Web Directions East 2009 ワークショップ  Nicole Sullivan （ニコール・サリバン） 3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。
- Stubbornella Nicole Sullivan (@stubbornella) | Twitter Nicole Sullivan | SlideShare  なぜパフォーマンスについて話すのか？ 速い方が良い！ 速くて困ることは特にない
-サイトは年々巨大化している 
-現在のサイトはWebページというよりもアプリケーション化していて複雑になってきている2003年頃に比べ、ページサイズは3倍になっている。
-ユーザーにとってはWebアプリケーションもDesktopアプリケーションも同じ。 どちらも同じ性能を求められる。
-時は金なり  Amazon : +100ms 売上が1%落ちる Yahoo! : +400ms 完全にページをローディング（full-page traffic）するユーザーが5-9%減る Google : +500ms 検索数が20%落ちる   Shopzilla : -3.5sec CVは7-12%, PVは25%アップした
- Shopzilla&amp;rsquo;s Site Redo - You Get What You Measure: Velocity 2009 - O&amp;rsquo;Reilly Conferences, June 22 - 24, 2009 - San Jose, CA</description>
-    </item>
-    
-    <item>
-      <title>分かった気になるHTML5</title>
-      <link>https://t32k.me/mol/log/dtt01/</link>
-      <pubDate>Wed, 07 Oct 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt01/</guid>
-      <description>白川郷で聞けなかった話を@shoitoさんが弊社まで来て講演してくれるということなので自分が会場など手配した。
-自社という完全ホームな環境、なおかつ講師一人を招くだけなのに疲れた、精神的に。スピーカーとはまた違った体験だった。ホスピタリティゼロで申し訳なかった。講演はWebデザイナーも知っておくべき内容だと思うので、弊社デザイン部も満足度高かったぽい。HTML5に興味をもったようだし成功だろう。
-感想としては社内で平日にこうゆうTech Talkみたいなことできて素敵だなと思った。（それもデザイナーとエンジニアが肩を並べて。）Googleみたいにね、毎週？毎日？いたるところでなんか話してたら、そりゃ勉強になるし社員のモチベーションあがるなと思った。
-次回もこうゆうことできたらな良いなと思う。</description>
-    </item>
-    
-    <item>
-      <title>菱川勢一@ソフトパークふくい</title>
-      <link>https://t32k.me/mol/log/sei-hishikawa-in-fukui/</link>
-      <pubDate>Sun, 30 Aug 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/sei-hishikawa-in-fukui/</guid>
-      <description>僕が読んでいるフィードは技術系ブログなどのWebに関するものがほとんどだったりするんだけど、その中でも唯一と言ってもいいくらいデザイン（映像）系のブログが菱川勢一さんのだ。映像系の人だからといって別にFinalCutの使い方がどうとかAfterEffectsの使い方がどうとかゆう話は全然でてこない。むしろ、なにが美しいのか、なにに感動したのか、なにを思ったのかみたいな日常的なことを書いている、そうまさに菱川勢一日記。読んでいて心地が良くて、かれこれ3、4年は購読している。
-そんな憧れの人が福井に来るってもんだから、車はないけど電車とバス乗り継いで言ってきましたよ、ソフトパークふくい。金沢から片道２時間以上かかった＞＜
-セミナーは菱川さんが手がけた案件を解説していく流れだった。
-自己紹介 朝市の飛行機で福井に来ました！
-福井県立博物館行ってきましたｗ
-おろしそばとソースカツ丼食べましたｗ
-東京オリンピック招致のディレクションをやってる
-同じメンバーの佐藤さん（？）の繋がりで今回喋ることになりました
-Tokyo2016 Press Prezentation Design 東京オリンピッック招致のためプレゼンテーション映像
-今年の10月にコペンハーゲンで最終プレゼン
-東京の各施設をCGで紹介
-東京がどんな街かを紹介（滝川クリステルさんや森理世さん）
-肖像権の絡みで東京の町並みを撮るときにいる人は全部エキストラ
-最大で300人のエキストラ使った
-関連施設の映像とかDVDで800枚にも及んだ、チェック大変
-スイスのローゼンヌの時のプレゼンでは前日に石原都知事にダメ出しをくらい現地で修正
-試写会しても関係者が60人くらい集まる（各施設毎に担当がいる：武道館担当とか）
-ステークホルダーが多く調整が大変
-NO MORE HIBAKUSHA  NHK ノーモアヒバクシャ  日本語、英語に対応
-すべての被爆の取材映像が見られる（8ヶ月かかった）
-取材記事もすべて公開
-NHKには独自の放送ルールがあり、このサイトはひっかかった
-NHK広島局の方の熱意でメッセージ性のためにもサイトはルール適用外に
-Softbank with TIFFANY Press Prezentation Softbankが出した一台1000万円の携帯電話のプレゼンテーション映像
-TIFFANYのブランドカラーTIFFANY BLUEに対してはすごく厳しい注文が
-この手のカラーマネジメントはほんとに厳しい
-印刷物で何万枚刷ろうが本店のクリエィティブディレクターがNOなら絶対にダメ（エコじゃないよねー）
-Web・映像のカラーマネジメントは大変（デバイスに依存）
-最終的にはクリエィティブディレクターの目視で調整（数値とか関係ないｗ）
-Sony Vaio Design Concept Motion Image A4のノートブックパソコン、カラーバリエーションがいくつか
-↑これだけの情報で映像を作っての依頼がｗ
-Fit Your Life / Color Your Life のキャッチコピーを無理矢理考える
-撮影に入りたくてもモックアップすら完成していない
-外国のイメージで撮ろうと思ってた（アルゼンチン・チェコ：ここらへんは費用が安い）
-結局、出国準備してるときにもモックアップができなくて国内ロケ（静岡県掛川）に変更ｗ
-撮影で使ってるチャリンコは菱川さんのｗ
-Map Style with Air Paradissimo TV Show 旅番組（ケーブルTV）のディレクション</description>
-    </item>
-    
-    <item>
-      <title>IAMAS OPENHOUSE 2009</title>
-      <link>https://t32k.me/mol/log/iamas-openhouse/</link>
-      <pubDate>Sun, 02 Aug 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/iamas-openhouse/</guid>
-      <description>26歳だけどメディアアート系で有名なIAMAS（情報科学芸術大学院大学）のオープンキャンパスに行ってきた。といっても年齢層は高めでOKなのがこの学校。大学院とアカデミー(専門学校的な感じ？)から成っていて、会社を辞めて入学したりする人もいたり、そのバックグラウンドも音楽、演劇、エンジニア、デザイナーなど多種多様なところもこの学校の魅力だからだろう。
-かくゆう、僕も大学4回生の時にオープンキャンパスに来て衝撃を受けたものだ。「なんでそんなんできるんすか!?なんでそんなん作れるんすか!?」のオンパレード、もうかっこよすぎて、卒論はカリキュラムにないMax/MSPを使ってメディアアートまがいのものを作ってしまったほど影響を受けた。就職してからWebデザインばっかりで、そっち方面はご無沙汰だったので失われた青春を取り戻すために4年ぶりにオープンキャンパスに行ってきたのだ。
-DSPコースのシンソウ　赤松正行、小林茂、ジャン＝マルク・ペルティエ、平林真実 多様な分野を扱うDSPコースの活動を紹介し、参加者とのQAを織り込みながら、その実態を明らかにします。iPhoneアプリ、フィジカル・コンピューティング、画像解析などホットな話題が一杯です。 
-IAMASは岐阜の大垣にあるんだけど、駅から迷いながら着いたのが初日（8/1）の13時。すぐさま、教室へ。赤松さんがiPhoneについて喋ってた。担当のDSP（デジタルシグナルプロセッサ）コースの教授陣がどんなことを学ぶか順番に説明していた。赤松さんといえば、Max/MSPのイメージが僕の中ではあるのだけど、最近はもっぱらiPhoneの人で、セカイカメラはもうすぐリリースできそうだと。あと地域の人も招いてiPhone塾なんてゆう活動をしているらしい。うらやましいぞ、大垣市民、岐阜県民！
-あと印象に残ったのが、小林さんの説明でフィジカルコンピューティング系はGainerが有名だけどその無線版のFIOが開発されていたり、Arduinoなんてものもあるらしい、あとFunnelとかよくわかんないけど、世の中進んでる。。と感じましたｗ
-三輪眞弘教授による「アルス・エレクトロニカ 三年連続入選記念レクチャー」　三輪眞弘、前田真二郎 三輪教授は、2007年にメディア・アート界のオスカーとも呼ばれるアルス・エレクトロ ニカにてグランプリを受賞しました。さらに昨年、今年と連続入選を果たしています。世界的に評価が高まる作曲家、三輪眞弘によるレクチャーです。
-続いて行ったのが三輪さんのお話。これまたテクノロジーとは？みたいない小難しい話だったけど非常に重要な話だった。テクノロジー対して無自覚でいるのは危険なことであり、自分はメディアアートという表現でそれに対して警鐘している。といったことを今年度のアルス・エレクトロニカ入賞作の「フレディーの墓／インターナショナル」をもとに説明してくれた。この作品はQueenのボーカル、フレディ・マーキュリー がインターナショナルを日本語で歌うというもの。フレディ自体もう死んでいるし、日本語でこの曲を歌ったという事実はない。でも当時のフレディの声を分析し、独自のアルゴリズムで歌声を生成するというもの。率直に聞いた感じ、機械が歌っているなとは思うが、さびの部分とかは人間が歌っているのと区別がつかない。つまり、フレディが歌っているとちょっとでも感じさせたなら、この作品には意義がある。うまく説明はできないけど、要は技術が進歩して見分けというか聞き分け（機械で生成された歌と録音された歌）ができなくなれば、それって違いなくない？それでよいの？といった感じかな。うーん難しい。
+&lt;p&gt;&lt;/p&gt;
 
-まぁそんな感じで初日だけでしたけど、オープンキャンパス楽しめました。やっぱり好きなものを突き詰めるってすごいうらやましいことだなと思いました。お金貯まったら入学してみたいね（いつのことやら）。
-とりあえず、iPhoneとProce55ingからちょびちょび勉強していきます。
-iPhone SDKの教科書―Cocoa Touchプログラミング、最初の一歩おすすめ平均 今あるiPhone本の中では一番良いと思います。
-この本、最高です！！
-iPhone 3.0でもOK
-Amazonで詳しく見るby G-ToolsBuilt with Processing [改訂版]おすすめ平均 もう少し仕様が詳しければ良いです
-デザインとアートだけに使って
-さっそく改訂版を買いました
-Amazonで詳しく見るby G-Tools</description>
-    </item>
-    
-    <item>
-      <title>さようならMSゴシック - これからはWebフォントの時代だ</title>
-      <link>https://t32k.me/mol/log/dtt08/</link>
-      <pubDate>Wed, 29 Jul 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dtt08/</guid>
-      <description>第8回社内Tech Talksを開催した。今回もまた我がデザイン部の中から選りすぐりの二人に講義をしてもらった！
-1人目は@pocotan001で、色について話をしてもらった。彼はコーディングは得意だけどデザインがちょっと苦手というデザイナーで、それを克服するために、あえてビジュアルテーマについて話をしました。
-まず動機がすばらしい！うん、エクセレント！苦手なところから逃げずに勉強会という機会をうまく利用してくれたと思うので主催している身にとっては嬉しいかぎりだ。肝心の内容も色彩心理学的なネタを入れつつ、好奇心をくすぐる素敵なプレゼンでした。パチパチ！
-2人目は眠れる獅子の@sorasagano！彼はフォントデザイナーとしてもかなり有名。そんな彼が話した内容はこの記事のタイトルでもあるWebフォント。
-個人的にはいろいろ形式（EOTとかWOFF）があったり、著作権とかよく分からない存在だったけど、短い時間ながら要点をまとめた分かりやすいプレゼンだった。彼の作ったフォントならフリーだからガンガン使える（よね？）と思うので、これを機に使っていきたい。もうね、Webフォントの時代というかお前の時代だよ！って言ってやりたいです、おっさん。</description>
-    </item>
-    
-    <item>
-      <title>Webサイトパフォーマンス管理と客観的評価手法セミナー</title>
-      <link>https://t32k.me/mol/log/gomez/</link>
-      <pubDate>Tue, 24 Mar 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/gomez/</guid>
-      <description>3月12日に開かれたWebサイトパフォーマンス管理と客観的評価手法セミナーに行ってきたー 1.サイトパフォーマンスの重要性 （ゴメスが定義する）サイトパフォーマンスとは？ サイトパフォーマンス = 表示速度 + 稼働率  表示速度 = ユーザーがWebページにアクセスしてから、完全にページが表示されるまでの時間 稼働率 = ページ稼働率（エラーになっていない率) + オブジェクト稼働率（エラーになっていない率）  安定性と信頼感の一つの評価基準にサイトパフォーマンスが存在 サイト表示速度が企業経営に与える影響  アマゾンはページの反応が0.1秒遅くなると、売り上げが「1%ダウン」する グーグルのページ反応が0.5秒遅くなると、アクセス数が「20%ダウン」する 一般的に表示スピードが1秒遅くなると、PVは11%、コンバージョンは7%、顧客満足度は16%ダウンする Aberdeen Group Report  ヨドバシドットコムとアリコのパフォーマンスダメージ 前者はCMS導入によるパフォーマンス劣化、後者はAIGの経営破綻危機が懸念されサイトにユーザーが殺到。 （ヨドバシは20~50秒の表示速度が3日間続いた） ユーザーがサイトを重いと感じる時間 Yahoo!のアンケート調査によれば、67.8％の人が5秒がライン！ Yahoo!ニュース - 意識調査 - ページ表示、何秒で「重い」と感じる？ 実施期間：2007年6月13日 ~ 2007年6月26日 Webサイトの反応時間の3つの重要限界  心理的・感情的な違和感を感じないのは0.1秒まで 思考の流れが妨げられないのは1秒まで 注意力を維持する限界の時間は10秒まで  ヤコブ・ニールセン博士　反応時間 - ３つの重要限界  以上から一般的なサイトは5秒が最低ライン、1秒を目標ラインとすべし！ 2.事例：業界別パフォーマンス状況 証券各社のパフォーマンス状況 1秒を争う証券取引の世界では、パフォーマンスの向上は非常に大事。 1位のカブドッドコム証券はテキスト中心のシンプルなページ構成を実現
-銀行各社のパフォーマンス状況 全体的に速い表示速度を記録。 14位のイーバンク銀行はパーツ数の多さが原因で遅くなっている
-不動産仲介各社のパフォーマンス状況 業界全体としては良好なパフォーマンス状況
-ニュースサイト各社のパフォーマンス状況 業界全体としてはパフォーマンスは良くない トップページに動的なパーツが多いのも一因
-ヤフー対Google対goo google.co.jpが0.171秒と最速。yahoo.co.jpは0.978秒、gooは0.524秒 （データセンター拠点からの測定。家庭PCからの測定の場合、High Broadbandで3.165秒） 3.パフォーマンス管理9つの道 あらゆる関係部署を巻き込む パフォーマンス評価手法を共有する ベースラインを設定する ユーザーを知る 機能設計基準以外にも注目する 実際のパフォーマンスを測定する サードパーティのパフォーマンスを測定する パフォーマンス検証を継続する パフォーマンス重視文化を仕組み化する  あらゆる関係部署を巻き込む  経営層 サイトパフォーマンスの劣化が収益に及ぼす悪影響はいくらか？ 現場マネージャー サイト改修や新機能導入がパフォーマンスに影響を及ぼさないか？ デザイナー リッチコンテンツやグラフィックで表示速度が遅くならないか？ アプリケーション開発部門 コード手法ひとつでパフォーマンスに影響を与えないか？ 品質管理部門 自分のデスクトップからではなく正確なユーザーエクスペリエンスはどのようなものか？ オペレータ部門 ユーザーに一番近い立場にいる部門はパフォーマンスの影響状況をWebチームに迅速にフィードバックをする  パフォーマンス評価手法を共有する  Availability：可用性 サイトがダウンしていない割合 稼働率が99%だと1年間の動作不能時間は3日15時間36分に及ぶ 経産省のSaaS産業向けのガイドラインでは稼働率を99.</description>
-    </item>
-    
-    <item>
-      <title>Web Directions East 08 カンファレンス</title>
-      <link>https://t32k.me/mol/log/web-directions-east-08/</link>
-      <pubDate>Sun, 30 Nov 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/web-directions-east-08/</guid>
-      <description>Web Directions East 08に行ってきた。当日の写真はFlickr: &amp;ldquo;wde08&amp;rdquo;で共有されている。
-『State of the web』ブラウザの多様化でみる最良のウェブ開発 Eric Meyer（エリック・メイヤー）
- Google Chromeは新しくない Safariのwebkit搭載してるから実質的にはSafari GoogleはなぜGeckoを選ばなかったのか？ モバイルを見越して、モバイル版も対応しているwebkitにしたのではないか？ IE8はAcid2をようやく合格 Acid3でもSafariやOperaが高い評価を出してる Googleの関係者ははHTML5は2022年頃に勧告になるのではと言ってる しかし、使おうと思ったら今すぐHTML5は使えるよ ベクトルデータのCanvasとか typeface.js Canvasを使うとFlashのSIFRみたいなんができる。 フォントの可能性が広がる！ こうゆうのもできるようになりJSエンジンの性能が重要になってきた。 Squirrelfish Extreme高速、TraceMonkeyも高速 IE7.js IE6やIE5で対応していないセレクタなどJSでカバーしようよ デザイナー側からの希望 Sizzle：jQueryのセレクターエンジン Bluff：グラフライブラリ データとしてグラフを残せる Raphaël：グラフライブラリ 280 Slides ブラウザ上のkeynoteみたいなサービス。 Objective-CをJavaScript で実現、Objective-Jを使用 processing.js：ProcessingをJavaScriptに移植 silverlight,flashのようにインストールする必要はないが JSに依存することになる。 ゆえにブラウザのJSエンジンの役割は重要 Google ChromeはWebアプリケーションために作られた モバイルウェブはまだまだ発展途上 質の高いユーザーエクスペリエンスを提供できていない iPhone,Andoroidどちらが勝かという問題ではない 要はどちらも試してみることが大事。 というわけで、JSの進化によってWeb標準がサポートされている2008年のWebの現状 Slide : WDE08 State of the web  『Bulletproof A-Z』　あらゆるデバイスに対応できるウェブデザインの考え方 Dan Cederholm（ダン・セダーホルム) 
-BulletProof A-Z simplebitsでも有名なダンさん craftsmanship：職人気質的なところがある 私の育ったところバーモント州は品質の高さで有名 ダンがコーヒー好きってコトでIced or Hot°つくった A：メタ情報付きのアンカーリンク 長いテキストだろうが、いかなる時も崩れない B：border-radius CSS3 -webkit-border-radius,-moz-border-radius master.</description>
-    </item>
-    
-    <item>
-      <title>第45回 金沢サロン：佐藤オオキ</title>
-      <link>https://t32k.me/mol/log/kanazawa-salon-nend/</link>
-      <pubDate>Sun, 26 Oct 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawa-salon-nend/</guid>
-      <description>第45回：金沢サロン報告  のっけから佐藤さん、交通渋滞のため遅刻。ということで、主催者の黒川雅之さんが場つなぎでちょっとお話。
-売れるってなんだろうね。 今年のミラノサローネでのLEXUSの展覧会も成功させ、ますます、評価を上げているnendo。売れちゃうと、どうしても同じ物、同じような表現スタイルになってしまう。安藤忠雄なんかそう、全部打ちっ放しのコンクリート建築。彼の作品集なんかはどのページも同じだ。それが、悪いかどうかは言っていない。戦略的にブレイクしようと思うのなら、同じモノをリピートしつづけ、個の作品ではなく、作品群で一つのメッセージに収斂する必要がある。だから、初期安藤作品にはレンガ作りの建築もあったけど、それは、彼の作品集に収録されていない。つまり、安藤はコンクリート、妹島和世はガラスと言ったように、イメージが固まってしまうけど、今回のゲストnendoはそれを感じさせないような期待をしている。非常に楽しみなデザイナーだ。
-のようなことを言ってたら、佐藤さん登場。第一印象、デケー、ガタイいい。高校時代はボート部だったそうです。で肝心の講演内容は、自分の生い立ちを振り返りながら、作品について解説をしていく流れでした。
-モノ ＜ コト 小さい頃、ドラえもんばかり読んでいた。そこで、登場してくる道具もおもしろいんだけど、その道具を発端に、ストーリーが展開されていく、そうゆうのが自分が好きなのかなと今になっては思う。
-ILLOIHA OMOTESANDO 東京都/表参道　フィットネスジム　2006.12
-ジムの壁面をデザインするとき、ただグラフィック的なものを置くのはなく、なにか行為が誘発されるものを置きたいということで、額縁や鏡を壁に配置することでインテリア的な要素を満たしつつ、ジムという性質上、体を動かすためにその額縁などをロッククライミングできる仕様にした。
-小さなデザイン・バタフライ効果 小さなモノが増殖していって大きなモノを変えるってのに興味がある。秋葉原なんかそう。はじめは電気屋街だったけど、そこに集まる人の趣味や興味が集まって、あのような街が形成されっていった。最初からあのような街を計画したわけではない。
-NAOSHIMA STANDARD 2 香川県/直島　2006.10〜2007.04
-NAOSHIMA STANDARD 2のサイン計画。予算もスケジュールもタイト（仕事が以来されたのが展覧会が始まる１週間前）な中、追い込まれながら考えたのが白いカラーコーン。安い、加工性も高い、丈夫、盗まれても、そんなに被害はないってことで採用。メインエントランスとなる宮浦港には625本、コーンを並べまくった。各アーティストのエリアのコーンに猫のしっぽが生えてたり、ディティールが違う風になっている。
-日常中の非日常 日常中の非日常に興味を持っている
-hie-hie for TV program「Top Runner」　2005.07
-ガラスの表面をフロスト加工で曇らせて、水滴のような加工をすることで冷え冷えの水かのように思わせるグラス。トップランナー出演時にデザイン。
-Alice’s Tea Party 東京都/新宿　for Lipton　2006.07
-一見奥に長い部屋のように見えるが、壁紙や机、イスなどすべて遠近法に従って歪ませてある。
-キャラ感  既視感　→ 感情移入 デフォルメ　→　わかりやすさ 不完全　→　愛着  大学時代、絵を描くのが好きで、笑っていいともの芸能人の似顔絵を描くコーナーで勝ち続け、グランドチャンピオンにw (いいともに20回以上出たけど、タモリさんに名前覚えてもらえず) 似顔絵だけでは食っていけないので、貿易会社の通訳のバイトしてたら潰れた。けど、なんか会社任されて、6畳間の自宅でなんとか続けてた19歳。（中国向けに爪切り売ってたりした）院生になったら、今度はYahoo!BBがちょうど始まった頃で、自分の友達を紹介してたら、数百人規模の人材派遣会社っぽくなってた。
-卒業。就職も決まってないので、とりあえず卒業旅行ミラノにいく。ミラノサローネに感動。建築家がフォークをデザインしたり、自由な雰囲気、ジュウナンなデザインに魅せられる。
-nendo設立。
-canvas 東京都/南大井　フランス料理店　2003.04
-初めてのお仕事で喜び勇んでやったが、なにせ予算がタイト。まったくもってお金がないといことで、改築することもできないので、白いキャンパス地の布を200ｍ買って店内、店外を布で覆いまくった。これが、雑誌でとりあげられるようになって徐々に仕事が増えた。
-引出しの家 東京都/目白　個人住宅　2003.</description>
-    </item>
-    
-    <item>
-      <title>情報社会学会 08年度年次研究発表大会に行ってきたよ</title>
-      <link>https://t32k.me/mol/log/infosocionomics-society/</link>
-      <pubDate>Thu, 17 Jul 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/infosocionomics-society/</guid>
-      <description>一体お前はいつの話をしているのかという声が聞こえてきそうですが、行ったので記録を。アックゼロヨンシンポジウムの次の日に行ったのだよ。
-情報社会学会　2008年度年次研究発表大会 2008年6月14日 大会テーマ：情報社会と社会への応用 
-会場はSFCだったよ。SFCってサイバーチックな印象（アルファベット3文字だから）があったけど、大学自体はのどかな場所にあったよ。 さすが学会ということで、僕みたいなヘナチョコWebデザイナーがいるべきところではないなと感じました（笑）みんな、言ってること難しいよ。俺、わかんないよ(´Д｀)そんなもんで、お目当てはこれでした。 「メディア環境の激変と広告コミュニケーション～情報過多社会の消費者行動」岸　勇希(電通インタラクティブ・コミュニケーション局クリエーティブ 室コミュニケーション・デザイナー)  AIDMAからAISASへ メディアの変化 消費者の行動の変化 広告コミュニケーションの変化 消費できない情報量 メディアの多様化 情報過多 SEM → Web → (TV,新聞,雑誌,ラジオ) 課題解決のため複数のメディアが必要 → 結果的にクロスメディアになる 手がけた案件 フマキラーAダブルジェット“一発命虫”キャンペーン 小田急線の駅のトイレの小便器に的シールを貼ったりした（口コミ狙い） フラッシュゲームなども作った。 
-結果 サイトには6万以上の書き込み フマキラーの株価上昇 このキャンペーンを見て6人が入社を希望してきた。 10万PV 漢検DSプレゼンツ 都道府県対抗漢字バトル 事前に日本人の漢字能力をテストし85%の人が漢字能力が低下してることを発表 新聞に取り上げられる。 漢検ＤＳ発売 爆発的ヒット60万本 サイトでは漢字テストができ、県別にランキング表示される。 県人会魂に火がつき、60万PV達成 ミス冷え知らずCOLLECTION&amp;rsquo;08 永谷園 × タダコピ 永谷園のこのスープは体の芯から暖めてくれるということで、冷え性が多い女性をターゲット東京の大学のミスキャンパスをキャンペーンモデルとして採用それを大学生が起業したタダコピ（タダでコピーできる代わりに広告がつく）てゆうメディアでも露出。各大学のコピーにその大学のミスキャンパスが出る（口コミになる） 結果200%の売り上げ増、サイトは40万PV
-質問してみた
-Ｑ. フマキラーのキャンペーンは面白いのですが、悪く言えばふざけてますよね。 そうゆうキャンペーンでいきます、と言ったときに頭の固いであろう意思決定者がなぜＧＯサインを出してくれるのか？ それは『天下の電通さん』だからですか？それとも徹底的にデータなり出すのですか？
-A. 『電通だから』なんでもOK出してくれるということはなく、フマキラーのキャンペーンでも 60枚くらい企画書を書いたし、もしキャンペーンを始めてイレギュラーなことがおきたら、 電通は6時間でこれこれの対応をします、12時間でこれこれの対応しますといった保険もちゃんと用意して、 クライアントの不安を取り除いている。また今回のフマキラーの成功で、次に似たような案件がきた時も 良い前例としてプレゼンできる。
-Ｑ. 話題になったけど、売れなかった事例とかありますか？
-A. 自分はない。興味を惹かせるだけが広告ではなく、それを購入させるところまでが広告。 例えば、レジ横のPOPに飾ってもらうために、わざと新聞広告のなんかをごにょごにょしてる （ここらへん忘れました。） とりあえず、抜かりはないということ。
-これ疑問でしたね。よくCMを見てて、まったく意味の分からんもの（別に否定しているわけでなくて）があって、若い自分でさえ、？？なものをよくその企業のトップなりに納得させたなと。絶対に電通がいいって言ってるんだからいいんだよってな感じでやってるんだと、半分ひがみ根性でそう思ってた。だって、自分が『絶対これは今より良くなるでしょ』っていう提案でさえも社内では見送りにされる中、そう思わないとやってられなかった。。。</description>
-    </item>
-    
-    <item>
-      <title>アックゼロヨン・シンポジウムVol.1にいってきた</title>
-      <link>https://t32k.me/mol/log/ac04/</link>
-      <pubDate>Sun, 06 Jul 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/ac04/</guid>
-      <description>基調講演「ウェブを軸にしたコミュニケーション」 森田雄（アックゼロヨン・アワード2007実行委員会 委員長）
-2004年に日本でウェブコンテンツJIS（JIS-X 8341-3）が制定。 それを機にアックゼロヨンアワードが開始される『アッ』はアクセシビリティで『ク』はクリエィティブ、『ゼロヨン』はウェブコンテンツJIS制定年の2004年を表している。
-1999年のウェブコンテンツ・アクセシビリティ・ガイドライン 1.0（WCAG1.0）が勧告された頃はアクセシビリティ=『制限』といったネガティブなイメージが持たれていた。
-なにもアクセシビリティに対応するということは障碍者だけに対応するという意味ではなく、ウェブリテラシーの低い人にも対応できる。
-難聴ということは、騒音が大きい環境でのウェブ閲覧と見なせるし、文字が極端に小さいということはWiiやPS3のようなリビングでのテレビでのウェブ閲覧には適していない。と言ったように、環境や状況によっては健常者も障碍者のように状態になるということ。つまり、想像力を働かせなければならない。（WCAG1.0のイントロにも書いてある）
-そこでアクセシビリティを対応させつつクリエィティブな表現もしていこう、それで初めて優れたコミュニケーションっての考えれるのではないだろうか。と言う考えのもとアックゼロヨンがスタートした。
-アワードを運営するにあたって
-モバイル部門も作るか、それとも違う対応で対処するか。 大規模サイトの運営の専門家も追加して今後は対応。 何度もアワードには応募できるので連覇も可能。 維持・運用の面も評価。
-「アックゼロヨン・アワード2007に見るウェブの現在とこれから」 パネルディスカッション1 スピーカー：大重美幸,かわちれい子,矢野りん モデレータ：森川眞行（日本ウェブ協会理事長）
-各審査員の評価点 文字が小さいとダメ（かわち） 読まれる文章も評価（矢野）
-誰をターゲットとするのか？（三者）
-ウェブはまだトライする段階であり、アクセシビリティを対応するは守りの対応と考えている。攻めの姿勢ももうちょっとあってもいいのではないだろうか？例えば、フルフラッシュのほうが受動的でアクセシビリティ的には良いのではと個人的には思う（大重）
-各社スクリーンリーダーなどの仕様が統一していない段階で、そのすべての差異をウェブ製作者が対応するのは、あまりにも酷ではないだろうか。MacのVoiceOver機能などのようにOS側からのアプローチも考えたら良いのでないだろうか。そのために、私たち製作者はもっと意見を言わなければならない。（大重）
-各審査員ごとに基準がバラバラで審査基準がしっかり共有されていない印象を覚えた。
-「サイト構造と情報設計／インフォメーションアーキテクトのシゴト」 テクニカルセッション1 長谷川敦士（株式会社コンセント代表）
-What’s Infomation Architecture
-IA ＝ ワイヤーフレームではない。
-IAとはユーザーとコンテンツ・サービスのつなぎ方である
-言葉の定義
-情報アーキテクチャ（学問）
-インフォメーションアーキテクト（する人）
-インフォメーションアーキテクトとは？
-データに潜む隠れたパターンを整理し、複雑さを明快にする人
-ユーザーが自分の知識を獲得するための道筋を見つけられるような構造や地図を作る人
-インフォメーションアーキテクトの仕事
-情報の伝達・目的の達成
-ユーザーの学習
-更新・メンテナンス（ワークフローデザイン）
-検証・効果測定
-情報アーキテクチャの階層
-ウェブ・エコシステム（ワールド・ワイド・ウェブ）
-ハイレベル情報アーキテクチャ（エンタープライズ情報アーキテクチャ）
-サイト情報アーキテクチャ（サイトストラクチャ　サイトのディレクトリ構造に関して）
-画面のアーキテクチャ
-ハイレベル情報アーキテクチャ
-ホールディングカンパニー・多言語対応
-コーポレートサイト/ECサイト/ブランドサイトなどのサイト間での情報アーキテクチャ
-応募作品の傾向とまとめ
-サイトストラクチャレベルはOKだがハイレベルIAがあんまりな感じ。 サイト構造と画面設計が連動していない。情報アーキテクチャはインフォメーションアーキテクト１人が考えるものではなく各レベルで皆が考える時代
-パネルディスカッション2 「アクセシビリティのこれから」 スピーカー：植木真,清家順,中根雅文 モデレータ：森川眞行（日本ウェブ協会理事長）
-応募作品の傾向
-静的ページはなかな対応できている。
-動的ページはまだまだ対応できていないところが多い。
-アクセシビリティの平均点は4点台。
-WCAG1.0、JIS X 8341-3Xを満たせばそれでよいのか？</description>
-    </item>
-    
-    <item>
-      <title>第43回 金沢サロン：ナガオカケンメイ</title>
-      <link>https://t32k.me/mol/log/kanazawa-salon-nagaoka/</link>
-      <pubDate>Sun, 18 May 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/kanazawa-salon-nagaoka/</guid>
-      <description> 第43回：金沢サロン報告  金沢サロンなるゆーものに行ってきた。金沢サロンとは、建築家でデザイナーの黒川雅之氏が毎回様々なゲストを招いて議論する会。会社の先輩から誘われて初めて行ったのだが、かなり充実した2時間だった。
-今回のゲストはロングライフデザイナーのナガオカケンメイ氏で、お題目は『ずっと金沢にいたいと思うために、金沢がしないといけないデザインとは？』だった。
-前半は自己紹介。若い頃はdrawing and manualという会社を立ち上げて、モーショングラフィックスデザインに凝ってた。アクシスで年4回アクシスギャラリーでモーショングラフィックス展をしていた。（そのときの空間デザインは暇してた吉岡徳仁）代表作にNTTコミュニケーションズなどコーポレートムービー（CMの最後に流れる2~3秒のあれ）などある。
-最近は、「デザイナーがリサイクル屋をしたらどうなるだろうか？」というコンセプトで、D&amp;amp;DEPARTMENTというプロジェクトをしている。ちなみに家賃は以下の通り。
- TOKYO 350万 OSAKA 170万 SAPPORO 40万 KAGAWA(現在準備中) 25万   G USED SAMPLING FURNITURE 60 VISON NIPPON VISION VISION’D VOICE d long life design  などいろいろな活動を行っている。
-デザイナーとして、いかにものを作らないで経済を成立させるか。つまり、ロングライフデザイン。使い続けて経済効果を作る。という考えを首尾一貫している、デザインしないデザイナー、ナガオカケンメイさん。
-それで後半は質問を交えて、ずっと金沢にいたいと思うために、金沢がしないといけないデザインとは？について議論。デザイナー、デザイナーの卵が50~60人くらい集まって金沢らしいデザインって何だろう？と真剣に考えるあの場の雰囲気はとても心地よかった。
-自分はWebデザイナーなので、今回の話をWebデザインに置き換えられないかとずっと考えていた。60VISONなどは60年代の製品のデザインの良さを再考しようというプロジェクトだ。つまり、今から30〜40年前だ。ウェブデザインという業界自体、できて10年くらいなので、良さを再考するにはまだ歴史が浅い。
-事実、ユーザビリティやアクセシビリティなどもちゃんと決まっていない。しかし、デザインのトレンドはあるよね。水平分割、角丸、テカテカのグラデーションなどのWeb2.0風と呼ばれるもの。最近は飽食気味だが今から30~40年たったら、あの頃のデザインは良かったじゃないかと思うのだろうか。
-その前にアップデートを繰り返すWebにおいて、数十年後にそのデザインに触れることができるのだろうかと疑問が残る。キャプチャ画像なら保存しておけないことはないが、ルックアンドフィールも感じられるために、サイト全体を丸々残すというのは手間のかかることだ。
-大規模なサイトの場合、サイト全体が一気にリニューアルせず、サービスごとに徐々にリニュアールというか改修、補修などされているから、タイミングも難しいな。実際にモノに残せないということはつらい。
-デジタルデータゆえにコピーは簡単だけど、50年100年スパンで残そうと思うと管理が大変。ブラウザ、OS、PCなどの再生環境も残さないとダメだし。Web協会なんかは過去もちゃんと記録するような活動したらいいんだよ、もっと。その協会に属する会社は新しくサイト作ったらデータまるごと提出するとかってちょっと思った。
-あと、質問で金沢美大の生徒が課題で自由に制作しろ言われると困るといっていた。
- 制約があればあるほど、自分は生き生きと作れるし、楽しい。たぶん、60年代のプロダクトが魅力的に見えるのも、当時の技術の限界、素材の限界などがあり、その中で試行錯誤して作られたモノだからではないだろうか。
- おお、なるほど！自分もコーディングが好きなのもなんやかんや言っても、おバカIEがいて、そのバグに対して最善の対処はどうすればいいだろうかとか、パフォーマンスやアクセシビリティとかも気にしながら作ってとかそうゆう作業嫌いじゃない。
-ナガオカケンメイさんが自分のモノを購入するときのポイントとして、それを作っている人がどんだけ根性入れたかどうかで買うそうだ。今回の講義でナガオカさんはMac Book Airを使用していたのだけれども、スケジュール管理とメールぐらいしか使わないので薄くて軽いモノを購入したそうだ。薄くて軽いなのなら、ほかにもあったけど、結局はアップルのデザインに対する情熱が決め手だ。
-で、これらを含めて金沢にいたい、また来たいと思わせるような金沢らしいて何だろうと考えると、結局なんでもいんじゃないかなと思った。例えば、今日から『携帯電話』が金沢らしいものですと決めちゃう。でも、そうなると金沢と携帯どう関係しているのかと非難囂々だろう。
-かといって、金沢は金箔の生産がすごいから金箔が金沢らしいものですと決めると、僕にとっては生まれてから金沢にいるけど、金箔との思い出なんてこれっぽちもない。兼六園にいたっては去年初めて行った。
-要はコレと決めて、それに対して金沢のみんながいかに協力してるか、誇りに思ってるかだと思う。誇りに思っている人が多ければ多い人ほど、それは他県の人から見たら魅力的・金沢らしさとゆうのにつながるんじゃないのかな。だから、お役所がこれが地元の名産品、歴史上の人物だからと言って、上から押しつけるような感じで歴史博物館とか作ってもだれも行かないという結果になる。
-ナガオカさんが金沢21世紀美術館が金沢らしいのではと言ってたけど、それも現代アートってゆうわけのわからんものを展示するための建物を金沢のど真ん中につくるってゆうこと自体が関係各所の理解が得られないとできないことだし、もちろん最初から理解を得たことではないと思うし、いろいろお役所を駆け回ったのだろう。そうゆう根性みたいなのが見えるから金沢らしいと言ったのではないか。
-じゃ、根性見せられたらなんでもいいのかとゆーとそうでもないよな。ナガオカさんがD&amp;amp;DEOARTMENTがヴィレッジヴァンガードとコラボレートするときにヴィレヴァからこれだけは守ってほしい2つのことで『書籍』と『それにつけるポップ、コメント』を挙げた。それさえ守れば、ヴィレヴァらしさというのが表現できると。それに影響されたのか、D&amp;amp;DEOARTMENTのフランチャイズの条件も3つあり、東京セレクション（ナガオカセレクション）の商品とカフェと、その地元セレクションの商品を置いてくれということらしい。
-○○○らしい3つって決めるのはかなり難しいよね。それが金沢らしい、日本らしいってことになると。でも、大切なのはそうやって何にするかとか、どうするかとみんなで考え議論する姿勢だと思う。なんか効率的ではないし、簡単ではないけど、それだからこそ愛着もわくのだろう。だから、今回のサロンなどもとても意義のあるものだったと思う。
-ナガオカケンメイの考え (新潮文庫)posted at 2015.6.30ナガオカ ケンメイ
-新潮社
-売り上げランキング: 195013
-Amazon.co.jp で詳細を見る </description>
-    </item>
-    
-    <item>
-      <title>デブサミ2008 Day2</title>
-      <link>https://t32k.me/mol/log/devsumi-part2/</link>
-      <pubDate>Sun, 24 Feb 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/devsumi-part2/</guid>
-      <description>【14-C-1】　ロボットで分かった、人の構造が動きを導く 自分が思うに、今回の2日間のセミナーで1番おもしろくて、非常にエキサイティングだった。で も、難しくてうまく説明できないや＞＜
-【14-C-2】　スプーンで飛行船を飛ばそう！～子どもにソフトウェア開発とは何なのか伝えよう！ コンピュータで扱われる情報は0と1で処理される。その概念を子供にも分かりやすく伝えることで情報科学に興味をもってもらおう！という教育プロジェクトに関しての説明。
-マジカルスプーン（ただのスプーン）をたたくことで音が発生し、その音が鳴る、鳴らないで0と1を表現し、何回音を鳴らすのかというパターンで飛行船に信号を送りを操作する。飛行船の動きとしては上昇、下降、前進後退、右旋回、左旋回、停止、停留の8つの動きをする。『カチン、カチン、カチン』とスプーンを叩いて飛行船を操作する様は楽しそうでした。それにしても中学、高校でこんな体験自分もできてたらな、とうらやますかったす。
-Widget on TV ～TVでウィジェットを動かす方法～ [ネットとテレビの融合と言えば大げさだが、このセッションはテレビにうまいことネットの一部をとりこんでいるなと感じた。Sony製液晶テレビ「BRAVIA」2007年モデル10機種27モデル全機種に『アプリキャスト』と呼ばれるテレビで動かすウィジェットが搭載されている。テレビを見ながら画面の右側にウェジェットが表示され操作できる。ウィジェットをあらかじめソニーが運営するアプリキャストサーバーに登録しておき、毎度そのサーバーから呼び出すシステム。
-ウィジェットはJavaScriptとXMLで作成できる。JavaScriptの標準APIをベースにリモコンイベントの取得やウェブブラウザ起動などのAPIが使える。テレビで動かすため、制約もある。ひとつのウィジェットにつきJSファイルはひとつだけ。JSやXML、画像ファイルすべてあわせて48KBまでにおさめなければならないなど。
-ウィジェットにを作るアプリキャストSDKは近日公開予定。 現状あるウィジェットはヤフオクや天気予報やニュース、RSSリーダ－など。テレビを見ながらフィードを見れるのは便利だな～と個人的には思うが、一体どれほどの人が実際に使うのだろうか。。。一応対応機種のブラビアは数百万台規模で出回ってるとのこと。 あと、ユーザーの見てる番組情報は取得できないとのこと。これできたらコンテンツマッチングした情報をウィジェットに表示できるのになと思ったら、なんかテレビ屋の利権とかのせいでできないらしいorz
-とまぁ、なんやかんやありますが、ブラビアで動くウィジェットは純粋にカッコよかったので作ってみたいですね。
-【14-A-3】　世界一のインターネットサービス企業になるために、楽天がやりはじめたこと 楽天の技術というか環境や取り組みについて説明。4500億円の売上、3400万人の会員数 32事業（クレジット、EC、トラベル、証券、金融、ポータル、コンテンツなどなど）開発者1000人（そのうち500人正社員）が楽天タワーで仕事している。サーバーは約6000台 これまでの10年業務拡大に拡大を重ねてきた、とりあえずサービスを提供してから、その後で改善というスタイル。
-これからの10年も拡大し続けるため2008年は海外展開を計画。 数年内に27カ国でサービスを展開させたい。手始めに今年の4~6月に台湾で楽天市場サービスを開始。 2008年3月楽天ヨーロッパ設立（ルクセンブルク）。そのため『誰でも、どこでも、同じように』サービスを開発できるよう、 楽天Methodなるマニュアルを作っているとのこと。世界で日本の企業ががんばってほしいものです。
-【14-E-4】　お客様から選ばれるコンサルタントとは？その１０のポイント 鍋野敬一郎 氏 コンサルタントだけあってプレゼンうまいなー、良くも悪くも『コンサル』といった第一印象
- お客様がコンサルタントに期待してること 知識と経験（技術、実績、トレンドへの理解、認知度・タレント）コミュニケーション力（ヒアリング能力、調整能力、課題整理能力、好感度） アウトプット力、見せ方（報告書作成、プレゼンスキル、提案力）人間的な魅力（幅広い人脈、情報収集能力、技術センス、取り組み姿勢）
- つまり、スペシャリストとしての行動力と結果を期待している 嫌われるタイプは評論家タイプや口だけの人。気をつけて！
- お客様から選ばれるコンサルタント”10のポイント” 1. シンプルで分かりやすい説明（知識） 2. 的確でムダの無い提案（知識） 3. 打てば響くような反応（経験） 4. 失敗リスクに対する迅速な対応（経験） 5. 課題に対する強い関心と執着（姿勢） 6. 迅速なアウトプット（姿勢） 7. 同じ目線のコミュニケーション（信頼） 8. 技術専門用語ではない説明（信頼） 9. 予定調和ではなく予想以上の結果（意外性） 10. サプライズが期待できる（意外性）
- 特に迅速なアウトプットの際、キレイなドキュメントを作るとかなり喜ばれるそうだ。 この点はデザイナー出身の人は有利ですね。コンサルタントではなくても、日々の仕事でこれらを実践できればかなり使える人材にはなれますね。
-【14-E-5】　プロジェクト成功への道～プロジェクトの見積りについて～ し訳ないが、このセッションが一番つまらなかった。話の途中に『えーっ』とよく言うし、プレゼンも資料を読み上げてるだけのように思われた。 内容もあまりオリジナリティが感じ取れなかった。前のセッションがよかったので、急遽予定を変更して受講したのに残念。こうなるのなら、予定通りデベロッパーテスティング・ライブの方に行けばよかった。。。
-【14-E-6】　なぜアメリカのトップゲームメーカーはソフトウェア高速構成管理ツール”Perforce”を選択するのか？ へぇーこんなのあるんだとただただ関心。ゲーム業界の人たちがよく使ってるらしい。 ノンプログラマでもビジュアル表示が多いから使いやすとのことです。 すみません、半分心ここにあらずでした。</description>
-    </item>
-    
-    <item>
-      <title>デブサミ2008 Day1</title>
-      <link>https://t32k.me/mol/log/devsumi-part1/</link>
-      <pubDate>Wed, 20 Feb 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/devsumi-part1/</guid>
-      <description>2月13-14日に行われた Developers Summit 2008に行ってきた。テーマが『越境しよう、コードで世界を変えよう』ということで、デザイナーの自分だけど越境してきたよ。といっても、JavaとかRubyとかさっぱりなので、結局、受講したセッションはRIAやPMばっかしになった。 そんなわけで、一応メモっておく。
-2月13日（1日目） ###【13-D-1】　RIA開発におけるデザイナー／デベロッパー協業のワークフローについて
-このセッションは、自分みたいなプログラミングにも興味があるデザイナにとってはぴったりのセッションだった。 RIA(Rich Internet Application)は分かりやすく言えば、なんらかのリッチな要素があり、インターネットも利用していて、特定の目的を果たすための機能を提供するソフトウェアと説明。またJames Wardが考えるリッチを構成する要素として
- Connected(接続している) Alive(活き活きとしている) Interactive(インタラクティブである) Responsive(反応が良い)  の4つが挙げられたが、Aliveの説明がイマイチつかめなかった。「活き活きしている」って要は「インタラクティブで反応がよい」ってことじゃないのか？ まぁ、要するにアプリケーションをリッチにすることでそれを使うユーザーの体験（エクスペリエンス）を向上させることができる。
-体験というのは、例えば、コーヒーを飲むなら缶コーヒーで十分なのに、なぜその3～5倍の価格がするのに人はカフェにいくのか。休息するという点もあるが、コーヒーを飲むということ以上にそのカフェで過ごす時間（体験）に重きを置いていることを、スターバックスの事例で説明。 つまり付加価値が重要であり、なぜソフトウェアの世界もその点を考慮しなければならないか。
-既に多くのソフトウェアが機能的には成熟し、機能だけでは競争優位が保てない状態競争優位獲得のための差別化要因としてソフトウェアのエクスペリエンスを考え直す必要がある DISTINCT or EXTINCT (差別するか、さもなくば絶滅か) 動いて当たり前、便利で当たり前、それプラスアルファが求められている時代ということですかね。
-そのあとは、エクスペリエンスをデザインするにあたってセカンドファクトリーでの手法や流れを説明。 チームモデルとしてはプロジェクトマネージャーを頂点に、その下にアーキテクチャデザイナー、エクスペリエンスデザイナーさらに、実装レベルで、システムデベロッパー(SD)、インタラクションデベロッパー(ID)、グラフィックデザイナー(GD)という構成。
-また、SD、ID、GDがスムーズに業務を遂行するにはMicrosoftのWPFやAdobeのAIRなどが有用であると説明。最後にビジネス、システム、デザインの三者が互いに密にコミュニケーションがとれるかが重要であると説明。
-1発目ということもあってだいぶ緊張したが、デザイナでも理解できる分野だったので安心した。 まさしく「越境しよう」というテーマにふさわしいセッションだった。
-###【13-D-2】　デベロッパーに贈る！業務アプリのためのユーザーエクスペリエンス向上講座
-続いて、2コマ目もRIA関連。こちらのセッションはデべロッパー向けのUX(User Experience)のセッションということで、 より実践的なテクニック、お作法についての話だった。
-リッチというのはただグラデーションなどを用いて見た目を綺麗にすることではなく、 様々な無駄を無くした結果の機能美でと考えたほうがよい。人とアプリケーションが情報をやり取りする方法は入力系と参照系に分けられる。
-入力系（個人情報の登録フォームなど）でできることは、入力作業の省力化であり、自動入力、入力補助（自動遷移、ショートカット、入力モード）などや、ヒューマンエラーの軽減とそのエラー通知の方法とタイミングなどを工夫すればエクスペリエンス向上につながる。
-参照系は情報を分かりやすく視覚化（見える化）すればよい話だが、曖昧さも生じてしまう問題。人によって求められる表現は千差万別で難しい。そういうときにWPFを使うと幾分か楽になるよという話。
-###【13-D-3】　リッチクライアント最前線
-Adobeの小島氏、Curlの三野氏、MSの春日井氏の三者を招いて、自社のリッチクライアントについてパネルディスカッションが行われた。各社、各技術に関しての簡単な説明と強み、またリッチとは何かついて討論していた。 まぁ、時間も時間だけに、突っ込んだ話もできず終わってしました印象。
-SilverlightとAIRがほぼ同時期に出たことにより、世間では2つが対抗する技術と思われているが、実際はSilverlightはブラウザのプラグインでAIRというよりFlashに対抗する技術であり、AIRと対抗するのはMSで言えば、.NET(WPF)であることを勘違いしないでねと言ってた。
-###【13-C-4】　ＸＭＬデータベースというカンブリア爆発とその行方
-このセッションは寝ちゃった。XMLに関してはなんとなく分かるが、DBに関してはまったくの無知なので、あまり興味がもてず。。。
-とりあえず、XMLDBは柔軟なDBだよ！ってことは分かった。
-【13-D-5】　次世代ウェブフレームワークの幕開け～ステートフルはじめました/君が僕を望むなら僕は君を忘れない～ 開始20分くらいは僕の知識不足から一体何に関してしゃべってるのかわからなかった。ステートフルということは状態を持っている、てことはわかったけど、だからなんだという話だ！
-フレームワークに関しても1度たりとも聞いたことのない名前ばかり、かなり冷や汗がでた。後半、ようやくサーバサイドのJavaの話かと理解する。当たり前だけど、まだまだ知らないことが多いってことを痛感するとともに、 RIA関連だからといってたかをくくってた自分が情けないと思う。 とはいえ、講師のYoshioriさんの親身なプレゼンは好感が持てたし、熱い人だった。
-【13-D-6】いよいよ現実となるRIA on Desktop。　君はこの流れについてこれるか？ AIRの事例を紹介。 待望のAIR1.0正式リリースは数週間以内になるとのこと。 まず英語版（ヨーロッパ言語）がリリース、そのさらに数週間後に日本語版がリリースの予定。
-AIRの事例
- Web私書箱β 楽天デスクトップアプケーション 経営コックピットシステム ASKUL DESKTOP   AIRはWin/Macに対応、その後Linuxにも対応予定。 今までの技術が使える（HTML,JavaScript,Ajax,Flash,Flexなど）イメージとしてはそれらのファイル全部zipにまとめてアプリケーションにするといった感じ。</description>
-    </item>
-    
-    <item>
-      <title>Designer meets Designers 01</title>
-      <link>https://t32k.me/mol/log/designer-meets-designers-01-css/</link>
-      <pubDate>Sun, 12 Aug 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/designer-meets-designers-01-css/</guid>
-      <description> 金曜日は東京にMdNが主催するDesigner meets Designers 01に参加した。テーマは「CSS」ということでみっちり約5時間CSS漬け。
-1　CSSのもっとも基本的なルール (島根未央) うん、基本だー、基本すぎる。おさらい的なことは必要ですかね。
-2　CSS生成ツールとして見たDreamweaver VS Expression (矢野 りん) Expressionの機能でHTML上の要素に指定されたid,class属性をクリックするとその指定したid,classのCSSまでジャンプしてくれるってのが便利だー。でもUIがofficeのWORD、さすがMS。やっぱりDreamweaverが好きです。
-3　CSS最新コーディングテクニック (小林信次) チーム内でCSSコーディングガイドラインをちゃんと決めよーやってお話。プロパティの順序だったり、命名規則、リセットCSSちゃんと話してみんなで決めていくべき！そして文書化、共有！
-4　CSSデザインの落とし穴 (こもりまさあき) 懐の広いプレゼン内容とともになんとも落ち着いた声のトーン。安心しきって熟睡してしまった、不覚。。。
-5　実践！CSSデザインの「型」でみる視覚表現テクニック (境 祐司) CSSは生ものであり、常に変化するものだから情報収集は怠ってはならない。書籍化されてる時点で最新の情報とは言えない。それゆえウェブ上のコミュニティなどにも常に気にかけてなければならい。つまり、英語読め！ってゆうことです。臆せず、 エキサイトの爆笑翻訳でも使って、感じでもいいからつかみなさいと。耳が痛いです(&amp;gt;&amp;lt;) とまぁこんな感じでした（謎） 英語読もう。
-DUO 3.0posted at 2015.1.15鈴木 陽一
-アイシーピー
-売り上げランキング: 46
-Amazon.co.jp で詳細を見る </description>
-    </item>
-    
-  </channel>
+&lt;p&gt;僕は、&lt;a href=&#34;http://jquerymobile.com/&#34;&gt;jQuery Mobile &lt;/a&gt;について調べてたのですが、これはHTMLドリブンな記法（Custom Data Attributeを指定していくだけでスタイルが完成出来ちゃう感じ？）でほとんど形ができてしまう代物で、JavaScriptというよりもほとんどHTMLしかいじってませんでしたけど、楽しかったですｗ&lt;/p&gt;
+
+&lt;p&gt;僕がkanazawa.jsというコミュニティを立ち上げた理由に、デザイナーとエンジニアを結びつけることがあります。幸いJavaScriptという言語はデザイナーも使えばエンジニアも使う言語ですので、JavaScriptキッカケで仲良くなればこのコミュニティを作った甲斐があるっていうもんです。。今日はさっそく、その効果といいますか、デザイナーからこれどーなってんの？みたいに質問がでてエンジニアが答えるなど、その逆もあったりしてなかなか良かったんじゃないかなと思います。僕自身も &lt;a href=&#34;http://twitter.com/#!/wtnabe&#34;&gt;@wtnabe &lt;/a&gt;さんにテストがなんたるかについて噛み砕いて教えてもらったりしました。ありがとうございます。どうやら次回は &lt;a href=&#34;http://twitter.com/#!/mitukiii&#34;&gt;@mitukiii&lt;/a&gt; 先生の「&lt;a href=&#34;http://twitter.com/#!/mitukiii/status/11330838939566080&#34;&gt;デザイナのためのprototype.js&lt;/a&gt;」が聞けるようなので、デザイナーもどんどんカモンジョイナスだよ！&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02584 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5234062060/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm6.static.flickr.com/5044/5234062060_a8944d0c87.jpg&#34; alt=&#34;DSC02584&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;12名収容できる会議室に12名入っていたので、多少キツイというか心理的にも圧迫されたようで、次回はもうちょっとゆとりを持ちたいと思います。音楽についてはネットラジオでも流しときましょうかね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02585 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5234062390/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm6.static.flickr.com/5041/5234062390_fe573a8fe2.jpg&#34; alt=&#34;DSC02585&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt; &lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;color: #888888;&#34;&gt;お昼休憩でひとり留守番していたときの写真(´・ω・｀)ｼｮﾎﾞｰﾝ&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;font-size: x-small;&#34;&gt;&lt;span style=&#34;color: #888888;&#34;&gt;&lt;span style=&#34;font-size: small;&#34;&gt;&lt;span style=&#34;color: #000000;&#34;&gt;次回は2011年1月8日（土）開催です！&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;span style=&#34;font-size: small;&#34;&gt;&lt;a href=&#34;http://atnd.org/events/10724&#34;&gt;kanazawa.js v0.0.2 勉強会: ATND &lt;/a&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+参加者のブログ
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://mitukiii.jp/2010/12/05/kanazawa-js-v0-0-1/&#34;&gt;mitukiii.jp | kanazawa.js v0.0.1 勉強会 / Tumblrのヌードフィルタを作ろうとしてみた &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://blog.shirokuro331.net/?p=1085&#34;&gt;kanazawa.jsに参加してきたよ。 | Cobalt &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://aligach.net/diary/20101205.html&#34;&gt;あーありがち - 最近のJavaScriptのテスティングフレームワークについて調べてみた &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://blog.surfboard.co.jp/staff/archives/2010/12/jquery_1.php&#34;&gt;jQueryも楽しい | 波乗りスタッフ日記/Web制作/コンサルティング/サーフボード &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Designing for the iPhone</title>
+            <link>https://t32k.me/mol/log/dtt12/</link>
+            <pubDate>Fri, 03 Dec 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt12/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/12/dtt12.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;月イチの社内勉強会、第12回目はHTML5＋CSS3で作る 魅せるiPhoneサイトの著者であり、関西Web業界の重鎮、&lt;a href=&#34;https://twitter.com/hiloki&#34;&gt;@hiloki&lt;/a&gt;さんによる「Designing for the iPhone」だった！&lt;/p&gt;
+
+&lt;h2 id=&#34;大阪の虎&#34;&gt;大阪の虎&lt;/h2&gt;
+
+&lt;p&gt;@hiloki さんとはセミナーで何回かお会いしていて、今年のdotcoder2と4にも参加させてもらって仲良くなったんで、ついでにうちの勉強会でも喋ってよって流れで今回実現した。&lt;/p&gt;
+
+&lt;p&gt;大阪と石川でのスカイプ中継で今回の勉強会は開催したのだが、感想としてはネットワークの安定性が保証されれば全然イケルなと感じました。途中、何回か断線してしまったけど、そこはチワワの可愛さでカバー出来てたね（謎　うん、僕たちはボーダレスだｗ&lt;/p&gt;
+
+&lt;p&gt;肝心の内容としては、さすがiPhone本の著者だけあって少ない時間ならでも基本から応用まで網羅してくれた安定感のあるプレゼンだった。44px大事！個人的に印象に残ったのは「細部にこだわる」。良いデザインのサイトの見本としていくつか紹介してくれたのだが、どれもかなり細部まで作りこんであって感心した。&lt;/p&gt;
+
+&lt;p&gt;どうも僕は、パフォーマンスとかそっち系に頭が偏っていてデザインのこだわりをないがしろにしてしまうんだが、CSS3とかNEWTとよばれる技術を使えば、両方を両立できるんだなと感じたし、やっていかなければならないなと感じた。&lt;/p&gt;
+
+&lt;p&gt;ほんと素敵なオンライン中継ありがとう、今度はオフラインでもまた会いましょうな！&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00C2ICGPU/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51UN5EPk3oL._SL160_.jpg&#34; alt=&#34;HTML5+CSS3で作る魅せるiPhoneサイト 　 iPhone / iPad　/　iPod touch対応&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00C2ICGPU/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;HTML5+CSS3で作る魅せるiPhoneサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.4.1&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;谷　拓樹&lt;br /&gt;ラトルズ&lt;br /&gt;売り上げランキング: 11570&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00C2ICGPU/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;終了のお知らせ&#34;&gt;終了のお知らせ&lt;/h2&gt;
+
+&lt;p&gt;月イチの社内勉強会12回目ということでちょうど1年間続けてきたのでここいらで1回区切りをつけてやめようと思う。思い起こせば、@shoito さんのHokuriku.langでHTML5の話を聞きそびれたので、わざわざ彼が弊社まで話に来てもらったのをキッカケに、社外の人呼んで話してもらうのって面白いなと感じたのでここまでやってきた。&lt;/p&gt;
+
+&lt;p&gt;1年やってきてうちのデザイン部が技術的にレベルアップしたかと言えば難しいところだが（技術的に向上させたいのならまた違うやり方があると思う）、社外から人を呼んで話してもらうときは前座でうちのデザイン部に LT させたり、デザイン部だけで LT 大会したりと人前でプレゼンするっていうのが前よりも特別なことではなくなったと思うし、そういう文化が根付いたとは思っている。&lt;/p&gt;
+
+&lt;p&gt;また人前で自分の意見を言うことで、「あぁ、君はそんなこと考えてんのね、なるほど」的なことも感じたし、それは社外の人にも言えて、セミナーで軽く挨拶する程度から飲みにいって仕事について熱く語ったりとか、社内・社外ともに関係が深まったのが1年間やってきた印象ですかね。&lt;/p&gt;
+
+&lt;p&gt;勉強会を運営する側としては、まぁそんなに楽しいことだけでもなくつらいこともあったし、前月分のフォロー、今月分の調整、来月分のメボシなど常に3か月分のタスクが同時進行してしんどかったし、途中なんでこんなことやらんねんて！って欝になることもしばしば。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;やりたくて始めたことなんだから、面倒になったらやりたくなるまで休んだって構わない&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;これはどこかの勉強会の活動Wikiに書いてあった。ほんと途中この言葉がなかったらやめてた。いやいや継続するのもおかしいと思うし、とりあえず気楽に考えればいいと思う。とりあえず、１年間やってみて学んだことを次のステップに活かしたいと思う。そんで、またやりたくなったらやる。&lt;/p&gt;
+
+&lt;p&gt;いや、ほんと僕のわがままに付き合ってくれた皆々様方にはほんと感謝カンゲキ雨嵐でありがとうございました。&lt;/p&gt;
+
+&lt;h2 id=&#34;開催履歴&#34;&gt;開催履歴&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ベンチャーとHTML5と台風と僕&lt;/li&gt;
+&lt;li&gt;インタラクティブな作品づくり – @takumi0605&lt;/li&gt;
+&lt;li&gt;Webディレクターズハック – @ichigami&lt;/li&gt;
+&lt;li&gt;CMSの観点から見たWordPress @ohumi_FB&lt;/li&gt;
+&lt;li&gt;第5回 社内 Tech Talks @金沢&lt;/li&gt;
+&lt;li&gt;それ、誰のためのユーザビリティ？ @in0in0&lt;/li&gt;
+&lt;li&gt;決してムズイもんじゃない 〜初めてのPHPプログラミング〜&lt;/li&gt;
+&lt;li&gt;さようならMSゴシック – これからはWebフォントの時代だ&lt;/li&gt;
+&lt;li&gt;ある企業Web担の1週間 〜「なかのひと」のおしごと〜&lt;/li&gt;
+&lt;li&gt;Progressionで始めるFlasher Life&lt;/li&gt;
+&lt;li&gt;マインドマップ 脳の仕組みを活かすメモ術&lt;/li&gt;
+&lt;li&gt;Designing for the iPhone&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Progressionで始めるFlasher Life ～ActionScript書かなくてもFlashコンテンツ作れますよ～</title>
+            <link>https://t32k.me/mol/log/dtt10/</link>
+            <pubDate>Sat, 02 Oct 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt10/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/10/dtt10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;月イチの社内勉強会も今回で10回目となった。いろいろ感慨深いところはありつつ記念すべき10回目を飾るスピーカーは福井のスーパーデザイナー &lt;a href=&#34;https://twitter.com/shirokuro331&#34;&gt;@shirokuro331&lt;/a&gt;さんだ。&lt;/p&gt;
+
+&lt;p&gt;@shirokuro331さんとの出会いは、この勉強会の第1回目のスピーカーである@shoitoさんからの紹介で、「福井にスーパーデザイナーがいるよ」とのこと。それならば是非弊社で講演してもらいたいってゆうスーパーな流れで決まった！&lt;/p&gt;
+
+&lt;p&gt;講演内容はProgressionというFlashのフレームワークについて話してもらった。僕はFlashが苦手どころか出来ないだけど、Flasherバリバリの人たちを見ていると、いつかあんな風になりたいって思うことがいっぱいある。けれどもすぐ挫折してしまう。。。&lt;/p&gt;
+
+&lt;p&gt;今回は、まさしくそういった人向けの講義であって、ProgressionはFlashの入門の敷居を下げてくれる良いフレームワーク。スキルに応じてProgressionを使うスタイル（コンポーネントスタイル、タイムラインスタイル、クラススタイル）があるので、敷居が下がって飽きたらなくなってきても次の段階に進めばよいとのこと。うん、入門から次へのステップの道のりを提示してくれる素晴らしいプレゼンだったと思う。&lt;/p&gt;
+
+&lt;p&gt;個人的に印象的だったのは、簡単なサンプルサイトをProgressionを使って作ってしまうデモ。あーデモってすごいなって、100の理論より1発のデモだなとすごく感じた。僕も取り入れたい！&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4881667432/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51rNL-eQ8xL._SL160_.jpg&#34; alt=&#34;詳細！Progression 4 Flashフレームワーク入門ノート (Oshige introduction note)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4881667432/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;詳細！Progression 4 Flash入門ノート&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.31&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;大重 美幸&lt;br /&gt;ソーテック社&lt;br /&gt;売り上げランキング: 757605&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4881667432/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;話し変わって、@shirokuro331さんの前に、弊社ActionScript部部長が自社サイトにどうFlashを組み込むんでいくかLTしてもらった。やっぱり、ASはゲームとかワクワク感を作るのには最適なのかなと思った。僕らJS部はサイ本を読んで標準！標準！って肩苦しいことをしてるけどこうゆう感覚も大事だなと再確認できた。JS部もAS部もお互い切磋琢磨していけたらいいなって思った。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ある企業Web担の1週間 〜「なかのひと」のおしごと〜</title>
+            <link>https://t32k.me/mol/log/dtt09/</link>
+            <pubDate>Sat, 28 Aug 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt09/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/08/dtt09.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;月イチの社内勉強会、第9回目は某メーカー勤務の&lt;a href=&#34;https://twitter.com/mathme&#34;&gt;@mathme&lt;/a&gt;さんが『Web担当者』をテーマに講義をしてくれた。&lt;/p&gt;
+
+&lt;p&gt;@mathmeさんとはちょくちょく出会っていて、Web担当的なことをしているとは聞いていたのですが、まぁ守備範囲が広い。SEOからコーディングまで幅広い知識をお持ちで、一度話を聞いてみたいなと思っていたので今回お願いした。&lt;/p&gt;
+
+&lt;p&gt;感想は御社のリアルな現場の雰囲気が掴めました。「ええがにして」（訳：いい感じにして）は魔法の言葉！はかなりのあるある体験で、頭を悩ます問題だと感じた。またそうならないためにも1にも2にもコミニュケーションだということも凄まじく共感できた。最近、同僚と飲むといつも結論はここに落ち着く。やっぱり、相手にとっての「いい感じ」というのはどんなものか理解しておかないと出来上がってからのズレというのは出てくるよね。&lt;/p&gt;
+
+&lt;p&gt;めんどくさくても掘り下げて掘り下げなければならないと思った。そして、他部署から若干めんどくさがられるような存在になりつつもコミニュケーションを怠らない@mathmeさんは素敵だと思った！&lt;/p&gt;
+
+&lt;p&gt;話変わって、社外の人を講師として招く場合は前座として10分のLTを社内の人材からしてもらう形が定着していて、今回の前座は恐れ多くも先輩の&lt;a href=&#34;https://twitter.com/rihito81&#34;&gt;@rihito81&lt;/a&gt;にお願いした。&lt;/p&gt;
+
+&lt;p&gt;いやぁー、やっぱり尊敬する先輩。というのも勉強会前のお昼に、鷹野さんの「プレゼンテーションについて」の動画をみんなで見ていて、その後にプレゼンするのは、かなりハードルが高かったように思えますが軽々と超えたｗ&lt;/p&gt;
+
+&lt;p&gt;一番感心したのは、話し方。ゆっくり確認をとって喋っていく。いや当たり前のことなんだけど、普通大勢の前で話すだけで、緊張して早口になると思うけど全然そんなことなかった。リハの時も落ち着いてたけど、本番はもっと落ち着いていてびっくりした。話し方ひとつでこうも変わるものかと、またびっくりした。やっぱりプレゼンって奥が深いなーと。もっといろんな人のプレゼン見てみたい。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>決してムズイもんじゃない 〜初めてのPHPプログラミング〜</title>
+            <link>https://t32k.me/mol/log/dtt07/</link>
+            <pubDate>Wed, 30 Jun 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt07/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://farm5.staticflickr.com/4100/4745764968_45da2fafa1_b.jpg&#34; alt=&#34;決してムズイもんじゃない&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;昨日は第7回社内TechTalksを開催した。今回は社内のシステム部の人に来てもらってPHPについて講義してもらった！&lt;/p&gt;
+
+&lt;p&gt;自分たちデザイン部はPHPが入ったファイルなどは触るが、基本的にプログラム部分に関してはノータッチなので、初心者そのもの。そもそもプログラミング初心者といってもいいくらいなので、今回は基礎の部分から丁寧に教えてもらった。&lt;/p&gt;
+
+&lt;p&gt;変数とか演算子とか文とか基礎の部分はやっぱり小難しくてそんなにおもしろいものではないけれども、しっかり勉強したいところ。デザイナーとPHPについてというかプログラミングについての取り組む姿勢に関しては、以下のエントリーが超絶同意なので参照してみて。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://redline.hippy.jp/lab/php/php_9.php&#34;&gt;RedLine Magazine : PHPを勉強する事についてデザイナが思う事。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;「神」がいてくれたらがんばれるかもってのすごく分かる。右も左もわからないと、つまらないこと、あとで理解すればいいことにつまづいてそこでやめちゃうってことがある。そこで、「分からんくても全然問題ないよ」って言ってくれるだけでも十分続けるモチベーションになる。&lt;/p&gt;
+
+&lt;p&gt;今回の講義でPHPが理解できたかというと、当たり前だけど１時間程度聞いたところで身につくはずもないわけで、PHPを学ぶキッカケになれば十分かなと思う。プラス、今回講師に来てくれたシステムさんをマイ神にして、いろいろ教えてもらえばいいんだよ。&lt;/p&gt;
+
+&lt;p&gt;もらってばっかりでもあれなので、今度はデザイナー側からHTML/CSSとかについて講義できたらいいかなと思っている。BR連打とか無くしたい。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>それ誰のためのユーザビリティ？</title>
+            <link>https://t32k.me/mol/log/dtt06/</link>
+            <pubDate>Fri, 04 Jun 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt06/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/06/dtt.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;月イチの社内勉強会、第6回目は同僚の@in0in0氏が『ユーザビリティ』をテーマに講義をしてくれた。&lt;/p&gt;
+
+&lt;p&gt;ただ理論を振りかざすだけの講義ではなく、自社サイトでどういった対策が考えられるかなどオリジナリティあふれる内容で大変勉強になった。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;製作者の「３ある」：欲望がある、知識がある、愛着がある&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;いろんな情報を伝えたい、多くの商品を売りたいなど欲望があり、自社サイトがどんな構造でどんなナビゲーションか熟知していおり、長期間にわたってサイトを制作しているわけだから当然愛着もある。そんな自分がユーザーだと思い込んでサイト制作にあたるわけだから実際のユーザーとの乖離がでてくる。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ユーザーの「3ない」：読まない、知らない、興味ない&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;実際のユーザーというのは長い文章なんて読まないし、初めて訪れたサイトの構造なんて知る由もない。ましてや興味アリアリでサイトに訪問することなんて多くないだろう。&lt;/p&gt;
+
+&lt;p&gt;これまでの勉強会は社外から人を招いてたけど、今回は純社内産で勉強会を開催できた。別に外から招かなくても社内にもすごい人はいっぱいいる。ただそれが見えていないだけなんだと思う。ちょっと前にでて喋るだけでそれ以上の価値・メリットが得られるから、皆もっとアピールしたらいいよ！勉強会終わった後で@in0in0が『皆も勉強になったかもしれないけど、一番勉強になったの俺だからね、あんだけ徹夜して作ったんだから絶対に忘れない』って言ってたのが印象的だった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/in0in0/20100604#1275679963&#34;&gt;制作者の「３ある」、ユーザーの「３ない」 - in0in0の日記&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;話す内容はなんだっていいと思う。今回のユーザビリティは業務でも役に立つような知識だったわけだけど、@in0in0の前座で自分の最近の活動について喋ってくれた後輩くんは、職業デザイナーでは満たされない創作意欲をコンペで解消しているといった内容で、その作品の出来の素晴らしさだけでなく、その作品に対する姿勢ってのが普段仕事をしていて気づかない面だったのですごく驚きだったし、こちらとしてもモチベーションがあがった。彼も自分の考えをまとめることができてよかったのではないかと思っている。&lt;/p&gt;
+
+&lt;p&gt;なんか、うん、だんだん良い方向にチームとして組織として向かっているのではないかと感じられはじめた日だった。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Webディレクターズハック</title>
+            <link>https://t32k.me/mol/log/dtt03/</link>
+            <pubDate>Sun, 31 Jan 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt03/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;http://lh5.ggpht.com/_1drnogi3vdg/S2ROxI1wooI/AAAAAAAAAxQ/SLS2qZciPHk/dtt03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第3回社内TechTalksを開催した。今回もまたご近所のWeb会社の&lt;a href=&#34;https://twitter.com/ichigami&#34;&gt;@ichigami&lt;/a&gt;さんを招いて、Webディレクションについて話してもらった。ディレクションがテーマなのでディレクター部も誘って和気藹々な感じで開催することできた。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「Webディレクターズハック ～実務に役立つWebディレクションのコツ～」&lt;/strong&gt;という演題で@ichigamiさんがWebデザイナーからWebディレクターになられた経緯や、これまでの経験を踏まえてのディレクションのコツなど紹介してくれた。スライドの内容は@ichigamiさんの&lt;a href=&#34;http://15vision.jp/mobile/note/&#34;&gt;ブログ&lt;/a&gt;でも紹介しているみたいなので、そちらもチェックしてもらえれば良いかと思う。&lt;/p&gt;
+
+&lt;p&gt;自分はWebデザイナーですが、サイト制作の前段階、受注を取ってくる話などすごく興味深かった。「こうゆう仕様だから、ハイ作れ！」って言われても、なんだかなと思う。やっぱりそこに至るまでの経緯やプロセスを理解していると、制作段階でも良いパフォーマンスを発揮できるのかなと考える。要はコミュニケーションなんだ！お互いを知るところから始めなきゃいけないんだよね。&lt;/p&gt;
+
+&lt;p&gt;個人的に印象的だったのは懇親会にて、子供を持つ喜びとして以下のような例えをしていたのがとっても素敵でした。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;子供が出来ると毎日がワールドカップ優勝並の喜び by @ichigami&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;家に帰って「パパ〜♪」と迎えに来てくれる娘を抱き上げる様が、まさにワールドカップを高々と上げる様そのものらしいｗ うん、いいね！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>インタラクティブな作品づくり</title>
+            <link>https://t32k.me/mol/log/dtt02/</link>
+            <pubDate>Mon, 14 Dec 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dtt02/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;http://lh4.ggpht.com/_1drnogi3vdg/SyTpDiK1thI/AAAAAAAAAv8/Fm4u_BjolZs/dtt02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;社内勉強会（Tech Talks）を開催した。今回はご近所のWeb制作会社から&lt;a href=&#34;https://twitter.com/takumi0605&#34;&gt;@takumi0605&lt;/a&gt;さんを招いて、『インタラクティブな作品づくり』という題で講演してもらった。 今回の勉強会の開催経緯は、CSS Nite in ISHIKAWAでの2次会で@takumi0605さんと出会ったのが始まり。というか、それ以前にProcessing+金沢とかでググってたらSoda Labというのを見つけていて、石川県にもこんなすごい人がいるんだと思ったら、その管理人が@takumi0605さんってことを後から知って、これはぜひ話が聞きたいと思い依頼した。&lt;/p&gt;
+
+&lt;p&gt;仕事上、Flashをバリバリに使うことがないので@takumi0605さんのように、Flash+PHPとかProcessingでゴリゴリやってるのは非常に羨ましく、尊敬の念すらある。というか、@takumi0605さんも本業の方ではディレクションがメインになってきてFlashをいじれていないとのこと。そこはプライベートな時間を利用してコンペに出すなどモチベーションの維持に努めているとのことだった。&lt;/p&gt;
+
+&lt;p&gt;いやぁ、コンペとか忘れていた。クリエィティブな心忘れてたよ。ほんとイイ刺激になった。今回はありがとうございました。&lt;/p&gt;
+
+&lt;h3 id=&#34;おすすめの本&#34;&gt;おすすめの本&lt;/h3&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274065979/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/511SV9NXW2L._SL160_.jpg&#34; alt=&#34;ハッカーと画家 コンピュータ時代の創造者たち&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274065979/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ハッカーと画家 コンピュータ時代の創造者たち&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.26&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ポール グレアム,Paul Graham,川合 史朗&lt;br /&gt;オーム社&lt;br /&gt;売り上げランキング: 10342&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274065979/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861007070/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61h0LZq-MyL._SL160_.jpg&#34; alt=&#34;Built with Processing[Ver. 1.x対応版] -デザイン/アートのためのプログラミング入門&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861007070/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Built with Processing[Ver. 1.x対応版]&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.26&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;田中 孝太郎,前川 峻志&lt;br /&gt;ビー・エヌ・エヌ新社&lt;br /&gt;売り上げランキング: 302012&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861007070/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ウェブサイトパフォーマンス入門</title>
+            <link>https://t32k.me/mol/log/introduction-to-web-performance/</link>
+            <pubDate>Sun, 29 Nov 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/introduction-to-web-performance/</guid>
+            <description>
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/658403&#34; width=&#34;510&#34; height=&#34;420&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://east.webdirections.org/wde/2009/workshop/#nicole-sullivan&#34;&gt;Web Directions East 2009 ワークショップ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;nicole-sullivan-ニコール-サリバン&#34;&gt;Nicole Sullivan （ニコール・サリバン）&lt;/h2&gt;
+
+&lt;p&gt;3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stubbornella.org/content/&#34;&gt;Stubbornella&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/stubbornella&#34;&gt;Nicole Sullivan (@stubbornella) | Twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/stubbornella&#34;&gt;Nicole Sullivan | SlideShare&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;なぜパフォーマンスについて話すのか&#34;&gt;なぜパフォーマンスについて話すのか？&lt;/h2&gt;
+
+&lt;h3 id=&#34;速い方が良い&#34;&gt;速い方が良い！&lt;/h3&gt;
+
+&lt;p&gt;速くて困ることは特にない&lt;/p&gt;
+
+&lt;h3 id=&#34;サイトは年々巨大化している&#34;&gt;サイトは年々巨大化している&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.websiteoptimization.com/speed/tweak/average-web-page/&#34;&gt;&lt;img src=&#34;http://www.websiteoptimization.com/speed/tweak/average-web-page/growth-average-web-page2014.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;現在のサイトはWebページというよりもアプリケーション化していて複雑になってきている2003年頃に比べ、ページサイズは3倍になっている。&lt;/p&gt;
+
+&lt;p&gt;ユーザーにとってはWebアプリケーションもDesktopアプリケーションも同じ。 どちらも同じ性能を求められる。&lt;/p&gt;
+
+&lt;h3 id=&#34;時は金なり&#34;&gt;時は金なり&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Amazon : +100ms 売上が1%落ちる&lt;/li&gt;
+&lt;li&gt;Yahoo! : +400ms 完全にページをローディング（full-page traffic）するユーザーが5-9%減る&lt;/li&gt;
+&lt;li&gt;Google : +500ms 検索数が20%落ちる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Shopzilla : -3.5sec CVは7-12%, PVは25%アップした&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://velocityconf.com/velocity2009/public/schedule/detail/7709&#34;&gt;Shopzilla&amp;rsquo;s Site Redo - You Get What You Measure: Velocity 2009 - O&amp;rsquo;Reilly Conferences, June 22 - 24, 2009 - San Jose, CA&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;パフォーマンスが良いと思うユーザーほどページを多く見る(つまり広告収入への影響が大きい) (最も遅く感じているユーザーでPVが多いのはなぜ？　Nicole見解：ダイアルアップ接続ユーザーでもともと遅いのに慣れているのかも)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://velocityconf.com/velocity2009/public/schedule/detail/7579&#34;&gt;The Secret Weapons of the AOL Optimization Team: Velocity 2009 - O&amp;rsquo;Reilly Conferences, June 22 - 24, 2009 - San Jose, CA&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;50ms, 200ms, 500ms, 1000ms で遅くする実験 左からユーザー当たりのクエリ数、クエリを変えて検索した数、ユーザー当たりの収益、ページをクリックしたかどうか、満足度、クリックするまでの時間 50msでは統計的な違いは出なかった 遅延時間が長いほど満足などの指標は減少する 遅くなれば遅くなるほど思考が止まる（自分が何をしたかったのか、いちいち思い起こす必要がある）&lt;/p&gt;
+
+&lt;p&gt;レンダリングの見せ方による影響について ヘッダーだけでもいいから何か見せておくことでユーザーに安心感を与える （検索を多くするユーザーほど効果的）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://cdn.oreillystatic.com/radar/images/2009/06/200906221738.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;パフォーマンスの悪さが続けば、UX低下に深刻なダメージを与える。 （7週間目に元に戻すが4週間立っても元のレベルに回復していない）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://radar.oreilly.com/2009/06/bing-and-google-agree-slow-pag.html&#34;&gt;Bing and Google Agree: Slow Pages Lose Users - O&amp;rsquo;Reilly Radar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;パフォーマンスについてユーザケアする必要がある&lt;/p&gt;
+
+&lt;h3 id=&#34;開発理念-web-dev-philosophy&#34;&gt;開発理念　Web Dev Philosophy&lt;/h3&gt;
+
+&lt;p&gt;フロントエンドエンジニアとデザイナーのコミュニケーションをいかに円滑にするか重要 （エンジニア、デザイナー双方が歩み寄って理解する必要がある）&lt;/p&gt;
+
+&lt;h3 id=&#34;9つのベストプラクティス&#34;&gt;9つのベストプラクティス&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-コンポーネント化する&#34;&gt;1. コンポーネント化する&lt;/h4&gt;
+
+&lt;p&gt;PSDファイルのコンポーネント化、ライブラリ化する(デザイナーが辞めても他のデザイナー対応できる)&lt;/p&gt;
+
+&lt;p&gt;コンポーネントはレゴに似てる コンポーネントの利点：再利用でき、ブラウザキャッシュを利用できる ページ全体からデザインするのではなく、コンポーネントからデザインしてそれを組み立てるのが良いのではないか （この考え方は海外でも新しい）&lt;/p&gt;
+
+&lt;p&gt;Facebookコンサルの話： Facebookは既存サイトで、最初からコンポーネントを意識して開発したわけではない 要素をカタログ化することから始めた&lt;/p&gt;
+
+&lt;p&gt;細かいデザインの違いによるパフォーマンス低下は極力避ける レゴ化して見比べる もし、同じページに2つの似たようなモジュールがあるのならば、ひとつにまとめる&lt;/p&gt;
+
+&lt;h4 id=&#34;2-サイト全体で一貫性を保つ&#34;&gt;2. サイト全体で一貫性を保つ&lt;/h4&gt;
+
+&lt;p&gt;Consistency（一貫性） ルールが多ければ多いほどデザインは崩れていく 長期スパンでパフォーマンスはゆるやかに落ちていく（危険性を感じないので厄介）&lt;/p&gt;
+
+&lt;h4 id=&#34;3-透過デザインモジュールを使う&#34;&gt;3. 透過デザインモジュールを使う&lt;/h4&gt;
+
+&lt;p&gt;利点：拡張性に対応できる、コンポーネントを組み合わせることができる 弱点：複数の背景だと使えない、それ専用のモジュールを別途作らなければならない&lt;/p&gt;
+
+&lt;h4 id=&#34;4-画像とcssスプライトの最適化&#34;&gt;4. 画像とCSSスプライトの最適化&lt;/h4&gt;
+
+&lt;p&gt;Yahoo!の例：&lt;a href=&#34;http://a.l.yimg.com/a/i/us/sch/gr4/srp_metro_20090910.png&#34;&gt;http://a.l.yimg.com/a/i/us/sch/gr4/srp_metro_20090910.png&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ページ内の全ての画像をスプライト化 デザインパターンが１つだけだから可能（検索画面だけ）&lt;/p&gt;
+
+&lt;p&gt;スプライトするためには以下の3つから2つしかとれない&lt;/p&gt;
+
+&lt;p&gt;ページ数、メンテナンス性、最適化 （ex：より多くのページ数を最適化したければメンテナンス性はあきらめるしかない）&lt;/p&gt;
+
+&lt;p&gt;拡張性を考えてスプライトする ボタンは背景画像にして中身をテキストで変更 （日本語は汚くなるから考えもの）&lt;/p&gt;
+
+&lt;p&gt;パフォーマンスで重要な3つのこと&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HTTP requests&lt;/li&gt;
+&lt;li&gt;Size of image&lt;/li&gt;
+&lt;li&gt;Size of the CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;角丸を表現するためにはHTTPリクエストが4つ必要 リクエストが2倍になれば、CSSコードも2倍に&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;画像の最適化&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;似たような色でまとめる（スプライトの話）&lt;/li&gt;
+&lt;li&gt;スキマを詰める（モバイル環境を見越すと、ちょっとでもダメ）&lt;/li&gt;
+&lt;li&gt;CSSスプライトの画像は縦より横に並べるの方がほんのちょっとだけいい(横に読み込んでいくらしい)&lt;/li&gt;
+&lt;li&gt;等倍で見たときの色を減色&lt;/li&gt;
+&lt;li&gt;個々の画像を最適化してからスプライトする&lt;/li&gt;
+&lt;li&gt;アンチエイリアスは避ける（平行四辺形はきつい）&lt;/li&gt;
+&lt;li&gt;斜めのグラデーション画像は避ける（パフォーマンス的というよりモジュールの拡張性がない）&lt;/li&gt;
+&lt;li&gt;アルファフィルターは避ける&lt;/li&gt;
+&lt;li&gt;グラデーションの色は2-3px毎に変更していく&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;ロゴ画像のサイズ縮小だけは慎重に（無意識下で刷り込まれているので） マクドナルドのロゴは大統領よりも有名&lt;/p&gt;
+
+&lt;p&gt;フィルタはやめてよ！ ブラウザがフリーズする、メモリを大量消費する どうしても使いたければアンダースコアハックでIE6分岐&lt;/p&gt;
+
+&lt;p&gt;Alpha Image Loaderやめただけで100ms速くなったよ by Yahoo! Search&lt;/p&gt;
+
+&lt;p&gt;Progressively enhanced PNG8 より良いPNG画像を作るにはPhotoshopよりもFireworksが良い&lt;/p&gt;
+
+&lt;p&gt;画像圧縮の流れ Step1: デザイナーが『Web用に保存』などで減色する Step2: 画像のメタ情報を取り除く（画像のクオリティはそのまま）&lt;/p&gt;
+
+&lt;h4 id=&#34;5-ブラウザに搭載されないフォントの使用は避ける&#34;&gt;5. ブラウザに搭載されないフォントの使用は避ける&lt;/h4&gt;
+
+&lt;p&gt;sIFR（Scalable Inman Flash Replacement）やJSで無理やり表現すればその分HTTPリクエストが増える&lt;/p&gt;
+
+&lt;h4 id=&#34;6-縦で考える&#34;&gt;6. 縦で考える&lt;/h4&gt;
+
+&lt;p&gt;コンテンツは増えていくものなので仕方がない 横に合わせるのは難しい（jQueryなどJSで制御する必要があるため）&lt;/p&gt;
+
+&lt;h4 id=&#34;7-ギラギラなデザインは慎重に&#34;&gt;7.ギラギラなデザインは慎重に&lt;/h4&gt;
+
+&lt;p&gt;画像などを使って目立せることでコスト（パフォーマンス低下）がかかっていることを理解する&lt;/p&gt;
+
+&lt;h4 id=&#34;8-フレキシブルに&#34;&gt;8.フレキシブルに&lt;/h4&gt;
+
+&lt;p&gt;拡張性を考えてデザインする コンテンツは横にも縦にも伸びる 横はグリッドでコントロール（縦は仕方ない）&lt;/p&gt;
+
+&lt;h4 id=&#34;9-グリッドは重要です&#34;&gt;9.グリッドは重要です&lt;/h4&gt;
+
+&lt;p&gt;上記に同じ&lt;/p&gt;
+
+&lt;h2 id=&#34;アクティビティ&#34;&gt;アクティビティ&lt;/h2&gt;
+
+&lt;p&gt;各自が選んだサイトがどのように改善できるか考えるワークショップ&lt;/p&gt;
+
+&lt;p&gt;パフォーマンスツールの紹介&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=61d74777-1701-4014-bfc0-96067ed50156&#34;&gt;IBM Page Detailer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/&#34;&gt;WebPagetest - Website Performance and Optimization Test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gomez.co.jp/production/performance/index.html&#34;&gt;サイトパフォーマンス測定・改善　概要 | Gomez&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://addons.mozilla.org/ja/firefox/addon/firebug/&#34;&gt;Firebug :: Add-ons for Firefox&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回はFirebugを使う&lt;/p&gt;
+
+&lt;p&gt;Firebugの弱点 キャッシュしたのは計測しない（キャッシュクリアして使う） ブラウザのイベントモデルが表示される（実際のネットワークの流れではない）&lt;/p&gt;
+
+&lt;p&gt;最初からツールを使うのではなく、まずぺージ全体を見て考える&lt;/p&gt;
+
+&lt;p&gt;Flashの良い点：ユーザーの注意を引かせる Flashの悪い点：ロードには時間がかかる ユーザーの視点から考える&lt;/p&gt;
+
+&lt;p&gt;ページ下部のリクエストは遅延ロードで&lt;/p&gt;
+
+&lt;p&gt;パフォーマンス改善に当たっての考え方&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どれくらい改善されるのか？&lt;/li&gt;
+&lt;li&gt;コストはどれくらいなのか？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ワークショップを通して&#34;&gt;ワークショップを通して&lt;/h2&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51GQNCMJsZL._SL160_.jpg&#34; alt=&#34;続・ハイパフォーマンスWebサイト ―ウェブ高速化のベストプラクティス&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;続・ハイパフォーマンスWebサイト&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.12&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Steve Souders,武舎 広幸,福地 太郎,武舎 るみ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 396868&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873114462/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;パフォーマンスについての小手先の技術を覚えたというよりも、パフォーマンスに対しての考え方が身につけられた一日ではないかと思う。Nicoleはエンジニア畑の人だけれども、デザインについて物を言うエンジニアだ。そのグラフィックは本当に必要なのか？そのデザインはほかのモジュールと似ているけれども１つにまとめられないのかなど問い正してくる。実際、アクティビティの時間では自分が制作したサイトを元にどのように改善できるのか指摘してもらった。Nicoleから見ればJSファイル容量の割にはJSの効果が見えないとのこと。（ページ内リンクにスムーススクロールとか使ってた）&lt;/p&gt;
+
+&lt;p&gt;Nicoleが考えるに、大半のユーザーはその機能を使わないだろう（使えなくても問題ない）し、目に見えない面でコストをかける必要性があるのかと聞かれた。確かに、そのサイトの大半のページがそれほど長くないのでマウススクロールで事足りるし、ページ内リンクを押す必要性もあまり感じられない。もし、気になるのならアクセス解析ツールなど使って実際に使われているのか調査してみれば良いと言われたので調査中。（たぶん外すと思う）&lt;/p&gt;
+
+&lt;p&gt;結局は重要なのは自分が行ったデザインの費用対効果がどうなのかという問題だ。Webページは気軽に修正・追加されがちだけど、その１枚のバナー画像を追加することでHTTPリクエストは増えるのだから確実にパフォーマンスコストがかかっていることを理解する必要性がある。そういったコストを超えるメリットが得られるのなら追加すれば良いが、何の考えもなしにあれやこれやとページの要素を追加していくことは非常に危険だと思う。&lt;/p&gt;
+
+&lt;p&gt;開発方法においても、最初から細かいチューニングをするよりも、まずページ全体を見て不必要なものがないか確認する方が効果的だということも覚えておかなければならない。フロントエンドのパフォーマンスについては昨年あたりから注目され始めてきてまだ成熟していない分野だと思うので、あまり瑣末なことにリソースを割かれるのも賢明ではない。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

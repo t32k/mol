@@ -1,338 +1,1417 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Analytics on MOL</title>
-    <link>https://t32k.me/mol/categories/analytics/</link>
-    <description>Recent content in Analytics on MOL</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Thu, 27 Oct 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://t32k.me/mol/categories/analytics/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>コンテンツグループというものがあった</title>
-      <link>https://t32k.me/mol/log/google-analytics-content-grouping/</link>
-      <pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/google-analytics-content-grouping/</guid>
-      <description>久しぶりにGoogleアナリティクスを使ってみると見慣れないコンテンツグループというものがあった。なんてことはない、文字通りコンテンツをグルーピングするそうだ。
-基本的にページ単位でアクセス解析するものだと思うのだけど、何百・何千という単位のページを個別に考えのは少々骨が折れるし、全体像が掴めない。ページというのはなにかしらのグループに属しているはずなので、そこで、そうゆうのをまとめて解析できるようにするのがこのコンテンツグルフープの役割だ。
-そういえば思い出したが、昔、何百万という商品ページがあったのをカテゴリーごとに、リクエストURIを書き換えてグルーピングしたのを思い出したが、今はもっと便利になっている。
-例えば、このブログならひとつひとつの記事がページになり、グループはいかようにも設定できるだろう。2016年、2015年、2014年&amp;hellip;という年次でグルーピングするのもひとつの方法だろう。たいていのブログサイトなら記事の公開年ごとにディレクトリを区切って管理しているかもしれないが、あいにく私のブログではURLが長くなるのは嫌だったので、そうゆうURL構成になってはいない。
-コンテンツグループのグルーピングはそういったURLやタイトルの規則性を利用してもできるが、トラッキングコード別にグループ化もできる点が素晴らしいと思う。
-ga(&#39;set&#39;, &#39;contentGroup1&#39;, &#39;{{.PublishedYear}}&#39;);  上記のように、トラッキングコードを記事に仕込むことでグルーピングできる（{{.PublishedYear}}部分は何かしらの変数で）。
-こんな具合にcontentGroup1がyearというグループになっている。
-トラッキングコードでグルーピングできるということは、なんでもできるということだ。例えば、その記事の文字数をカウントしてGAトラッキングに渡して文字数ごとにグルーピングしたり、コメント数や、ソーシャルシェア数別に分けても良いだろう。可能性は無限大だが、解析できるグループのスロット数は5つまでなので、お気をつけて。
-そうゆうわけで、ページに対して新たな切り口で解析できるのは良いと思った。</description>
-    </item>
-    
-    <item>
-      <title>Google Analytics トラッキング スニペット再考（2016）</title>
-      <link>https://t32k.me/mol/log/use-async-attribute/</link>
-      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/use-async-attribute/</guid>
-      <description>最近、またGoogleアナリティクスの面倒を見ている。で、GAのドキュメントを見ていたら最近のイケてるトラッキングスニペットはこれだぜ！みたいなこと書いてあった。やれやれ、またかと思い、筆をとったのです。
-トラッキングスニペットの移り変わり激しいもので、最近だとこうゆうのが一般的だろう。
-&amp;lt;script&amp;gt; (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;); ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); &amp;lt;/script&amp;gt;  最近のおすすめはこれだとか。
-&amp;lt;script&amp;gt; window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); &amp;lt;/script&amp;gt; &amp;lt;script async src=&#39;//www.google-analytics.com/analytics.js&#39;&amp;gt;&amp;lt;/script&amp;gt;  まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべてasync属性が担っているので、とってもすっきり。
-非同期読み込みの利点は過去の記事を参照。
- Google Analytics トラッキング スニペット再考（2010） Google Analytics トラッキング スニペット再考（2012）  
-async属性の対応状況なのだけど、IE9以前とかを気にしなくてよいのなら、このスニペットに置き換えて良いかなと思う。
-個人的に、2つのトラッキングスニペットは記述の仕方が違うだけで。やってることは同じなんだろうと考えていたのだけど、実はそうではないらしい。
- 上記の JavaScript トラッキング スニペットにより、すべてのブラウザでスクリプトが確実に読み込まれ、非同期的に実行されますが、最新のブラウザでは、スクリプトをプリロードできないという欠点があります。この問題の対策として、次のような代替の非同期トラッキング スニペットを使用することで、最新ブラウザでのパフォーマンスをわずかに向上させることができます - サイトに analytics.js を追加する | ウェブ向けアナリティクス
- 『わずかに向上させる』ってどうゆうことだってばよ？、『プリロード』ってなによ？と思い、また筆をとってしまったのです。
-ググったら、myakuraが書いてた。
- script async を使えば、非同期で読み込まれるし、プリロードスキャナの恩恵にも預かれるとのこと。- script asyncでJavaScriptの非同期読み込みを - fragmentary
- PreloadScanner 『プリロードスキャナ』ってなによ！</description>
-    </item>
-    
-    <item>
-      <title>サイトの速度</title>
-      <link>https://t32k.me/mol/log/no-more-stopwatch/</link>
-      <pubDate>Mon, 15 Apr 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/no-more-stopwatch/</guid>
-      <description>Stopwatch | By wwarby Flickr!
-こんにちわ、あなたの@t32k、ごきげんいかがでしょう。みなさんはスマホWebアプリ作っていて、自分の作ったものは速いのか遅いのか気になりませんかね？僕は木に泣くりまくりすてぃです。
-そうゆうわけなもんで、表示速度とか計測してみようって話になるじゃないですかー、まさかストップウォッチで計測しないとは思うんですけどー、一応どのようにスピードを計測、そのアプリの性能を評価すればよいのか一緒に考えてみましょう。
-僕が昔、ゴメス・コンサルティング（現：コンピュウェア モーニングスター） のセミナーに行ってきた時の話ですが、ここの会社はサイトパフォーマンスの計測サービスを提供していて、計測で重要なのは『定期的かつ継続的かつ同手法にてパフォーマンス測定』と言っておられました。
-サービスリリース時はスモールスタートなのでアプリもコンパクトですからスピードは速めかもしれません。しかし月日がたつにつれて、多くの機能が実装され、それに伴いサイトのスピードが落ちてはなんの意味もありません。計測した日がたまたま速かったのかもしれませんし、たまたま遅かったのかもしれませんので、定期的かつ継続的にかつ計測する必要性があります。また、1回目と2回目の測定条件（環境）が違ったりしては参考になりません。ましてや数ms単位でしのぎを削る我々にとってこの辺はシビアでかつ正確であってほしいわけです。
-ですから、ストップウォッチや計測コードを毎回差し込むといった人間の手による対応ではコストが高すぎますし不正確な計測しか出来ません。そこですべてを自動化し計測する必要性があります。
-すべてを自動化ってそんなことできるの？ 大抵のサイトに実装されているであろうGoogle アナリティクスを使えば可能です。
-上記Google アナリティクスのレポートから『平均表示時間』等を確認できます。『平均表示時間』と書いてありますが、英語メニューでは『Avg. Page Load Time』ですので、『平均読み込み時間』が適切かと思われます（ラベリングおかしい（●｀ε´●）） 平均表示時間 - ページの読み込みにかかった平均時間（秒）
-ga:avgPageLoadTime = (ga:pageLoadTime / ga:pageLoadSample) * 0.001 平均表示時間（秒）= ページの読み込みの合算値 (ミリ秒）÷ サンプル数 × 0.001 Site Speed - Dimensions &amp;amp; Metrics Reference 
- と言った計算式で算出されております。これであればサイトの全ページを計測でき、なおかつ平均なので、ある程度ならした数値を得ることができます（外れ値は別途カスタムレポートとかで除外することもできます）し、パフォーマンス改善もPVの多いとこから対応したほうが効率的だということが理解できるでしょう。
-[追記]　コメントに指摘されたように、値にばらつきがあるような場合（凹凸形状な分布）だとやはり、中央値を確認すべきなので、[分布]タブをクリックすれば、どの値の範囲に多いのか確認できます。 
-またディレクトリごとで読み込み時間の違いを確認したり、端末ごとでの読み込み時間を確認するといったことも可能でしょう。
-さて、この読み込み時間ってのはどこから取ってきてるのかと言いますと、Navigation Timingという仕様を実装しているブラウザからです。ユーザーがページ遷移するとネットワークの接続、サーバーレスポンス、ブラウザ読み込みにかかった時間が自動的にブラウザに記録され、その情報をGAがサーバーに送ってるといった感じです。 これまでというか、一昔前まではそうゆうことを計測しようと思うと上記のようなコードを挿入して計測していた気がします。これをページの読み込み時間と定義してしまうのは、いささか問題があります。Aのページの読み込みを考えれば、当然Bとなど他のページから遷移したと想定され、Bのページのリンクを押してから、Aのベージの読み込み完了までが本来の意味での（体感的な）読み込み時間と考えるべきでしょう。つまり、上記のコードではネットワークやサーバーのやり取りの部分が考慮されてないことを意味します。またそもそもJavaScriptでの時間計測は不正確ということも懸念されます。 より体感に近い読み込み時間を考慮すれば上図のような流れを計測すべきです。このような計測をJavaScriptだけで行おうとするとやや複雑な処理を記述しなければなりません。そんなめんどくさいことしなくても計測できるようになったのが、Navigation timingです。
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/analytics/</link>
+        <language>ja</language>
+        
+        
+        <updated>Thu, 27 Oct 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>コンテンツグループというものがあった</title>
+            <link>https://t32k.me/mol/log/google-analytics-content-grouping/</link>
+            <pubDate>Thu, 27 Oct 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/google-analytics-content-grouping/</guid>
+            <description>&lt;p&gt;久しぶりにGoogleアナリティクスを使ってみると見慣れない&lt;a href=&#34;https://support.google.com/analytics/answer/2853423?hl=ja&#34;&gt;コンテンツグループ&lt;/a&gt;というものがあった。なんてことはない、文字通りコンテンツをグルーピングするそうだ。&lt;/p&gt;
 
-もう一度、GAのレポート（[コンテンツ] &amp;gt; [サイトの速度] &amp;gt; [ページ速度]）を見てみると、『平均表示時間』の以外にも様々な指標が確認できるでしょう。  平均リダイレクト時間（ページを読み込む前にリダイレクトにかかった平均時間。リダイレクトがなければ0になる） ドメインの平均ルックアップ時間（ページのDNS名前解決にかかった平均時間） サーバーの平均接続時間（サーバーとのTCPコネクション確立に要した平均時間） サーバーの平均応答時間（サーバーがユーザーリクエストに応答するまでの時間。ユーザーの所在地からサイトのサーバーにアクセスするネットワークの通信時間も含まれる） ページの平均ダウンロード時間（ ページ（のみ）のダウンロードにかかった時間）  [エクスプローラ]タブの[技術]にはネットワークとサーバーに関する指標がレポーティングされています。『平均表示時間』の大半がこの部分で占められていれば、フロントエンドエンジニアではなくサーバーサイドエンジニアに文句を言いましょう。</description>
-    </item>
-    
-    <item>
-      <title>Google Analytics トラッキング スニペット再考（2012）</title>
-      <link>https://t32k.me/mol/log/defer-parsing-of-google-analytics/</link>
-      <pubDate>Fri, 28 Sep 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/defer-parsing-of-google-analytics/</guid>
-      <description>秋色日毎に深まりこんちわ、@t32kだ。前回も少し言いましたがPageSpeedにモバイル版というのがありまして、デスクトップ版とは少々違うことをこいつは物申してきます。テストするページにもよりますが例えば、デスクトップ版であれば、「ブラウザのキャッシュを活用する」 や 「圧縮を有効にする」 がHigh priorityな対策としてよく指摘されます。モバイル版でもそれらは重要かつ効果のある対策ですが、さらに対応しておきたいのが 「JavaScript の解析を遅延する」 という対策です。
-ざっくり言えば、そのJavaScriptが本当に必要になるまで後にとっておくということです。スマホなどの携帯端末は言うまでもなく、デスクトップPCに比べれば非力なので、このような端末ではJavaScriptを解析するのにもなかなか時間を要してしまうので、注意しましょうってことです。
-PCサイトで、それも単純にドキュメント閲覧のようなページのパフォーマンス対策なんて、HTTPリクエストを減らすことだけ考えていれば十分事足りるなぁと個人的には考えています。ただ、最近やってるお仕事はスマホ向けのWebアプリ制作でして、JSゴリゴリ使ってます。。。この辺りのパフォーマンス対策というのをもうちょっと真剣に考えたいお年頃になってきたので、今回がんばってみます。
-ただ、僕はJSは書けないので難しいことはよく分からんとです。お先真っ暗、八方塞がりです。唯一気になっていることは今のプロジェクトでhead要素に入れてあるGoogleアナリティクスのスニペットって本当にここでいいのか？ということです。これね、これ。
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; var _gaq = _gaq || []; _gaq.push([&#39;_setAccount&#39;, &#39;UA-XXXXX-X&#39;]); _gaq.push([&#39;_trackPageview&#39;]); (function() { var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true; ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s); })(); &amp;lt;/script&amp;gt;   Google Analytics 非同期トラッキングコード再考（2010） - MOL  はい、2年前にこの記事を書いたのは僕でして、そこでは&amp;lt;/head&amp;gt;の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
-script要素の読み込みと評価 
-script要素を入れることでかかるコストについて上記の図のような感じですね。LatencyとDownloadが読み込みに関わるところで、普通にscript要素を読み込むと、通常のリソースは並列ダウンロードできるのに対して、script要素は他のリソースのダウンロードをブロッキングします。まぁ、scriptを早い段階で読み込むとそれだけページ表示に余計に時間がかかってしまいます。この点でノンブロッキングな読み込みを実現したのがGoogle Analyticsの非同期トラッキングコードで並列ダウンロードが可能となりました。また、トラッキング用のJSファイルにはga.jsには12時間の有効期限が設定されているので、次ページビュー、当日中くらいのセッション再開後もキャッシュが有効となり、LatencyとDownloadの部分は省略できます。
-ただ、お気付きの通りParsingとEvaluationはキャッシュがあろうがなかろうが毎回コストを支払わなければなりません。しかもParsingとEvaluationの実行中はレンダリングが止まってしまいます。PCサイトであればこの点が無視できるほど短い時間で完了するので、head要素においても大した影響がないということでした。事実、@tobieさんの記事でもjQeuryのParsingとEvaluationのコストはMacBook Proが35msに対して、iPhone4が320msかかっている調査結果でした。つまり、jQueryを使おうが使わまいが、キャッシュが効いてようが効いてまいが、iPhone４ユーザーはjQueryが読み込まれている時点で毎回320ms（設置場所によっては）レンダリングが止まる時間ができるということです。
-Google Analyticsの実行コスト そこでjQueryのテストのGoogle Analytics版を作ってみました。Google Analyticsは基本的にページビュー計測を目的に入れると思いますので、単純に評価だけでなく毎ページごと実行（ビーコン画像発行）されると想定したテストです。10回アクセスしてその平均値をグラフにしました。</description>
-    </item>
-    
-    <item>
-      <title>大規模サイトにおける Googleアナリティクス導入から成果まで</title>
-      <link>https://t32k.me/mol/log/google-analytics-on-large-site/</link>
-      <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/google-analytics-on-large-site/</guid>
-      <description>ありがたくも、CSS Nite LP, Disk 19「アクセス解析」で話した「大規模サイトにおけるGoogleアナリティクス導入から成果まで〜Webデザイナーがアクセス解析に携わってみて〜」が 、CSS Niteベストセッション2011 のベスト20に選ばれたので、文字に起こしてみるの巻。
- DMM.com Laboの石本です。よろしくお願いします。今日は大規模サイトでのGoogleアナリティクス運用について話します。そんなに難しいことではないので、リラックスして読んでもらえれば幸いです。
-アジェンダ 本日の流れはこんな感じでやっていきます。
- 自己紹介 アクセス解析への動機 プロファイルの適正化 コンバージョン設定から改善施策へ まとめと今後の課題  自己紹介 では、やっていきましょう。まずは自己紹介させてください。Twitter IDは@t32kでWebデザイナーをしています。
-2011/9/26ですね。共著ですが「スマートフォンサイト制作の教科書」という本を書きました。初めてスマートフォンサイトを作る方、入門者向けですので、今後のスマートフォンサイトの概要を知る上でもマーケッターさんの方も買ってもらってもいいんじゃないかなと思います。オールカラーで読みやすいです。
-あとは趣味でiPhoneアプリを作ったりしています。左がNyarsというアプリで、なんてことのないただの猫耳をオーバーレイして写真が取れるというものです。右がtissaというアプリで、なんてことのないただのタイマーアプリで350円で売ってます。
-アクセス解析への動機 と言うわけで、本題に入ってきます。見た感じ完全に制作サイドのWebデザイナーがなにゆえアクセス解析に興味をもったのかと話していきます。
-まず私の毎日仕事しているフィールドです、みなさんもご存知かと思いますがDVDレンタルなどで有名なDMM.comです。レンタル以外にも動画配信や、通販事業なども行っています。そこで私も含めたWebデザイナーこのような、商品の特集ページであったりヘルプページ、バナーなど制作しています。
-当たり前ですが、Webサイトはデザイナーだけでは作れません。サイトをしっかりと運用していくにはデザイナー以外にもエンジニアの力も必要ですし、マーケッターさんの力も不可欠です。しかし、お互いが協力していくには相手の言葉を知らなすぎるような気がします。例えば、マーケッターさんがデザイナーにCPCがどーたらCPAがどーたらといってもピンとこないでしょうし、反対にデザイナーがマーケッターさんにUXDやIAがどーたらと言っても理解してもらえないと思います。まぁ大げさな例ですが、多かれ少なかれ似たようなケースがそこかしこで起きているでしょう。私はデザイナー5年目ですが、この人らは同じ日本語を喋りますが、違う言語の中で生きてると理解しています。
+&lt;p&gt;基本的にページ単位でアクセス解析するものだと思うのだけど、何百・何千という単位のページを個別に考えのは少々骨が折れるし、全体像が掴めない。ページというのはなにかしらのグループに属しているはずなので、そこで、そうゆうのをまとめて解析できるようにするのがこのコンテンツグルフープの役割だ。&lt;/p&gt;
 
-これは私の好き言葉でもありますが、外国語を知らないもの者は母国語を知らないとゲーテは言っています。相手の言っていることは理解したいですし、そうすることで自分の言語：デザインに関しても理解が深まれば好都合です。そうゆうことで自分に対してはこのようなスタンスで臨めば良いかもしれませんが、これを他者に求めるのは酷なこともかもしれません。ましてや、クライアントや上司の方に、あんたデザインなんでわかってないんや！などとは言えません。
-そこで皆が共通に理解できるモノが必要となってきます。はい、数字ですね。3は3でありそれ以上でもそれ以下でもありません。3が4になれば増えたということ、2になれば減ったということは、どんな職種の人だろうと同じ理解を得られるわけです。そして、Webサイトの数字といえばアクセス解析であり、それが切実に必要だと感じています。
-プロファイルの適正化 というわけで、デザイナーですけどアクセス解析をやってこうと考えたわけですが、そう簡単にうまくはいきません。プロファイル（Google アナリティクスのレポート）の閲覧の段階でまずつまづきましたという話をしていきます。
-その前に、DMM.comのサイト規模を紹介したいと思います。DMM.comはクレジット登録しているなどすぐに課金可能な会員が362万人。月間ユニークユーザーが1900万人の8.6億ページビュー。Google アナリティクスのプロファイル数は83個、Google アナリティクスにアクセスできるユーザー数は119人ほどです。
-正直このレベルになってくると、データの嵐の海を彷徨うのと同じようなもので、ただトラッキングコードを入れていればOKという話ではありませんでした。そこで最初にとりかかった作業がプロファイルの適正化です。誰が見てもおかしくない数値、見たい情報を見ることができるプロファイルにしなければなりません。
-Google アナリティクスを大規模サイトで使用する上で問題になってくるのが50,000URL問題です。ちょうどGoogleアナリティクス開発者向けドキュメントに該当の問題ついて述べられてるところがあります。 1日あたり、50,000 を超える一意の URL または仮想ページをトラッキングしていますか。 Google Analytics では毎日、ウェブサイトから送信されてきたすべてのデータと、ページビューで並べ替えられた上位 50,000 ページ上のレポートを収集します。残りのページは、コンテンツ レポートの「(その他)という別のセクションにまとめられます。トラフィックの少ないページビューの詳しいレポート情報を表示するには、トラフィックの多いすべてのページビューを除外するフィルターを使用した新しいプロファイルを設定してください。これにより、上位 50,0000 の URL に残りのページを効率的に含められるようになります。 これはどうゆうことかと言いますと、Google アナリティクスで1日で処理できるURL数はページビューの上位5万までなんですね。5万以上になると、それからは（other）（その他）という項目にまとめられてしまいます。これがどうゆう悪さをしますのかと言いますと、実際はページビューがカウントされているはずのページ、GIFリクエストも発生しているのにもかかわらず5万URLに入らなかったため、プロファイルで確認できないページが出てきます。全体のPVには入ってるんですけども、個別のURLレポートでは確認できないということです。
-全体のページビューを見ても、この青色の部分が（other）その他で全体の4割も占めています。このくらいになってくると、ページを製作して公開しても測定できないってことがよくありました。
-とりあえず、この５万URLの内訳はどうゆうものなのか調べてみます。このような商品の詳細ページというのが多くあります。これは通販のタイガー＆バニーのDVDですが動画配信でも同じ作品がありますし、この作品がレンタル出来ればレンタルフロアでも似たような詳細ページができあがります。つまりDMM.conでは1つの作品に対して複数のURLを生成してしまう可能性が高いです。こう言ったコンテンツは数百万単位でありますからこの時点でURLは5万におさまらないということが理解できます。
-またこのような商品リスト・一覧ページというのがあります。これは価格の高い順番、低い順番などで並べ替えができます。つまりURLのパラメータで処理することになるので、それだけURLが増えます。また1つのリストページに掲載できる商品も限られますので、1ページ2ページとページ数が増えていきます。
-このように、個々のURLを見ていくと当面、分析・解析しないようなURLが非常に多くあることが理解できます。私たちは解析を始めたばかりなのでこのような瑣末なとこに注力するのではなくもっと全体を見るほうが合理的でしょう。
-ということで、ハイレベルサイトマップという考えが重要になってきます。こんなのです。
-ハイレベルサイトマップ（ハイレベルサイトストラクチャ）というのは、サイトの概要・導線を理解するために必要なものです。URLごとではなくて、サイトの役割ごとでページをまとめて理解しようというものです。
-これをDMM.comにあてはめて考えてみると、このようなハイレベルサイトマップができあがりました。トップページがあって商品一覧ページと詳細ページを行き気してる感じですかね。このレベルの情報の粒度で理解出来ればいいので、Google アナリティクスのプロファイルもこれが確認出来ればいいわけです。つまり、私が欲しいのはハイレベルサイトマップ用のプロファイルが欲しいということです。
-ハイレベル用のプロファイルを作成するには、同じ種類のページのURLをまとめる必要があります。そのためには、プロファイルに対してカスタム詳細フィルタをかけてあげます。
-もうちょっとわかりやすくしたのが次のスライドです。URLを書き換えるためにはその対象となるURLを抜き出して再構成する必要があります。この場合、detailもしくはlistを含むものを引き出してきます。それをdetailもしくはlist以下のパラメータは全部削除して上書きしています。実際のURLに当てはめるとこうなります。はいこれで、だいぶURL数が少なすることができました。
-おまけですが、正規表現ってのはやっぱり意味がわからないですよね。いきなり自信のない正規表現のフィルタをデータにかけるのはかなり危険なことなので練習する必要あります。Google アナリティクスであればコンテンツのアドバンスフィルタを有効にして正規表現を選択すれば実際のサイトURLで練習ができます。またローカルで確認したければWindowsならregex CoachやMacならReginaldがおすすめです。では、さきほどのフィルタ処理したあとのプロファイルはどーなっているのでしょうか。</description>
-    </item>
-    
-    <item>
-      <title>jQuery MobileでGoogle Analyticsを使うために気をつけなければいけないこと</title>
-      <link>https://t32k.me/mol/log/using-google-analytics-with-jquery-mobile/</link>
-      <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/using-google-analytics-with-jquery-mobile/</guid>
-      <description>とあるとこで、とある話をしたので、とあるスライド置いときますよ。 要点を言うと、jQuery MobileでAjax遷移してると、普通にGoogle Analytics置いてても作動しないから気をつけてねって話です。
-GATC for jQuery Mobile 僕はこうゆう感じでとりあえず対応しています。作動させるタイミングとフラグメント識別子を記録させるのがポイントです。あとはご自身のサイトに合わせてカスタマイズしていただければと思います。
-//Account Setting var _gaq = _gaq || []; _gaq.push([&#39;_setAccount&#39;, &#39;UA-xxxxxxx-x&#39;]); //Async Snippet (function () { var ga = document.createElement(&#39;script&#39;); ga.async = true; ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s); })(); //Execute $(&#39;[data-role=&amp;quot;page&amp;quot;]&#39;).live(&#39;pageshow&#39;, function () { var u = location.hash.replace(&#39;#&#39;, &#39;&#39;); u ? _gaq.push([&#39;_trackPageview&#39;, u]) : _gaq.push([&#39;_trackPageview&#39;]); });  jQuery Mobile XSS Problem ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。</description>
-    </item>
-    
-    <item>
-      <title>施策前後のCV率に有意差はあるのか？</title>
-      <link>https://t32k.me/mol/log/statistical-significance/</link>
-      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/statistical-significance/</guid>
-      <description>はい、タイトルのとおりでございます。とある改善を行いまして、その効果というのが誤差の範疇なのか、それとも効果があったのか（プラスマイナス問わず）知りたい状況に陥りましたんで、いろいろ調べてみましたよというお話。
-Google Website Optimizer とか使えば、テストを実行してしばらくしたら勝手にこっちの方が何％優れてるよーって教えてくれるんですけど、今回のケースだと GWO の実装が難しかったので Google Analytics で指標を読み取ることにしました。
-やりたいことはですね。手元にあるデータは施策前後の１週間毎のコンバージョン率（8週間分）がありますんで前後8週間の平均CV率を出して何％改善したのか確認したいわけです。で、今回の場合1%程度改善されたのですが、これって別になんにもしなくても1%上がっちゃったりするのか、それとも偶然ではない有意の差なのかってことを理解しようと思います。
-施策前後8週間のコンバージョン率の遷移
-    1W 2W 3W 4W     Before 93.82% 93.83% 93.23% 93.65%   After 94.73% 94.77% 94.18% 94.71%        5W 6W 7W 8W     Before 93.99% 93.65% 93.95% 94.37%   After 94.99% 94.76% 94.45% 94.59%    まずはじめに はい、大学で統計学の単位を取ったような気もしないわけでもないそうゆう気もしないわけでもないという感じなので、ほぼ統計的知識ゼロです。間違いなどあれば指摘してもらえると嬉しいです。
-手始めに『有意差』とかでググッてみるのですが、出てくるリソース読んでもさっぱりなので、というか数式とか見た瞬間拒絶反応がでてくるのでウォームアップがてらこの本読んでみました。</description>
-    </item>
-    
-    <item>
-      <title>ModernizrでHTML5時代のWeb技術をトラッッキング</title>
-      <link>https://t32k.me/mol/log/trackhtml5inga-with-modernizr/</link>
-      <pubDate>Thu, 02 Dec 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/trackhtml5inga-with-modernizr/</guid>
-      <description>JavaScript Advent Calendar 2010 : ATND 2010年12月1日から25日まで、毎日違う人が JavaScript にまつわるブログ記事を書く企画です。 参加表明した順番が日付（12月◯日）となります。
- What is Modernizr? まずはタイトルにもある Modernizr ですが、これはHTML5時代のWeb技術、最近では「NEWT」、New Exciting Web Technologies （HTML5、CSS3、SVG、XHR2、Geolocation… などの技術総称）と呼ばれている技術がブラウザで実装されているか検出してくれるライブラリです。最近、開発者のPaul Irishさんが来日してその存在を知りました。
-Modernizr を読み込んだページにアクセスすると自動的にHTML要素のclass属性に対応状況がこん感じで記述される具合です。
-機能が実装されていばその機能名、実装されていなければno-が頭につく感じですね。おおもとのHTML要素にclass属性がついたので、
-.borderradius .hoge div { /* border-radiusのプロパティを記述 */ } .no-borderradius .hoge div { /* border-radiusに対応していないから画像で再現する記述とか */ }  こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。
-if (Modernizr.localstorage){ // localstorage 使う！使う！ } else { // 代替手段として Cookie 使ったりとか }  もちろんJavaScriptからもこんな感じで分岐処理することも可能です。
-Track HTML5 in Google Analytics この非常に便利な Modernizr を利用して、Google Analytics のレポート上でも確認できるようにしてくれるのが trackHTML5inGA です。Modernizr で検出したプロパティをカスタム変数（デフォルトではスロット#5を使用する）で取り込んで Google Analytics に渡す感じでしょうか。</description>
-    </item>
-    
-    <item>
-      <title>Google Analytics、 (not set) エントリの異常増加</title>
-      <link>https://t32k.me/mol/log/ga-not-set-2010/</link>
-      <pubDate>Thu, 30 Sep 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/ga-not-set-2010/</guid>
-      <description>最近、ユーザー &amp;gt; PC環境 &amp;gt; 画面の解像度 のメニューにおいて、 (not set) エントリが異常に多いことを同僚から指摘されました。調べてみると、一部のプロファイルでそのような現象を確認することが出来ました。
-Google Analytics で (not set) と言えば、キャンペーントラッキングでのキーワード問題が有名ですね。キーワードが取れていないから (not set) であるので、画面の解像度 においても解像度が取れてないのだろうと考えましたが、全体の中で10％も (not set) というのは、ちょっとどうゆう状況なのか考えらませんでした。数件、数十件であれば、トラッキングコード実行時になんらかのエラーがあって取れないということも考えられるでしょうが、今回の場合は多すぎます。
-そこで、年次スパンで (not set) エントリの推移を見てみますと、どうやら5/3から急激に増加しているのが分かります。ということで、該当の期間にトラッキングコード、フィルタの変更を行ったかといえば、それも思い当たるふしがありません。
-ということで、他のGAユーザーも同じ問題になっていないのか検索してみました。たいていは、アクセス解析Q＆Aフォーラムを調べれば分かるのですが、分からないこともあります。
-そんなときは、Google Analytics Help forumのほうを検索してみましょう。
- Huge increase in Screen Resolution/Colors of (Not Set) - Google Product Forums  検索してみると、どうやら上記の質問と似ているように思えます。時期的にも同じだし、症状も似ている。この人は 画面の解像度 だけでなく、画面の色 でも (not set) エントリが出ているみたい。そこで、自分のプロファイルを再度確認したところ、画面の色 においても同じ現象が確認できました。その他にも(not set) エントリの異常増加は、自分のプロファイルでは、下記メニューで確認できました。
- 画面の解像度　（Screen Resolutions） 画面の色　（Screen Colors） フラッシュのバージョン　(Flash Versions） 言語　（Languages） ホスト名 （Hostnames） ※これは増加ではなく急激な減少でした。  そんわけでいろいろ調べた結果、なんかGA自体のバグくさいので、今回はGooogle さんに問い合わせてみようと思いました。実はちゃんとGoogle Analytics のお問い合わせフォームが存在してまして、調べてみてどうしてもわからない場合は問い合わせてみるのも良いでしょう。（要：AdWordsアカウント）</description>
-    </item>
-    
-    <item>
-      <title>Google Analytics トラッキング スニペット再考（2010）</title>
-      <link>https://t32k.me/mol/log/asynchronous-tracking/</link>
-      <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/asynchronous-tracking/</guid>
-      <description>アナリティクス公式ブログ: 成長し続ける Google Analytics のエコシステム  非同期トラッキングコードが公式に推奨されるようになったので、ようやく重い腰を上げて調べてみました。長文です。
-なぜ、非同期トラッキングコードが推奨されるのか？ 今回のトラッキングコードはurcin.js、ga.jsに続く大きな変更となります。非同期トラッキングコードの恩恵を受けるためには、以前のトラッキングコードを使用されている方は、当然変更しなければなりません。しかし、大規模サイトの場合などはアクセス解析担当者とコード実装者は違うことも多く、エンジニアさんにお願いしなければなりません。「え〜、前変えたばっかじゃん！」などと言われるかもしれません。そんな時にアクセス解析担当者はトラッキングコード変更のメリットを提示しなければなりませんね。Analytics 公式ブログでは、非同期トラッキングコードの利点を以下のように説明しています。
-  ブラウザの実行順序改善によるページの読み込み時間高速化 データの収集・精度の向上 JavaScriptが完全に読み込まれていなかったときの依存性からくるエラーの除去
-― Google Analytics launches asynchronous tracking - Analytics Blog   てな感じで3つ挙げられているので、ひとつひとつ確認していきましょう。
-読み込み時間の高速化 これが、非同期トラッキングコード最大の利点なのではないでしょうか。やはり、Googleのランキングアルゴリズムに読み込む速度が加わった手前、自社サービスがボトルネックとなっていては示しがつきませんしね。
-非同期トラッキングコードについて説明していくのですが、まず前提知識としてページの読み込まれ方について解説します。HTTP/1.1の仕様に「ひとつのホスト名（EX: www.t32k.com, img.t32k.comなど）に対して並列ダウンロードできるコンポーネントは数は2つまで」と制限されています。（実際のブラウザ実装は6つとかだけど、IE6,7は2つまで）
-上記のグラフは簡単なモデルですが、すべて同じホスト名から読み込んでいます。まず、HTMLファイルが読み込まれ、画像などのコンポーネントが2個ずつ読み込まれていきます。
-このとき、同じホスト名から読み込んでいる外部JavaScriptファイルがページの先頭で読み込まれていた場合はどうなるでしょうか？それを表したのが次のグラフです。
-どうでしょうか。仕様どおりなら「script + img」と並列に読み込まれるはずですが、そうはならずにscriptファイルひとつしか読み込まれていません。つまり、scriptファイルを最初に読み込むでしまうとダウンロード・レンダリングが止まってしまいます。そのため、ハイパフォーマンスWebサイト、高速サイトの実現のための14のルールのひとつ「ルール6：スクリプトは最後に置く」というものがあります。
-このような理由から、非同期以前のトラッキングコードはの直前に置くことが推奨されています。出来る限りページ最下部に置くことでダウンロード・レンダリングを止めないようにしています。上記のグラフのような感じですね。ページを表示するために必要なコンポーネントはscriptの手前ですべて読み込まれているのでこれが最善策なのかなと。
-しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、www.google-analytics.comから読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。
-async属性に関して ga.type = &amp;quot;text/javascript&amp;quot;; ga.async = true;  話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。
-続・ハイパフォーマンスWebサイトでは、async属性を使わなくてもブラウザの実行をブロックしないスクリプトの読み込みテクニックとして以下の6つを挙げています。
- XHR eval XHR インジェクション iframe スクリプト Script DOM要素 Script Defer document.writeによるSCRIPTタグ書き出し  今回の非同期トラッキングコードではSCRIPT要素をDOMを使って生成することで実現しています。なので、ほとんどのブラウザで非同期で読み込むことが可能です。async属性を記述しているのは明示的に非同期で読み込むことをブラウザに通知するためとGoogle Code Blogには書いてあります。
- HTML5 “async” attribute in this part of the snippet.</description>
-    </item>
-    
-    <item>
-      <title>Google AnalyticsでSafariのバージョンを確認するフィルタ</title>
-      <link>https://t32k.me/mol/log/safari-version-number-filter/</link>
-      <pubDate>Thu, 04 Mar 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/safari-version-number-filter/</guid>
-      <description>Safariのシェア並びにバージョン別のシェアが知りたくて、Google Analyticsで確認してみたらびっくり、バージョンじゃなくてビルド番号なんだね、こやつは。
-ユーザー &amp;amp;gt; PC環境 &amp;amp;gt; ブラウザ &amp;amp;gt; Safari
-こんなんわかんないよヽ(`Д´ﾒ)ﾉ ﾌﾟﾝｽｶ！ってことで、これをなんとかフィルタで書き換えたい欲望に駆られました。Wikipediaで確認してみると、どうやら410番台が2.x系、520番台が3.x系、530番台が4.x系だと分かる。1.x系はちょっとごちゃごちゃしているのと、シェアも少ないだろうということでスルーの方向で。
-で、書いてみたフィルタがこれ。
-Analytics 設定 &amp;gt; プロファイル設定 &amp;gt; 新しいフィルタを作成
-  // 4.x系 ^53(.)+
-// 3.x系 ^52(.)+
-// 2.x系 ^41(.)+ 検索する文字列 をバージョンごとに上記のように変更して、フィルタを作らなきゃいけないのがめんどくさい。適用してみたこれ↓
-数日後、適用されたプロファイルがこれ↓（3分間クッキングみたい）
-だいたいのシェアが確認できます。僕のやりたかったこれ！一応満足。 反省点 まぁ、アドバンスフィルタ の 次の文字を含む で上記の正規表現を入力したら、バージョン毎のセッション数が出るので、出た数値をExcelで円グラフにすれば早いですｗ
-フィルタで加工してしまえば、もう元のデータに戻せないので汎用性を考えるとあまりおススメしません。今回僕はフィルタの勉強のためにしたのが大きいです。Safari 5なんてものが出たらまたフィルタかけないといけませんしね。
-Google Analytics Data Export API が使えたら一番スマートですかね。勉強します&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Google Analyticsの(other)とはなんぞや？</title>
-      <link>https://t32k.me/mol/log/google-analytics-other-entry/</link>
-      <pubDate>Fri, 20 Nov 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/google-analytics-other-entry/</guid>
-      <description>アクセス解析してたら、どうもデータの取れていないページがある事に気づいた。確かに該当のページは他のページと比べてあまり見られてなさそうなページなので、もしかして、はしょられているの？なんて思いながらGoogle Analyticsのそこらへんの仕様について調べてみた。
-というのも、データが取れていないのなら取れていないでいいんだけど、こっちとしてはなぜ取れていないのか説明できないとアクセス解析ツールを使う他部署の皆さんが不信感を抱いてしまう。｢こんなうさんくさいツール信用できっかよ｣なんて事になったら困りものだ。
-そうゆことで、最初に目をつけたのがトラッキングコードがおかしくないか。うん、基本ですね。目視でちゃんと正しいトラッキングコードになっていることを確認。てか、テンプレートページに入れてあるので、該当のページだけおかしくなるというのは考えられない。
-続いて、HTTPヘッダーでGIFリクエストされていることも確認。GAサーバーに情報は送られているのは確かなようだ。
-つまり、情報が送られて表示するまでの間が問題かと思い、次にフィルタに着目。フィルタはほんとうに怖いね。試しに何にもフィルタをかけていないプロファイルを新しく作成し、該当のページにアクセスしてみた。一日後、うん記録されてないね。フィルタが原因ではなかった。
-困った。だいぶ困った。そしたらこんなヘルプ記事見つけた。
- 一日で50,000ページ（または仮想ページ）以上をトラッキングしていませんか？ Google AnalyticsはWebサイトの全ての情報を収集し、一日つき50,000ページまでページビューで分類されたレポートを表示します。残りのページはレポート上では (other) という名前のエントリに集約されます。トラフィックの少ないページの詳細なレポートを見るためには、トラフィックの多いページを除くフィルタをかけた新しいプロファイルを作成する必要があります。こうすることで、効果的に残ったページを50,000URLs内に含めておけます。
- そんなん知らないよ〜＞＜ 試しに1日分のデータ見たら確かに49,999ページ分しかなかった。
-(other)は前々から気になってたけど、こんなところで理解するとは思わなかった。つまり、今回の現象はPV数が少ないページが記録される前に、他のPVの多いページが50,000ページ記録されて、それ以降は(other)にまとめられちゃったから、｢上位のコンテンツ｣から該当のURLで検索してもひっかからなかったってことね。
-ということは、50,000ページ記録される前に該当のページにアクセスすれば記録されるんじゃねと思ったので、日付が変わる12時過ぎにアクセスしたけど、記録されなかった。たぶん、50,000ページのリセットのタイミングが日付と違うのか、それともPV数の多いページから優先的に処理されるのかもね。
-ともかく、PV数の少ないページのレポートを見るためにフィルタで細分化されたプロファイルから確認しないといけないって他部署の人には説明すれば良いと言うわけだ、てかその前にそんなトラフィックあるんなら有償ツール使えってことですね&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Google Analyticsの『サイト上のデータ表示』は信頼できるのか？</title>
-      <link>https://t32k.me/mol/log/google-analytics-site-overlay/</link>
-      <pubDate>Thu, 30 Jul 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/google-analytics-site-overlay/</guid>
-      <description> 『サイト上のデータ表示』とは『コンテンツ』ナビゲーションの下にある機能で、ページにあるリンクのクリック率がわかるというものです。小難しい数字の羅列のレポートとは違って、どこが押されているのか直感的に分かる素晴らしい機能ですが、個人的には毎回ちょっと違和感を覚える結果だったので何となく信用していませんでした。
-先日、会社の方でこの機能を見たらクリック率がすべて0%になっている、ありえない状態を発見したので、この『サイト上のデータ表示』はどのような仕組みで動いてるのか気になったので調べてみました。
-なぜクリック率がすべて0%になったのか？  URL の書き換え フィルタを使用して URL を書き換ると、実際の HTML に記述されたリンクの URL とコンテンツ サマリー レポートの [ナビゲーション サマリー] に表示されるフィルタで書き換えられた URL は一致しなくなります。 この場合、サイト上のデータ表示レポートは、HTML のリンクとレポートに記録されたデータを正しく関連付けられなくなります。
-  About In-Page Analytics - Analytics Help  Analyticsヘルプに見たらあっさり解決しましたｗ
-確かに会社の方では複数のサブドメインをひとつのプロファイルでまとめていたので、ドメインを表示させるアドバンスフィルタ（通常のURL表示はドメイン以下のみを表示する仕様なので）をかけてありました。でもねもとはと言えばこれを見てやったのに&amp;hellip;
- クロスドメイン トラッキングについて - アナリティクス ヘルプ  言われたとおりやっただけなのに、ほかの機能が使えなくなるのはどうかなと思ってしまいます。まぁ無料だからね..とはいえ、もしフィルタを使ってなかったとしても『サイト上のデータ表示』は少々癖があります。
-同一URLリンクはまとめてカウントされる 例えば、同じページ上に『トップページへ戻る』リンクがサイトロゴ画像とテキストリンクであった場合、それらは同じURLなので、まとめてカウントされます。（実際はサイトロゴが6回、テキストリンクが4回クリックされたとしても、GA上ではどちらもクリック数10と表示されます。）
-（A要素のhref属性で記述された）標準的なリンクしか計測できない
-ざっと挙げる限りこれだけ計測できないリンク（というかクリックイベント）がある。
- JavaScriptリンク（onclick属性でwindow.openなど） pageTrackerで作成した仮想ページビュー（_trackPageview()など） URLリダイレクト サブドメインのページへのリンク 外部サイトへのリンク ダウンロードファイル(PDFに直リンクとか) フレームへのリンク フォームのinputボタン Flashコンテンツ イメージマップ（AREA要素のhref属性なので）  URLの書き換えの項を見る限り、[ナビゲーション サマリー]のデータを基にしているのかもしれない。だから、A要素のhref属性でも飛び先にga.jsがインクルードされていない外部サイト、ダウンロードファイルなどは計測されないのね。結局、使いどころとしてはあまりやんちゃなことしてない静的ページくらいしか使えないのかもしれない。
-同じような機能で有料のCrazyEggがあるので、オーバーレイで直感的に確認したいという方はそちらの方の使用を薦める。ただ、CrazyEggもCSSの兼ね合いによっては不具合が予想されるのでそこは注意したい。
- Crazy Egg - build heat maps and track clicks  参考サイト  Site Overlay Report: Google Analytics Power User Part 2 | Cardinal Path Blog  </description>
-    </item>
-    
-    <item>
-      <title>複数のGoogle Analytics Tracker Codeを併用する</title>
-      <link>https://t32k.me/mol/log/multi-google-analytics-tracker-code/</link>
-      <pubDate>Mon, 22 Jun 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/multi-google-analytics-tracker-code/</guid>
-      <description>『Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は_gat._getTracker()で初期化する際に、変数を2つ用意してあげればいいってこと。
-ちょうど、『SIGMA DP2 : Special Contents』のサイトで似たようなコード見つけたので、挙げておく。
-&amp;lt;script type=“text/javascript”&amp;gt; &amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(“UA-xxxxxx-1”); pageTracker._trackPageview(); var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”); pageTracker2._trackPageview(); } catch(err) {} &amp;lt;/script&amp;gt;  pageTrackerとpageTracker2に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。
- Digital Intelligence Solutions to Empower Data Driven, Confident Decision Making | Cardinal Path  上記にサイトはこんな感じのコードだった。
-&amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxx-1&amp;quot;); var isDev = window.location.href.search(/vkistudios.net/); if (isDev &amp;gt; -1) pageTracker._setDomainName(&amp;quot;.vkistudios.net&amp;quot;); else pageTracker._setDomainName(&amp;quot;.vkistudios.com&amp;quot;); pageTracker._setLocalRemoteServerMode(); pageTracker._initData(); pageTracker._trackPageview(); } catch (e) {} //event tracking profile try { var eventTracker = _gat.</description>
-    </item>
-    
-    <item>
-      <title>pageTracker._initData関数も廃止予定</title>
-      <link>https://t32k.me/mol/log/pagetracker-initdata/</link>
-      <pubDate>Fri, 29 May 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/pagetracker-initdata/</guid>
-      <description>数ヶ月前のGoogle Analyticsコードアップデートでスニペットにtry/catch文が挿入されたってことを書いた。でも、よくよく見たらpageTracker._initDataの関数もなくなっていない？ってことに気づいた。
-var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); pageTracker._initData(); pageTracker._trackPageview();  少し前のga.jsのコードはこんな感じだったともう。
-try { var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); pageTracker._trackPageview(); } catch (err) { }  initData()ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。
-Analytics Tracking APIに載っていた。
- _initData() _initData()Deprecated. initData() now executes automatically in the ga.js tracking code. Initializes or re-initializes the GATC (Google Analytics Tracker Code) object.
- Deprecatedってことは廃止予定ってことか。なんかga.js内で自動的に実行しているらしい。 あーすっきり！しかしまぁ、もうちょっとアナウンスしてくれてもいいんだと思うんだけどな&amp;hellip;</description>
-    </item>
-    
-    <item>
-      <title>Google Analyticsで都道府県別セッションを調べる</title>
-      <link>https://t32k.me/mol/log/google-analytics-state-report/</link>
-      <pubDate>Fri, 20 Mar 2009 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/google-analytics-state-report/</guid>
-      <description>Many thanks to: カスタムレポートを使って都道府県別セッションを調べる
-ほぼ受け折りで恐縮ですが、自分でもやってみたかったので&amp;hellip;都道府県別セッション数をカスタムレポートで作ってみようっていう主旨。
-GAの左メニューから ユーザー &amp;gt; 地図上のデータ表示 からだと以下のように表示されます。国別になってます。JapanをクリックするとShinjukuやShibuyaなどが表示されます。違うんだ、僕の知りたいのは都道府県別のセッションなんだ！
-ということで、カスタムレポートを作成♪
-カスタムレポートを新規作成をクリックすると以下のようなページが表示されますので、まずはタイトルを「都道府県別セッション数」にでも変更しましよ。次に、指標 &amp;gt; 利用状況 &amp;gt; セッション数 を選んでドラッグアンドドロップ！
-次に、ディメンションを設定しましょう。ディメンション &amp;gt; ユーザー &amp;gt; 地域 をまずドラッグアンドドロップ。デフォルトのはここが国/地域になってるからあかんのですね。んで、これだけではつまらないのでサブディメンションに都市も追加してレポートを作成。
-そうすると以下のように、都道府県別で表示されてますね。（意外と奈良県民に好評なようですね、このブログ）
-上記でTokyoをクリックすればドリルダウンで各都市別のセッションも確認できます。
-単純なカスタムレポートですが、これにコンバージョンなども組み合わせれば有益なレポートが作成できますね。</description>
-    </item>
-    
-    <item>
-      <title>デフォルトページとindex.html</title>
-      <link>https://t32k.me/mol/log/default-and-index/</link>
-      <pubDate>Sat, 22 Nov 2008 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/default-and-index/</guid>
-      <description>Google Analytics(以下、GA)でのプロファイル設定の『デフォルトのページ』に違和感、というかイマイチよくわかならない。
-『デフォルトのページ』に関してのGoogleヘルプページ内容はこちら↓ デフォルトのページ [デフォルトのページ] は、ドメイン上のページが指定されていない場合に、サーバーがデフォルトで返すウェブ ページのことです。 たとえば、「www.yourdomain.co.jp」と入力すると、サーバーから index.html ページが返される場合は、index.html がデフォルトのページとなります。 Analytics の [プロファイル設定] ページには、デフォルトのページを指定する欄があります。 Google Analytics では、この情報を使用して www.yourdomain.co.jp と www.yourdomain.co.jp/index.html のヒットが実際には同じページであると判断します。デフォルトのページが指定されていない場合、これら 2 つのエントリは別のページとしてレポートに集計されます。 デフォルトのページ - Google Analytics ヘルプ センター www.yourdomain.co.jp入力したらindex.html返すの当たり前じゃん、最初からそんなん指定しといてよと思った。だがそうでも、ないらしいのね。こんな記事見つけた↓ 何故、最初からデフォールトのページを「index.html」にしてしまわないのか。それは、ウェブサーバーの設定で、デフォールトのページを変えられるから。 例えば、Apache のデフォールトは「index.html」だけど、IIS (Microsoft のウェブサーバー) のデフォールトは「Default.htm」だったり「index.htm」だったりする。「main.html」をデフォールトのページに設定してる人もいるかもしれないし、もっと変な名前をデフォールトにしてるかもしれない。若しくは、「○○/」と「○○/index.html」を同じとして数えたくない人もいるかもしれない。 clmemo@aka: Google Analytics のデフォールト・ページ なるほど、そういうことか。合点がいったよ。で、GAで『デフォルトのページ』をindex.htmlにしたわけです。そしたら、GA上では、www.example.com/などスラッシュで終わってるURLはすべてwww.example.com/index.htmlという表記でカウントされるんですね。
-当たり前というか当たり前だけど。。。すべてのページをでディレクトリ作ってindex.htmlで作ったとしたら、おしりが全部index.htmlなので、見にくいじゃん。こんなふうに↓
+&lt;p&gt;そういえば思い出したが、昔、何百万という商品ページがあったのをカテゴリーごとに、&lt;a href=&#34;https://t32k.me/mol/mol/log/google-analytics-on-large-site/&#34;&gt;リクエストURIを書き換えてグルーピング&lt;/a&gt;したのを思い出したが、今はもっと便利になっている。&lt;/p&gt;
 
-ということで、デフォルトのページは設定しないことにした。そしたらwww.example.com/とwww.example.com/index.htmlは、別々のURLで扱われるじゃないか！と思うけど。index.htmlでアクセスししてきた人は/にリダイレクトすればいいんだ。で.htaccessでこんなん見つけた↓ Options +FollowSymLinks RewriteEngine on RewriteCond %{THE_REQUEST} ^./index.html RewriteRule ^(.)index.html$ http://www.example.com/$1 [R=301,L] ※www.example.com内のすべてのディレクトリで、「/index.html」が「/」に正規化されます。 index.html「あり・なし」のURL正規化～301リダイレクト応用編 » 海外SEO情報ブログ・メルマガ ようやく、自分の思い通りになったけど、GAで表示する出力を変えるだけなら、アドバンスフィルタとか使えば良かったのかな、フィルタ系全然分からないな。もっと勉強します。。。</description>
-    </item>
-    
-    <item>
-      <title>【翻訳】ブロガーのための５つのGoogle Analyticsレポート</title>
-      <link>https://t32k.me/mol/log/google-analytics-reports-for-blogger/</link>
-      <pubDate>Wed, 01 Aug 2007 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/google-analytics-reports-for-blogger/</guid>
-      <description>Original：Top 5 Google Analytics Reports for Bloggers（2007-05-31）
-ほとんどのブロガーが知っているように、Google Analytics（以下、GA）はブログのアクセス解析をする上でとても便利で、なおかつ無料だ。あいにくGAはAdWordsの広告主のためにデザインされたものなので、たいていのブロガーにとっては必要以上に多くの情報と対峙しなければならない。キャンペーンやランディングページのレポートが雑然と表示されていると、マイレポート以外は見なくても良いのではないかとさえ思ってくる。
-しかし、ひるまないで欲しい。GAこそ君のブログを改善してくれる最適なツールなのだ。ここに、君が実際に役に立つであろうレポートリスト（とその場所）がある。
-1. 参照サイト（トラフィック直下） もし君のブログがはてななどのソーシャルメディアに深く関わっているのなら、とりわけ、このレポートは重要だろう。なぜなら君のブログの訪問者がどこから来ているのか分かるからだ。
-2. キーワード（トラフィック直下） もし君のブログがSEOの恩恵を受けている、もしくはSEO対策しているのなら、このレポートではそのキーワードが何なのか、どのくらいの訪問者をもたらしたのか把握できるだろう。
-3. タイトル別のコンテンツ（コンテンツ直下） 私たちはどの記事が読まれているのかすべて知りたいし、このレポートはそれを教えてくれる。縦列の”閲覧時間”と”直帰率”は見ておきたい。閲覧時間が短く高い直帰率なら、そのページは読者を君のブログ外へ追いやっていることを意味しているだろう。このレポートをさっと眺めるだけでも人気のある記事が書けるんじゃないだろうか。
-4. 新規ユーザーとリピーター（ユーザー直下） 誰でも自分にブログのファンになってくれたかどうか知りたいし、このレポートはまさしくそれにふさわしい。確かにこのレポートは君のブログのフィード登録者数を教えてくれないけど、GoogleはRSSリーダーを持っているし、Feedburnerを買収しようとしている（した）から、そう遠くないうちにこのレポートにブログフィード登録者数を追加するかもしれない。
-5. 地図上のデータ表示（ユーザー直下） このレポートを役に立てるには国レベルまで掘り下げる必要があるだろう。しかし、ブログ読者が世界のどこにいるか知ることは重要な情報に違いない。君は自分が想定したよりも読者がより国際的もしくは局所的だと理解し、どういった内容を書けばよいか、何時投稿すればよいのか理解するだろう。訪問者全員がカリフォルニアからアクセスしていますか。つまり、彼らのRSSリーダのトップに君の記事を表示させるには太平洋標準時8:00に記事を投稿すればよいわけだ。
-たぶん、最も役に立つのは新しいGAのインタフェースで、以上に上げたレポートをマイレポートにすべて登録することできる（左上にある『マイレポートに登録』ボタン）。それで、君は役に立つ情報を見逃すことなく楽できるということだ。</description>
-    </item>
-    
-  </channel>
+&lt;p&gt;例えば、このブログならひとつひとつの記事がページになり、グループはいかようにも設定できるだろう。2016年、2015年、2014年&amp;hellip;という&lt;strong&gt;年次&lt;/strong&gt;でグルーピングするのもひとつの方法だろう。たいていのブログサイトなら記事の公開年ごとにディレクトリを区切って管理しているかもしれないが、あいにく私のブログではURLが長くなるのは嫌だったので、そうゆうURL構成になってはいない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/1027-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;コンテンツグループのグルーピングはそういったURLやタイトルの規則性を利用してもできるが、トラッキングコード別にグループ化もできる点が素晴らしいと思う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;ga(&#39;set&#39;, &#39;contentGroup1&#39;, &#39;{{.PublishedYear}}&#39;); 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記のように、トラッキングコードを記事に仕込むことでグルーピングできる（&lt;code&gt;{{.PublishedYear}}&lt;/code&gt;部分は何かしらの変数で）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/1027-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;こんな具合に&lt;code&gt;contentGroup1&lt;/code&gt;が&lt;code&gt;year&lt;/code&gt;というグループになっている。&lt;/p&gt;
+
+&lt;p&gt;トラッキングコードでグルーピングできるということは、なんでもできるということだ。例えば、その記事の文字数をカウントしてGAトラッキングに渡して文字数ごとにグルーピングしたり、コメント数や、ソーシャルシェア数別に分けても良いだろう。可能性は無限大だが、解析できるグループのスロット数は5つまでなので、お気をつけて。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、ページに対して新たな切り口で解析できるのは良いと思った。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analytics トラッキング スニペット再考（2016）</title>
+            <link>https://t32k.me/mol/log/use-async-attribute/</link>
+            <pubDate>Tue, 30 Aug 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/use-async-attribute/</guid>
+            <description>
+
+&lt;p&gt;最近、またGoogleアナリティクスの面倒を見ている。で、GAのドキュメントを見ていたら最近のイケてるトラッキングスニペットはこれだぜ！みたいなこと書いてあった。やれやれ、またかと思い、筆をとったのです。&lt;/p&gt;
+
+&lt;p&gt;トラッキングスニペットの移り変わり激しいもので、最近だとこうゆうのが一般的だろう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
+
+ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;);
+ga(&#39;send&#39;, &#39;pageview&#39;);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最近のおすすめはこれだとか。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
+ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;);
+ga(&#39;send&#39;, &#39;pageview&#39;);
+&amp;lt;/script&amp;gt;
+&amp;lt;script async src=&#39;//www.google-analytics.com/analytics.js&#39;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべて&lt;code&gt;async&lt;/code&gt;属性が担っているので、とってもすっきり。&lt;/p&gt;
+
+&lt;p&gt;非同期読み込みの利点は過去の記事を参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/asynchronous-tracking/&#34;&gt;Google Analytics トラッキング スニペット再考（2010）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/defer-parsing-of-google-analytics/&#34;&gt;Google Analytics トラッキング スニペット再考（2012）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://caniuse.com/#search=async&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0830-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;async&lt;/code&gt;属性の対応状況なのだけど、IE9以前とかを気にしなくてよいのなら、このスニペットに置き換えて良いかなと思う。&lt;/p&gt;
+
+&lt;p&gt;個人的に、2つのトラッキングスニペットは記述の仕方が違うだけで。やってることは同じなんだろうと考えていたのだけど、実はそうではないらしい。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;上記の JavaScript トラッキング スニペットにより、すべてのブラウザでスクリプトが確実に読み込まれ、非同期的に実行されますが、最新のブラウザでは、スクリプトをプリロードできないという欠点があります。この問題の対策として、次のような代替の非同期トラッキング スニペットを使用することで、最新ブラウザでのパフォーマンスをわずかに向上させることができます - &lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/analyticsjs/?hl=ja&#34;&gt;サイトに analytics.js を追加する | ウェブ向けアナリティクス&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;『&lt;strong&gt;わずかに向上させる&lt;/strong&gt;』ってどうゆうことだってばよ？、『&lt;strong&gt;プリロード&lt;/strong&gt;』ってなによ？と思い、また筆をとってしまったのです。&lt;/p&gt;
+
+&lt;p&gt;ググったら、myakuraが書いてた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;script async を使えば、非同期で読み込まれるし、プリロードスキャナの恩恵にも預かれるとのこと。- &lt;a href=&#34;http://myakura.hatenablog.com/entry/2014/10/14/061713&#34;&gt;script asyncでJavaScriptの非同期読み込みを - fragmentary&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;preloadscanner&#34;&gt;PreloadScanner&lt;/h2&gt;
+
+&lt;p&gt;『プリロードスキャナ』ってなによ！&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/-GWWQ9jKgxA&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;わかりやすいYouTubeがあった。&lt;/p&gt;
+
+&lt;p&gt;本来、ブラウザはscript要素を見つけるとDOMの構築をやめ、読み込み・実行が終わるまで待つ。JavaScriptでDOMを変更することができるからね。つまり後続のリソースの読み込みは本来ブロックされるはずだ。しかし、現在のブラウザではJavaScript+CSSのように並列に読み込みが可能である。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.browserscope.org/?category=network&amp;amp;v=top&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0830-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これがPreloadScannerの仕事らしい。PreloadScannerは副次的なパーサーみたいなもので、メインのパーサがscript要素を見つけてパースを止めると、PreloadScannerが実行され後続のリソースを見つけ読み込む。こいつのすごいところは、画像よりもCSS/JSを先に読み込みなどの優先度もつけてくれるところ。&lt;/p&gt;
+
+&lt;p&gt;では、普通にscript要素を読みこめばいいじゃないか！と思われるが、DOMの構築はブロックされているので、レンダリングが完了する時間が遅くなるからダメ！&lt;/p&gt;
+
+&lt;p&gt;では、Script要素をインジェクトするやり方でもいいジャマイカ！と思われるが、それだどCSSOM（CSSオブジェクトモデル）の構築をまたなけばならない。なぜならJavaScriptでスタイルの変更を許容しているから、JavaScriptはCSSがどうゆう状態か知らなければならない。これがasync属性だとCSSOMの構築を待たなくても良い。この部分、GAのスニペットで言う『&lt;strong&gt;わずかな向上&lt;/strong&gt;』ということだろう。個人的には最近のWebアプリの見た目はリッチになってきてCSSのファイルサイズも増えてるので、やっておいて損はないと思う。&lt;/p&gt;
+
+&lt;p&gt;またscript要素をインジェクトするやり方だと、リソースのパスはインラインJavaScriptの中にある。これだとPreloadScannerさんが見つけれらない。なので、描画に関係ないJavaScriptなら、&lt;code&gt;async&lt;/code&gt;属性で読みこめば、『&lt;strong&gt;プリロード&lt;/strong&gt;』の恩恵を受けられるということだ。PreloadScannerの実装自体は2008年ごろwebkitで実装されているので、そんなに新しい技術でもない。頭もすっきりした。&lt;/p&gt;
+
+&lt;p&gt;ブラウザさんに敬礼！ブラウザさんに身を委ねよ！&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/&#34;&gt;Script-injected &amp;ldquo;async scripts&amp;rdquo; considered harmful - igvita.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/&#34;&gt;How the Browser Pre-loader Makes Pages Load Faster - Andy Davies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webkit.org/blog/166/optimizing-page-loading-in-web-browser/&#34;&gt;Optimizing Page Loading in the Web Browser | WebKit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript?hl=ja&#34;&gt;JavaScript のインタラクティブ機能を追加する | Web Fundamentals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=ja&#34;&gt;オブジェクト モデルを構築する | Web Fundamentals&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>サイトの速度</title>
+            <link>https://t32k.me/mol/log/no-more-stopwatch/</link>
+            <pubDate>Mon, 15 Apr 2013 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/no-more-stopwatch/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/wwarby/3296379139/&#34;&gt;Stopwatch | By wwarby Flickr!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こんにちわ、あなたの&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;、ごきげんいかがでしょう。みなさんはスマホWebアプリ作っていて、自分の作ったものは速いのか遅いのか気になりませんかね？僕は木に泣くりまくりすてぃです。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけなもんで、表示速度とか計測してみようって話になるじゃないですかー、まさかストップウォッチで計測しないとは思うんですけどー、一応どのようにスピードを計測、そのアプリの性能を評価すればよいのか一緒に考えてみましょう。&lt;/p&gt;
+
+&lt;p&gt;僕が昔、ゴメス・コンサルティング（現：&lt;del&gt;コンピュウェア&lt;/del&gt; モーニングスター） の&lt;a href=&#34;https://t32k.me/mol/log/gomez/&#34;&gt;セミナーに行ってきた時の話&lt;/a&gt;ですが、ここの会社はサイトパフォーマンスの計測サービスを提供していて、計測で重要なのは『&lt;strong&gt;定期的かつ継続的かつ同手法にてパフォーマンス測定&lt;/strong&gt;』と言っておられました。&lt;/p&gt;
+
+&lt;p&gt;サービスリリース時はスモールスタートなのでアプリもコンパクトですからスピードは速めかもしれません。しかし月日がたつにつれて、多くの機能が実装され、それに伴いサイトのスピードが落ちてはなんの意味もありません。計測した日がたまたま速かったのかもしれませんし、たまたま遅かったのかもしれませんので、定期的かつ継続的にかつ計測する必要性があります。また、1回目と2回目の測定条件（環境）が違ったりしては参考になりません。ましてや数ms単位でしのぎを削る我々にとってこの辺はシビアでかつ正確であってほしいわけです。&lt;/p&gt;
+
+&lt;p&gt;ですから、ストップウォッチや計測コードを毎回差し込むといった人間の手による対応ではコストが高すぎますし不正確な計測しか出来ません。そこですべてを自動化し計測する必要性があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;すべてを自動化ってそんなことできるの&#34;&gt;すべてを自動化ってそんなことできるの？&lt;/h2&gt;
+
+&lt;p&gt;大抵のサイトに実装されているであろうGoogle アナリティクスを使えば可能です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/file/2013/04/s11.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上記Google アナリティクスのレポートから『&lt;strong&gt;平均表示時間&lt;/strong&gt;』等を確認できます。『平均表示時間』と書いてありますが、英語メニューでは『Avg. Page Load Time』ですので、『平均読み込み時間』が適切かと思われます（ラベリングおかしい（●｀ε´●））
+&lt;blockquote&gt;平均表示時間 - ページの読み込みにかかった平均時間（秒）&lt;/p&gt;
+
+&lt;p&gt;ga:avgPageLoadTime = (ga:pageLoadTime / ga:pageLoadSample) * 0.001
+平均表示時間（秒）= ページの読み込みの合算値 (ミリ秒）÷ サンプル数 × 0.001
+&lt;p style=&#34;text-align: right;&#34;&gt;&lt;a href=&#34;https://developers.google.com/analytics/devguides/reporting/core/dimsmets/sitespeed&#34;&gt;Site Speed - Dimensions &amp;amp; Metrics Reference &lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+と言った計算式で算出されております。これであればサイトの全ページを計測でき、なおかつ平均なので、ある程度ならした数値を得ることができます（外れ値は別途カスタムレポートとかで除外することもできます）し、パフォーマンス改善もPVの多いとこから対応したほうが効率的だということが理解できるでしょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;span style=&#34;color: #333399;&#34;&gt;[追記]&lt;/span&gt;&lt;/strong&gt;　コメントに指摘されたように、値にばらつきがあるような場合（凹凸形状な分布）だとやはり、中央値を確認すべきなので、&lt;strong&gt;[分布]&lt;/strong&gt;タブをクリックすれば、どの値の範囲に多いのか確認できます。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;https://t32k.me/mol/static/blog/2013/04/fig.png&#34;&gt;&lt;img class=&#34;aligncenter size-large wp-image-4889 fig&#34; title=&#34;Distribution&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/fig.png&#34; alt=&#34;&#34; width=&#34;540&#34; height=&#34;340&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+またディレクトリごとで読み込み時間の違いを確認したり、端末ごとでの読み込み時間を確認するといったことも可能でしょう。&lt;/p&gt;
+
+&lt;p&gt;さて、この読み込み時間ってのはどこから取ってきてるのかと言いますと、&lt;a href=&#34;https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html&#34;&gt;Navigation Timing&lt;/a&gt;という仕様を実装しているブラウザからです。ユーザーがページ遷移するとネットワークの接続、サーバーレスポンス、ブラウザ読み込みにかかった時間が自動的にブラウザに記録され、その情報をGAがサーバーに送ってるといった感じです。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;img class=&#34;size-full wp-image-4848 aligncenter&#34; title=&#34;Before&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/f1.png&#34; alt=&#34;&#34; width=&#34;640&#34; height=&#34;300&#34; /&gt;&lt;/p&gt;
+これまでというか、一昔前まではそうゆうことを計測しようと思うと上記のようなコードを挿入して計測していた気がします。これをページの読み込み時間と定義してしまうのは、いささか問題があります。Aのページの読み込みを考えれば、当然Bとなど他のページから遷移したと想定され、Bのページのリンクを押してから、Aのベージの読み込み完了までが本来の意味での（体感的な）読み込み時間と考えるべきでしょう。つまり、上記のコードではネットワークやサーバーのやり取りの部分が考慮されてないことを意味します。またそもそも&lt;a href=&#34;http://ejohn.org/blog/accuracy-of-javascript-time/&#34;&gt;JavaScriptでの時間計測は不正確&lt;/a&gt;ということも懸念されます。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-4836&#34; title=&#34;After&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/f2.png&#34; alt=&#34;&#34; width=&#34;640&#34; height=&#34;340&#34; /&gt;&lt;/p&gt;
+より体感に近い読み込み時間を考慮すれば上図のような流れを計測すべきです。このような計測をJavaScriptだけで行おうとするとやや複雑な処理を記述しなければなりません。そんなめんどくさいことしなくても計測できるようになったのが、Navigation timingです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/static/blog/2013/04/s21.png&#34;&gt;&lt;img class=&#34;size-large wp-image-4838 fig&#34; title=&#34;技術&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/s21.png&#34; alt=&#34;&#34; width=&#34;540&#34; height=&#34;445&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;もう一度、GAのレポート（[コンテンツ] &amp;gt; [サイトの速度] &amp;gt; [ページ速度]）を見てみると、『平均表示時間』の以外にも様々な指標が確認できるでしょう。
+&lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;平均リダイレクト時間&lt;/strong&gt;（ページを読み込む前にリダイレクトにかかった平均時間。リダイレクトがなければ0になる）&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;ドメインの平均ルックアップ時間&lt;/strong&gt;（ページのDNS名前解決にかかった平均時間）&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;サーバーの平均接続時間&lt;/strong&gt;（サーバーとのTCPコネクション確立に要した平均時間）&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;サーバーの平均応答時間&lt;/strong&gt;（サーバーがユーザーリクエストに応答するまでの時間。ユーザーの所在地からサイトのサーバーにアクセスするネットワークの通信時間も含まれる）&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;ページの平均ダウンロード時間&lt;/strong&gt;（ ページ（のみ）のダウンロードにかかった時間）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;strong&gt;[エクスプローラ]&lt;/strong&gt;タブの&lt;strong&gt;[技術]&lt;/strong&gt;にはネットワークとサーバーに関する指標がレポーティングされています。『平均表示時間』の大半がこの部分で占められていれば、フロントエンドエンジニアではなくサーバーサイドエンジニアに文句を言いましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/static/blog/2013/04/s3.png&#34;&gt;&lt;img class=&#34;size-large wp-image-4837 fig&#34; title=&#34;DOM速度&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/s3.png&#34; alt=&#34;&#34; width=&#34;540&#34; height=&#34;445&#34; /&gt;&lt;/a&gt;
+&lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;平均ドキュメントインタラクティブ時間&lt;/strong&gt;（ドキュメントがパースされるのにかかった平均時間。このときDOMは完全に読み込まれてはいないが、ユーザー操作可能な状態。またユーザーの所在地からサイトのサーバーにアクセスするネットワークの通信時間も含まれる）&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;平均ドキュメントコンテンツ読み込み時間&lt;/strong&gt;（ドキュメントがパースされDOMContentLoadedを実行するのにかかった平均時間。このときDOMは読み込まれているがCSSや画像などのリソースが読み込みが完了しているわけではない）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;strong&gt;[エクスプローラ]&lt;/strong&gt;タブの&lt;strong&gt;[DOM速度]&lt;/strong&gt;にはドキュメント解析に関する指標がレポーティングされています。『平均表示時間』の大半がこの部分で占められていればDOMが複雑すぎるのでしょう。コーダーに文句を言いましょう。&lt;/p&gt;
+
+&lt;p&gt;平均ドキュメントインタラクティブ時間と平均ドキュメントコンテンツ読み込み時間はほぼ同義って思っていいでしょう（ここで差が出るケースがわからない）。&lt;/p&gt;
+
+&lt;p&gt;とりあえずこれらのレポートは特に手間を要することなくGAスニペットが挿入されていれば、サイトユーザーの1%のサンプリングレートで記録されるので、ほっといてもデータ溜まっていきます。1%じゃサイトの規模的に足りないって方は&lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApiBasicConfiguration#_gat.GA_Tracker_._setSiteSpeedSampleRate&#34;&gt;_setSiteSpeedSampleRate()&lt;/a&gt;を使えばサンプルレートを調整できます。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://support.google.com/analytics/answer/1205784?hl=ja&amp;amp;ref_topic=1282106&#34;&gt;サイトの速度について - アナリティクス ヘルプ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id=&#34;対応しているブラウザは&#34;&gt;対応しているブラウザは？&lt;/h2&gt;
+
+&lt;p&gt;さて、 このNavigation Timingに対応したブラウザってどんなもんなんでしょう。ヘルプには下記のように書いてありました。
+&lt;blockquote&gt;サイトの速度のトラッキングは、HTML5 Navigation Timing インターフェース対応のブラウザか、Google ツールバーがインストールされたブラウザからの訪問に対してのみ行われます。該当する主なブラウザには、Chrome、Firefox 7 以降、Internet Explorer 9 以降、Android 4.0 以降のブラウザと、Google ツールバーがインストールされた Internet Explorer の以前のバージョンなどがあります。&lt;/blockquote&gt;
+ほうほう、Navigation Timingに対応してなくても、PCだとGoogleツールバー入れてたらいいんだね。って、俺の知りたいのはスマホだ、iOSだ！ということで。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://caniuse.com/#search=Navigation%20Timing%20API&#34;&gt;&lt;img class=&#34;aligncenter  wp-image-4873 fig&#34; title=&#34;Navigation Timing&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/f9b438c86a9e68bc50b3b9b65b4fca5e.png&#34; alt=&#34;&#34; width=&#34;870&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+Can I use&amp;hellip;で見てみると、iOS全滅じゃん！Desktop Safariでさえ対応してないと見ると、Appleさんは対応する気がないんでしょうかね&amp;hellip;(´・ω・`)&lt;/p&gt;
+
+&lt;p&gt;とはいえ、&lt;a href=&#34;http://japanese.engadget.com/2013/04/02/android-4-0-55/&#34;&gt;Android4.0以降がバージョン別シェア半数&lt;/a&gt;を超えたとかニュースで言っておりましたし、今後のモバイルの主流になっていくの当然であり、十分な量のデータサンプルを収集することも難なくできるでしょう。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://www.browserscope.org/?category=network&amp;amp;v=top-m&amp;amp;ua=Android%202.3%2CAndroid%204%2CiPhone%205%2CiPhone%206&#34;&gt;&lt;img class=&#34;aligncenter  wp-image-4875 fig&#34; title=&#34;Browserscope&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/cad4f2acb23f9d4aa554d564aa920837.png&#34; alt=&#34;&#34; width=&#34;870&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+ また、Android4.0以降であればパフォーマンスの観点からいってもiOSとひけをとりません（むしろ4.0のほうがいいくらい）なので、Android4.0で集められたGAレポートのデータを暫定的にiOSでもこのくらいの読み込み時間かなーと考えといても良いかなと個人的には考えています。&lt;/p&gt;
+
+&lt;h2 id=&#34;もうちょっと詳しく&#34;&gt;もうちょっと詳しく&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming/Overview.html&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-4866 fig&#34; title=&#34;Navigation Timing&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/nt.png&#34; alt=&#34;&#34; width=&#34;870&#34; height=&#34;540&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+もうちょっと細かく、Navigation Timingの仕様を見てみましょう。上図は仕様書にも書いて有るNavigation Timingの概要です。なんかいっぱいタイミングがあってごちゃごちゃします。まぁこのように細かく分けることでどこがボトルネックか突き止めることができるってもんです。とはいえ覚えきれないので、もっと大雑把に考えたのが下図。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-4840&#34; title=&#34;three&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/f3.png&#34; alt=&#34;&#34; width=&#34;400&#34; height=&#34;340&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ブラウザー、ネットワーク、サーバーの登場人物は3人です。『読み込み時間』とひとくくりに言っても3つのカテゴリーに分けて考えることができます。つまり問題を整理して対応策を考えることできます。&lt;/p&gt;
+
+&lt;p&gt;さらに、ブラウザー、ネットワーク、サーバーで色分けし、先ほどのGAレポートの項目とNavigation Timingの項目を照らし合わせたのが下の図。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-4861&#34; title=&#34;f4&#34; src=&#34;https://t32k.me/mol/static/blog/2013/04/f4.png&#34; alt=&#34;&#34; width=&#34;750&#34; height=&#34;750&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;やっべーわかりやっしーちょーわかりやっしー。&lt;/p&gt;
+
+&lt;p&gt;とこのように、Google アナリティクスの『サイトの速度』を利用すれば、公正でかつ正確なサイトのパフォーマンス評価をすることが可能です。また、それに対する策も考えやすいといったように開発者にやさしい機能となっていますので、みなさんじゃんじゃん使ってみてください。&lt;/p&gt;
+
+&lt;p&gt;最後に地域が日本で、ブラウザーがAndroidのスマホ用のサイトの速度カスタムレポート作っときました。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://www.google.com/analytics/web/template?uid=tyEajMvPSySkw9VSN6vzMg&#34;&gt;Navigation Timing用カスタムレポート&lt;/a&gt;（スマホ用）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;最後にGAの『サイトの速度』レポートはできて日が浅く（そもそもNavigation Timing自体仕様が勧告でない）、データが集まりにくかったりかゆいところに手がとどかなかったりするのは致し方無いかないう印象です。もし、お金払ってでももっと正確なデータが欲しいという方は、&lt;a href=&#34;http://www.keynotesystems.jp/#!measurement-and-monitoring/c196n&#34;&gt;Keynote Systemsのような有料の計測サービス&lt;/a&gt;を利用するのもひとつの手段かと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/en/tutorials/webperformance/basics/&#34;&gt;Measuring Page Load Speed with Navigation Timing - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://www.igvita.com/2012/04/04/measuring-site-speed-with-navigation-timing/&#34;&gt;Measuring Site Speed with Navigation Timing - igvita.com&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://blog.d-bow.com/post/17368332231/measuring-page-load-times-navigation-timing-api-vs&#34;&gt;dblog, Measuring Page Load times: Navigation Timing API vs Inline JavaScript with the Date object&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/internals/howbrowserswork/&#34;&gt;ブラウザのしくみ: 最新ウェブブラウザの内部構造 - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://66.7percentangel.com/2011/12/breaking-down-onload-event-performance-bookmarklet/&#34;&gt;Breaking Down onLoad Event – Performance Bookmarklet | Kasia Drzyzga&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analytics トラッキング スニペット再考（2012）</title>
+            <link>https://t32k.me/mol/log/defer-parsing-of-google-analytics/</link>
+            <pubDate>Fri, 28 Sep 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/defer-parsing-of-google-analytics/</guid>
+            <description>
+
+&lt;p&gt;秋色日毎に深まりこんちわ、@t32kだ。前回も少し言いましたがPageSpeedにモバイル版というのがありまして、デスクトップ版とは少々違うことをこいつは物申してきます。テストするページにもよりますが例えば、デスクトップ版であれば、&lt;strong&gt;「ブラウザのキャッシュを活用する」&lt;/strong&gt; や &lt;strong&gt;「圧縮を有効にする」&lt;/strong&gt; がHigh priorityな対策としてよく指摘されます。モバイル版でもそれらは重要かつ効果のある対策ですが、さらに対応しておきたいのが &lt;strong&gt;「JavaScript の解析を遅延する」&lt;/strong&gt; という対策です。&lt;/p&gt;
+
+&lt;p&gt;ざっくり言えば、そのJavaScriptが本当に必要になるまで後にとっておくということです。スマホなどの携帯端末は言うまでもなく、デスクトップPCに比べれば非力なので、このような端末ではJavaScriptを解析するのにもなかなか時間を要してしまうので、注意しましょうってことです。&lt;/p&gt;
+
+&lt;p&gt;PCサイトで、それも単純にドキュメント閲覧のようなページのパフォーマンス対策なんて、HTTPリクエストを減らすことだけ考えていれば十分事足りるなぁと個人的には考えています。ただ、最近やってるお仕事はスマホ向けのWebアプリ制作でして、JSゴリゴリ使ってます。。。この辺りのパフォーマンス対策というのをもうちょっと真剣に考えたいお年頃になってきたので、今回がんばってみます。&lt;/p&gt;
+
+&lt;p&gt;ただ、僕はJSは書けないので難しいことはよく分からんとです。お先真っ暗、八方塞がりです。唯一気になっていることは今のプロジェクトでhead要素に入れてあるGoogleアナリティクスのスニペットって本当にここでいいのか？ということです。これね、これ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+  var _gaq = _gaq || [];
+  _gaq.push([&#39;_setAccount&#39;, &#39;UA-XXXXX-X&#39;]);
+  _gaq.push([&#39;_trackPageview&#39;]);
+  (function() {
+    var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true;
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s);
+  })();
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/asynchronous-tracking/&#34;&gt;Google Analytics 非同期トラッキングコード再考（2010） - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;はい、2年前にこの記事を書いたのは僕でして、そこでは&lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt;の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;script要素の読み込みと評価&#34;&gt;script要素の読み込みと評価&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://calendar.perfplanet.com/2011/lazy-evaluation-of-commonjs-modules/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2012/09/fig_1.png&#34; alt=&#34;fig_1.png (500×300)&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;script要素を入れることでかかるコストについて上記の図のような感じですね。LatencyとDownloadが読み込みに関わるところで、普通にscript要素を読み込むと、通常のリソースは並列ダウンロードできるのに対して、script要素は他のリソースのダウンロードをブロッキングします。まぁ、scriptを早い段階で読み込むとそれだけページ表示に余計に時間がかかってしまいます。この点でノンブロッキングな読み込みを実現したのがGoogle Analyticsの非同期トラッキングコードで並列ダウンロードが可能となりました。また、トラッキング用のJSファイルにはga.jsには12時間の有効期限が設定されているので、次ページビュー、当日中くらいのセッション再開後もキャッシュが有効となり、LatencyとDownloadの部分は省略できます。&lt;/p&gt;
+
+&lt;p&gt;ただ、お気付きの通りParsingとEvaluationはキャッシュがあろうがなかろうが毎回コストを支払わなければなりません。しかもParsingとEvaluationの実行中はレンダリングが止まってしまいます。PCサイトであればこの点が無視できるほど短い時間で完了するので、head要素においても大した影響がないということでした。事実、@tobieさんの記事でもjQeuryのParsingとEvaluationのコストはMacBook Proが35msに対して、iPhone4が320msかかっている調査結果でした。つまり、jQueryを使おうが使わまいが、キャッシュが効いてようが効いてまいが、iPhone４ユーザーはjQueryが読み込まれている時点で毎回320ms（設置場所によっては）レンダリングが止まる時間ができるということです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2012/09/load_scripts_async.png&#34; alt=&#34; Google Analyticsの非同期トラッキングコードはノンブロッキングに読み込みできるがscript実行中はレンダリングを止める&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;google-analyticsの実行コスト&#34;&gt;Google Analyticsの実行コスト&lt;/h2&gt;
+
+&lt;p&gt;そこでjQueryのテストのGoogle Analytics版を作ってみました。Google Analyticsは基本的にページビュー計測を目的に入れると思いますので、単純に評価だけでなく毎ページごと実行（ビーコン画像発行）されると想定したテストです。10回アクセスしてその平均値をグラフにしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2012/09/fig2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;iPhone3Gは論外ですけど、今現在でも広く使われてそうな機種（iPhone4やGALAXY S2）でも100ms~200msくらい実行に時間がかかっています。これがhead要素に入ってるこということは、それ以降のレンダリングが100ms~200msストップしているということになります。（実際の実装状況をかんがみるともう少し掛かりそうな気がする）&lt;/p&gt;
+
+&lt;p&gt;100msというとニールセン博士のウェブサイトの応答時間では“0.1秒までなら応答が瞬時に返ってきたという印象を与える“と述べていますので、Google Analytics だけでこの貴重な0.1秒使ってしまうことは非常にもったいないと個人的には考えます。&lt;/p&gt;
+
+&lt;h2 id=&#34;headか-bodyか&#34;&gt;headか、bodyか&lt;/h2&gt;
+
+&lt;p&gt;では、単純に&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;の直前にスニペットを配置しても問題無いのでしょうか？Steve SoudersはJavaScript Performance (at SFJS)でGoogle Analyticsのスニペットの設置場所についてまとめています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt;の場合&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;script loads later&lt;/li&gt;
+&lt;li&gt;beacon fires later&lt;/li&gt;
+&lt;li&gt;blocks fewer async(Opera)&lt;/li&gt;
+&lt;li&gt;may block rendering&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;の場合&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;script loads last&lt;/li&gt;
+&lt;li&gt;beacon fires late&lt;/li&gt;
+&lt;li&gt;doesn’t block async&lt;/li&gt;
+&lt;li&gt;doesn’t block rendering&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;はい、結局トレードオフの関係にあります。スニペットを単純に下に置けばレンダリングをブロックしませんが、その分ビーコン画像の発行が遅れます。そもそも、非同期トラッキングコードがリリースされた時のメリットにデータの収集・精度の向上が挙げられています。つまり、スニペットがページ下部にあればページを完全にロードしないで次のページへ遷移してしまった人などが計測できなくなります。この部分をどう捉えるかで設置場所は決まってくるでしょう。&lt;/p&gt;
+
+&lt;p&gt;そもそも、ページ読み込み完了も待てないページビューをページビューとしてカウントしてもいいもなのかという個人的な疑問もあります。というより、ユーザーの満足度 &amp;gt;&amp;gt;&amp;gt; (越えられない壁 )  &amp;gt;&amp;gt;&amp;gt; アクセス解析の精度だと考えるので僕はスマホサイトに関しては&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;の直前に設置したほうが良いと考えます。(スマホ用のga.js作ればいいのにと思ったり。jQueryにおけるZeptoみたいにIE対応とか考えなかったらもう少しシンプル・軽量化出来ると思うけど。)&lt;/p&gt;
+
+&lt;p&gt;ちなみに、HTML5のボイラープレート（ひな形）を見てみると、デスクトップ、モバイル版ともに&lt;/body&gt;の直前に配置されています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Finally, an optimized version of the latest Google Analytics tracking code is included. Google recommends that this script be placed at the top of the page. Factors to consider: if you place this script at the top of the page, you’ll be able to count users who don’t fully load the page, and you’ll incur the max number of simultaneous connections of the browser.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;注意書きとしても同じようなことが言われています。あと、head要素に置けばビーコン画像リクエストによる同時接続数の1つを消費してしまうことも懸念点としてあげられています。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://readhn-jp.blogspot.jp/2012/02/javascript.html&#34;&gt;ブラウザって毎回Javascriptを解析するの？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mathiasbynens.be/notes/async-analytics-snippet&#34;&gt;Optimizing the asynchronous Google Analytics snippet · Mathias Bynens&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tokkono.cute.coocan.jp/blog/slow/index.php/web-technology/non-blocking-asynchronous-loading-of-css-javascript/&#34;&gt;CSS/JavaScriptのAsynchronous Loadingをめぐる熱い論議 | ゆっくりと…&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>大規模サイトにおける Googleアナリティクス導入から成果まで</title>
+            <link>https://t32k.me/mol/log/google-analytics-on-large-site/</link>
+            <pubDate>Mon, 16 Jan 2012 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/google-analytics-on-large-site/</guid>
+            <description>
+
+&lt;p&gt;ありがたくも、&lt;a href=&#34;http://lp19.cssnite.jp/&#34;&gt;CSS Nite LP, Disk 19「アクセス解析」&lt;/a&gt;で話した「大規模サイトにおけるGoogleアナリティクス導入から成果まで〜Webデザイナーがアクセス解析に携わってみて〜」が 、&lt;a href=&#34;http://cssnite.jp/archives/best-session2011.html&#34;&gt;CSS Niteベストセッション2011&lt;/a&gt; のベスト20に選ばれたので、文字に起こしてみるの巻。&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/ncKY9A3GA8Yth&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;DMM.com Laboの石本です。よろしくお願いします。今日は大規模サイトでのGoogleアナリティクス運用について話します。そんなに難しいことではないので、リラックスして読んでもらえれば幸いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;アジェンダ&#34;&gt;アジェンダ&lt;/h2&gt;
+
+&lt;p&gt;本日の流れはこんな感じでやっていきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自己紹介&lt;/li&gt;
+&lt;li&gt;アクセス解析への動機&lt;/li&gt;
+&lt;li&gt;プロファイルの適正化&lt;/li&gt;
+&lt;li&gt;コンバージョン設定から改善施策へ&lt;/li&gt;
+&lt;li&gt;まとめと今後の課題&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;自己紹介&#34;&gt;自己紹介&lt;/h2&gt;
+
+&lt;p&gt;では、やっていきましょう。まずは自己紹介させてください。Twitter IDは&lt;a href=&#34;https://twitter.com/#!/t32k&#34;&gt;@t32k&lt;/a&gt;でWebデザイナーをしています。&lt;/p&gt;
+
+&lt;p&gt;2011/9/26ですね。共著ですが「&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4844362232/ref=as_li_ss_tl?ie=UTF8&amp;amp;tag=warikiru-22&amp;amp;linkCode=as2&amp;amp;camp=247&amp;amp;creative=7399&amp;amp;creativeASIN=4844362232&#34;&gt;スマートフォンサイト制作の教科書&lt;/a&gt;」という本を書きました。初めてスマートフォンサイトを作る方、入門者向けですので、今後のスマートフォンサイトの概要を知る上でもマーケッターさんの方も買ってもらってもいいんじゃないかなと思います。オールカラーで読みやすいです。&lt;/p&gt;
+
+&lt;p&gt;あとは趣味でiPhoneアプリを作ったりしています。左が&lt;a href=&#34;http://itunes.apple.com/app/nyars/id433610083?mt=8&#34;&gt;Nyars&lt;/a&gt;というアプリで、なんてことのないただの猫耳をオーバーレイして写真が取れるというものです。右が&lt;a href=&#34;http://itunes.apple.com/app/tissa/id464594372?mt=8&#34;&gt;tissa&lt;/a&gt;というアプリで、なんてことのないただのタイマーアプリで350円で売ってます。&lt;/p&gt;
+
+&lt;h2 id=&#34;アクセス解析への動機&#34;&gt;アクセス解析への動機&lt;/h2&gt;
+
+&lt;p&gt;と言うわけで、本題に入ってきます。見た感じ完全に制作サイドのWebデザイナーがなにゆえアクセス解析に興味をもったのかと話していきます。&lt;/p&gt;
+
+&lt;p&gt;まず私の毎日仕事しているフィールドです、みなさんもご存知かと思いますがDVDレンタルなどで有名な&lt;a href=&#34;http://www.dmm.com/&#34;&gt;DMM.com&lt;/a&gt;です。レンタル以外にも動画配信や、通販事業なども行っています。そこで私も含めたWebデザイナーこのような、商品の特集ページであったりヘルプページ、バナーなど制作しています。&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-3895&#34; title=&#34;DEM&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.010-002.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当たり前ですが、Webサイトはデザイナーだけでは作れません。サイトをしっかりと運用していくにはデザイナー以外にもエンジニアの力も必要ですし、マーケッターさんの力も不可欠です。しかし、お互いが協力していくには相手の言葉を知らなすぎるような気がします。例えば、マーケッターさんがデザイナーにCPCがどーたらCPAがどーたらといってもピンとこないでしょうし、反対にデザイナーがマーケッターさんにUXDやIAがどーたらと言っても理解してもらえないと思います。まぁ大げさな例ですが、多かれ少なかれ似たようなケースがそこかしこで起きているでしょう。私はデザイナー5年目ですが、この人らは同じ日本語を喋りますが、違う言語の中で生きてると理解しています。&lt;/p&gt;
+
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%83%A8%E3%83%8F%E3%83%B3%E3%83%BB%E3%83%B4%E3%82%A9%E3%83%AB%E3%83%95%E3%82%AC%E3%83%B3%E3%82%B0%E3%83%BB%E3%83%95%E3%82%A9%E3%83%B3%E3%83%BB%E3%82%B2%E3%83%BC%E3%83%86&#34;&gt;&lt;img class=&#34;aligncenter fig&#34; title=&#34;Johann Wolfgang von Goethe&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.012-001.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これは私の好き言葉でもありますが、外国語を知らないもの者は母国語を知らないとゲーテは言っています。相手の言っていることは理解したいですし、そうすることで自分の言語：デザインに関しても理解が深まれば好都合です。そうゆうことで自分に対してはこのようなスタンスで臨めば良いかもしれませんが、これを他者に求めるのは酷なこともかもしれません。ましてや、クライアントや上司の方に、あんたデザインなんでわかってないんや！などとは言えません。&lt;/p&gt;
+
+&lt;p&gt;そこで皆が共通に理解できるモノが必要となってきます。はい、数字ですね。3は3でありそれ以上でもそれ以下でもありません。3が4になれば増えたということ、2になれば減ったということは、どんな職種の人だろうと同じ理解を得られるわけです。そして、Webサイトの数字といえばアクセス解析であり、それが切実に必要だと感じています。&lt;/p&gt;
+
+&lt;h2 id=&#34;プロファイルの適正化&#34;&gt;プロファイルの適正化&lt;/h2&gt;
+
+&lt;p&gt;というわけで、デザイナーですけどアクセス解析をやってこうと考えたわけですが、そう簡単にうまくはいきません。プロファイル（Google アナリティクスのレポート）の閲覧の段階でまずつまづきましたという話をしていきます。&lt;/p&gt;
+
+&lt;p&gt;その前に、DMM.comのサイト規模を紹介したいと思います。DMM.comはクレジット登録しているなどすぐに課金可能な会員が362万人。月間ユニークユーザーが1900万人の8.6億ページビュー。Google アナリティクスのプロファイル数は83個、Google アナリティクスにアクセスできるユーザー数は119人ほどです。&lt;/p&gt;
+
+&lt;p&gt;正直このレベルになってくると、データの嵐の海を彷徨うのと同じようなもので、ただトラッキングコードを入れていればOKという話ではありませんでした。そこで最初にとりかかった作業がプロファイルの適正化です。誰が見てもおかしくない数値、見たい情報を見ることができるプロファイルにしなければなりません。&lt;/p&gt;
+
+&lt;p&gt;Google アナリティクスを大規模サイトで使用する上で問題になってくるのが50,000URL問題です。ちょうど&lt;a href=&#34;http://code.google.com/intl/ja/apis/analytics/docs/index.html&#34;&gt;Googleアナリティクス開発者向けドキュメント&lt;/a&gt;に該当の問題ついて述べられてるところがあります。
+&lt;blockquote&gt;&lt;strong&gt;1日あたり、50,000 を超える一意の URL または仮想ページをトラッキングしていますか。&lt;/strong&gt;
+&lt;span style=&#34;font-size: x-small;&#34;&gt;Google Analytics では毎日、ウェブサイトから送信されてきたすべてのデータと、ページビューで並べ替えられた上位 50,000 ページ上のレポートを収集します。残りのページは、コンテンツ レポートの「(その他)という別のセクションにまとめられます。トラフィックの少ないページビューの詳しいレポート情報を表示するには、トラフィックの多いすべてのページビューを除外するフィルターを使用した新しいプロファイルを設定してください。これにより、上位 50,0000 の URL に残りのページを効率的に含められるようになります。&lt;/span&gt;&lt;/blockquote&gt;
+これはどうゆうことかと言いますと、Google アナリティクスで1日で処理できるURL数はページビューの上位5万までなんですね。5万以上になると、それからは&lt;em&gt;&lt;strong&gt;（other）&lt;/strong&gt;&lt;/em&gt;（その他）という項目にまとめられてしまいます。これがどうゆう悪さをしますのかと言いますと、実際はページビューがカウントされているはずのページ、GIFリクエストも発生しているのにもかかわらず5万URLに入らなかったため、プロファイルで確認できないページが出てきます。全体のPVには入ってるんですけども、個別のURLレポートでは確認できないということです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-3902&#34; title=&#34;other&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.022-002.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;全体のページビューを見ても、この青色の部分が（other）その他で全体の4割も占めています。このくらいになってくると、ページを製作して公開しても測定できないってことがよくありました。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、この５万URLの内訳はどうゆうものなのか調べてみます。このような商品の詳細ページというのが多くあります。これは通販のタイガー＆バニーのDVDですが動画配信でも同じ作品がありますし、この作品がレンタル出来ればレンタルフロアでも似たような詳細ページができあがります。つまりDMM.conでは1つの作品に対して複数のURLを生成してしまう可能性が高いです。こう言ったコンテンツは数百万単位でありますからこの時点でURLは5万におさまらないということが理解できます。&lt;/p&gt;
+
+&lt;p&gt;またこのような商品リスト・一覧ページというのがあります。これは価格の高い順番、低い順番などで並べ替えができます。つまりURLのパラメータで処理することになるので、それだけURLが増えます。また1つのリストページに掲載できる商品も限られますので、1ページ2ページとページ数が増えていきます。&lt;/p&gt;
+
+&lt;p&gt;このように、個々のURLを見ていくと当面、分析・解析しないようなURLが非常に多くあることが理解できます。私たちは解析を始めたばかりなのでこのような瑣末なとこに注力するのではなくもっと全体を見るほうが合理的でしょう。&lt;/p&gt;
+
+&lt;p&gt;ということで、ハイレベルサイトマップという考えが重要になってきます。こんなのです。&lt;/p&gt;
+
+&lt;p&gt;ハイレベルサイトマップ（ハイレベルサイトストラクチャ）というのは、サイトの概要・導線を理解するために必要なものです。URLごとではなくて、サイトの役割ごとでページをまとめて理解しようというものです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-3896&#34; title=&#34;Hi_level&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.027-001.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これをDMM.comにあてはめて考えてみると、このようなハイレベルサイトマップができあがりました。トップページがあって商品一覧ページと詳細ページを行き気してる感じですかね。このレベルの情報の粒度で理解出来ればいいので、Google アナリティクスのプロファイルもこれが確認出来ればいいわけです。つまり、私が欲しいのはハイレベルサイトマップ用のプロファイルが欲しいということです。&lt;/p&gt;
+
+&lt;p&gt;ハイレベル用のプロファイルを作成するには、同じ種類のページのURLをまとめる必要があります。そのためには、プロファイルに対してカスタム詳細フィルタをかけてあげます。&lt;/p&gt;
+
+&lt;p&gt;もうちょっとわかりやすくしたのが次のスライドです。URLを書き換えるためにはその対象となるURLを抜き出して再構成する必要があります。この場合、detailもしくはlistを含むものを引き出してきます。それをdetailもしくはlist以下のパラメータは全部削除して上書きしています。実際のURLに当てはめるとこうなります。はいこれで、だいぶURL数が少なすることができました。&lt;/p&gt;
+
+&lt;p&gt;おまけですが、正規表現ってのはやっぱり意味がわからないですよね。いきなり自信のない正規表現のフィルタをデータにかけるのはかなり危険なことなので練習する必要あります。Google アナリティクスであればコンテンツのアドバンスフィルタを有効にして正規表現を選択すれば実際のサイトURLで練習ができます。またローカルで確認したければWindowsなら&lt;a href=&#34;http://weitz.de/regex-coach/&#34;&gt;regex Coach&lt;/a&gt;やMacなら&lt;a href=&#34;http://atastypixel.com/blog/reginald-regex-explorer/&#34;&gt;Reginald&lt;/a&gt;がおすすめです。では、さきほどのフィルタ処理したあとのプロファイルはどーなっているのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;デフォルト状態だとこのように4割が(other)でしたが、フィルタ処理後のプロファイルには(other)は綺麗サッパリなくなりました。代わって、フロアごとのdetailページやlistページが計測されています。まさしくハイレベルサイトマップのためのプロファイルです。&lt;/p&gt;
+
+&lt;p&gt;冒頭に見せました0PVのページもdetailとlistをまとめてゆとりがでたのか、ちゃんと計測されるようになりました。めでたしめでたし。&lt;/p&gt;
+
+&lt;p&gt;これでデータの嵐だった海が、人が理解できる・役立つInformation・情報の湖となりました。今度はこの湖をうまくこぐ必要がでてきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;コンバージョン設定から改善施策へ&#34;&gt;コンバージョン設定から改善施策へ&lt;/h2&gt;
+
+&lt;p&gt;次は実際にGoogle アナリティクスを使って改善施策をしてみます。ここまでサラッと言いましたが、実際はプロファイルの適正化に1年くらいかかかってます（当時はGoogle アナリティクスの情報も少なかったですし、開発者ドキュメントも翻訳されていない状態でした&amp;gt;&amp;lt;）。そろそろ、結果ださないと社内に居場所ないなーって空気になってきたので本気で成果を出さなければなりません。&lt;/p&gt;
+
+&lt;p&gt;ということで今一度、成果・ゴールとは何かとゆうのを確認してみましょう。DMM.comの場合は簡単ですね。Eコマースサイトなので お金を稼ぐことです。 商品をいっぱい売ることが目標です。これ自体は至極簡単な話です。&lt;/p&gt;
+
+&lt;p&gt;そのためには商品が売れてるかどうかを確認する必要性があります。はい、コンバージョン設定を忘れておりました。コンバージョン設定のないGoogle アナリティクスは魅力半減といってもいいほど、これがないと意味がありません。当たり前ですよね、売上を上げるために解析ツールを使ってるのにそのツールで成果を確認できなければ、何のために使ってるのか意味がわかりません。&lt;/p&gt;
+
+&lt;p&gt;コンバージョンを設定するにはコンバージョンURLを指定するだけです。通常であればサンキューページといった購入完了ページをコンバージョンURLとして指定すればいいんですけど、DMM.comにはなかったんです。&lt;/p&gt;
+
+&lt;p&gt;各事業部によってページ遷移に差異があります。今回のケースは動画配信フロアのケースですが、購入完了ボタンを押すと、そのままユーザーのマイライブラリに飛ばされます。このマイライブラリというページはユーザーの買った動画が視聴できるページです。このページをコンバージョンURLにすると、買った動画を見るためにアクセスする度にコンバージョンが発生してしいまいます。&lt;/p&gt;
+
+&lt;p&gt;無駄にサンキューページを1枚挟むのもどうなのかと思い、今回はパラメータ処理で解決しました。バスケットに入れる、購入確認、マイライブラリと購入フローを通して遷移して来た場合のみ、URLにパラメータを付けることにしました。こうすることで普通にマイライブラリに遷移したときとは、URLで区別できるようにしたのです。はい、そうゆうわけで、めでたくコンバージョン推移を確認することができました。&lt;/p&gt;
+
+&lt;p&gt;はい、次に改善にあたっての仮説と言うほど大それた事ではないのですが、ちょっと気になる点があります。&lt;/p&gt;
+
+&lt;p&gt;先程のコンバージョンファネルを見てみましょう。問題となるのはここです。購入確認から購入完了となっているユーザーが93%となっています。これが多いのか少ないのか、現時点ではよく分かりませんが、あとはボタンを押すだけなのに離脱している人７％いるってのはどうなのかなと感じました。個人的には98%くらいあってもいいんじゃないかと。とどのつまり、取りこぼし多くない？ってことです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-3897&#34; title=&#34;前&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.049-001.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;では、該当のページである購入確認がどのようなページなのか見てみましょう。これが改善前の購入確認ページです。該当の部分だけ表示しています。パッと見ごちゃごちゃして、どこを押せば購入完了となるのか瞬時に判断できません。一番の問題はここですね。購入完了と訂正するボタンがヴィジュアルのインパクトが同じであるのは頂けません。これを実際の生活で例えれば、例えばコンビニエンスストアで商品をレジまで持って行って、そこで店員がやめるの？買うの？って聞いてるようなものです。そんなのありえないですよね。&lt;/p&gt;
+
+&lt;p&gt;まだ改善できそうなところはありそうですね。はい、この長ったらしい注意書きですね。Windows7のときはどうやら、利用規約がどーやらと。これも同じように考えればくどいです。またこのような注意書きはこのページ以外にも書かれていることなので、この場面であえて表記する必要はないと判断しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-3898&#34; title=&#34;後&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.050-005.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;改善後のページでは、購入するボタンを金色にすることで一番目立たせています。また注意書き、規約の同意文を一行だけにしてすっきりさせました。訂正するボタンがなくなったので、「変更する」テキストリンクを設置しました。これで、迷いはなくなるのではないかと考えます。&lt;/p&gt;
+
+&lt;p&gt;結果はどーなったのでしょうか。&lt;/p&gt;
+
+&lt;p&gt;施策前後8週間の購入確認から購入完了の遷移率を調べてみました。こんな感じです。赤が改善後、青が改善前を現してます。平均して1.52%上昇しました。一応&lt;a href=&#34;https://t32k.me/mol/mol/log/statistical-significance/&#34;&gt;有意差検定&lt;/a&gt;もしてるので、たまたま上がったとは考えにくいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-3900&#34; title=&#34;1000&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.053-001.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これがどれだけの売上へのインパクトだったかと、1回当たりの平均購入金額 * 1ヶ月当たりの1%平均ＣＶ数 * 改善率でおおよその金額が分かります。はい、1000万ほどの売上アップさせることができました。少なくとも翌月も改善の効果が見受けられたので2000万は確実です。工数もエンジニアとデザイナー2人が実質、3営業日くらいでやったのでコストパフォーマンスの高い仕事ができたのではないかと思っています。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめと今後の課題&#34;&gt;まとめと今後の課題&lt;/h2&gt;
+
+&lt;p&gt;URLを設計するのはエンジニアなので、そうゆうことを気にしてもらえるだけでも正規表現とかも簡単なもので済みますし、デベロッパーを味方に付けておいて損はないかと思います。じゃないと自分で勉強してやらないとダメでしんどいです＞＜&lt;/p&gt;
+
+&lt;p&gt;あと、お金じゃなくてもいいですけど、コンバージョンに近いところから手をつけ始めるのは、施策がダイレクトに成果に直結するので 分かりやすくて良いかと思います。やっぱり、どうしてもトップページなどの華やかなところから改修しがちですが、改修した結果それがどれだけコンバージョンアップに寄与できたの？ってことを考えるとちょっとあやふやになってしまいがちです。今回の購入フローページのように、目立たないところですが結果を出せたことで、同様のページにも目を向けさせることができたのは良いことだと思っています。&lt;/p&gt;
+
+&lt;p&gt;最後に、Google Analytics PremiumですがGoogle アナリティクスのエンタープライズ用のサービスです。まだ、日本ではサービス開始されてはいませんが、10億コールで約1200万円支払うで、今回紹介した5万URLの問題も100万まで拡張できたり、手厚いやヘルプサポートが受けられるみたいです。これがあれば、こんなにも苦労しなかったのですけどね。。。&lt;/p&gt;
+
+&lt;p&gt;また今後の課題としては、解析・改善までもってけるような教育や仕組みを作りたいです。&lt;/p&gt;
+
+&lt;p&gt;Google アナリティクスや他の解析ツールでも言えることですが、ページ間の流れを理解するのは便利ですが、1つのページの中の要素がどのようにユーザーに受け止めらているのかってのを理解するにはちょっと役不足なので、Google アナリティクスを補完するという意味でVOYAGE GROUPナビさんもおすすめの&lt;a href=&#34;http://www.clicktale.com/&#34;&gt;ClickTale&lt;/a&gt;を導入中です。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://www.flickr.com/photos/avinashkaushik/4056840164/&#34;&gt;&lt;img class=&#34;fig aligncenter&#34; title=&#34;The McDonald triplets!!&#34; src=&#34;https://t32k.me/mol/static/blog/2012/01/19.057-001.png&#34; alt=&#34;&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+ということで、まだアクセス解析の取り組みはスタートラインに立ったという現状なので暖かく見守って頂ければ幸いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;リソース&#34;&gt;リソース&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/google-analytics-other-entry/&#34;&gt;Google Analyticsの(other)とはなんぞや？ | MOL &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/statistical-significance/&#34;&gt;施策前後のCV率に有意差はあるのか？ | MOL &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://code.google.com/intl/ja/apis/analytics/docs/&#34;&gt;Google アナリティクス開発者向けドキュメント - Google Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://higashizm.sakura.ne.jp/reg/http://higashizm.sakura.ne.jp/reg/%0D&#34;&gt;はじめての正規表現&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://an-k.jp/blog/archives/2289&#34;&gt;ハイレベルサイトマップの作り方 | dIG iT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cms-ia.info/news/google-analytics-premium-launched/&#34;&gt;Google Analytics Premiumについてのまとめ :: 実践CMS*IA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://uio.ecnavi.co.jp/category/%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB/clicktale/&#34;&gt;ClickTale « VOYAGE GROUP UIO戦略室ブログ &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>jQuery MobileでGoogle Analyticsを使うために気をつけなければいけないこと</title>
+            <link>https://t32k.me/mol/log/using-google-analytics-with-jquery-mobile/</link>
+            <pubDate>Tue, 28 Jun 2011 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/using-google-analytics-with-jquery-mobile/</guid>
+            <description>
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/B85ZvFNIIylyud&#34; width=&#34;425&#34; height=&#34;355&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;とあるとこで、とある話をしたので、とあるスライド置いときますよ。 要点を言うと、jQuery MobileでAjax遷移してると、普通にGoogle Analytics置いてても作動しないから気をつけてねって話です。&lt;/p&gt;
+
+&lt;h2 id=&#34;gatc-for-jquery-mobile&#34;&gt;GATC for jQuery Mobile&lt;/h2&gt;
+
+&lt;p&gt;僕はこうゆう感じでとりあえず対応しています。作動させるタイミングとフラグメント識別子を記録させるのがポイントです。あとはご自身のサイトに合わせてカスタマイズしていただければと思います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//Account Setting
+var _gaq = _gaq || [];
+_gaq.push([&#39;_setAccount&#39;, &#39;UA-xxxxxxx-x&#39;]);
+
+//Async Snippet
+(function () {
+    var ga = document.createElement(&#39;script&#39;);
+    ga.async = true;
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+
+//Execute
+$(&#39;[data-role=&amp;quot;page&amp;quot;]&#39;).live(&#39;pageshow&#39;, function () {
+    var u = location.hash.replace(&#39;#&#39;, &#39;&#39;);
+    u ? _gaq.push([&#39;_trackPageview&#39;, u]) : _gaq.push([&#39;_trackPageview&#39;]);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;jquery-mobile-xss-problem&#34;&gt;jQuery Mobile XSS Problem&lt;/h3&gt;
+
+&lt;p&gt;ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hisasann.com/housetect/2011/06/jquerymobilexss.html&#34;&gt;jQueryMobileのXSSに関する調査メモ at HouseTect, JavaScriptな情報をあなたに&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最後になりましたが、主催者の@makitaniさん、呼んでくださってありがとうございます。並びに素晴らしいユーザーMTGありがとうございます。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>施策前後のCV率に有意差はあるのか？</title>
+            <link>https://t32k.me/mol/log/statistical-significance/</link>
+            <pubDate>Tue, 01 Mar 2011 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/statistical-significance/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/statics/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;はい、タイトルのとおりでございます。とある改善を行いまして、その効果というのが誤差の範疇なのか、それとも効果があったのか（プラスマイナス問わず）知りたい状況に陥りましたんで、いろいろ調べてみましたよというお話。&lt;/p&gt;
+
+&lt;p&gt;Google Website Optimizer とか使えば、テストを実行してしばらくしたら勝手にこっちの方が何％優れてるよーって教えてくれるんですけど、今回のケースだと GWO の実装が難しかったので  Google Analytics で指標を読み取ることにしました。&lt;/p&gt;
+
+&lt;p&gt;やりたいことはですね。手元にあるデータは施策前後の１週間毎のコンバージョン率（8週間分）がありますんで前後8週間の平均CV率を出して何％改善したのか確認したいわけです。で、今回の場合1%程度改善されたのですが、これって別になんにもしなくても1%上がっちゃったりするのか、それとも偶然ではない&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E6%9C%89%E6%84%8F&#34;&gt;有意&lt;/a&gt;の差なのかってことを理解しようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;施策前後8週間のコンバージョン率の遷移&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;1W&lt;/th&gt;
+&lt;th&gt;2W&lt;/th&gt;
+&lt;th&gt;3W&lt;/th&gt;
+&lt;th&gt;4W&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Before&lt;/td&gt;
+&lt;td&gt;93.82%&lt;/td&gt;
+&lt;td&gt;93.83%&lt;/td&gt;
+&lt;td&gt;93.23%&lt;/td&gt;
+&lt;td&gt;93.65%&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;After&lt;/td&gt;
+&lt;td&gt;94.73%&lt;/td&gt;
+&lt;td&gt;94.77%&lt;/td&gt;
+&lt;td&gt;94.18%&lt;/td&gt;
+&lt;td&gt;94.71%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;5W&lt;/th&gt;
+&lt;th&gt;6W&lt;/th&gt;
+&lt;th&gt;7W&lt;/th&gt;
+&lt;th&gt;8W&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Before&lt;/td&gt;
+&lt;td&gt;93.99%&lt;/td&gt;
+&lt;td&gt;93.65%&lt;/td&gt;
+&lt;td&gt;93.95%&lt;/td&gt;
+&lt;td&gt;94.37%&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;After&lt;/td&gt;
+&lt;td&gt;94.99%&lt;/td&gt;
+&lt;td&gt;94.76%&lt;/td&gt;
+&lt;td&gt;94.45%&lt;/td&gt;
+&lt;td&gt;94.59%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;まずはじめに&#34;&gt;まずはじめに&lt;/h2&gt;
+
+&lt;p&gt;はい、大学で統計学の単位を取ったような気もしないわけでもないそうゆう気もしないわけでもないという感じなので、ほぼ統計的知識ゼロです。間違いなどあれば指摘してもらえると嬉しいです。&lt;/p&gt;
+
+&lt;p&gt;手始めに『有意差』とかでググッてみるのですが、出てくるリソース読んでもさっぱりなので、というか数式とか見た瞬間拒絶反応がでてくるのでウォームアップがてらこの本読んでみました。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274065707/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51EFK1XNQ5L._SL160_.jpg&#34; alt=&#34;マンガでわかる統計学&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274065707/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;マンガでわかる統計学&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.6.19&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;高橋 信,トレンドプロ&lt;br /&gt;オーム社&lt;br /&gt;売り上げランキング: 1287&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274065707/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;文系の僕でも数時間で苦なく読めました（ちゃんと理解はしてないけど）。やっぱり僕みたいなトーシローが最初からガチな統計本 or ドキュメントに手を出すのは玉砕必死です。こうゆうので耐性をつけてから望んだ方が良かったです。&lt;/p&gt;
+
+&lt;p&gt;はい、ということでもう一度トライしてみましょう。なんということでしょう。読める、読めるぞ！ってほどでもないけども、以前よりは頭に入っていきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;有意差検定&#34;&gt;有意差検定&lt;/h2&gt;
+
+&lt;p&gt;そうゆうことでググリマックってたらどうやら僕がしたいのは&lt;strong&gt;t検定&lt;/strong&gt;という奴っぽいです。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;2組の標本について平均に有意差があるかどうかの検定などに用いられる。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yeah!これこれ！で、さらにググリマックってたらドンピシャなリソース発見！検索した中でも一番文系フレンドリーで分かりやすそうです&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kogolab.jp/elearn/hamburger/chap4/sec3.html&#34;&gt;4.3　t検定 - ハンバーガー統計学&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ここのサイトは本当に分かりやすいので、量もそんなには多くないので最初から全部読んでみるとよいと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kogolab.jp/elearn/hamburger/&#34;&gt;ハンバーガー統計学にようこそ！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さてどうやら、t検定を行う前段階として以下の2点を調べておく必要性がありそうなので、まずはそこから始めましょう。&lt;/p&gt;
+
+&lt;p&gt;さてどうやら、t検定を行う前段階として以下の2点を調べておく必要性がありそうなので、まずはそこから始めましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;標本が正規分布に従うかどうか&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;標本の分散が等しいかどうか&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;jarque-bera-検定-標本が正規分布に従うかどうか&#34;&gt;Jarque-Bera 検定（標本が正規分布に従うかどうか）&lt;/h3&gt;
+
+&lt;p&gt;t検定の wikipedia には正規分布かどうか調べるためには、コルモゴロフ-スミルノフ検定やシャピロ-ウィルク検定使えばいいよと書いてあるけど、どれも難しくて（どうやって計算するのか）わからなかった。Jarque-Bera 検定ならなんとかできそうなので、この検定で調べてみる。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、正規分布というのは&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;正規分布 - 平均を山の中心として左右になめらかに広がった「つりがね型」をした分布&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Jarque%E2%80%93Bera_test&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/statics/02.png&#34; alt=&#34;Jarque–Bera test&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;n：標本数、S：歪度、K：尖度&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E6%AD%AA%E5%BA%A6&#34;&gt;歪度&lt;/a&gt;（わいど, Skewness）- 分布の非対称性を示す指標 &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%B0%96%E5%BA%A6&#34;&gt;尖度&lt;/a&gt;（せんど、Kurtosis）- 分布のとんがり具合を表す指標&lt;/p&gt;
+
+&lt;p&gt;Jarque-Bera 検定の公式が上記になるんですけど、どうやらこのJBの値がだいたい6より小さければ、&lt;a href=&#34;http://okwave.jp/qa/q4076739.html&#34;&gt;有意水準が5％で正規分布と見做して構わない&lt;/a&gt;らしいです。&lt;/p&gt;
+
+&lt;p&gt;はい、いろいろ分かんないことだらけだけど、とりあえず数値だしてみるよ。 nは8週間分あるから、8。歪度はExeclのSKEW関数を使えば出てくるよ！尖度はExeclのKURT関数を使えば出てくるよ！&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;標本数 n&lt;/th&gt;
+&lt;th&gt;歪度 S&lt;/th&gt;
+&lt;th&gt;尖度 K&lt;/th&gt;
+&lt;th&gt;JB&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Before&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;-0.118&lt;/td&gt;
+&lt;td&gt;1.4396&lt;/td&gt;
+&lt;td&gt;0.7094&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;After&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;-0.864&lt;/td&gt;
+&lt;td&gt;1.2489&lt;/td&gt;
+&lt;td&gt;1.5145&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;で、計算結果するとでどちらも6以下でおｋ。これでどうやら正規分布として見なしてもよさそうですね。&lt;/p&gt;
+
+&lt;p&gt;※ 尖度の定義 Jarque-Bera 検定の調べていると、（K-3）としている公式を見かけますがこれは尖度の定義による違いだそうです。wikipediaによると「Excelの分析ツール等は正規分布の尖度を0としている」らしいので、今回の場合は、-3する必要性はなさそうです。&lt;/p&gt;
+
+&lt;h3 id=&#34;f検定-標本の分散が等しいかどうか&#34;&gt;F検定（標本の分散が等しいかどうか）&lt;/h3&gt;
+
+&lt;p&gt;よし、標本が正規分布だと分かった次は分散が等しいかどうかだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://kusuri-jouhou.com/statistics/fkentei.html&#34;&gt;&lt;img src=&#34;http://kusuri-jouhou.com/images/statistics/aa3.gif&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こういった感じのことを調べるんだね。ちなみに、分散というのは&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;分散 - データが平均値を中心にして、どのくらいばらついているのかを示した数値&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;※ 標準偏差（Standard Deviation） ＝ 分散の平方根（ルート）&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%88%86%E6%95%A3#.E6.A8.99.E6.9C.AC.E5.88.86.E6.95.A3&#34;&gt;&lt;img src=&#34;http://upload.wikimedia.org/math/d/5/2/d52d28bc57dff2e28bfa2ae195f1bd37.png&#34; alt=&#34;分散&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;シグマが出てきてもうアカンΣ(´∀｀；)！ってなったかた大丈夫、数列の総和って意味だよ。要は、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;((データ－平均値)の２乗)の総和÷個数
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ってことを言ってるだね。今回は２つの標本（データ）があるので、それぞれ分散を求める。分散はExeclのVARP関数を使えば出てくるよ！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/F-test_of_equality_of_variances&#34;&gt;&lt;img src=&#34;http://upload.wikimedia.org/math/1/a/f/1afdd4bd258e9b84c2a42d1a8f195c2e.png&#34; alt=&#34;F-test&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;分子に大きい方の値を当てはめて、F値を出しましょう。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;分散 S&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Before&lt;/td&gt;
+&lt;td&gt;0.09&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;After&lt;/td&gt;
+&lt;td&gt;0.05&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;F値は&lt;code&gt;0.09/0.05&lt;/code&gt;の1.8になります。あとは以下の公式に当てはめていくと・・・&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;自由度は分子の自由度df1＝n1-1、分母の自由度df2＝n2-1のF分布に従う。自由度が求まったらF分布表からFαを求めることができる。&lt;/p&gt;
+
+&lt;p&gt;・判定1≦F≦Fαのとき、P＞0.05となる→帰無仮説を棄却できない→等分散である。― &lt;a href=&#34;http://kusuri-jouhou.com/statistics/fkentei.html&#34;&gt;F検定 (等分散の検定)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;df1, df2の自由度はどちらも8-1で、7となり、F分布表より、7×7の場所は3.79となり、1≦1.8≦3.79 が成り立つ、つまり等分散と言えることができます。&lt;/p&gt;
+
+&lt;h2 id=&#34;t検定-student-s-t-test&#34;&gt;t検定（Student’s t-test）&lt;/h2&gt;
+
+&lt;p&gt;２つの標本は正規分布に従い、等分散と言えるのでようやくt検定としけこみたいところですが、もう一つだけ確認しておきたいことがあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;対応の有無&#34;&gt;対応の有無&lt;/h3&gt;
+
+&lt;p&gt;標本の対応の有無というのは、2つの独立した母集団から標本を選んでくるのか、1つの母集団から標本を選んでくるのかということです。今回の場合、施策したサイトのユーザーの期間比較ですので、施策前後で同じユーザーというのは可能性が低いので、対応はないと判断しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;対応のないt検定&#34;&gt;対応のないt検定&lt;/h3&gt;
+
+&lt;p&gt;ようやく、ほんとようやくです。ここまできたらあとは以下の資料を元に進めてくだけです。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;帰無仮説を立てる&lt;/li&gt;
+&lt;li&gt;帰無仮説の否定である対立仮説を立てる&lt;/li&gt;
+&lt;li&gt;有意水準を決める&lt;/li&gt;
+&lt;li&gt;得られた標本を使って、指標tを計算する&lt;/li&gt;
+&lt;li&gt;標本の数から自由度を計算する&lt;/li&gt;
+&lt;li&gt;t分布表の該当する自由度を見て、tが棄却域にはいっている（棄却）か、いない（採択）かを判定する&lt;/li&gt;
+&lt;li&gt;結論を決める&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&#34;1-帰無仮説を立てる&#34;&gt;1. 帰無仮説を立てる&lt;/h4&gt;
+
+&lt;p&gt;帰無仮説というのは「差はない」という仮説らしいです。この場合、「施策前後で差はない」という仮説を立てます。&lt;/p&gt;
+
+&lt;h4 id=&#34;2-対立仮説を立てる&#34;&gt;2. 対立仮説を立てる&lt;/h4&gt;
+
+&lt;p&gt;帰無仮説とは反対の仮説であり、「施策前後で差がないとはいえない、つまり、差がある」という仮説を立てます。&lt;/p&gt;
+
+&lt;h4 id=&#34;3-有意水準を決める&#34;&gt;3. 有意水準を決める&lt;/h4&gt;
+
+&lt;p&gt;どの程度の正確さをもって帰無仮説を棄却するのかという水準です。たいていは厳しくて1%、少し甘くて5%だそうなので、今回は5%とします。&lt;/p&gt;
+
+&lt;h4 id=&#34;4-指標tを計算する&#34;&gt;4. 指標tを計算する&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;t = (標本平均の差) / SQRT (( Aの不偏分散 / Aの標本数) + (Bの不偏分散 / Bの標本数))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これに当てはめていけばいいんだす！めんどくハンバーガー統計さんのとこにEXCELシートありますんで、そこに当てはめていけばでます。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;不偏分散 - 母分散の推定値 = ((データ－平均値)の二乗)の総和 ÷(個数 - 1)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;※ SQRT関数は平方根（ルート）を求める関数です！&lt;/p&gt;
+
+&lt;p&gt;よって、t値は-5.78&lt;/p&gt;
+
+&lt;h4 id=&#34;5-自由度を計算する&#34;&gt;5. 自由度を計算する&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;自由度 = (Aの標本数 - 1) + (Bの標本数 -1) = Aの標本数 + Bの標本数 - 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A,Bも標本数8なので自由度は14です。&lt;/p&gt;
+
+&lt;h4 id=&#34;6-棄却か採択か&#34;&gt;6. 棄却か採択か&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2011/02/t.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;7-結論を決める&#34;&gt;7. 結論を決める&lt;/h4&gt;
+
+&lt;p&gt;自由度が14のとき、有意水準5% 2.145, 有意水準1% 2.977となります。これをt分布で表すと上記のようなグラフになります。今回の場合、t値は-5.78となり棄却域に入ります。&lt;/p&gt;
+
+&lt;p&gt;よって、最初に立てた帰無仮説は棄却され、施策前後で差がないとはいえない、つまり、差があると言えます。&lt;/p&gt;
+
+&lt;p&gt;はい、できたー！そらできたー！やたー！&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DJ0Y7F2/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/510I1hBHTSL._SL160_.jpg&#34; alt=&#34;完全独習　統計学入門&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DJ0Y7F2/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;完全独習　統計学入門&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.6.19&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;小島 寛之&lt;br /&gt;ダイヤモンド社&lt;br /&gt;売り上げランキング: 1164&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DJ0Y7F2/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;なんとかできたけど、細かいこと全然わかってないのでもう少し勉強しようと思いました(；´Д｀)&lt;/p&gt;
+
+&lt;p&gt;有意な差があると言えると証明できたけど、それが今回行った施策によるものかっていう点はまた別問題なので気をつけてください。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ModernizrでHTML5時代のWeb技術をトラッッキング</title>
+            <link>https://t32k.me/mol/log/trackhtml5inga-with-modernizr/</link>
+            <pubDate>Thu, 02 Dec 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/trackhtml5inga-with-modernizr/</guid>
+            <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;JavaScript Advent Calendar 2010 : ATND 2010年12月1日から25日まで、毎日違う人が JavaScript にまつわるブログ記事を書く企画です。 参加表明した順番が日付（12月◯日）となります。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;what-is-modernizr&#34;&gt;What is Modernizr?&lt;/h2&gt;
+
+&lt;p&gt;まずはタイトルにもある &lt;a href=&#34;http://modernizr.com/&#34;&gt;Modernizr&lt;/a&gt; ですが、これはHTML5時代のWeb技術、最近では「NEWT」、New Exciting Web Technologies （HTML5、CSS3、SVG、XHR2、Geolocation… などの技術総称）と呼ばれている技術がブラウザで実装されているか検出してくれるライブラリです。最近、開発者のPaul Irishさんが来日してその存在を知りました。&lt;/p&gt;
+
+&lt;p&gt;Modernizr を読み込んだページにアクセスすると自動的にHTML要素のclass属性に対応状況がこん感じで記述される具合です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/12/chrome.png&#34; alt=&#34;Google Chrome 7.0.517.44&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;機能が実装されていばその機能名、実装されていなければno-が頭につく感じですね。おおもとのHTML要素にclass属性がついたので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.borderradius .hoge div {
+ /* border-radiusのプロパティを記述 */
+}
+.no-borderradius .hoge div {
+ /* border-radiusに対応していないから画像で再現する記述とか */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (Modernizr.localstorage){
+  // localstorage 使う！使う！
+} else {
+  // 代替手段として Cookie 使ったりとか
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もちろんJavaScriptからもこんな感じで分岐処理することも可能です。&lt;/p&gt;
+
+&lt;h2 id=&#34;track-html5-in-google-analytics&#34;&gt;Track HTML5 in Google Analytics&lt;/h2&gt;
+
+&lt;p&gt;この非常に便利な Modernizr を利用して、Google Analytics のレポート上でも確認できるようにしてくれるのが &lt;a href=&#34;https://github.com/smeranda/trackHTML5inGA&#34;&gt;trackHTML5inGA&lt;/a&gt; です。Modernizr で検出したプロパティをカスタム変数（デフォルトではスロット#5を使用する）で取り込んで Google Analytics に渡す感じでしょうか。&lt;/p&gt;
+
+&lt;p&gt;使い方はModernizrとtrackHTML5inGA をダウンロードしてきて任意のサーバーにアップして以下のコードをGATC（Google Analytics Tracking Code）の後にでも挿入しておきましょう。（※非同期版トラッキングコードのみに対応）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&amp;lt;script type=“text/javascript”&amp;gt;
+   // トッラッキングしたいプロパティを記述
+   featuresToTrack = [‘video’,‘audio’];
+   (function(d, t) {
+     var s=d.createElement(t),x=d.getElementsByTagName(t)[0];
+     s.async=1;s.src=‘js/trackHTML5inGA.js’;
+     x.parentNode.insertBefore(s,x);
+   })(document, ‘script’);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記のfeaturesToTrackの部分にトラッキングしたいプロパティ（40種類くらいトラッキングできるプロパティはあるけど、GAの仕様上、配列内に記述できる文字列は55byte以内に納めなければならない）を記述することで、GAのレポートのユーザー &amp;gt; カスタム変数 に HTML5 の項目できているのでクリックすると、任意のプロパティを実装しているブラウザのセッション数などがわかります。もちろん、コンバージョンを設定すれば、実装機能別の成果を確認することができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/12/customvar.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これをうまく使えば、CSS3アニメーションを使ったバリバリインタラクティブ登録フォームを作成してその成果を確かめたり、application cacheを大いに活用すればパフォーマンス的に良くなるわけですからapplication cacheを実装していないセグメントと比べてどのくらい成果が違うかなど確認できるかなど使い方はあなた次第！&lt;/p&gt;
+
+&lt;p&gt;単一のプロパティであれば、カスタムセグメントでブラウザのバージョンごとの実装状況を調べて自力でセグメント分けすればいいのですが、これが複数のプロパティ（ex. border-radiusかつCSS AnimationsかつGeolocation APIを実装しているブラウザとか）を対象とするとややこしくなるので、やはりそういう点ではこのtrackHTML5inGAを使うメリットがあるのではないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;そういうわけで、Modernizr と trackHTML5inGA の紹介でした。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analytics、 (not set) エントリの異常増加</title>
+            <link>https://t32k.me/mol/log/ga-not-set-2010/</link>
+            <pubDate>Thu, 30 Sep 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/ga-not-set-2010/</guid>
+            <description>&lt;p&gt;最近、ユーザー &amp;gt; PC環境 &amp;gt; 画面の解像度 のメニューにおいて、 (not set) エントリが異常に多いことを同僚から指摘されました。調べてみると、一部のプロファイルでそのような現象を確認することが出来ました。&lt;/p&gt;
+
+&lt;p&gt;Google Analytics で (not set)  と言えば、&lt;a href=&#34;http://analytics-ja.blogspot.ca/2010/02/not-set-entries.html&#34;&gt;キャンペーントラッキングでのキーワード&lt;/a&gt;問題が有名ですね。キーワードが取れていないから (not set) であるので、画面の解像度 においても解像度が取れてないのだろうと考えましたが、全体の中で10％も (not set) というのは、ちょっとどうゆう状況なのか考えらませんでした。数件、数十件であれば、トラッキングコード実行時になんらかのエラーがあって取れないということも考えられるでしょうが、今回の場合は多すぎます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/09/screenresolution.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そこで、年次スパンで (not set) エントリの推移を見てみますと、どうやら5/3から急激に増加しているのが分かります。ということで、該当の期間にトラッキングコード、フィルタの変更を行ったかといえば、それも思い当たるふしがありません。&lt;/p&gt;
+
+&lt;p&gt;ということで、他のGAユーザーも同じ問題になっていないのか検索してみました。たいていは、アクセス解析Q＆Aフォーラムを調べれば分かるのですが、分からないこともあります。&lt;/p&gt;
+
+&lt;p&gt;そんなときは、&lt;a href=&#34;https://productforums.google.com/forum/?hl=en#!forum/analytics&#34;&gt;Google Analytics Help forum&lt;/a&gt;のほうを検索してみましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://productforums.google.com/forum/?hl=en#!category-topic/analytics/discuss-issues-related-to-your-accounts-reports-and-data/rg0H0aJal0o&#34;&gt;Huge increase in Screen Resolution/Colors of (Not Set) - Google Product Forums&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;検索してみると、どうやら上記の質問と似ているように思えます。時期的にも同じだし、症状も似ている。この人は 画面の解像度 だけでなく、画面の色 でも (not set) エントリが出ているみたい。そこで、自分のプロファイルを再度確認したところ、画面の色 においても同じ現象が確認できました。その他にも(not set)  エントリの異常増加は、自分のプロファイルでは、下記メニューで確認できました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;画面の解像度　（Screen Resolutions）&lt;/li&gt;
+&lt;li&gt;画面の色　（Screen Colors）&lt;/li&gt;
+&lt;li&gt;フラッシュのバージョン　(Flash Versions）&lt;/li&gt;
+&lt;li&gt;言語　（Languages）&lt;/li&gt;
+&lt;li&gt;ホスト名 （Hostnames） ※これは増加ではなく急激な減少でした。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんわけでいろいろ調べた結果、なんかGA自体のバグくさいので、今回はGooogle さんに問い合わせてみようと思いました。実はちゃんとGoogle Analytics のお問い合わせフォームが存在してまして、調べてみてどうしてもわからない場合は問い合わせてみるのも良いでしょう。（要：AdWordsアカウント）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://support.google.com/analytics/?rd=1#topic=3544906&#34;&gt;Analytics Help&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;問い合わせた結果、この問題について既に認識しており、現在、エンジニアが問題の解決に向けて鋭意対応中ではあるが、改善時期は未定とのことです。&lt;/p&gt;
+
+&lt;p&gt;Google Analyticsでは、以前にもナビゲーション サマリーにおいて離脱数が0%になるバグが発生していました。（現在は修正済）　そういったバグは他にもあるかもしれませんので、こういった問題は僕らにはどうしようもできないことです。つまり、何を言いたいかと言いますと、バグ見つけたら記事にしてGoogleに問い合わせて共有しようぜってことです。3人よれば文殊の知恵ですがな。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analytics トラッキング スニペット再考（2010）</title>
+            <link>https://t32k.me/mol/log/asynchronous-tracking/</link>
+            <pubDate>Fri, 28 May 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/asynchronous-tracking/</guid>
+            <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://analytics-ja.blogspot.ca/2010/05/growing-google-analytics-ecosystem.html&#34;&gt;アナリティクス公式ブログ: 成長し続ける Google Analytics のエコシステム&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;非同期トラッキングコードが公式に推奨されるようになったので、ようやく重い腰を上げて調べてみました。長文です。&lt;/p&gt;
+
+&lt;h2 id=&#34;なぜ-非同期トラッキングコードが推奨されるのか&#34;&gt;なぜ、非同期トラッキングコードが推奨されるのか？&lt;/h2&gt;
+
+&lt;p&gt;今回のトラッキングコードはurcin.js、ga.jsに続く大きな変更となります。非同期トラッキングコードの恩恵を受けるためには、以前のトラッキングコードを使用されている方は、当然変更しなければなりません。しかし、大規模サイトの場合などはアクセス解析担当者とコード実装者は違うことも多く、エンジニアさんにお願いしなければなりません。「え〜、前変えたばっかじゃん！」などと言われるかもしれません。そんな時にアクセス解析担当者はトラッキングコード変更のメリットを提示しなければなりませんね。Analytics 公式ブログでは、非同期トラッキングコードの利点を以下のように説明しています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;ブラウザの実行順序改善によるページの読み込み時間高速化&lt;/li&gt;
+&lt;li&gt;データの収集・精度の向上&lt;/li&gt;
+&lt;li&gt;JavaScriptが完全に読み込まれていなかったときの依存性からくるエラーの除去&lt;br /&gt;
+― &lt;a href=&#34;http://analytics.blogspot.ca/2009/12/google-analytics-launches-asynchronous.html&#34;&gt;Google Analytics launches asynchronous tracking - Analytics Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;てな感じで3つ挙げられているので、ひとつひとつ確認していきましょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;読み込み時間の高速化&#34;&gt;読み込み時間の高速化&lt;/h2&gt;
+
+&lt;p&gt;これが、非同期トラッキングコード最大の利点なのではないでしょうか。やはり、Googleのランキングアルゴリズムに読み込む速度が加わった手前、自社サービスがボトルネックとなっていては示しがつきませんしね。&lt;/p&gt;
+
+&lt;p&gt;非同期トラッキングコードについて説明していくのですが、まず前提知識としてページの読み込まれ方について解説します。HTTP/1.1の仕様に「ひとつのホスト名（EX: &lt;code&gt;www.t32k.com&lt;/code&gt;, &lt;code&gt;img.t32k.com&lt;/code&gt;など）に対して並列ダウンロードできるコンポーネントは数は2つまで」と制限されています。（実際のブラウザ実装は6つとかだけど、IE6,7は2つまで）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/05/1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上記のグラフは簡単なモデルですが、すべて同じホスト名から読み込んでいます。まず、HTMLファイルが読み込まれ、画像などのコンポーネントが2個ずつ読み込まれていきます。&lt;/p&gt;
+
+&lt;p&gt;このとき、同じホスト名から読み込んでいる外部JavaScriptファイルがページの先頭で読み込まれていた場合はどうなるでしょうか？それを表したのが次のグラフです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/05/2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;どうでしょうか。仕様どおりなら「script + img」と並列に読み込まれるはずですが、そうはならずにscriptファイルひとつしか読み込まれていません。つまり、scriptファイルを最初に読み込むでしまうとダウンロード・レンダリングが止まってしまいます。そのため、ハイパフォーマンスWebサイト、高速サイトの実現のための14のルールのひとつ「ルール6：スクリプトは最後に置く」というものがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/05/3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このような理由から、非同期以前のトラッキングコードは&lt;/body&gt;の直前に置くことが推奨されています。出来る限りページ最下部に置くことでダウンロード・レンダリングを止めないようにしています。上記のグラフのような感じですね。ページを表示するために必要なコンポーネントはscriptの手前ですべて読み込まれているのでこれが最善策なのかなと。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/05/4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、&lt;code&gt;www.google-analytics.com&lt;/code&gt;から読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。&lt;/p&gt;
+
+&lt;h3 id=&#34;async属性に関して&#34;&gt;async属性に関して&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;ga.type = &amp;quot;text/javascript&amp;quot;; 
+ga.async = true;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。&lt;/p&gt;
+
+&lt;p&gt;続・ハイパフォーマンスWebサイトでは、async属性を使わなくてもブラウザの実行をブロックしないスクリプトの読み込みテクニックとして以下の6つを挙げています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;XHR eval&lt;/li&gt;
+&lt;li&gt;XHR インジェクション&lt;/li&gt;
+&lt;li&gt;iframe スクリプト&lt;/li&gt;
+&lt;li&gt;Script DOM要素&lt;/li&gt;
+&lt;li&gt;Script Defer&lt;/li&gt;
+&lt;li&gt;document.writeによるSCRIPTタグ書き出し&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回の非同期トラッキングコードではSCRIPT要素をDOMを使って生成することで実現しています。なので、ほとんどのブラウザで非同期で読み込むことが可能です。async属性を記述しているのは明示的に非同期で読み込むことをブラウザに通知するためとGoogle Code Blogには書いてあります。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;HTML5 “async” attribute in this part of the snippet. While it creates the same effect as adding a script element to the DOM, it officially tells browsers that this script can be loaded asynchronously. ― &lt;a href=&#34;http://googlecode.blogspot.ca/2009/12/google-analytics-launches-asynchronous.html&#34;&gt;Google Analytics Launches Asynchronous Tracking - The official Google Code blog&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;まぁ、実際のところどうなん？って感じなので、HTTPWatch(IE6で検証)で、とあるサイトの非同期トラッキングコードの実装の前後を計測したのが以下のウォーターフォールチャートです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/05/5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;直前に挿入したスタンダードトラッキングコードのチャート&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2010/05/6.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt;直前に挿入した非同期トラッキングコードのチャート&lt;/p&gt;
+
+&lt;p&gt;各コンポーネントの読み込み時間のブレもありますが、おおかた上記チャート図のような読み込まれ方をしています。灰色で強調されている部分がga.jsです。最初のチャート図は以前のように非同期ではないトラッキングコードで読み込んでいますので、ページの表示に必要なコンポーネントをすべて読み込んでからga.jsを読み込み、GIFリクエスト（最後のコンポーネント）をしています。&lt;/p&gt;
+
+&lt;p&gt;これが次の非同期トラッキングコードのチャートですと、コンポーネントのダウンロードをブロックしないので早い段階で読み込むことができ、GIFリクエスト（最後のコンポーネント）もページのレンダリングの前に完了しています。結果、ページ全体の読み込み時間は短くなっていますね。（上記の例だと200msぐらい）&lt;/p&gt;
+
+&lt;h2 id=&#34;データの収集-精度の向上&#34;&gt;データの収集・精度の向上&lt;/h2&gt;
+
+&lt;p&gt;パフォーマンス面の理由から最下部にしか置けなかったトラッキングコードですが、非同期で読み込むことができるようになったので、ページの上部におけるようになりました。つまり、それだけGoogle Analyticsを作動させるタイミングを早くすることができます。以前まではページが完全に読み込まれない状態でページ遷移した場合などは記録されないってことも想定されましたがその可能性が低くなったということです。&lt;/p&gt;
+
+&lt;h3 id=&#34;トラッキングコードは-head-の直前-body-の直後&#34;&gt;トラッキングコードは&lt;/head&gt;の直前、&lt;body&gt;の直後？&lt;/h3&gt;
+
+&lt;p&gt;パフォーマンスを気にすることなく、トラッキングコードは上部に置けるようになったのですが、これどこに置いたらよいの？と疑問があります。ところが、ヘルプの記事や管理画面の注意文によって言っていることがブレていて困りものです。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;headセクションの最後ではなくてbodyセクションの最初です。 調べた限りでは、headセクションに記述するとIE6ではJavascriptの動きに問題が発生することがあるようです。― &lt;a href=&#34;https://www.suzukikenichi.com/blog/google-analytics-asynchronous-tracking-is-now-default/&#34;&gt;Google Analytics非同期トラッキングが標準設定に | 海外SEO情報ブログ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;上記のブログではbodyセクションの最初って言ってますけど、それよりも何も「問題」ってなによ？って感じで気になったので調べてみました。それを問題にしているところの出典が明記されていないので、よくわかりませんが、たぶんこれが問題じゃないのかなと。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://productforums.google.com/forum/?hl=en#!category-topic/analytics/asynchronous-tracking-code-snippet/dejkn2pztkU&#34;&gt;Async snippet causes IE6 to close with &amp;ldquo;operation aborted&amp;rdquo; - Google Product Forums&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;IE6でなんかパーシングエラーになるそうです。その解決策としてBest Answerになってるのが、BASE要素をホゲホゲするか、HEAD要素に置いたトラキッングコードをBODY要素に置けばいいぜ！って書いてあります。うん、これっぽい。&lt;/p&gt;
+
+&lt;p&gt;んで、これ調べてると他にも関係ありそうな記事を見つけたので紹介。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stevesouders.com/blog/2010/05/11/appendchild-vs-insertbefore/&#34;&gt;appendChild vs insertBefore | High Performance Web Sites&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GoogleでWebパフォーマンスのエバンジェリストしているSteve Soudersさんのブログ記事なんですが、Google Analyticsの非同期トラッキングコードの変遷について解説しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// 2009年12月段階のベータ版のトラッキングコード
+var ga = document.createElement(&#39;script&#39;);
+ga.src = (&#39;https:&#39; == document.location.protocol ?
+    &#39;https://ssl&#39; : &#39;http://www&#39;) +
+    &#39;.google-analytics.com/ga.js&#39;;
+ga.setAttribute(&#39;async&#39;, &#39;true&#39;);
+document.documentElement.firstChild.appendChild(ga);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// 2010年の2月の段階のトラッキングコード
+var ga = document.createElement(&#39;script&#39;);
+ga.type = &#39;text/javascript&#39;; ga.async = true;
+ga.src = (&#39;https:&#39; == document.location.protocol ? 
+    &#39;https://ssl&#39; : &#39;http://www&#39;) + 
+    &#39;.google-analytics.com/ga.js&#39;;
+var s = document.getElementsByTagName(&#39;script&#39;)[0];
+s.parentNode.insertBefore(ga, s);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;どこが変わったのですかね…まぁちょいちょい微妙に違うのですが、ここでもっとも重要な変更点はSCRIPT要素をDOMで生成した後、ページに挿入するメソッドを、appendChildからinsertBeforeに変更した点です。&lt;/p&gt;
+
+&lt;p&gt;なんでこんなことをしたのかとSteve Souders考えるにjQueryで同じような問題があったので参考にしたのではないかと。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;head = document.getElementsByTagName (“head”)[0] || document.documentElement; // Use insertBefore instead of appendChild to circumvent an IE6 bug. // This arises when a base node is used (#2709 and #4378). head.insertBefore(script, head.firstChild);&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;この#2709の問題ってGoogle Analyticsヘルプでの問題と同じじゃね？つまり、insertBeforeメソッドにすることでIE6のバグは治ったのではないかと僕は推測しました。&lt;/p&gt;
+
+&lt;p&gt;んで、もうちょっと調べてみると、ドンピシャな質問がヘルプフォーラムで投げられていました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://productforums.google.com/forum/?hl=en#!category-topic/analytics/asynchronous-tracking-code-snippet/3b5k4HkiMeY&#34;&gt;Where should Asynchronous code be placed as seen instruction for 2 different places - Google Product Forums&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Q. ヘルプの各記事で&lt;/head&gt;の直前、&lt;body&gt;の直後とトラッキングコードの挿入位置が違ってるけど、どっちやねん？&lt;/p&gt;
+
+&lt;p&gt;A. 旧バージョンは&lt;body&gt;の直後に置くことでバグ回避してたけど、最新バージョンだったらその問題も起きないねん。ヘルプは今直してるとこやさかい、堪忍して。だから、位置は別にどっちでもええで。&lt;/p&gt;
+
+&lt;p&gt;みたいなやりとりですね。2010/5/20の回答なのでこれが最新の情報かな。あれ？答え出た？って感じなんですけど、まだ信用できません。このBest answerのBrian Kuhnって誰？と思ったので調べて見ますと、Twitterで発見。ga.js作ってるGoogleのエンジニアさんじゃないっすか！てか、非同期トラッキングコードリリースの公式ブログ書いてるのこの人じゃないっすか！つか、Twitterでも同じような質問されてるじゃないっすか！&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;@tgwilson @BigBryC - Nothing changed. There’s just a couple lingering pages with the old instructions. We’re fixing them. Head is preferred. ― &lt;a href=&#34;https://twitter.com/briankuhn/status/14340466143&#34;&gt;Brian Kuhn on Twitter&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Brian… あなたにもっと早く出会えていれば….&lt;/p&gt;
+
+&lt;p&gt;まぁ、そんなわけで、BODY要素に置かなければならない理由としてのIE6バグはフィックスされている。んで、非同期なのでどこにコードを置いても大丈夫だけど、HEAD要素に置くのが慣例的だし、Brianさんも好みだそうです。データの収集・精度を考えると少しでも上部に置くほうがベター（&lt;/head&gt;の直前と&lt;body&gt;の直後じゃ、あんまかわらんけどｗ）なんで&lt;/head&gt;の直前で良いのかなと僕は結論づけしました。&lt;/p&gt;
+
+&lt;p&gt;それにしても、ヘルプの記事とか修正したら月日記入して欲しいね。。。どっちが最新か分からない＞＜&lt;/p&gt;
+
+&lt;h2 id=&#34;依存性からくるエラーの除去&#34;&gt;依存性からくるエラーの除去&lt;/h2&gt;
+
+&lt;p&gt;これまで見てきて非同期ってワンダホー♪って思うのですが、そもそもなぜスクリプトファイルが読み込まれると並列ダウンロードがブロックされるのでしょうか？その理由として、開発者としては上部に置いたコードが先に実行されるという前提の上で実装をしています。もし、A.js、B.jsの順番でHTMLファイル内に読み込んで、非同期のためにB.jsの方が早く読み込みが完了されちゃったとします。B.jsの中にはA.jsで定義されたオブジェクトなど使われているので、当然未定義になってエラーが返される、なんてことが考えられます。例えるなら、jquery.js読み込む前に、jquery-plugin.jsが読み込まれては問題なわけですよ。&lt;/p&gt;
+
+&lt;p&gt;なので、非同期で読み込む場合はコードの実行順序を考慮する必要性があります。Google Analyticsの非同期トラッキングコードでは、前半部分がそれに対応した部分になっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  var _gaq = _gaq || [];
+  _gaq.push([&#39;_setAccount&#39;, &#39;UA-XXXXX-X&#39;]);
+  _gaq.push([&#39;_trackPageview&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;JavaScriptを嗜む程度の自分なのであまり詳しくないですが、このコードを初めて見たとき、なんか見慣れないなと思いました。なんでこうゆう書き方をしているのかなと。Google Code Blogを読む分には、ga.jsが読み込まれていない状態でvar _gaqにはただの配列が代入されて、そのコマンドが配列中に記録されてキュー待ち状態になる。んで、ga.jsが読み込まれると_gaqはオブジェクトになってキュー待ちのコマンドを実行していくという感じです。&lt;/p&gt;
+
+&lt;p&gt;まぁ、よく分かりませんが、とりあえず、コードの実行順序を維持するためにこのような書き方になったということが理解できて良かったです。ということで、ga.jsが読み込まれなかったとしてもただの配列の中に蓄えられるだけなのでエラーになる可能性が低くなったということです。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google AnalyticsでSafariのバージョンを確認するフィルタ</title>
+            <link>https://t32k.me/mol/log/safari-version-number-filter/</link>
+            <pubDate>Thu, 04 Mar 2010 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/safari-version-number-filter/</guid>
+            <description>&lt;p&gt;Safariのシェア並びにバージョン別のシェアが知りたくて、Google Analyticsで確認してみたらびっくり、バージョンじゃなくてビルド番号なんだね、こやつは。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ユーザー &amp;amp;gt; PC環境 &amp;amp;gt; ブラウザ &amp;amp;gt; Safari&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;こんなんわかんないよヽ(`Д´ﾒ)ﾉ ﾌﾟﾝｽｶ！ってことで、これをなんとかフィルタで書き換えたい欲望に駆られました。&lt;a href=&#34;http://ja.wikipedia.org/wiki/Safari#.E3.83.90.E3.83.BC.E3.82.B8.E3.83.A7.E3.83.B3.E5.B1.A5.E6.AD.B4&#34;&gt;Wikipedia&lt;/a&gt;で確認してみると、どうやら&lt;strong&gt;410番台が2.x系&lt;/strong&gt;、&lt;strong&gt;520番台が3.x系&lt;/strong&gt;、&lt;strong&gt;530番台が4.x系&lt;/strong&gt;だと分かる。1.x系はちょっとごちゃごちゃしているのと、シェアも少ないだろうということでスルーの方向で。&lt;/p&gt;
+
+&lt;p&gt;で、書いてみたフィルタがこれ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm5.static.flickr.com/4023/4405869024_13a7018cd4.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #888888;&#34;&gt;&lt;em&gt;Analytics 設定 &amp;gt; プロファイル設定 &amp;gt; 新しいフィルタを作成&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt; &lt;/em&gt;
+&lt;pre&gt;&lt;span style=&#34;color: #888888;&#34;&gt;// 4.x系&lt;/span&gt;
+^53(.)+&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #888888;&#34;&gt;// 3.x系&lt;/span&gt;
+^52(.)+&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color: #888888;&#34;&gt;// 2.x系&lt;/span&gt;
+^41(.)+&lt;/pre&gt;
+&lt;em&gt;検索する文字列 &lt;/em&gt;をバージョンごとに上記のように変更して、フィルタを作らなきゃいけないのがめんどくさい。適用してみたこれ↓&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm5.static.flickr.com/4020/4405869032_5140a6de05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;数日後、適用されたプロファイルがこれ↓（3分間クッキングみたい）&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm3.static.flickr.com/2770/4405103923_6a6c708701.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;だいたいのシェアが確認できます。僕のやりたかったこれ！一応満足。
+&lt;h3&gt;反省点&lt;/h3&gt;
+まぁ、&lt;em&gt;アドバンスフィルタ&lt;/em&gt; の &lt;em&gt;次の文字を含む で&lt;/em&gt;上記の正規表現を入力したら、バージョン毎のセッション数が出るので、出た数値をExcelで円グラフにすれば早いですｗ&lt;/p&gt;
+
+&lt;p&gt;フィルタで加工してしまえば、もう元のデータに戻せないので汎用性を考えるとあまりおススメしません。今回僕はフィルタの勉強のためにしたのが大きいです。Safari 5なんてものが出たらまたフィルタかけないといけませんしね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://code.google.com/intl/ja/apis/analytics/docs/gdata/gdataDeveloperGuide.html&#34;&gt;Google Analytics Data Export API&lt;/a&gt; が使えたら一番スマートですかね。勉強します&amp;hellip;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analyticsの(other)とはなんぞや？</title>
+            <link>https://t32k.me/mol/log/google-analytics-other-entry/</link>
+            <pubDate>Fri, 20 Nov 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/google-analytics-other-entry/</guid>
+            <description>&lt;p&gt;アクセス解析してたら、どうもデータの取れていないページがある事に気づいた。確かに該当のページは他のページと比べてあまり見られてなさそうなページなので、もしかして、はしょられているの？なんて思いながらGoogle Analyticsのそこらへんの仕様について調べてみた。&lt;/p&gt;
+
+&lt;p&gt;というのも、データが取れていないのなら取れていないでいいんだけど、こっちとしてはなぜ取れていないのか説明できないとアクセス解析ツールを使う他部署の皆さんが不信感を抱いてしまう。｢こんなうさんくさいツール信用できっかよ｣なんて事になったら困りものだ。&lt;/p&gt;
+
+&lt;p&gt;そうゆことで、最初に目をつけたのがトラッキングコードがおかしくないか。うん、基本ですね。目視でちゃんと正しいトラッキングコードになっていることを確認。てか、テンプレートページに入れてあるので、該当のページだけおかしくなるというのは考えられない。&lt;/p&gt;
+
+&lt;p&gt;続いて、HTTPヘッダーでGIFリクエストされていることも確認。GAサーバーに情報は送られているのは確かなようだ。&lt;/p&gt;
+
+&lt;p&gt;つまり、情報が送られて表示するまでの間が問題かと思い、次にフィルタに着目。フィルタはほんとうに怖いね。試しに何にもフィルタをかけていないプロファイルを新しく作成し、該当のページにアクセスしてみた。一日後、うん記録されてないね。フィルタが原因ではなかった。&lt;/p&gt;
+
+&lt;p&gt;困った。だいぶ困った。そしたらこんなヘルプ記事見つけた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;一日で50,000ページ（または仮想ページ）以上をトラッキングしていませんか？ Google AnalyticsはWebサイトの全ての情報を収集し、一日つき50,000ページまでページビューで分類されたレポートを表示します。残りのページはレポート上では (other) という名前のエントリに集約されます。トラフィックの少ないページの詳細なレポートを見るためには、トラフィックの多いページを除くフィルタをかけた新しいプロファイルを作成する必要があります。こうすることで、効果的に残ったページを50,000URLs内に含めておけます。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;そんなん知らないよ〜＞＜ 試しに1日分のデータ見たら確かに49,999ページ分しかなかった。&lt;/p&gt;
+
+&lt;p&gt;(other)は前々から気になってたけど、こんなところで理解するとは思わなかった。つまり、今回の現象はPV数が少ないページが記録される前に、他のPVの多いページが50,000ページ記録されて、それ以降は(other)にまとめられちゃったから、｢上位のコンテンツ｣から該当のURLで検索してもひっかからなかったってことね。&lt;/p&gt;
+
+&lt;p&gt;ということは、50,000ページ記録される前に該当のページにアクセスすれば記録されるんじゃねと思ったので、日付が変わる12時過ぎにアクセスしたけど、記録されなかった。たぶん、50,000ページのリセットのタイミングが日付と違うのか、それともPV数の多いページから優先的に処理されるのかもね。&lt;/p&gt;
+
+&lt;p&gt;ともかく、PV数の少ないページのレポートを見るためにフィルタで細分化されたプロファイルから確認しないといけないって他部署の人には説明すれば良いと言うわけだ、てかその前にそんなトラフィックあるんなら有償ツール使えってことですね&amp;hellip;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analyticsの『サイト上のデータ表示』は信頼できるのか？</title>
+            <link>https://t32k.me/mol/log/google-analytics-site-overlay/</link>
+            <pubDate>Thu, 30 Jul 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/google-analytics-site-overlay/</guid>
+            <description>
+
+&lt;p&gt;『サイト上のデータ表示』とは『コンテンツ』ナビゲーションの下にある機能で、ページにあるリンクのクリック率がわかるというものです。小難しい数字の羅列のレポートとは違って、どこが押されているのか直感的に分かる素晴らしい機能ですが、個人的には毎回ちょっと違和感を覚える結果だったので何となく信用していませんでした。&lt;/p&gt;
+
+&lt;p&gt;先日、会社の方でこの機能を見たらクリック率がすべて0%になっている、ありえない状態を発見したので、この『サイト上のデータ表示』はどのような仕組みで動いてるのか気になったので調べてみました。&lt;/p&gt;
+
+&lt;h2 id=&#34;なぜクリック率がすべて0-になったのか&#34;&gt;なぜクリック率がすべて0%になったのか？&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;URL の書き換え フィルタを使用して URL を書き換ると、実際の HTML に記述されたリンクの URL とコンテンツ サマリー レポートの [ナビゲーション サマリー] に表示されるフィルタで書き換えられた URL は一致しなくなります。 この場合、サイト上のデータ表示レポートは、HTML のリンクとレポートに記録されたデータを正しく関連付けられなくなります。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://support.google.com/analytics/answer/2558811?hlrm=en&amp;amp;rd=1&#34;&gt;About In-Page Analytics - Analytics Help&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Analyticsヘルプに見たらあっさり解決しましたｗ&lt;/p&gt;
+
+&lt;p&gt;確かに会社の方では複数のサブドメインをひとつのプロファイルでまとめていたので、ドメインを表示させるアドバンスフィルタ（通常のURL表示はドメイン以下のみを表示する仕様なので）をかけてありました。でもねもとはと言えばこれを見てやったのに&amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://support.google.com/analytics/answer/1033876?hl=ja&amp;amp;rd=1&#34;&gt;クロスドメイン トラッキングについて - アナリティクス ヘルプ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;言われたとおりやっただけなのに、ほかの機能が使えなくなるのはどうかなと思ってしまいます。まぁ無料だからね..とはいえ、もしフィルタを使ってなかったとしても『サイト上のデータ表示』は少々癖があります。&lt;/p&gt;
+
+&lt;h2 id=&#34;同一urlリンクはまとめてカウントされる&#34;&gt;同一URLリンクはまとめてカウントされる&lt;/h2&gt;
+
+&lt;p&gt;例えば、同じページ上に『トップページへ戻る』リンクがサイトロゴ画像とテキストリンクであった場合、それらは同じURLなので、まとめてカウントされます。（実際はサイトロゴが6回、テキストリンクが4回クリックされたとしても、GA上ではどちらもクリック数10と表示されます。）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;（A要素のhref属性で記述された）標準的なリンクしか計測できない&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ざっと挙げる限りこれだけ計測できないリンク（というかクリックイベント）がある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JavaScriptリンク（onclick属性でwindow.openなど）&lt;/li&gt;
+&lt;li&gt;pageTrackerで作成した仮想ページビュー（_trackPageview()など）&lt;/li&gt;
+&lt;li&gt;URLリダイレクト&lt;/li&gt;
+&lt;li&gt;サブドメインのページへのリンク&lt;/li&gt;
+&lt;li&gt;外部サイトへのリンク&lt;/li&gt;
+&lt;li&gt;ダウンロードファイル(PDFに直リンクとか)&lt;/li&gt;
+&lt;li&gt;フレームへのリンク&lt;/li&gt;
+&lt;li&gt;フォームのinputボタン&lt;/li&gt;
+&lt;li&gt;Flashコンテンツ&lt;/li&gt;
+&lt;li&gt;イメージマップ（AREA要素のhref属性なので）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;URLの書き換えの項を見る限り、[ナビゲーション サマリー]のデータを基にしているのかもしれない。だから、A要素のhref属性でも飛び先にga.jsがインクルードされていない外部サイト、ダウンロードファイルなどは計測されないのね。結局、使いどころとしてはあまりやんちゃなことしてない静的ページくらいしか使えないのかもしれない。&lt;/p&gt;
+
+&lt;p&gt;同じような機能で有料のCrazyEggがあるので、オーバーレイで直感的に確認したいという方はそちらの方の使用を薦める。ただ、CrazyEggもCSSの兼ね合いによっては不具合が予想されるのでそこは注意したい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.crazyegg.com/help/Viewing_Results/Why_is_my_website_not_displaying_all_the_images_or_CSS/&#34;&gt;Crazy Egg - build heat maps and track clicks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cardinalpath.com/site-overlay-report-google-analytics-power-user-part-2/&#34;&gt;Site Overlay Report: Google Analytics Power User Part 2 | Cardinal Path Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>複数のGoogle Analytics Tracker Codeを併用する</title>
+            <link>https://t32k.me/mol/log/multi-google-analytics-tracker-code/</link>
+            <pubDate>Mon, 22 Jun 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/multi-google-analytics-tracker-code/</guid>
+            <description>&lt;p&gt;『&lt;a href=&#34;https://www.suzukikenichi.com/blog/tracking-access-by-mutiple-google-analytics-accounts/&#34;&gt;Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ&lt;/a&gt;』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は&lt;code&gt;_gat._getTracker()&lt;/code&gt;で初期化する際に、変数を2つ用意してあげればいいってこと。&lt;/p&gt;
+
+&lt;p&gt;ちょうど、『SIGMA DP2 : Special Contents』のサイトで似たようなコード見つけたので、挙げておく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script type=“text/javascript”&amp;gt;
+&amp;lt;script&amp;gt;
+try {
+	var pageTracker = _gat._getTracker(“UA-xxxxxx-1”);
+	pageTracker._trackPageview();
+
+	var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”);
+	pageTracker2._trackPageview();
+
+} catch(err) {}
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;pageTracker&lt;/code&gt;と&lt;code&gt;pageTracker2&lt;/code&gt;に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cardinalpath.com/&#34;&gt;Digital Intelligence Solutions to Empower Data Driven, Confident Decision Making | Cardinal Path&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記にサイトはこんな感じのコードだった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+try {
+	var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxx-1&amp;quot;);
+	var isDev = window.location.href.search(/vkistudios.net/);
+
+	if (isDev &amp;gt; -1)
+	pageTracker._setDomainName(&amp;quot;.vkistudios.net&amp;quot;);
+	else
+	pageTracker._setDomainName(&amp;quot;.vkistudios.com&amp;quot;);
+
+	pageTracker._setLocalRemoteServerMode();
+	pageTracker._initData();
+	pageTracker._trackPageview();
+} catch (e) {}
+
+//event tracking profile
+try {
+	var eventTracker = _gat._getTracker(&amp;quot;UA-xxxxx-4&amp;quot;);
+
+	if (isDev &amp;gt; -1)
+	eventTracker._setDomainName(&amp;quot;.vkistudios.net&amp;quot;);
+	else
+	eventTracker._setDomainName(&amp;quot;.vkistudios.com&amp;quot;);
+	eventTracker._initData();
+	eventTracker._trackPageview();
+} catch (e) {}
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;イベントトラッキングとコンテンツの情報は分けて管理してるのかな。URLを判別して、&lt;code&gt;_setDomainName()&lt;/code&gt;の引数を変えることでマルチドメイントラッキングを可能にしてる。&lt;/p&gt;
+
+&lt;p&gt;こんなふうにいろんなサイトのカスタマイズしたコード見てみたいもんだ。eコマーストランザクションとかどこか使ってないもんかな。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>pageTracker._initData関数も廃止予定</title>
+            <link>https://t32k.me/mol/log/pagetracker-initdata/</link>
+            <pubDate>Fri, 29 May 2009 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/pagetracker-initdata/</guid>
+            <description>&lt;p&gt;数ヶ月前のGoogle Analyticsコードアップデートでスニペットに&lt;code&gt;try/catch&lt;/code&gt;文が挿入されたってことを書いた。でも、よくよく見たらpageTracker._initDataの関数もなくなっていない？ってことに気づいた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); 
+pageTracker._initData();
+pageTracker._trackPageview();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;少し前のga.jsのコードはこんな感じだったともう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;try {
+    var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;);
+    pageTracker._trackPageview();
+} catch (err) { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;initData()&lt;/code&gt;ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。&lt;/p&gt;
+
+&lt;p&gt;Analytics Tracking APIに載っていた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;_initData() _initData()Deprecated. initData() now executes automatically in the ga.js tracking code. Initializes or re-initializes the GATC (Google Analytics Tracker Code) object.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Deprecatedってことは廃止予定ってことか。なんかga.js内で自動的に実行しているらしい。 あーすっきり！しかしまぁ、もうちょっとアナウンスしてくれてもいいんだと思うんだけどな&amp;hellip;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
