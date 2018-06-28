@@ -1,1465 +1,678 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>MOL</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://t32k.me/mol/categories/development/</link>
-        <language>ja</language>
-        
-        
-        <updated>Wed, 14 Feb 2018 00:00:00 UTC</updated>
-        
-        <item>
-            <title>チャットデプロイしたい2018</title>
-            <link>https://t32k.me/mol/log/chat-deploy/</link>
-            <pubDate>Wed, 14 Feb 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/chat-deploy/</guid>
-            <description>
-
-&lt;p&gt;タイトルの通り、チャットデプロイしたい。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;開発環境 &lt;code&gt;master&lt;/code&gt;ブランチ&lt;/li&gt;
-&lt;li&gt;QA環境 &lt;code&gt;deployment/qa&lt;/code&gt;ブランチ&lt;/li&gt;
-&lt;li&gt;本番環境 &lt;code&gt;deployment/production&lt;/code&gt; ブランチ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;自分のところは、上記みたいに環境とブランチがマッチングしていて、そのブランチにコミットなりマージするとCircleCIのほうでデプロイしてくれる。&lt;/p&gt;
-
-&lt;p&gt;例えば、開発環境でおおかた確認してQA環境に反映したいときは&lt;code&gt;master&lt;/code&gt;から&lt;code&gt;deployment/qa&lt;/code&gt;にPRを作成しマージして、デプロイしてた。それめんどいので、そこをボットでやらせたいと思った。要はこうゆう感じ。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;slack上から任意の言葉でbotにデプロイを指示する&lt;/li&gt;
-&lt;li&gt;slackのbotがGitHub APIでプルリクエスト作成・マージを実行する&lt;/li&gt;
-&lt;li&gt;CircleCIがGAEにデプロイする&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/circleci2-yml-nodejs/&#34;&gt;3.はもう出来てる&lt;/a&gt;ので、1.2.を見てみよう。&lt;/p&gt;
-
-&lt;h2 id=&#34;1-slack-bot&#34;&gt;1. Slack Bot&lt;/h2&gt;
-
-&lt;p&gt;SlackのBotってどうやって作るんだっけなー、Hubotってあったよなーと思いつつ、今はBotkitが安定して開発されているっぽいからそれを使う。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://botkit.ai/&#34;&gt;Botkit: Building Blocks for Building Bots&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Custom Integrations &amp;gt; Botsからボットを登録して、API Tokenを取得しておく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/howdyai/botkit/blob/master/examples/slack_bot.js&#34;&gt;botkit/slack_bot.js at master · howdyai/botkit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あとは、レポジトリのexamplesディレクトリのなかにあるslack_bot.jsに先程のトークンを渡して起動させればおｋ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;controller.hears([&#39;hello&#39;], &#39;direct_mention&#39;, (bot, message) =&amp;gt; {
-    bot.reply(message, &#39;Hello!&#39;);
-    // ここからGitHubのAPIを叩く
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;controller.hears&lt;/code&gt;でなんか受け取って、それで反応してあげれば良いのが分かる。&lt;/p&gt;
-
-&lt;h2 id=&#34;2-github-apps&#34;&gt;2. GitHub Apps&lt;/h2&gt;
-
-&lt;p&gt;まぁGitHubでゴニョゴニョしたいので、GitHub API v3を叩く。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;GitHub API v3 | GitHub Developer Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Node.jsのAPIクライアントはoctokitがよさそうってことで使ったのだが、Authenticationがむずい、ドハマリした。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/octokit/rest.js&#34;&gt;octokit/rest.js: GitHub REST API client for Node.js&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;まず、いろいろ認証の仕方が多い。どれを選べばいいんだ！一番簡単なのはPersonal access tokensだったけど、これだと僕のアカウントでプルリクエストが作成され、マージされてしまう。やはりBotとして実行してもらいたいので、だめ。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/icoxfog417/items/fe411b94b8e7ae229e3e&#34;&gt;GitHubと連携する新しいアプリの形：GitHub Appsの作り方 - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;これを読む限り、GitHub Appsがいちばんオサレそうなので、この方法でやってみる。
-GitHub Appsとして認証するためには、まず&lt;a href=&#34;https://jwt.io/introduction/&#34;&gt;JSON Web Token&lt;/a&gt;を作らないといけないらしい。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://developer.github.com/apps/building-github-apps/authentication-options-for-github-apps/#authenticating-as-a-github-app&#34;&gt;Authentication options for GitHub Apps | GitHub Developer Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;GitHubのドキュメント見ると、Rubyコードの例が書いてあるけど、Node.jsでやるにはどーしたらいいんだー！と悩んだあげく、こんな感じに書いた。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const fs = require(&amp;quot;fs&amp;quot;);
-const jwt = require(&amp;quot;jsonwebtoken&amp;quot;);
-const key = fs.readFileSync(`${__dirname}/private-key.pem`);
-const opts = { algorithm: &amp;quot;RS256&amp;quot; };
-const payload = {
-  iat: Math.floor(Date.now() / 1000) - 30,
-  exp: Math.floor(Date.now() / 1000) + 60 * 10,
-  iss: YOUR_ISSUE_NUMBER
-};
-const jwtToken = jwt.sign(payload, key, opts);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;まずはGitHubのWebからGitHubAppsを登録する。パーミッションの設定も忘れなく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://developer.github.com/v3/apps/permissions/&#34;&gt;GitHub App Permissions | GitHub Developer Guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;んでprivate-key.pemを生成しとく。それと、アプリの発行IDもその設定画面にあるのでメモっとく。あとは、&lt;code&gt;jsonwebtoken&lt;/code&gt;というnpmを使って、トークンを生成する。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const octokit = require(&amp;quot;@octokit/rest&amp;quot;)({
-  headers: {
-    accept: &amp;quot;application/vnd.github.machine-man-preview+json&amp;quot;,
-    authorization: `Bearer ${jwtToken}`
-  }
-});
-const installationToken = await octokit.apps.createInstallationToken({
-  installation_id: YOUR_INSTALLATION_ID
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;んで、octokitを初期化するときに、&lt;code&gt;headers&lt;/code&gt;に先程のJWTトークンをBearerのあとにひっつける。&lt;code&gt;installation_id&lt;/code&gt;がなんぞやってことだけど、Appの設定のAdvancedでなんかアクセスがあるっぽいので、そこから知る。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;octokit.authenticate({
-  type: &amp;quot;integration&amp;quot;,
-  token: installationToken
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;んで、この&lt;code&gt;installationToken&lt;/code&gt;を&lt;code&gt;octokit.authenticate&lt;/code&gt;に渡してようやくAPIが叩けるようになる。PR作成したかったら&lt;code&gt;octokit.pullRequests.create(opts)&lt;/code&gt;とか叩けばよい。すごく長かった。。。&lt;/p&gt;
-
-&lt;h2 id=&#34;google-compute-engine&#34;&gt;Google Compute Engine&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0214-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あとは、Botのメッセージを&lt;code&gt;attachments&lt;/code&gt;を使うとボットっぽくてよい。成功失敗とかバーの色変えられるのでよい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;bot.reply(message, {
-  attachments: [
-    {
-      fallback: &amp;quot;Success&amp;quot;,
-      color: &amp;quot;good&amp;quot;,
-      title: `#${result.number} ${result.title}`,
-      title_link: result.html_url,
-      text: &amp;quot;プルリクできたのだー:smirk_cat:&amp;quot;
-    }
-  ]
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;んで、いつもBotとかホストするのにherokuにホストしてたけど、最近GCPまわり触ってるからせっかくなので、GCEにホストした。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/operandoOS/items/01dd36264f735782f64b&#34;&gt;Google Compute Engine上でSlackのBotkitを動かすぞい！ - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;すごく簡単だった。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;token=your_token nohup node slack_bot.js &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あとバックグラウンドでもプロセスを活かすためには、&lt;code&gt;nohup [command] &amp;amp;&lt;/code&gt;と打てばよいと教えてもらった。ありがとう。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ（改）</title>
-            <link>https://t32k.me/mol/log/circleci2-yml-nodejs/</link>
-            <pubDate>Tue, 30 Jan 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/circleci2-yml-nodejs/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/circleci2-yml/&#34;&gt;前回の記事&lt;/a&gt;で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
-jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:8
-
-    steps:
-      - checkout
-      - run:
-          name: System information
-          command: |
-            echo &amp;quot;Node $(node -v)&amp;quot;
-            echo &amp;quot;Yarn v$(yarn --version)&amp;quot;
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Build
-          command: yarn run build
-      - run:
-          name: Test
-          command: yarn test
-      - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-          paths:
-            - ~/repo/.cache/yarn
-            - ~/repo/dist
-            - ~/repo/node_modules
-            - ~/repo/package.json  
-  
-  deploy:
-    working_directory: ~/repo
-    docker:
-      - image: google/cloud-sdk
-
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-      - run:
-          name: Deploy to Google App Engine
-          command: |
-            echo &amp;quot;$GOOGLE_AUTH&amp;quot; | base64 -i --decode &amp;gt; &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud auth activate-service-account --key-file &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud --quiet config set project &amp;quot;$GOOGLE_PROJECT_ID&amp;quot;
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &amp;quot;s/\//\-/g&amp;quot;)
-          no_output_timeout: 20m
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;build&lt;/code&gt;と&lt;code&gt;deploy&lt;/code&gt;でDockerイメージが違うのが嫌だなーって思っていて、これをどうすうるのがいいんだろうと考えたら、やっぱり &lt;code&gt;circleci/node&lt;/code&gt;のイメージをベースに&lt;a href=&#34;https://cloud.google.com/sdk/downloads?hl=ja&#34;&gt;Google Cloud SDKをインストール&lt;/a&gt;したイメージを用意するのがいいんだろうと思ったけど、ぼくのDocker力が足りないので、うまくいかず、すぐ諦めた。&lt;/p&gt;
-
-&lt;h2 id=&#34;google-cloud-sdk-インストール&#34;&gt;Google Cloud SDK インストール&lt;/h2&gt;
-
-&lt;p&gt;そしたら去年の10月頃にこうゆうものが出ていたことを知る。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package&#34;&gt;GoogleCloudPlatform/cloud-sdk-npm-package: A metapackage that installs Google Cloud Platform&amp;rsquo;s gcloud CLI through NPM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;npmインストールでCloud SDKをインストールできる代物。うん便利。ローカルで試したところ本当にnpmインストールで、PATHも設定してないのに、&lt;code&gt;gcloud&lt;/code&gt;コマンドが打てた。&lt;/p&gt;
-
-&lt;p&gt;CI上で試してみるとなぜかうまくいかない。&lt;code&gt;gcloud&lt;/code&gt;コマンドなんてないよ！と怒られる。どうやら、CircleCI上の&lt;code&gt;$SHELL&lt;/code&gt;の環境変数が&lt;code&gt;/bin/bash&lt;/code&gt;になってないと、うまく環境を認識できず（&lt;code&gt;zsh&lt;/code&gt;とか&lt;code&gt;fish&lt;/code&gt;と区別できない）、&lt;a href=&#34;https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package/blob/master/helpers-unix.js#L93&#34;&gt;PATHが設定できてないっぽい&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;なので、↓みたいに明示的に指定してあげる必要がある。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &#39;source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39; &amp;gt;&amp;gt; $BASH_ENV
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というわけで、無事打てました。&lt;/p&gt;
-
-&lt;h2 id=&#34;job間のデータ共有&#34;&gt;Job間のデータ共有&lt;/h2&gt;
-
-&lt;p&gt;これで&lt;code&gt;circleci/node&lt;/code&gt;のイメージひとつだけ使えるようになった。勘違いしてたのだけど、前回のyamlでJob間dでデータ共有できなかったのはJobのDockerイメージが異なるものだからだと思っていたけど、そうではなかった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://circleci.com/blog/persisting-data-in-workflows-when-to-use-caching-artifacts-and-workspaces/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0130-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;同じ（種類の）イメージでも、&lt;code&gt;build&lt;/code&gt;Jobで生成したデータを次の&lt;code&gt;deploy&lt;/code&gt;Jobには持ち越せない。通常データの共有はできない。そうゆうときはCachingを使えばよいのかと思っていたけど、微妙に違ってた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://circleci.com/blog/persisting-data-in-workflows-when-to-use-caching-artifacts-and-workspaces/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0130-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Cachingは異なるWorkflow間でのデータ共有であり、異なるJob間のデータ共有はWorkspaceという機能を使うのが正しい。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;persist_to_workspace&lt;/code&gt;という項目で、共有したいデータを指定し、&lt;code&gt;attach_workspace&lt;/code&gt;で取り出す。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
-
-# =============================================
-# References: Reusable Sets
-# =============================================
-references:
-  container_config: &amp;amp;container_config
-    docker:
-      - image: circleci/node
-    working_directory: ~/repo
-
-  restore_npm: &amp;amp;restore_npm
-    restore_cache:
-      keys:
-        - v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &amp;quot;package-lock.json&amp;quot; }}
-        - v1-cache-{{ arch }}-{{ .Branch }}
-        - v1-cache
-
-# =============================================
-# Jobs: Build and Deploy
-# =============================================
-jobs:
-  build:
-    &amp;lt;&amp;lt;: *container_config
-    steps:
-      - checkout
-      - *restore_npm
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - save_cache:
-          key: v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &amp;quot;package-lock.json&amp;quot; }}
-          paths:
-            - node_modules
-      - run:
-          name: Build
-          command: npm run build
-      - persist_to_workspace:
-          root: dist
-          paths:
-            - . 
-      - run:
-          name: Test
-          command: npm test
-
-  deploy:
-    &amp;lt;&amp;lt;: *container_config
-    steps:
-      - checkout
-      - *restore_npm
-      - run:
-          name: Set $PATH for `gcloud` command
-          command: echo &#39;source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39; &amp;gt;&amp;gt; $BASH_ENV
-      - attach_workspace:
-          at: dist
-      - run:
-          name: Deploy to Google App Engine
-          command: gcloud app deploy app.yaml
-          no_output_timeout: 20m
-          
-# Workflowsの設定・・・
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というわけで、こんな感じになった。&lt;code&gt;&amp;amp;&lt;/code&gt;と&lt;code&gt;*&lt;/code&gt;は&lt;a href=&#34;https://qiita.com/gctfuji/items/5f8e4c5795ce41b214d1&#34;&gt;YAML記法&lt;/a&gt;アンカーとエイリアスで、変数っぽく使える。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/circleci/frontend/blob/master/.circleci/config.yml&#34;&gt;frontend/config.yml at master · circleci/frontend&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あと、本家の本気のconfig.ymlを見て参考にしたが、Jobが分割されすぎて震えた。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>SeverとClientでレンダリング結果が違う</title>
-            <link>https://t32k.me/mol/log/full-icu/</link>
-            <pubDate>Fri, 19 Jan 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/full-icu/</guid>
-            <description>&lt;p&gt;Reactをアイソモーフィックに実行しているのだけど、下記のようなエラーが出てた。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Warning: Text content did not match. Server: &amp;ldquo;1970-1-18 22:09&amp;rdquo; Client: &amp;ldquo;1970/1/18 22:09&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;SeverとClientでレンダリング結果が微妙に違うとのこと。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;new Intl.DateTimeFormat(locales, {
-  year: &amp;quot;numeric&amp;quot;,
-  month: &amp;quot;numeric&amp;quot;,
-  day: &amp;quot;numeric&amp;quot;,
-  hour: &amp;quot;numeric&amp;quot;,
-  minute: &amp;quot;numeric&amp;quot;
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;該当のコード。&lt;/p&gt;
-
-&lt;p&gt;Node.js側の&lt;code&gt;Intl&lt;/code&gt;オブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、しばらく放っておいた。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0119-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://nodejs.org/api/intl.html#intl_options_for_building_node_js&#34;&gt;Internationalization Support | Node.js v9.4.0 Documentation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あとで国際化のサポートがビルドの設定ごとで違うらしいと気づいた。デフォルトのビルドでは&lt;code&gt;--with-intl=small-icu&lt;/code&gt;というもので、部分的なサポートでしかない。それとは別に&lt;code&gt;full-icu&lt;/code&gt;という全サポートがあるらしく、これ入れたら、サーバーとクライアントでの差異はなくなった。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/nodejs/node/wiki/Intl&#34;&gt;Intl · nodejs/node Wiki&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ちなみにICUとは&lt;a href=&#34;http://site.icu-project.org/&#34;&gt;International Components for Unicode&lt;/a&gt;の略らしい。確かに全言語対応のデータ毎回入れてたら重いよね。&lt;/p&gt;
-
-&lt;p&gt;Node.jsのバージョンマネージャーは&lt;code&gt;nvm&lt;/code&gt;使ってるんだけど、nvmインストールするときに下記のようなオプションつけると&lt;code&gt;full-icu&lt;/code&gt;でビルドしたものをインストールできる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;nvm install -s v9.4.0 --with-intl=full-icu --download=all
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/unicode-org/full-icu-npm&#34;&gt;unicode-org/full-icu-npm: npm module to autoload full ICU data.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;後づけで言語データをインストールができるnpmがある。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;NODE_ICU_DATA=node_modules/full-icu/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あとは環境変数&lt;code&gt;NODE_ICU_DATA&lt;/code&gt;にfull-icuの言語データへのパスを設定するだけでよい。&lt;/p&gt;
-
-&lt;p&gt;国際化とかホント苦手だわと思ったけど、今回の場合、日付の&lt;code&gt;/&lt;/code&gt;と&lt;code&gt;-&lt;/code&gt;が違うだけだったので、あんまり考えがめぐらなかったのが反省点。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</title>
-            <link>https://t32k.me/mol/log/circleci2-yml/</link>
-            <pubDate>Thu, 14 Sep 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/circleci2-yml/</guid>
-            <description>
-
-&lt;p&gt;基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。今年の7月にCircleCI 2.0がリリースされ、config.ymlの記法も刷新されたとかで、ググって出て来るのは1.0の記法ばかりで苦労したので、メモ代わりに残しとく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.stormcat.io/post/entry/circleci2.0-overview01/&#34;&gt;CircleCI2.0事始め -新しいcircle.ymlとworkflows編 · tehepero note(・ω&amp;lt;) 2.0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;基本は上記のブログがわかりやすい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
-jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:8
-
-    steps:
-      - checkout
-      - run:
-          name: System information
-          command: |
-            echo &amp;quot;Node $(node -v)&amp;quot;
-            echo &amp;quot;Yarn v$(yarn --version)&amp;quot;
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Build
-          command: yarn run build
-      - run:
-          name: Test
-          command: yarn test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;version: 2&lt;/code&gt; で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。&lt;code&gt;yarn&lt;/code&gt; がデフォルトで入ってるらしく、GAE/Node.jsも&lt;code&gt;yarn&lt;/code&gt;が使えるので&lt;code&gt;yarn&lt;/code&gt;を使っていく。&lt;/p&gt;
-
-&lt;p&gt;あとは&lt;code&gt;run&lt;/code&gt;でステップを指定していく。&lt;code&gt;command&lt;/code&gt;は&lt;code&gt;|&lt;/code&gt;を置けば、複数行でも書ける。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;      - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-          paths:
-            - ~/repo/.cache/yarn
-            - ~/repo/dist
-            - ~/repo/node_modules
-            - ~/repo/package.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://circleci.com/docs/2.0/caching/#using-keys-and-templates&#34;&gt;Using Keys and Templates - Caching Dependencies - CircleCI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;{{ hoge }}&lt;/code&gt;はテンプレートで、&lt;code&gt;checksum&lt;/code&gt; は base64でハッシュを作ってくれる。
-ここではユニークなkey名を指定したくて、こんな風にしている。あとはキャッシュさせたいパス。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;build&lt;/code&gt;ステップは終わり。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  deploy:
-    working_directory: ~/repo
-    docker:
-      - image: google/cloud-sdk
-
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-      - run:
-          name: Deploy to Google App Engine
-          command: |
-            echo &amp;quot;$GOOGLE_AUTH&amp;quot; | base64 -i --decode &amp;gt; &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud auth activate-service-account --key-file &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud --quiet config set project &amp;quot;$GOOGLE_PROJECT_ID&amp;quot;
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &amp;quot;s/\//\-/g&amp;quot;)
-          no_output_timeout: 20m
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;つぎに、&lt;code&gt;deploy&lt;/code&gt;ステップ。&lt;code&gt;gcloud app deploy&lt;/code&gt;のコマンドでデプロイするので、&lt;code&gt;gcloud&lt;/code&gt;が入ったdockerイメージを指定。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;restore_cache&lt;/code&gt; で先のステップで保存しといたファイルを呼び出す。&lt;/p&gt;
-
-&lt;p&gt;あとはデプロイコマンド。CI上でデプロイするので権限をもったサービスアカウントを作らなければならない。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://int128.hatenablog.com/entry/2017/08/12/153538&#34;&gt;Circle CIでCloud Functionをデプロイする - GeekFactory&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記はCloud Functionだけど、認証の部分は同じなので真似するとよい。んで、エンコードしたものをCircleCIの環境変数として登録しておく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://circleci.com/docs/2.0/env-vars/#build-details&#34;&gt;Using Environment Variables - CircleCI&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;$CIRCLE_BRANCH&lt;/code&gt;はCircleCIが設定している環境変数。ビルド番号とかもある。&lt;/p&gt;
-
-&lt;p&gt;あと&lt;code&gt;no_output_timeout&lt;/code&gt;は、GAE/Node.jsへのデプロイがくっそ遅くて、タイムアウト（デフォルト10分）になるので20分に伸ばしてる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;workflows:
-  version: 2
-  build_and_deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;最後はワークフローの設定。&lt;a href=&#34;https://circleci.com/docs/2.0/configuration-reference/#filters&#34;&gt;フィルター&lt;/a&gt;とかでmasterブランチのときだけ実行とか、必須条件とか決めれる。便利。&lt;/p&gt;
-
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://engineer.crowdworks.jp/entry/2017/04/04/202719&#34;&gt;CircleCI 2.0に移行して新機能を活用したらCIの実行時間が半分になった話 - クラウドワークス エンジニアブログ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Reactコンポーネントを外から操作したい</title>
-            <link>https://t32k.me/mol/log/react-custom-event/</link>
-            <pubDate>Fri, 05 May 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/react-custom-event/</guid>
-            <description>
-
-&lt;p&gt;最近、Reactを触っているのだけど、Reactコンポーネント外から任意のReactコンポーネントを操作したい事情に駆られた（何を言ってるのか分からねぇと思うが俺も（ｒｙ）。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default class Hoge extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: &#39;&#39; };
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick(e) {
-      this.setState({ text: &#39;unko&#39; });
-  }
-  render() {
-      ...
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;普通のケースだと、こんな感じで&lt;code&gt;Hoge&lt;/code&gt;のコンポーネントのどっかをクリックしたら、&lt;code&gt;state&lt;/code&gt;の&lt;code&gt;text&lt;/code&gt;に&lt;code&gt;unko&lt;/code&gt;をセットすることによって、&lt;code&gt;render&lt;/code&gt;がはしるみたいな、わかりやすい。なんの問題ない。&lt;/p&gt;
-
-&lt;p&gt;ただ、このコンポーネントを、&lt;code&gt;window.Hoge.setState({ text: &#39;unko&#39; })&lt;/code&gt;みたいに、グローバルから操作したい場合ってどうしたらいいんだろうかとけっこう悩んだ。&lt;/p&gt;
-
-&lt;h2 id=&#34;re-render&#34;&gt;re-render&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default class Hoge extends Component {
-  render() {
-      return(&amp;lt;span id=&#39;hoge&#39;&amp;gt;{ this.props.text }&amp;lt;/span&amp;gt;)
-  }
-}
-window.Hoge = Hoge;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;とりあえず、&lt;code&gt;Hoge&lt;/code&gt;をグローバルの&lt;code&gt;window&lt;/code&gt;に生やす。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default class Fuga extends Component {
-  constructor(props) {
-    super(props);
-    window.createHoge = (value) =&amp;gt; {
-      const Hoge = window.Hoge;
-      const elm = document.getElementById(&#39;hoge&#39;);
-      elm.innerHTML = &#39;&#39;;
-      ReactDOM.render(&amp;lt;Hoge text={value} /&amp;gt;, elm);
-    };
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;親のコンポーネントなり、なんなりで、新規に&lt;code&gt;Hoge&lt;/code&gt;を作るグローバル関数を定義する。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;window.createHoge(&#39;unko&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で、&lt;code&gt;Hoge&lt;/code&gt;コンポーネントの&lt;code&gt;props&lt;/code&gt;に&lt;code&gt;unko&lt;/code&gt;渡して、上書きすることでできた。なんか無理矢理感あるけど&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;既にレンダリングしてある&lt;code&gt;Hoge&lt;/code&gt;コンポーネントってどうやって取得したらいいんだろうか？(
-謎&lt;/p&gt;
-
-&lt;h2 id=&#34;custom-event&#34;&gt;custom event&lt;/h2&gt;
-
-&lt;p&gt;とりあえず&lt;code&gt;unko&lt;/code&gt;を表示できてホッとしてたけど、今度はこの&lt;code&gt;unko&lt;/code&gt;を他のコンポーネントに伝えたいって場合どうすればいいんだろうと悩んだ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default class Fuga extends Component {
-  constructor(props) {
-    super(props);
-    window.createHoge = (value) =&amp;gt; {
-     const event = new CustomEvent(&#39;createHoge&#39;, { &#39;detail&#39;: value });
-      document.getElementById(&#39;piyo&#39;).dispatchEvent(event);
-      ...
-    };
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;createHoge&lt;/code&gt;のときに、&lt;code&gt;createHoge&lt;/code&gt;イベントを発火させる。んで伝えたい値もセットしておく。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default class Piyo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: &#39;&#39; };
-        this.handleHoge= this.handleHoge.bind(this);
-  }
-  componentDidMount() {
-    this.refs.piyo.addEventListener(&#39;createHoge&#39;, this.handleHoge);
-  }
-  componentWillUnmount() {
-    this.refs.piyo.removeListener(&#39;createHoge&#39;, this.handleHoge);
-  }
-  handleHoge(e) {
-    this.setState({ text: e.detail });
-  }
-  render() {
-      return(&amp;lt;span ref=&#39;piyo&#39; id=&#39;piyo&#39;&amp;gt;{this.state.text}&amp;lt;/span&amp;gt;);
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;受け手のコンポーネント&lt;code&gt;Piyo&lt;/code&gt;でリッスン♪これで、&lt;code&gt;window.createHoge(&#39;unko&#39;);&lt;/code&gt;することで、&lt;code&gt;Hoge&lt;/code&gt;コンポーネントが作られ上書きし、&lt;code&gt;Piyo&lt;/code&gt;コンポーネントにも&lt;code&gt;unko&lt;/code&gt;が表示される。&lt;/p&gt;
-
-&lt;p&gt;なんか&lt;a href=&#34;https://mobx.js.org/&#34;&gt;MobX&lt;/a&gt;みたいなストア管理のライブラリ使えば、もっとシュッとできるんだろうなと思いつつ、しかし、そこまでの規模じゃないと思い、この結果に至りました。ちーん( ˘ω˘)&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Deploying Multiple Instances for Next.js</title>
-            <link>https://t32k.me/mol/log/nextjs-invalid-build-id/</link>
-            <pubDate>Tue, 25 Apr 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/nextjs-invalid-build-id/</guid>
-            <description>&lt;p&gt;年始に立てた目標『&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2017/&#34;&gt;SFC会員になる！&lt;/a&gt;』も達成してしまい、そろそろちゃんとデベロッパーに戻るかーと思いリハビリながらメモを上げていこうと思う。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/nkzawa/items/1e0e93efd13fb982c8c0&#34;&gt;Next.js - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;最近、v2.0もリリースされたことだし、&lt;a href=&#34;https://zeit.co/blog/next2&#34;&gt;Next.js&lt;/a&gt;を触っている。ほぼゼロ設定で、サーバーサイドでReactをレンダリングできたり、ルーティングがめちゃ簡単だったり、今のところいい感じである。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;An unexpected error has occurred.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;ローカルで開発をしているときは問題ないんだいけど、本番環境でたまに、というか、けっこうな確率でエラーページが表示されていて、なんでだろう？とログを見てみたら、&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/0425-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;BUILD_ID&lt;/code&gt;ちゃうやんけー！と怒られていた。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/zeit/next.js/wiki/Deployment&#34;&gt;Deployment · zeit/next.js Wiki&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ご丁寧にもWikiに書いてあった。&lt;/p&gt;
-
-&lt;p&gt;Next.jsの起動コマンドは&lt;code&gt;next build; next start&lt;/code&gt;って感じでbuildコマンドを打ってから起動するのだけど、要は複数のインスタンスで毎回buildコマンドが走って、その度に
-にユニークな&lt;code&gt;BUILD_ID&lt;/code&gt;が生成されて、インスタンス間で異なるものになっちゃってる話だと理解した。&lt;/p&gt;
-
-&lt;p&gt;というわけで、ユーザー側で任意のIDで上書きしてやればいい。WikiにあるようにGitのコミットIDとか利用すればいいっぽい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;next build &amp;amp;&amp;amp; echo $(git rev-parse HEAD) &amp;gt; .next/BUILD_ID
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というわけで、こうゆう感じで書いたのだけど、GAE/Node.jsの環境ではうまくいかなかった。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;next build &amp;amp;&amp;amp; echo $GAE_VERSION &amp;gt; .next/BUILD_ID
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;めんどくさかったので、&lt;a href=&#34;https://cloud.google.com/appengine/docs/flexible/nodejs/runtime&#34;&gt;GAEの環境変数&lt;/a&gt;の&lt;code&gt;GAE_VERSION&lt;/code&gt;を&lt;code&gt;BUILD_ID&lt;/code&gt;として利用したら、エラーが表示されなくなったヽ(=´▽`=)ﾉ&lt;/p&gt;
-
-&lt;p&gt;Next.js使ってる人、情報共有していきましょう。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Accelerated Mobile Linksを試してみる</title>
-            <link>https://t32k.me/mol/log/accelerated-mobile-links/</link>
-            <pubDate>Tue, 24 Jan 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/accelerated-mobile-links/</guid>
-            <description>&lt;p&gt;マイブームのAMPネタ。&lt;a href=&#34;https://www.ampproject.org/&#34;&gt;AMPとはモバイルWebの爆速化プロジェクト&lt;/a&gt;ですが、一応オープンソースプロジェクトということになってるが、いかんせんGoogleが主導しているわけで、Googleの検索結果ページから遷移するとそのメリットを最大限に享受できる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://developers-jp.googleblog.com/2017/01/introducing-accelerated-mobile-links-making-the-mobile-web-app-quick.html&#34;&gt;Google Developers Japan: Accelerated Mobile Links のご紹介: モバイル ウェブアプリを高速に&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;これまではちょっと限定的な印象だったわけだが、今回CloudflareさんもAMPに対応したサービスを出したってもんだから、モバイルWeb全体のスピード貢献に期待できる。その名もAccelerated Mobile Links!!!&lt;/p&gt;
-
-&lt;p&gt;Cloudflareを利用しているサイト上で、AMP対応したURLがあると、Googleの検索結果ページ同様、先読み込みし、AMPビューワーでチョッパヤに表示してくれる代物。&lt;/p&gt;
-
-&lt;p&gt;たしか、このブログも&lt;a href=&#34;https://t32k.me/mol/log/secure-and-fast-github-pages/&#34;&gt;SSL対応&lt;/a&gt;したときに、Cloudflareを利用した。というわけで、設定ページを見たら、あった！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/0124-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ENABLE ACCELERATED MOBILE LINKSをONにしましょう。&lt;/p&gt;
-
-&lt;p&gt;これで対応OK!&lt;/p&gt;
-
-&lt;p&gt;さて、以下のリンクはAMP対応しているURLだ。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.mercariatte.com/jp/&#34;&gt;メルカリ アッテ - 手数料無料！なんでも募集できる地域コミュニティアプリ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記のリンクをモバイルデバイスで閲覧すると、先頭にAMPマークがついてるのが分かる。これをクリックするとGoogleの検索結果じゃないにもかかわらず、AMPビューワーが立ち上がる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/0124-01.gif&#34; width=&#34;240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// リソースの読み込み先
-https://www-mercariatte-com.amp.cloudflare.com/i/s/www.mercariatte.com/files/img/icon-app.svg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;しかも、&lt;code&gt;*.cdn.ampproject.org&lt;/code&gt;じゃなくて、&lt;code&gt;*.amp.cloudflare.com&lt;/code&gt;からリソースが配信されている。Cloudflareさん太っ腹じゃないか。&lt;/p&gt;
-
-&lt;p&gt;というわけで、すでにCloudflareを利用しているサイトなら、とりあえず Accelerated Mobile Linksを有効にしといて損はないんじゃないかな。&lt;/p&gt;
-
-&lt;p&gt;もっと、他のパートナーも加わってモバイルWeb全体が速くなりますように( ˘ω˘)ｽﾔｧ&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>xoとavaでお手軽リント・テスト環境構築</title>
-            <link>https://t32k.me/mol/log/xo-and-ava/</link>
-            <pubDate>Wed, 04 Jan 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/xo-and-ava/</guid>
-            <description>
-
-&lt;p&gt;元旦に&lt;a href=&#34;https://github.com/t32k/stylestats/releases/tag/v7.0.0&#34;&gt;StyleStats v7.0&lt;/a&gt;をリリースした。めでたいことだ（知らんけど）。バージョンアップ作業は例のごとく依存するnpm modulesをアップデートして終わりというのがt32kの伝家の宝刀だが、せっかくなので今回はES6に書き換えようと思った。&lt;/p&gt;
-
-&lt;p&gt;しかし、それも&lt;code&gt;function&lt;/code&gt;をアロー関数に変更するぐらいだろうと、タカをくくっていたが、書き出してみると、&lt;a href=&#34;https://1000ch.net/&#34;&gt;1000ch君パイセン&lt;/a&gt;の&lt;del&gt;煽り&lt;/del&gt;意識高いレビューコメントのおかげで、いろいろ勉強させてもらった、多謝( ˘ω˘)！&lt;/p&gt;
-
-&lt;h2 id=&#34;eslint&#34;&gt;ESLint&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/0104-00.png&#34; alt=&#34;ESlint&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://eslint.org/&#34;&gt;ESLint - Pluggable JavaScript linter&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;アロー関数に変更するだけってのもあれだから、ちゃんとESlintもES6用の設定にカスタマイズしようと思い必死こいて&lt;code&gt;.eslintrc&lt;/code&gt;とにらめっこしていた。といっても下記の記事を参考にしただけだが。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/mysticatea/items/f523dab04a25f617c87d&#34;&gt;ESLint 最初の一歩 - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ESlintの仰せのままにコードを書き換えていく。書き終えたところで助言。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;.eslintrcメンテしていくのつらいから、xo使ったらどうですか？&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;タシ蟹！設定項目いっぱいあってめんどくさいです！しかし、xoってなんぞ( ˘ω˘)？&lt;/p&gt;
-
-&lt;h2 id=&#34;xo-javascript-happiness-style-linter&#34;&gt;xo: JavaScript happiness style linter&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/0104-01.png&#34; alt=&#34;xo&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sindresorhus/xo&#34;&gt;sindresorhus/xo: ❤️ JavaScript happiness style linter&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;いっぱいnpm作ってるかの有名な&lt;a href=&#34;https://github.com/sindresorhus&#34;&gt;sindresorhus&lt;/a&gt;氏のリンター。内部的にはESlintを使っていて、氏が思うESlintの設定でリントしてくれるというもの。なるほど検索しづらい！&lt;/p&gt;
-
-&lt;p&gt;僕みたいな、あまりJSにこだわりがない三等兵にとっては、こうゆう業界の先いってる人の考えを真似て従うのは性に合ってる。というかリントの設定で時間つぶしたくないもんね。&lt;/p&gt;
-
-&lt;p&gt;似たようなもので&lt;a href=&#34;https://github.com/feross/standard&#34;&gt;feross/standard&lt;/a&gt;がある。この圧倒的な名前の王道感のおかげが、こっちのほうが有名だ。ただこっちは&lt;strong&gt;セミコロンなし&lt;/strong&gt;が既定のルールとなっている。さきほど、こだわりはないと言ったが、こだわりがないからこそ小さい頃に『JSはセミコロンを必ずつけろ！』と教わって生きてきたので敷かれたレールから外れるのがこわい。そうゆう人も多いのか、&lt;a href=&#34;https://github.com/Flet/semistandard&#34;&gt;Flet/semistandard&lt;/a&gt;というリンターもある。さっそくスタンダード分裂してんじゃねーか！と思ったのはいざ知らず。&lt;/p&gt;
-
-&lt;p&gt;xoのほうはセミコロンつけるな！とは言わないしログもきれい( ˘ω˘) ただ、デフォルトでインデントはタブというルールがある。これが気に食わない人は&lt;code&gt;package.json&lt;/code&gt;に&lt;code&gt;xo&lt;/code&gt;のフィールドを作って設定を変更できる。その他のいくつかの設定も&lt;code&gt;package.json&lt;/code&gt;から変更できる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-  &amp;quot;name&amp;quot;: &amp;quot;awesome-package&amp;quot;,
-  &amp;quot;xo&amp;quot;: {
-    &amp;quot;spacce&amp;quot;: true
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;またスペース派だったけど、今回からタブ派に切り替えようかしらって思った人は&lt;code&gt;xo --fix&lt;/code&gt;ですぐに対応できる。今まで使ってたESlintの設定よりもチョイ厳し目だが、全体的に納得感あるので気に入っている。&lt;/p&gt;
-
-&lt;h2 id=&#34;ava-futuristic-javascript-test-runner&#34;&gt;ava: Futuristic JavaScript test runner&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/0104-02.jpg&#34; alt=&#34;ava&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/avajs/ava&#34;&gt;avajs/ava: Futuristic JavaScript test runner&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;xoのドキュメントを読んでいるとavaという単語が目につく。同じsindresorhus氏作のテストランナーだ。自分で未来的って言っちゃうほどなんだから、新しい仕様が採用されているのだろうと思い、せっかくなのでxoと一緒にこっちも採用してみた。1000ch君パイセンも最近使ってると言ってたし。&lt;/p&gt;
-
-&lt;p&gt;以前までは&lt;a href=&#34;https://mochajs.org/&#34;&gt;Mocha&lt;/a&gt;を使用していたが、非同期のテストがしづらいというか、よくわかんないままやってた。avaはテストの実行自体も非同期にやってくれて早い。またPromiseをサポートしているので、&lt;code&gt;done()&lt;/code&gt;とかいちいち呼び出さなくてもいい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;test(&#39;Promiseを返す関数のテスト&#39;, t =&amp;gt; {
-    return somePromise().then(result =&amp;gt; {
-        t.is(result, &#39;おんなじあたい&#39;);
-    });
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ちょうど、&lt;code&gt;StyleStats#parse()&lt;/code&gt;もPromiseを返すように変更したのでだいぶ楽に書けるようになった。と思っていたが、xoとavaを併用していると、上記のテストは『Async/Awaitを使えよー！』とxoに怒られる( ˘ω˘)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;test(&#39;Promiseを返す関数のテスト&#39;, async t =&amp;gt; {
-    const result = await somePromise();
-    t.is(result, &#39;おんなじあたい&#39;);
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;言われたとおりにしたら、さらに見やすくなって感動した。&lt;/p&gt;
-
-&lt;p&gt;あとは、Mochaを使ってると&lt;code&gt;describe&lt;/code&gt;や&lt;code&gt;it&lt;/code&gt;といったグローバル変数を使うはめになって、ESlintで『そんなもん宣言されてないやんけ！』と怒られて、テストファイルだけ、その変数を除外するとかゆうめんどくさいことからも開放されてよい( ˘ω˘)&lt;/p&gt;
-
-&lt;h3 id=&#34;nyc-the-istanbul-command-line-interface&#34;&gt;nyc: the Istanbul command line interface&lt;/h3&gt;
-
-&lt;p&gt;avaでコードのカバレッジを取るにあたって、&lt;a href=&#34;https://github.com/gotwarlost/istanbul&#34;&gt;istanbul&lt;/a&gt;は使えなくて、代わりにサブプロセスの&lt;a href=&#34;https://github.com/istanbuljs/nyc&#34;&gt;nyc&lt;/a&gt;というのを使うのだが、なんしかうまくいかない。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/avajs/ava/blob/master/docs/recipes/code-coverage.md&#34;&gt;ava/code-coverage.md at master · avajs/ava&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;同じ設定・コードなのに、うまくいく時といかない時がある。よくわからないので寝て待つことにする。&lt;/p&gt;
-
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;最初のセットアップも&lt;code&gt;xo --init&lt;/code&gt;、&lt;code&gt;ava --init&lt;/code&gt;で出来るので楽ちんである。あとなんとかrcファイルもルートディレクトリに貯まらないのもいい（package.jsonは肥大化するが許容範囲だと思う&amp;hellip;）。できるかぎり開発環境構築に手間を取らず、アプリケーションのコードに集中したいものですな( ˘ω˘)&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>カスタムドメインのGitHub PagesをSSL対応する</title>
-            <link>https://t32k.me/mol/log/secure-and-fast-github-pages/</link>
-            <pubDate>Thu, 22 Sep 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/secure-and-fast-github-pages/</guid>
-            <description>
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;このブログは、&lt;a href=&#34;https://t32k.me/mol/mol/log/hugo/&#34;&gt;Hugo + GitHub Pagesで運用&lt;/a&gt;している。&lt;code&gt;*.github.io&lt;/code&gt;みたいなGitHubが提供しているドメインなら既にHTTPSの恩恵を受けられるが&lt;code&gt;t32k.me&lt;/code&gt;のカスタムドメインを使用している場合はその限りではない。そうゆうわけで、21世紀だし&lt;code&gt;https://t32k.me&lt;/code&gt;を目指す。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/blog/2186-https-for-github-pages&#34;&gt;HTTPS for GitHub Pages&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;以前にrudolph君さんパイセンが、Kloudsecを使えばチョー楽っすよ！って言ってたのを思い出して、それを使ってみようとしてみたが既に&lt;a href=&#34;https://www.reddit.com/r/webdev/comments/4s3kmf/got_an_email_saying_that_kloudsec_will_be/&#34;&gt;サービスが終了&lt;/a&gt;していた／(^o^)＼&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.rudolph-miller.com/2016/03/11/kloudsec-for-ssl-with-custom-domain-on-gh-pages/&#34;&gt;Kloundsec for SSL with Custom Domain on GitHub Pages - (rudolph-miller)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;というわけで、1000ch君さんパイセンの記事にあるように、CloudFlareを使用してSSL対応する。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://1000ch.net/posts/2015/github-pages-custom-domain-in-https.html&#34;&gt;GitHub Pagesに設定しているカスタムドメインをHTTPS対応させる - 1000ch.net&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;cloudflareでの登録&#34;&gt;CloudFlareでの登録&lt;/h2&gt;
-
-&lt;p&gt;まずは、CloudFlareのアカウントを登録しよう。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cloudflare.com/&#34;&gt;CloudFlare - The web performance &amp;amp; security company&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;んで、自分のサイトを追加する(Add Site)。次にCloudFlare Planを選べといわれるが、Free Planでも問題ない。&lt;code&gt;xxx.ns.cloudflare.com&lt;/code&gt;みたいなネームサーバーが2つ、もらえるので、それに変更する。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;自分の場合、ドメインはお名前.comで取得したので、そこでネームサーバーを変更する。変更が反映されると、自分の追加したサイトのステータスがPendingからActiveに変わる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あとは、Page Rulesのページに行き、自分のドメインのHTTPページのすべてのアクセスをHTTPSに変更する処理を設定すれば完璧だ。&lt;/p&gt;
-
-&lt;h2 id=&#34;後処理&#34;&gt;後処理&lt;/h2&gt;
-
-&lt;p&gt;しばらくするとHTTPSにリダイレクトされるようになるので、寝て待とう（最大で24時間かかるとか）。自分のサイトでHTTPからのリソース読み込みがあるとちゃんと緑の鍵アイコンにならないので、調べておこう。基本的に自分のドメイン配下のリソースはルートからの相対パスで書いているので、特に問題はなかった。ただ、Amazonのアフィリエイト画像がHTTPからの読み込みだったので&lt;a href=&#34;http://d.hatena.ne.jp/takeR/20141026/1414356669&#34;&gt;全置換して対応&lt;/a&gt;した。&lt;/p&gt;
-
-&lt;p&gt;やっぱり、ドメイン系は反映に時間がかかるのでやきもきしたが、終わってみれば簡単だった。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/&#34;&gt;Secure and fast GitHub Pages with CloudFlare&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>StyleStatsのChrome拡張機能を作った</title>
-            <link>https://t32k.me/mol/log/stylestats-crx/</link>
-            <pubDate>Mon, 01 Feb 2016 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-00.gif&#34; alt=&#34;StyleStats Chrome拡張機能&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;StyleStatsのChrome拡張を作った。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki&#34;&gt;StyleStats - Chrome ウェブストア&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;はCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。&lt;/p&gt;
-
-&lt;h2 id=&#34;これまでの流れ&#34;&gt;これまでの流れ&lt;/h2&gt;
-
-&lt;h3 id=&#34;cli&#34;&gt;CLI&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-00.png&#34; alt=&#34;Commandline&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g stylestats
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.npmjs.com/package/stylestats&#34;&gt;npm&lt;/a&gt;からインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。&lt;/p&gt;
-
-&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-01.png&#34; alt=&#34;StyleStats.org&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、&lt;code&gt;Unique Font Families&lt;/code&gt;、　&lt;code&gt;Unique Colors&lt;/code&gt; がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。&lt;/p&gt;
-
-&lt;p&gt;あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。&lt;/p&gt;
-
-&lt;h3 id=&#34;crx&#34;&gt;CRX&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-02.png&#34; alt=&#34;Chrome Extension&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。&lt;code&gt;Unique Font Sizes&lt;/code&gt;もプレビュー可能になった。&lt;/p&gt;
-
-&lt;h2 id=&#34;使った技術とか&#34;&gt;使った技術とか&lt;/h2&gt;
-
-&lt;h3 id=&#34;es2015&#34;&gt;ES2015&lt;/h3&gt;
-
-&lt;p&gt;当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。&lt;/p&gt;
-
-&lt;h3 id=&#34;promise-fetch-api-arrow-functions&#34;&gt;Promise + Fetch API + Arrow functions&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;Promise.all(links.map(link =&amp;gt;
-  fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text())
-))
-.then(texts =&amp;gt; {});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ということで、&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;&lt;/code&gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるので&lt;code&gt;XMLHttpRequest&lt;/code&gt;みたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。&lt;/p&gt;
-
-&lt;h3 id=&#34;let-const&#34;&gt;Let + Const&lt;/h3&gt;
-
-&lt;p&gt;あとまぁ特にそこまで便利になるわけでもないけど、一応&lt;code&gt;let&lt;/code&gt;とか&lt;code&gt;const&lt;/code&gt;とかも使っといた。&lt;/p&gt;
-
-&lt;h2 id=&#34;css3&#34;&gt;CSS3&lt;/h2&gt;
-
-&lt;h3 id=&#34;object-fit&#34;&gt;object-fit&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.screenshot img {
-  object-fit: cover;
-  object-position: top;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;background-size&lt;/code&gt;的なことを&lt;code&gt;img&lt;/code&gt;要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にして&lt;code&gt;background-size:cover&lt;/code&gt;的なことをしたが、これだと印刷したときに表示されないので、そういえば&lt;code&gt;object-fit&lt;/code&gt;があったのを思い出した。今のところIEではサポートされていない。&lt;/p&gt;
-
-&lt;h3 id=&#34;currentcolor&#34;&gt;currentColor&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-hbs&#34;&gt;&amp;lt;ul&amp;gt;
-  {{#each body.uniqueColors}}
-  &amp;lt;li style=&amp;quot;color:{{this}}&amp;quot;&amp;gt;
-    &amp;lt;span class=&amp;quot;circle&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;{{this}}
-  &amp;lt;/li&amp;gt;
-  {{/each}}
-&amp;lt;/ul&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;Unique Colors&lt;/code&gt;の色丸の部分は&lt;code&gt;span&lt;/code&gt;の&lt;code&gt;background-color&lt;/code&gt;で指定してあるのだけど、&lt;code&gt;.circle { background-color:　currentColor; }&lt;/code&gt;で、現在のその要素のcolorプロパティを指定できる。&lt;code&gt;currentColor&lt;/code&gt;キーワードが使えないと、&lt;code&gt;&amp;lt;span style=&amp;quot;background-color:{{this}}&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&lt;/code&gt;みたいな感じで&lt;code&gt;span&lt;/code&gt;の方にも指定しなきゃいけないというダルいことになる。&lt;code&gt;currentColor&lt;/code&gt;自体は、IE9以上で使えるので、そこまで最新技術ってことでもないけど良い使い道が見つかって嬉しかったのだ。&lt;/p&gt;
-
-&lt;h2 id=&#34;chrome-extension-api&#34;&gt;Chrome Extension API&lt;/h2&gt;
-
-&lt;h3 id=&#34;chrome-tabs&#34;&gt;chrome.tabs&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;chrome.tabs.captureVisibleTab(screenshotUrl =&amp;gt; {})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これでキャプチャ取れる！簡単！Phantom.jsなんて使わなくてもいい！&lt;/p&gt;
-
-&lt;h3 id=&#34;chrome-runtime&#34;&gt;chrome.runtime&lt;/h3&gt;
-
-&lt;p&gt;アイコンをクリックしたらcontent scriptを動かすとか。そんでcontent scriptの結果をbackground.jsに返すとか。&lt;a href=&#34;https://developer.chrome.com/extensions/messaging&#34;&gt;Message Passing&lt;/a&gt;というやつだ。いつも忘れるのでメモっとく。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-background.js&#34;&gt;// これでcontent.jsに送信
-chrome.browserAction.onClicked.addListener(tab =&amp;gt; {
-    chrome.tabs.query({active: true, currentWindow: true}, tabs =&amp;gt; {
-        let activeTab = tabs[0];
-        chrome.tabs.sendMessage(activeTab.id, {&#39;message&#39;: &#39;clicked&#39;});
-    });
-});
-// これで受ける
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) =&amp;gt; {})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-content.js&#34;&gt;// これで受けて
-chrome.runtime.onMessage.addListener(analyzeCSS);
-// これでbackground.jsに送信
-chrome.runtime.sendMessage({error: false, meta: meta, body: result});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;material-design-lite&#34;&gt;Material Design Lite&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.getmdl.io/&#34;&gt;Material Design Lite&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;使ったと言えないほど、ほぼ既存のテンプレートをいじっただけだ。基本BEMっぽいかんじでクラス属性を付与していくのだけど、&lt;code&gt;mdl-color-text--grey-500&lt;/code&gt;こうゆう長いユーティリティのクラス属性とかもバンバンつけていく感じで、クラス属性値の見通しがあんまりだなと思った。まぁ、独自の接頭辞とかつけて名前空間区切ったりして汎用性を考慮しなければならないCSSライブラリの宿命か。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>StyleStatsにタイムラインチャートを追加した</title>
-            <link>https://t32k.me/mol/log/stylestats-charts/</link>
-            <pubDate>Sun, 09 Aug 2015 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/stylestats-charts/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;http://www.stylestats.org/dashboard?q=https://www.facebook.com&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0810-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;待望の期間グラフを&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats Web版&lt;/a&gt;に追加した。StyleStatsはCSSを解析ツールで、一回だけ使って、へぇー私の・僕の書いたCSSはこんな感じなんだぁーと理解してもらうのも結構だが、やはり継続的に解析してもらって、どのくらい改善したのか理解して欲しいと思っている。&lt;/p&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-slide=&#34;125&#34; data-id=&#34;50ae30301fb9013041ed22000a9d04af&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/jonrohan/githubs-css-performance&#34;&gt;GitHub&amp;rsquo;s CSS Performance // Speaker Deck&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;こう思うようになったのもJon Rohan氏のGitHub&amp;rsquo;s CSS Performanceのスライドを見てからだ。CSSだからといって、彼らは手を抜くこともなく最高のエンジニアリングを持って問題を解決しようとしていた。さすがGitHub!おれたちにできない事を平然とやってのけるッ！そこにシビれる!あこがれるゥ!と思って、そうゆうことを僕もしたくてここまで頑張ってきた。&lt;/p&gt;
-
-&lt;p&gt;そんな感じで感傷に浸っているが、実装自体は&lt;a href=&#34;http://www.highcharts.com/&#34;&gt;HIGHCHARTS&lt;/a&gt;を使っていて、難なくできている。&lt;a href=&#34;http://d3js.org/&#34;&gt;D3.js&lt;/a&gt;も考えたが、あれはビジュアリゼーションツールであって、グラフツールではない。&lt;a href=&#34;http://c3js.org/&#34;&gt;C3.js&lt;/a&gt;を使えば、グラフ機能を簡単に使えるが、D3.js + C3.js、2つのスクリプト読み込むのダルいと思って、HIGHCHARTSにした。そのほうが軽いしね。商用利用するとお金がかかるが、まぁしないし、いいかと思った。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0810-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、みなさん定期的に使ってみてください。当然、1回しかテストが実行されてないと、ただの点のグラフになるで、とりあえず2回以上テストお願いします。あとは、Web UIからじゃなくて、リモートから実行できたらいいなぁと思いつつ、おいおい頑張っていこうと思う。&lt;/p&gt;
-
-&lt;h2 id=&#34;web-db-press総集編&#34;&gt;WEB+DB PRESS総集編&lt;/h2&gt;
-
-&lt;p&gt;そういえば、WEB+DB PRESS総集編に記事を寄稿しましたので、皆さんよければ買ってください。買ってください！&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;WEB+DB PRESS総集編第5弾です。Vol.1~84まで14年分のバックナンバーと、過去4回の総集編の書き下ろし記事をDVDに一挙収録します。もちろん、特別書き下ろしとして豪華執筆陣による「Web技術の過去と現在、そしてこれから」も掲載。DVD収録データを含めた本誌電子版のダウンロード用パスコードも付録しているため、DVDが読めない環境の方も安心です!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774175382/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/512VlPFhc%2BL._SL160_.jpg&#34; alt=&#34;WEB+DB PRESS総集編[Vol.1~84]&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774175382/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;WEB+DB PRESS総集編[Vol.1~84]&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;WEB+DB PRESS編集部&lt;br /&gt;技術評論社 (2015-08-11)&lt;br /&gt;売り上げランキング: 2370&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774175382/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>そんなに目新しくもない技術でWebアプリをリニューアルした2015年春</title>
-            <link>https://t32k.me/mol/log/renewal-stylestats/</link>
-            <pubDate>Mon, 27 Apr 2015 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/renewal-stylestats/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0427-00.png&#34; alt=&#34;StyleStats&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://reactjs-meetup.connpass.com/event/11232/&#34;&gt;世間はReactの話題で持ちきり&lt;/a&gt;のようだけど、&lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone.js&lt;/a&gt;でStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことをつらつらかきとめておく。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats - An evaluating tool for writing better CSS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;そもそもBackbone使うほど複雑なアプリでもないんだけど、勉強がてら使ってみた。てかParse.comを使いたくて、それが&lt;a href=&#34;https://parse.com/docs/js_guide&#34;&gt;BackboneベースのSDK&lt;/a&gt;だったからというのもある。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://parse.com/&#34;&gt;Parse.com&lt;/a&gt;はmBaaS(mobile Backend as a Service)の類で、データを簡単にストアしてくれるもの。僕のようなフロント側の人間でバックエンドがからっきしな人も、こうゆうのを使うとWebアプリケーションを簡単に作れるそうだ。StyleStatsで、テスト結果をデータに貯めときたかったので使ってみた。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.stylestats.org/results/nBEUw1oi7k&#34;&gt;StyleStats Test Result | http://www.google.com/ - Sun Apr 26 2015 04:32:59 GMT-0700 (PDT)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;リニューアル後はテスト結果ひとつひとつにパーマリンクができるようになったので、定期的にテストかけといて、あとから比較（目視）とかできる。まぁデータ自体は溜まっていくので、今後はグラフ生成機能とか提供できるかもしれない（やらないかもしれない。&lt;a href=&#34;http://d3js.org/&#34;&gt;D3.js&lt;/a&gt;か&amp;hellip;）。&lt;/p&gt;
-
-&lt;h2 id=&#34;javascriptとか&#34;&gt;JavaScriptとか&lt;/h2&gt;
-
-&lt;p&gt;個人的にJavaScriptはCrome拡張だったりNode.jsでCLIツール作ったするときに書くくらいで、今回はじめてWebアプリケーションとしてのJavaScriptをBackbone.jsで書いた。うん、難しいよね。なんかうまく動かなかったら、それBackboneの問題なのかParse SDKの問題なのか、どっちかわからんと思ってたら、結局、自分のJS基礎力のなさから来る問題だったりして苦労した。&lt;/p&gt;
-
-&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51oknTylWUL._SL160_.jpg&#34; alt=&#34;入門Backbone.js&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;入門Backbone.js&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.4.27&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;James Sugrue,クイープ&lt;br /&gt;翔泳社&lt;br /&gt;売り上げランキング: 27475&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;世間がReact!React!React!って言ってる中、せっせと2012年くらいの記事を貪っていてちょっと辛かった。いや今までサボっていた自分が悪いんだ。置いてけぼり感つらい。資料に関しては、上記の本ですべて事足りると思う。&lt;/p&gt;
-
-&lt;p&gt;あと、&lt;a href=&#34;http://browserify.org/&#34;&gt;Browserify&lt;/a&gt;を使ってみた。個人的にどちらかというとNode.jsの文化に親しみを感じているのでモジュール管理としてはこれがいいのではと思ったけど、うまいこと使いこなせている自信はない。&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e613-concat_build_pattern_examples.html&#34;&gt;Concatでいいんじゃないか&lt;/a&gt;と思うこともあるが、&lt;code&gt;require()&lt;/code&gt;したかったんや。&lt;/p&gt;
-
-&lt;p&gt;でも、最近じゃ&lt;a href=&#34;http://www.2ality.com/2014/09/es6-modules-final.html&#34;&gt;ES6のimport&lt;/a&gt;ってのもあるのね、どうしよう。まぁいいや。&lt;a href=&#34;http://thlorenz.com/es6ify/&#34;&gt;es6ify&lt;/a&gt;や&lt;a href=&#34;https://github.com/babel/babelify&#34;&gt;babelify&lt;/a&gt;というのもある。なんだこれ？まぁいいや。あ、そうそう。BrowserifyでHandlebarsのtemplateをプリコンパイルしたかったら&lt;a href=&#34;https://github.com/epeli/node-hbsfy&#34;&gt;hbsfy&lt;/a&gt;っての使うらしいい。ファイファイやかましいわ。とにかく最近のES6,7事情ついていけてない、つらい。&lt;/p&gt;
-
-&lt;p&gt;あと&lt;a href=&#34;https://t32k.me/mol/log/npm-run-script/&#34;&gt;Grunt/Gulpで憔悴した話&lt;/a&gt;したけど、やっぱなんやかんやでGulp使った。起動させるインターフェイスとしては&lt;code&gt;npm run script&lt;/code&gt;使っているので許して欲しい（誰）。&lt;/p&gt;
-
-&lt;h2 id=&#34;cssとか&#34;&gt;CSSとか&lt;/h2&gt;
-
-&lt;p&gt;UIは&lt;a href=&#34;http://www.google.com/design/spec/material-design/introduction.html&#34;&gt;Material Design&lt;/a&gt;をやってみたかったので、ここは王道な感じで、&lt;a href=&#34;https://www.polymer-project.org/0.5/&#34;&gt;Polymer&lt;/a&gt;の&lt;a href=&#34;https://www.polymer-project.org/0.5/docs/elements/&#34;&gt;Paper Element&lt;/a&gt;を使ってみようと思った。てか、Material Design以前に、Polymer以前に、&lt;a href=&#34;http://webcomponents.org/&#34;&gt;Web Components&lt;/a&gt;を分かってないなかったので色々読んだ。&lt;/p&gt;
-
-&lt;h3 id=&#34;web-components&#34;&gt;Web Components&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/customelements/&#34;&gt;Custom Elements: HTML に新しい要素を定義する - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/template/&#34;&gt;HTML で利用可能になった Template タグ: クライアントサイドのテンプレートの標準化 - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/imports/&#34;&gt;HTML Imports: ウェブのための #include - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/shadowdom-201/&#34;&gt;Shadow DOM 201: CSS とスタイリング - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/shadowdom-301/&#34;&gt;Shadow DOM 301: 上級者向けコンセプトと DOM API - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;polymer&#34;&gt;Polymer&lt;/h3&gt;
-
-&lt;div class=&#34;rm&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/jrt7sMq9lO0?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&amp;amp;controls=0&amp;amp;showinfo=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&#34;&gt;Polycasts - YouTube&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;わー＞＜覚えること多すぎだ。疲れた。Polymerが0.5から0.8で爆速になったとかでAPIも変わったとかで、Paper elementsが0.8対応してないので、ここまできて採用するのやっぱやめた。つらい。&lt;/p&gt;
-
-&lt;p&gt;普通にMaterial DesignのCSSフレームワークを使おうと思ったけど、&lt;a href=&#34;http://callemall.github.io/material-ui/#/&#34;&gt;Material UI&lt;/a&gt;はReactと一緒に使うのをリコメンドしてるし、なんぞ！と思った。ので、&lt;a href=&#34;http://materializecss.com/&#34;&gt;Materialize&lt;/a&gt; 使おうと思ったけど、これ120K近くもあるぞ。ということで、自分で、Mateliaze CSSを参考にしつつ、それっぽく作ってみた。単純に見た目だけでも再現してもなーと思って、動きもつけようと思ってCSS Animationとかよくわからんしなー、てかSVGもよくわからん。というか、UI作るの難しくなってきてるよね？JavaScript使うの前提とか。とにかくつらい。&lt;/p&gt;
-
-&lt;h2 id=&#34;htmlとか&#34;&gt;HTMLとか&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;body
-    header
-        h1
-            a タイトル
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Node.jsのプロジェクトなので、惰性的にView Engineで&lt;a href=&#34;http://jade-lang.com/&#34;&gt;Jade&lt;/a&gt;を使ってたけど、このぶら下がり感がつらい。というか、嫌い。&lt;/p&gt;
-
-&lt;p&gt;Viewつながりで、サーバー上でもBackbone.jsを動かす&lt;a href=&#34;https://github.com/rendrjs/rendr&#34;&gt;Rendr&lt;/a&gt;採用したら、もっと共有できてシンプルになるのかなーと思ったけど、力尽きた。導入は次回で。&lt;/p&gt;
-
-&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51mzyCBKBDL._SL160_.jpg&#34; alt=&#34;コーディングWebアクセシビリティ - WAI-ARIAで実現するマルチデバイス環境のWebアプリケーション&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;コーディングWebアクセシビリティ&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.4.27&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;伊原力也, 太田良典&lt;br /&gt;ボーンデジタル&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.hitachi.co.jp/universaldesign/ria/ajax/wai-aria/index.html&#34;&gt;WAI-ARIA&lt;/a&gt;とかあるよね、とりあえず&lt;code&gt;body role=&amp;quot;application&amp;quot;&lt;/code&gt;しとくので精一杯だ。また本読もう。ということで、つらかった。というか力尽きた。&lt;/p&gt;
-
-&lt;h2 id=&#34;まとめとか&#34;&gt;まとめとか&lt;/h2&gt;
-
-&lt;p&gt;まぁ趣味プロジェクトで、とくにしがらみもないので、地道にマイペースでやってくしかない。よそはよそ、うちはうち。&lt;/p&gt;
-
-&lt;p&gt;React資料読んでて気づいたのだけど、&lt;a href=&#34;https://speakerdeck.com/geta6/reacttofluxfalsekoto?slide=5&#34;&gt;ReactはViewライブラリでBackbone + Reactって使い方もあるのね&lt;/a&gt;。&lt;a href=&#34;https://github.com/ParsePlatform/ParseReact&#34;&gt;ParseReact&lt;/a&gt;ってのもあるみたいだし、今度はReactがんばろう。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;最後にリニューアルにあたって、数多くの助言を与えてくださった&lt;a href=&#34;https://twitter.com/1000ch&#34;&gt;利休1000&lt;/a&gt;と&lt;a href=&#34;https://twitter.com/ginpei_jp&#34;&gt;寿司銀平&lt;/a&gt;さんに多大なる感謝の念を伝えたい。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>コマンドラインからGoogle Analyticsにデータを記録するGAERをつくった</title>
-            <link>https://t32k.me/mol/log/gaer/</link>
-            <pubDate>Mon, 06 Apr 2015 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/gaer/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/gaer&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0406-00.png&#34; alt=&#34;GAER&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/gaer&#34;&gt;t32k/gaer - GitHub&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g gaer 
-$ gaer -t UA-xxxxx-xx -r reportName path/to/data.json
-  Sending [||||||||||||||||||||||||] 100%
-  Success: The data is sent to UA-xxxxx-xx
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;デベロッパーとgoogleアナリティクス&#34;&gt;デベロッパーとGoogleアナリティクス&lt;/h2&gt;
-
-&lt;p&gt;基本的にイベントトラッキングレポートは、ページ遷移をともわないイベント、例えばPDFのダウンロードリンクをクリックした等を計測するために使われる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// JavaScript
-ga(&#39;send&#39;, &#39;event&#39;, &#39;クリックイベント&#39;, &#39;PDF&#39;, &#39;資料請求&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前から&lt;a href=&#34;http://qiita.com/hidek84/items/e42f8632d95b9444aea4&#34;&gt;JavaScriptのエラーが発生したらそのページのURLを記録する&lt;/a&gt;等、デベロッパーライクな使い方をしてる人がいたりする。&lt;/p&gt;
-
-&lt;p&gt;そうでもなくても、Googleアナリティクスは、『&lt;strong&gt;サイトの速度&lt;/strong&gt;』であったり、『&lt;strong&gt;ユーザーの環境&lt;/strong&gt;』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAERを利用して欲しい。&lt;/p&gt;
-
-&lt;p&gt;GAERは&lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide&#34;&gt;Measurement Protocol&lt;/a&gt;を使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
-  &amp;quot;foo&amp;quot; : 12,
-  &amp;quot;bar&amp;quot; : 2.1,
-  &amp;quot;baz&amp;quot; : 9
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;こんな感じのシンプルなデータ構造のJSONなら送れる。&lt;/p&gt;
-
-&lt;h2 id=&#34;モニタリングツールとして使う&#34;&gt;モニタリングツールとして使う&lt;/h2&gt;
-
-&lt;p&gt;なぜ、GAERを作ったのか。&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;という、CSSのヘルスチェックツールがある。下記のように使うとJSONデータでCSSの状態を確認することができる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g stylestats
-$ stylestats -f json -n foo.css
-{
-  &amp;quot;stylesheets&amp;quot;: 2,
-  &amp;quot;size&amp;quot;: 6682,
-  &amp;quot;dataUriSize&amp;quot;: 0,
-  &amp;quot;gzippedSize&amp;quot;: 1992,
-  &amp;quot;rules&amp;quot;: 86,
-  &amp;quot;selectors&amp;quot;: 179,
-  &amp;quot;simplicity&amp;quot;: 0.48044692737430167,
-  &amp;quot;mostIdentifier&amp;quot;: 2,
-  &amp;quot;lowestCohesion&amp;quot;: 17,
-  &amp;quot;totalUniqueFontSizes&amp;quot;: 12,
-  &amp;quot;totalUniqueFontFamilies&amp;quot;: 1,
-  &amp;quot;totalUniqueColors&amp;quot;: 6,
-  &amp;quot;idSelectors&amp;quot;: 0,
-  &amp;quot;universalSelectors&amp;quot;: 0,
-  &amp;quot;unqualifiedAttributeSelectors&amp;quot;: 17,
-  &amp;quot;javascriptSpecificSelectors&amp;quot;: 0,
-  &amp;quot;importantKeywords&amp;quot;: 0,
-  &amp;quot;floatProperties&amp;quot;: 4,
-  &amp;quot;mediaQueries&amp;quot;: 3
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ファイルサイズがどれだけとか、ルール数がどれだけとか、これだけ見ても多少は役に立つかもしれないが、CSSは絶えず変化するものなので、できればこのデータの推移を把握したいものである。そうなると、&lt;strong&gt;データを貯める&lt;/strong&gt;のとそれを&lt;strong&gt;グラフに出力&lt;/strong&gt;する作業が必要となる。&lt;/p&gt;
-
-&lt;p&gt;今まで、&lt;a href=&#34;https://github.com/t32k/stylestats/wiki/Plot-with-Jenkins&#34;&gt;Jenkinsにプロットする&lt;/a&gt;やり方や、&lt;a href=&#34;https://github.com/t32k/stylestats/wiki/Plot-with-moniteur&#34;&gt;moniteurというツールを使うやり方&lt;/a&gt;を試してみたが、グラフがダサかったり、実装方法がやや複雑だったりして、あんまりしっくりきてなかった。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://creator.aainc.co.jp/archives/7123&#34;&gt;StyleStats＋αでCSSを継続的にチェックする | アライドアーキテクツのクリエイターブログ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;この人のように、D3.jsを使って、フルスクラッチで作るのが妥当なんだろうけど、なにぶんめんどくさがり屋なのでめんどくさい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ stylestats -f json -n https://google.com | gaer -t UA-xxxxxxx-x -r Google
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;だもんで、上記のような感じで、JSONで書きだした結果をパイプでGAERに渡しても、Googleアナリティクスにレコードさせればよい。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/images/2015/0406-01.png&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0406-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;記録したデータは、Googleアナリティクスの『行動』＞『イベント』のメニューで確認できる。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/images/2015/0406-02.png&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0406-02.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;まだデータ貯まってなくてアレだけど、まぁこんな感じで確認できるようになった。あとはこれを一日一回とか定期実行させればよい（これも若干面倒だけど、&lt;a href=&#34;https://addons.heroku.com/scheduler&#34;&gt;Heroku Scheduler&lt;/a&gt;を使うのがお手軽かも）。ほか、PushしたタイミングでCIサーバーのほうで実行するのもありかな。&lt;/p&gt;
-
-&lt;p&gt;なにせイベントトラッキングレポートなので、デフォルトではイベントの回数がメインになっているので、カスタムレポートで平均値だけを表示にしたりするのが若干面倒だけど、ここは使い方次第だと思う。GAER用のカスタムレポート作ったので、以下からインポートしてね（Solutions Galleryなんてあるんだね、最近のGAは）。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.google.com/analytics/gallery/#posts/search/%3F_.viewId%3Drdf3ytkGQPmTXMiPHErVoA/&#34;&gt;GAER Report | Google Analytics Solutions Gallery&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;僕はStyleStatsのデータを記録するためにGAERを作ったけど、皆さんもグラフ作るの面倒くさいなってデータがあったらGoogleアナリティクスにレポートさせれば良いと思う。なんか他にも良い使い方あったら教えて下さい。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>gFaceeeに最新コミット日時を強調する機能追加した</title>
-            <link>https://t32k.me/mol/log/gfaceee/</link>
-            <pubDate>Tue, 31 Mar 2015 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/gfaceee/</guid>
-            <description>&lt;p&gt;&lt;a href=&#34;http://layzie.hatenablog.com/entry/20141104/1415076724&#34;&gt;Webフロントエンド技術に関して非常に多くの技術情報を日々捌いているLayzieさん&lt;/a&gt;曰く、『&lt;strong&gt;記事の日付は必ず確認&lt;/strong&gt;』しなければならない。つい先日、2年前くらいのはてブ記事をドヤ顔でSlackグループに投げて言われた言葉だ。&lt;/p&gt;
-
-&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844334220/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51whkjxFOAL._SL160_.jpg&#34; alt=&#34;開発者のためのChromeガイドブック (Google Expert Series)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844334220/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;開発者のためのChromeガイドブック&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.30&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;吉川 徹,あんどうやすし,田中 洋一郎,小松 健作&lt;br /&gt;インプレスジャパン&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844334220/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;情報の鮮度は非常に重要だということを改めて理解しつつ、二度とこのような失態を犯さないためにどうすればよいか考えた結果、いったん、はてブは置いといて、GitHubの最新コミット日時を強調するChrome拡張機能を作った。&lt;/p&gt;
-
-&lt;p&gt;ご存知の通り、GitHubの時間表記は相対的な3 minutes agoと 3 hours agoとか、May 14, 2012とか、なんか直感的に新しいのか古いのか分かりにくい（というか読み取るのが面倒くさい）。あと最近流行りのReact.jsではなく、今さらBackbone.jsを勉強してるけど、関連リポジトリの更新が普通に2年前で止まってるとかあったので、ちょっと注意しないとと思った次第。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0331-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1週間未満: Bright Green&lt;/li&gt;
-&lt;li&gt;1ヶ月未満: Green&lt;/li&gt;
-&lt;li&gt;6ヶ月未満: Yellow&lt;/li&gt;
-&lt;li&gt;1年未満: Orange&lt;/li&gt;
-&lt;li&gt;1年以上: Red&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;というわけで、上記のような基準で各リポジトリトップのlatest commitの日時を色付けするようにした。さりげない感じで強調してくれるので個人的に気に入っている。とりあえず、赤色（1年以上コミット無し）なら注意してみてみようなど色で判断できるようにした。&lt;/p&gt;
-
-&lt;p&gt;もちろん、コミットが止まっているのは枯れていて安定しているって意味かもしれないので、必ずしも悪いことじゃない。しかし、変化の激しいフロントエンド界隈で生きているので、やっぱ定期的にメンテなりしてあるほうがいいかなと思っている。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0331-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/gfaceee/fgkdbhnipaaeokfjgdmpejglfepclgbk&#34;&gt;gFaceee - Chrome ウェブストア&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;GitHubのニュースフィード上でアイコンを表示させるgFaceeeの追加機能としてリリースしましたのでよければ使ってくださいませ。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Grunt/Gulpで憔悴したおっさんの話</title>
-            <link>https://t32k.me/mol/log/npm-run-script/</link>
-            <pubDate>Wed, 25 Mar 2015 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/npm-run-script/</guid>
-            <description>
-
-&lt;p&gt;先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的に以下の記事読んだら分かります。要はGulpとかGruntといったモノ使わずに&lt;code&gt;npm run hogehoge&lt;/code&gt;でビルドしよーぜって話です。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://substack.net/task_automation_with_npm_run&#34;&gt;task automation with npm run&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://yosuke-furukawa.hatenablog.com/entry/2014/02/19/112931&#34;&gt;オレ的Gruntに対する最新の気持ち - from scratch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/Jxck_/items/efaff21b977ddc782971&#34;&gt;Node - npm で依存もタスクも一元化する&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/&#34;&gt;How to Use npm as a Build Tool&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;// package.json
-  &amp;quot;scripts&amp;quot;: {
-    &amp;quot;start&amp;quot;: &amp;quot;npm run start-serve &amp;amp; npm run watch&amp;quot;,
-    &amp;quot;test&amp;quot;: &amp;quot;stylestats public/files/css/maple.css&amp;quot;,
-    &amp;quot;start-serve&amp;quot;: &amp;quot;browser-sync start --server public/ --files public/files/**/*&amp;quot;,
-    &amp;quot;clean&amp;quot;: &amp;quot;rm -rf public/files/css/*&amp;quot;,
-    &amp;quot;js:min&amp;quot;: &amp;quot;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;quot;,
-    &amp;quot;build:js&amp;quot;: &amp;quot;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;quot;,
-    &amp;quot;css:sass&amp;quot;: &amp;quot;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;quot;,
-    &amp;quot;css:prefix&amp;quot;: &amp;quot;autoprefixer -b &#39;last 2 versions&#39; public/files/css/maple.css&amp;quot;,
-    &amp;quot;css:comb&amp;quot;: &amp;quot;csscomb public/files/css/maple.css&amp;quot;,
-    &amp;quot;css:min&amp;quot;: &amp;quot;csso public/files/css/maple.css public/files/css/maple.min.css&amp;quot;,
-    &amp;quot;build:css&amp;quot;: &amp;quot;bin/build-css.sh&amp;quot;,
-    &amp;quot;build&amp;quot;: &amp;quot;npm run build:js &amp;amp;&amp;amp; npm run build:css&amp;quot;,
-    &amp;quot;lint:js&amp;quot;: &amp;quot;jshint assets/scripts/app.js&amp;quot;,
-    &amp;quot;lint:css&amp;quot;: &amp;quot;scss-lint assets/styles/**/*.scss&amp;quot;,
-    &amp;quot;lint&amp;quot;: &amp;quot;npm run lint:js &amp;amp;&amp;amp; npm run lint:css&amp;quot;,
-    &amp;quot;watch:js&amp;quot;: &amp;quot;watch &#39;npm run build:js&#39; assets/scripts/&amp;quot;,
-    &amp;quot;watch:css&amp;quot;: &amp;quot;watch &#39;npm run build:css&#39; assets/styles/&amp;quot;,
-    &amp;quot;watch&amp;quot;: &amp;quot;npm run watch:js &amp;amp; npm run watch:css&amp;quot;
-  }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;こんな感じで&lt;code&gt;package.json&lt;/code&gt;に記述して、&lt;code&gt;npm run watch&lt;/code&gt;とかコマンド打って使う。&lt;/p&gt;
-
-&lt;h2 id=&#34;npm-run-scriptを使うに至るまでの経緯&#34;&gt;npm run-scriptを使うに至るまでの経緯&lt;/h2&gt;
-
-&lt;p&gt;率直に言って、おっさん疲れたのです。&lt;/p&gt;
-
-&lt;h3 id=&#34;ユーザーとして&#34;&gt;ユーザーとして&lt;/h3&gt;
-
-&lt;p&gt;まぁタスクランナーを使うユーザーとしては、簡単に使いたいよねってのが本音なわけで、&lt;a href=&#34;https://t32k.me/mol/log/modern-development-workflow-with-grunt/&#34;&gt;2年前はGrunt便利だぜー！&lt;/a&gt;ってふれまわったけど、今いざ使ってみようと思うと、あれこれどーするんだっけ？みたいなことが多い。&lt;/p&gt;
-
-&lt;p&gt;ましてや、最近は&lt;a href=&#34;http://gulpjs.com/&#34;&gt;Gulp&lt;/a&gt;のほうが勢いあるみたいじゃないですか、まぁGulpも使うんですけど、開発しているプロジェクトによって採用しているのがGrunt/Gulpでバラバラになって、Gulpのプロジェクトで&lt;code&gt;grunt&lt;/code&gt;ってコマンド叩いたりして、『あーここはGulpかー』なんてこともあったりするわけです。&lt;/p&gt;
-
-&lt;p&gt;またGruntで使ってるこのプラグインのGulpバージョンないかなーって探すとなかったりする。もしくは作る作る詐欺でリポジトリだけがあってションボリしたりするわけです。&lt;/p&gt;
-
-&lt;p&gt;はたまた四天王的に『クククッ、Gruntがやられたようだな、あいつは四天王のなかでも最弱（ｒｙ』とかいって、なんだか&lt;a href=&#34;http://www.solitr.com/blog/2014/02/broccoli-first-release/&#34;&gt;Broccoli&lt;/a&gt;とかゆー人もいるわけじゃないですか。もう頭いっぱいなんです。おっさん疲れたのです。&lt;/p&gt;
-
-&lt;p&gt;普通に元のコマンド叩いたらいいじゃんって思うんです。&lt;/p&gt;
-
-&lt;h3 id=&#34;プラグイン作者として&#34;&gt;プラグイン作者として&lt;/h3&gt;
-
-&lt;p&gt;若気の至りで、おっさんも昔はよく&lt;a href=&#34;https://www.npmjs.com/~t32k&#34;&gt;Gruntプラグインを作った&lt;/a&gt;のです。実際に自分のプロジェクトでGruntを使い、必要だったので、プラグイン開発に対する情熱もあったわけですけど、まぁGulpとか使い出したり、普通にコマンド打ってたら、開発するモチベーションがダダ下がりなわけです。&lt;/p&gt;
-
-&lt;p&gt;で、そんな時に限って、依存しているパッケージが頻繁にアップデートとかするんですよ。いっぱい新機能とか盛り込んできたりするわけですよ、そしたらissuesで対応しろとか言われるわけですよ。APIも変更してきたりするわけですよ、そしたらissuesで対応しろとか言われるわけですよ。もう追いつけないです。おっさん疲れたのです。&lt;/p&gt;
-
-&lt;p&gt;普通に元のコマンド叩けよって思うんです。&lt;/p&gt;
-
-&lt;h3 id=&#34;依存されるパッケージ作者として&#34;&gt;依存されるパッケージ作者として&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;というそこそこ使われるnpmパッケージを作っているのですが、ありがたいことに僕とは別の開発者様が&lt;a href=&#34;https://github.com/tvooo/grunt-stylestats&#34;&gt;Grunt&lt;/a&gt;/&lt;a href=&#34;https://github.com/1000ch/gulp-stylestats&#34;&gt;Gulp&lt;/a&gt;のプラグインを作ってもらっているのです。&lt;/p&gt;
-
-&lt;p&gt;ただですね、StyleStats Grunt Pluginのほうが&lt;a href=&#34;https://github.com/tvooo/grunt-stylestats/commits/master&#34;&gt;完全に開発が止まってまして&lt;/a&gt;、StyleStatsを使いたいGruntプロジェクトのユーザーに人になんて言ったらいいのかなーって、『Gulpの方使ってくださいー』って言うのもなーなんて。&lt;/p&gt;
-
-&lt;p&gt;かといって、Gruntプラグインの人に『ちょっとアップデートしてくれよ！』って言うのもなーって。前述の通り、やる気が無い気持ちは痛いほどわかるしなーって。でも更新止まってから、こちらとしてはいっぱいいろんな機能リリースしてるからみんなに使って欲しいしなーって。&lt;/p&gt;
-
-&lt;p&gt;僕がPR送ればいいのかもしれないけど、俺もGruntのプラグイン開発ってどうするんだっけって感じだし。そもそもPR送ってもマージしてくれるのか。てか飽きたならリポジトリをtransferしてくれないかなーって。そうやって気を使うのダルいんですよ、おっさん疲れたのです。&lt;/p&gt;
-
-&lt;p&gt;普通に元のコマンド叩いてくださいって思うんです。&lt;/p&gt;
-
-&lt;h2 id=&#34;npm-run-scriptの抑えどころ&#34;&gt;npm run-scriptの抑えどころ&lt;/h2&gt;
-
-&lt;p&gt;ということで、npmで元のコマンド叩いたら皆しあわせってことでnpm run-script使おうぜって話。そんな難しいことはないです。基本的には各コマンドをpackage.jsonに記述していくだけです。ざっくりだけどプロジェクトで使う例としてはこんな感じかな。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/package.json&#34;&gt;t32k/maple/package.json&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;（久しぶりのMaple!!一応、&lt;a href=&#34;https://github.com/t32k/maple/tree/grunt-ver&#34;&gt;Gruntバージョン&lt;/a&gt;も残してある）&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ファイル監視はどーするの？：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/mikeal/watch&#34;&gt;mikeal/watch&lt;/a&gt; を使ってね。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;watch:css&amp;quot;: &amp;quot;watch &#39;npm run build:css&#39; assets/styles/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;複数タスク実行はどーするの？：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;直列に実行するときは&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;でつないでね。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;build&amp;quot;: &amp;quot;npm run build:js &amp;amp;&amp;amp; npm run build:css&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;並列に実行したいときは、&lt;code&gt;&amp;amp;&lt;/code&gt;でつなぐか、&lt;a href=&#34;https://github.com/keithamus/parallelshell&#34;&gt;parallelshell&lt;/a&gt;を使ってね。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;watch&amp;quot;: &amp;quot;npm run watch:js &amp;amp; npm run watch:css&amp;quot;
-&amp;quot;watch&amp;quot;: &amp;quot;parallelshell &#39;npm run watch:js&#39; &#39;npm run watch:css&#39;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;スクリプトが長すぎるよ！&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;シェルファイルに分割するといいよ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;#!/bin/bash
-npm run css:sass &amp;amp; npm run css:prefix &amp;amp; npm run css:comb &amp;amp; npm run css:min
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;chmod +x&lt;/code&gt;しとく。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;build:css&amp;quot;: &amp;quot;bin/build-css.sh&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;または、設定系のオプションは、&lt;code&gt;config&lt;/code&gt;フィールドに記述して、&lt;code&gt;scripts&lt;/code&gt;フィールドで、&lt;code&gt;$npm_package_config_NAME&lt;/code&gt;のようにして使う。が、$npm_package_configって！長い！&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;config&amp;quot;: {
-    &amp;quot;stylestats&amp;quot;: &amp;quot;path/to/configuration.json&amp;quot;
-  },
-  &amp;quot;scripts&amp;quot;: {
-    &amp;quot;test&amp;quot;: &amp;quot;stylestats app.css --config $npm_package_config_stylestats&amp;quot;,
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;はたまた、npm@2.0以上のユーザーであれば、&lt;a href=&#34;https://github.com/npm/npm/pull/5518&#34;&gt;Passing Arguments&lt;/a&gt;というナウい機能を使う。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;scripts&amp;quot;: {
-  &amp;quot;test&amp;quot;: &amp;quot;mocha test/&amp;quot;,
-  &amp;quot;test:xunit&amp;quot;: &amp;quot;npm run test -- --reporter xunit&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;上記のように、&lt;code&gt;--&lt;/code&gt;を使うことで&lt;code&gt;npm test&lt;/code&gt;のあとにコマンドをつなげられる。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Windowsユーザーは？&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://win-bash.sourceforge.net/&#34;&gt;win-bash&lt;/a&gt;使ってもらうとか、UNIX系のコマンド系をラップしてるnpmパッケージ使って（例：&lt;code&gt;rm -rf&lt;/code&gt; &amp;gt; &lt;a href=&#34;https://github.com/isaacs/rimraf&#34;&gt;rimraf&lt;/a&gt;）npm scriptを書くよう心がけるとか、とりまがんばってね。&lt;/p&gt;
-
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;そうゆうわけで、Gulp/Gruntを通さなければプラグインの依存パッケージの更新追随を待たなくてもいいし、Node.js/npmに関する知識とかUNIXに関する知識は、数ヶ月で変わることもないので、変化に適応できない私みたいなおっさんにも優しいんじゃないんでしょうか。ちょっと複雑なことやろうとすると、Node.jsのコードを書かないとできないかもしれないけど、きっと心の優しい誰かがその素晴らしい見聞を共有してくれると思うのです。おっさんは気長に待つのです。&lt;/p&gt;
-
-&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/518ME653H3L._SL160_.jpg&#34; alt=&#34;UNIXという考え方―その設計思想と哲学&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;UNIXという考え方―その設計思想と哲学&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.26&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Mike Gancarz,芳尾 桂&lt;br /&gt;オーム社&lt;br /&gt;売り上げランキング: 21740&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;てか、Makefileでいいんじゃね？&lt;br /&gt;
-って、思ったそこのでっかいおっさんちょっと出てこいよ！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&#34;関連エントリ&#34;&gt;関連エントリ&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/make-for-the-web-generation/&#34;&gt;【翻訳】Web世代のデベロッパーのためのmake - MOL&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Development on MOL</title>
+    <link>https://t32k.me/mol/categories/development/</link>
+    <description>Recent content in Development on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 14 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://t32k.me/mol/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>チャットデプロイしたい2018</title>
+      <link>https://t32k.me/mol/log/chat-deploy/</link>
+      <pubDate>Wed, 14 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/chat-deploy/</guid>
+      <description>タイトルの通り、チャットデプロイしたい。
+ 開発環境 masterブランチ QA環境 deployment/qaブランチ 本番環境 deployment/production ブランチ  自分のところは、上記みたいに環境とブランチがマッチングしていて、そのブランチにコミットなりマージするとCircleCIのほうでデプロイしてくれる。
+例えば、開発環境でおおかた確認してQA環境に反映したいときはmasterからdeployment/qaにPRを作成しマージして、デプロイしてた。それめんどいので、そこをボットでやらせたいと思った。要はこうゆう感じ。
+ slack上から任意の言葉でbotにデプロイを指示する slackのbotがGitHub APIでプルリクエスト作成・マージを実行する CircleCIがGAEにデプロイする  3.はもう出来てるので、1.2.を見てみよう。
+1. Slack Bot SlackのBotってどうやって作るんだっけなー、Hubotってあったよなーと思いつつ、今はBotkitが安定して開発されているっぽいからそれを使う。
+ Botkit: Building Blocks for Building Bots  Custom Integrations &amp;gt; Botsからボットを登録して、API Tokenを取得しておく。
+ botkit/slack_bot.js at master · howdyai/botkit  あとは、レポジトリのexamplesディレクトリのなかにあるslack_bot.jsに先程のトークンを渡して起動させればおｋ。
+controller.hears([&#39;hello&#39;], &#39;direct_mention&#39;, (bot, message) =&amp;gt; { bot.reply(message, &#39;Hello!&#39;); // ここからGitHubのAPIを叩く });  controller.hearsでなんか受け取って、それで反応してあげれば良いのが分かる。
+2. GitHub Apps まぁGitHubでゴニョゴニョしたいので、GitHub API v3を叩く。
+ GitHub API v3 | GitHub Developer Guide  Node.</description>
+    </item>
+    
+    <item>
+      <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ（改）</title>
+      <link>https://t32k.me/mol/log/circleci2-yml-nodejs/</link>
+      <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/circleci2-yml-nodejs/</guid>
+      <description>前回の記事で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。
+version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node:8 steps: - checkout - run: name: System information command: | echo &amp;quot;Node $(node -v)&amp;quot; echo &amp;quot;Yarn v$(yarn --version)&amp;quot; - run: name: Install dependencies command: yarn - run: name: Build command: yarn run build - run: name: Test command: yarn test - save_cache: key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }} paths: - ~/repo/.cache/yarn - ~/repo/dist - ~/repo/node_modules - ~/repo/package.json deploy: working_directory: ~/repo docker: - image: google/cloud-sdk steps: - checkout - restore_cache: key: cache-{{ .</description>
+    </item>
+    
+    <item>
+      <title>SeverとClientでレンダリング結果が違う</title>
+      <link>https://t32k.me/mol/log/full-icu/</link>
+      <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/full-icu/</guid>
+      <description>Reactをアイソモーフィックに実行しているのだけど、下記のようなエラーが出てた。
+ Warning: Text content did not match. Server: &amp;ldquo;1970-1-18 22:09&amp;rdquo; Client: &amp;ldquo;1970/1/18 22:09&amp;rdquo;
+ SeverとClientでレンダリング結果が微妙に違うとのこと。
+new Intl.DateTimeFormat(locales, { year: &amp;quot;numeric&amp;quot;, month: &amp;quot;numeric&amp;quot;, day: &amp;quot;numeric&amp;quot;, hour: &amp;quot;numeric&amp;quot;, minute: &amp;quot;numeric&amp;quot; });  該当のコード。
+Node.js側のIntlオブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、しばらく放っておいた。
+ Internationalization Support | Node.js v9.4.0 Documentation  あとで国際化のサポートがビルドの設定ごとで違うらしいと気づいた。デフォルトのビルドでは--with-intl=small-icuというもので、部分的なサポートでしかない。それとは別にfull-icuという全サポートがあるらしく、これ入れたら、サーバーとクライアントでの差異はなくなった。
+ Intl · nodejs/node Wiki  ちなみにICUとはInternational Components for Unicodeの略らしい。確かに全言語対応のデータ毎回入れてたら重いよね。
+Node.jsのバージョンマネージャーはnvm使ってるんだけど、nvmインストールするときに下記のようなオプションつけるとfull-icuでビルドしたものをインストールできる。
+nvm install -s v9.4.0 --with-intl=full-icu --download=all  でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、
+ unicode-org/full-icu-npm: npm module to autoload full ICU data.</description>
+    </item>
+    
+    <item>
+      <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</title>
+      <link>https://t32k.me/mol/log/circleci2-yml/</link>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/circleci2-yml/</guid>
+      <description>基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。今年の7月にCircleCI 2.0がリリースされ、config.ymlの記法も刷新されたとかで、ググって出て来るのは1.0の記法ばかりで苦労したので、メモ代わりに残しとく。
+ CircleCI2.0事始め -新しいcircle.ymlとworkflows編 · tehepero note(・ω&amp;lt;) 2.0  基本は上記のブログがわかりやすい。
+version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node:8 steps: - checkout - run: name: System information command: | echo &amp;quot;Node $(node -v)&amp;quot; echo &amp;quot;Yarn v$(yarn --version)&amp;quot; - run: name: Install dependencies command: yarn - run: name: Build command: yarn run build - run: name: Test command: yarn test  version: 2 で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。yarn がデフォルトで入ってるらしく、GAE/Node.jsもyarnが使えるのでyarnを使っていく。
+あとはrunでステップを指定していく。commandは|を置けば、複数行でも書ける。
+ - save_cache: key: cache-{{ .</description>
+    </item>
+    
+    <item>
+      <title>Reactコンポーネントを外から操作したい</title>
+      <link>https://t32k.me/mol/log/react-custom-event/</link>
+      <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/react-custom-event/</guid>
+      <description>最近、Reactを触っているのだけど、Reactコンポーネント外から任意のReactコンポーネントを操作したい事情に駆られた（何を言ってるのか分からねぇと思うが俺も（ｒｙ）。
+export default class Hoge extends Component { constructor(props) { super(props); this.state = { text: &#39;&#39; }; this.handleClick = this.handleClick.bind(this); } handleClick(e) { this.setState({ text: &#39;unko&#39; }); } render() { ... } }  普通のケースだと、こんな感じでHogeのコンポーネントのどっかをクリックしたら、stateのtextにunkoをセットすることによって、renderがはしるみたいな、わかりやすい。なんの問題ない。
+ただ、このコンポーネントを、window.Hoge.setState({ text: &#39;unko&#39; })みたいに、グローバルから操作したい場合ってどうしたらいいんだろうかとけっこう悩んだ。
+re-render export default class Hoge extends Component { render() { return(&amp;lt;span id=&#39;hoge&#39;&amp;gt;{ this.props.text }&amp;lt;/span&amp;gt;) } } window.Hoge = Hoge;  とりあえず、Hogeをグローバルのwindowに生やす。
+export default class Fuga extends Component { constructor(props) { super(props); window.</description>
+    </item>
+    
+    <item>
+      <title>Deploying Multiple Instances for Next.js</title>
+      <link>https://t32k.me/mol/log/nextjs-invalid-build-id/</link>
+      <pubDate>Tue, 25 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/nextjs-invalid-build-id/</guid>
+      <description>年始に立てた目標『SFC会員になる！』も達成してしまい、そろそろちゃんとデベロッパーに戻るかーと思いリハビリながらメモを上げていこうと思う。
+ Next.js - Qiita  最近、v2.0もリリースされたことだし、Next.jsを触っている。ほぼゼロ設定で、サーバーサイドでReactをレンダリングできたり、ルーティングがめちゃ簡単だったり、今のところいい感じである。
+ An unexpected error has occurred.
+ ローカルで開発をしているときは問題ないんだいけど、本番環境でたまに、というか、けっこうな確率でエラーページが表示されていて、なんでだろう？とログを見てみたら、
+BUILD_IDちゃうやんけー！と怒られていた。
+ Deployment · zeit/next.js Wiki  ご丁寧にもWikiに書いてあった。
+Next.jsの起動コマンドはnext build; next startって感じでbuildコマンドを打ってから起動するのだけど、要は複数のインスタンスで毎回buildコマンドが走って、その度に にユニークなBUILD_IDが生成されて、インスタンス間で異なるものになっちゃってる話だと理解した。
+というわけで、ユーザー側で任意のIDで上書きしてやればいい。WikiにあるようにGitのコミットIDとか利用すればいいっぽい。
+next build &amp;amp;&amp;amp; echo $(git rev-parse HEAD) &amp;gt; .next/BUILD_ID  というわけで、こうゆう感じで書いたのだけど、GAE/Node.jsの環境ではうまくいかなかった。
+next build &amp;amp;&amp;amp; echo $GAE_VERSION &amp;gt; .next/BUILD_ID  めんどくさかったので、GAEの環境変数のGAE_VERSIONをBUILD_IDとして利用したら、エラーが表示されなくなったヽ(=´▽`=)ﾉ
+Next.js使ってる人、情報共有していきましょう。</description>
+    </item>
+    
+    <item>
+      <title>Accelerated Mobile Linksを試してみる</title>
+      <link>https://t32k.me/mol/log/accelerated-mobile-links/</link>
+      <pubDate>Tue, 24 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/accelerated-mobile-links/</guid>
+      <description>マイブームのAMPネタ。AMPとはモバイルWebの爆速化プロジェクトですが、一応オープンソースプロジェクトということになってるが、いかんせんGoogleが主導しているわけで、Googleの検索結果ページから遷移するとそのメリットを最大限に享受できる。
+ Google Developers Japan: Accelerated Mobile Links のご紹介: モバイル ウェブアプリを高速に  これまではちょっと限定的な印象だったわけだが、今回CloudflareさんもAMPに対応したサービスを出したってもんだから、モバイルWeb全体のスピード貢献に期待できる。その名もAccelerated Mobile Links!!!
+Cloudflareを利用しているサイト上で、AMP対応したURLがあると、Googleの検索結果ページ同様、先読み込みし、AMPビューワーでチョッパヤに表示してくれる代物。
+たしか、このブログもSSL対応したときに、Cloudflareを利用した。というわけで、設定ページを見たら、あった！
+ENABLE ACCELERATED MOBILE LINKSをONにしましょう。
+これで対応OK!
+さて、以下のリンクはAMP対応しているURLだ。
+ メルカリ アッテ - 手数料無料！なんでも募集できる地域コミュニティアプリ  上記のリンクをモバイルデバイスで閲覧すると、先頭にAMPマークがついてるのが分かる。これをクリックするとGoogleの検索結果じゃないにもかかわらず、AMPビューワーが立ち上がる。
+// リソースの読み込み先 https://www-mercariatte-com.amp.cloudflare.com/i/s/www.mercariatte.com/files/img/icon-app.svg  しかも、*.cdn.ampproject.orgじゃなくて、*.amp.cloudflare.comからリソースが配信されている。Cloudflareさん太っ腹じゃないか。
+というわけで、すでにCloudflareを利用しているサイトなら、とりあえず Accelerated Mobile Linksを有効にしといて損はないんじゃないかな。
+もっと、他のパートナーも加わってモバイルWeb全体が速くなりますように( ˘ω˘)ｽﾔｧ</description>
+    </item>
+    
+    <item>
+      <title>xoとavaでお手軽リント・テスト環境構築</title>
+      <link>https://t32k.me/mol/log/xo-and-ava/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/xo-and-ava/</guid>
+      <description>元旦にStyleStats v7.0をリリースした。めでたいことだ（知らんけど）。バージョンアップ作業は例のごとく依存するnpm modulesをアップデートして終わりというのがt32kの伝家の宝刀だが、せっかくなので今回はES6に書き換えようと思った。
+しかし、それもfunctionをアロー関数に変更するぐらいだろうと、タカをくくっていたが、書き出してみると、1000ch君パイセンの煽り意識高いレビューコメントのおかげで、いろいろ勉強させてもらった、多謝( ˘ω˘)！
+ESLint  ESLint - Pluggable JavaScript linter  アロー関数に変更するだけってのもあれだから、ちゃんとESlintもES6用の設定にカスタマイズしようと思い必死こいて.eslintrcとにらめっこしていた。といっても下記の記事を参考にしただけだが。
+ ESLint 最初の一歩 - Qiita  ESlintの仰せのままにコードを書き換えていく。書き終えたところで助言。
+ .eslintrcメンテしていくのつらいから、xo使ったらどうですか？
+ タシ蟹！設定項目いっぱいあってめんどくさいです！しかし、xoってなんぞ( ˘ω˘)？
+xo: JavaScript happiness style linter  sindresorhus/xo: ❤️ JavaScript happiness style linter  いっぱいnpm作ってるかの有名なsindresorhus氏のリンター。内部的にはESlintを使っていて、氏が思うESlintの設定でリントしてくれるというもの。なるほど検索しづらい！
+僕みたいな、あまりJSにこだわりがない三等兵にとっては、こうゆう業界の先いってる人の考えを真似て従うのは性に合ってる。というかリントの設定で時間つぶしたくないもんね。
+似たようなものでfeross/standardがある。この圧倒的な名前の王道感のおかげが、こっちのほうが有名だ。ただこっちはセミコロンなしが既定のルールとなっている。さきほど、こだわりはないと言ったが、こだわりがないからこそ小さい頃に『JSはセミコロンを必ずつけろ！』と教わって生きてきたので敷かれたレールから外れるのがこわい。そうゆう人も多いのか、Flet/semistandardというリンターもある。さっそくスタンダード分裂してんじゃねーか！と思ったのはいざ知らず。
+xoのほうはセミコロンつけるな！とは言わないしログもきれい( ˘ω˘) ただ、デフォルトでインデントはタブというルールがある。これが気に食わない人はpackage.jsonにxoのフィールドを作って設定を変更できる。その他のいくつかの設定もpackage.jsonから変更できる。
+{ &amp;quot;name&amp;quot;: &amp;quot;awesome-package&amp;quot;, &amp;quot;xo&amp;quot;: { &amp;quot;spacce&amp;quot;: true } }  またスペース派だったけど、今回からタブ派に切り替えようかしらって思った人はxo --fixですぐに対応できる。今まで使ってたESlintの設定よりもチョイ厳し目だが、全体的に納得感あるので気に入っている。
+ava: Futuristic JavaScript test runner  avajs/ava: Futuristic JavaScript test runner  xoのドキュメントを読んでいるとavaという単語が目につく。同じsindresorhus氏作のテストランナーだ。自分で未来的って言っちゃうほどなんだから、新しい仕様が採用されているのだろうと思い、せっかくなのでxoと一緒にこっちも採用してみた。1000ch君パイセンも最近使ってると言ってたし。</description>
+    </item>
+    
+    <item>
+      <title>カスタムドメインのGitHub PagesをSSL対応する</title>
+      <link>https://t32k.me/mol/log/secure-and-fast-github-pages/</link>
+      <pubDate>Thu, 22 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/secure-and-fast-github-pages/</guid>
+      <description> このブログは、Hugo + GitHub Pagesで運用している。*.github.ioみたいなGitHubが提供しているドメインなら既にHTTPSの恩恵を受けられるがt32k.meのカスタムドメインを使用している場合はその限りではない。そうゆうわけで、21世紀だしhttps://t32k.meを目指す。
+ HTTPS for GitHub Pages  以前にrudolph君さんパイセンが、Kloudsecを使えばチョー楽っすよ！って言ってたのを思い出して、それを使ってみようとしてみたが既にサービスが終了していた／(^o^)＼
+ Kloundsec for SSL with Custom Domain on GitHub Pages - (rudolph-miller)  というわけで、1000ch君さんパイセンの記事にあるように、CloudFlareを使用してSSL対応する。
+ GitHub Pagesに設定しているカスタムドメインをHTTPS対応させる - 1000ch.net  CloudFlareでの登録 まずは、CloudFlareのアカウントを登録しよう。
+ CloudFlare - The web performance &amp;amp; security company  んで、自分のサイトを追加する(Add Site)。次にCloudFlare Planを選べといわれるが、Free Planでも問題ない。xxx.ns.cloudflare.comみたいなネームサーバーが2つ、もらえるので、それに変更する。
+自分の場合、ドメインはお名前.comで取得したので、そこでネームサーバーを変更する。変更が反映されると、自分の追加したサイトのステータスがPendingからActiveに変わる。
+あとは、Page Rulesのページに行き、自分のドメインのHTTPページのすべてのアクセスをHTTPSに変更する処理を設定すれば完璧だ。
+後処理 しばらくするとHTTPSにリダイレクトされるようになるので、寝て待とう（最大で24時間かかるとか）。自分のサイトでHTTPからのリソース読み込みがあるとちゃんと緑の鍵アイコンにならないので、調べておこう。基本的に自分のドメイン配下のリソースはルートからの相対パスで書いているので、特に問題はなかった。ただ、Amazonのアフィリエイト画像がHTTPからの読み込みだったので全置換して対応した。
+やっぱり、ドメイン系は反映に時間がかかるのでやきもきしたが、終わってみれば簡単だった。
+ Secure and fast GitHub Pages with CloudFlare  </description>
+    </item>
+    
+    <item>
+      <title>StyleStatsのChrome拡張機能を作った</title>
+      <link>https://t32k.me/mol/log/stylestats-crx/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
+      <description>StyleStatsのChrome拡張を作った。
+ StyleStats - Chrome ウェブストア  StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
+これまでの流れ CLI $ npm install -g stylestats  npmからインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
+Web そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、Unique Font Families、　Unique Colors がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
+あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。
+CRX そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。Unique Font Sizesもプレビュー可能になった。
+使った技術とか ES2015 当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。
+Promise + Fetch API + Arrow functions Promise.all(links.map(link =&amp;gt; fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text()) )) .then(texts =&amp;gt; {});  ということで、&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるのでXMLHttpRequestみたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
+Let + Const あとまぁ特にそこまで便利になるわけでもないけど、一応letとかconstとかも使っといた。
+CSS3 object-fit .screenshot img { object-fit: cover; object-position: top; }  background-size的なことをimg要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にしてbackground-size:cover的なことをしたが、これだと印刷したときに表示されないので、そういえばobject-fitがあったのを思い出した。今のところIEではサポートされていない。</description>
+    </item>
+    
+    <item>
+      <title>StyleStatsにタイムラインチャートを追加した</title>
+      <link>https://t32k.me/mol/log/stylestats-charts/</link>
+      <pubDate>Sun, 09 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/stylestats-charts/</guid>
+      <description> 
+待望の期間グラフをStyleStats Web版に追加した。StyleStatsはCSSを解析ツールで、一回だけ使って、へぇー私の・僕の書いたCSSはこんな感じなんだぁーと理解してもらうのも結構だが、やはり継続的に解析してもらって、どのくらい改善したのか理解して欲しいと思っている。
+  GitHub&amp;rsquo;s CSS Performance // Speaker Deck  こう思うようになったのもJon Rohan氏のGitHub&amp;rsquo;s CSS Performanceのスライドを見てからだ。CSSだからといって、彼らは手を抜くこともなく最高のエンジニアリングを持って問題を解決しようとしていた。さすがGitHub!おれたちにできない事を平然とやってのけるッ！そこにシビれる!あこがれるゥ!と思って、そうゆうことを僕もしたくてここまで頑張ってきた。
+そんな感じで感傷に浸っているが、実装自体はHIGHCHARTSを使っていて、難なくできている。D3.jsも考えたが、あれはビジュアリゼーションツールであって、グラフツールではない。C3.jsを使えば、グラフ機能を簡単に使えるが、D3.js + C3.js、2つのスクリプト読み込むのダルいと思って、HIGHCHARTSにした。そのほうが軽いしね。商用利用するとお金がかかるが、まぁしないし、いいかと思った。
+そうゆうわけで、みなさん定期的に使ってみてください。当然、1回しかテストが実行されてないと、ただの点のグラフになるで、とりあえず2回以上テストお願いします。あとは、Web UIからじゃなくて、リモートから実行できたらいいなぁと思いつつ、おいおい頑張っていこうと思う。
+WEB+DB PRESS総集編 そういえば、WEB+DB PRESS総集編に記事を寄稿しましたので、皆さんよければ買ってください。買ってください！
+ WEB+DB PRESS総集編第5弾です。Vol.1~84まで14年分のバックナンバーと、過去4回の総集編の書き下ろし記事をDVDに一挙収録します。もちろん、特別書き下ろしとして豪華執筆陣による「Web技術の過去と現在、そしてこれから」も掲載。DVD収録データを含めた本誌電子版のダウンロード用パスコードも付録しているため、DVDが読めない環境の方も安心です!
+ WEB+DB PRESS総集編[Vol.1~84]WEB+DB PRESS編集部
+技術評論社 (2015-08-11)
+売り上げランキング: 2370
+Amazon.co.jp で詳細を見る </description>
+    </item>
+    
+    <item>
+      <title>そんなに目新しくもない技術でWebアプリをリニューアルした2015年春</title>
+      <link>https://t32k.me/mol/log/renewal-stylestats/</link>
+      <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/renewal-stylestats/</guid>
+      <description>世間はReactの話題で持ちきりのようだけど、Backbone.jsでStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことをつらつらかきとめておく。
+ StyleStats - An evaluating tool for writing better CSS  そもそもBackbone使うほど複雑なアプリでもないんだけど、勉強がてら使ってみた。てかParse.comを使いたくて、それがBackboneベースのSDKだったからというのもある。
+Parse.comはmBaaS(mobile Backend as a Service)の類で、データを簡単にストアしてくれるもの。僕のようなフロント側の人間でバックエンドがからっきしな人も、こうゆうのを使うとWebアプリケーションを簡単に作れるそうだ。StyleStatsで、テスト結果をデータに貯めときたかったので使ってみた。
+ StyleStats Test Result | http://www.google.com/ - Sun Apr 26 2015 04:32:59 GMT-0700 (PDT)  リニューアル後はテスト結果ひとつひとつにパーマリンクができるようになったので、定期的にテストかけといて、あとから比較（目視）とかできる。まぁデータ自体は溜まっていくので、今後はグラフ生成機能とか提供できるかもしれない（やらないかもしれない。D3.jsか&amp;hellip;）。
+JavaScriptとか 個人的にJavaScriptはCrome拡張だったりNode.jsでCLIツール作ったするときに書くくらいで、今回はじめてWebアプリケーションとしてのJavaScriptをBackbone.jsで書いた。うん、難しいよね。なんかうまく動かなかったら、それBackboneの問題なのかParse SDKの問題なのか、どっちかわからんと思ってたら、結局、自分のJS基礎力のなさから来る問題だったりして苦労した。
+入門Backbone.jsposted at 2015.4.27James Sugrue,クイープ
+翔泳社
+売り上げランキング: 27475
+Amazon.co.jp で詳細を見る 世間がReact!React!React!って言ってる中、せっせと2012年くらいの記事を貪っていてちょっと辛かった。いや今までサボっていた自分が悪いんだ。置いてけぼり感つらい。資料に関しては、上記の本ですべて事足りると思う。
+あと、Browserifyを使ってみた。個人的にどちらかというとNode.jsの文化に親しみを感じているのでモジュール管理としてはこれがいいのではと思ったけど、うまいこと使いこなせている自信はない。Concatでいいんじゃないかと思うこともあるが、require()したかったんや。
+でも、最近じゃES6のimportってのもあるのね、どうしよう。まぁいいや。es6ifyやbabelifyというのもある。なんだこれ？まぁいいや。あ、そうそう。BrowserifyでHandlebarsのtemplateをプリコンパイルしたかったらhbsfyっての使うらしいい。ファイファイやかましいわ。とにかく最近のES6,7事情ついていけてない、つらい。
+あとGrunt/Gulpで憔悴した話したけど、やっぱなんやかんやでGulp使った。起動させるインターフェイスとしてはnpm run script使っているので許して欲しい（誰）。
+CSSとか UIはMaterial Designをやってみたかったので、ここは王道な感じで、PolymerのPaper Elementを使ってみようと思った。てか、Material Design以前に、Polymer以前に、Web Componentsを分かってないなかったので色々読んだ。
+Web Components  Custom Elements: HTML に新しい要素を定義する - HTML5 Rocks HTML で利用可能になった Template タグ: クライアントサイドのテンプレートの標準化 - HTML5 Rocks HTML Imports: ウェブのための #include - HTML5 Rocks Shadow DOM 201: CSS とスタイリング - HTML5 Rocks Shadow DOM 301: 上級者向けコンセプトと DOM API - HTML5 Rocks  Polymer   Polycasts - YouTube  わー＞＜覚えること多すぎだ。疲れた。Polymerが0.</description>
+    </item>
+    
+    <item>
+      <title>コマンドラインからGoogle Analyticsにデータを記録するGAERをつくった</title>
+      <link>https://t32k.me/mol/log/gaer/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/gaer/</guid>
+      <description>t32k/gaer - GitHub  表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。
+$ npm install -g gaer $ gaer -t UA-xxxxx-xx -r reportName path/to/data.json Sending [||||||||||||||||||||||||] 100% Success: The data is sent to UA-xxxxx-xx  デベロッパーとGoogleアナリティクス 基本的にイベントトラッキングレポートは、ページ遷移をともわないイベント、例えばPDFのダウンロードリンクをクリックした等を計測するために使われる。
+// JavaScript ga(&#39;send&#39;, &#39;event&#39;, &#39;クリックイベント&#39;, &#39;PDF&#39;, &#39;資料請求&#39;);  クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前からJavaScriptのエラーが発生したらそのページのURLを記録する等、デベロッパーライクな使い方をしてる人がいたりする。
+そうでもなくても、Googleアナリティクスは、『サイトの速度』であったり、『ユーザーの環境』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAERを利用して欲しい。
+GAERはMeasurement Protocolを使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。
+{ &amp;quot;foo&amp;quot; : 12, &amp;quot;bar&amp;quot; : 2.1, &amp;quot;baz&amp;quot; : 9 }  こんな感じのシンプルなデータ構造のJSONなら送れる。
+モニタリングツールとして使う なぜ、GAERを作ったのか。StyleStatsという、CSSのヘルスチェックツールがある。下記のように使うとJSONデータでCSSの状態を確認することができる。
+$ npm install -g stylestats $ stylestats -f json -n foo.</description>
+    </item>
+    
+    <item>
+      <title>gFaceeeに最新コミット日時を強調する機能追加した</title>
+      <link>https://t32k.me/mol/log/gfaceee/</link>
+      <pubDate>Tue, 31 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/gfaceee/</guid>
+      <description>Webフロントエンド技術に関して非常に多くの技術情報を日々捌いているLayzieさん曰く、『記事の日付は必ず確認』しなければならない。つい先日、2年前くらいのはてブ記事をドヤ顔でSlackグループに投げて言われた言葉だ。
+開発者のためのChromeガイドブックposted at 2015.3.30吉川 徹,あんどうやすし,田中 洋一郎,小松 健作
+インプレスジャパン
+Amazon.co.jp で詳細を見る 情報の鮮度は非常に重要だということを改めて理解しつつ、二度とこのような失態を犯さないためにどうすればよいか考えた結果、いったん、はてブは置いといて、GitHubの最新コミット日時を強調するChrome拡張機能を作った。
+ご存知の通り、GitHubの時間表記は相対的な3 minutes agoと 3 hours agoとか、May 14, 2012とか、なんか直感的に新しいのか古いのか分かりにくい（というか読み取るのが面倒くさい）。あと最近流行りのReact.jsではなく、今さらBackbone.jsを勉強してるけど、関連リポジトリの更新が普通に2年前で止まってるとかあったので、ちょっと注意しないとと思った次第。
+ 1週間未満: Bright Green 1ヶ月未満: Green 6ヶ月未満: Yellow 1年未満: Orange 1年以上: Red  というわけで、上記のような基準で各リポジトリトップのlatest commitの日時を色付けするようにした。さりげない感じで強調してくれるので個人的に気に入っている。とりあえず、赤色（1年以上コミット無し）なら注意してみてみようなど色で判断できるようにした。
+もちろん、コミットが止まっているのは枯れていて安定しているって意味かもしれないので、必ずしも悪いことじゃない。しかし、変化の激しいフロントエンド界隈で生きているので、やっぱ定期的にメンテなりしてあるほうがいいかなと思っている。
+ gFaceee - Chrome ウェブストア  GitHubのニュースフィード上でアイコンを表示させるgFaceeeの追加機能としてリリースしましたのでよければ使ってくださいませ。</description>
+    </item>
+    
+    <item>
+      <title>Grunt/Gulpで憔悴したおっさんの話</title>
+      <link>https://t32k.me/mol/log/npm-run-script/</link>
+      <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/npm-run-script/</guid>
+      <description>先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的に以下の記事読んだら分かります。要はGulpとかGruntといったモノ使わずにnpm run hogehogeでビルドしよーぜって話です。
+ task automation with npm run オレ的Gruntに対する最新の気持ち - from scratch Node - npm で依存もタスクも一元化する How to Use npm as a Build Tool  // package.json &amp;quot;scripts&amp;quot;: { &amp;quot;start&amp;quot;: &amp;quot;npm run start-serve &amp;amp; npm run watch&amp;quot;, &amp;quot;test&amp;quot;: &amp;quot;stylestats public/files/css/maple.css&amp;quot;, &amp;quot;start-serve&amp;quot;: &amp;quot;browser-sync start --server public/ --files public/files/**/*&amp;quot;, &amp;quot;clean&amp;quot;: &amp;quot;rm -rf public/files/css/*&amp;quot;, &amp;quot;js:min&amp;quot;: &amp;quot;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;quot;, &amp;quot;build:js&amp;quot;: &amp;quot;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;quot;, &amp;quot;css:sass&amp;quot;: &amp;quot;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;quot;, &amp;quot;css:prefix&amp;quot;: &amp;quot;autoprefixer -b &#39;last 2 versions&#39; public/files/css/maple.</description>
+    </item>
+    
+    <item>
+      <title>Wisteria：デザインツールとしてのCSS</title>
+      <link>https://t32k.me/mol/log/wisteria/</link>
+      <pubDate>Wed, 28 Jan 2015 18:14:51 -0800</pubDate>
+      
+      <guid>https://t32k.me/mol/log/wisteria/</guid>
+      <description>Wisteria.css: A class selectors based harmless CSS library. t32k/wisteria  WisteriaというCSSライブラリ作った。基本的な用途としてはモックアップや後方互換とかそこまで考えなくていい、小規模の個人用のページとかで使われることを想定している。
+Skeletonという、すごくシンプルなCSSライブラリがあるのだが、僕はこれが好きで、ちょっとしたものとか作るときによく使用している。このブログもSkeletonをベースにしているくらいだ。
+でも最近使ってて、なにかこう違和感というか、相容れないモノを感じたので、思い立って自分用のCSSライブラリを作ってみたのだ。
+Harmless Wisteriaを作るにあたって、一番気をつけたことは無害であること。つまり要素にスタイリング（h2 { font-size: 24px }みたいな）しないことを徹底した。ほとんとクラスセレクタ（.h2 { font-size: 24px }みたいな）でしか定義していない。
+これはなぜかというと、基本的にh2なんてものは見出しとして大きく扱われるべきだけど、それは基本的にであって小さい文字列のh2要素だって時としては存在する（重要な文言であったり、余白を使えば必ずしもフォントサイズが大きい必要がない）。そうゆうゆうわけで、Skeletonとか使ってると、h2要素にスタイルが定義されているので、この文字を小さくするために再定義しなければならない。
+これ、すごくめんどい。
+いや、本腰入れて開発しようとかだったら再定義なんなりするけど、ちょっとしたページを作ったり、サイズ感を試したいときに思考が妨げられる。
+.h1, .u-fz1 { font-size: 6.4rem; } .h2, .u-fz2 { font-size: 4.8rem; } .h3, .u-fz3 { font-size: 3.6rem; } .h4, .u-fz4 { font-size: 2.4rem; } .h5, .u-fz5 { font-size: 2.0rem; } .h6, .u-fz6 { font-size: 1.8rem; } .u-fz7 { font-size: 1.6rem; } .u-fz8 { font-size: 1.</description>
+    </item>
+    
+    <item>
+      <title>Smashing Magazineのパフォーマンス改善ケースが凄まじい件</title>
+      <link>https://t32k.me/mol/log/style-class-conference/</link>
+      <pubDate>Wed, 24 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/style-class-conference/</guid>
+      <description>Frontrend Advent Calendar 2014 - Qiitaの24日目。たぶん。知らんけど。
+ちょっと前になるが12/13にバンクーバーで開催されたThe Style &amp;amp; Class Conference 2014に参加してきた。前日にSmashing Conferenceが、ウィスラーというバンクーバーから比較的近い所で開催されていて、本当はそっちに行きたかったんだけど高額なため、地元コミュニティのほうにだけ参加した。ウィスラーの方の記事は@ygoto3が書いてたっぽい。
+Smashing Conferenceで登壇していたJohn Allsopp氏やVal Head氏もこのカンファレンスで登壇するということで、『なんだ、ウィスラーのついでかよー』と思い全然期待してなかったのだが、行ってみたらカンファレンス全体の構成などすごく考えられていて、とても素晴らしいカンファレンスだった。
+そんなわけで、今回はその中で最も気に入ったVitaly Friedman氏のセッションを紹介したいと思う。
+Improving Smashing Magazine&amp;rsquo;s Performance  Improving Smashing Magazine&amp;rsquo;s Performance: A Case Study  講演内容と同じ内容と思われる記事がすでに9月に上がっているみたい。バックエンドからフロントエンドまでいろいろなことやってみるみたいで、めちゃめちゃ長文なので時間あるときにでも読んでおくとよい。その中でも僕が気に入ったのがCritical CSSの対応をしていたことだ。
+Critical Rendering Path Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピクセルとしてレンダリングする必須処理までの間の段階のことを言い、Critical CSSとはページの最初のレンダリングをブロックする可能性のあるCSSのことを言う。
+
+なぜCSSがレンダリングをブロックするのかというと、上図の通り、レンダリングを完成するにあたってブラウザはDOMとCSSOM(CSSオブジェクトモデル)が必要なわけでして、スタイルシートがダウンロードされない限りレンダリングが開始されないわけだ。
+ HTML マークアップを処理して DOM ツリーを作成 CSS マークアップを処理して CSSOM ツリーを作成 DOM と CSSOM を組み合わせてレンダーツリーを作成 レンダーツリーでレイアウトを実行して各ノードの形状を計算 各ノードを画面にペインティング   Render-tree construction, Layout, and Paint — Web Fundamentals  少なくともブラウザに何かが描画されるまでには上記のような流れをふまないといけない。</description>
+    </item>
+    
+    <item>
+      <title>GoアプリをHerokuにデプロイする</title>
+      <link>https://t32k.me/mol/log/go-on-heroku/</link>
+      <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/go-on-heroku/</guid>
+      <description>Heroku Advent Calendar 2014 - Qiita の23日目です、たぶん。
+最近、僕の周りの人らがGO!GO!うるさいので、ついつい僕もそそのかされてGo言語やりたいなーと思ったのです。Go 1.4も出たしね。
+ A Tour of Go | Hello, 世界  ひととおりチュートリアルはやってみたんですけど、やっぱりWeb上で動かしたいわけですよ。そうゆうわけで、Heroku上でGoアプリを動かしてみようと思います。
+Go on Heroku  Getting Started with Go on Heroku  まぁ、上記の記事を参考にしたらちゃんとGoアプリをHerokuで稼働させることができます。以下は自分の備忘録代わりということで。
+Install Go goenvというGoのバージョン管理ツールもあるみたいだけど、初心者なのでHomebrewで入れることにする。
+$ brew install go $ go version go version go1.3.3 darwin/amd64  わーい、かんたん٩(๑❛ᴗ❛๑)۶
+Go Environment $GOPATH等を設定する。ここで指定したパス以下がGoのワークスペースとなる。お好きなシェルプロファイルに記述。
+$ echo &#39;export GOPATH=$HOME&#39; &amp;gt;&amp;gt; $HOME/.bash_profile $ echo &#39;export PATH=$PATH:$GOPATH/bin&#39; &amp;gt;&amp;gt; $HOME/.bash_profile  以下のようなディレクトリ構成で管理される。
+$GOPATH ├── bin（コンパイルしたバイナリファイル） ├── pkg（パッケージオブジェクトファイル） └── src（Goの作業ソースファイル）  GitHub上に置かれているソースファイルは、 ~/src/github.</description>
+    </item>
+    
+    <item>
+      <title>Heroku Dropbox Syncで実現するWeb開発の未来</title>
+      <link>https://t32k.me/mol/log/heroku-dropbox-sync/</link>
+      <pubDate>Sat, 13 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/heroku-dropbox-sync/</guid>
+      <description>Heroku Advent Calendar 2014の13日目の記事です。
+2014年11月にHerokuからDropbox Sync機能のアナウンス（Beta版）がありました。今日はこれを使ってみようと思います。
+この記事はBeta機能について解説しています。機能に関しては変更の可能性があります。
+デザイナーとデプロイ まず先に私とHerokuと言えば、StyleStatsというCSS解析ツールをHeroku上で動かしています。私は元はWebデザイナーでしたので、つい最近まで『デプロイ？なにそれ？おいしいの？』って感じでしたが、git push heroku masterでデプロイできるHerokuさんのおかげで、こんな私でもWebアプリを稼働・運用していけています。
+ 配備する、配置する、展開する、配置につく、などの意味を持つ英単語。 ソフトウェアの分野で、開発したソフトウェアを利用できるように実際の運用環境に展開することをデプロイということがある。
+  デプロイとは 【 deploy 】： IT用語辞典  とはいえ、純粋なるWebデザイナーさんがGitコマンドを使いこなし黒い画面からgit push heroku masterとタッターンッ！！と軽快にデプロイする姿を見れるのはまだ先かもしれません。
+Herokuにデプロイすることに関して言えば、Gitコマンドを使いこなす必要はなく最低限のコマンドを覚えるだけですし、黒い画面も使わなくてもGUIアプリを使えばよいわけですが、やっぱりGitを使うということには見えない大きな壁があるように個人的には考えています。
+そうゆうわけで、Gitを使わないユーザーにもデプロイの手段を提供するのが、今回のDropbox Sync機能です。その名の通り、Dropboxを通して、Web上からデプロイできる機能です。
+Heroku Dropbox Syncの使い方 Dropboxであれば、デザイナーさんもよく使ってますよね、デザインマテリアルの保存とか、それこそDropboxでバージョン管理してたりとか、デザイナーさんにとってDropboxがGitみたいな位置づけかもしれません。
+使い方はすごく簡単です。Herokuアカウントとか基本的なセッティングは終わってる前提で話します。まず、Heroku Dashboardで新規Appを作成して（ここではt32k-drop-sync）、Codeタブを選択してその下部に[Connect to Dropbox]のボタンがありますので、そこをクリックします。
+Dropboxから確認を求められる画面になるので許可しましょう(Dropboxにログインしてなかったらまずログイン画面がでてきます)。
+許可するとローカルマシンの中にDropbox/アプリ/Heoku/t32k-drop-sync/というフォルダが作成されているのが確認できます。
+アプリはローカライズ部分なので、人によってはDropbox/Apps/Heroku/{APP-NAME}って感じのディレクトリになってるかと思います。
+あとはここのディレクトリにアプリを作成していくだけです。試しにRailsアプリを作ってみました。
+ひととおりの作業が終わったら、またHeroku Dashboardのt32k-drop-syncアプリのCodeタブの下部にデプロイボタンがあります。コミットメッセージを記入します。
+うまくいけばこのようにチェックされます。というわけで、Dropbox Syncって名前だけど、Dropboxがファイルを同期するたびにデプロイが実行されるわけじゃないです。ちゃんとWeb UI上からデプロイボタンを押さないといけません。
+とりま、できました。
+Heroku Dropbox Syncの使いドコロ HerokuアプリをGitを使わずにDropbox Syncで作成できましたが、実際のところ、Herokuに新規アプリをデプロイするときにはアプリケーション側でいろいろ設定しなきゃいけないことが多いので、デザイナーがひとりで完遂できるかというと疑問ですが、Dropbox Syncはなにも新規アプリでDropbox Syncを有効にしたアプリだけに適用されるわけではないです。
+Gitで管理している既存アプリでもDropbox Sync機能を有効にすることができます。使い方は上記と同じです。また、デザイナーが修正したファイルをDropbox Syncからデプロイした場合、Git管理しているエンジニアは次にデプロイしたいときはgit pull heroku masterをしてデザイナーが行った修正の差分をマージしておかなければなりません。その逆にエンジニアがgit push heroku masterでデプロイした場合は自動的にデザイナー側のDropboxが同期します。
+極端な話、文言修正だけだったら、iPadにDropboxアプリ入れて、Dropbox連携のテキストエディタで編集して、Safariからデプロイボタン押せばiPadだけでデブロイが可能となります。
+まぁそれ自体には意味は無いですけど、デプロイの敷居はだいぶ下がったのではないかなと思います。ちょっとデザイナーさんにバナー差し替えを依頼したいときなど、編集してaddしてcommitしてpushしてもらうより、Dropbox内のファイルいじってもらって、終わったらエンジニア側でデプロイボタン押せば圧倒的に説明コストが低くて済みます。
+しかしコミットの粒度を考えると、こまめにGitでコミットしておいたほうがなにかと良いので、Dropbox Sync機能はその点まだクリアできていない問題だけど、非エンジニアのデプロイの敷居を下げるという意味ではすごく良いアプローチだと思うし、それで興味をもった人が今度はGitからデプロイ！って段階が踏めるようになったのは良い流れじゃないかなと個人的には感じます。
+そういうわけで、エンジニアとデザイナー仲良くデプロイしていきましょう。</description>
+    </item>
+    
+    <item>
+      <title>オンラインCSS解析 StyleStats.org</title>
+      <link>https://t32k.me/mol/log/stylestats.org/</link>
+      <pubDate>Thu, 10 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/stylestats.org/</guid>
+      <description>前回スタイルシートの統計情報を出力するNode Packageを作ったわけだけど、やっぱりオンライン上で簡単に試せれたらいいよねーってことで、オンラインツールを作った。
+ StyleStats.org  使い方は、URLを入力するか、ローカルのファイルをアップロードするか、直接入力するか3種類選ぶことができる。
+URLを入力するのが一番簡単なのでオススメ。自分の作ったサイトとか入力してみるといい。基本コマンドラインツールとしていることは同じなんだけど、Unique Colorのプレビューが見れるので『色使い過ぎだなー』とか実感出来る仕様になっている。
+1px毎にフォントサイズが本当に必要なのか、この色と色はほとんど同じだけどマージできないのか、といったことを、結果を見ながらデザイナーと話し合うのに便利じゃないかな。やはり共通言語は数字だと思う。
+あとはある程度validなCSSじゃないとパースエラーになって解析できない。たぶんCSSハックとか使ってるとエラーになると思う。
+将来的にはDBに結果を貯めて期間で結果の変遷とか確認できるようにできたらいいなと思う（リファクタリングがどれだけできたのかとか確認できる）。
+CSSとは関係ないけどStyleStats.orgは、Node.js(Express) on Herokuで運用していて、いろいろ初めてで戸惑うこともあったけど、git push heroku masterでデプロイできるのはとっても簡単だなと思った。
+もっといろんなアプリケーション作ってみたいなぁと思いました、まる。</description>
+    </item>
+    
+    <item>
+      <title>バッジ駆動開発（2014:Node.js）</title>
+      <link>https://t32k.me/mol/log/badge-driven-development/</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/badge-driven-development/</guid>
+      <description>こんちわ！@t32kだよ。みんなバッジ好き？(　ﾟ∀ﾟ)o彡ﾟバッジ！バッジ！バッジ！
+小学生の頃、自由勉強ノートってのがあって、勉強したページ分、先生からシールをもらってはそのノートに貼り付けていたのは良い思い出です。あのノスタルジーを再び！
+ということで、大人の自由勉強ノートといえばGitHubレポジトリじゃないですか。OSSがんばります！私、気になります！そしたらシール欲しいじゃないですか？
+あるよ、シールあるよ、シールってかバッジだけど。
+
+上記は最近作ってるStyleStatsのReadmeだけど、なんか緑のバッジいっぱいですよね。それを説明していく！
+Travis-CI Status Images  Travis CI: Status Images  まずは、この中のバッジの中では一番メジャーじゃないだろうか、Travisの Status Images。昔、@kyo_agoさんが『テストもしてないプラグインなんて怖くて使えませんよね！』と言ってたのを聞いて、その日のうちにとりあえずテスト書いて、テストしてるよって意味で載っけといた思い出深いバッジです。
+Travis-CIでビルドがコケてるかどうか、要はテストが失敗してるかどうか、このバッジが赤いままだと、恥ずかしくて御天道様の下を歩くこともできません。
+Version Badge  Version Badge for your RubyGems, PyPI packages, and NPM modules  次によく見かける、バージョンバッジ。gem, PyPI, NPMに登録してあるモジュールなら、サイトから検索してスニペット取得するだけ。
+よく使っているモジュールの最新バージョンはいくつだろう？と思ってpackage.jsonとか見たりするけど、このバッジがReadmeに貼ってあると分かりやすくてよい。あと、NPMに登録してある＝野良モジュールじゃない、ってことでそれなりに、信用度があがる（なんでもNPMに登録できるからあんまり意味ない）、かもしれない。
+David  David, a dependency management tool for Node.js projects  これもバージョン関係だけど、依存しているモジュールのバージョンが最新かどうかチェックしてくれるサービス。
+ Dependency status for t32k - stylestats 2.3.0  こんな感じでdependenciesとdevDependenciesが最新かどうかチェックしてくれる。Nodeのモジュールは開発が盛んだから、いつのまにかマイナー・メジャーバージョンが上がってたなんてことを気づかせてくれます。
+まぁ安定して動いてくれてるならそのバージョンが古くても問題ないけど、やっぱり最新がいいよね！僕は新しいもの好きです！！私、気になります！！！
+ 参考: Node.jsの開発を超速化するGitHub連携 三種の神器 - teppeis blog  Code Climate  Code Climate.</description>
+    </item>
+    
+    <item>
+      <title>StyleStats</title>
+      <link>https://t32k.me/mol/log/stylestats/</link>
+      <pubDate>Fri, 07 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/stylestats/</guid>
+      <description>スタイルシートの統計情報を出力するNode Packageを作った。
+ t32k/stylestats  Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。
+$ npm install -g stylestats $ stylestats path/to/stylesheet.css StyleStats! ┌──────────────────────────┬───────────────┐ │ Size │ 498.0B │ ├──────────────────────────┼───────────────┤ │ Rules │ 7 │ ├──────────────────────────┼───────────────┤ │ Selectors │ 11 │ ├──────────────────────────┼───────────────┤ │ Simplicity │ 63.64% │ ├──────────────────────────┼───────────────┤ │ Lowest Cohesion │ 6 │ ├──────────────────────────┼───────────────┤ │ Lowest Cohesion Selector │ hr │ ├──────────────────────────┼───────────────┤ │ Total Unique Font Sizes │ 3 │ ├──────────────────────────┼───────────────┤ │ Unique Font Size │ 10px │ │ │ 12px │ │ │ 18px │ ├──────────────────────────┼───────────────┤ │ Total Unique Colors │ 1 │ ├──────────────────────────┼───────────────┤ │ Unique Color │ #333 │ ├──────────────────────────┼───────────────┤ │ Id Selectors │ 1 │ ├──────────────────────────┼───────────────┤ │ Universal Selectors │ 0 │ ├──────────────────────────┼───────────────┤ │ Important Keywords │ 1 │ ├──────────────────────────┼───────────────┤ │ Media Queries │ 1 │ ├──────────────────────────┼───────────────┤ │ Properties Count │ font-size: 5 │ │ │ margin: 4 │ │ │ padding: 3 │ │ │ color: 2 │ │ │ display: 1 │ └──────────────────────────┴───────────────┘  なんで作ったの？ そもそも論の話、HTML/CSSを書く人って私のようにデザイナー上がりだったり、私のようにプログラミング的バックグラウンドが無かったりする人が多い。そんもんだから、Sassなどのような多少なりともプログラミング的知識の必要となるCSSプリプロセッサを使うと、お盆の帰省ラッシュのようなCSSが吐出されて大変な結果になるってことを何度も経験してきた。</description>
+    </item>
+    
+    <item>
+      <title>フロントエンドエンジニア（仮）</title>
+      <link>https://t32k.me/mol/log/i-wanna-be-a-front-end-engineer/</link>
+      <pubDate>Fri, 14 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/i-wanna-be-a-front-end-engineer/</guid>
+      <description>Developers Summit 2014：【13-D-3】 フロントエンドエンジニア（仮） 〜え、ちょっとフロントやること多すぎじゃない！？〜 // SlideShare   2年前でWebデザイナーだった私がどのようにフロントエンドエンジニアなっていったのか。デザイナーにもなれず、エンジニアにもなれないどっちつかずな職種で自分のアイデンティティを模索し、日々の膨大なタスクに追われながら、フロントエンドのワークフロー(Grunt)、最適化（パフォーマンス）について考えたことを紹介します。
+『（仮）が取れた時、運命の技術者に出会える・・・』
+自己紹介  Koji Ishimoto - t32k.me Web Performance  High Performance Web Design Coding Web Performance Long Life Web Performance Optimization  Web Analytics  Using Google Analytics with jQuery Mobile 大規模サイトにおけるGoogleアナリティクス導入から成果まで  Sass/Compass  スマートフォンWebアプリ最適化”３つの極意” パフォーマンスから考えるSass/Compassの導入・運用 モバイル制作におけるパフォーマンス最適化について Manning: Sass and Compass in Action   フロントエンドエンジニアとは？  A Baseline for Front-End Developers - Adventures in JavaScript Development   JavaScript Git(and a GitHub account) Modularity, dependency management, and production builds In-Browser Developer Tools The command line Client-side templating CSS preprocessors Testing Process automation (rake/make/grunt/etc.</description>
+    </item>
+    
+    <item>
+      <title>peerDependency</title>
+      <link>https://t32k.me/mol/log/peerdependency/</link>
+      <pubDate>Thu, 28 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/peerdependency/</guid>
+      <description>grunt@0.4くらいから、package.jsonにpeerDependencyというキーを見かけるようになった。Plugins - Gruntでも peerDependencyが指定されているプラグインに関しては、Grunt Version ~0.4.0のように出るので意味分かんないけど、とりあえず指定してた。
+ Peer Dependencies  で、コレ読んだら理解した。
+├── request@2.12.0 └─┬ some-other-library@1.2.3 └── request@1.9.9  例えば、こうゆう依存関係の状態があったとき、some-other-libraryのパッケージはrequestパッケージの2.x系で動作しなくても、自身が内包しているrequest@1.9.9を参照するので特に問題ない。これは現状のdependencyで表現できる。
+しかし、パッケージの中にはhostパッケージと呼ばれるものが登場してきた。例えてゆうなら、jQueryとjQueryプラグインのようなもので、あるjQueryプラグインがjQuey@1.xでしか動作しなければ、当然のごとくjQuey@2.xをhost側で読み込んでいたらこのプラグインは動かない。
+これはクライアントサイドの話だが、これと同様のことがGruntとそのプラグインの関係にも当てはまる。あるgruntプラグインはgrunt@0.3.xで動かないけど、grunt@0.4.xでhostされていたら動くって場合は、こう表現する。
+{ &amp;quot;name&amp;quot;: &amp;quot;grunt-hoge&amp;quot;, &amp;quot;peerDependencies&amp;quot;: { &amp;quot;grunt&amp;quot;: &amp;quot;0.4.x&amp;quot; // &amp;quot;grunt&amp;quot;: &amp;quot;~0.4.0&amp;quot;でも同義 } }  今は0.4.xで落ち着いてるからとくに必要のない感じだけど、たぶんこれから0.5.xとかリリースされて0.4.xと混在した時に、peerDependenciesを指定しておくと以下の様なエラー表示してくれる。
+npm ERR! peerinvalid The package flatiron does not satisfy its siblings&#39; peerDependencies requirements! npm ERR! peerinvalid Peer flatiron-cli-config@0.1.3 wants flatiron@~0.1.9 npm ERR! peerinvalid Peer flatiron-cli-users@0.1.4 wants flatiron@~0.3.0  ちなみに、peerDependenciesが指定されたgruntプラグインをnpm installするとpeerDependenciesに指定したgrunt（パッケージ）も一緒に落ちてくる。
+あ、そうそう、Gruntについては今週土曜のHTML5カンファレンスでも喋るよ。セッションはデザイナーさんとか、はじめてGruntを触るような人向けに喋るからpeerDependenciesとか気になる人は来なくていいよ！魔鎖狩投げたい人はahomuの方に行ってください。でも、人が来ないと寂しいので来てください。でも魔鎖狩こわいので来ないでください。でも来て（ry。。。</description>
+    </item>
+    
+    <item>
+      <title>部屋とYシャツと私</title>
+      <link>https://t32k.me/mol/log/good-bye-compass-good-bye-ruby/</link>
+      <pubDate>Fri, 08 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/good-bye-compass-good-bye-ruby/</guid>
+      <description>部屋とYシャツと私、AutoprefixerとSpritesmithとLibsassの話。
+愛しのMapleは、フレームワークというかGrunt詰め合わせセットなのですが、Grunt自体はNode.js依存で、使っているCSSプリプロセッサはSassでRuby依存なので、なんだかキメラみたいで気持ち悪い。いっそのこと、プリプロセッサはStylusにしてNode.jsで統一しようか、むしろMiddlemanみたいにRubyで統一するか、考えものだ。とりあえずはCompassを辞めてみようという結論に至ったので代替案を探る。
+MapleでCompassを使っている理由は2つ。
+ ベンダープレフィックスを付ける手間をなくしたい CSSスプライトを自動化したい  これらをGruntプラグインでなんとか置き換えれないものか。
+grunt-autoprefixer  nDmitry/grunt-autoprefixer  ちょうど、myakura氏のブログで取り上げられていたAutoprefixerが便利そうなので、これのGruntプラグインがないか探したらもちろんあった。
+autoprefixer: { options: { browsers: [&#39;ios &amp;gt;= 5&#39;, &#39;android &amp;gt;= 2.3&#39;] }, dist: { src: &#39;../files/css/maple.css&#39; }, }  Gruntの設定も至極簡単だ。対象のCSSファイルとと対応するバージョンを指定するだけだ。 あとは正規のプロパティ書いておくだけ、Autoprefixerがバージョンに応じてベンダープレフィックス付きのプロパティを追加・削除してくれる。
+Compassのミックスインによる書き方よりも、真っ当というか、なんかこっちの実装のほうが素敵だと素直に思った。あと対応するバージョンの指定方法も、CompassみたいにベンダーごとにON/OFFするんじゃなくて、last 2 versionsといった書き方もできたり、蟹ｳｾﾞのデータを元にしてあったりと柔軟に指定できるのも魅力かな。
+grunt-spritesmith  Ensighten/grunt-spritesmith  CSSスプライトを自動化するためにCompassを使用しはじめたのもあって、移行しんどかった。使い勝手的にはCompass Spriteのほうが今のところは良いと思う。
+しかし、Spritesmithに変更することでCSSプリプロセッサに依存せずにCSSスプライトの自動化を手に入れることができる。MapleではSass用にコードを吐き出してるけど、Stylus用にも吐き出せるし、生のCSSでもできる。
+$_bird1: 0px 149px 0px -149px 60px 49px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;; $_bird2: 0px 0px 0px 0px 180px 147px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;; $_bird3: 182px 0px -182px 0px 120px 98px 302px 198px &amp;quot;/files/img/sprite/tabs.</description>
+    </item>
+    
+    <item>
+      <title>CharlesでBandwidth Throttlingを設定しChrome for AndroidでRemote Debugする</title>
+      <link>https://t32k.me/mol/log/charles-bandwidth-throttling/</link>
+      <pubDate>Tue, 06 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/charles-bandwidth-throttling/</guid>
+      <description>とりあえず表題のようなことがしたい。Chrome for AndroidでRemote Debuggingは以前の記事でも紹介したとおりだ。
+僕のAndroid端末は3G回線契約していない、いわゆる白ロムなので、WiFiしか使えない。これだと、3G回線の低速さが体感できない、低帯域でどうアプリケーションが振る舞うのかわからないので不便だ。ということで、CharlesでBandwidth Throttlingできたよねと思い、組み合わせて使ってみる。
+ADBPlugin まず、おさらい的なことで、Chrome for AndroidでRemote DebugをするためにはADB（Android Debug Bridge ）が必要だ。これは通常、Android SDKの中に入っていて、SDKまるごと落としてこなきゃいけなかったけど、最近じゃ、ADBを内包したChrome Extensionで提供されているらしく、これをインストールするだけだお。面倒なpathも通さなくても簡単に使えるようになってる。
+ GoogleChrome/ADBPlugin ADB - Chrome ウェブストア  あとは前回紹介したようにChromeで調べるだけ。便利な世の中になったもんだ。詳細は下記リンク参照。
+ Remote Debugging on Android with Chrome - Google Chrome  Bandwidth Throttling - Charles Charlesはよく使うツール。といっても、デスクトップでこの機能使うくらいなんだけど。詳しい使い方はこもりさんの記事がわかりやすい。
+ Charles Web Debugging Proxy の使い方 | gaspanik weblog  とりあえず、実機の端末はこのCharlesを通してインターネッツに羽ばたけば良いわけです。重要なのはCharelsが入ってるMacのIPアドレスと、ポート番号（ここではとりあえず8888にしときましょう）です。
+ちなみに、MacでIPアドレスを確認したい場合は、システム環境設定 ＞ ネットワーク ＞ 詳細 ＞ TCP/IPでみれます。で、このIPをAndroidの端末に設定してあげれば行けるわけですね。けど、記事にはiOSの設定しか書いてない！ということでググったらネットワークの部分長押しでプロキシ設定項目がでてくるらしい&amp;hellip;
+ 忘れないように 『プロキシ設定』｜スイーツ＠インデックス リバース  どうでもいいけど、Android 4.2で「開発者向けオプション」を表示する方法とかも分かりにくいよね&amp;hellip; とりあえず、できました。ありがとうございました。</description>
+    </item>
+    
+    <item>
+      <title>Chrome CanaryとAndroid Debug BridgeとChrome for Android betaでReverse Port Forwarding</title>
+      <link>https://t32k.me/mol/log/reverse-port-forwarding/</link>
+      <pubDate>Tue, 06 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/reverse-port-forwarding/</guid>
+      <description>最近、横文字タイトルがマイブームです、@t32kです。要はReverse Port Forwardingしたいのです。
+前回の記事で久しぶりに、Remote Debugging on Androidの記事を読んでたらReverse Port Forwardingって新しい項目ができてるのを見つけたじゃないですかー、気になるじゃないですかー、ためしてみるじゃないですかー。
+ Commonly you have a web server running on your local development machine, and you want to connect to that site from your device. If the mobile device and the development machine are on the same network, this is straightforward.
+ Reverse Port Forwardingってのがなんなのかはよくわかってないですが、よくローカルに静的なサーバーたちあげてマークアップして、iOSシミュレータとかで確認してるんですけど、これ実機で確認できればなーと思ってたんですよね。Chromeだとできるってよ、これ。
+ デスクトップにChrome Canary Android Debug Bridge (ADBPlugin or full Android SDK) 検証端末にChrome for Android beta  必要な物は上記です、Canaryとbetaが必要なんですね。ADBPluginって書いてあるけど、拡張機能からだとうまくいかなかったので、おとなしくコマンド叩いた。とりあえずADBを起動させておく。</description>
+    </item>
+    
+    <item>
+      <title>nvmでnode.jsを管理する</title>
+      <link>https://t32k.me/mol/log/using-node-version-manager/</link>
+      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/using-node-version-manager/</guid>
+      <description>こんちわ！@t32kだ！
+私はしがないHTMLコーダーですが、そんな私でも最近はgruntなどのnode.js環境を必要とするツールなど使っています。ということで、node.jsをインストールしなきゃあかんのですよ。
+Mac OS X Installer (.pkg) 幸い、私のような最下級サイヤ戦士でも簡単にnode.jsをインストールできるように公式サイトではインストーラーが用意されています。やったね、たえちゃん！ということで、人生になんの疑問もなく私はこれを使ってました。
+ Node.js  しかし、node.jsの進化は凄まじいものがありまして、月単位？週単位？で新しいバージョンがアップデートされていたなんてのはザラです。プラス、私は出来る限り（stableで）最新のバージョンにしておきたいという性格なので、node.jsのバージョンが新しく出るたびに、公式サイト行って、インストーラーDLして、インストール画面をクリック！クリック！クリック！なんて作業はもうやなんだよ！
+ということで、インストーラーによる管理は辞めたい！
+思い立ったら吉日DAY！インストーラーでインストールしたnode.jsをアンインストールしましょう。インストーラがあるのならアンインストーラあるのかなと思ったらなかった／(^o^)＼けど、スクリプトあったよ。
+ Mac OS X uninstall script for packaged install of node.js  $ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh $ chmod +x ./uninstall-node.sh $ ./uninstall-node.sh $ rm uninstall-node.sh  上から順番に実行してくだけだよ。
+Homebrew 以前からbrew doctorをするとnodeがlinkしてねーよ！と注意されていたのだが、インストーラでインストールしたnode.jsが優先されていたのだろうと思う。ってことで、今はアンインストールしたから大丈夫ってことで、Homebrewでnode.jsを管理してみる。
+$ brew install node  入ったー！簡単！
+あれ、npm使えなくね？とおもったら、npm install -gしたnpmは以下に、/usr/local/share/npm/bin保存されるらしい。
+#npm export PATH=&amp;quot;/usr/local/share/npm/bin:$PATH&amp;quot;  ということで、bash_profileとかにpathを通しておく。
+ Homebrewでnode.jsとnpmをインストール | bulblub  これで、完璧だね、やったね、たえちゃん！
+ @t32k nvmかnodebrewかnaveのどれか絶対使った方がいいです！
+ と思ったら、同僚のエンジニアさんから親切なツイートが！</description>
+    </item>
+    
+    <item>
+      <title>VagrantでCentOSを入れてJenkinsを導入してみる</title>
+      <link>https://t32k.me/mol/log/vagrant1-2-centos6-4-jenkins1-5/</link>
+      <pubDate>Fri, 28 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/vagrant1-2-centos6-4-jenkins1-5/</guid>
+      <description>我もJenkins触ってみたかったんや&amp;hellip;
+ Jenkinsで我もジョブ書きたい とりあえずローカル環境で動かしたい Macのインストーラーで一発やん！ でもいろいろインスコしたら危なそう んじゃ、VM上でJenkins動すか &amp;lt;-イマココ  ってことで、Vagrant使ってみることにする。
+各種インストール VirtualBox をインストールしましょう。
+最新の4.2.14でvagrant upすると&amp;rdquo;Progress object failure: NS_ERROR_CALL_FAILED&amp;rdquo;ってエラーでるので、4.2.12をインストールしませう。
+Vagrantをインストールしましょう。
+以前に、gem installでvagrantをインスコした人はuninstallしておきませう。古いのがあるとうまく動きません。
+vagrantで利用できるBoxファイルはここに一覧がありますんで、好きなやつ選びましょう。
+ A list of base boxes for Vagrant - Vagrantbox.es  僕はCentOSをいれたかったので、”CentOS 6.4 x86_64 Minimal (VirtualBox Guest Additions 4.2.12, Chef 11.4.4, Puppet 3.1.1)”を選びました。
+$ vagrant box add centos-6.4 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box  これで、ローカルの~/.vagrant.d/boxes/にcentos-6.4って名前でBoxファイルが保存されます。
+$ vagrant init centos-6.4 A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment!</description>
+    </item>
+    
+    <item>
+      <title>パフォーマンスからみるSass/Compass 第2回：CompassによるCSS Sprite</title>
+      <link>https://t32k.me/mol/log/spriting-with-compass/</link>
+      <pubDate>Sun, 02 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/spriting-with-compass/</guid>
+      <description>Sass、Less、StylusなどCSS Preprocessorに関するAdvent Calendarです。― CSS Preprocessor Advent Calendar 2012 - Adventar
+ パフォーマンスの勉強ができてなおかつSass/Compassのお勉強にもなるお得なシリーズまさかの2回目。Adventにぶつけてきた！ややもするとシリーズものの2作目というのは駄作になりがちだが、そんなプレッシャーはねのけて乱反射！やっていくYO!
+これまでの：
+ パフォーマンスからみるSass/Compass 第1回：Nestingと@import - MOL パフォーマンスからみるSass/Compass 番外編：MSは青かった - MOL  CSS Spriteの利点・欠点 『ハイパフォーマンスWebサイト』の書籍には「高速サイトを実現する14のルール」というものがある。その中でも最も効果のある対策として「HTTPリクエストを減らす」ことを挙げている。HTTPリクエストというのは画像やJavaScriptファイル、CSSファイル等をWebページで読み込む（サーバーにリクエストする）ことを言う。
+このリクエストが多ければ多いほど、HTMLページの読み込み速度は遅くなってしまう。フロント（マークアップ）側でできる対策としてはポピュラーなものとしてCSSスプライトという手法があり、これは複数の画像をひとつにまとめ、背景画像としてbackground-positionを調整することで一つ一つの画像として表示する方法だ。
+  Minimize HTTP Requests! Requests 30 vs 1 (CSS Sprite) - YouTube  CSSスプライトがいかに有用かは上記の動画を見てもらえれば分かるだろう。アイコン画像を30個をimg src=&amp;quot;&amp;quot;で読み込む場合と、30個のアイコンを全てひとつの画像にまとめたCSSスプライトで読み込む場合では（環境によっても変化はあるがこの場合）3倍の差が出た。
+ただ、CSSスプライトにも問題がある。それは管理が非常に面倒な点だ。まずひとつひとつの画像をPhotoshopなどの画像編集ツールでまとめる必要あり、またその配置した画像の座標をbackground-positionに反映させる必要がある。
+ CSS Sprite Generator, Editor, and Code  CSS Sprite Generatorのような便利なオンラインツールが存在するが、画像の変更があった場合、再度オンラインにアップロードしてコードをジェネレートする必要があったり、Retina対応を考えると自分で画像のサイズを半分にして計算しないといけない。 これでは、サービスリリース後などの度重なる改善・修正にマークアップが追いつかず不必要な画像までもそのままスプライト画像に残してしまった状態で無駄な転送量が発生してしまう。
+実際に私がやっている案件でもグローバルナビゲーションや、カテゴリナビゲーションなどにスプライト画像を使用しHTTPリクエストを最小限に抑えている。リリース当時はきれいにまとまったスプライト画像も度重なるサービス改善で、スプライト画像のカテゴリアイコンがなくなったり、追加したりと何度も手入れをしなければならないことが発生し、その度に画像の作成・位置の再計算など非常に面倒な作業だった。
+Compassによる解決策 そこで目につけたのが、Compassフレームワークだ。Sassは開発当初から利用していたが、Compass自体は利用していなかった。Compassにはスプライトを簡単に利用できるAPIが備わっており、画像編集ソフトなど使わなくても画像を一つにまとめたり、それぞれのbackground-positionを算出してくれる。 使い方は非常にシンプルだ。スプライト画像にまとめたい個々の画像を任意のディレクトリに格納しておき、@importでそのディレクトリを指定し、@include all-ディレクトリ名-spritesで展開するだけだ。
+// 基本的なCompassスプライトの利用方法 @import &amp;quot;my-icons/.png&amp;quot;; @include all-my-icons-sprites;  上記のSCSSコードは下記のようにコンパイルされる。</description>
+    </item>
+    
+    <item>
+      <title>CSScomb</title>
+      <link>https://t32k.me/mol/log/csscomb/</link>
+      <pubDate>Wed, 17 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/csscomb/</guid>
+      <description>うららかに晴れた秋の日、みなさんいかがお過ごしか？こんちわ@t32kだ。
+今日はCSScombってツールの紹介だよ。タネマキであったこもりさんのSublime Text2勉強会のときに知ったんだけど、 まぁCSSプロパティを綺麗にソートしてくれるって代物だ。大まかな機能はこんな感じ。
+ CSSプロパティのソート ソート順は設定可能 style要素、style属性もパース スタイルシートのフォーマットは変更しない CSS2,3,4も完全にサポート  オンラインからでも使えるし、Sublime Textだけじゃなくてメジャーなテキストエディタだったら、たいていのプラグインは用意されているんだ。
+便利なものがあるなーと思ったけども、Sassファイルでこのツールを実行すると、その時はバグっていて、単純にプロパティ順を綺麗にさせるためだけなのに、そんな致命的なバグの危険性（CSSが壊れる）とかマジ勘弁！などと思ったけど、あれから3ヶ月、俺もCSScombも成長したんだ。その話を聞いてくれ。
+SassとCSScomb まずは、Sass文法をうまく理解していなかった点。Tests を見てくれ。見てごらん綺麗な緑色してんだろ。これテストに合格してるんだぜ…ってことで、Sass関連のテストも今じゃパスしてる様子。@includeが消えたりするバグも僕の方でも確認できていない。YOSHI 合格だ。
+ちょっとReal Filesでwarningがあるみたいだけど、Sassのパーシャルファイルとか見通しのよいファイル単位でCSScombしてあげれば問題があってもすぐ気づけるからまぁそこまでも気にしなくてもいいかなと思っている。
+gzipとCSScomb 次に、CSSプロパティのソートは自己満足か？ってこと。基本コードは綺麗なほうがいいに決まってるけどそれがユーザーに対してなんかしらのメリットがないと、どーも後押しが弱いなって感じです。順番ぐらいそこまでひどくない限り、特に問題になることもないと思う（よっぽど書き散らかしたときは別だけど）。そう思ってた時代も僕にはありました。まずはこちらをご覧いただきたい。2
+ gzip圧縮のしくみ · t32k/speed  gzipってテキストファイルとかを圧縮する技術なんですが、これサーバー側の設定をちょいちょいとするだけの割りにはなかなかナイスーな効果を発揮してくれるパフォーマンス対策のひとつでもあります。
+これの仕組みなんですけど、要は同じような文字列を探してひとまとめとして考えるみたいなんですね。参照リンクの例ではそれぞれ別のhnタグと全部同じのdivタグの場合だと未圧縮の状態ではhnタグのほうが少ないバイト数ですが、gzip圧縮するとdivタグのほうが少ないバイト数になるんですね。divのまとまりがひとつとしてみなされてるみたいな感じですかね。
+これはHTMLの例ですが、CSSの場合も同じような文字列がでてきますよね。たいていどのセレクタもmarginとかpaddingとかwidthとか含んでいます。こーいったプロパティの順番がセレクタごとにバラバラだったら同じような文字列としてカウントされないのでgzip圧縮効率も悪いんじゃねーの？って話です。
+試しに、Apple Storeのbase.cssで実験してみましょう。別にApple StoreのCSSが汚いって言ってるわけじゃなくてある程度分量があったから良いサンプルかなと思ったのです。
+素のbase.cssとCSScombをかけた奴。もともとminifyされてるから綺麗になったかどうかわかんないけど多分ソートされたのでしょう。なぜかCombしたほうがファイルサイズが大きくなってますが、重要なのはgzipされた状態でのサイズです。
+はい、これをgzipコマンドにかけてみるとどーでしょう！わお、400バイトほど軽くなってるじゃないですか！うそーまじー！！
+はい。
+gzip圧縮を想定してない場合意味ないとか、たった400バイトとか…そういった意見もあるかもしれないけど、ボタン1発でできるのならやったほうがいいよねと僕は思います。別に毎回やる必要もないし、ほんとデプロイの時に最後のひと手間かけてやるだけなんでみなさんもどーですかね。まさしくお出かけ前のCombですね。</description>
+    </item>
+    
+    <item>
+      <title>Chrome for Androidでリモートデバッグ</title>
+      <link>https://t32k.me/mol/log/remote-debugging-with-chrome-for-android/</link>
+      <pubDate>Wed, 26 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/remote-debugging-with-chrome-for-android/</guid>
+      <description>&lt;p&gt;さて、&lt;a href=&#34;http://html.adobe.com/jp/edge/&#34;&gt;Adobe Edgeツール&amp;amp;サービス&lt;/a&gt;が発表されましたね。リモートデバッグではAdobe Shadowが&lt;a href=&#34;http://html.adobe.com/jp/edge/inspect/&#34;&gt;Edge Inspect&lt;/a&gt;に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html&#34;&gt;こことか参照&lt;/a&gt;するとよい。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 2にしてみた</title>
+      <link>https://t32k.me/mol/log/sublime-text-2/</link>
+      <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/sublime-text-2/</guid>
+      <description>&lt;p&gt;こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>jsoff：ワンクリックでJavaScriptをOFFれるChrome拡張機能</title>
+      <link>https://t32k.me/mol/log/jsoff/</link>
+      <pubDate>Fri, 23 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/jsoff/</guid>
+      <description>Google ChromeってJavaScriptをOFFにしようと思うと、設定 &amp;gt; 高度な設定 &amp;gt; コンテンツ設定 と階層を降りないとできないからめんどくさいねーということをTwitterで見かけたので、Chrome Extensionの勉強も兼ねて作ってみた。
+ jsoff - Chrome ウェブストア  インストールすると右上に黄色のアイコンが出てくるので、クッリクでON/OFF切り替える事ができるよ。</description>
+    </item>
+    
+    <item>
+      <title>Version Number (iTunes Connect) と Bundle version (CFBundleVersion)</title>
+      <link>https://t32k.me/mol/log/cfbundleversion/</link>
+      <pubDate>Wed, 22 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/cfbundleversion/</guid>
+      <description>こないだNyarsのバージョンを1.2から1.2.1にアップデートした。アップデート理由は文言修正など細かな修正だったので1.0, 1.1, 1.2 ときたバージョンアップだが、今回はマイナーアップデートてことで、1.2.1にして申請を出してみた。
+だがしかし、拒否られた。
+ The binary you uploaded was invalid. The key CFBundleVersion in the Info.plist file must contain a higher version than that of the previously uploaded version.
+ 前、申請したバージョンよりCFBundleVersionが低いからダメってことよね？1.2から1.2.1ってどーみても上がってんじゃん！てめぇ、数字も数えられねーのかよ!てことで調べてみた。
+Version (tiapp.xml) バージョンに関して記入するところと言えば、Titanium Developer 1.2.2では上図。
+Titanium Studioでは上図。
+&amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;  この部分がtiapp.xmlに反映されるわけ。
+Bundle version (CFBundleVersion) 前述のtiapp.xmlの内容が、/APPLICATION_PROJECT/build/iphone/Info.plist のBundle version (CFBundleVersion) に反映される。通常のテキストエディタでInfo.plistを開いてみると、
+&amp;lt;key&amp;gt;CFBundleVersion&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;1.0&amp;lt;/string&amp;gt;  こんな感じになってるかと思う。試しにテストアプリを作ってバージョンはどの段階においても1.0だ。問題ない。
+Build Number はい、でこのアプリを実機にインストールもしくはパッケージ化し、Info.plistのBundle Versionを確認してみよう。なんということでしょう。こんなんになってた！
+1.0.1308740503  1.0以降に変な数字でてるやないですか！たぶんこれBuild Numberってゆうやつだと思われる（なんかググってみてそんな感じのようなことが書かれてた）。これがなんか勝手に生成されるようだ。
+ってことで、今回のNyarsマイナーアップデート申請がなぜ却下されたのか考えてみると、前回のバージョンが1.2で今回出したバージョンが1.2.1てことで、それらにBuild Numberをくっつけたのを比較してみますと、
+1.2.BUILD_NUMBER 1.2.1.BUILD_NUMBER  ってことなので、3番目の値で比較（Build Numberと1）され却下されたのではないかと結論づけた。</description>
+    </item>
+    
+    <item>
+      <title>UIRequiredDeviceCapabilities</title>
+      <link>https://t32k.me/mol/log/uirequireddevicecapabilities/</link>
+      <pubDate>Wed, 27 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/uirequireddevicecapabilities/</guid>
+      <description>初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！
+その理由はAppleさん律儀なコでして、ちゃんとどこが嫌なのか言ってくれます。そこを修正してもう一度トライすればいいんですよ。
+ってことで、今回は簡単に意訳すると、「テメーのアプリ、カメラ使うのにカメラが必要って書いてないじゃん！無理じゃん！！UIRequiredDeviceCapabilitiesでググッたらいいんじゃないの！？こんなサービスめったにしないんだからねっ！！！」ってな感じなことがリンゴちゃんの返答メールの行間から読み取れました。
+はい、メチャいい子です。早速、UIRequiredDeviceCapabilitieでググってみるといっぱい出てきました。みんな必ずぶち当たる登竜門みたいなもんですかね。
+ Key: UIRequiredDeviceCapabilities Xcode name: “Required device capabilities” Summary: Specifies the device-related features required for the application to run. See “UIRequiredDeviceCapabilities” for details. Availability: iOS 3.0 and later
+ はい、アイコンのテカリを無くしたい時にも出ててきましたね、Info.plistです。そのKeyにUIRequiredDeviceCapabilitieって書いて必要な機能埋めちゃいなよって書いてあります。
+その機能のリストが以下です。いろいろありますなー。
+ telephony wifi sms still-camera auto-focus-camera front-facing-camera camera-flash video-camera accelerometer gyroscope location-services gps magnetometer gamekit microphone opengles-1 opengles-2 armv6 armv7  今回のアプリでrequireな機能といえば、カメラ機能なのでstill-cameraを選択しました。スチールカメラね、写真撮る方のカメラね。
+ Copy the info.plist to the root of your project and edit it from there.</description>
+    </item>
+    
+    <item>
+      <title>データURIスキーム</title>
+      <link>https://t32k.me/mol/log/data-uri-scheme/</link>
+      <pubDate>Wed, 07 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/data-uri-scheme/</guid>
+      <description>今回の記事の主題はデータURIスキームとはなんぞいねってことなんですが、簡単に言いますと、このスキームを使うとサーバにリクエストすることなく、ページ内のコードに画像を埋め込むことができるという話です。スキームといえば、このほかにもhttp:、ftp:、mailto:なんてものがありますね。
+Webパフォーマンスにとって高コストなものといえば、HTTPリクエストですから、それを使わず画像を表示できるということはこのスキームを使う最大のメリットと言えるでしょう。
+てなわけで、実際にどんなものか見てみましょう。例えば、隣にあるこのフィードアイコン はHTMLソースの中ではこんな感じでに記述されています。
+&amp;lt;img src=&amp;quot;http://www.feedburner.com/fb/images/pub/feed-icon16x16.png&amp;quot;&amp;gt;  これをデータURIスキームを使って表現するとこんな感じになります。
+&amp;lt;img src=&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=&amp;quot;&amp;gt;  なんかわかりませんが、わっさー長くなりましたね。 これは画像のバイナリデータをBase64で表現したものになります。はい、よくわからんですね… バイナリというのは文字データ以外のデータ形式全般のことと書かれていますが、映画のマトリックスに出てくる数字の羅列みたいな感じを個人的には想像しています。まぁ、それをBase64ってゆう形式で表現し直しているって感じでしょうか。Base64に関してはこちらを参照↓
+ Base64は、データを64種類の印字可能な英数字のみを用いて、それ以外の文字を扱うことの出来ない通信環境にてマルチバイト文字やバイナリデータを扱うためのエンコード方式である。
+ そういうわけで、より大きな画像をBase64に変換すればそれだけ結果も長く、容量が大きいものになります。例えば、先程のアイコンよりも大きいこのCSS Niteのバナーを変換してみましょう。
+&amp;lt;img src=&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACTUExURd9+g++ws+WVmdu8qNiDgOerqvvx8NlwdvfEyNltdN+JivLT0Nt4fPXd2+Oamt14fuKKjttzefjn5fS9wdieku3Avt2Ag+uipvG2uu/Kx9huc+SQlOGRkuajotvRuOu2tNiRiemcoOCEie2prdvDrdh8e9d1d9utndu1otvKs9qmmNiKhNmXjdvYvf////rLz9dmb3ITzt8AAA/GSURBVHja7VvnYrLMEgYVkKZYwB5rNO1F7//qDmyvgJCi32H/BGGZnWf67BLj9h8ZRgukBdIC+X8GYjzwGFUE4q6O/etjj/nsUApkNLs+xZhExUA6v8yPGRn7mvqfD/VAXBPNWRkuczdCS/VnB8E+R3ssoJVoosYcr3gc3tzOdbIHxj0y9hPKzCqfOczIzxW2Qqlf5x3WMzBDkQ6IC9c2hyLFIWTIVSwGVNhfKZ4gatcjZIp5csBQJvB3dJ24ageGBmIaaoZ4JMwksHJfJZsZlp7Mbv7KUPkogqspHrrIEfdI8tdIE1JdHUNHGQkFAhSpZiqTzEyzVmaNmlRkwMWUzyCSGQaiTWZzyRU4X2a5Nbh1NcLdX/sa5d/6WohFQKBIiWkddED6GoZwbDUVQMyr3n4mRdzqxHksAuL2iUoyZz9qqUcFb/PGZbD+M1G/drzqrNjo6zglkbzwsdnpzHKmOhrqppqhOQ3CEpAZh8+N9iYZ+Upomsvczsac4fRw5B6RIMt4/97cR7xQSR6ZwLewKWPqdPpqRmmz6WQoAgEL4yAZSUkKTRseWXQcpyvlOhTICIpx7jKS2+M8IkwmJPDkVfaiLKMrq0sDRw7Gsg5yHpXd0T2YOtsZrSYyEFPwz4hxdh0QkzA0HymTLePuBhNiTDah8GOvtOGJJlGwtQ4fw+h8g8kjOiA4CEyEjDmiSpwIQFYst6oiTe91+6LgS3jrSMbAXmmAdHBe7GjCL6Nxg1mnoweiiSu5aDShfqUxexLJqwMxpBDfKQZSoBFdAO6w/suPiQaI+aMaiUp8JKeq4nekrc+w1JoA0fnI8KoFYpRELfC4ozAi3Fe4JSVKLSBzTdRiguJcAOJei/MIZQONlcTgBD8afhsQkkcyhvrqPHVUJsQVzewdPrMzfIIxMxgznHOPsAl+BxB9qcH1ZiyQfXGtpYlaORN9TdV4+AYgk7JaixgRATK6Fla/uvp0qK9+998ARMdQX7IsWsbPrto0nfGk6xhm2vIWL9YMSEk/wkjR4NO+rkM0tAq5FiukAhC3AIi+ZRUUwrS6MBUrNxJmmnQICle3MLFjHU/EgHlgr7STi3t2tm81JH0pNy0m2i0UZfM4OgrxMZJqBBPX1K5Uy0ZCxDc0KYrTlqGwPNU2krjzxGxQHQXtDyNuuzLLKyN+468zuhnAevrZ1WFePFnB0Aq6Xz/S7jTur080BO8xFB3GUwxxv1C0v+g5oByN8vORYcd8bDDmLBq1R28tkBZIC6QF8phAhqtOpzOsSQu8XDiiKnIbGvKLK93xuhoIrlAmdfRkmNVOY1dFLLmR9pS/fyx805BP/a4FLbp+RNVT80yn8tJTftOoAoRjZfVzOHIoqvbGrVJ8a6EY/Kah4gSl0hjdW4MbytOvKmPvlgAR1Hq8C8j9X36s9PvSZV7mFgMRBXIXkBrfYcxqS0K5IWGoNoaFnZbvtyxJJ/d9BKNCYkgnM3WAGLUaC0PclWxiXX8JhGzNuHdbpvlQQEi26lwbx4q/BYI22NwaoaI/eiQgSK5RnVdnDwVkzm6A3jmGjwQEHm/U+xhw9lBAorpJSNo9/2MgncYO9sNADHWz0VflA+nlfG9bbNkmZbnkN4Eo6iAlkEPRwZGuGvxdINK3CBPVy6tbNSTGHwLZK6RqqM5DyBgyR7JFgH8ZyKwSEN5jZiPhNE/Zj/8ykIkiI7ql5Uik7hXMvwMSKXmZVEo3cuL8DSAr1X9+HGbqEDqrWI+YfwDkrkK+QltlPjqQw62abYGi7JGBuFXr+MNjAznK32wU2OADA8FH/qP+cwOZVCfw2KbFfIMR9Z/Y2TlGhpOnDb/CRoh7fNaEKH+FMX+8EuU+B6Fbp8dHKxrr7ajn3EaziaaM7/xFGV/q54VnmyPjYRqrSg3GfeNvWt3CNLhya+Do/M3mg96m9nVO8RttB5UbiElEW62xMgpO/Y3Z/Kc26O4x9kbqvNH/2/6OLVO3VpWBtpIbAnEntVdWnOo2qcQbApl/Q2FAf5r1gIBTp2ZAOtfmCpG+ja+3Kd4MSJ3zEf3RW+1jCrMpkGHzM4Wb6iP/Om3er1ecZtHXQXVV8gdAij4YqOt0QDijvy+djcZhcNb0i5zRd+Dggbh1kBwafyNlNrYr6ePMGkjmKqnelw/vs63SD8/KdwCK1BxpW7darYbeI8s/BcQbTJN65sog2d9dps+awlB+wBxV1wr7kSX51vZQo+E4VBCfWflzWeZu6afI4HNkgfCw0+DrZ6N4LaOMbvttfAukBdICaYG0QFogLZAWSAukBfJfABLEdppuf2IxZ7MhV4MfB2KlYDReaJuOA+FWmKYeuUp+GEgMcaR2oH9p4y9K2VhnNCz+1iDFQOhVkSDCJkAwDokLgSG/jPBY1uoiuxWQK6cMR5o2ALImOApYjSsA8VKZ18z1xuJV0ft+fSCODXQR5H6y0L7jF+qLghUpZLdicoWiydqPtWus6wPZIjd3sj+bQiAli+QERC/wiLF5hEB+pXK3JC3VWRGQgPhG5ml6G7bLXXWjsAze1xOiOE+j0G19IFsqB0+PI5dWWsHVPQVzoiNnXh/q3l/XBgI8RHrdEzA5oQZI4olxzUmELGIT20TySqyNSmIBCRWBp0oDXlIIJF8+FLN8TpLNbINcWHSaswnTseVAgce8QDN6rIESa3MogYSFEQwsK3E8KwDBM0S6s/FTK0xDC4tyUATEl0L/wIahGMcfZ8vfcCz4O0SBe0CD+BiaoMdbZP4zybNImmsi48ima/k48NugushAB0D5AVwZPotx7ZHogQRS6B+QpAINbmPz2TIJ8e8Bqmy2lrWB+c4CcmHWo8RI6bCgNkpJ5UAWwNc9G/7KH5OVEyjw1LYsa60GIiVsD0o7xSGAZn0oaGfMlAFWSpfa5ja1SXlfsgQg6cajsYVDGQNWxzGVWWCzBceCIlYC2Qp5DvAZJtAmAoQjHABzC3ChMfZyJ86SDgskc1EHrc0XKJxGnJhkK4TDh9YV3MbMPAfGiTT0HBTLyoCIeS4X6dhBDzzoBDETPIFHOjDWBVRdCya2saY65mHEzo1IBIjKzr1mCwlw6oHKzOYHAD6EJZWDBhceudhPfoOsBfj12dg/hmS3UK42ssKxwxWfFpfrychneQR1mOL4toDEUs6IHVSaLaCkA2zwvsbZBV8PSJDMZZkMSACxoZgGkM0BZAc42JoErpg1NOJw4wRboIU0OyBh3yFemSDntD0EwIITcbbPf1pbUkmrgSQoZG+YhiIB1hjikg+XTAAeoJqLNze/POnY1ObHYzZyW8hwLRIFQ8wLuYA1K44y6wBxnt91HFxzQ/2EYgkkAAGmlPsp9F4PB4H4RhQSQ8UBhrYhlDNAvc2xLQiODYqTTIESEGYDRuMJhgv9KkS0LUBmDX01tcZIbWDSIJAKcIOvBTfY6ykQsLJHQqUH1nJoDMqpg4gfJIg6UGGCLcWjoYRcpChW5Cp2sMl4Y9wHLSAe2IgNmDiHVgpJAbq2bUcZtRZ4+QCGCiSBBeIf5frF2mbdNolheFlD6vlDOys1WCWDS5vYWIhNHZc8WXoLSUPnIOMDsrfYALaGuRBaNAqsiQRkA1N0gsIToBADlWZJOIB520+l4RNxAehroCsvM8/QCajb0Y4PlR/gr70dy/SAuMc3LnZxkXuNejsAayybVsLw5eGfJI+LK9o2/zNhc/cABqkxTVobDshClekzRQF1owJFByR3yZvP1xhC0TjmshCZbA+Ivhi5BTH/k60ztjjwUJe0yCW+IgRjn9AARYKD44qNlufMYOFw4X2gK+OZySg5x4G4v5JnYRx+IAse0/GDh+RpyETfgLsKkIDXWQ3t+4tNgL3Tw0Fni+DRijFdeGwZCKxM1SFCbY8Jyqw/GNCsM1j4/sYJslW3MOpvFn7WIgAWkHFmOh3Dh0gqvkMeYbLkKosb9oJtGwDD8S3w/TVZP4F5beGPuZVA0AnZpkzYRVlbG+/2PSPI6uy7aIGAWLQv+ASb2M7Gim2m8akiJ8/zAufBgOBSmbX5AgiD2EcxM3gwIBs29ulHMsh8BWII/cUg8B7OtAZs7FPrbL0lXYgfew/rI3x4lE86bAzBwptTiZe9s4i3T3ZilcShT8KpM4hh6s7sa/2UR2/J2lqEoIyxF9luTfCUZ4jrDd32itdPehjqxcjRw+1mHTx0QiyLBVt77G/WT5DZf+IwtAXSAmmBtEBaIC2QFkgL5IGALHv8OEtTwW3uzplOf1XQXspvMG9KN5aKSRL5njxeOSC9l3/CeN+xRHdv6PaJ3t6x07sCH8vdCT15k7F85PRZ7NPsxosgDAX51/d/igGeISDLF8WEE9HK64lFiBjr8bM/OC4+2SW7ZxWL78xscOOFk4VA/pLfU+L4929KgeyUEzBl8SlUykWYLIqcffbJAenCu1RTSN3crKlMvqfGAURiKN8iotSg3DGrk8EwcZHe+CwE0qWS1cniXwGQFwrkVTPlVfMs5+tLC0ShX84BKgHZyeSXGi7fGGe/6K3vXWN0y5MGyFnpcPcCuSnIqz0AECLhd9dlx4naFhX8e/fEIVx+wckiECqUU/ddcKw7gKjI994YJt9ZB9AlxA8yB08/5eueuwrXFoAQA3jLg1XvxPnbHUA05CUykA4L5Pz1JoPFHnJavr51s5Tw9k/kQlxpRwLmZ7d7eSUWuPxmID1OQhTI8qL0EczWGb73iTPOVLsSioDvyx308t4/Dd8NgXAKoUBeX9RRa4phn1DIvpQB6eIE+YJCClLJl8SCKrRUBsIrhABRRpp80hSvgelNacgrBLLrYW+S5P32HUB4hRAgStqnJQFyQfIlQD7KgEzPOO5KQHbfAERQCAZy1hZj2OJRHLtgQ9Gb1gWrDAKYYq+iyV1Z2d0JRFAIBqJI/qhoxU++AIPd5U5OC8JKOPH0ll2guSlTJXBFYhMgokKEWuvli1T5Ip2M83NW+n9iYZ61K+GA/dK7vWZtzZeqqNy9NAQiKkQAcuJbliWXp7u73q7LlZOoGcM0sQBINr/sel9drsw/4xbp/HHSACFTdOSVCimpfnc69wGSUIo1q9iVvvxyRkLpLrU5eopKCjhFR16pkBIgwEE/NPWmpqjOOO5qzGZKWyQdkCkRtJ68SiFlQN4UZSiKy0qAMCws5YIZcP9SUjVNiVme9SxNGXPvVQYCXeGkwlGUn6UyARpLWfn3Rab0tI0FANKVFFLWWH2oyrC3JRdmVY617Kr6+ZMcvriI/YoT80sJ+Q9JISWNFdkO6FHG3nFiW56U76AOakfNq8vHmp1i4+iEzQ/qcldCHhZUF+W+1rQrjwuTLF6noMafMmlteVG8MyVBqQdIvn2xRLJO4FOVK3JSUzylC6csP/Tkz2R+u2XaAmmBtECec/wPNLkv4aM45+gAAAAASUVORK5CYII=&amp;quot;&amp;gt;  ちょっとここでは分かりにくいですが、コピペしてテキストエディタで表示してみると差は歴然でしょう。
+そんなわけで、データURIスキームの書式はこんな感じです。
+data:[メディアタイプ][;base64],データ  まぁ変換ツールを使えば一発です。
+オンライン変換ツール
+ DataURL.net - Data URL Maker, Data URL CSS Optimizer and the Data URL Toolkit Image To Data URI Convertor - webSemantics  PHPが使える環境ならば、 file_get_contents関数ってのを使うと、画像修正の度にツールで変換することもなくなります。
+&amp;lt;img src=&amp;quot;data:image/png;base64,&amp;lt;?php echo base64_encode(file_get_contents(&amp;quot;../images/feed-icon16x16.png&amp;quot;)) ?&amp;gt;&amp;quot;&amp;gt;  容量の肥大化 ただ、問題点もちらほらあります。Base64で表現しますと、元のバイナリデータより30~40%大きくなってしまうことです。
+上記のように、先程のフィードアイコンも元が764バイトに対して、Base64にエンコードした結果は1020バイトと約36%の増加となっています。というか、そもそもそのような長いコードをHTML内に記述すれば、フィードアイコンのある全てのページでHTML容量が増加してしまうことが考えられます。
+そのような時は、外部CSSファイル内に記述し、キャッシュを効かすのがよいかなと考えます。
+.hoge { width: 16px;　height: 16px; background-repeat: no-repeat; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=); }  さらに欲をいえば、肥大化したCSSファイルをgzip圧縮すれば、Base64で増加した分など微々たるものと言えるでしょう。</description>
+    </item>
+    
+    <item>
+      <title>高速ウェブアプリのためのCSSパフォーマンス</title>
+      <link>https://t32k.me/mol/log/css-performance-for-fast-web-applications/</link>
+      <pubDate>Fri, 04 Dec 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/css-performance-for-fast-web-applications/</guid>
+      <description>Web Directions East | カンファレンス：11月13日（金）  Nicole Sullivan（ニコール・サリバン） 3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。
+ Stubbornella Nicole Sullivan (@stubbornella) | Twitter Nicole Sullivan presentations | SlideShare  高速ウェブアプリのためのCSSパフォーマンス UNDERSTANDING THE CASCADE デフォルトのスタイルがブラウザ毎で存在しそれは全て違う YUIのrecet.cssを使うと良い
+クラスの順序に違いはない プロパティと値の順序 スペルミスはエラーにならない（無視されるだけ）
+color: red, colour: blue  スタイルの順序
+.foo {color: red;} .foo {color: blue;}  この場合、blueが勝つ
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;styles.css&amp;quot;&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;moreStyles.css&amp;quot;&amp;gt;   この場合、moreStyles.cssの方が勝つ 同じ詳細度なら最後に出てきた方が勝つ 詳細度は速く計算される必要がある  IDとクラス
+#nav p {color: red } .</description>
+    </item>
+    
+    <item>
+      <title>TextMateをProcessingのエディタ代わりにする</title>
+      <link>https://t32k.me/mol/log/textmate-loves-processing/</link>
+      <pubDate>Sat, 15 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/textmate-loves-processing/</guid>
+      <description>IAMASのオープンキャンパスに行って以来、Processingをちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。
+高機能テキストエディタ：TextMate Textmate: Power Editing for the Macposted at 2015.3.23James Edward, II Gray
+Pragmatic Bookshelf
+売り上げランキング: 264049
+Amazon.co.jp で詳細を見る てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたらTextMateなるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScript書くときでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。
+早速、TextMateを使ってみる。TextMateは補完機能がハンパねぇと聞いていたので、どれほどのものかと期待していたが補完されない&amp;hellip;Aptanaみたいにfun..と入力したら勝手に補完するコードをリストアップして提示してくれるのかと思ったら、これはどうやらTabキーなど押さなきゃいけないらしい。
+funと入力してTabキーを押すと（JavaScriptの場合）
+補完されたコードが表示される。 自動補完よりもこっちの方が慣れたら速いのかもね。
+GetBundleをインストール てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
+ Mac OS X 10.5.8 TextMate 1.5.8 Processing 1.0.5  まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、GetBundleをまずインストールする。
+ターミナルを開いて以下のコマンドを打ち込む。
+$ mkdir Library/Application\ Support/TextMate/Bundles $ cd Library/Application\ Support/TextMate/Bundles $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/  ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、cdでそのディレクトリに移動、svn coでSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんそんな感じ。
+そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！
+で動かなかった場合、 Bundles &amp;gt; Bundle Editor &amp;gt; Show Bundle Editor &amp;gt; GetBundle&amp;gt; Install BundleのBASE_URL部分を以下に変更。
+BASE_URL=http://svn.textmate.org/trunk/  再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。</description>
+    </item>
+    
+  </channel>
 </rss>
