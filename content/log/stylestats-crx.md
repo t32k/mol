@@ -5,7 +5,7 @@ categories:
     - css
     - development
 excerpt: StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
-ogimage: http://www.stylestats.org/img/ogimage.png
+ogimage: https://t32k.me/mol/images/2016/0120-01.png
 ---
 
 [![StyleStats Chrome拡張機能](/mol/images/2016/0120-00.gif)](https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki)

@@ -5,6 +5,7 @@ subtitle: 電子ペーパーマルチリモコン
 categories: 
     - gadget
 excerpt: 気づいたら、我が家にやたらリモコンが多いことに気づいた
+ogimage: https://t32k.me/mol/images/2018/0312-05.jpg
 ---
 
 ![](/mol/images/2018/0312-00.jpg)

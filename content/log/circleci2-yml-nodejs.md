@@ -5,6 +5,7 @@ subtitle: Persisting Data in Workflows
 categories: 
     - development
 excerpt: 前回の記事で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。
+ogimage: https://t32k.me/mol/images/2018/0130-00.png
 ---
 
 [前回の記事](/mol/log/circleci2-yml/)で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。

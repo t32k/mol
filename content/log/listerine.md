@@ -5,6 +5,7 @@ subtitle: LISTERINE
 categories: 
     - blog
 excerpt: お口のトラブルはこれ1本。進化したマウスウォッシュ
+ogimage: https://images-na.ssl-images-amazon.com/images/I/51d6Pe6XqpL._SL160_.jpg
 ---
 
 流行りに乗って書いてみるけど、一点突破！コイツは！というものを紹介する。
