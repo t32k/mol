@@ -6,10 +6,33 @@
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AfterEffects-Bodymovin-Lottie-Vueを使ってみる</title>
+      <link>https://t32k.me/mol/log/-aftereffects-bodymovin-lottie-vue/</link>
+      <pubDate>Thu, 23 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/-aftereffects-bodymovin-lottie-vue/</guid>
+      <description>最近、Vue.jsを触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまったので、それらを実際に触ってみる。
+After Effects ご存知の通り、Adobe製品。モーショングラフィックとか作るときに用いるツール。Adobe Premiere Proというのもあるが、こちらは動画編集メインで、今回のような込み入った短めのアニメーションなど制作するのはAfter Effectsが適している。
+かくゆう、私も大学生の頃、VJというものに興味があり、本ツール（v5.5くらいかな？）使い、いろいろモーショングラフィックを作成していたものだ。そして今回一万と二千年ぶりにAfter Effects開いて触ってみる。
+せっかくなので、会社のロゴアニメーションを作ってみた。画面構成的にはコンポジションって箱を作ってそんなかでワチャワチャ下のタイムラインで動かす。右にエフェクトがあるのでイケイケにする。
+要は、レイヤーごとにタイムラインで各オブジェクトを操作できるので込み入ったアニメーションも作りやすいということ。
+ アフターエフェクトでPS4の文字が描かれる文字書きアニメーションの作り方 - YouTube  で、できたのがドーン！上記のYouTubeを見ながら簡単にできた。あと上記の画像はアニGIFなんだけど、After Effectsから直でアニメーションGIF書き出せないのね。書き出したかったら、GifGunというAEスクリプトを購入しなければならない。
+だもんで、まずはMOVで書き出して、それをPhotoshopで開いてアニメーションGIFに書き出す。
+Bodymovin アニGIFに書き出しては旧態依然の体たらくぶりなので、今回はBodymovinを使用してみる。
+ Bodymovin  BodymovinはAfter Effectsのスクリプトで、これをインストールすると作成した動画をJSON形式で保存することができる。いろいろインストール方法はあるみたいだが、僕はAdobeストアからインストールすればCreative Cloud Desktop Appが勝手にやってくれた。
+んで、インスコが終わったらメニューの ウィンドウ &amp;gt; 拡張機能 &amp;gt; Bodymovin を開くと上記のようなパネルが出てくる。保存先のパスを設定して、Renderボタンを押そう。
+たぶん、そのままだとエラーが出るので、環境設定からスクリプトによるファイルへの書き込みとネットワークへのアクセスを許可にチェック入れとこう。
+{&amp;quot;v&amp;quot;:&amp;quot;5.1.16&amp;quot;,&amp;quot;fr&amp;quot;:29.9700012207031,&amp;quot;ip&amp;quot;:0,&amp;quot;op&amp;quot;:90.0000036657751,&amp;quot;w&amp;quot;:1280,&amp;quot;h&amp;quot;:720,&amp;quot;nm&amp;quot;:&amp;quot;Logo Animation&amp;quot;,&amp;quot;ddd&amp;quot;:0,&amp;quot;assets&amp;quot;:[{&amp;quot;id&amp;quot;:&amp;quot;image_0&amp;quot;,&amp;quot;w&amp;quot;:1280,&amp;quot;h&amp;quot;:720,&amp;quot;u&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;p&amp;quot;:&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAgAEl...  そうすると、こういったJSONファイルができるので、各クライアントに実装するエンジニアさんに渡そう！
+Lottie Web JSONファイル自体はただの文字列なので、これをアニメーションとして、Webブラウザ上で動かしたい。そうするためにはLottieというライブラリを使用してJSONをパースする必要がある。
+ Render After Effects animations natively on Web, Android and iOS, and React Native.  ちょっとややこしかったのだけど、ちょっと前まではこのLottieのライブラリ名もbodymovin.jsと言ってたらしくて、bodymovinがごっちゃになってた。
+ chenqingspring/vue-lottie: Render After Effects animations on Vue based on Bodymovin  そうゆうわけで、ぼくはVueアプリでこのLottieを使いたいので、vue-lottieという便利なラッパーがあるので使用する。</description>
+    </item>
     
     <item>
       <title>デザインリーダーシップ</title>

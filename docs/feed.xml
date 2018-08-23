@@ -7,7 +7,92 @@
         <language>ja</language>
         
         
-        <updated>Thu, 28 Jun 2018 00:00:00 UTC</updated>
+        <updated>Thu, 23 Aug 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>AfterEffects-Bodymovin-Lottie-Vueを使ってみる</title>
+            <link>https://t32k.me/mol/log/-aftereffects-bodymovin-lottie-vue/</link>
+            <pubDate>Thu, 23 Aug 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/-aftereffects-bodymovin-lottie-vue/</guid>
+            <description>
+
+&lt;p&gt;最近、&lt;a href=&#34;https://jp.vuejs.org/&#34;&gt;Vue.js&lt;/a&gt;を触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまったので、それらを実際に触ってみる。&lt;/p&gt;
+
+&lt;h2 id=&#34;after-effects&#34;&gt;After Effects&lt;/h2&gt;
+
+&lt;p&gt;ご存知の通り、Adobe製品。モーショングラフィックとか作るときに用いるツール。Adobe Premiere Proというのもあるが、こちらは動画編集メインで、今回のような込み入った短めのアニメーションなど制作するのはAfter Effectsが適している。&lt;/p&gt;
+
+&lt;p&gt;かくゆう、私も大学生の頃、VJというものに興味があり、本ツール（v5.5くらいかな？）使い、いろいろモーショングラフィックを作成していたものだ。そして今回一万と二千年ぶりにAfter Effects開いて触ってみる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;せっかくなので、会社のロゴアニメーションを作ってみた。画面構成的にはコンポジションって箱を作ってそんなかでワチャワチャ下のタイムラインで動かす。右にエフェクトがあるのでイケイケにする。&lt;/p&gt;
+
+&lt;p&gt;要は、レイヤーごとにタイムラインで各オブジェクトを操作できるので込み入ったアニメーションも作りやすいということ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-01.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=GpwyPFR_ryc&#34;&gt;アフターエフェクトでPS4の文字が描かれる文字書きアニメーションの作り方 - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、できたのがドーン！上記のYouTubeを見ながら簡単にできた。あと上記の画像はアニGIFなんだけど、After Effectsから直でアニメーションGIF書き出せないのね。書き出したかったら、&lt;a href=&#34;https://www.flashbackj.com/aescripts/gifgun/&#34;&gt;GifGun&lt;/a&gt;というAEスクリプトを購入しなければならない。&lt;/p&gt;
+
+&lt;p&gt;だもんで、まずはMOVで書き出して、それをPhotoshopで開いてアニメーションGIFに書き出す。&lt;/p&gt;
+
+&lt;h2 id=&#34;bodymovin&#34;&gt;Bodymovin&lt;/h2&gt;
+
+&lt;p&gt;アニGIFに書き出しては旧態依然の体たらくぶりなので、今回はBodymovinを使用してみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.adobeexchange.com/creativecloud.details.12557.html&#34;&gt;Bodymovin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;BodymovinはAfter Effectsのスクリプトで、これをインストールすると作成した動画をJSON形式で保存することができる。いろいろインストール方法はあるみたいだが、僕はAdobeストアからインストールすればCreative Cloud Desktop Appが勝手にやってくれた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;んで、インスコが終わったらメニューの &lt;code&gt;ウィンドウ &amp;gt; 拡張機能 &amp;gt; Bodymovin&lt;/code&gt; を開くと上記のようなパネルが出てくる。保存先のパスを設定して、Renderボタンを押そう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;たぶん、そのままだとエラーが出るので、環境設定から&lt;strong&gt;スクリプトによるファイルへの書き込みとネットワークへのアクセスを許可&lt;/strong&gt;にチェック入れとこう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{&amp;quot;v&amp;quot;:&amp;quot;5.1.16&amp;quot;,&amp;quot;fr&amp;quot;:29.9700012207031,&amp;quot;ip&amp;quot;:0,&amp;quot;op&amp;quot;:90.0000036657751,&amp;quot;w&amp;quot;:1280,&amp;quot;h&amp;quot;:720,&amp;quot;nm&amp;quot;:&amp;quot;Logo Animation&amp;quot;,&amp;quot;ddd&amp;quot;:0,&amp;quot;assets&amp;quot;:[{&amp;quot;id&amp;quot;:&amp;quot;image_0&amp;quot;,&amp;quot;w&amp;quot;:1280,&amp;quot;h&amp;quot;:720,&amp;quot;u&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;p&amp;quot;:&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAgAEl...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そうすると、こういったJSONファイルができるので、各クライアントに実装するエンジニアさんに渡そう！&lt;/p&gt;
+
+&lt;h2 id=&#34;lottie-web&#34;&gt;Lottie Web&lt;/h2&gt;
+
+&lt;p&gt;JSONファイル自体はただの文字列なので、これをアニメーションとして、Webブラウザ上で動かしたい。そうするためにはLottieというライブラリを使用してJSONをパースする必要がある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/airbnb/lottie-web&#34;&gt;Render After Effects animations natively on Web, Android and iOS, and React Native.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちょっとややこしかったのだけど、ちょっと前まではこのLottieのライブラリ名も&lt;a href=&#34;https://cdnjs.com/libraries/bodymovin&#34;&gt;bodymovin.js&lt;/a&gt;と言ってたらしくて、bodymovinがごっちゃになってた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chenqingspring/vue-lottie&#34;&gt;chenqingspring/vue-lottie: Render After Effects animations on Vue based on Bodymovin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そうゆうわけで、ぼくはVueアプリでこのLottieを使いたいので、vue-lottieという便利なラッパーがあるので使用する。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-04.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まぁー、ドキュメント通りやればできた。なんか、アニメーションのタイミングがバラバラだけど、力尽きた。一応、再生できてるので良い。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.lottiefiles.com/&#34;&gt;LottieFiles - Free animation files build for Lottie, Bodymovin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回はロゴアニメーションでまぁよくわからない使い道だけど、LottieFilesというサイトには実用的なアイコンアニメーションがいっぱいある。しかもJSONファイルで落とせるのですく使える。またアニGIFと違い、Lottieは再生と停止がコントロールできるので、用法用量守ればアプリのルック・アンド・フィールの向上につながるだろう。&lt;/p&gt;
+
+&lt;p&gt;というわけで、あやふやな知識だったけどすっきりした。今後はAfter Effectsも触っていきたい。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>デザインリーダーシップ</title>
@@ -777,82 +862,6 @@ jobs:
 &lt;/a&gt;&lt;/div&gt;
 
 &lt;p&gt;来年はこの組み合わせでもっと旅行に連れて行こうとおもう。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>グランクラスで帰省した（北陸新幹線E7系）</title>
-            <link>https://t32k.me/mol/log/gran-class-2017/</link>
-            <pubDate>Sat, 30 Dec 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/gran-class-2017/</guid>
-            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;今日は飛行機じゃなくて、新幹線の話。&lt;/p&gt;
-
-&lt;p&gt;新幹線の路線によっては&lt;a href=&#34;http://www.jreast-shinkansen.com/granclass/&#34;&gt;グランクラス&lt;/a&gt;というグリーン車よりも上のクラスの席がある。飛行機で言えばファーストクラスだろう。北海道・東北・北陸新幹線だと利用できる。&lt;/p&gt;
-
-&lt;p&gt;いつものこの時期になると、&lt;a href=&#34;https://hokudev.doorkeeper.jp/&#34;&gt;北陸ディベロッパーズ交流会&lt;/a&gt;という名の忘年会のために帰省する。GW・お盆・年末年始など人が移動するのがわかっている、もとい、混雑するのが分かっているのに移動するのは基本的に嫌だ。心底嫌だ。しかし、忘年会のスケジュールは相手都合なので致し方ない。当然、年末の帰省ラッシュなんてのは人混みマックス状態なので、せめても回避するために今回はグランクラスを選択してみた。&lt;/p&gt;
-
-&lt;p&gt;去年もそんな理由で北陸新幹線のグリーン車で帰省したが、まぁ普通というかグリーン車だよねという感想しかなかった。今回はグランクラスということで期待が上がる。せっかくのグランクラスなので、一分でも長く座っていたいと思う人が多いのか、北陸新幹線はくたか（停車駅多い、3時間以上かかる）のグランクラスシートはほぼ満席で、かがやき（停車駅少ない、最短の2時間半で東京ー金沢を結ぶ）の席ぐらいしか残ってなかった。とりあえず、2 - 1の1の席を手に入れたので東京駅に向かう。&lt;/p&gt;
-
-&lt;p&gt;東京駅はほんとごった返している、新幹線のプラットフォームはもっとごった返している。新幹線の改札入ったらなんもスペースないので、みんなプラットフォームにいて、まともに動けない。&lt;/p&gt;
-
-&lt;p&gt;あとで気づいたが、東京駅発のグランクラスだと&lt;a href=&#34;https://www.jreast.co.jp/card/first/viewgoldplus/vglounge/&#34;&gt;ビューゴールドラウンジ&lt;/a&gt;が利用できるらしい。とはいえ普通改札前などで、まぁあきらめた。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;やっぱり人が多くて、車内の清掃が大変なのか出発2分前で寒いホームで待っていた。ここらへん飛行機のファーストクラスならありえないので、ちょっと残念なUX。&lt;/p&gt;
-
-&lt;p&gt;18席あるシートは満席。金持ちそうな人ばかりだった。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;良いシート(・∀・)！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;二列側。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;シェル型になってるので全開に倒しても、後ろの人に迷惑かからない。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;いろいろ調節できる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;足元も広々！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/07.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;タダ！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/08.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;軽食うまー！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/09.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;軽食食べたら眠たくなって、居眠りしてしまいすぐに金沢駅についてしまった。もったいない。。。&lt;/p&gt;
-
-&lt;p&gt;ちなみに、せっかくSFCになったので、&lt;a href=&#34;https://www.anaihghotels.co.jp/ihgrewardsclub/amc/sfc-list.html&#34;&gt;特典を利用&lt;/a&gt;するために、IHG系ホテルのANAクラウンプラザホテルに宿泊した。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/10.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;SFC特典、水とホッカイロとウェルカムドリンクと朝食券。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/11.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;金沢駅を見下ろす。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/granclass/12.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;よく眠れました。あと朝食ビュッフェの写真撮り忘れたけど、加賀野菜とかふんだんに使った地元料理も多く、かなりレベルが高かった。おすすめ。&lt;/p&gt;
-
-&lt;p&gt;といわけで、かなり贅沢な帰省になってしまった。もちろん帰りの東京行きの新幹線は普通席を取って帰りました。飛行機に比べたら、新幹線の普通席も全然広いしずっと、パソコンとか開いていれるし、やっぱり飛行機のそれと比べると、そんなに無理しなくてもいいのかなと思ったりしなかったり。来年は何で帰ろうかな。&lt;/p&gt;
 </description>
         </item>
         
