@@ -11,17 +11,17 @@
         
         <item>
             <title>AfterEffects-Bodymovin-Lottie-Vueを使ってみる</title>
-            <link>https://t32k.me/mol/log/-aftereffects-bodymovin-lottie-vue/</link>
+            <link>https://t32k.me/mol/log/aftereffects-bodymovin-lottie-vue/</link>
             <pubDate>Thu, 23 Aug 2018 00:00:00 UTC</pubDate>
             
-            <guid>https://t32k.me/mol/log/-aftereffects-bodymovin-lottie-vue/</guid>
+            <guid>https://t32k.me/mol/log/aftereffects-bodymovin-lottie-vue/</guid>
             <description>
 
-&lt;p&gt;最近、&lt;a href=&#34;https://jp.vuejs.org/&#34;&gt;Vue.js&lt;/a&gt;を触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまったので、それらを実際に触ってみる。&lt;/p&gt;
+&lt;p&gt;最近、&lt;a href=&#34;https://jp.vuejs.org/&#34;&gt;Vue.js&lt;/a&gt;を触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまって、後に引けない感じになったので実際に触ってみることにした。&lt;/p&gt;
 
 &lt;h2 id=&#34;after-effects&#34;&gt;After Effects&lt;/h2&gt;
 
-&lt;p&gt;ご存知の通り、Adobe製品。モーショングラフィックとか作るときに用いるツール。Adobe Premiere Proというのもあるが、こちらは動画編集メインで、今回のような込み入った短めのアニメーションなど制作するのはAfter Effectsが適している。&lt;/p&gt;
+&lt;p&gt;ご存知の通り、Adobe製品。モーショングラフィックとか作るときに用いるツール。Adobe Premiere Proというのもあるが、こちらは動画編集メインで、今回のような込みいった短めのアニメーションなど制作するのはAfter Effectsが適している。&lt;/p&gt;
 
 &lt;p&gt;かくゆう、私も大学生の頃、VJというものに興味があり、本ツール（v5.5くらいかな？）使い、いろいろモーショングラフィックを作成していたものだ。そして今回一万と二千年ぶりにAfter Effects開いて触ってみる。&lt;/p&gt;
 
@@ -39,7 +39,7 @@
 
 &lt;p&gt;で、できたのがドーン！上記のYouTubeを見ながら簡単にできた。あと上記の画像はアニGIFなんだけど、After Effectsから直でアニメーションGIF書き出せないのね。書き出したかったら、&lt;a href=&#34;https://www.flashbackj.com/aescripts/gifgun/&#34;&gt;GifGun&lt;/a&gt;というAEスクリプトを購入しなければならない。&lt;/p&gt;
 
-&lt;p&gt;だもんで、まずはMOVで書き出して、それをPhotoshopで開いてアニメーションGIFに書き出す。&lt;/p&gt;
+&lt;p&gt;だもんで、まずはMOV（動画）で書き出して、それをPhotoshopで開いてアニメーションGIFに書き出す（めんどくさ）。&lt;/p&gt;
 
 &lt;h2 id=&#34;bodymovin&#34;&gt;Bodymovin&lt;/h2&gt;
 
@@ -78,17 +78,17 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/chenqingspring/vue-lottie&#34;&gt;chenqingspring/vue-lottie: Render After Effects animations on Vue based on Bodymovin&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;そうゆうわけで、ぼくはVueアプリでこのLottieを使いたいので、vue-lottieという便利なラッパーがあるので使用する。&lt;/p&gt;
+&lt;p&gt;VueアプリでこのLottieを使いたいので、vue-lottieという便利なラッパーがあるので使用する。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-04.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;まぁー、ドキュメント通りやればできた。なんか、アニメーションのタイミングがバラバラだけど、力尽きた。一応、再生できてるので良い。&lt;/p&gt;
+&lt;p&gt;まぁー、ドキュメント通りやればできた。なんか、アニメーションのタイミングがバラバラだけど（たぶんAEの作り方が悪いのだと思う）、力尽きた。一応、再生できてるので良い。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.lottiefiles.com/&#34;&gt;LottieFiles - Free animation files build for Lottie, Bodymovin&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;今回はロゴアニメーションでまぁよくわからない使い道だけど、LottieFilesというサイトには実用的なアイコンアニメーションがいっぱいある。しかもJSONファイルで落とせるのですく使える。またアニGIFと違い、Lottieは再生と停止がコントロールできるので、用法用量守ればアプリのルック・アンド・フィールの向上につながるだろう。&lt;/p&gt;
+&lt;p&gt;今回はロゴアニメーションで、まぁよくわからない使い道だけど、LottieFilesというサイトには実用的なアイコンアニメーションがいっぱいある。しかもJSONファイルで落とせるのですく使える。またアニGIFと違い、Lottieは再生と停止がコントロールできるので、用法用量を守って正しく使えばアプリのルック・アンド・フィールの向上につながるのではないだろうか。&lt;/p&gt;
 
 &lt;p&gt;というわけで、あやふやな知識だったけどすっきりした。今後はAfter Effectsも触っていきたい。&lt;/p&gt;
 </description>
