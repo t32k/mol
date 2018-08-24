@@ -17,6 +17,8 @@
             <guid>https://t32k.me/mol/log/aftereffects-bodymovin-lottie-vue/</guid>
             <description>
 
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-05.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
 &lt;p&gt;最近、&lt;a href=&#34;https://jp.vuejs.org/&#34;&gt;Vue.js&lt;/a&gt;を触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまって、後に引けない感じになったので実際に触ってみることにした。&lt;/p&gt;
 
 &lt;h2 id=&#34;after-effects&#34;&gt;After Effects&lt;/h2&gt;

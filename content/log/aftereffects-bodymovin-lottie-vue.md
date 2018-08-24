@@ -8,6 +8,8 @@ excerpt: After EffectsでBodymovinでちょちょいのちょいですよ！
 ogimage: https://t32k.me//mol/images/2018/0824-00.png
 ---
 
+![](/mol/images/2018/0824-05.png)
+
 最近、[Vue.js](https://jp.vuejs.org/)を触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまって、後に引けない感じになったので実際に触ってみることにした。
 
 ## After Effects
