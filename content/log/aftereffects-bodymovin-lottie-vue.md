@@ -5,7 +5,7 @@ subtitle:
 categories: 
     - development
 excerpt: After EffectsでBodymovinでちょちょいのちょいですよ！
-ogimage: https://t32k.me//mol/images/2018/0824-00.png
+ogimage: https://t32k.me//mol/images/2018/0824-05.png
 ---
 
 ![](/mol/images/2018/0824-05.png)
@@ -16,13 +16,13 @@ ogimage: https://t32k.me//mol/images/2018/0824-00.png
 
 ご存知の通り、Adobe製品。モーショングラフィックとか作るときに用いるツール。Adobe Premiere Proというのもあるが、こちらは動画編集メインで、今回のような込みいった短めのアニメーションなど制作するのはAfter Effectsが適している。
 
-かくゆう、私も大学生の頃、VJというものに興味があり、本ツール（v5.5くらいかな？）使い、いろいろモーショングラフィックを作成していたものだ。そして今回一万と二千年ぶりにAfter Effects開いて触ってみる。
+かくゆう、私も大学生の頃、VJというものに興味があり、本ツール（v5.5くらいかな？）を使い、いろいろモーショングラフィックを作成していたものだ。そして今回一万と二千年ぶりにAfter Effects開いて触ってみる。
 
 ![](/mol/images/2018/0824-00.png)
 
-せっかくなので、会社のロゴアニメーションを作ってみた。画面構成的にはコンポジションって箱を作ってそんなかでワチャワチャ下のタイムラインで動かす。右にエフェクトがあるのでイケイケにする。
+せっかくなので、会社のロゴアニメーションを作ってみた。画面構成的にはコンポジションって箱を作ってそんなかでワチャワチャ下のタイムラインで動かす。右パネルにエフェクトがあるのでイケイケにする。
 
-要は、レイヤーごとにタイムラインで各オブジェクトを操作できるので込み入ったアニメーションも作りやすいということ。
+要は、レイヤーごとにタイムラインで各オブジェクトを操作できるので込み入ったアニメーションを作りやすいということだ。
 
 ![](/mol/images/2018/0824-01.gif)
 
@@ -36,9 +36,9 @@ ogimage: https://t32k.me//mol/images/2018/0824-00.png
 
 アニGIFに書き出しては旧態依然の体たらくぶりなので、今回はBodymovinを使用してみる。
 
-- [Bodymovin](https://www.adobeexchange.com/creativecloud.details.12557.html)
+- [Bodymovin | Creative Cloud](https://www.adobeexchange.com/creativecloud.details.12557.html)
 
-BodymovinはAfter Effectsのスクリプトで、これをインストールすると作成した動画をJSON形式で保存することができる。いろいろインストール方法はあるみたいだが、僕はAdobeストアからインストールすればCreative Cloud Desktop Appが勝手にやってくれた。
+BodymovinはAfter Effectsのスクリプトで、これをインストールすると作成した動画をJSON形式で保存することができる。いろいろインストール方法はあるみたいだが、私はAdobeストアからインストールすればCreative Cloud Desktop Appが勝手にやってくれた。
 
 ![](/mol/images/2018/0824-02.png)
 
@@ -56,22 +56,22 @@ BodymovinはAfter Effectsのスクリプトで、これをインストールす�
 
 ## Lottie Web
 
-JSONファイル自体はただの文字列なので、これをアニメーションとして、Webブラウザ上で動かしたい。そうするためにはLottieというライブラリを使用してJSONをパースする必要がある。
+JSONファイル自体はただの文字列なので、これをアニメーションとして、各クライアント（私の場合はWebブラウザ）上で動かしたい。そうするためにはLottieというライブラリを使用してJSONをパースする必要がある。
 
 - [Render After Effects animations natively on Web, Android and iOS, and React Native\.](https://github.com/airbnb/lottie-web)
 
-ちょっとややこしかったのだけど、ちょっと前まではこのLottieのライブラリ名も[bodymovin.js](https://cdnjs.com/libraries/bodymovin)と言ってたらしくて、bodymovinがごっちゃになってた。
+ちょっとややこしかったのだけど、ちょっと前まではこのLottieのライブラリ名も[bodymovin.js](https://cdnjs.com/libraries/bodymovin)と言ってたらしくて、AEスクリプトなのか、JSライブラリなのか、bodymovinがごっちゃになってた。
 
-- [chenqingspring/vue\-lottie: Render After Effects animations on Vue based on Bodymovin](https://github.com/chenqingspring/vue-lottie)
+- [chenqingspring/vue\-lottie](https://github.com/chenqingspring/vue-lottie)
 
-VueアプリでこのLottieを使いたいので、vue-lottieという便利なラッパーがあるので使用する。
+私の場合はVueアプリで、このLottieを使いたいので、`vue-lottie`という便利なラッパーがあるので使用する。
 
 ![](/mol/images/2018/0824-04.gif)
 
-まぁー、ドキュメント通りやればできた。なんか、アニメーションのタイミングがバラバラだけど（たぶんAEの作り方が悪いのだと思う）、力尽きた。一応、再生できてるので良い。
+まぁー、ドキュメント通りやればできた。なんか、アニメーションのタイミングがバラバラだけど（たぶんAEの作り方が悪いのだと思う）、力尽きた。一応、再生できてるので良い。（再生が少しまごついているのはアニGIFに書き出したため）
 
 - [LottieFiles \- Free animation files build for Lottie, Bodymovin](https://www.lottiefiles.com/)
 
-今回はロゴアニメーションで、まぁよくわからない使い道だけど、LottieFilesというサイトには実用的なアイコンアニメーションがいっぱいある。しかもJSONファイルで落とせるのですく使える。またアニGIFと違い、Lottieは再生と停止がコントロールできるので、用法用量を守って正しく使えばアプリのルック・アンド・フィールの向上につながるのではないだろうか。
+今回はロゴアニメーションで、まぁよくわからない使い道だけど、LottieFilesというサイトには実用的というか、いわゆるマイクロインタラクションに使えそうなアイコンアニメーションがいっぱいある。しかもJSONファイルで落とせるのですく使える。またアニGIFと違い、Lottieは再生と停止がコントロールできるので、用法用量を守って正しく使えばアプリのルック・アンド・フィールの向上につながるのではないだろうか。
 
 というわけで、あやふやな知識だったけどすっきりした。今後はAfter Effectsも触っていきたい。
