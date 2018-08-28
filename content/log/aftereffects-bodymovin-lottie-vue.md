@@ -5,7 +5,7 @@ subtitle:
 categories: 
     - development
 excerpt: After EffectsでBodymovinでちょちょいのちょいですよ！
-ogimage: https://t32k.me//mol/images/2018/0824-05.png
+ogimage: https://t32k.me//mol/images/2018/0824-00.png
 ---
 
 ![](/mol/images/2018/0824-05.png)
