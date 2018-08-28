@@ -90,7 +90,7 @@
 &lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=GpwyPFR_ryc&#34;&gt;アフターエフェクトでPS4の文字が描かれる文字書きアニメーションの作り方 - YouTube&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;で、できたのがドーン！上記のYouTubeを見ながら簡単にできた。あと上記の画像はアニGIFなんだけど、After Effectsから直でアニメーションGIF書き出せないのね。書き出したかったら、&lt;a href=&#34;https://www.flashbackj.com/aescripts/gifgun/&#34;&gt;GifGun&lt;/a&gt;というAEスクリプトを購入しなければならない。&lt;/p&gt;
+&lt;p&gt;で、できたのがドーン！上記のYouTubeを見ながら簡単にできた。あと上記の画像はアニGIFなんだけど、After Effectsから直でアニメーションGIF書き出せないのね。書き出したかったら、&lt;a href=&#34;https://www.flashbackj.com/aescripts/gifgun/&#34;&gt;GifGun&lt;/a&gt;というAEスクリプトを購入しなければならない。（※追記 Adobe Media Encodeにキューを追加すればAMEでアニメーションGIF形式にレンダリングできる！）&lt;/p&gt;
 
 &lt;p&gt;だもんで、まずはMOV（動画）で書き出して、それをPhotoshopで開いてアニメーションGIFに書き出す（めんどくさ）。&lt;/p&gt;
 
