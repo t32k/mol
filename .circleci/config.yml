@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: ~/hugo/public
+    steps:
+      - run: apk update && apk add git
+      - checkout
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+      - run: cp public/index.xml public/feed.xml
+      - deploy:
+          name: deploy to GitHub Pages
+          command: |
+            if [ "${CIRCLE_BRANCH}" = "master" ]; then
+              ./.circleci/deploy.sh
+            else
+              echo "Not master branch, dry run only"
+            fi

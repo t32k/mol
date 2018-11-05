@@ -1,7 +1,7 @@
 baseurl = "https://t32k.me/mol/"
 languageCode = "ja"
 title = "MOL"
-publishdir = "docs"
+publishdir = "public"
 MetaDataFormat = "yaml"
 [params]
   description = "Designing for User Interface"
