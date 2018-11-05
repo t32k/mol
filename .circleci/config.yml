@@ -18,6 +18,7 @@ jobs:
           name: deploy to GitHub Pages
           command: |
             if [ "${CIRCLE_BRANCH}" = "master" ]; then
+              chmod +x ./.circleci/deploy.sh
               ./.circleci/deploy.sh
             else
               echo "Not master branch, dry run only"
