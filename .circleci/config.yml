@@ -10,7 +10,8 @@ jobs:
       - run: apk update && apk add git
       - checkout
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
-      - run: ls
+      - run: pwd
+      - run: ls -a
       - deploy:
           name: deploy to GitHub Pages
           command: |

@@ -10,6 +10,9 @@ git config --global user.name $CIRCLE_USERNAME
 
 git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 
+pwd
+ls -a
+
 cd $DEPLOY_DIR
 rsync -arv --delete ../public/* .
 
