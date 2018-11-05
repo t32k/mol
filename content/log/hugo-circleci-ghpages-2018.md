@@ -1,10 +1,10 @@
-GitHub Pages---
+---
 date: 2018-11-06
 title: CircleCIでHugoを実行してGitHub Pagesにデプロイ
-subtitle: Automate Your Blog Deployment with CircleCI on GitHub Pages
+subtitle: Automate Your Blog Deployment with CircleCI on GHPages
 categories: 
     - development
-excerpt: 
+excerpt: シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、何してるか、わかんなかったので自分用にコメントしとく。
 ogimage: 
 ---
 
@@ -72,9 +72,13 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 ```
       - add_ssh_keys:
           fingerprints:
-            - "c5:38:a6:05:63:ab:e6:56:e1:2f:88:76:b7:2c:f4:05"
+            - "SO:ME:FIN:G:ER:PR:IN:T"
 ```
+   
+デフォルトで作成されるdeploy keyはチェックアウトする(read)だけの権限なので、ghpageブランチにコミット(write)できる権限を作成しとく。
 
+Add user key 押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページでFingerprintをコピーして上記に追加。
+   
 ```
       - deploy:
           name: Deploy to GitHub Pages
@@ -83,4 +87,37 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
             ./.circleci/deploy.sh
 ```
 
+あとはデプロイ用のシェルスクリプトを実行している。
 
+## GitHub Pages
+
+シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼRealOrangeOne氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。
+
+```
+#!/usr/bin/env bash
+
+# エラー時、実行を止める
+set -e
+
+DEPLOY_DIR=deploy
+
+# gitの諸々の設定
+git config --global push.default simple
+git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
+git config --global user.name $CIRCLE_USERNAME
+
+# gh-pagesブランチをdeployディレクトリにクローン
+git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
+
+# rsyncでhugoで生成したHTMLをコピー
+cd $DEPLOY_DIR
+rsync -arv --delete ../public/* .
+
+git add -f .
+git commit -m "Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]" || true
+git push -f
+```
+
+`--global push.default simple` って何の設定なんだろうと思ったけど、これのおかげで、`git push origin gh-pages`とかしなくていいのか。なるほど simple!
+
+これでしばらくは、デプロイが安定するだろう...( ˘ω˘)ｽﾔｧ

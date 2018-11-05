@@ -22,7 +22,7 @@ jobs:
             cp public/index.xml public/feed.xml
       - add_ssh_keys:
           fingerprints:
-            - "c5:38:a6:05:63:ab:e6:56:e1:2f:88:76:b7:2c:f4:05"
+            - "f8:a1:03:29:9f:5f:86:44:8e:10:17:5b:f9:20:37:1c"
       - deploy:
           name: Deploy to GitHub Pages
           command: |
