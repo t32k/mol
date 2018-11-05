@@ -2,9 +2,9 @@
   "name": "mol",
   "author": "Koji Ishimoto",
   "version": "1.0.0",
-  "description": "Powered by [Hugo](http://gohugo.io/). Hosted by [GitHub Pages](https://pages.github.com/).",
+  "description": "Powered by Hugo. Hosted by GitHub Pages.",
   "scripts": {
-    "start": "hugo server -Dvw"
+    "start": "hugo server -Dw"
   },
   "bugs": {
     "url": "https://github.com/t32k/mol/issues"
