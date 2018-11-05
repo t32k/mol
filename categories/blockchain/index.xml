@@ -1,261 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>MOL</title>
-        <generator uri="https://gohugo.io">Hugo</generator>
-        <link>https://t32k.me/mol/categories/blockchain/</link>
-        <language>ja</language>
-        
-        
-        <updated>Sun, 03 Dec 2017 00:00:00 UTC</updated>
-        
-        <item>
-            <title>ブロックチェーンとマイニング</title>
-            <link>https://t32k.me/mol/log/how-bitcoin-mining-works/</link>
-            <pubDate>Sun, 03 Dec 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/how-bitcoin-mining-works/</guid>
-            <description>
-
-&lt;p&gt;この記事は、&lt;a href=&#34;//qiita.com/advent-calendar/2017/blockchain&#34;&gt;ブロックチェーン Advent Calendar 2017&lt;/a&gt;の3日目です、たぶん、知らんけど。なんだか&lt;a href=&#34;https://medium.com/@sucoshi/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%81%8C%E6%94%B9%E3%81%96%E3%82%93%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E4%BB%95%E7%B5%84%E3%81%BF-1b2435af607&#34;&gt;前の人&lt;/a&gt;と記事の内容が被ってる気もするが、がんばってやっていき。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-01.png&#34; width=&#34;300&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;proof-of-work&#34;&gt;Proof of Work&lt;/h2&gt;
-
-&lt;p&gt;みんな、マイニングしてるか！僕はイーサリアムだけど&lt;a href=&#34;https://t32k.me/mol/mol/log/mining-rig-v2/&#34;&gt;ちょっとやってた&lt;/a&gt;。ブロックチェーンはその名の通り、ある程度のトランザクション情報をまとめたブロックをチェーンのように繋いでいく分散型台帳システム。&lt;/p&gt;
-
-&lt;p&gt;そのブロックを繋げる際に、ビットコインであればproof of work（PoW）というコンセンサス（合意）アルゴリズムを採用しているので、莫大な計算量（Work）を用いて、新たに台帳に記載されるブロックが正しいかどうか承認する作業（Proof）が行われる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-00.png&#34; width=&#34;200&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;この作業を一番早く正しく終えた人が、その報酬として一定量のビットコイン(2017年現在：12.5BTC)とブロックに含まれるすべてのトランザクション手数料を貰えることができるので、この作業を金の採掘に例えてマイニングと言っている。&lt;/p&gt;
-
-&lt;p&gt;なぜ、このような事をするのかというと、前述の通りブロックチェーンは&lt;strong&gt;分散&lt;/strong&gt;台帳なので、誰でも手元にダウンロードすることができ、もし悪意のある誰かが自分のアドレスに100BTC振り込むといった偽の情報をブロックに入れたとしたら大変。しかし、そのような偽のチェーンはマイニングするのは、微々たる計算量しかもたない、その人しかおらず、チェーンを続けることはできないので、正当性のあるチェーンだけが生き残る算段。&lt;/p&gt;
-
-&lt;p&gt;中央集権的なデータベースであれば、このようなマイニングをする必要はないが、特定の誰か（個人・企業）を信じなければならいし、その人が善人であったとしても、また他の誰かからハッキングされるかもしれない。それに比べて、ブロックチェーンであれば誰も信頼する必要がないし、
-マイニング報酬というインセンティブで多くのマイナーが計算量を提供しシステムを維持しているので改ざんは極めて困難だ。&lt;/p&gt;
-
-&lt;p&gt;と、こんなことぜんぜん分からなくても、僕自身イーサリアムでマイニングしてたので問題はないんだけど、もうちょっと技術的に理解したいと思い、積読してあったマスタリングビットコインを読んでみたよ。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4757103670/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51NjHWZBJJL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;Mastering Bitcoin&lt;br&gt;ビットコインとブロックチェーン:暗号通貨を支える技術&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;アンドレアス・M・アントノプロス&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;h2 id=&#34;cryptographic-hash-functions&#34;&gt;Cryptographic Hash Functions&lt;/h2&gt;
-
-&lt;p&gt;マイニングで計算、計算って言ってるけど、実際に何してるのってことで、ハッシュ関数をいっぱい実行している。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ハッシュ関数 (ハッシュかんすう、英: hash function) あるいは要約関数とは、あるデータが与えられた場合にそのデータを代表する数値を得る操作、または、その様な数値を得るための関数のこと。ハッシュ関数から得られた数値のことを要約値やハッシュ値または単にハッシュという。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&#34;//ja.wikipedia.org/wiki/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E9%96%A2%E6%95%B0&#34;&gt;Wikipedia&lt;/a&gt;はかくゆう。&lt;/p&gt;
-
-&lt;p&gt;実際に動かしたほうが早いので、Node.jsの&lt;code&gt;crypto&lt;/code&gt;モジュールを使って、&lt;code&gt;t32k&lt;/code&gt;という文字列をハッシュ化してみる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const crypto = require(&#39;crypto&#39;);
-const shas256 = crypto.createHash(&#39;sha256&#39;);
-shas256.update(&#39;t32k&#39;);
-const hash = shas256.digest(&#39;hex&#39;);
-console.log(hash);
-
-&amp;gt;&amp;gt; 69511c70d742fda9555512fea208338e1c49cb3e9ab0a1e3246e262952517806
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ビットコインではSHA-256（Secure Hash Algorithm）を用いて、ハッシュ化されるので、&lt;code&gt;t32k&lt;/code&gt;の元データが64文字の16進数文字列に変換された。これは何回実行したところで&lt;code&gt;t32k&lt;/code&gt;の文字列は&lt;code&gt;69511c7...&lt;/code&gt;の同じハッシュ値である。&lt;/p&gt;
-
-&lt;p&gt;また変換する文字列&lt;code&gt;t32k&lt;/code&gt;から、&lt;code&gt;t33k&lt;/code&gt;に変更してみると以下のようハッシュ値ができあがる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt; 719e66ad70e70e39b9627ec4fd5dfb8a7015c3be5ac35f48c4d3a60b8aeed4f9
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;たった一文字だけ違うのに、全く異なるハッシュ値ができあがるので、生成されたハッシュ値から元データを推測するのは困難であり、暗号数理的性質をもつ。&lt;/p&gt;
-
-&lt;p&gt;では、ビットコインのマイニングでハッシュ関数はどのように使われてるか見てみる前に、ここではマイニングをチョー簡略化した例をやってみよう。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-07.png&#34; width=&#34;200&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;t32k&lt;/code&gt;の文字列のお尻に数字を付けてインプットとし、出来上がるハッシュ値の先頭が0で始まる数字を見つけることにする。&lt;/p&gt;
-
-&lt;p&gt;試しに0~9の数値で試してみることにする。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;const crypto = require(&#39;crypto&#39;);
-
-let n = 0;
-
-while (n &amp;lt; 10) {
-	const shas256 = crypto.createHash(&#39;sha256&#39;);
-	const input = &#39;t32k&#39; + n;
-	shas256.update(input);
-	const hash = shas256.digest(&#39;hex&#39;);
-	console.log(`HASH-${n}`, hash);
-	n++;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;HASH-0 46a26cdf4f1f6825d191e66f2c2c00cea62993909b559ddc9682a102bf5c44ed
-HASH-1 ea179996e7010c1cf52a6e291dc8c052fc8e9bad41f5007b2a403bfa8b758ad1
-HASH-2 39e402b62052d67cd97d469a792b2147cfde04bea6ed1826a88d1fffff9fccd9
-HASH-3 c5015b15ae1f3f7b48bd0a21b93efa36ab5909078e8d0ff6104fc66e8c8281f7
-HASH-4 033e3bf0ca03bd4ae08ab1578fce35ae1f1edeeb753cd0ebe1813012e8522d45
-HASH-5 f2a87d02c46abbbba83a2d04c600faf4df5a04d438753eb86e92d9f3e4c0899a
-HASH-6 8a91c41c4fedacba77199887745996b5064e678dbdee63870253e8cb3e653ddd
-HASH-7 ae040ca8afcb5f6ecc5ab21471c1d1064c1612f20b6ab83098f59a4d508cdcc9
-HASH-8 7629b92d6e54b01065e17d131215bfae92f1a772e47fe7faf2412d179bcb8e00
-HASH-9 1e04407ced654405978eacd00f66537b931f6e5d5c750e7d222b3b7d0b099a5d
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;運良く、5回目で&lt;code&gt;033e3bf0ca...&lt;/code&gt;というハッシュ値を見つけることができた。ということで与えられた課題に対する答え（数値）は&lt;code&gt;4&lt;/code&gt;になる。ビットコインのマイニングも掛け合わせる文字列はもっと多いが基本的にやってることといえば、この数値、ナンス（nonce：暗号通信で用いられる使い捨てのランダムな値）を探すことにほかならない。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/block/000000000000000000b41bd9306ac5f21340f8e704e861695ca0d7274257b852&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-03.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ただ、求められる難易度はこのサンプルケースの場合と桁違いに難しい。2017年12月現在のビットコインのブロックハッシュ値は先頭から0が18個続くようなとても小さい値になっている。0が1個だけじゃ到底だめだし、16個や17個のような大きな数値はハッシュ値としては認められないのである。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-02.png&#34; width=&#34;200&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;サイコロの例に使えば、２つのサイコロ振り、出た目の総和が12より小さくしろ！と言われれば、両方6が出ない限りほぼ成功できるが、総和が5の場合だったらどうだろう。とたんに難しくなる。このように値が小さければ小さいほど難易度は格段に難しくなるので、ビットコインマイニングの場合は、サイコロを何千兆回と振らなければならない（ナンスを探さなければならない）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;hash-chaining&#34;&gt;Hash Chaining&lt;/h2&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;フィールド&lt;/th&gt;
-&lt;th&gt;サイズ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Version&lt;/td&gt;
-&lt;td&gt;4バイト&lt;/td&gt;
-&lt;td&gt;ソフトウェア・プロトコルバージョン番号&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Previous Block Hash&lt;/td&gt;
-&lt;td&gt;32バイト&lt;/td&gt;
-&lt;td&gt;1つ前のブロックのハッシュ&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Merkle Root&lt;/td&gt;
-&lt;td&gt;32バイト&lt;/td&gt;
-&lt;td&gt;ブロック内すべてのTXに関するマークルツリーのrootハッシュ&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Timestamp&lt;/td&gt;
-&lt;td&gt;4バイト&lt;/td&gt;
-&lt;td&gt;ブロックのおおよその生成時刻（Unix秒）&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Difficulty Target&lt;/td&gt;
-&lt;td&gt;4バイト&lt;/td&gt;
-&lt;td&gt;ブロック生成時のdifficulty&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;Nonce&lt;/td&gt;
-&lt;td&gt;4バイト&lt;/td&gt;
-&lt;td&gt;！！！コイツを求める！！！&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;ブロックチェーンはある程度のトランザクション情報がまとまったブロックがチェーンでつながっていると述べたが、各ブロックは上記のヘッダー情報を持っている。フィールドに &lt;code&gt;Previous Block Hash&lt;/code&gt;が入ってるので、求めるハッシュは前のブロックに影響を受ける。&lt;/p&gt;
-
-&lt;p&gt;このブロックヘッダをSHA-256で2回ハッシュした値が、Difficulty Targetよりも小さな値（先頭から0が何十個も続くようなハッシュ値）であれば、ブロックをチェーンにつなげることができる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-	&amp;quot;hash&amp;quot;: &amp;quot;0000000000000000001b09f6b279c46eca668d8403f7667c8420f6af0e091fff&amp;quot;,
-	&amp;quot;confirmations&amp;quot;: 3,
-	&amp;quot;strippedsize&amp;quot;: 983850,
-	&amp;quot;size&amp;quot;: 1046572,
-	&amp;quot;weight&amp;quot;: 3998122,
-	&amp;quot;height&amp;quot;: 497327,
-	&amp;quot;version&amp;quot;: 536870912,
-	&amp;quot;versionHex&amp;quot;: &amp;quot;20000000&amp;quot;,
-	&amp;quot;merkleroot&amp;quot;: &amp;quot;137e5fede907ce0702b5b6fa200887decbeecdd4cfdad924fb253b475ed31c77&amp;quot;,
-	&amp;quot;tx&amp;quot;: [
-		&amp;quot;f3810f2f169c43741cf43796d675efe170875af58bfd7577b9da0a1adc84b782&amp;quot;,
-		........
-		&amp;quot;9590f9fecc80b62022ba21c9e3c2eef391d3dfebc42837f18a1a4117bcd49244&amp;quot;
-	],
-	&amp;quot;time&amp;quot;: 1512287387,
-	&amp;quot;mediantime&amp;quot;: 1512284779,
-	&amp;quot;nonce&amp;quot;: 3429537634,
-	&amp;quot;bits&amp;quot;: &amp;quot;1800d0f6&amp;quot;,
-	&amp;quot;difficulty&amp;quot;: 1347001430558.57,
-	&amp;quot;chainwork&amp;quot;: &amp;quot;000000000000000000000000000000000000000000bf0b7d29b7b36413c84f60&amp;quot;,
-	&amp;quot;previousblockhash&amp;quot;: &amp;quot;000000000000000000883f5ccff5b7140e4d10bf85f6aed570b8bc6f62330542&amp;quot;,
-	&amp;quot;nextblockhash&amp;quot;: &amp;quot;000000000000000000605538204e452c5cfdd9937a3ffe157ff2d91f692ba313&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/block/0000000000000000001b09f6b279c46eca668d8403f7667c8420f6af0e091fff&#34;&gt;ブロック#497327&lt;/a&gt;のブロック情報の例（Transactionは一部省略）&lt;/p&gt;
-
-&lt;p&gt;なお、このDifficultyは2016ブロック生成（約2週間）されるたびに、直近の2016ブロック生成にかかった時間を元に調整される。&lt;/p&gt;
-
-&lt;h2 id=&#34;merkle-trees&#34;&gt;Merkle Trees&lt;/h2&gt;
-
-&lt;p&gt;ブロックのヘッダーにひとつ解せさないものがある。Merkle Rootとはなんだ？ということで、マークルツリーに興味を持った。マークルツリーというのは、公開鍵暗号の開発者の一人であるラルフ・マークルによって発明された、データを要約したハッシュツリーのことだ。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-06.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ビットコインではブロック内のトランザクション全体の要約のために使われている。ブロック内のトランザクションデータはハッシュ関数にかけられ、さらに隣り合うハッシュ値をあわせてハッシュ関数にかけられる。このようにかけあわせていくことで、何百というトランザクションはひとつのハッシュで表すことができる。これがマークルルートのハッシュだ。&lt;/p&gt;
-
-&lt;p&gt;ちなみに、先頭のトランザクションはコインベーストランザクションと呼ばれるものである。通常のトランザクションは必ずインプット元のトランザクションデータがあるが、コインベースにはない。それはマイニングで得た報酬を得るマイナーのアドレスが含まれたトランザクションであるため、無からビットコインが生まれる瞬間である。&lt;/p&gt;
-
-&lt;p&gt;さらちなみに、ハッシュレートの向上により、4バイトのナンスでは一瞬で探索できるようになってきたので、コインベーストランザクションの一部をエキストラナンス8バイトも使うことで毎秒2の96乗通り試すことができる。&lt;/p&gt;
-
-&lt;h2 id=&#34;51-attack&#34;&gt;51% Attack&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/charts/hash-rate?timespan=all&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-09.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;
-Hash Rateの推移&lt;/p&gt;
-
-&lt;p&gt;マイニングには莫大な計算量が必要だと理解できたが、現在のビットコインマイニングは個人がどうこうレベルではない。CPUやGPUよりも多くの計算ができるASIC（特定用途向け集積回路）を何千台と用意した事業者が幅をきかせている。だからといって、個人はマイニングに参加できないかというとそうでもない。&lt;/p&gt;
-
-&lt;p&gt;マイニングプールというマイナー同士が協力しあって計算リソースを提供し、その貢献度によってマイニングで得た報酬を分配されるしくみがある。マイニングプールに参加しているマイナーが、もし実際にナンスを見つけたとしても、その人には12.5BTC全部はもらえない、そのプールに貢献した計算リソース分しかもらえないのである。まぁそんなことは一般個人には確率的にほぼない
-に等しいので、マイニングプールで少量ながらも稼ぐのが現実的である。&lt;/p&gt;
-
-&lt;p&gt;そういうわけで、そんな人のために世界にはいくつかのマイニングプールがある。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://blockchain.info/ja/pools&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-05.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;上記グラフは2017年12月のマイニングシェアを表したものだが、上位はほぼ中国勢に抑えられている。各プール業者の割合は10%前後だが、もしこれらの業者が5つ、6つ結託して、マイニングシェアの51%以上を取ったとしたらどうなるだろう。多くの個人マイナーが参加しているマイニングプールとはいえ、それはマネージドされた環境であり、我々の計算リソースはプールの管理者に委ねられているので、悪意のあるデータに改ざんしたチェーンを作成、維持していくには十分なりソースがあるということになる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1206-08.png&#34; width=&#34;250&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;51％以上のシェアがあるからといって、誰かのビットコインを盗むことも、署名なしにビットコインを使うことも、ビットコインの支払先をか書き換えることも、過去のトランザクションや記録の所有者を変えることもできない。しかし、これから行われる取引に対して、ダブルスペンド（二重使用）が可能となる。ただこれも改ざん不可能と考えられている6承認（Six Confirmations）を待ってからビットコインの支払いを受けつけるようにすれば回避できるかもしれない。&lt;/p&gt;
-
-&lt;p&gt;なににせよ、特定の誰かがマイニングシェアを牛耳ることは、非中央集権のシステムではよくない。GMO、DMM、SBIなどの日本勢がマイニング事業に乗り出すということなので、願わくば頑張っていい感じにして欲しい（雑）。&lt;/p&gt;
-
-&lt;p&gt;おわり。&lt;/p&gt;
-
-&lt;p&gt;4日目の&lt;a href=&#34;//twitter.com/sonatard&#34;&gt;@sonatard&lt;/a&gt;がもっと詳しい&lt;a href=&#34;//medium.com/@sonatard12/asicboost%E3%81%A8segwit%E3%81%AE%E9%96%A2%E4%BF%82-56a7c8429341&#34;&gt;記事&lt;/a&gt;書いてくれてる。&lt;/p&gt;
-
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/pow&#34;&gt;ブロックチェーンの健全性を支えるマイニング&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/halving&#34;&gt;マイニングの報酬額を半減させるタイミング「半減期」&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/utxo&#34;&gt;ブロックチェーンの取引データをひとつなぎにする仕組み「UTXO」&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/merkle-tree&#34;&gt;トランザクションデータを要約する技術「マークルツリー」&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gaiax-blockchain.com/51-percent&#34;&gt;ブロックチェーンが特定のグループに支配されてしまう問題「51%問題」&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
+  <channel>
+    <title>Blockchain on MOL</title>
+    <link>https://t32k.me/mol/categories/blockchain/</link>
+    <description>Recent content in Blockchain on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 03 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://t32k.me/mol/categories/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ブロックチェーンとマイニング</title>
+      <link>https://t32k.me/mol/log/how-bitcoin-mining-works/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/how-bitcoin-mining-works/</guid>
+      <description>この記事は、ブロックチェーン Advent Calendar 2017の3日目です、たぶん、知らんけど。なんだか前の人と記事の内容が被ってる気もするが、がんばってやっていき。
+Proof of Work みんな、マイニングしてるか！僕はイーサリアムだけどちょっとやってた。ブロックチェーンはその名の通り、ある程度のトランザクション情報をまとめたブロックをチェーンのように繋いでいく分散型台帳システム。
+そのブロックを繋げる際に、ビットコインであればproof of work（PoW）というコンセンサス（合意）アルゴリズムを採用しているので、莫大な計算量（Work）を用いて、新たに台帳に記載されるブロックが正しいかどうか承認する作業（Proof）が行われる。
+この作業を一番早く正しく終えた人が、その報酬として一定量のビットコイン(2017年現在：12.5BTC)とブロックに含まれるすべてのトランザクション手数料を貰えることができるので、この作業を金の採掘に例えてマイニングと言っている。
+なぜ、このような事をするのかというと、前述の通りブロックチェーンは分散台帳なので、誰でも手元にダウンロードすることができ、もし悪意のある誰かが自分のアドレスに100BTC振り込むといった偽の情報をブロックに入れたとしたら大変。しかし、そのような偽のチェーンはマイニングするのは、微々たる計算量しかもたない、その人しかおらず、チェーンを続けることはできないので、正当性のあるチェーンだけが生き残る算段。
+中央集権的なデータベースであれば、このようなマイニングをする必要はないが、特定の誰か（個人・企業）を信じなければならいし、その人が善人であったとしても、また他の誰かからハッキングされるかもしれない。それに比べて、ブロックチェーンであれば誰も信頼する必要がないし、 マイニング報酬というインセンティブで多くのマイナーが計算量を提供しシステムを維持しているので改ざんは極めて困難だ。
+と、こんなことぜんぜん分からなくても、僕自身イーサリアムでマイニングしてたので問題はないんだけど、もうちょっと技術的に理解したいと思い、積読してあったマスタリングビットコインを読んでみたよ。
+Mastering Bitcoin
+ビットコインとブロックチェーン:暗号通貨を支える技術 アンドレアス・M・アントノプロス Amazon.co.jpで詳細を見る   Cryptographic Hash Functions マイニングで計算、計算って言ってるけど、実際に何してるのってことで、ハッシュ関数をいっぱい実行している。
+ ハッシュ関数 (ハッシュかんすう、英: hash function) あるいは要約関数とは、あるデータが与えられた場合にそのデータを代表する数値を得る操作、または、その様な数値を得るための関数のこと。ハッシュ関数から得られた数値のことを要約値やハッシュ値または単にハッシュという。
+ Wikipediaはかくゆう。
+実際に動かしたほうが早いので、Node.jsのcryptoモジュールを使って、t32kという文字列をハッシュ化してみる。
+const crypto = require(&#39;crypto&#39;); const shas256 = crypto.createHash(&#39;sha256&#39;); shas256.update(&#39;t32k&#39;); const hash = shas256.digest(&#39;hex&#39;); console.log(hash); &amp;gt;&amp;gt; 69511c70d742fda9555512fea208338e1c49cb3e9ab0a1e3246e262952517806  ビットコインではSHA-256（Secure Hash Algorithm）を用いて、ハッシュ化されるので、t32kの元データが64文字の16進数文字列に変換された。これは何回実行したところでt32kの文字列は69511c7...の同じハッシュ値である。
+また変換する文字列t32kから、t33kに変更してみると以下のようハッシュ値ができあがる。
+&amp;gt;&amp;gt; 719e66ad70e70e39b9627ec4fd5dfb8a7015c3be5ac35f48c4d3a60b8aeed4f9  たった一文字だけ違うのに、全く異なるハッシュ値ができあがるので、生成されたハッシュ値から元データを推測するのは困難であり、暗号数理的性質をもつ。
+では、ビットコインのマイニングでハッシュ関数はどのように使われてるか見てみる前に、ここではマイニングをチョー簡略化した例をやってみよう。
+t32kの文字列のお尻に数字を付けてインプットとし、出来上がるハッシュ値の先頭が0で始まる数字を見つけることにする。
+試しに0~9の数値で試してみることにする。
+const crypto = require(&#39;crypto&#39;); let n = 0; while (n &amp;lt; 10) { const shas256 = crypto.</description>
+    </item>
+    
+  </channel>
 </rss>

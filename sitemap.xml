@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4802511032-josef-muller-brockmann/</loc>
+    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/aftereffects-bodymovin-lottie-vue/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4802511001-leadership/</loc>
+    <lastmod>2018-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4062884747-bank/</loc>
+    <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4022733009-mori/</loc>
+    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4062883696-local-bank/</loc>
+    <lastmod>2018-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4532113605-fintech/</loc>
+    <lastmod>2018-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/japan-d2/</loc>
+    <lastmod>2018-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4802510837-org-design/</loc>
+    <lastmod>2018-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/sony-huis-100rc/</loc>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/chat-deploy/</loc>
+    <lastmod>2018-02-14T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>https://t32k.me/mol/log/circleci2-yml-nodejs/</loc>
@@ -1740,7 +1796,7 @@
   
   <url>
     <loc>https://t32k.me/mol/categories/blog/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1752,7 +1808,7 @@
   
   <url>
     <loc>https://t32k.me/mol/categories/books/</loc>
-    <lastmod>2017-12-11T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1782,13 +1838,13 @@
   
   <url>
     <loc>https://t32k.me/mol/categories/development/</loc>
-    <lastmod>2018-01-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/categories/gadget/</loc>
-    <lastmod>2017-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2018-03-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1800,13 +1856,13 @@
   
   <url>
     <loc>https://t32k.me/mol/log/</loc>
-    <lastmod>2018-01-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
-    <lastmod>2018-01-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
