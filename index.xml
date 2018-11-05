@@ -7,7 +7,41 @@
         <language>ja</language>
         
         
-        <updated>Fri, 24 Aug 2018 00:00:00 UTC</updated>
+        <updated>Mon, 05 Nov 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>速攻改善 UIデザイン</title>
+            <link>https://t32k.me/mol/log/978-4297101725-web-db-press-107/</link>
+            <pubDate>Mon, 05 Nov 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4297101725-web-db-press-107/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4297101726/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/511vigs%2Bb1L._SX352_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;WEB+DB PRESS Vol.107&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;上野 学（他）&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;なにかのフレームワークやライブラリを説明するときに、メリットは紹介しつつも『xxxは決して銀の弾丸ではない〜』という表現をよく見かける。私もそうゆう文章をよく書いた気がする。知らんけど。そうゆうわけで、&lt;strong&gt;オブジェクトベースUI設計&lt;/strong&gt;は銀の弾丸だ！と断言している本特集に惹かれて購入した。&lt;/p&gt;
+
+&lt;p&gt;オブジェクトベースUI設計とはタスクベースUI設計と対になるもので、『名詞』&amp;ndash;&amp;gt; 『動詞』の順序で操作になる。つまり、名詞となるオブジェクトを選択してから、それに対して何らかのアクションが起こる。プログラミングを嗜むものなら、慣れ親しんだ考えだろう。&lt;/p&gt;
+
+&lt;p&gt;それに対して、タスクベースUIは『動詞』&amp;ndash;&amp;gt; 『名詞』となる。本特集で例に出ているのが、どこかのピザ屋のアプリUI。ユーザーが一番最初にアクションを起こす画面には、『注文する』というボタンがデカデカと存在している。それから、いつ配達するか、氏名・電話番号を入力してから、やっと肝心の商品を選択する。&lt;/p&gt;
+
+&lt;p&gt;これは私も体験したことあるUIだったので、よくぞ言ってくれた感があった。まず選ばせろよ！と。食べたいピザもあるのか分からないまま、情報を入力させる不安感は強烈だ。オブジェクトベースでUIを作るという発想がそもそものGUIの成り立ちなので、違和感を覚えるのも当然だ。&lt;/p&gt;
+
+&lt;p&gt;では、なぜそんなタスクベースUIが生まれてしまうのか。筆者は設計者がユーザーの『やること』を忠実に抽出し、そのままUIとして落とし込もうとする結果と指摘している。確かに、ユーザーの求めているものを作ろうとするあまり、視野が狭くなってしまってるのかもしれない。
+後半はメーラーや業務用アプリケーションを題材にオブジェクトベースUIでの設計を解説している。&lt;/p&gt;
+
+&lt;p&gt;”デザイン”の話だからと言って、センスが求められるようなきらびやかなグラフィックとか出てこないのでプログラマーさんも安心して読んで欲しい。逆に、デザイナーさんも当たり前（？）過ぎるコトがちゃんと言語化されているので確認のためにも読んで欲しい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sociomedia.co.jp/7279&#34;&gt;ソシオメディア | OOUX – オブジェクトベースのUIモデリング&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
         
         <item>
             <title>遊びある真剣、真剣な遊び、私の人生</title>
@@ -827,32 +861,6 @@ jobs:
 &lt;p&gt;最近、仮想通貨関連が熱いのでなんか出したいけど、いろいろ力不足なので周辺知識の吸収とともに、幅を広げていきたい。&lt;/p&gt;
 
 &lt;p&gt;あと体の幅はもう広げたくない。ジム行こ。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>2017年フライト総括</title>
-            <link>https://t32k.me/mol/log/matome-2017/</link>
-            <pubDate>Sun, 31 Dec 2017 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/matome-2017/</guid>
-            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2017/1231-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;年初に&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2017/&#34;&gt;SFC取得するぞ！&lt;/a&gt;と抱負に決めて、4月早々にこれを&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-outro/&#34;&gt;果たしてしまい&lt;/a&gt;、若干燃え尽き症候群になったが、それでもSFCのメリットを享受するべく、取得後、3回の海外と1回の国内旅行をした。やはり、無料でラウンジは使用できるのありがたいし、取得前は優先レーンとかあまり期待してなかったけど、やっぱり気分がいいものである。特にラストのベトナム航空では無料プレミアムエコノミークラスアップグレードもあったし、幸先がいい。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;2月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-jakarta/&#34;&gt;SFC修行：ジャカルタ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;3月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-bangkok/&#34;&gt;SFC修行：バンコク&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;4月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-sydney/&#34;&gt;SFC修行：シドニー&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;6月：&lt;a href=&#34;https://t32k.me/mol/mol/log/2017-sfc-hongkong/&#34;&gt;海外：香港&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;8月：海外：バンコク&lt;/li&gt;
-&lt;li&gt;11月：国内：札幌&lt;/li&gt;
-&lt;li&gt;12月：&lt;a href=&#34;https://t32k.me/mol/mol/log/vietnam-2017/&#34;&gt;海外：ホーチミン（ベトナム航空）&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;一瞬、JGCもとっちゃおうかと思ったけど、やっぱりスターアライアンス加盟会社のほうが好きなので、SFCだけで良いと思っている。それよりも来年はホテル系の上級会員を取ってみようかと思いつつ、国内旅行ももっと多くしたいなと思っている。&lt;/p&gt;
-
-&lt;p&gt;あと、今年取得した17万マイルで初ヨーロッパを特典ファーストクラスで行ってみたいものである。あとまだ行っていない東南アジアの国々も行ってみたい。お金が足りませんね！&lt;/p&gt;
 </description>
         </item>
         
