@@ -4366,18 +4366,20 @@ Amazon.co.jp で詳細を見る 実践コミュニティの定義は以下。
     </item>
     
     <item>
-      <title>iOS Developer Program に登録!!!!</title>
+      <title>iOS Developer Programに登録!!!!</title>
       <link>https://t32k.me/mol/log/ios-developer-program/</link>
       <pubDate>Tue, 29 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/ios-developer-program/</guid>
       <description>有料プログラム的な意味でってことです。初めに言っておきますが、これかなりの無理ゲーですわ&amp;hellip;
 せっかく、Titanium MobileでiPhone App制作するんだから、iPhoneっぽいことしたいよねってことでカメラ使いたい！カメラ使いたい！そうゆうわけで、カメラの動作はiOSシュミレーター上ではできませんから、iOS Developer Programの有料登録をして、作ったアプリを実機に転送できるようにしてもらわないといけません。たったそれだけの願いです。たったそれだけのためにかれこれ2週間はかかりました。
-基本的に実機に転送する手順は以下の2つの記事を見てもらえればたぶん大丈夫だとおもう。  目指せ！iPhoneアプリ開発エキスパート：第9回　デバイスでアプリを動かす｜gihyo.jp  iPhoneアプリを実機で動かす | iPhoneアプリ  問題なのは登録です！ な…　何を言ってるのか　わからねーと思うが おれも何をされたのかわからなかった… ってことで、ここから登録してみるよ。  iOS Developer Program - Apple Developer  1順目 無料のApple Developerは以前に登録していたので Existing Apple Developer
-I&amp;rsquo;m registered as a developer with Apple and would like to enroll in a paid Apple Developer Program. を選んで individualで登録。AppleStoreでiOS DeveloperProgramを購入して、Activation Codeが記載されたメールをもらう。そこからActivation Codeが認証されて、晴れてDeveloperProgramに登録となるのですが、なんせ、いかにも、はたまた、どうしてか、Activation Code認証の時にエラーになります。
-で、ちょっとググッてみるとこんな記事が。 ※エラーが発生し、アクティベーションできない可能性大。ほとんどの場合、アカウント情報の文字化けが原因なのでADCのサポートにメールでアクティベーションできない旨を連絡する（リージョンを日本語にすれば日本語のメールで問題なし） iPhone Developer Programへの参加｜iPhone 開発雑記帳 なんとまぁー。たしかに、最初にDeveloper登録したときに漢字で入力してた！急いでManage Accountで英語表記に直すが、肝心の氏名の部分が修正できない！あれ？詰んだ？
-ということで、エラーはあいかわらず出るので、エラーが出たときに案内されるところからヘルプミーする。日本語で送っても大丈夫そうなので問題ない。
-1週間経過しても、メール帰ってこない。（3週間くらいしたら返答来ました！） 2順目 待ちきれなかったので、今度は新規アカウント作成し最初から英語で全部入力する。お！なんかいけそうな感じ。iOS DeveloperProgramを購入して、再度Activation Codeのメールを待つ。</description>
+基本的に実機に転送する手順は以下の2つの記事を見てもらえればたぶん大丈夫だとおもう。
+- &amp;lt;a href=&amp;quot;http://gihyo.jp/dev/serial/01/iphone/0009&amp;quot;&amp;gt;目指せ！iPhoneアプリ開発エキスパート：第9回　デバイスでアプリを動かす｜gihyo.jp &amp;lt;/a&amp;gt; - &amp;lt;a href=&amp;quot;http://kentaro-shimizu.com/lecture/iphone/step3.html&amp;quot;&amp;gt;iPhoneアプリを実機で動かす | iPhoneアプリ&amp;lt;/a&amp;gt;  問題なのは登録です！ &amp;gt; な…　何を言ってるのか　わからねーと思うが おれも何をされたのかわからなかった…
+ってことで、ここから登録してみるよ。
+- &amp;lt;a href=&amp;quot;http://developer.apple.com/jp/programs/ios/&amp;quot;&amp;gt;iOS Developer Program - Apple Developer&amp;lt;/a&amp;gt;  1順目 無料のApple Developerは以前に登録していたので &amp;gt; Existing Apple Developer
+I&amp;rsquo;m registered as a developer with Apple and would like to enroll in a paid Apple Developer Program.
+を選んで individualで登録。AppleStoreでiOS DeveloperProgramを購入して、Activation Codeが記載されたメールをもらう。そこからActivation Codeが認証されて、晴れてDeveloperProgramに登録となるのですが、なんせ、いかにも、はたまた、どうしてか、Activation Code認証の時にエラーになります。
+で、ちょっとググッてみるとこんな記事が。 &amp;gt; ※エラーが発生し、アクティベーションできない可能性大。ほとんどの場合、アカウント情報の文字化けが原因なのでADCのサポートにメールでアクティベーションできない旨を連絡する（リージョンを日本語にすれば日本語のメールで問題なし） iPhone Developer Programへの参加｜iPhone 開発雑記帳</description>
     </item>
     
     <item>
