@@ -4,10 +4,10 @@ img {
 
 blockquote {
   margin: 0;
+  padding-left: 3rem;
+  border-left: 0.4rem #ddd solid;
   font-size: 0.8rem;
   color: #999;
-  border-left: 0.4rem #ddd solid;
-  padding-left: 3rem;
 }
 
 .rm {
