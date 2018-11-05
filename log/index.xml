@@ -6859,20 +6859,5 @@ Amazon.co.jp で詳細を見る </description>
 だから、これからは「warikiru,warikiru」ってつぶやきながらプログラミング勉強しようと思う。</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</guid>
-      <description>GitHub Pages&amp;mdash; date: 2018-11-06 title: CircleCIでHugoを実行してGitHub Pagesにデプロイ subtitle: Automate Your Blog Deployment with CircleCI on GitHub Pages categories: - development excerpt:
-ogimage: これまではHugoで生成したHTMLをWerckerでGitHub Pagesにデプロイしていたんだけど、定期的にWerckerのアップデートかなんかで動かなくなる・修正するを何回かやった結果、疲弊して、めんどくさくなった。
-最近ではすっかりブログ書かなくなったのもあって、手元でHugoを動かして直接docsフォルダにHTMLを直接コミットするという体たらくであった。先の記事で購入したWEB+DB PRESSの特集の一つがCircleCIだったので、ちゃったCIでデプロイしてみようとした話。
-まぁ、そうゆうわけで、Hugo + CircleCI + GitHub Pagesの構成で動かしたかったわけだけど、うまいことコレ！ってのがなかったので、以下の記事を参考にかけ合わせた感じ。
- Automate Your Static Site Deployment with CircleCI - CircleCI RealOrangeOne: Example setup for deploying a hugo site to github pages using circleci  以下はメモ
-CircleCI 2.0 まずは、CircleCI側、config.ymlの設定。
-version: 2 jobs: build: branches: only: - master  まぁ、ブログなので、masterオンリーのブランチで実行。</description>
-    </item>
-    
   </channel>
 </rss>
