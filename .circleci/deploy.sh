@@ -14,5 +14,5 @@ cd $DEPLOY_DIR
 rsync -arv --delete ../public/* .
 
 git add -f .
-git commit -m "[ci skip] Deploy #$CIRCLE_BUILD_NUM from CircleCI" || true
+git commit -m "Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]" || true
 git push -f

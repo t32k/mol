@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Powered by [Hugo](http://gohugo.io/). Hosted by [GitHub Pages](https://pages.github.com/).",
   "scripts": {
-    "build": "hugo && cp docs/index.xml docs/feed.xml"
+    "start": "hugo server -Dvw"
   },
   "bugs": {
     "url": "https://github.com/t32k/mol/issues"
