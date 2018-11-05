@@ -1,6 +1,5 @@
 DefaultContentLanguage = "ja"
 baseurl = "https://t32k.me/mol/"
-languageCode = "ja"
 title = "MOL"
 publishdir = "public"
 MetaDataFormat = "yaml"
