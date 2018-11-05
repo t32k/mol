@@ -21,29 +21,11 @@
     </item>
     
     <item>
-      <title>Blockchain</title>
-      <link>https://t32k.me/mol/categories/blockchain/</link>
-      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/categories/blockchain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Blog</title>
       <link>https://t32k.me/mol/categories/blog/</link>
       <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/categories/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Book</title>
-      <link>https://t32k.me/mol/categories/book/</link>
-      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/categories/book/</guid>
       <description></description>
     </item>
     
@@ -77,7 +59,7 @@
     <item>
       <title>Design</title>
       <link>https://t32k.me/mol/categories/design/</link>
-      <pubDate>Mon, 04 Jan 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/categories/design/</guid>
       <description></description>
@@ -104,7 +86,7 @@
     <item>
       <title>Javascript</title>
       <link>https://t32k.me/mol/categories/javascript/</link>
-      <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/categories/javascript/</guid>
       <description></description>
@@ -125,15 +107,6 @@
       <pubDate>Sun, 01 Dec 2013 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/categories/report/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Slides</title>
-      <link>https://t32k.me/mol/categories/slides/</link>
-      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/categories/slides/</guid>
       <description></description>
     </item>
     

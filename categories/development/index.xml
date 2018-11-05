@@ -81,6 +81,28 @@ nvm install -s v9.4.0 --with-intl=full-icu --download=all  でもこれだと毎
     </item>
     
     <item>
+      <title>ブロックチェーンとマイニング</title>
+      <link>https://t32k.me/mol/log/how-bitcoin-mining-works/</link>
+      <pubDate>Sun, 03 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/how-bitcoin-mining-works/</guid>
+      <description>この記事は、ブロックチェーン Advent Calendar 2017の 3 日目です、たぶん、知らんけど。なんだか前の人と記事の内容が被ってる気もするが、がんばってやっていき。
+Proof of Work みんな、マイニングしてるか！僕はイーサリアムだけどちょっとやってた。ブロックチェーンはその名の通り、ある程度のトランザクション情報をまとめたブロックをチェーンのように繋いでいく分散型台帳システム。
+そのブロックを繋げる際に、ビットコインであれば proof of work（PoW）というコンセンサス（合意）アルゴリズムを採用しているので、莫大な計算量（Work）を用いて、新たに台帳に記載されるブロックが正しいかどうか承認する作業（Proof）が行われる。
+この作業を一番早く正しく終えた人が、その報酬として一定量のビットコイン(2017 年現在：12.5BTC)とブロックに含まれるすべてのトランザクション手数料を貰えることができるので、この作業を金の採掘に例えてマイニングと言っている。
+なぜ、このような事をするのかというと、前述の通りブロックチェーンは分散台帳なので、誰でも手元にダウンロードすることができ、もし悪意のある誰かが自分のアドレスに 100BTC 振り込むといった偽の情報をブロックに入れたとしたら大変。しかし、そのような偽のチェーンはマイニングするのは、微々たる計算量しかもたない、その人しかおらず、チェーンを続けることはできないので、正当性のあるチェーンだけが生き残る算段。
+中央集権的なデータベースであれば、このようなマイニングをする必要はないが、特定の誰か（個人・企業）を信じなければならいし、その人が善人であったとしても、また他の誰かからハッキングされるかもしれない。それに比べて、ブロックチェーンであれば誰も信頼する必要がないし、 マイニング報酬というインセンティブで多くのマイナーが計算量を提供しシステムを維持しているので改ざんは極めて困難だ。
+と、こんなことぜんぜん分からなくても、僕自身イーサリアムでマイニングしてたので問題はないんだけど、もうちょっと技術的に理解したいと思い、積読してあったマスタリングビットコインを読んでみたよ。
+Mastering Bitcoin
+ビットコインとブロックチェーン:暗号通貨を支える技術 アンドレアス・M・アントノプロス Amazon.co.jpで詳細を見る   Cryptographic Hash Functions マイニングで計算、計算って言ってるけど、実際に何してるのってことで、ハッシュ関数をいっぱい実行している。
+ ハッシュ関数 (ハッシュかんすう、英: hash function) あるいは要約関数とは、あるデータが与えられた場合にそのデータを代表する数値を得る操作、または、その様な数値を得るための関数のこと。ハッシュ関数から得られた数値のことを要約値やハッシュ値または単にハッシュという。
+ Wikipediaはかくゆう。
+実際に動かしたほうが早いので、Node.js のcryptoモジュールを使って、t32kという文字列をハッシュ化してみる。
+const crypto = require(&#39;crypto&#39;); const shas256 = crypto.createHash(&#39;sha256&#39;); shas256.update(&#39;t32k&#39;); const hash = shas256.digest(&#39;hex&#39;); console.log(hash); &amp;gt;&amp;gt; 69511c70d742fda9555512fea208338e1c49cb3e9ab0a1e3246e262952517806  ビットコインでは SHA-256（Secure Hash Algorithm）を用いて、ハッシュ化されるので、t32kの元データが 64 文字の 16 進数文字列に変換された。これは何回実行したところでt32kの文字列は69511c7...の同じハッシュ値である。
+また変換する文字列t32kから、t33kに変更してみると以下のようハッシュ値ができあがる。</description>
+    </item>
+    
+    <item>
       <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</title>
       <link>https://t32k.me/mol/log/circleci2-yml/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
@@ -528,6 +550,18 @@ $ vagrant init centos-6.4 A `Vagrantfile` has been placed in this directory. You
     </item>
     
     <item>
+      <title>grunt-contribさえあればOK！</title>
+      <link>https://t32k.me/mol/log/grunt-contrib/</link>
+      <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/grunt-contrib/</guid>
+      <description>世の中、Grunt0.4 が出たって持ちきりでやんス。
+ Grunt 0.4.0 released - Grunt: The JavaScript Task Runner  今までビルトインタスクだった下記はことごとく grunt-contrib-*シリーズと呼ばれるプラグインに置き換わってしまった。
+ concat grunt-contrib-concat plugin init stand-alone grunt-init utility lint grunt-contrib-jshint plugin min grunt-contrib-uglify plugin qunit grunt-contrib-qunit plugin server grunt-contrib-connect plugin test grunt-contrib-nodeunit plugin watch grunt-contrib-watch plugin  もし諸君が concat、lint、min といったタスクを Grunt 0.4 でも使いたい場合は、このように書いてないだろうか。
+ Upgrading from 0.3 to 0.4 - Grunt: The JavaScript Task Runner  module.exports = function(grunt) { // Project configuration. grunt.initConfig({ pkg: grunt.</description>
+    </item>
+    
+    <item>
       <title>パフォーマンスからみるSass/Compass 第2回：CompassによるCSS Sprite</title>
       <link>https://t32k.me/mol/log/spriting-with-compass/</link>
       <pubDate>Sun, 02 Dec 2012 00:00:00 +0000</pubDate>
@@ -598,6 +632,22 @@ gzip圧縮を想定してない場合意味ないとか、たった400バイト�
     </item>
     
     <item>
+      <title>html5shim vs html5shiv</title>
+      <link>https://t32k.me/mol/log/html5shim-vs-html5shiv/</link>
+      <pubDate>Mon, 12 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/html5shim-vs-html5shiv/</guid>
+      <description>JavaScript Advent Calendar 2011 (オレ標準コース) 12 日目の id:t32k です。去年も参加しましたがなんでもありと聞いて今年も懲りずに参加！
+
+はじめに言っておきますが、html5shim も html5shiv どっちもまったく同じです。違いなんて無いので、こんなことに頭を悩ませる暇があったらさっさとコードでも書いてろ！以上！うんこ(・∀・)!
+そんなこと言っても世の中結果じゃない、過程が大切だと思うんだ先生！ってことで今回は調べてみます。
+html5shi(m|v)、めんどくさいので以下 html5.js は&amp;rdquo;HTML5 IE enabling script&amp;rdquo;の名の通り、IE8 以下でarticleなどの新要素が正しく認識されずスタイル(CSS)がうまく適用されない問題を解決しそれらのブラウザでも利用可能にしてくれます。
+document.createElement(&amp;quot;article&amp;quot;);  こんな感じに DOM で要素を生成すると、IE でも HTML5 の要素にスタイルを効くようになります。実際の html5.js はもっと複雑だけど基本的にはこんなことをやってます。詳しいことは下記スライド参照で。
+ HTML5.js の中身を見てみよう by @kamiyam   What&amp;rsquo;s the difference? そろそろ HTML5 でサイト作ってみっかーということでいろいろググってたら前述の問題に引っかかり、さらにググってみると同じ機能なのに名前が違う 2 つのスクリプトがあることを認識たのが今回の経緯です。
+ html5shim - HTML5 IE enabling script - Google Project Hosting html5shiv - HTML5 IE enabling script - Google Project Hosting   Google Codeにホスティングされている2つのコードを見比べても全く同じです。謎です。   Common question: what&amp;rsquo;s the difference between the html5shim and the html5shiv?</description>
+    </item>
+    
+    <item>
       <title>Version Number (iTunes Connect) と Bundle version (CFBundleVersion)</title>
       <link>https://t32k.me/mol/log/cfbundleversion/</link>
       <pubDate>Wed, 22 Jun 2011 00:00:00 +0000</pubDate>
@@ -663,6 +713,37 @@ I&amp;rsquo;m registered as a developer with Apple and would like to enroll in a
 &lt;p&gt;アイコン的な意味でってことです。&lt;/p&gt;
 
 &lt;p&gt;iPhoneのアイコンってどれも個性的で素敵ですね。でもよーく見てみると、全部ってこともないけど、同じような光沢・輝き・テカリがついてますよね。あれを消したいというのが今回のエントリの主旨です。輝きも皆が同じように輝いていたらそれは没個性です。ではやっていきましょう。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>querySelectorとquerySelectorAllというかLive NodeListとStatic NodeList</title>
+      <link>https://t32k.me/mol/log/live-or-static/</link>
+      <pubDate>Sun, 02 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/live-or-static/</guid>
+      <description>先日、getElementsByClassName便利だぜ！とブログに書いたら、to-R の西畑先生よりquerySelectorAllアルヨ！と言われたので、調べてみる。
+querySelector と querySelectorAll  IE8 で実装された Selectors API とは何か？ - IT 戦記  まぁ上記エントリにほぼ全てが書かれているので、特に今さら書くことはないのですが、自分メモのために。
+なにはともあれ、サポート状況をば。
+ DOM Core  Fx3.0 は対応していないけど、IE8 は対応してるのか。素敵！
+element = document.querySelector(selectors);   Document.querySelector() - Web API Interfaces | MDN  querySelectorってのもある。基本的な使い方は両方一緒でselectors&amp;lt;/emの引数に、取得したい要素の CSS セレクタ書いてあげればいい。querySelectorは最初に見つけてきた単一の要素を返すのに対して、
+  elementList = document.querySelectorAll(selectors);  elementList is a non-live NodeList of element objects.
+ Document.querySelectorAll() - Web APIs | MDN  querySelectorAll はノードリストを返す。
+var node = document.querySelectorAll(&amp;quot;#hoge &amp;gt; h2&amp;quot;);  つまり、#hogeの中の子供の h2 だけを取ってくるなんてことも、上記のように CSS セレクタで簡単に書けちゃう。jQuery ライクに書けちゃう。だから、これまで Firefox のグリモンとか Chrome の拡張機能を作成するときは僕は jQuery 読み込んでいたんだけど、簡単なものであれば Selectors API 使えば、jQuery に頼らなくても良くなった。</description>
+    </item>
+    
+    <item>
+      <title>WebデザイナーだけどiPhoneカメラアプリ、リリースできました！</title>
+      <link>https://t32k.me/mol/log/nyars/</link>
+      <pubDate>Thu, 09 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/nyars/</guid>
+      <description>  あたし Web デザイナーだけど、制作期間実質 1 週間（コードだけなら 3 日）で iPhone カメラアプリを制作して、今日リリースまでこぎつけることができました。
+単にネコミミ画像をオーバーレイして写真が撮れるだけのアプリだけど、Objective-C なにそれ？おいしいの？ってくらいのレベルでしかなかったデザイナーが、なにゆえ作れたか？
+Titanium Mobile! はい、ひとえにTitanium Mobile様々でございます。
+思いおこせば、iPhone アプリ開発できたらカッコイイだろうなと思って Objective-C の本を何冊か買ったのが 1 年前。当然、全く分かることもなくすぐさま放置でした。それから iPhone アプリ開発の情熱は消えつつあったのですが、今年の 2 月に@astronaughts に「JavaScript で iPhone アプリ開発できる Titanium えーわーめっちゃえーわー！」と言われて、本腰を入れて勉強したらすぐさまカメラなど起動させることができて楽しかったっす。ほんとスピーディーに、それこそグリモンのユーザースクリプトを作ってるような感覚で iPhone アプリを制作できたことはまさに感動です。
+手間取るのは、アプリの認証とか開発者登録だけでコード書く分には JavaScript ある程度分かってたらホント楽しいよ！これで僕も肩書きだけは iPhone アプリデベロッパーだ！（ごめん、もの投げないで(/ω＼)ｲﾔﾝ）
+ってことで、Web でべろっぱーのみんなもれっつたいたん！
+参考リソース  アプリのソースコード（t32k/Nyars）  </description>
     </item>
     
     <item>

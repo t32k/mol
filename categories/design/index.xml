@@ -6,10 +6,26 @@
     <description>Recent content in Design on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 04 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jul 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/design/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロインタラクション事始め以前</title>
+      <link>https://t32k.me/mol/log/microinteractions/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/microinteractions/</guid>
+      <description>（アニ GIF あるのでちょっと重いです&amp;hellip;）
+
+ マイクロインタラクション事始め以前 @Yahoo!Japan 2016.07.04  先日、とある社内勉強会にて発表する機会があったので書き残しておく。要は最近のフロントエンド開発の流れに疲れて、もうちょっと違う方向で頑張ろうと思った話。
+葛藤 Kaizen Platform, Inc. フロントエンドデベロッパーの t32k です。皆さん、ご存知かもしれませんが、Kaizen Platform は A/B テストツールを提供しています。その A/B テストのデザイン案も国内外約 2 千名のグロースハッカーと呼ばれる方々から、クラウドソーシングで調達することができます。なので、自社内にデザイナー抱えてなくても A/B テストが実行可能です。
+グロースハッカーの登録自体は無料ですので、デザイナーの方はぜひ登録してもらうと、コンバージョン率の高いデザインとはどうゆうものなのかとか勉強になってよいかと思います。いろいろな企業からオファーという形で A/B デザイン案が募集されています。
+ グロースハッカー | Kaizen Platform, Inc.  私はその KAIZEN DASHBOARD と呼ばれる、A/B テストのレポート・オファー募集などの画面を作っています。2015 年の夏にリニューアルしたので、フロントエンドの開発環境は以下の通り、若干、最新とは言えない状況です。
+ Angular.js v1.x Jade/Slim SCSS CoffeeScript webpack/Gulp  このまま未来永劫、同じ開発環境でいくとは限らないので、順次アップデートしていかなければならないのですが、フロントエンドの流れに若干疲れました(´・ω・｀)。疲れることに定評のある t32k ですが、以前にもビルドツールで消耗した記事を書きました。
+ Grunt/Gulp で憔悴したおっさんの話 - MOL  今回は SPA の JS フレームワークに関してです。現在 Angular v1.x を使っていますが、これを v2.0 にするのか、それとも React なのか、それとも他の SPA フレームワークに置き換えることが目下の課題です。</description>
+    </item>
     
     <item>
       <title>デザインの秘訣はまずは気づくこと</title>
