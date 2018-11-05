@@ -10,13 +10,14 @@ jobs:
       - run: apk update && apk add git
       - checkout
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
-      - run: pwd
-      - run: ls -a
+      - run: cp public/index.xml public/feed.xml
+      - add_ssh_keys:
+          fingerprints:
+            - "c5:38:a6:05:63:ab:e6:56:e1:2f:88:76:b7:2c:f4:05"
       - deploy:
           name: deploy to GitHub Pages
           command: |
             if [ "${CIRCLE_BRANCH}" = "master" ]; then
-              chmod +x ./.circleci/deploy.sh
               ./.circleci/deploy.sh
             else
               echo "Not master branch, dry run only"
