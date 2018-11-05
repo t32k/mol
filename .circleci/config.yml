@@ -13,7 +13,7 @@ jobs:
           command: apk update && apk add git
       - run:
           name: System information
-          command: echo "Hugo $(hugo version)"
+          command: echo "$(hugo version)"
       - checkout
       - run:
           name: Building blog pages
