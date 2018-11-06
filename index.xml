@@ -7,7 +7,128 @@
         
         
         
-        <updated>Mon, 05 Nov 2018 00:00:00 UTC</updated>
+        <updated>Tue, 06 Nov 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>CircleCIでHugoを実行してGitHub Pagesにデプロイ</title>
+            <link>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</link>
+            <pubDate>Tue, 06 Nov 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</guid>
+            <description>
+
+&lt;p&gt;これまではHugoで生成したHTMLをWerckerでGitHub Pagesにデプロイしていたんだけど、定期的にWerckerのアップデートかなんかで動かなくなる・修正するを何回かやった結果、疲弊して、めんどくさくなった。&lt;/p&gt;
+
+&lt;p&gt;最近ではすっかりブログ書かなくなったのもあって、手元でHugoを動かして&lt;code&gt;docs&lt;/code&gt;フォルダにHTMLを直接コミットするという体たらくである。&lt;a href=&#34;https://t32k.me/mol/mol/log/978-4297101725-web-db-press-107/&#34;&gt;先の記事で購入したWEB+DB PRESS&lt;/a&gt;の特集の一つがCircleCIだったので、ちゃんとCIでデプロイしてみようとした話。&lt;/p&gt;
+
+&lt;p&gt;まぁ、そうゆうわけで、&lt;code&gt;Hugo&lt;/code&gt; + &lt;code&gt;CircleCI&lt;/code&gt; + &lt;code&gt;GitHub Pages&lt;/code&gt;の構成で動かしたかったわけだけど、うまいことコレ！ってのがなかったので、以下の記事を参考にかけ合わせた感じ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://circleci.com/blog/automate-your-static-site-deployment-with-circleci/&#34;&gt;Automate Your Static Site Deployment with CircleCI - CircleCI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/RealOrangeOne/circleci-hugo-template&#34;&gt;RealOrangeOne: Example setup for deploying a hugo site to github pages using circleci&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下はメモ&lt;/p&gt;
+
+&lt;h2 id=&#34;circleci-2-0&#34;&gt;CircleCI 2.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1106-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まずは、CircleCI側、config.ymlの設定。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まぁ、ブログなので、&lt;code&gt;master&lt;/code&gt;オンリーのブランチで実行。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; docker:
+      - image: cibuilds/hugo:latest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;dockerイメージとして、&lt;a href=&#34;https://github.com/cibuilds/docker-hugo&#34;&gt;cibuilds/hugo:latest&lt;/a&gt;という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    working_directory: ~/hugo
+    steps:
+      - run:
+          name: Update enviroment
+          command: apk update &amp;amp;&amp;amp; apk add git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;cibuilds/hugo&lt;/code&gt;イメージはAlpine Linuxベースとのことで、&lt;code&gt;apk&lt;/code&gt;でパッケージを最新にしといて、&lt;code&gt;git&lt;/code&gt;も追加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      - run:
+          name: System information
+          command: echo &amp;quot;$(hugo version)&amp;quot;
+      - checkout
+      - run:
+          name: Building blog pages
+          command: |
+            HUGO_ENV=production hugo -v
+            cp public/index.xml public/feed.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは、GitHubからコードをチェックアウトして、Hugoで生成している。RSS用に&lt;code&gt;feed.xml&lt;/code&gt; にコピーしとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      - add_ssh_keys:
+          fingerprints:
+            - &amp;quot;SO:ME:FIN:G:ER:PR:IN:T&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;デフォルトで作成されるdeploy keyはチェックアウトする(read)だけの権限なので、ghpageブランチにコミット(write)できる権限を作成しとく。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Add user key&lt;/strong&gt; ボタンを押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページで、そのFingerprintをコピーして上記に追加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      - deploy:
+          name: Deploy to GitHub Pages
+          command: |
+            chmod +x ./.circleci/deploy.sh
+            ./.circleci/deploy.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとはデプロイ用のシェルスクリプトを実行している。&lt;/p&gt;
+
+&lt;h2 id=&#34;github-pages&#34;&gt;GitHub Pages&lt;/h2&gt;
+
+&lt;p&gt;シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼ&lt;a href=&#34;https://github.com/RealOrangeOne/circleci-hugo-template/blob/master/.circleci/deploy.sh&#34;&gt;RealOrangeOne&lt;/a&gt;氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
+
+# エラー時、実行を止める
+set -e
+
+DEPLOY_DIR=deploy
+
+# gitの諸々の設定
+git config --global push.default simple
+git config --global user.email $(git --no-pager show -s --format=&#39;%ae&#39; HEAD)
+git config --global user.name $CIRCLE_USERNAME
+
+# gh-pagesブランチをdeployディレクトリにクローン
+git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
+
+# rsyncでhugoで生成したHTMLをコピー
+cd $DEPLOY_DIR
+rsync -arv --delete ../public/* .
+
+git add -f .
+git commit -m &amp;quot;Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]&amp;quot; || true
+git push -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;push.default simple&lt;/code&gt; って何の設定なんだろうと思ったけど、これのおかげで、&lt;code&gt;git push origin gh-pages&lt;/code&gt;とかしなくていいのか。なるほど simple!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/dehali22/items/09cc89ed87f022668d80&#34;&gt;git push引数省略時のデフォルト動作設定 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これでしばらくは、デプロイが安定するだろう&amp;hellip;( ˘ω˘)ｽﾔｧ&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>速攻改善 UIデザイン</title>
@@ -24,7 +145,7 @@
 &lt;/div&gt;
 &lt;/a&gt;&lt;/div&gt;
 
-&lt;p&gt;なにかのフレームワークやライブラリを説明するときに、メリットは紹介しつつも『xxxは決して銀の弾丸ではない〜』という表現をよく見かける。私もそうゆう文章をよく書いた気がする。知らんけど。そうゆうわけで、&lt;strong&gt;オブジェクトベースUI設計&lt;/strong&gt;は銀の弾丸だ！と断言している本特集に惹かれて購入した。&lt;/p&gt;
+&lt;p&gt;なにかのフレームワークやライブラリを説明するときに、メリットは紹介しつつも『xxxは決して銀の弾丸ではない〜』という表現をよく見かける。私もそうゆう文章をよく書いた気がする。知らんけど。そうゆうわけで、&lt;strong&gt;オブジェクトベースUI設計は銀の弾丸だ！&lt;/strong&gt;と断言している本特集に惹かれて購入した。&lt;/p&gt;
 
 &lt;p&gt;オブジェクトベースUI設計とはタスクベースUI設計と対になるもので、『名詞』&amp;ndash;&amp;gt; 『動詞』の順序で操作になる。つまり、名詞となるオブジェクトを選択してから、それに対して何らかのアクションが起こる。プログラミングを嗜むものなら、慣れ親しんだ考えだろう。&lt;/p&gt;
 
@@ -35,7 +156,7 @@
 &lt;p&gt;では、なぜそんなタスクベースUIが生まれてしまうのか。筆者は設計者がユーザーの『やること』を忠実に抽出し、そのままUIとして落とし込もうとする結果と指摘している。確かに、ユーザーの求めているものを作ろうとするあまり、視野が狭くなってしまってるのかもしれない。
 後半はメーラーや業務用アプリケーションを題材にオブジェクトベースUIでの設計を解説している。&lt;/p&gt;
 
-&lt;p&gt;”デザイン”の話だからと言って、センスが求められるようなきらびやかなグラフィックとか出てこないのでプログラマーさんも安心して読んで欲しい。逆に、デザイナーさんも当たり前（？）過ぎるコトがちゃんと言語化されているので確認のためにも読んで欲しい。&lt;/p&gt;
+&lt;p&gt;”デザイン”の話だからと言って、センスが求められるようなきらびやかなグラフィックとか出てこないのでプログラマーさんも安心して読んで欲しい。逆に、デザイナーさんも当たり前（？）過ぎるコトがちゃんと言語化されているので確認のためにも読んで欲しい。この特集だけのためにも購入しても問題ないくらいだが、個人的に興味のある他の特集もあり、全体的にもよかった。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.sociomedia.co.jp/7279&#34;&gt;ソシオメディア | OOUX – オブジェクトベースのUIモデリング&lt;/a&gt;&lt;/li&gt;
@@ -845,22 +966,6 @@ jobs:
 &lt;p&gt;あとは環境変数&lt;code&gt;NODE_ICU_DATA&lt;/code&gt;にfull-icuの言語データへのパスを設定するだけでよい。&lt;/p&gt;
 
 &lt;p&gt;国際化とかホント苦手だわと思ったけど、今回の場合、日付の&lt;code&gt;/&lt;/code&gt;と&lt;code&gt;-&lt;/code&gt;が違うだけだったので、あんまり考えがめぐらなかったのが反省点。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>2018年の抱負</title>
-            <link>https://t32k.me/mol/log/new-years-resolutions-2018/</link>
-            <pubDate>Mon, 01 Jan 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/new-years-resolutions-2018/</guid>
-            <description>&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2017/&#34;&gt;去年の抱負&lt;/a&gt;は、そうそうに達成してしまった。というか、2016年の段階で予約を済ましており、あとは飛行機に乗るだけだったので、目標達成というか予定通りことが進んだだけである。&lt;/p&gt;
-
-&lt;p&gt;ということで、最近は旅行系ブロガーになっているので、本業のほうが疎かになっているを痛感している。2018年こそ、コードを書いていくぞ。やっぱりなんかしら、小さくてもいいので趣味Webサービスを出したいと思っている。&lt;/p&gt;
-
-&lt;p&gt;最近、仮想通貨関連が熱いのでなんか出したいけど、いろいろ力不足なので周辺知識の吸収とともに、幅を広げていきたい。&lt;/p&gt;
-
-&lt;p&gt;あと体の幅はもう広げたくない。ジム行こ。&lt;/p&gt;
 </description>
         </item>
         

@@ -5,10 +5,26 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CircleCIでHugoを実行してGitHub Pagesにデプロイ</title>
+      <link>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</link>
+      <pubDate>Tue, 06 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</guid>
+      <description>これまではHugoで生成したHTMLをWerckerでGitHub Pagesにデプロイしていたんだけど、定期的にWerckerのアップデートかなんかで動かなくなる・修正するを何回かやった結果、疲弊して、めんどくさくなった。
+最近ではすっかりブログ書かなくなったのもあって、手元でHugoを動かしてdocsフォルダにHTMLを直接コミットするという体たらくである。先の記事で購入したWEB+DB PRESSの特集の一つがCircleCIだったので、ちゃんとCIでデプロイしてみようとした話。
+まぁ、そうゆうわけで、Hugo + CircleCI + GitHub Pagesの構成で動かしたかったわけだけど、うまいことコレ！ってのがなかったので、以下の記事を参考にかけ合わせた感じ。
+ Automate Your Static Site Deployment with CircleCI - CircleCI RealOrangeOne: Example setup for deploying a hugo site to github pages using circleci  以下はメモ
+CircleCI 2.0 まずは、CircleCI側、config.ymlの設定。
+version: 2 jobs: build: branches: only: - master  まぁ、ブログなので、masterオンリーのブランチで実行。
+ docker: - image: cibuilds/hugo:latest  dockerイメージとして、cibuilds/hugo:latestという、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。
+ working_directory: ~/hugo steps: - run: name: Update enviroment command: apk update &amp;amp;&amp;amp; apk add git  cibuilds/hugoイメージはAlpine Linuxベースとのことで、apkでパッケージを最新にしといて、gitも追加。</description>
+    </item>
     
     <item>
       <title>速攻改善 UIデザイン</title>
@@ -21,7 +37,7 @@
 それに対して、タスクベースUIは『動詞』&amp;ndash;&amp;gt; 『名詞』となる。本特集で例に出ているのが、どこかのピザ屋のアプリUI。ユーザーが一番最初にアクションを起こす画面には、『注文する』というボタンがデカデカと存在している。それから、いつ配達するか、氏名・電話番号を入力してから、やっと肝心の商品を選択する。
 これは私も体験したことあるUIだったので、よくぞ言ってくれた感があった。まず選ばせろよ！と。食べたいピザもあるのか分からないまま、情報を入力させる不安感は強烈だ。オブジェクトベースでUIを作るという発想がそもそものGUIの成り立ちなので、違和感を覚えるのも当然だ。
 では、なぜそんなタスクベースUIが生まれてしまうのか。筆者は設計者がユーザーの『やること』を忠実に抽出し、そのままUIとして落とし込もうとする結果と指摘している。確かに、ユーザーの求めているものを作ろうとするあまり、視野が狭くなってしまってるのかもしれない。 後半はメーラーや業務用アプリケーションを題材にオブジェクトベースUIでの設計を解説している。
-”デザイン”の話だからと言って、センスが求められるようなきらびやかなグラフィックとか出てこないのでプログラマーさんも安心して読んで欲しい。逆に、デザイナーさんも当たり前（？）過ぎるコトがちゃんと言語化されているので確認のためにも読んで欲しい。
+”デザイン”の話だからと言って、センスが求められるようなきらびやかなグラフィックとか出てこないのでプログラマーさんも安心して読んで欲しい。逆に、デザイナーさんも当たり前（？）過ぎるコトがちゃんと言語化されているので確認のためにも読んで欲しい。この特集だけのためにも購入しても問題ないくらいだが、個人的に興味のある他の特集もあり、全体的にもよかった。
  ソシオメディア | OOUX – オブジェクトベースのUIモデリング  </description>
     </item>
     
