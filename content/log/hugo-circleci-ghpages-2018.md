@@ -5,12 +5,12 @@ subtitle: Automate Your Blog Deployment with CircleCI on GHPages
 categories: 
     - development
 excerpt: シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、何してるか、わかんなかったので自分用にコメントしとく。
-ogimage: 
+ogimage: https://t32k.me/mol/images/2018/1106-00.png
 ---
 
 これまではHugoで生成したHTMLをWerckerでGitHub Pagesにデプロイしていたんだけど、定期的にWerckerのアップデートかなんかで動かなくなる・修正するを何回かやった結果、疲弊して、めんどくさくなった。
 
-最近ではすっかりブログ書かなくなったのもあって、手元でHugoを動かして直接`docs`フォルダにHTMLを直接コミットするという体たらくであった。先の記事で購入したWEB+DB PRESSの特集の一つがCircleCIだったので、ちゃったCIでデプロイしてみようとした話。
+最近ではすっかりブログ書かなくなったのもあって、手元でHugoを動かして`docs`フォルダにHTMLを直接コミットするという体たらくである。[先の記事で購入したWEB+DB PRESS](/mol/log/978-4297101725-web-db-press-107/)の特集の一つがCircleCIだったので、ちゃんとCIでデプロイしてみようとした話。
 
 まぁ、そうゆうわけで、`Hugo` + `CircleCI` + `GitHub Pages`の構成で動かしたかったわけだけど、うまいことコレ！ってのがなかったので、以下の記事を参考にかけ合わせた感じ。
 
@@ -20,6 +20,8 @@ ogimage:
 以下はメモ
 
 ## CircleCI 2.0
+
+![](/mol/images/2018/1106-01.png)
 
 まずは、CircleCI側、config.ymlの設定。
 
@@ -39,8 +41,7 @@ jobs:
       - image: cibuilds/hugo:latest
 ```
 
-dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds/docker-hugo)という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはその必要はないので便利。
-
+dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds/docker-hugo)という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。
 
 ```
     working_directory: ~/hugo
@@ -77,7 +78,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
    
 デフォルトで作成されるdeploy keyはチェックアウトする(read)だけの権限なので、ghpageブランチにコミット(write)できる権限を作成しとく。
 
-Add user key 押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページでFingerprintをコピーして上記に追加。
+**Add user key** ボタンを押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページで、そのFingerprintをコピーして上記に追加。
    
 ```
       - deploy:
@@ -91,7 +92,7 @@ Add user key 押すとユーザーレベルのSSH keyが登録されるので、
 
 ## GitHub Pages
 
-シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼRealOrangeOne氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。
+シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼ[RealOrangeOne](https://github.com/RealOrangeOne/circleci-hugo-template/blob/master/.circleci/deploy.sh)氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。
 
 ```
 #!/usr/bin/env bash
@@ -118,6 +119,8 @@ git commit -m "Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]" || true
 git push -f
 ```
 
-`--global push.default simple` って何の設定なんだろうと思ったけど、これのおかげで、`git push origin gh-pages`とかしなくていいのか。なるほど simple!
+`push.default simple` って何の設定なんだろうと思ったけど、これのおかげで、`git push origin gh-pages`とかしなくていいのか。なるほど simple!
+
+- [git push引数省略時のデフォルト動作設定 - Qiita](https://qiita.com/dehali22/items/09cc89ed87f022668d80)
 
 これでしばらくは、デプロイが安定するだろう...( ˘ω˘)ｽﾔｧ
