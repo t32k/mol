@@ -57,7 +57,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 
 ```
       - run:
-          name: System information
+          name: Hugo version
           command: echo "$(hugo version)"
       - checkout
       - run:

@@ -12,7 +12,7 @@ jobs:
           name: Update enviroment
           command: apk update && apk add git
       - run:
-          name: System information
+          name: Hugo version
           command: echo "$(hugo version)"
       - checkout
       - run:
