@@ -83,9 +83,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 ```
       - deploy:
           name: Deploy to GitHub Pages
-          command: |
-            chmod +x ./.circleci/deploy.sh
-            ./.circleci/deploy.sh
+          command: ./.circleci/deploy.sh
 ```
 
 あとはデプロイ用のシェルスクリプトを実行している。

@@ -25,5 +25,4 @@ jobs:
             - "f8:a1:03:29:9f:5f:86:44:8e:10:17:5b:f9:20:37:1c"
       - deploy:
           name: Deploy to GitHub Pages
-          command: |
-            ./.circleci/deploy.sh
+          command: ./.circleci/deploy.sh
