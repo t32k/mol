@@ -26,5 +26,4 @@ jobs:
       - deploy:
           name: Deploy to GitHub Pages
           command: |
-            chmod +x ./.circleci/deploy.sh
             ./.circleci/deploy.sh
