@@ -118,7 +118,7 @@ jobs:
 <p><code>cibuilds/hugo</code>イメージはAlpine Linuxベースとのことで、<code>apk</code>でパッケージを最新にしといて、<code>git</code>も追加。</p>
 
 <pre><code>      - run:
-          name: System information
+          name: Hugo version
           command: echo &quot;$(hugo version)&quot;
       - checkout
       - run:
