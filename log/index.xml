@@ -5,10 +5,25 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 06 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ディテール・イン・タイポグラフィ</title>
+      <link>https://t32k.me/mol/log/978-4773870015-detail-in-typography/</link>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/978-4773870015-detail-in-typography/</guid>
+      <description>ディテール・イン・タイポグラフィ
+読みやすい欧文組版のための基礎知識と考え方 ヨースト・ホフリ (著), 麥倉 聖子 (監修) Amazon.co.jpで詳細を見る   欧文組版で有名な日本語書籍といえば、小林章氏の『欧文書体』と『欧文書体2』だが、こちらは、欧州のタイポグラファなら必携と言われる、ヨースト・ホフリ氏のベーシック『Detail in Typography』の待望の翻訳版が2017年に出版されていた。
+本書は、タイポグラフィの構成やレイアウトなど、マクロなものを解説するものではなく、マイクロ・タイポグラフィを解説している。 事実、本書の構成は、文字・単語・行間といった、タイポグラフィの最小の構成物から、分かりやすく説明している。
+読みやすさとはなにか、文字における幾何学的錯視について、カーニングや、数字・約物について、ひととおり説明している。それらには派手さはないかもしれないが、基礎が疎かにだと良いものは作れない。まさに、God is in the details.
+ ただし、カーニングテーブルを信用しすぎるのもよくない。（中略）これは活版以外の方法で組版が行われるようになった初期、写植時代の負の遺産である。当時、字間を詰められるようになったことがあまりに幸せで、常に詰め気味で組版が行われるようになっていた ― P33, The word
+ こういった歴史も教えてくれる、ワロタｗ
+全部で60ページくらいで薄いんだけど、それは著者の簡潔な説明の賜物なので物足りないというはことはない。むしろ多くの例・図版があるので、手元に置いといて常に見返したいものである。</description>
+    </item>
     
     <item>
       <title>CircleCIでHugoを実行してGitHub Pagesにデプロイ</title>
