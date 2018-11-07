@@ -118,9 +118,7 @@ jobs:
 
 &lt;pre&gt;&lt;code&gt;      - deploy:
           name: Deploy to GitHub Pages
-          command: |
-            chmod +x ./.circleci/deploy.sh
-            ./.circleci/deploy.sh
+          command: ./.circleci/deploy.sh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;あとはデプロイ用のシェルスクリプトを実行している。&lt;/p&gt;
