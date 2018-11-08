@@ -624,7 +624,13 @@ gzip圧縮を想定してない場合意味ないとか、たった400バイト�
       <pubDate>Wed, 26 Sep 2012 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/remote-debugging-with-chrome-for-android/</guid>
-      <description>&lt;p&gt;さて、&lt;a href=&#34;http://html.adobe.com/jp/edge/&#34;&gt;Adobe Edgeツール&amp;amp;サービス&lt;/a&gt;が発表されましたね。リモートデバッグではAdobe Shadowが&lt;a href=&#34;http://html.adobe.com/jp/edge/inspect/&#34;&gt;Edge Inspect&lt;/a&gt;に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html&#34;&gt;こことか参照&lt;/a&gt;するとよい。&lt;/p&gt;</description>
+      <description>&lt;p&gt;さて、&lt;a href=&#34;http://html.adobe.com/jp/edge/&#34;&gt;Adobe Edgeツール&amp;amp;サービス&lt;/a&gt;が発表されましたね。リモートデバッグではAdobe Shadowが&lt;a href=&#34;http://html.adobe.com/jp/edge/inspect/&#34;&gt;Edge Inspect&lt;/a&gt;に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html&#34;&gt;こことか参照&lt;/a&gt;するとよい。&lt;/p&gt;
+
+&lt;p&gt;ここではあえて、時代の流れを読まずに&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.android.chrome&amp;amp;hl=ja&#34;&gt;Chrome for Android&lt;/a&gt;でリモートデバッグに挑戦したいと思います。ChromeはAndroid4.0以降対応なんですね、必死こいて2.3の端末機にインスコしようとググってました。あと、4.1からデフォルトのブラウザーになるとかで今後のメインストリーム確実な感じです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developers.google.com/chrome/mobile/docs/debugging&#34;&gt;Remote Debugging - Google Chrome Mobile — Google Developers&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -633,7 +639,13 @@ gzip圧縮を想定してない場合意味ないとか、たった400バイト�
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/sublime-text-2/</guid>
-      <description>&lt;p&gt;こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。&lt;/p&gt;</description>
+      <description>&lt;p&gt;こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。&lt;/p&gt;
+
+&lt;p&gt;心機一転、HTMLコーダーとしてがんばるのでまずは形から入る男t32kとしては、テキストエディタを決めたいところです。Dreamweaverなんぞは論外でして、Codaもなんかシンタックスハイライト重いし（2になってどーなったかわんないけど）、TextMateは相変わらず日本語入力に難があるし…と思ってたら世の中はSublime Textが流行らしいです。乗るっきゃないこのビッグウェーブに！
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text: The text editor you&amp;rsquo;ll fall in love with &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

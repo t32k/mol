@@ -5,10 +5,27 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 07 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>デザインが日本を変える</title>
+      <link>https://t32k.me/mol/log/978-4334043551-design/</link>
+      <pubDate>Thu, 08 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/978-4334043551-design/</guid>
+      <description>デザインが日本を変える
+日本人の美意識を取り戻す (光文社新書) 前田育男 Amazon.co.jpで詳細を見る   高校の政経担当の先生が、『マツダ車はいいぞ〜』とベタ褒めしていたのをナゼか今でも思い出す。それ以来、車を買うことがあればマツダ車にしようと密かに思っていたが、東京に出てきてしまったので、いまだに車を購入する予定はない。
+そんなマツダ車のデザイン部長さんの話。なかなか大層な本書のタイトルだが中身も熱い。デザインへの熱い想いが重いｗ それもそのはず2009年に米企業傘下から外れ、デザイン部門のトップも久しぶりに日本人（著者である前田育男氏）になったからだ。
+前任のオランダ人デザイン部長は、マツダは日本の自動車メーカーだから日本的なデザインにしようということで、枯山水の砂紋を車のデザインに取り込もうとするなど、いささか安直な考えで、前田氏と何回か対立していた。そういった経緯から自分がその立場になったとき、はじめてその問題の難しさに気づいたという。日本らしさとはなにか、はてはマツダらしいとはなにか？
+長い間考えぬいた結果、魂動デザインというコンセプトをひねり出す。なんか暴走族っぽい当て字だなと本書を読む前は思ったけど読み通してみると、なるほど言い得て妙とはこのことである。
+図版：【MAZDA】クルマに命を宿す 、デザインの力。 Vol.01
+また、そのコンセプトを表現した、ご神体と呼ばれるオブジェもクレイモデラーたちが、自主的に作り、「魂動デザイン」とコンセプトともに、マツダデザインの進むべき方向性が明確になった。その後はワールド・カー・オブ・ザ・イヤーなどで受賞するなど華々しい結果となる。
+個人的に興味深かったのは、それまで優秀なクレイモデラーとは、デザイナーの描いたスケッチをクレイを使って完璧に&amp;rdquo; 再現 &amp;ldquo;することだと思われていたフシがあったが、「魂動デザイン」とは何かを開発サイド全員で考え始めたことによって、クレイモデラーからデザインの提案がでてくるようになったという。
+これはUIデザイナーとフロントエンドエンジニアの関係にも似てるなと読みながら、納得した。どこの世界も縦割りの組織では、良いものは作れない。明確なゴールと情熱あるリーダーがいると、ここまで組織・会社は変われることができるのかと改めて気づかされた。デザインに興味なくてもモノづくりをしている人すべてに読んで欲しい一冊だ。</description>
+    </item>
     
     <item>
       <title>ディテール・イン・タイポグラフィ</title>
@@ -3982,7 +3999,13 @@ Google Analyticsの実行コスト そこでjQueryのテストのGoogle Analytic
       <pubDate>Wed, 26 Sep 2012 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/remote-debugging-with-chrome-for-android/</guid>
-      <description>&lt;p&gt;さて、&lt;a href=&#34;http://html.adobe.com/jp/edge/&#34;&gt;Adobe Edgeツール&amp;amp;サービス&lt;/a&gt;が発表されましたね。リモートデバッグではAdobe Shadowが&lt;a href=&#34;http://html.adobe.com/jp/edge/inspect/&#34;&gt;Edge Inspect&lt;/a&gt;に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html&#34;&gt;こことか参照&lt;/a&gt;するとよい。&lt;/p&gt;</description>
+      <description>&lt;p&gt;さて、&lt;a href=&#34;http://html.adobe.com/jp/edge/&#34;&gt;Adobe Edgeツール&amp;amp;サービス&lt;/a&gt;が発表されましたね。リモートデバッグではAdobe Shadowが&lt;a href=&#34;http://html.adobe.com/jp/edge/inspect/&#34;&gt;Edge Inspect&lt;/a&gt;に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html&#34;&gt;こことか参照&lt;/a&gt;するとよい。&lt;/p&gt;
+
+&lt;p&gt;ここではあえて、時代の流れを読まずに&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.android.chrome&amp;amp;hl=ja&#34;&gt;Chrome for Android&lt;/a&gt;でリモートデバッグに挑戦したいと思います。ChromeはAndroid4.0以降対応なんですね、必死こいて2.3の端末機にインスコしようとググってました。あと、4.1からデフォルトのブラウザーになるとかで今後のメインストリーム確実な感じです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developers.google.com/chrome/mobile/docs/debugging&#34;&gt;Remote Debugging - Google Chrome Mobile — Google Developers&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4014,8 +4037,7 @@ Google Analyticsの実行コスト そこでjQueryのテストのGoogle Analytic
  background: -ms-linear-gradient(top, #000 0%,#595959 100%);
  background: linear-gradient(to bottom, #000 0%,#595959 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&amp;lsquo;#000&amp;rsquo;, endColorstr=&amp;lsquo;#595959&amp;rsquo;,GradientType=0 );
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;</description>
+}&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4060,7 +4082,13 @@ Nesting あと、便利っちゃー便利なのがネストです。下記のよ
       <pubDate>Mon, 09 Jul 2012 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/sublime-text-2/</guid>
-      <description>&lt;p&gt;こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。&lt;/p&gt;</description>
+      <description>&lt;p&gt;こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。&lt;/p&gt;
+
+&lt;p&gt;心機一転、HTMLコーダーとしてがんばるのでまずは形から入る男t32kとしては、テキストエディタを決めたいところです。Dreamweaverなんぞは論外でして、Codaもなんかシンタックスハイライト重いし（2になってどーなったかわんないけど）、TextMateは相変わらず日本語入力に難があるし…と思ってたら世の中はSublime Textが流行らしいです。乗るっきゃないこのビッグウェーブに！
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text: The text editor you&amp;rsquo;ll fall in love with &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4112,7 +4140,13 @@ var sNew = document.createElement(&amp;quot;script&amp;quot;); sNew.async = true
 
 &lt;p&gt;ほんと講演者の皆さん、参加してくれた皆様ありがとうございます。改めてこのコミュニティが大好きだと理解できました。&lt;/p&gt;
 
-&lt;p&gt;んなこったで、早くも講演で使われたスライドが公開されております。参加できなかったもご覧いただければ幸いです。&lt;/p&gt;</description>
+&lt;p&gt;んなこったで、早くも講演で使われたスライドが公開されております。参加できなかったもご覧いただければ幸いです。&lt;/p&gt;
+
+&lt;p&gt;あと、イベントに参加された方はアンケートにご協力お願いします。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.google.com/spreadsheet/viewform?formkey=dFdoMXQwYno3WUFUWHVNN2NfcW9OUWc6MQ#gid=0&#34;&gt;kanazawa.js v1.7 - Back to Basics - アンケート &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4270,9 +4304,7 @@ Original：3 Reasons Why Learning To Code Makes You A Better Designer（2011-06-
 &lt;ul&gt;
     &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://togetter.com/li/165175&#34;&gt;Togetter - 「kanazawa.js v1.5 - Hello Titanium Mobile! -」 &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;h2&gt;Titanium Mobileってなに？&lt;/h2&gt;
-&lt;a title=&#34;Titanium Mobileってなに？ by kanazawajs, on Flickr&#34; href=&#34;http://www.flickr.com/photos/kanazawajs/5966327186/&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://farm7.static.flickr.com/6020/5966327186_e3581cc3bb.jpg&#34; alt=&#34;Titanium Mobileってなに？&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+&lt;div&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4374,9 +4406,7 @@ Amazon.co.jp で詳細を見る 実践コミュニティの定義は以下。
       <guid>https://t32k.me/mol/log/kanazawajs-v120/</guid>
       <description>&lt;p&gt;&lt;img class=&#34;fig&#34; src=&#34;https://t32k.me/mol/static/blog/2011/04/01.jpg&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;250&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;会いたくて震えるのが西野カナ、console便利すぎて震えるのが &lt;a href=&#34;http://twitter.com/#!/search?q=%23kanaj&#34;&gt;#kanaj&lt;/a&gt; ってことで、&lt;a href=&#34;http://atnd.org/events/13312&#34;&gt;kanazawa.js v1.2&lt;/a&gt; 開催しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;会いたくて震えるのが西野カナ、console便利すぎて震えるのが &lt;a href=&#34;http://twitter.com/#!/search?q=%23kanaj&#34;&gt;#kanaj&lt;/a&gt; ってことで、&lt;a href=&#34;http://atnd.org/events/13312&#34;&gt;kanazawa.js v1.2&lt;/a&gt; 開催しました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4499,9 +4529,7 @@ Amazon.co.jp で詳細を見る まとめ とまぁそんなかんじで好き�
 
 &lt;p&gt;だいたいの開催内容は第1回目の記事参照 -&amp;gt;&amp;gt; &lt;a href=&#34;https://t32k.me/mol/2010/12/kanazawa-js-v001/&#34;&gt;kanazawa.js v0.0.1 開催報告&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;そんでもって今日の僕は、スタバでイングリッシュティーラテとベーコンと野菜のキッシュとイングリッシュマフィンを購入して、お昼はいわゆるぼっちらんちしました。ついでにコーディングしました。とても楽しかったです( ；∀；)&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;そんでもって今日の僕は、スタバでイングリッシュティーラテとベーコンと野菜のキッシュとイングリッシュマフィンを購入して、お昼はいわゆるぼっちらんちしました。ついでにコーディングしました。とても楽しかったです( ；∀；)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4622,9 +4650,7 @@ Mac 起動！　システムプロファイラで確認OK!
 
 &lt;p&gt;先ほど、記念すべき&lt;a href=&#34;http://atnd.org/events/9901&#34;&gt; kanazawa.js v0.0.1 &lt;/a&gt;終了いたしました。まぁなんてことはないただの勉強会ですが。&lt;/p&gt;
 
-&lt;p&gt;11月に&lt;a href=&#34;https://t32k.me/mol/2010/11/kanazawajs/&#34;&gt;kanazawa.jsやる！&lt;/a&gt;と言ってから、どーなるやらと気を揉んでいましたが、なんとか無事に開催できてよかったす。10時から17時で途中1時間のお昼休憩あったんですが、6時間がっつり集中できたのは大きいかったですね。僕の場合は日曜はグダグダと過ごすことが多いのでとても有意義な一日だったと思います。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;11月に&lt;a href=&#34;https://t32k.me/mol/2010/11/kanazawajs/&#34;&gt;kanazawa.jsやる！&lt;/a&gt;と言ってから、どーなるやらと気を揉んでいましたが、なんとか無事に開催できてよかったす。10時から17時で途中1時間のお昼休憩あったんですが、6時間がっつり集中できたのは大きいかったですね。僕の場合は日曜はグダグダと過ごすことが多いのでとても有意義な一日だったと思います。&lt;/p&gt;</description>
     </item>
     
     <item>

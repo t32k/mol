@@ -156,8 +156,7 @@ a { color: inherit; } ul li { color: gray; }  こうしとけば、ul &amp;gt; l
  background: -ms-linear-gradient(top, #000 0%,#595959 100%);
  background: linear-gradient(to bottom, #000 0%,#595959 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&amp;lsquo;#000&amp;rsquo;, endColorstr=&amp;lsquo;#595959&amp;rsquo;,GradientType=0 );
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/p&gt;</description>
+}&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -7,7 +7,41 @@
         
         
         
-        <updated>Wed, 07 Nov 2018 00:00:00 UTC</updated>
+        <updated>Thu, 08 Nov 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>デザインが日本を変える</title>
+            <link>https://t32k.me/mol/log/978-4334043551-design/</link>
+            <pubDate>Thu, 08 Nov 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4334043551-design/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4334043550/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/31w8VKPMo-L._SX306_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;デザインが日本を変える&lt;br&gt;日本人の美意識を取り戻す (光文社新書)&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;前田育男&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;高校の政経担当の先生が、『マツダ車はいいぞ〜』とベタ褒めしていたのをナゼか今でも思い出す。それ以来、車を買うことがあればマツダ車にしようと密かに思っていたが、東京に出てきてしまったので、いまだに車を購入する予定はない。&lt;/p&gt;
+
+&lt;p&gt;そんなマツダ車のデザイン部長さんの話。なかなか大層な本書のタイトルだが中身も熱い。デザインへの熱い想いが重いｗ それもそのはず2009年に米企業傘下から外れ、デザイン部門のトップも久しぶりに日本人（著者である前田育男氏）になったからだ。&lt;/p&gt;
+
+&lt;p&gt;前任のオランダ人デザイン部長は、マツダは日本の自動車メーカーだから日本的なデザインにしようということで、枯山水の砂紋を車のデザインに取り込もうとするなど、いささか安直な考えで、前田氏と何回か対立していた。そういった経緯から自分がその立場になったとき、はじめてその問題の難しさに気づいたという。日本らしさとはなにか、はてはマツダらしいとはなにか？&lt;/p&gt;
+
+&lt;p&gt;長い間考えぬいた結果、&lt;strong&gt;魂動デザイン&lt;/strong&gt;というコンセプトをひねり出す。なんか暴走族っぽい当て字だなと本書を読む前は思ったけど読み通してみると、なるほど言い得て妙とはこのことである。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mazda.co.jp/beadriver/design/thought/01/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1108-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+図版：【MAZDA】クルマに命を宿す 、デザインの力。 Vol.01&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;また、そのコンセプトを表現した、ご神体と呼ばれるオブジェもクレイモデラーたちが、自主的に作り、「魂動デザイン」とコンセプトともに、マツダデザインの進むべき方向性が明確になった。その後はワールド・カー・オブ・ザ・イヤーなどで受賞するなど華々しい結果となる。&lt;/p&gt;
+
+&lt;p&gt;個人的に興味深かったのは、それまで優秀なクレイモデラーとは、デザイナーの描いたスケッチをクレイを使って完璧に&amp;rdquo; &lt;em&gt;再現&lt;/em&gt; &amp;ldquo;することだと思われていたフシがあったが、「魂動デザイン」とは何かを開発サイド全員で考え始めたことによって、クレイモデラーからデザインの提案がでてくるようになったという。&lt;/p&gt;
+
+&lt;p&gt;これはUIデザイナーとフロントエンドエンジニアの関係にも似てるなと読みながら、納得した。どこの世界も縦割りの組織では、良いものは作れない。明確なゴールと情熱あるリーダーがいると、ここまで組織・会社は変われることができるのかと改めて気づかされた。デザインに興味なくてもモノづくりをしている人すべてに読んで欲しい一冊だ。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>ディテール・イン・タイポグラフィ</title>
@@ -766,174 +800,6 @@ const installationToken = await octokit.apps.createInstallationToken({
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;あとバックグラウンドでもプロセスを活かすためには、&lt;code&gt;nohup [command] &amp;amp;&lt;/code&gt;と打てばよいと教えてもらった。ありがとう。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ（改）</title>
-            <link>https://t32k.me/mol/log/circleci2-yml-nodejs/</link>
-            <pubDate>Tue, 30 Jan 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/circleci2-yml-nodejs/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/circleci2-yml/&#34;&gt;前回の記事&lt;/a&gt;で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
-jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:8
-
-    steps:
-      - checkout
-      - run:
-          name: System information
-          command: |
-            echo &amp;quot;Node $(node -v)&amp;quot;
-            echo &amp;quot;Yarn v$(yarn --version)&amp;quot;
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Build
-          command: yarn run build
-      - run:
-          name: Test
-          command: yarn test
-      - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-          paths:
-            - ~/repo/.cache/yarn
-            - ~/repo/dist
-            - ~/repo/node_modules
-            - ~/repo/package.json  
-  
-  deploy:
-    working_directory: ~/repo
-    docker:
-      - image: google/cloud-sdk
-
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }}
-      - run:
-          name: Deploy to Google App Engine
-          command: |
-            echo &amp;quot;$GOOGLE_AUTH&amp;quot; | base64 -i --decode &amp;gt; &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud auth activate-service-account --key-file &amp;quot;$HOME/gcp-key.json&amp;quot;
-            gcloud --quiet config set project &amp;quot;$GOOGLE_PROJECT_ID&amp;quot;
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &amp;quot;s/\//\-/g&amp;quot;)
-          no_output_timeout: 20m
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;build&lt;/code&gt;と&lt;code&gt;deploy&lt;/code&gt;でDockerイメージが違うのが嫌だなーって思っていて、これをどうすうるのがいいんだろうと考えたら、やっぱり &lt;code&gt;circleci/node&lt;/code&gt;のイメージをベースに&lt;a href=&#34;https://cloud.google.com/sdk/downloads?hl=ja&#34;&gt;Google Cloud SDKをインストール&lt;/a&gt;したイメージを用意するのがいいんだろうと思ったけど、ぼくのDocker力が足りないので、うまくいかず、すぐ諦めた。&lt;/p&gt;
-
-&lt;h2 id=&#34;google-cloud-sdk-インストール&#34;&gt;Google Cloud SDK インストール&lt;/h2&gt;
-
-&lt;p&gt;そしたら去年の10月頃にこうゆうものが出ていたことを知る。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package&#34;&gt;GoogleCloudPlatform/cloud-sdk-npm-package: A metapackage that installs Google Cloud Platform&amp;rsquo;s gcloud CLI through NPM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;npmインストールでCloud SDKをインストールできる代物。うん便利。ローカルで試したところ本当にnpmインストールで、PATHも設定してないのに、&lt;code&gt;gcloud&lt;/code&gt;コマンドが打てた。&lt;/p&gt;
-
-&lt;p&gt;CI上で試してみるとなぜかうまくいかない。&lt;code&gt;gcloud&lt;/code&gt;コマンドなんてないよ！と怒られる。どうやら、CircleCI上の&lt;code&gt;$SHELL&lt;/code&gt;の環境変数が&lt;code&gt;/bin/bash&lt;/code&gt;になってないと、うまく環境を認識できず（&lt;code&gt;zsh&lt;/code&gt;とか&lt;code&gt;fish&lt;/code&gt;と区別できない）、&lt;a href=&#34;https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package/blob/master/helpers-unix.js#L93&#34;&gt;PATHが設定できてないっぽい&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;なので、↓みたいに明示的に指定してあげる必要がある。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &#39;source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39; &amp;gt;&amp;gt; $BASH_ENV
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というわけで、無事打てました。&lt;/p&gt;
-
-&lt;h2 id=&#34;job間のデータ共有&#34;&gt;Job間のデータ共有&lt;/h2&gt;
-
-&lt;p&gt;これで&lt;code&gt;circleci/node&lt;/code&gt;のイメージひとつだけ使えるようになった。勘違いしてたのだけど、前回のyamlでJob間dでデータ共有できなかったのはJobのDockerイメージが異なるものだからだと思っていたけど、そうではなかった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://circleci.com/blog/persisting-data-in-workflows-when-to-use-caching-artifacts-and-workspaces/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0130-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;同じ（種類の）イメージでも、&lt;code&gt;build&lt;/code&gt;Jobで生成したデータを次の&lt;code&gt;deploy&lt;/code&gt;Jobには持ち越せない。通常データの共有はできない。そうゆうときはCachingを使えばよいのかと思っていたけど、微妙に違ってた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://circleci.com/blog/persisting-data-in-workflows-when-to-use-caching-artifacts-and-workspaces/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0130-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Cachingは異なるWorkflow間でのデータ共有であり、異なるJob間のデータ共有はWorkspaceという機能を使うのが正しい。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;persist_to_workspace&lt;/code&gt;という項目で、共有したいデータを指定し、&lt;code&gt;attach_workspace&lt;/code&gt;で取り出す。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
-
-# =============================================
-# References: Reusable Sets
-# =============================================
-references:
-  container_config: &amp;amp;container_config
-    docker:
-      - image: circleci/node
-    working_directory: ~/repo
-
-  restore_npm: &amp;amp;restore_npm
-    restore_cache:
-      keys:
-        - v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &amp;quot;package-lock.json&amp;quot; }}
-        - v1-cache-{{ arch }}-{{ .Branch }}
-        - v1-cache
-
-# =============================================
-# Jobs: Build and Deploy
-# =============================================
-jobs:
-  build:
-    &amp;lt;&amp;lt;: *container_config
-    steps:
-      - checkout
-      - *restore_npm
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - save_cache:
-          key: v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &amp;quot;package-lock.json&amp;quot; }}
-          paths:
-            - node_modules
-      - run:
-          name: Build
-          command: npm run build
-      - persist_to_workspace:
-          root: dist
-          paths:
-            - . 
-      - run:
-          name: Test
-          command: npm test
-
-  deploy:
-    &amp;lt;&amp;lt;: *container_config
-    steps:
-      - checkout
-      - *restore_npm
-      - run:
-          name: Set $PATH for `gcloud` command
-          command: echo &#39;source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39; &amp;gt;&amp;gt; $BASH_ENV
-      - attach_workspace:
-          at: dist
-      - run:
-          name: Deploy to Google App Engine
-          command: gcloud app deploy app.yaml
-          no_output_timeout: 20m
-          
-# Workflowsの設定・・・
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というわけで、こんな感じになった。&lt;code&gt;&amp;amp;&lt;/code&gt;と&lt;code&gt;*&lt;/code&gt;は&lt;a href=&#34;https://qiita.com/gctfuji/items/5f8e4c5795ce41b214d1&#34;&gt;YAML記法&lt;/a&gt;アンカーとエイリアスで、変数っぽく使える。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/circleci/frontend/blob/master/.circleci/config.yml&#34;&gt;frontend/config.yml at master · circleci/frontend&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あと、本家の本気のconfig.ymlを見て参考にしたが、Jobが分割されすぎて震えた。&lt;/p&gt;
 </description>
         </item>
         

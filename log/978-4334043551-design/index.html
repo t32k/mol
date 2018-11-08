@@ -3,15 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>getElementsByName と getElementsByClassName - MOL</title>
+    <title>デザインが日本を変える - MOL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="twitter:title" content="getElementsByName と getElementsByClassName - MOL">
+    <meta name="twitter:title" content="デザインが日本を変える - MOL">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@t32k">
+    <meta name="description" content="一地方の企業が世界と戦えるのはなぜか。これからの製造業の在り方を体現するリーダーの哲学がベールを脱ぐ。">
+    <meta name="twitter:description" content="一地方の企業が世界と戦えるのはなぜか。これからの製造業の在り方を体現するリーダーの哲学がベールを脱ぐ。">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="MOL">
+    <meta property="og:image" content="https://images-na.ssl-images-amazon.com/images/I/31w8VKPMo-L._SX306_BO1,204,203,200_.jpg">
+    <meta name="twitter:image" content="https://images-na.ssl-images-amazon.com/images/I/31w8VKPMo-L._SX306_BO1,204,203,200_.jpg">
     <meta property="fb:app_id" content="212646065416408">
-    <link rel="canonical" href="https://t32k.me/mol/log/getelementsbyname-and-getelementsbyclassname/">
+    <link rel="canonical" href="https://t32k.me/mol/log/978-4334043551-design/">
     <link rel="stylesheet" href="/mol/css/skeleton.css?20171206">
     <link rel="author" href="//plus.google.com/+kojiishimoto">
     <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="MOL">
@@ -62,75 +66,52 @@
 <div class="container">
 <article role="main" class="post">
     <header class="post-header">
-        <p class="u-mute u-mbn"><time datetime='2010-12-27T00:00:00Z'>December 27, 2010</time></p>
-        <h1 class="post-h1">getElementsByName と getElementsByClassName</h1>
-        
+        <p class="u-mute u-mbn"><time datetime='2018-11-08T00:00:00Z'>November 8, 2018</time></p>
+        <h1 class="post-h1">デザインが日本を変える</h1>
+         <h3 class="u-mute u-mtn">～日本人の美意識を取り戻す～</h3>
     </header>
     <section>
-        <p>ちょっと気になったのでメモメモ。</p>
+        <div class="__media"><a href="https://www.amazon.co.jp/dp/4334043550/?tag=warikiru-22" target="_blank" rel="noopener">
+<img src="https://images-na.ssl-images-amazon.com/images/I/31w8VKPMo-L._SX306_BO1,204,203,200_.jpg" alt="" class="__media__image">
+<div class="__media__body">
+    <div>デザインが日本を変える<br>日本人の美意識を取り戻す (光文社新書)</div>
+    <div class="__media__text">前田育男</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+</div>
+</a></div>
 
-<p>普段、jQueryなど使っているときは特に気にしなくてもいいのですが、フレームワークなしでなんかしらの要素取ってくるのって結構大変というか、document.getElementById しか頭に思いつかないのです。</p>
+<p>高校の政経担当の先生が、『マツダ車はいいぞ〜』とベタ褒めしていたのをナゼか今でも思い出す。それ以来、車を買うことがあればマツダ車にしようと密かに思っていたが、東京に出てきてしまったので、いまだに車を購入する予定はない。</p>
 
-<p>最近というか先々々月ぐらいのことですが、document.getElementsByName なるものを知りました。このメソッドはどんなものかと言いますと、</p>
+<p>そんなマツダ車のデザイン部長さんの話。なかなか大層な本書のタイトルだが中身も熱い。デザインへの熱い想いが重いｗ それもそのはず2009年に米企業傘下から外れ、デザイン部門のトップも久しぶりに日本人（著者である前田育男氏）になったからだ。</p>
 
-<p><blockquote>document.getElementsByName は、name 属性に与えられた値を持つ全ての要素の NodeList を返します。
-<a href="https://developer.mozilla.org/ja/DOM/document.getElementsByName"><span style="font-size: x-small;">document.getElementsByName - MDC Doc Center</span></a></blockquote>
-ほうほう、なるほど。でも、これと似たような名前のメソッドなかったけ？
-<blockquote>document.getElementsByClassNameは、与えられたクラス名で得られる要素の集合を返します。
-<a href="https://developer.mozilla.org/ja/DOM/document.getElementsByClassName"><span style="font-size: x-small;">document.getElementsByClassName - MDC Doc Center</span></a></blockquote>
-おう、これこれ。でも getElementsByClassName のほうはＩＥ対応してないっぽいし、どんな要素にでもname属性つけれたら、getElementsByName で十分じゃね？という疑問が湧いてきたのですが、そうでもないみたいです。</p>
+<p>前任のオランダ人デザイン部長は、マツダは日本の自動車メーカーだから日本的なデザインにしようということで、枯山水の砂紋を車のデザインに取り込もうとするなど、いささか安直な考えで、前田氏と何回か対立していた。そういった経緯から自分がその立場になったとき、はじめてその問題の難しさに気づいたという。日本らしさとはなにか、はてはマツダらしいとはなにか？</p>
 
-<p>HTML4.01でname属性が設定できるのは以下の要素だけ。
-<blockquote>
-<ul style="-moz-column-count: 3; -webkit-column-count: 3;">
-    <li>a</li>
-    <li>applet</li>
-    <li>button</li>
-    <li>form</li>
-    <li>frame</li>
-    <li>iframe</li>
-    <li>img</li>
-    <li>input</li>
-    <li>map</li>
-    <li>meta</li>
-    <li>object</li>
-    <li>param</li>
-    <li>select</li>
-    <li>textarea</li>
-</ul>
-<a href="http://www.mitsue.co.jp/glossary/html/attribute/name.html"><span style="font-size: x-small;">name属性 | HTML用語集 | ミツエーリンクス</span></a></blockquote>
-ぷらす&hellip;
-<blockquote>IE、Netscape系共通で使えるのは、JavaScriptの基礎部分でname指定取りができるHTMLタグに限られます。 IMG、FORM、FORM部品、などです。ま、時代的にname属性はフォーム以外ではあり得ない時代でもありますので、使えなくても差し支えないでしょう。</p>
+<p>長い間考えぬいた結果、<strong>魂動デザイン</strong>というコンセプトをひねり出す。なんか暴走族っぽい当て字だなと本書を読む前は思ったけど読み通してみると、なるほど言い得て妙とはこのことである。</p>
 
-<p><a href="http://www.artemis.ac/contents/javascript/javascript11.htm#names"><span style="font-size: x-small;">初心者のJavaScript HTMLエレメントのオブジェクト指定方法 各種 [ ARTEMIS ] </span></a></blockquote>
-つまり、&lt;div name=&ldquo;hoge&rdquo;&gt;の要素をgetElementsByNameで取りたいと思っても必ずしも全てのブラウザで正常に動作することもないし、そもそも文法的にやっちゃだめてことで。。。</p>
+<p><a href="http://www.mazda.co.jp/beadriver/design/thought/01/"><img src="/mol/images/2018/1108-00.jpg" alt="" /><br />
+図版：【MAZDA】クルマに命を宿す 、デザインの力。 Vol.01</a></p>
 
-<p>そうなってくると、どんな要素にでもclass属性がつけれるので、getElementsByClassName がやっぱり重要というか、こっちを使っていくほうがベターなんだと理解しました。</p>
+<p>また、そのコンセプトを表現した、ご神体と呼ばれるオブジェもクレイモデラーたちが、自主的に作り、「魂動デザイン」とコンセプトともに、マツダデザインの進むべき方向性が明確になった。その後はワールド・カー・オブ・ザ・イヤーなどで受賞するなど華々しい結果となる。</p>
 
-<p>ちなみに、getElementsByClassNameの各ブラウザのサポート状況はこんな感じ。IE以外OKってな感じで。
-<blockquote><a href="/static/blog/2010/12/gebcn.png"><img class="alignnone size-medium wp-image-2240" title="gebcn" src="/static/blog/2010/12/gebcn-300x50.png" alt="" width="550" /></a></p>
+<p>個人的に興味深かったのは、それまで優秀なクレイモデラーとは、デザイナーの描いたスケッチをクレイを使って完璧に&rdquo; <em>再現</em> &ldquo;することだと思われていたフシがあったが、「魂動デザイン」とは何かを開発サイド全員で考え始めたことによって、クレイモデラーからデザインの提案がでてくるようになったという。</p>
 
-<p><a href="http://www.quirksmode.org/dom/w3c_core.html"><span style="font-size: x-small;">W3C DOM Compatibility - Core</span></a></blockquote>
-ちなみに、似たような名前のメソッドでgetElementsByTagNameてのもある。
-<ul>
-    <li><a href="https://developer.mozilla.org/ja/DOM/document.getElementsByTagName">document.getElementsByTagName - MDC Doc Center</a></li>
-</ul>
-結論：jQueryないと僕生きていけません :(</p>
+<p>これはUIデザイナーとフロントエンドエンジニアの関係にも似てるなと読みながら、納得した。どこの世界も縦割りの組織では、良いものは作れない。明確なゴールと情熱あるリーダーがいると、ここまで組織・会社は変われることができるのかと改めて気づかされた。デザインに興味なくてもモノづくりをしている人すべてに読んで欲しい一冊だ。</p>
+
     </section>
 </article>
 
     
-      <div class="post-tags"><a href="/mol/categories/javascript/">javascript</a> </div>
+      <div class="post-tags"><a href="/mol/categories/books/">books</a> </div>
     
 
     <div class="post-social">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=getElementsByName%20%e3%81%a8%20getElementsByClassName - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fgetelementsbyname-and-getelementsbyclassname%2f" title="はてなブックマークで共有する"
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e3%81%8c%e6%97%a5%e6%9c%ac%e3%82%92%e5%a4%89%e3%81%88%e3%82%8b - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2f978-4334043551-design%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
-  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fgetelementsbyname-and-getelementsbyclassname%2f&text=getElementsByName%20%e3%81%a8%20getElementsByClassName - MOL" title="Twitterで共有する"
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2f978-4334043551-design%2f&text=%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%e3%81%8c%e6%97%a5%e6%9c%ac%e3%82%92%e5%a4%89%e3%81%88%e3%82%8b - MOL" title="Twitterで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-tw" /></svg></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fgetelementsbyname-and-getelementsbyclassname%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2f978-4334043551-design%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-fb" /></svg></a>
 </div>
 <hr>
@@ -141,12 +122,11 @@
 <hr>
 <div class="row post-pager">
   <div class="six columns">
-    <div class="post-previous">  Later article<br>
-      <a href="https://t32k.me/mol/log/live-or-static/"> querySelectorとquerySelectorAllというかLive NodeListとStatic NodeList</a>  </div>
+    <div class="post-previous">  &nbsp;  </div>
   </div>
   <div class="six columns">
     <div class="post-next">  Older article<br>
-      <a href="https://t32k.me/mol/log/the-naked-presenter/"> The Naked Presenter</a>  </div>
+      <a href="https://t32k.me/mol/log/978-4773870015-detail-in-typography/"> ディテール・イン・タイポグラフィ</a>  </div>
   </div>
 </div>
 
@@ -187,7 +167,7 @@
   (adsbygoogle = window.adsbygoogle || []).push({});
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
   ga('create', 'UA-2317436-26', 'auto');
-  ga('set', 'contentGroup1', "2010");
+  ga('set', 'contentGroup1', "2018");
   ga('send', 'pageview');
 </script>
 <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
