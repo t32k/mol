@@ -30,6 +30,7 @@
 
 
 
-    {{ range first 14 .Data.Pages }} {{ .Render "summary"}} {{ end }} {{ partial "ad.html" . }} {{ partial
-    "footer.html" . }}
+    {{ range first 14 .Data.Pages }} {{ .Render "summary"}} {{ end }}
+    {{ partial "ad.html" . }}
+    {{ partial "footer.html" . }}
     {{ partial "tail.html" . }}
