@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@t32k">{{ with .Params.excerpt }}
+    <meta name="twitter:site" content="@t32k">
+    {{ with .Params.excerpt }}
     <meta name="description" content="{{ . }}">
-    <meta name="twitter:description" content="{{ . }}">{{ end }}
+    <meta name="twitter:description" content="{{ . }}">
+    {{ end }}
     <meta property="og:type" content="article">
-    <meta property="og:site_name" content="MOL">{{ with .Params.ogimage }}
+    <meta property="og:site_name" content="MOL">
+    {{ with .Params.ogimage }}
     <meta property="og:image" content="{{ . }}">
-    <meta name="twitter:image" content="{{ . }}">{{ end }}
+    <meta name="twitter:image" content="{{ . }}">
+    {{ end }}
     <meta property="fb:app_id" content="212646065416408">
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="stylesheet" href="/mol/css/app.css?20181206">
@@ -21,4 +25,5 @@
     <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="{{ .Site.Title }}">
 </head>
 
-<body> {{ partial "svg.html" . }}
+<body>
+    {{ partial "svg.html" . }}
