@@ -11,17 +11,25 @@
   <meta property="og:image" content="{{ . }}">{{ end }}
   <meta property="fb:app_id" content="212646065416408">
   <link rel="canonical" href="{{ .Permalink }}">
-  <link rel="stylesheet" href="/mol/css/app.css?20181205">
+  <link rel="stylesheet" href="/mol/css/skeleton.css?20171205">
   <link rel="publisher" href="//plus.google.com/+kojiishimoto">
   <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="{{ .Site.Title }}">
 </head>
 
-<body role="document"> {{ partial "svg.html" . }} {{ partial "header.html" . }} <div class="container">
+<body role="document">
+  {{ partial "svg.html" . }} {{ partial "header.html" . }}
+  <div class="container">
+
     <div class="ad" style="margin:0">
       <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1326877318485833"
         data-ad-slot="7647294979"></ins>
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-    </div> {{ range first 14 .Data.Pages }} {{ .Render "summary"}} {{ end }} {{ partial "ad.html" . }} {{ partial
-    "footer.html" . }} {{ partial "tail.html" . }}
+    </div>
+
+
+
+    {{ range first 14 .Data.Pages }} {{ .Render "summary"}} {{ end }} {{ partial "ad.html" . }} {{ partial
+    "footer.html" . }}
+    {{ partial "tail.html" . }}
