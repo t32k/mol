@@ -1,10 +1,11 @@
 ---
 date: 2018-02-14
 title: チャットデプロイしたい2018
-subtitle: 
+subtitle: Botkit and Octokit
 categories: 
     - development
 excerpt: タイトルの通り、チャットデプロイしたい。
+ogimage: https://t32k.me/mol/images/2018/0214-0.png
 ---
 
 タイトルの通り、チャットデプロイしたい。
