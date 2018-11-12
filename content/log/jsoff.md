@@ -1,10 +1,11 @@
 ---
 date: 2012-03-23
-title: jsoff：ワンクリックでJavaScriptをOFFれるChrome拡張機能
+title: jsoff：ワンクリックでJavaScriptをOFFにするChrome拡張機能
 subtitle: Google Chrome Extension
 categories: 
     - development
 excerpt: This is a chrome extension to disable JavaScript execution with one click.
+ogimage: https://t32k.me/mol/images/2012/0323-00.png
 ---
 
 <div class="fluid"><iframe src="https://www.youtube-nocookie.com/embed/DO2NLd-PUJw" frameborder="0" allowfullscreen></iframe></div>
