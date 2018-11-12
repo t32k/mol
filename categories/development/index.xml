@@ -654,8 +654,9 @@ gzip圧縮を想定してない場合意味ないとか、たった400バイト�
       <pubDate>Fri, 23 Mar 2012 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/jsoff/</guid>
-      <description>Google ChromeってJavaScriptをOFFにしようと思うと、設定 &amp;gt; 高度な設定 &amp;gt; コンテンツ設定 と階層を降りないとできないからめんどくさいねーということをTwitterで見かけたので、Chrome Extensionの勉強も兼ねて作ってみた。
- jsoff - Chrome ウェブストア  インストールすると右上に黄色のアイコンが出てくるので、クッリクでON/OFF切り替える事ができるよ。</description>
+      <description>  Google ChromeってJavaScriptをOFFにしようと思うと、設定 &amp;gt; 詳細設定 &amp;gt; コンテンツ設定 と階層を降りないと、できないからめんどくさいねーということをTwitterで見かけたので、Chrome Extensionの勉強も兼ねて作ってみた。
+ jsoff - Chrome ウェブストア  インストールすると右上に黄色のアイコンが出てくるので、クッリクでON/OFF切り替える事ができるよ。
+更新  2018年11月11日 v2.1.0  </description>
     </item>
     
     <item>
