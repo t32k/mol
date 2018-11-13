@@ -5,7 +5,7 @@ subtitle: MacBook Pro (13-inch, Mid 2012)
 categories: 
     - gadget
 excerpt: 今日は表題のとおり、MBP13”の2012Midのメモリ交換したよ。BTOのとき、16GBが選択できなくて、てっきり認識しないのかと思ってたけど普通に認識するみたいだ。
-ogimage: https://farm9.staticflickr.com/8393/8644568837_cc52139c2d_o.jpg
+ogimage: https://t32k.me/mol/images/2013/0413/02.png
 ---
 
 ![](/mol/images/2013/0413/01.jpg)
