@@ -193,8 +193,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic",
-    YuGothic, Verdana, Meiryo, sans-serif;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -735,10 +735,14 @@ a:hover .social-links-linkedin {
 .post .__media__text {
   color: rgba(0, 0, 0, 0.87);
 }
+.post .__media__image {
+  margin-bottom: 1.5rem;
+}
 @media (min-width: 550px) {
   .post .__media__image {
     float: left;
     margin-right: 1.5rem;
+    margin-bottom: 0;
     width: 140px;
   }
 }
