@@ -5,6 +5,7 @@ subtitle: Immigration is about talent, not costs
 categories: 
     - translation
 excerpt: Immigration is about talent, not costs | AeroFS
+ogimage: https://t32k.me/mol/images/people/yuri_sagalov.jpg
 ---
  
 <cite class="citation">

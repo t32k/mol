@@ -5,6 +5,7 @@ subtitle: Design Engineering
 categories: 
     - translation
 excerpt: Design Engineering - Snook.ca
+ogimage: https://t32k.me/mol/images/people/jonathan_snook.jpg
 ---
 
 <cite class="citation">
