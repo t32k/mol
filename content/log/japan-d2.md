@@ -5,7 +5,7 @@ subtitle: Drive Change Through Financial Innovation
 categories: 
     - blog
 excerpt: おっちゃんな、真面目に働こうと思うんだ。
-ogimage: https://t32k.me/mol/images/2018/0402-00.jpg
+ogimage: https://t32k.me/mol/images/2018/0402-0.jpg
 ---
 
 ![](/mol/images/2018/0402-00.jpg)
