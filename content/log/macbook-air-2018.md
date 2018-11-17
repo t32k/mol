@@ -67,5 +67,15 @@ macOS Mojave ダークモードとスペースグレイはマッチしてる。
 
 ちなみに電源も[PowerUp](https://homeylab.com/)というINDIEGOGOで募集してたUSB−Cハブ＆電源で、黒で統一。
 
+<div class="__media"><a href="https://www.amazon.co.jp/dp/B079NBYZ6K/?tag=warikiru-22" target="_blank" rel="noopener">
+<img src="https://images-na.ssl-images-amazon.com/images/I/81NIarLSthL._SX522_.jpg" alt="" class="__media__image">
+<div class="__media__body">
+    <div>Powerup Apple MacBook Pro 1 – 電源供給アダプターで充電器& USB C Hub withマルチポートusb3 – 87ワット最大出力</div>
+    <div class="__media__text">LIIT</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+</div>
+</a></div>
+
+
 満足...(^q^)
 
