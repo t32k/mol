@@ -76,6 +76,23 @@ macOS Mojave ダークモードとスペースグレイはマッチしてる。
 </div>
 </a></div>
 
+![](/mol/images/2018/1113-12.jpg)
+
+あとケース買おうと思ったけど、重たくなるのは嫌なのでスキンシールというのを買ってみた。
+
+![](/mol/images/2018/1113-13.jpg)
+
+貼るのが難しかったが、なんとか貼れた。裏面もあるよ。
+
+<div class="__media"><a href="https://www.amazon.co.jp/dp/B07K91CVQX/?tag=warikiru-22" target="_blank" rel="noopener">
+<img src="https://images-na.ssl-images-amazon.com/images/I/61Rp3az8lnL._SX522_.jpg" alt="" class="__media__image">
+<div class="__media__body">
+    <div>wraplus for MacBook Air Retina 13 インチ [ブラックカーボン] スキンシール フィルム ケース 2018 新型</div>
+    <div class="__media__text">wraplus</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+</div>
+</a></div>
+
 
 満足...(^q^)
 
