@@ -1,6 +1,10 @@
 :root {
-  --color-text: black;
-  --color-background: white;
+  --hex-primary: #000;
+  --hex-secondary: #000;
+  --hex-surface: #000;
+  --hex-background: #000;
+  --hex-text: #000;
+  --hex-error: #000;
 }
 
 @supports ((--foo: bar)) {
@@ -18,7 +22,7 @@ blockquote {
   color: #999;
 }
 
-/* Grid
+/* Grid 87, 60, 38
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .container {
