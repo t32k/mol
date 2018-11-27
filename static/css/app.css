@@ -26,8 +26,6 @@ body {
   color: rgba(0, 0, 0, 0.87);
 }
 
-
-
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -212,7 +210,6 @@ blockquote {
   width: 100px !important;
   margin: 10px !important;
 }
-
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -602,17 +599,28 @@ a:hover .social-links-linkedin {
   }
 }
 
-
 @media (prefers-color-scheme: dark) {
   body {
     background: #333;
     color: rgba(255, 255, 255, 0.87);
   }
+  .post .__media__text {
+    color: rgba(255, 255, 255, 0.87);
+  }
+  .post-tags a {
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .post-tags a:hover {
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
   .u-mute {
     color: rgba(255, 255, 255, 0.6);
   }
 }
-
 
 /* Grid 87, 60, 38
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
