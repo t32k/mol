@@ -30,7 +30,7 @@ ogimage: https://t32k.me/mol/images/2018/tnf/verto-s3k-02.jpg
 
 ![Endurus Hike Mid　かかと](/mol/images/2018/tnf/endurus-hike-mid-03.jpg)
 
-エンデュラスというノースフェイスで有名なトレイルランニングシューズのモデルらしいです。それのミッドカットモデルなので、これ登山靴？と思えるくらい軽かった。スニーカー感覚で初心者でも歩きやすい。今回紹介する4足の中でも最軽量の435gも魅力的。モデル名にも書いてあるがやっぱりトレッキングではなくハイキングシューズなんだろう。
+エンデュラスというノースフェイスで有名なトレイルランニングシューズのモデルらしい。それのミッドカットモデルなので、これ登山靴？と思えるくらい軽かった。スニーカー感覚で初心者でも歩きやすい。今回紹介する4足の中でも最軽量の435gも魅力的。モデル名にも書いてあるが、やっぱりトレッキングではなくハイキングシューズなんだろう。
 
 <div class="__media"><a href="https://www.amazon.co.jp/dp/B07916X9Z2/?tag=warikiru-22" target="_blank" rel="noopener">
 <img src="https://images-na.ssl-images-amazon.com/images/I/81eybJrGslL._UL1500_.jpg" alt="" class="__media__image">
@@ -157,6 +157,6 @@ ogimage: https://t32k.me/mol/images/2018/tnf/verto-s3k-02.jpg
 
 というわけで、自分はまだ一回しか登山したことのないド素人なので、S4Kまでいくとちょっと背伸びしすぎだなと感じた。かといってエンデュラスだと、NIKEのトレイルシューズ持ってるのでかぶる。そうなるとクレストンかS3Kだけど、3シーズン対応の万能感があるので、ヴェルト S3Kにキメた！
 
-あと今回の4足、購入するとなると普通に10万以上になっちゃうので、[Prime Wardrobe](https://www.amazon.co.jp/b/?ie=UTF8&bbn=5429200051&node=5425661051&tag=googhydr-22&ref=pd_sl_8asslomlsr_b&adgrpid=59329490045&hvpone=&hvptwo=&hvadid=305683474748&hvpos=1t1&hvnetw=g&hvrand=2786119122743167591&hvqmt=b&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1028853&hvtargid=kwd-548920076048)というサービスを使ってみた。Amazonプライム会員のサービスだけど、とりあえず注文して、気に入らなかったら返品して、返品しなかったものだけ請求される仕組み。
+あと今回の4足、購入するとなると普通に10万以上になっちゃうので、[Prime Wardrobe](https://www.amazon.co.jp/b/?ie=UTF8&bbn=5429200051&node=5425661051&tag=googhydr-22&ref=pd_sl_8asslomlsr_b&adgrpid=59329490045&hvpone=&hvptwo=&hvadid=305683474748&hvpos=1t1&hvnetw=g&hvrand=2786119122743167591&hvqmt=b&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1028853&hvtargid=kwd-548920076048)というサービスを使ってみた。Amazonプライム会員のサービスだけど、とりあえず注文して、気に入らなかったら返品して、返品しなかったものだけ請求される仕組み。もちろん返品にかかる送料は無料だ。
 
 登山靴はやっぱり実際に履いて試したほうがよいが、小さい店舗だと履きたいモデルが置いてないこともあるので、Amazonの中の大量の選択肢から選べるのは大変よかった。
