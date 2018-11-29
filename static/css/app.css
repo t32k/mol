@@ -1,10 +1,10 @@
 /* Variables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
-  --rgb-primary: 255, 2, 102;
-  --rgb-secondary: 0, 120, 210;
   --rgb-surface: 0, 0, 0;
   --rgb-background: 255, 255, 255;
+  --rgb-primary: 255, 2, 102;
+  --rgb-secondary: 0, 120, 210;
   --alpha-100: 0.07;
   --alpha-200: 0.14;
   --alpha-300: 0.21;
@@ -17,16 +17,12 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media (prefers-color-scheme: dark) {
   :root {
-    --rgb-primary: 0, 253, 153;
-    --rgb-secondary: 255, 135, 45;
     --rgb-surface: 255, 255, 255;
     --rgb-background: 45, 45, 45;
+    --rgb-primary: 0, 253, 153;
+    --rgb-secondary: 255, 135, 45;
   }
 }
-
-
-
-
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -106,9 +102,7 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
 }
 
-li {
-  margin-bottom: 1rem;
-}
+li { margin-bottom: 1rem; }
 
 /* Code
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
