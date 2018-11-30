@@ -7,7 +7,115 @@
         
         
         
-        <updated>Thu, 29 Nov 2018 00:00:00 UTC</updated>
+        <updated>Fri, 30 Nov 2018 00:00:00 UTC</updated>
+        
+        <item>
+            <title>Dive into the dark side</title>
+            <link>https://t32k.me/mol/log/dive-into-the-dark-side/</link>
+            <pubDate>Fri, 30 Nov 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/dive-into-the-dark-side/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;昔フロントレンドで、環境光の明るさによってCSS変えられたらおもしろいよね的なことを@simuraiが彼の作った&lt;a href=&#34;http://simurai.com/projects/2016/01/01/duotone-themes&#34;&gt;Atomのテーマ&lt;/a&gt;を解説しながら言っていた。環境光については@girlie_macが2014年に記事を書いていたので、CSSスゴイ！ほえー！と思ってた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://html5experts.jp/girlie_mac/4558/&#34;&gt;HTML5で実現できる！環境光に合わせたレスポンシブなUI | HTML5Experts.jp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;media feature &lt;code&gt;luminosity&lt;/code&gt;は&lt;code&gt;light-level&lt;/code&gt;に名前を変えたが今も実装の気配なさそうだ。一方で、2018年、macOS Mojaveがリリースされ、ダークモードが利用できるようになった。自分も流行りに乗って自宅のMacで利用している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://paulmillr.com/posts/using-dark-mode-in-css/&#34;&gt;Paul Miller — Using dark mode in CSS with MacOS Mojave&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* Text and background color for light mode */
+body {
+  color: black;
+}
+
+/* Text and background color for dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background-color: black;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.jxck.io/entries/2018-11-10/dark-mode-via-prefers-color-scheme.html&#34;&gt;prefers-color-scheme を用いた Dark Mode 対応と User Preference Media Features | blog.jxck.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちなみに、&lt;code&gt;prefers-color-scheme&lt;/code&gt;はMediaQueries Lv5のUser Preference Media Featuresという仕様らしい、カラースキームの他にも。コントラストの強弱、アニメーションの動きを減らすなどのユーザー設定をCSSから検知できる未来がくるかもしれない。その人のコンテキストに応じたデザインを今後考える必要性がある。&lt;/p&gt;
+
+&lt;h2 id=&#34;考慮すべきこと&#34;&gt;考慮すべきこと&lt;/h2&gt;
+
+&lt;p&gt;個人的に、なにかをデザインするとき黒基調を選択した憶えがない。うまくやれば高級感・エレガンスさを醸し出せるが、下手を放けば、たちまちアングラ・いかがわしい感じになってしまうので難しい。そんなもので、あまりダークテーマについて考えたことがなかったからだ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://uxplanet.org/dark-side-of-ui-benefits-of-dark-background-12f560bf7165&#34;&gt;Dark Side of UI. Benefits of Dark Background – UX Planet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記の記事によれば、感情的な側面において、暗い色は一般的に優雅さやミステリーさを想起させる。またときには、エレガンスさ、フォーマルさ、荘厳・一流といったものをイメージさせる。それゆえ、多くの世界的なブランドは、モノトーンなプレゼンテーションを多用し、消費者にそれを知らせる。ゆえに、UIにおいてもこのような効果は期待できる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://problogger.com/light-or-dark-blog-backgrounds-poll-results/&#34;&gt;2009年のプロブロガー向けの投票&lt;/a&gt;だが、ほぼ半数がライトテーマを好み、10%がダークテーマがブログデザインにおいて良いと答えた。また36%のユーザーはコンテンツ次第だとも答えている。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;a href=&#34;http://lite.mst.edu/media/research/ctel/documents/LITE-2003-04.pdf&#34;&gt;Richard H. HallとPatrick Hannaの調査&lt;/a&gt;によれば、ポジティブテキスト（明るい背景で暗いテキスト）が、可読性のパフォーマンスが高いことが判明した。一方で、ネガティブテキスト（暗い背景で明るいテキスト）でも十分なコントラストがあれば、ポジティブテキストと同じくらい効率になる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.wadackel.me/2018/improve-design-and-refactor/&#34;&gt;ブログのダークモード対応とその他リファクタリングなど - wadackel.me&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コントラストにおいては、&lt;a href=&#34;https://waic.jp/docs/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html&#34;&gt;WCAG 2.0&lt;/a&gt;によると&lt;code&gt;4.5 : 1&lt;/code&gt; のコントラスト比があればよいらしいので、本ブログでもリンクの色を修正した。&lt;/p&gt;
+
+&lt;h2 id=&#34;実装&#34;&gt;実装&lt;/h2&gt;
+
+&lt;p&gt;というわけで、ぼくも自分のブログをダークモード対応してみる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://caniuse.com/#search=custom%20properties&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;当然だが、ライトモードとダークモードで２つの色のセットがある、セレクタ毎にそれらを指定していくのは大変苦労する。気づいたら2018年末、カスタムプロパティがほとんどのブラウザで対応している。やった！ということで、基本CSSでの色指定はカスタムプロパティを使用しモードの切替時に変数を上書きすることで、楽に管理できる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@mwichary/dark-theme-in-a-day-3518dde2955a&#34;&gt;Dark theme in a day – Marcin Wichary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のブログ主はHSL、色相（Hue）、彩度（Saturation）、輝度（Lightness)で色を管理している。色相を変数化することで、ダークモードでも複数のカラーパターンを実装している。なるほど、頭が良い。&lt;/p&gt;
+
+&lt;p&gt;しかし、私のブログは基本モノトーンなので、&lt;code&gt;#ddd&lt;/code&gt;とか&lt;code&gt;#eee&lt;/code&gt;といった似たようなグレーが無駄に多くあった。まず、それらを6種類のグレーに整理した。&lt;/p&gt;
+
+&lt;p&gt;また、&lt;a href=&#34;https://material.io/design/color/text-legibility.html#legibility-standards&#34;&gt;Material Design&lt;/a&gt;でも実装されているように、透明度を使ってグレーの濃淡を表現することにした。&lt;code&gt;#000000&lt;/code&gt; は真っ黒だが、白地(&lt;code&gt;#FFFFFF&lt;/code&gt;)の背景で、それの不透明度を60%にしたら、&lt;code&gt;#666666&lt;/code&gt;相当のグレーを表現できる。&lt;/p&gt;
+
+&lt;p&gt;このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。&lt;code&gt;#00000060&lt;/code&gt;のようなアルファ値を含んだ&lt;a href=&#34;https://caniuse.com/#feat=css-rrggbbaa&#34;&gt;#rrggbbaa&lt;/a&gt;をサポートしているブラウザも増えているが、&lt;code&gt;&amp;quot;#000000&amp;quot;　+ &amp;quot;60&amp;quot;&lt;/code&gt;のように文字列結合をCSSファイルで実現するのは難しい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;html {
+  color: rgba(var(--rgb-surface), var(--alpha-600));
+  background: rgb(var(--rgb-background));
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このように色指定を変数と不透明度を利用することで、ダークモード時は、&lt;code&gt;--rgb-surface&lt;/code&gt;の黒(0, 0, 0)を白(255, 255, 255)にするだけでほぼほぼ対応できる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは背景の色とかアクセントカラーとかを、お好みにあわせて変えるだけなので、カスタムプロパティ最高かよと思いました（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-03.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今はSafari Technology Preview 68+だけの対応だけど、通常のSafariやChromeがサポートするようになったときに、購読してるブログがダークモード対応してたら、おっ！っとなるかもしれない。知らんけど( ˘ω˘)&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>ザ・ノース・フェイスの登山靴をいろいろ試してみた</title>
@@ -456,7 +564,7 @@ git push -f
 &lt;li&gt;&lt;a href=&#34;https://qiita.com/dehali22/items/09cc89ed87f022668d80&#34;&gt;git push引数省略時のデフォルト動作設定 - Qiita&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;これでしばらくは、デプロイが安定するだろう&amp;hellip;( ˘ω˘)ｽﾔｧ&lt;/p&gt;
+&lt;p&gt;これでしばらくは、デプロイが安定するだろう&amp;hellip;( ˘ω˘)&lt;/p&gt;
 </description>
         </item>
         
@@ -819,39 +927,6 @@ git push -f
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.wantedly.com/companies/japan-d2&#34;&gt;Wantedly&lt;/a&gt;から応募してもいいし、&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;に気軽に声かけてねm(_ _)m&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>デザイン組織のつくりかた</title>
-            <link>https://t32k.me/mol/log/978-4802510837-org-design/</link>
-            <pubDate>Sun, 11 Mar 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4802510837-org-design/</guid>
-            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4802510837/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/515p1Uo6rcL._SX350_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;デザイン組織のつくりかた&lt;br&gt;デザイン思考を駆動させるインハウスチームの構築＆運用ガイド&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;ピーター・メルホルツ&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;たまにはデザインの本を読んでみようかと手にとってみた。&lt;/p&gt;
-
-&lt;p&gt;最初に断っておくけど、タイトルに『デザイン組織のつくりかた』と書いてあるからといって、あなたがデザイナーの部下を数十人、数百人抱えるようなデザイン部長である必要はない。&lt;/p&gt;
-
-&lt;p&gt;本書はどのようにしたらデザインを組織全体に浸透させ、ワークさせるのか解説しているので、いちデザイナーとしてどのように自分が与えられた役割を果たすべきなのか理解することは非常に大切だ。&lt;/p&gt;
-
-&lt;p&gt;また、あなたがデザイナーではなくエンジニアだとしても読んでおいて損はないだろう。デザインをエンジニアリングとして置き換えて読めば、十分エンジニアとしても、（組織論なので）役に立つことが書いてある。またデザイナーと一言でいっても、いろいろなデザイナーがいるので、その＊＊＊デザイナーの各肩書の説明もしてあるので、デザイナーを理解するのにもよいだろう。&lt;/p&gt;
-
-&lt;p&gt;エンジニアの求人でよくネタにされる『フルスタックエンジニア』と同様に、デザイナーの求人においても『ユニコーンデザイナー』（コードもかけるデザイナー）なんていないから、そんなもの求めるな！それよりもここのデザイナーの強みを活かしてチームを作れ！と書いてあったのは、おもしろかった。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;深く考えもせずにデザインとユーザーエクスペリエンスを一緒にしてしまうと、ユーザーエクスペリエンスに関連する他のすべての領域を軽視することになる。ユーザーエクスペリエンスはデザインだけでなく、エンジニアリング、マーケティング、顧客ケアなど、数多くの部門の貢献が結果となって表れたものだ。（中略）ユーザーエクスペリエンスはすべての人々の責務でなければならない。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;あと個人的に、UXデザインって言葉使ってなくて好感が持てた。&lt;/p&gt;
 </description>
         </item>
         
