@@ -97,23 +97,14 @@
 <p>デフォルトのスタイルがブラウザ毎で存在しそれは全て違う YUIのrecet.cssを使うと良い</p>
 
 <p>クラスの順序に違いはない プロパティと値の順序 スペルミスはエラーにならない（無視されるだけ）</p>
-
-<pre><code class="language-css">color: red,
-colour: blue
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">color</span><span style="color:#f92672">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">colour</span><span style="color:#f92672">:</span> <span style="color:#f92672">blue</span></code></pre></div>
 <p>スタイルの順序</p>
-
-<pre><code class="language-css">.foo {color: red;}
-.foo {color: blue;}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">foo</span> {<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;}
+.<span style="color:#a6e22e">foo</span> {<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;}</code></pre></div>
 <p>この場合、blueが勝つ</p>
-
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;moreStyles.css&quot;&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;styles.css&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;moreStyles.css&#34;</span>&gt;</code></pre></div>
 <ul>
 <li>この場合、moreStyles.cssの方が勝つ</li>
 <li>同じ詳細度なら最後に出てきた方が勝つ</li>
@@ -121,36 +112,18 @@ colour: blue
 </ul>
 
 <p>IDとクラス</p>
-
-<pre><code class="language-css">#nav p {color: red }
-.nav p {color: blue }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">#nav <span style="color:#f92672">p</span> {<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span> }
+.<span style="color:#a6e22e">nav</span> <span style="color:#f92672">p</span> {<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span> }</code></pre></div>
 <p>INLINE STYLES</p>
-
-<pre><code class="language-html">&lt;p style=&quot;color: green;&quot;&gt;My page&lt;/p&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color: green;&#34;</span>&gt;My page&lt;/<span style="color:#f92672">p</span>&gt;</code></pre></div>
 <p>!IMPORTANT</p>
-
-<pre><code class="language-css">p { color: red !important; }
-</code></pre>
-
-<pre><code class="language-html">&lt;p style=&quot;color: green;&quot;&gt;My page&lt;/p&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">p</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span> <span style="color:#75715e">!important</span>; }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color: green;&#34;</span>&gt;My page&lt;/<span style="color:#f92672">p</span>&gt;</code></pre></div>
 <p>この場合、redになる</p>
 
 <p>継承</p>
-
-<pre><code class="language-css">body { font-size: 18px; }
-</code></pre>
-
-<pre><code class="language-html">&lt;body&gt;
-  &lt;p&gt;This text is 18px.&lt;/p&gt;
-&lt;/body&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> { <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">18</span><span style="color:#66d9ef">px</span>; }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;This text is 18px.&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;</code></pre></div>
 <p>P要素も18pxになる</p>
 
 <p>うまくいかなかったらスパゲッティコードになってしまう</p>
@@ -178,11 +151,8 @@ colour: blue
 <p>冗長性は避ける 似たようなものはまとめろ</p>
 
 <p>ロケーションの依存性を避ける</p>
-
-<pre><code class="language-css">#weatherModule h3{color:red;}
-#tabs h3{color:blue}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">#weatherModule <span style="color:#f92672">h3</span>{<span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">red</span>;}
+#tabs <span style="color:#f92672">h3</span>{<span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">blue</span>}</code></pre></div>
 <p>本当に必要なのか考える</p>
 
 <ul>
@@ -203,48 +173,24 @@ colour: blue
 <h3 id="apply-programming-best-practices-to-style-sheets">Apply programming best practices to style sheets</h3>
 
 <p>デフォルト値を設定する</p>
-
-<pre><code class="language-css">×　#tabs h3{color:blue}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　#tabs <span style="color:#f92672">h3</span>{<span style="color:#66d9ef">color</span>:<span style="color:#66d9ef">blue</span>}</code></pre></div>
 <p>クラスに構造を定義する</p>
-
-<pre><code class="language-css">×　div.error{…}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　<span style="color:#f92672">div</span>.<span style="color:#a6e22e">error</span>{<span style="color:#960050;background-color:#1e0010">…</span>}</code></pre></div>
 <p>要素にスタイル付けしない</p>
-
-<pre><code class="language-css">×　p{..}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　<span style="color:#f92672">p</span>{<span style="color:#960050;background-color:#1e0010">..</span>}</code></pre></div>
 <p>同じ詳細度にする</p>
 
 <p>セレクタによるハックは控えめに</p>
-
-<pre><code class="language-css">×　.ie .mod .hd{…}　→　.mod .hd{_zoom:1;}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　.<span style="color:#a6e22e">ie</span> .<span style="color:#a6e22e">mod</span> .<span style="color:#a6e22e">hd</span>{<span style="color:#960050;background-color:#1e0010">…</span>}　<span style="color:#960050;background-color:#1e0010">→</span>　.<span style="color:#a6e22e">mod</span> .<span style="color:#a6e22e">hd</span>{_zoom:<span style="color:#ae81ff">1</span>;}</code></pre></div>
 <p>ロケーションによる詳細度の指定は避ける</p>
-
-<pre><code class="language-css">×　.sidebar ul{…}
-×　.header ul {…}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　.<span style="color:#a6e22e">sidebar</span> <span style="color:#f92672">ul</span>{<span style="color:#960050;background-color:#1e0010">…</span>}
+<span style="color:#960050;background-color:#1e0010">×</span>　.<span style="color:#a6e22e">header</span> <span style="color:#f92672">ul</span> {<span style="color:#960050;background-color:#1e0010">…</span>}</code></pre></div>
 <p>過度に特定なクラス名は避ける</p>
-
-<pre><code class="language-css">×　.niXcolesDucatiMonster620{…}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　.<span style="color:#a6e22e">niXcolesDucatiMonster620</span>{<span style="color:#960050;background-color:#1e0010">…</span>}</code></pre></div>
 <p>シングルトンは避ける（IDは避ける）</p>
-
-<pre><code class="language-css">×　#myUniqueIdentifier{…}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#960050;background-color:#1e0010">×</span>　#myUniqueIdentifier{<span style="color:#960050;background-color:#1e0010">…</span>}</code></pre></div>
 <p>ミックスインを使う</p>
-
-<pre><code class="language-html">○ class=&quot;media&quot; class=&quot;media extended&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">○ class=&#34;media&#34; class=&#34;media extended&#34;</code></pre></div>
 <p>カプセル化 オブジェクトのサブノードにアクセスさせない</p>
 
 <h2 id="セッション感想">セッション感想</h2>

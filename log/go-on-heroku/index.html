@@ -97,30 +97,21 @@
 <h3 id="install-go">Install Go</h3>
 
 <p><a href="https://bitbucket.org/ymotongpoo/goenv">goenv</a>というGoのバージョン管理ツールもあるみたいだけど、初心者なので<a href="http://brew.sh/">Homebrew</a>で入れることにする。</p>
-
-<pre><code class="language-sh">$ brew install go
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install go
 $ go version
-go version go1.3.3 darwin/amd64
-</code></pre>
-
+go version go1.3.3 darwin/amd64</code></pre></div>
 <p>わーい、かんたん٩(๑❛ᴗ❛๑)۶</p>
 
 <h3 id="go-environment">Go Environment</h3>
 
 <p><code>$GOPATH</code>等を設定する。ここで指定したパス以下がGoのワークスペースとなる。お好きなシェルプロファイルに記述。</p>
-
-<pre><code class="language-sh">$ echo 'export GOPATH=$HOME' &gt;&gt; $HOME/.bash_profile
-$ echo 'export PATH=$PATH:$GOPATH/bin'  &gt;&gt; $HOME/.bash_profile
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo <span style="color:#e6db74">&#39;export GOPATH=$HOME&#39;</span> &gt;&gt; $HOME/.bash_profile
+$ echo <span style="color:#e6db74">&#39;export PATH=$PATH:$GOPATH/bin&#39;</span>  &gt;&gt; $HOME/.bash_profile</code></pre></div>
 <p>以下のようなディレクトリ構成で管理される。</p>
-
-<pre><code class="language-sh">$GOPATH
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$GOPATH
 ├── bin（コンパイルしたバイナリファイル）
 ├── pkg（パッケージオブジェクトファイル）
-└── src（Goの作業ソースファイル）
-</code></pre>
-
+└── src（Goの作業ソースファイル）</code></pre></div>
 <p>GitHub上に置かれているソースファイルは、 <code>~/src/github.com/{USER_NAME}/{REPOSITORY_NAME}</code> みたいに管理される。</p>
 
 <ul>
@@ -129,10 +120,7 @@ $ echo 'export PATH=$PATH:$GOPATH/bin'  &gt;&gt; $HOME/.bash_profile
 </ul>
 
 <p>だもんでghqの方もそっち合わせてpecoとか使うと捗るらしいよ。</p>
-
-<pre><code class="language-sh">git config --global ghq.root ~/src
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git config --global ghq.root ~/src</code></pre></div>
 <p>ghqでgetしてきたリポジトリの保存先の設定。</p>
 
 <ul>
@@ -158,66 +146,45 @@ $ echo 'export PATH=$PATH:$GOPATH/bin'  &gt;&gt; $HOME/.bash_profile
 <h3 id="go-web-app">Go Web App</h3>
 
 <p>話が逸れたので戻すと<code>~/src/demoapp</code>のディレクトリを作ってそこで作業する。</p>
-
-<pre><code class="language-sh">$ mkdir $GOPATH/src/demoapp
-$ cd $GOPATH/src/demoapp
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mkdir $GOPATH/src/demoapp
+$ cd $GOPATH/src/demoapp</code></pre></div>
 <p><code>web.go</code>のファイルを作成する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// web.go
+</span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<pre><code class="language-go">// web.go
-package main
-
-import (
-    &quot;fmt&quot;
-    &quot;net/http&quot;
-    &quot;os&quot;
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+    <span style="color:#e6db74">&#34;os&#34;</span>
 )
 
-func main() {
-    http.HandleFunc(&quot;/&quot;, hello)
-    fmt.Println(&quot;listening...&quot;)
-    err := http.ListenAndServe(&quot;:&quot;+os.Getenv(&quot;PORT&quot;), nil)
-    if err != nil {
-      panic(err)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">hello</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;listening...&#34;</span>)
+    <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;PORT&#34;</span>), <span style="color:#66d9ef">nil</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+      panic(<span style="color:#a6e22e">err</span>)
     }
 }
 
-func hello(res http.ResponseWriter, req *http.Request) {
-    fmt.Fprintln(res, &quot;hello, world&quot;)
-}
-</code></pre>
-
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">hello</span>(<span style="color:#a6e22e">res</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">req</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintln</span>(<span style="color:#a6e22e">res</span>, <span style="color:#e6db74">&#34;hello, world&#34;</span>)
+}</code></pre></div>
 <p>んで、<code>go get</code>（コンパイル、インストール）して、demoappをバイナリで動かすようにする。</p>
-
-<pre><code class="language-sh">$ PORT=5000 demoapp
-$ open http://localhost:5000/
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ PORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span> demoapp
+$ open http://localhost:5000/</code></pre></div>
 <p>ローカル環境で動いてることを確認する。</p>
 
 <h3 id="heroku-setup">Heroku Setup</h3>
 
 <p><code>heroku login</code>とかしとく。</p>
-
-<pre><code class="language-sh">$ echo 'web: demoapp' &gt; Procfile
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ echo <span style="color:#e6db74">&#39;web: demoapp&#39;</span> &gt; Procfile</code></pre></div>
 <p>Procfileを作る。</p>
-
-<pre><code class="language-sh">$ go get github.com/kr/godep
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ go get github.com/kr/godep</code></pre></div>
 <p>Godepという依存性の管理ツールをインスコ。</p>
-
-<pre><code class="language-sh">$ godep save
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ godep save</code></pre></div>
 <p>依存性を保存。</p>
-
-<pre><code class="language-sh">$ heroku create --buildpack https://github.com/kr/heroku-buildpack-go.git
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ heroku create --buildpack https://github.com/kr/heroku-buildpack-go.git</code></pre></div>
 <ul>
 <li><a href="https://github.com/kr/heroku-buildpack-go">kr/heroku-buildpack-go</a></li>
 </ul>
@@ -237,13 +204,9 @@ $ open http://localhost:5000/
 </ul>
 
 <p>まだBeta版でherokuにあってhkに無いコマンドもありますが。</p>
-
-<pre><code class="language-sh">$ L=/usr/local/bin/hk &amp;&amp; curl -sL -A &quot;`uname -sp`&quot; https://hk.heroku.com/hk.gz | zcat &gt;$L &amp;&amp; chmod +x $L
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ L<span style="color:#f92672">=</span>/usr/local/bin/hk <span style="color:#f92672">&amp;&amp;</span> curl -sL -A <span style="color:#e6db74">&#34;`uname -sp`&#34;</span> https://hk.heroku.com/hk.gz | zcat &gt;$L <span style="color:#f92672">&amp;&amp;</span> chmod +x $L</code></pre></div>
 <p>インスコ。</p>
-
-<pre><code class="language-sh">t32k at MBP in ~
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">t32k at MBP in ~
 $ time heroku apps &gt;/dev/null
 real	0m1.980s
 user	0m0.711s
@@ -253,9 +216,7 @@ t32k at MBP in ~
 $ time hk apps &gt;/dev/null
 real	0m0.724s
 user	0m0.076s
-sys	0m0.019s
-</code></pre>
-
+sys	0m0.019s</code></pre></div>
 <p>おぉー、桁が違うぜ！ってことで、速いもの好きなあなたはインストールしてみてはどうでしょうか。</p>
 
 <p>僕もGoで作ったCLIツール作りたい٩(๑❛ᴗ❛๑)۶</p>

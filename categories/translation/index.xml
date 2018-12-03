@@ -24,12 +24,12 @@ makeの導入 makeはとても古いツールであり、ネイティブ開発�
 君はすでにUNIXのエコシステムを持っている。パイプ、ストリーム、ユーティリティなどがすべてそこにある。ビルドする必要性のあるのツールのほとんどは、すでにそのエコシステムに存在している。もし、Windowsのような非UNIXのマシンで開発しているのなら、悪いことを言わないから適切なシェルとgowのようなバンドルをインストールするべきだろう。あるいは、cmd.exeも同様にcmderのような、よりよいターミナル端末に置き換えべきだろう。
 makeは一般的にMakefileと呼ばれるファイルで定義、使用し、拡張子は必要ない、大文字に気をつけること。ルールはターゲットと依存するファイルから成り、シェルコマンドも有しており、普通それらはレシピと呼ばれる。
 一般的なルールは以下のような感じ。
-ターゲット: 依存するファイル レシピ # 注意！スペースじゃなくてタブ！  では、以上の知識を使って簡単な例をやってみよう。依存するファイルであるinput.txtをターゲットであるoutput.txtにコピーしたい場合、レシピは以下の様なシンプルなコマンドラインとなるだろう。
-output.txt: input.txt cp $&amp;lt; $@  とってもシンプルだろう？cp(1)の起動といくつかの自動変数である、$@はターゲットのファイル名を保持し、$&amp;lt;は最初の依存するファイル名を保持する。
+ターゲット: 依存するファイル レシピ # 注意！スペースじゃなくてタブ！ では、以上の知識を使って簡単な例をやってみよう。依存するファイルであるinput.txtをターゲットであるoutput.txtにコピーしたい場合、レシピは以下の様なシンプルなコマンドラインとなるだろう。
+output.txt: input.txt cp $&amp;lt; $@ とってもシンプルだろう？cp(1)の起動といくつかの自動変数である、$@はターゲットのファイル名を保持し、$&amp;lt;は最初の依存するファイル名を保持する。
 では、次はもっと実践的な例をやってみよう。
 コードのコンパイル Coffeescript、Typescriptや、babelのようなJavaScriptトランスパイラーは最近では普通に使われているので、モダンなJavaScriptから現在のブラウザで解釈できるようなスクリプトにコンパイルする必要がある。
 このルールを定義するには、srcディレクトリにあるファイルを変換し、トランスパイルしたファイルをlibディレクトリに保存することだ。
-# まず、JavaScriptコンパイラを変数として割り当てる # この場合babelで、厳密には必要ないが # あったほうがメンテナンス性が少し良くなるだろう JC = babel # looseトランスパイルを有効にする JCFLAGS = --loose # 次にsrcディレクトリからソースとなるファイルを見つける SRC = $(shell find src -name &amp;quot;*.js&amp;quot;) # それから取得した文字列を置き換え、 # ソースディレクトリとライブラリディレクトリでマップする LIB = $(SRC:src/%.js=lib/%.js) # 最後に、ソースからライブラリにコンバートするルールを定義する # これはコンパイラをそのオプションとその依存ファイルで起動させるためである # ようやく定義したルールで、ターゲットを出力する $(LIB): $(SRC) mkdir -p $(@D) $(JC) $(JCFLAGS) $&amp;lt; -o $@  すべてbashスクリプトに似ていると思う、 $(VARIABLE) は変数を展開し、$(@D) は別の自動変数で、ターゲットファイル名のディレクトリ部分を保持する。</description>
+# まず、JavaScriptコンパイラを変数として割り当てる # この場合babelで、厳密には必要ないが # あったほうがメンテナンス性が少し良くなるだろう JC = babel # looseトランスパイルを有効にする JCFLAGS = --loose # 次にsrcディレクトリからソースとなるファイルを見つける SRC = $(shell find src -name &amp;#34;*.js&amp;#34;) # それから取得した文字列を置き換え、 # ソースディレクトリとライブラリディレクトリでマップする LIB = $(SRC:src/%.js=lib/%.js) # 最後に、ソースからライブラリにコンバートするルールを定義する # これはコンパイラをそのオプションとその依存ファイルで起動させるためである # ようやく定義したルールで、ターゲットを出力する $(LIB): $(SRC) mkdir -p $(@D) $(JC) $(JCFLAGS) $&amp;lt; -o $@ すべてbashスクリプトに似ていると思う、 $(VARIABLE) は変数を展開し、$(@D) は別の自動変数で、ターゲットファイル名のディレクトリ部分を保持する。</description>
     </item>
     
     <item>
@@ -131,9 +131,9 @@ ShopifyのWebデベロッパー・デザイナーであり、SMACSSの提唱者�
       <guid>https://t32k.me/mol/log/dont-docwrite-scripts/</guid>
       <description>Original：Don’t docwrite scripts（2012-04-10）by Steve Souders 
 昨日のブログ記事のHTTP Archiveが速くなっている、大きな要因の一つとしてはスクリプトローダーを使用しないことです。そのスクリプトローダーとはスクリプトを動的に読み込むためにdocument.writeを使用しているものです。振り返れば、私は2009年4月のブロッキングなしのスクリプト読み込み、続・ハイパフォーマンスWebサイト(4章)において、document.writeテクニックについて記述していました。それは以下のようなものです。
-document.write(&#39;&amp;lt;script src=&amp;quot;&#39; + src + &#39;&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;\/script&amp;gt;’);  document.writeを使ったスクリプトローダーの問題点：  挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (example). また、ほかの動的読み込みもブロックします (example)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(example)。 
+document.write(&amp;#39;&amp;lt;script src=&amp;#34;&amp;#39; + src + &amp;#39;&amp;#34; type=&amp;#34;text/javascript&amp;#34;&amp;gt;&amp;lt;\/script&amp;gt;’);  document.writeを使ったスクリプトローダーの問題点：  挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (example). また、ほかの動的読み込みもブロックします (example)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(example)。 
 document.writeを使用したスクリプトローダーのため、私が最適化しようとしたページのレンダリングは遅れ、同じページ内の他の非同期スクリプトに関しても読み込みに時間がかかるようになりました。私はこのスクリプトローダーをはずし、非同期にスクリプトを読み込むために代わりのコードを書きました。それはGoogle アナリティクスの非同期スニペットで有名になった createElement-insertBefore パターンです。
-var sNew = document.createElement(&amp;quot;script&amp;quot;); sNew.async = true; sNew.src = &amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&amp;quot;; var s0 = document.getElementsByTagName(&#39;script&#39;)[0]; s0.parentNode.insertBefore(sNew, s0);  なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？
+var sNew = document.createElement(&amp;#34;script&amp;#34;); sNew.async = true; sNew.src = &amp;#34;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&amp;#34;; var s0 = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s0.parentNode.insertBefore(sNew, s0);  なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？
 順を追って考えて見れば、そんなに不思議なことではありません。通常のマークアップによるSCRPT SRC=読み込みは後続のDOM要素のレンダリングを止めることを既に私たち知っています。また、スクリプト実行段階を抜ける前にdocument.writeは評価され、その後、ページのパースが再開されることも理解しています。したがって、通常のSCRPT SRC=をスニペットとした document.writeテクニックは残りのページのレンダリングをブロックしてしまいます。
 反対に、createElement-insertBeforeテクニックはレンダリングをブロックしません。事実、document.writeでcreateElement-insertBefore スニペットを生成しても、そのときレンダリングはブロックされません。
 ブロッキングなしのスクリプト読み込み記事での私の結論はスクリプトロード手法を選択するための決定木を使用することです。そうすれば異なるシナリオにおいてどの非同期読み込みテクニックを選択するか困らないでしょう。また注意深く見れば、document.writeの使用は決して推奨されないこともお分かりになるでしょう。Webの世界はたいへん多くのものが移り変わりますが、私が2009年に出したアドバイスは今日においても正しいのです。

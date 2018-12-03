@@ -83,21 +83,20 @@
 </ul>
 
 <p>基本は上記のブログがわかりやすい。</p>
-
-<pre><code>version: 2
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
 jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:<span style="color:#ae81ff">8</span>
 
     steps:
       - checkout
       - run:
           name: System information
-          command: |
-            echo &quot;Node $(node -v)&quot;
-            echo &quot;Yarn v$(yarn --version)&quot;
+          command: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            echo &#34;Node $(node -v)&#34;
+</span><span style="color:#e6db74">            echo &#34;Yarn v$(yarn --version)&#34;</span>
       - run:
           name: Install dependencies
           command: yarn
@@ -106,22 +105,17 @@ jobs:
           command: yarn run build
       - run:
           name: Test
-          command: yarn test
-</code></pre>
-
+          command: yarn test</code></pre></div>
 <p><code>version: 2</code> で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。<code>yarn</code> がデフォルトで入ってるらしく、GAE/Node.jsも<code>yarn</code>が使えるので<code>yarn</code>を使っていく。</p>
 
 <p>あとは<code>run</code>でステップを指定していく。<code>command</code>は<code>|</code>を置けば、複数行でも書ける。</p>
-
-<pre><code>      - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum &quot;yarn.lock&quot; }}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - save_cache:
+          key: cache-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;yarn.lock&#34;</span> }}
           paths:
             - ~/repo/.cache/yarn
             - ~/repo/dist
             - ~/repo/node_modules
-            - ~/repo/package.json
-</code></pre>
-
+            - ~/repo/package.json</code></pre></div>
 <ul>
 <li><a href="https://circleci.com/docs/2.0/caching/#using-keys-and-templates">Using Keys and Templates - Caching Dependencies - CircleCI</a></li>
 </ul>
@@ -130,8 +124,7 @@ jobs:
 ここではユニークなkey名を指定したくて、こんな風にしている。あとはキャッシュさせたいパス。</p>
 
 <p><code>build</code>ステップは終わり。</p>
-
-<pre><code>  deploy:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  deploy:
     working_directory: ~/repo
     docker:
       - image: google/cloud-sdk
@@ -139,17 +132,15 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum &quot;yarn.lock&quot; }}
+          key: cache-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;yarn.lock&#34;</span> }}
       - run:
           name: Deploy to Google App Engine
-          command: |
-            echo &quot;$GOOGLE_AUTH&quot; | base64 -i --decode &gt; &quot;$HOME/gcp-key.json&quot;
-            gcloud auth activate-service-account --key-file &quot;$HOME/gcp-key.json&quot;
-            gcloud --quiet config set project &quot;$GOOGLE_PROJECT_ID&quot;
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &quot;s/\//\-/g&quot;)
-          no_output_timeout: 20m
-</code></pre>
-
+          command: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            echo &#34;$GOOGLE_AUTH&#34; | base64 -i --decode &gt; &#34;$HOME/gcp-key.json&#34;
+</span><span style="color:#e6db74">            gcloud auth activate-service-account --key-file &#34;$HOME/gcp-key.json&#34;
+</span><span style="color:#e6db74">            gcloud --quiet config set project &#34;$GOOGLE_PROJECT_ID&#34;
+</span><span style="color:#e6db74">            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &#34;s/\//\-/g&#34;)</span>
+          no_output_timeout: 20m</code></pre></div>
 <p>つぎに、<code>deploy</code>ステップ。<code>gcloud app deploy</code>のコマンドでデプロイするので、<code>gcloud</code>が入ったdockerイメージを指定。</p>
 
 <p><code>restore_cache</code> で先のステップで保存しといたファイルを呼び出す。</p>
@@ -169,17 +160,14 @@ jobs:
 <p><code>$CIRCLE_BRANCH</code>はCircleCIが設定している環境変数。ビルド番号とかもある。</p>
 
 <p>あと<code>no_output_timeout</code>は、GAE/Node.jsへのデプロイがくっそ遅くて、タイムアウト（デフォルト10分）になるので20分に伸ばしてる。</p>
-
-<pre><code>workflows:
-  version: 2
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">workflows:
+  version: <span style="color:#ae81ff">2</span>
   build_and_deploy:
     jobs:
       - build
       - deploy:
           requires:
-            - build
-</code></pre>
-
+            - build</code></pre></div>
 <p>最後はワークフローの設定。<a href="https://circleci.com/docs/2.0/configuration-reference/#filters">フィルター</a>とかでmasterブランチのときだけ実行とか、必須条件とか決めれる。便利。</p>
 
 <h2 id="参考">参考</h2>

@@ -87,30 +87,27 @@
 <li><a href="http://qiita.com/Jxck_/items/efaff21b977ddc782971">Node - npm で依存もタスクも一元化する</a></li>
 <li><a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">How to Use npm as a Build Tool</a></li>
 </ul>
-
-<pre><code class="language-json">// package.json
-  &quot;scripts&quot;: {
-    &quot;start&quot;: &quot;npm run start-serve &amp; npm run watch&quot;,
-    &quot;test&quot;: &quot;stylestats public/files/css/maple.css&quot;,
-    &quot;start-serve&quot;: &quot;browser-sync start --server public/ --files public/files/**/*&quot;,
-    &quot;clean&quot;: &quot;rm -rf public/files/css/*&quot;,
-    &quot;js:min&quot;: &quot;uglifyjs public/files/js/app.js &gt; public/files/js/app.min.js&quot;,
-    &quot;build:js&quot;: &quot;browserify assets/scripts/app.js &gt; public/files/js/app.js&quot;,
-    &quot;css:sass&quot;: &quot;node-sass assets/styles/maple.scss public/files/css/maple.css&quot;,
-    &quot;css:prefix&quot;: &quot;autoprefixer -b 'last 2 versions' public/files/css/maple.css&quot;,
-    &quot;css:comb&quot;: &quot;csscomb public/files/css/maple.css&quot;,
-    &quot;css:min&quot;: &quot;csso public/files/css/maple.css public/files/css/maple.min.css&quot;,
-    &quot;build:css&quot;: &quot;bin/build-css.sh&quot;,
-    &quot;build&quot;: &quot;npm run build:js &amp;&amp; npm run build:css&quot;,
-    &quot;lint:js&quot;: &quot;jshint assets/scripts/app.js&quot;,
-    &quot;lint:css&quot;: &quot;scss-lint assets/styles/**/*.scss&quot;,
-    &quot;lint&quot;: &quot;npm run lint:js &amp;&amp; npm run lint:css&quot;,
-    &quot;watch:js&quot;: &quot;watch 'npm run build:js' assets/scripts/&quot;,
-    &quot;watch:css&quot;: &quot;watch 'npm run build:css' assets/styles/&quot;,
-    &quot;watch&quot;: &quot;npm run watch:js &amp; npm run watch:css&quot;
-  }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">package.json</span>
+  <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+    <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;npm run start-serve &amp; npm run watch&#34;</span>,
+    <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;stylestats public/files/css/maple.css&#34;</span>,
+    <span style="color:#f92672">&#34;start-serve&#34;</span>: <span style="color:#e6db74">&#34;browser-sync start --server public/ --files public/files/**/*&#34;</span>,
+    <span style="color:#f92672">&#34;clean&#34;</span>: <span style="color:#e6db74">&#34;rm -rf public/files/css/*&#34;</span>,
+    <span style="color:#f92672">&#34;js:min&#34;</span>: <span style="color:#e6db74">&#34;uglifyjs public/files/js/app.js &gt; public/files/js/app.min.js&#34;</span>,
+    <span style="color:#f92672">&#34;build:js&#34;</span>: <span style="color:#e6db74">&#34;browserify assets/scripts/app.js &gt; public/files/js/app.js&#34;</span>,
+    <span style="color:#f92672">&#34;css:sass&#34;</span>: <span style="color:#e6db74">&#34;node-sass assets/styles/maple.scss public/files/css/maple.css&#34;</span>,
+    <span style="color:#f92672">&#34;css:prefix&#34;</span>: <span style="color:#e6db74">&#34;autoprefixer -b &#39;last 2 versions&#39; public/files/css/maple.css&#34;</span>,
+    <span style="color:#f92672">&#34;css:comb&#34;</span>: <span style="color:#e6db74">&#34;csscomb public/files/css/maple.css&#34;</span>,
+    <span style="color:#f92672">&#34;css:min&#34;</span>: <span style="color:#e6db74">&#34;csso public/files/css/maple.css public/files/css/maple.min.css&#34;</span>,
+    <span style="color:#f92672">&#34;build:css&#34;</span>: <span style="color:#e6db74">&#34;bin/build-css.sh&#34;</span>,
+    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;npm run build:js &amp;&amp; npm run build:css&#34;</span>,
+    <span style="color:#f92672">&#34;lint:js&#34;</span>: <span style="color:#e6db74">&#34;jshint assets/scripts/app.js&#34;</span>,
+    <span style="color:#f92672">&#34;lint:css&#34;</span>: <span style="color:#e6db74">&#34;scss-lint assets/styles/**/*.scss&#34;</span>,
+    <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#e6db74">&#34;npm run lint:js &amp;&amp; npm run lint:css&#34;</span>,
+    <span style="color:#f92672">&#34;watch:js&#34;</span>: <span style="color:#e6db74">&#34;watch &#39;npm run build:js&#39; assets/scripts/&#34;</span>,
+    <span style="color:#f92672">&#34;watch:css&#34;</span>: <span style="color:#e6db74">&#34;watch &#39;npm run build:css&#39; assets/styles/&#34;</span>,
+    <span style="color:#f92672">&#34;watch&#34;</span>: <span style="color:#e6db74">&#34;npm run watch:js &amp; npm run watch:css&#34;</span>
+  }</code></pre></div>
 <p>こんな感じで<code>package.json</code>に記述して、<code>npm run watch</code>とかコマンド打って使う。</p>
 
 <h2 id="npm-run-scriptを使うに至るまでの経緯">npm run-scriptを使うに至るまでの経緯</h2>
@@ -162,53 +159,32 @@
 <p><strong>ファイル監視はどーするの？：</strong></p>
 
 <p><a href="https://github.com/mikeal/watch">mikeal/watch</a> を使ってね。</p>
-
-<pre><code class="language-json">&quot;watch:css&quot;: &quot;watch 'npm run build:css' assets/styles/&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;watch:css&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;watch &#39;npm run build:css&#39; assets/styles/&#34;</span></code></pre></div>
 <p><strong>複数タスク実行はどーするの？：</strong></p>
 
 <p>直列に実行するときは<code>&amp;&amp;</code>でつないでね。</p>
-
-<pre><code class="language-json">&quot;build&quot;: &quot;npm run build:js &amp;&amp; npm run build:css&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;build&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;npm run build:js &amp;&amp; npm run build:css&#34;</span></code></pre></div>
 <p>並列に実行したいときは、<code>&amp;</code>でつなぐか、<a href="https://github.com/keithamus/parallelshell">parallelshell</a>を使ってね。</p>
-
-<pre><code class="language-json">&quot;watch&quot;: &quot;npm run watch:js &amp; npm run watch:css&quot;
-&quot;watch&quot;: &quot;parallelshell 'npm run watch:js' 'npm run watch:css'&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;watch&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;npm run watch:js &amp; npm run watch:css&#34;</span>
+<span style="color:#e6db74">&#34;watch&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;parallelshell &#39;npm run watch:js&#39; &#39;npm run watch:css&#39;&#34;</span></code></pre></div>
 <p><strong>スクリプトが長すぎるよ！</strong></p>
 
 <p>シェルファイルに分割するといいよ。</p>
-
-<pre><code class="language-shell">#!/bin/bash
-npm run css:sass &amp; npm run css:prefix &amp; npm run css:comb &amp; npm run css:min
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>npm run css:sass &amp; npm run css:prefix &amp; npm run css:comb &amp; npm run css:min</code></pre></div>
 <p><code>chmod +x</code>しとく。</p>
-
-<pre><code class="language-json">&quot;build:css&quot;: &quot;bin/build-css.sh&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;build:css&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;bin/build-css.sh&#34;</span></code></pre></div>
 <p>または、設定系のオプションは、<code>config</code>フィールドに記述して、<code>scripts</code>フィールドで、<code>$npm_package_config_NAME</code>のようにして使う。が、$npm_package_configって！長い！</p>
-
-<pre><code class="language-json">  &quot;config&quot;: {
-    &quot;stylestats&quot;: &quot;path/to/configuration.json&quot;
-  },
-  &quot;scripts&quot;: {
-    &quot;test&quot;: &quot;stylestats app.css --config $npm_package_config_stylestats&quot;,
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">  <span style="color:#e6db74">&#34;config&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+    <span style="color:#f92672">&#34;stylestats&#34;</span>: <span style="color:#e6db74">&#34;path/to/configuration.json&#34;</span>
+  }<span style="color:#960050;background-color:#1e0010">,</span>
+  <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+    <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;stylestats app.css --config $npm_package_config_stylestats&#34;</span>,</code></pre></div>
 <p>はたまた、npm@2.0以上のユーザーであれば、<a href="https://github.com/npm/npm/pull/5518">Passing Arguments</a>というナウい機能を使う。</p>
-
-<pre><code class="language-json">&quot;scripts&quot;: {
-  &quot;test&quot;: &quot;mocha test/&quot;,
-  &quot;test:xunit&quot;: &quot;npm run test -- --reporter xunit&quot;
-}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+  <span style="color:#f92672">&#34;test&#34;</span>: <span style="color:#e6db74">&#34;mocha test/&#34;</span>,
+  <span style="color:#f92672">&#34;test:xunit&#34;</span>: <span style="color:#e6db74">&#34;npm run test -- --reporter xunit&#34;</span>
+}</code></pre></div>
 <p>上記のように、<code>--</code>を使うことで<code>npm test</code>のあとにコマンドをつなげられる。</p>
 
 <p><strong>Windowsユーザーは？</strong></p>

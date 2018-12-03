@@ -86,65 +86,54 @@
 </ul>
 
 <p>表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。</p>
-
-<pre><code class="language-shell">$ npm install -g gaer 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm install -g gaer 
 $ gaer -t UA-xxxxx-xx -r reportName path/to/data.json
-  Sending [||||||||||||||||||||||||] 100%
-  Success: The data is sent to UA-xxxxx-xx
-</code></pre>
-
+  Sending <span style="color:#f92672">[||||||||||||||||||||||||]</span> <span style="color:#ae81ff">100</span>%
+  Success: The data is sent to UA-xxxxx-xx</code></pre></div>
 <h2 id="デベロッパーとgoogleアナリティクス">デベロッパーとGoogleアナリティクス</h2>
 
 <p>基本的にイベントトラッキングレポートは、ページ遷移をともわないイベント、例えばPDFのダウンロードリンクをクリックした等を計測するために使われる。</p>
-
-<pre><code class="language-javascript">// JavaScript
-ga('send', 'event', 'クリックイベント', 'PDF', '資料請求');
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// JavaScript
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">ga</span>(<span style="color:#e6db74">&#39;send&#39;</span>, <span style="color:#e6db74">&#39;event&#39;</span>, <span style="color:#e6db74">&#39;クリックイベント&#39;</span>, <span style="color:#e6db74">&#39;PDF&#39;</span>, <span style="color:#e6db74">&#39;資料請求&#39;</span>);
+</code></pre></div>
 <p>クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前から<a href="http://qiita.com/hidek84/items/e42f8632d95b9444aea4">JavaScriptのエラーが発生したらそのページのURLを記録する</a>等、デベロッパーライクな使い方をしてる人がいたりする。</p>
 
 <p>そうでもなくても、Googleアナリティクスは、『<strong>サイトの速度</strong>』であったり、『<strong>ユーザーの環境</strong>』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAERを利用して欲しい。</p>
 
 <p>GAERは<a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide">Measurement Protocol</a>を使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。</p>
-
-<pre><code class="language-json">{
-  &quot;foo&quot; : 12,
-  &quot;bar&quot; : 2.1,
-  &quot;baz&quot; : 9
-}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;foo&#34;</span> : <span style="color:#ae81ff">12</span>,
+  <span style="color:#f92672">&#34;bar&#34;</span> : <span style="color:#ae81ff">2.1</span>,
+  <span style="color:#f92672">&#34;baz&#34;</span> : <span style="color:#ae81ff">9</span>
+}</code></pre></div>
 <p>こんな感じのシンプルなデータ構造のJSONなら送れる。</p>
 
 <h2 id="モニタリングツールとして使う">モニタリングツールとして使う</h2>
 
 <p>なぜ、GAERを作ったのか。<a href="https://github.com/t32k/stylestats">StyleStats</a>という、CSSのヘルスチェックツールがある。下記のように使うとJSONデータでCSSの状態を確認することができる。</p>
-
-<pre><code class="language-shell">$ npm install -g stylestats
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm install -g stylestats
 $ stylestats -f json -n foo.css
-{
-  &quot;stylesheets&quot;: 2,
-  &quot;size&quot;: 6682,
-  &quot;dataUriSize&quot;: 0,
-  &quot;gzippedSize&quot;: 1992,
-  &quot;rules&quot;: 86,
-  &quot;selectors&quot;: 179,
-  &quot;simplicity&quot;: 0.48044692737430167,
-  &quot;mostIdentifier&quot;: 2,
-  &quot;lowestCohesion&quot;: 17,
-  &quot;totalUniqueFontSizes&quot;: 12,
-  &quot;totalUniqueFontFamilies&quot;: 1,
-  &quot;totalUniqueColors&quot;: 6,
-  &quot;idSelectors&quot;: 0,
-  &quot;universalSelectors&quot;: 0,
-  &quot;unqualifiedAttributeSelectors&quot;: 17,
-  &quot;javascriptSpecificSelectors&quot;: 0,
-  &quot;importantKeywords&quot;: 0,
-  &quot;floatProperties&quot;: 4,
-  &quot;mediaQueries&quot;: 3
-}
-</code></pre>
-
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;stylesheets&#34;</span>: <span style="color:#ae81ff">2</span>,
+  <span style="color:#e6db74">&#34;size&#34;</span>: <span style="color:#ae81ff">6682</span>,
+  <span style="color:#e6db74">&#34;dataUriSize&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#e6db74">&#34;gzippedSize&#34;</span>: <span style="color:#ae81ff">1992</span>,
+  <span style="color:#e6db74">&#34;rules&#34;</span>: <span style="color:#ae81ff">86</span>,
+  <span style="color:#e6db74">&#34;selectors&#34;</span>: <span style="color:#ae81ff">179</span>,
+  <span style="color:#e6db74">&#34;simplicity&#34;</span>: <span style="color:#ae81ff">0</span>.48044692737430167,
+  <span style="color:#e6db74">&#34;mostIdentifier&#34;</span>: <span style="color:#ae81ff">2</span>,
+  <span style="color:#e6db74">&#34;lowestCohesion&#34;</span>: <span style="color:#ae81ff">17</span>,
+  <span style="color:#e6db74">&#34;totalUniqueFontSizes&#34;</span>: <span style="color:#ae81ff">12</span>,
+  <span style="color:#e6db74">&#34;totalUniqueFontFamilies&#34;</span>: <span style="color:#ae81ff">1</span>,
+  <span style="color:#e6db74">&#34;totalUniqueColors&#34;</span>: <span style="color:#ae81ff">6</span>,
+  <span style="color:#e6db74">&#34;idSelectors&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#e6db74">&#34;universalSelectors&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#e6db74">&#34;unqualifiedAttributeSelectors&#34;</span>: <span style="color:#ae81ff">17</span>,
+  <span style="color:#e6db74">&#34;javascriptSpecificSelectors&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#e6db74">&#34;importantKeywords&#34;</span>: <span style="color:#ae81ff">0</span>,
+  <span style="color:#e6db74">&#34;floatProperties&#34;</span>: <span style="color:#ae81ff">4</span>,
+  <span style="color:#e6db74">&#34;mediaQueries&#34;</span>: <span style="color:#ae81ff">3</span>
+<span style="color:#f92672">}</span></code></pre></div>
 <p>ファイルサイズがどれだけとか、ルール数がどれだけとか、これだけ見ても多少は役に立つかもしれないが、CSSは絶えず変化するものなので、できればこのデータの推移を把握したいものである。そうなると、<strong>データを貯める</strong>のとそれを<strong>グラフに出力</strong>する作業が必要となる。</p>
 
 <p>今まで、<a href="https://github.com/t32k/stylestats/wiki/Plot-with-Jenkins">Jenkinsにプロットする</a>やり方や、<a href="https://github.com/t32k/stylestats/wiki/Plot-with-moniteur">moniteurというツールを使うやり方</a>を試してみたが、グラフがダサかったり、実装方法がやや複雑だったりして、あんまりしっくりきてなかった。</p>
@@ -154,10 +143,7 @@ $ stylestats -f json -n foo.css
 </ul>
 
 <p>この人のように、D3.jsを使って、フルスクラッチで作るのが妥当なんだろうけど、なにぶんめんどくさがり屋なのでめんどくさい。</p>
-
-<pre><code class="language-shell">$ stylestats -f json -n https://google.com | gaer -t UA-xxxxxxx-x -r Google
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ stylestats -f json -n https://google.com | gaer -t UA-xxxxxxx-x -r Google</code></pre></div>
 <p>だもんで、上記のような感じで、JSONで書きだした結果をパイプでGAERに渡しても、Googleアナリティクスにレコードさせればよい。</p>
 
 <p><a href="https://t32k.me/mol/images/2015/0406-01.png"><img src="/mol/images/2015/0406-01.png" alt="" /></a></p>

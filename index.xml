@@ -32,7 +32,6 @@
 &lt;/ul&gt;
 
 &lt;p&gt;そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。&lt;/p&gt;
-
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Text and background color for light mode */&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
   &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;;
@@ -45,7 +44,6 @@
     &lt;span style=&#34;color:#66d9ef&#34;&gt;background-color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;;
   }
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 &lt;p&gt;環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。&lt;/p&gt;
 
 &lt;ul&gt;
@@ -93,12 +91,10 @@
 &lt;p&gt;また、&lt;a href=&#34;https://material.io/design/color/text-legibility.html#legibility-standards&#34;&gt;Material Design&lt;/a&gt;でも実装されているように、透明度を使ってグレーの濃淡を表現することにした。&lt;code&gt;#000000&lt;/code&gt; は真っ黒だが、白地(&lt;code&gt;#FFFFFF&lt;/code&gt;)の背景で、それの不透明度を60%にしたら、&lt;code&gt;#666666&lt;/code&gt;相当のグレーを表現できる。&lt;/p&gt;
 
 &lt;p&gt;このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。&lt;code&gt;#00000060&lt;/code&gt;のようなアルファ値を含んだ&lt;a href=&#34;https://caniuse.com/#feat=css-rrggbbaa&#34;&gt;#rrggbbaa&lt;/a&gt;をサポートしているブラウザも増えているが、&lt;code&gt;&amp;quot;#000000&amp;quot;　+ &amp;quot;60&amp;quot;&lt;/code&gt;のように文字列結合をCSSファイルで実現するのは難しい。&lt;/p&gt;
-
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt; {
   &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: rgba(&lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;rgb&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;surface), &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;alpha&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;-600&lt;/span&gt;));
   &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;: rgb(&lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;rgb&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;background));
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 &lt;p&gt;ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -473,89 +469,68 @@
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1106-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;まずは、CircleCI側、config.ymlの設定。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;version: 2
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;version: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 jobs:
   build:
     branches:
       only:
-        - master
-&lt;/code&gt;&lt;/pre&gt;
-
+        - master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;まぁ、ブログなので、&lt;code&gt;master&lt;/code&gt;オンリーのブランチで実行。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; docker:
-      - image: cibuilds/hugo:latest
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt; docker:
+      - image: cibuilds/hugo:latest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;dockerイメージとして、&lt;a href=&#34;https://github.com/cibuilds/docker-hugo&#34;&gt;cibuilds/hugo:latest&lt;/a&gt;という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    working_directory: ~/hugo
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;    working_directory: ~/hugo
     steps:
       - run:
           name: Update enviroment
-          command: apk update &amp;amp;&amp;amp; apk add git
-&lt;/code&gt;&lt;/pre&gt;
-
+          command: apk update &lt;span style=&#34;color:#75715e&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apk add git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;cibuilds/hugo&lt;/code&gt;イメージはAlpine Linuxベースとのことで、&lt;code&gt;apk&lt;/code&gt;でパッケージを最新にしといて、&lt;code&gt;git&lt;/code&gt;も追加。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;      - run:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;      - run:
           name: Hugo version
-          command: echo &amp;quot;$(hugo version)&amp;quot;
+          command: echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$(hugo version)&amp;#34;&lt;/span&gt;
       - checkout
       - run:
           name: Building blog pages
-          command: |
-            HUGO_ENV=production hugo -v
-            cp public/index.xml public/feed.xml
-&lt;/code&gt;&lt;/pre&gt;
-
+          command: &lt;span style=&#34;color:#e6db74&#34;&gt;|
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            HUGO_ENV=production hugo -v
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            cp public/index.xml public/feed.xml&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;あとは、GitHubからコードをチェックアウトして、Hugoで生成している。RSS用に&lt;code&gt;feed.xml&lt;/code&gt; にコピーしとく。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;      - add_ssh_keys:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;      - add_ssh_keys:
           fingerprints:
-            - &amp;quot;SO:ME:FIN:G:ER:PR:IN:T&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
+            - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SO:ME:FIN:G:ER:PR:IN:T&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;デフォルトで作成されるdeploy keyはチェックアウトする(read)だけの権限なので、ghpageブランチにコミット(write)できる権限を作成しとく。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Add user key&lt;/strong&gt; ボタンを押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページで、そのFingerprintをコピーして上記に追加。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;      - deploy:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;      - deploy:
           name: Deploy to GitHub Pages
-          command: ./.circleci/deploy.sh
-&lt;/code&gt;&lt;/pre&gt;
-
+          command: ./.circleci/deploy.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;あとはデプロイ用のシェルスクリプトを実行している。&lt;/p&gt;
 
 &lt;h2 id=&#34;github-pages&#34;&gt;GitHub Pages&lt;/h2&gt;
 
 &lt;p&gt;シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼ&lt;a href=&#34;https://github.com/RealOrangeOne/circleci-hugo-template/blob/master/.circleci/deploy.sh&#34;&gt;RealOrangeOne&lt;/a&gt;氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/usr/bin/env bash
-
-# エラー時、実行を止める
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# エラー時、実行を止める&lt;/span&gt;
 set -e
 
-DEPLOY_DIR=deploy
+DEPLOY_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;deploy
 
-# gitの諸々の設定
+&lt;span style=&#34;color:#75715e&#34;&gt;# gitの諸々の設定&lt;/span&gt;
 git config --global push.default simple
-git config --global user.email $(git --no-pager show -s --format=&#39;%ae&#39; HEAD)
+git config --global user.email &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;git --no-pager show -s --format&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%ae&amp;#39;&lt;/span&gt; HEAD&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
 git config --global user.name $CIRCLE_USERNAME
 
-# gh-pagesブランチをdeployディレクトリにクローン
-git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
+&lt;span style=&#34;color:#75715e&#34;&gt;# gh-pagesブランチをdeployディレクトリにクローン&lt;/span&gt;
+git clone -q --branch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 
-# rsyncでhugoで生成したHTMLをコピー
+&lt;span style=&#34;color:#75715e&#34;&gt;# rsyncでhugoで生成したHTMLをコピー&lt;/span&gt;
 cd $DEPLOY_DIR
 rsync -arv --delete ../public/* .
 
 git add -f .
-git commit -m &amp;quot;Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]&amp;quot; || true
-git push -f
-&lt;/code&gt;&lt;/pre&gt;
-
+git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deploy #&lt;/span&gt;$CIRCLE_BUILD_NUM&lt;span style=&#34;color:#e6db74&#34;&gt; from CircleCI [ci skip]&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; true
+git push -f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;push.default simple&lt;/code&gt; って何の設定なんだろうと思ったけど、これのおかげで、&lt;code&gt;git push origin gh-pages&lt;/code&gt;とかしなくていいのか。なるほど simple!&lt;/p&gt;
 
 &lt;ul&gt;

@@ -102,18 +102,12 @@ Original：<a href="http://caspervonb.com/javascript/tools/make-for-the-web-gene
 <p>makeは一般的に<code>Makefile</code>と呼ばれるファイルで定義、使用し、拡張子は必要ない、大文字に気をつけること。ルールはターゲットと依存するファイルから成り、シェルコマンドも有しており、普通それらはレシピと呼ばれる。</p>
 
 <p>一般的なルールは以下のような感じ。</p>
-
-<pre><code class="language-shell">ターゲット: 依存するファイル
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ターゲット: 依存するファイル
     レシピ
-# 注意！スペースじゃなくてタブ！
-</code></pre>
-
+<span style="color:#75715e"># 注意！スペースじゃなくてタブ！</span></code></pre></div>
 <p>では、以上の知識を使って簡単な例をやってみよう。依存するファイルである<code>input.txt</code>をターゲットである<code>output.txt</code>にコピーしたい場合、レシピは以下の様なシンプルなコマンドラインとなるだろう。</p>
-
-<pre><code class="language-shell">output.txt: input.txt
-    cp $&lt; $@
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">output.txt: input.txt
+    cp $&lt; $@</code></pre></div>
 <p>とってもシンプルだろう？<a href="http://linux.die.net/man/1/cp">cp(1)</a>の起動といくつかの<a href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html">自動変数</a>である、<code>$@</code>はターゲットのファイル名を保持し、<code>$&lt;</code>は最初の依存するファイル名を保持する。</p>
 
 <p>では、次はもっと実践的な例をやってみよう。</p>
@@ -123,85 +117,73 @@ Original：<a href="http://caspervonb.com/javascript/tools/make-for-the-web-gene
 <p>Coffeescript、Typescriptや、<a href="https://babeljs.io/">babel</a>のようなJavaScriptトランスパイラーは最近では普通に使われているので、モダンなJavaScriptから現在のブラウザで解釈できるようなスクリプトにコンパイルする必要がある。</p>
 
 <p>このルールを定義するには、<code>src</code>ディレクトリにあるファイルを変換し、トランスパイルしたファイルを<code>lib</code>ディレクトリに保存することだ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># まず、JavaScriptコンパイラを変数として割り当てる</span>
+<span style="color:#75715e"># この場合babelで、厳密には必要ないが</span>
+<span style="color:#75715e"># あったほうがメンテナンス性が少し良くなるだろう</span>
+JC            <span style="color:#f92672">=</span> babel
 
-<pre><code class="language-shell"># まず、JavaScriptコンパイラを変数として割り当てる
-# この場合babelで、厳密には必要ないが
-# あったほうがメンテナンス性が少し良くなるだろう
-JC            = babel
+<span style="color:#75715e"># looseトランスパイルを有効にする</span>
+JCFLAGS       <span style="color:#f92672">=</span> --loose
 
-# looseトランスパイルを有効にする
-JCFLAGS       = --loose
+<span style="color:#75715e"># 次にsrcディレクトリからソースとなるファイルを見つける</span>
+SRC           <span style="color:#f92672">=</span> <span style="color:#66d9ef">$(</span>shell find src -name <span style="color:#e6db74">&#34;*.js&#34;</span><span style="color:#66d9ef">)</span>
 
-# 次にsrcディレクトリからソースとなるファイルを見つける
-SRC           = $(shell find src -name &quot;*.js&quot;)
+<span style="color:#75715e"># それから取得した文字列を置き換え、</span>
+<span style="color:#75715e"># ソースディレクトリとライブラリディレクトリでマップする</span>
+LIB           <span style="color:#f92672">=</span> <span style="color:#66d9ef">$(</span>SRC:src/%.js<span style="color:#f92672">=</span>lib/%.js<span style="color:#66d9ef">)</span>
 
-# それから取得した文字列を置き換え、
-# ソースディレクトリとライブラリディレクトリでマップする
-LIB           = $(SRC:src/%.js=lib/%.js)
-
-# 最後に、ソースからライブラリにコンバートするルールを定義する
-# これはコンパイラをそのオプションとその依存ファイルで起動させるためである
-# ようやく定義したルールで、ターゲットを出力する
-$(LIB): $(SRC)
-  mkdir -p $(@D)
-  $(JC) $(JCFLAGS) $&lt; -o $@
-</code></pre>
-
+<span style="color:#75715e"># 最後に、ソースからライブラリにコンバートするルールを定義する</span>
+<span style="color:#75715e"># これはコンパイラをそのオプションとその依存ファイルで起動させるためである</span>
+<span style="color:#75715e"># ようやく定義したルールで、ターゲットを出力する</span>
+<span style="color:#66d9ef">$(</span>LIB<span style="color:#66d9ef">)</span>: <span style="color:#66d9ef">$(</span>SRC<span style="color:#66d9ef">)</span>
+  mkdir -p <span style="color:#66d9ef">$(</span>@D<span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">$(</span>JC<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>JCFLAGS<span style="color:#66d9ef">)</span> $&lt; -o $@</code></pre></div>
 <p>すべてbashスクリプトに似ていると思う、 <code>$(VARIABLE)</code> は変数を展開し、<code>$(@D)</code> は別の自動変数で、ターゲットファイル名のディレクトリ部分を保持する。</p>
 
 <h2 id="コードのバンドル">コードのバンドル</h2>
 
 <p>Browserify、Webpackまたは単なるコンキャットもまたブラウザ環境にコードをディストリビュートするためには必要な作業と言える。このため、すべてのソースファイルを依存ファイルとし、１つのターゲットを持ち、それらをバンドラーに渡すレシピを持つルールを定義しなければならない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 以前と同様に、バンドラーを変数として持つ</span>
+BUNDLE        <span style="color:#f92672">=</span> browserify
 
-<pre><code class="language-shell"># 以前と同様に、バンドラーを変数として持つ
-BUNDLE        = browserify
+<span style="color:#75715e"># 加えて、起動フラグも設定する</span>
+<span style="color:#75715e"># これは変数を使って簡単にする例である</span>
+<span style="color:#75715e"># すでに変数を定義してあるので、</span>
+<span style="color:#75715e"># babelとbabelify transformで同じフラグを共有したい</span>
+BUNDLEFLAGS   <span style="color:#f92672">=</span> --transform babelify <span style="color:#f92672">[</span><span style="color:#66d9ef">$(</span>JCFLAGS<span style="color:#66d9ef">)</span><span style="color:#f92672">]</span>
 
-# 加えて、起動フラグも設定する
-# これは変数を使って簡単にする例である
-# すでに変数を定義してあるので、
-# babelとbabelify transformで同じフラグを共有したい
-BUNDLEFLAGS   = --transform babelify [$(JCFLAGS)]
+<span style="color:#75715e"># 次にバンドルファイル名を定義する</span>
+DIST          <span style="color:#f92672">=</span> dist.js
 
-# 次にバンドルファイル名を定義する
-DIST          = dist.js
-
-# ようやく、ルールを定義する、要は全てのを依存ファイルを
-# バンドラーに渡し、ターゲットに出力する
-# 既にコンパイルしたライブラリファイルがあるが
-# コンパイラーはよくヘルパーを生成するので、
-# 一般的にこの成果物はいくぶんか大きいファイルになる
-$(DIST): $(SRC)
-  $(BUNDLE) $(BUNDLEFLAGS) -o $@ $^
-</code></pre>
-
+<span style="color:#75715e"># ようやく、ルールを定義する、要は全てのを依存ファイルを</span>
+<span style="color:#75715e"># バンドラーに渡し、ターゲットに出力する</span>
+<span style="color:#75715e"># 既にコンパイルしたライブラリファイルがあるが</span>
+<span style="color:#75715e"># コンパイラーはよくヘルパーを生成するので、</span>
+<span style="color:#75715e"># 一般的にこの成果物はいくぶんか大きいファイルになる</span>
+<span style="color:#66d9ef">$(</span>DIST<span style="color:#66d9ef">)</span>: <span style="color:#66d9ef">$(</span>SRC<span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">$(</span>BUNDLE<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>BUNDLEFLAGS<span style="color:#66d9ef">)</span> -o $@ $^</code></pre></div>
 <h2 id="コードの最適化">コードの最適化</h2>
 
 <p>ミニファイと不必要なコードの除去もまた一般的なビルドステップだ。今回のケースの場合、以前に定義したバンドルターゲットを依存ファイルとしてuglifyするだけだ。あとはミニファイしていないバンドル名をもとにミニファイしたバンドル名を置換するだけだ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">DIST_MIN            <span style="color:#f92672">=</span> dist.min.js
 
-<pre><code class="language-shell">DIST_MIN            = dist.min.js
+<span style="color:#75715e"># ミニファイツールとしてuglifyjsを使用</span>
+MIN                 <span style="color:#f92672">=</span> uglifyjs
 
-# ミニファイツールとしてuglifyjsを使用
-MIN                 = uglifyjs
+<span style="color:#75715e"># 今のところ、フラッグは必要としない</span>
+MINFLAGS            <span style="color:#f92672">=</span> 
 
-# 今のところ、フラッグは必要としない
-MINFLAGS            = 
-
-# このルールはとてもシンプルである
-# １つのターゲットと依存ファイルををオプティマイザーに通すだけだ
-$(DIST_MIN): $(DIST)
-  $(MIN) $(MINFLAGS) $&lt; -o $@
-</code></pre>
-
+<span style="color:#75715e"># このルールはとてもシンプルである</span>
+<span style="color:#75715e"># １つのターゲットと依存ファイルををオプティマイザーに通すだけだ</span>
+<span style="color:#66d9ef">$(</span>DIST_MIN<span style="color:#66d9ef">)</span>: <span style="color:#66d9ef">$(</span>DIST<span style="color:#66d9ef">)</span>
+  <span style="color:#66d9ef">$(</span>MIN<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>MINFLAGS<span style="color:#66d9ef">)</span> $&lt; -o $@</code></pre></div>
 <h2 id="ビルドクリーン">ビルドクリーン</h2>
 
 <p>makeは<code>.PHONY</code>と呼ばれる<a href="https://www.gnu.org/software/make/manual/html_node/Special-Targets.html">特別なターゲット</a>を持っており、この依存ファイルは偽りのターゲットとみなされる。<code>make</code>は、その名前のファイルが存在しているかどうか、最終更新時刻がどうかに関わらず、無条件にこのレシピを実行する。これはファイルが生成されたかどうかに関係なくスクリプトを実行したいケースで役立つだろう。ビルドをクリーンしたい場合の例は以下。</p>
-
-<pre><code class="language-shell">clean:
-  rm $(LIB)
-  rm $(DIST)
-  rm $(DIST_MIN)
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">clean:
+  rm <span style="color:#66d9ef">$(</span>LIB<span style="color:#66d9ef">)</span>
+  rm <span style="color:#66d9ef">$(</span>DIST<span style="color:#66d9ef">)</span>
+  rm <span style="color:#66d9ef">$(</span>DIST_MIN<span style="color:#66d9ef">)</span></code></pre></div>
 <h2 id="まとめ">まとめ</h2>
 
 <p>makeは難しいためか少し不当な評価をされているように思えるが、実際はシェルスクリプトとたいして変わりはない。私の考えでは、シンタックスはとても明解で簡潔であり、ストリームであり、パイプであり<code>unix</code>と呼ばれる大きなエコシステムとの大きな相互運用性も手に入る。make万歳！Makefileを書こう！</p>

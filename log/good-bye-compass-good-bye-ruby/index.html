@@ -96,17 +96,15 @@
 </ul>
 
 <p>ちょうど、<a href="http://myakura.hatenablog.com/entry/2013/09/30/035244">myakura氏のブログで取り上げられていたAutoprefixer</a>が便利そうなので、これのGruntプラグインがないか探したらもちろんあった。</p>
-
-<pre><code class="language-js">autoprefixer: {
-  options: {
-    browsers: ['ios &gt;= 5', 'android &gt;= 2.3']
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">autoprefixer</span><span style="color:#f92672">:</span> {
+  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">browsers</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;ios &gt;= 5&#39;</span>, <span style="color:#e6db74">&#39;android &gt;= 2.3&#39;</span>]
   },
-  dist: {
-    src: '../files/css/maple.css'
+  <span style="color:#a6e22e">dist</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">src</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;../files/css/maple.css&#39;</span>
   },
 }
-</code></pre>
-
+</code></pre></div>
 <p>Gruntの設定も至極簡単だ。対象のCSSファイルとと対応するバージョンを指定するだけだ。
 あとは正規のプロパティ書いておくだけ、Autoprefixerがバージョンに応じてベンダープレフィックス付きのプロパティを追加・削除してくれる。</p>
 
@@ -121,44 +119,39 @@
 <p>CSSスプライトを自動化するためにCompassを使用しはじめたのもあって、移行しんどかった。使い勝手的には<a href="https://gist.github.com/t32k/e65534b5a8bb124e1cbe">Compass Sprite</a>のほうが今のところは良いと思う。</p>
 
 <p>しかし、Spritesmithに変更することでCSSプリプロセッサに依存せずにCSSスプライトの自動化を手に入れることができる。MapleではSass用にコードを吐き出してるけど、Stylus用にも吐き出せるし、生のCSSでもできる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">$</span><span style="color:#f92672">_bird1</span><span style="color:#f92672">:</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">149px</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">-149px</span> <span style="color:#f92672">60px</span> <span style="color:#f92672">49px</span> <span style="color:#f92672">302px</span> <span style="color:#f92672">198px</span> <span style="color:#e6db74">&#34;/files/img/sprite/tabs.1383826639213.png&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">$</span><span style="color:#f92672">_bird2</span><span style="color:#f92672">:</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">180px</span> <span style="color:#f92672">147px</span> <span style="color:#f92672">302px</span> <span style="color:#f92672">198px</span> <span style="color:#e6db74">&#34;/files/img/sprite/tabs.1383826639213.png&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">$</span><span style="color:#f92672">_bird3</span><span style="color:#f92672">:</span> <span style="color:#f92672">182px</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">-182px</span> <span style="color:#f92672">0px</span> <span style="color:#f92672">120px</span> <span style="color:#f92672">98px</span> <span style="color:#f92672">302px</span> <span style="color:#f92672">198px</span> <span style="color:#e6db74">&#34;/files/img/sprite/tabs.1383826639213.png&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">$</span><span style="color:#f92672">_bird4</span><span style="color:#f92672">:</span> <span style="color:#f92672">62px</span> <span style="color:#f92672">149px</span> <span style="color:#f92672">-62px</span> <span style="color:#f92672">-149px</span> <span style="color:#f92672">60px</span> <span style="color:#f92672">49px</span> <span style="color:#f92672">302px</span> <span style="color:#f92672">198px</span> <span style="color:#e6db74">&#34;/files/img/sprite/tabs.1383826639213.png&#34;</span><span style="color:#f92672">;</span>
 
-<pre><code class="language-css">$_bird1: 0px 149px 0px -149px 60px 49px 302px 198px &quot;/files/img/sprite/tabs.1383826639213.png&quot;;
-$_bird2: 0px 0px 0px 0px 180px 147px 302px 198px &quot;/files/img/sprite/tabs.1383826639213.png&quot;;
-$_bird3: 182px 0px -182px 0px 120px 98px 302px 198px &quot;/files/img/sprite/tabs.1383826639213.png&quot;;
-$_bird4: 62px 149px -62px -149px 60px 49px 302px 198px &quot;/files/img/sprite/tabs.1383826639213.png&quot;;
+<span style="color:#f92672">//</span> <span style="color:#f92672">$</span><span style="color:#f92672">list</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">X</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Y</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Offset</span> <span style="color:#f92672">X</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Offset</span> <span style="color:#f92672">Y</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Width</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Height</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Total</span> <span style="color:#f92672">Width</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Total</span> <span style="color:#f92672">Height</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">Image</span> <span style="color:#f92672">Path</span><span style="color:#f92672">&gt;</span>
 
-// $list: &lt;X&gt; &lt;Y&gt; &lt;Offset X&gt; &lt;Offset Y&gt; &lt;Width&gt; &lt;Height&gt; &lt;Total Width&gt; &lt;Total Height&gt; &lt;Image Path&gt;
-
-@mixin sprite($isParent, $sprite) {
-  @if $isParent == &quot;parent&quot; {
-    $imagePath: nth($sprite, 9);
-    background-image: url(&quot;#{$imagePath}&quot;);
-    background-repeat: no-repeat;
-    background-size: round( nth($sprite, 7) / 2 ) round( nth($sprite, 8) / 2 );
-  } @else {
-    width: round( nth($sprite, 5) / 2 );
-    height: round( nth($sprite, 6) / 2 );
-    background-position: round( nth($sprite, 3) / 2 ) round( nth($sprite, 4) / 2 );
+@<span style="color:#66d9ef">mixin</span> <span style="color:#f92672">sprite</span><span style="color:#f92672">($</span><span style="color:#f92672">isParent</span><span style="color:#f92672">,</span> <span style="color:#f92672">$</span><span style="color:#f92672">sprite</span><span style="color:#f92672">)</span> {
+  @<span style="color:#66d9ef">if</span> <span style="color:#f92672">$</span><span style="color:#f92672">isParent</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;parent&#34;</span> {
+    <span style="color:#f92672">$</span><span style="color:#f92672">imagePath</span><span style="color:#f92672">:</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">9</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;#{$imagePath}&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">background-repeat</span><span style="color:#f92672">:</span> <span style="color:#f92672">no-repeat</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">background-size</span><span style="color:#f92672">:</span> <span style="color:#f92672">round</span><span style="color:#f92672">(</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">7</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">)</span> <span style="color:#f92672">round</span><span style="color:#f92672">(</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">8</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">);</span>
+  } @<span style="color:#66d9ef">else</span> {
+    <span style="color:#f92672">width</span><span style="color:#f92672">:</span> <span style="color:#f92672">round</span><span style="color:#f92672">(</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">5</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">);</span>
+    <span style="color:#f92672">height</span><span style="color:#f92672">:</span> <span style="color:#f92672">round</span><span style="color:#f92672">(</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">6</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">);</span>
+    <span style="color:#f92672">background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">round</span><span style="color:#f92672">(</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">3</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">)</span> <span style="color:#f92672">round</span><span style="color:#f92672">(</span> <span style="color:#f92672">nth</span><span style="color:#f92672">($</span><span style="color:#f92672">sprite</span><span style="color:#f92672">,</span> <span style="color:#f92672">4</span><span style="color:#f92672">)</span> <span style="color:#f92672">/</span> <span style="color:#f92672">2</span> <span style="color:#f92672">);</span>
   }
-}
-</code></pre>
-
+}</code></pre></div>
 <p>Spritesmithはタスクを実行すると、任意の画像をスプライト画像にまとめて、上記のようなコードを吐き出してくれる。要は、<code>$_bird1</code>のようなスプライト画像のWidth/Heightやオフセット値をまとめたリスト型の変数を提供してくれるので、あとはそのデータを使って自分で独自のミックスイン（Retina対応している）を作成すればよい。このデータさえあればCompassの関数を使わなくて良くなる。</p>
-
-<pre><code class="language-js">sprite: {
-  dist: {
-    dt: '&lt;%= Date.now() %&gt;',
-    src: '../files/img/sprite/tabs/*.png',
-    destImg: '../files/img/sprite/tabs.&lt;%= sprite.dist.dt %&gt;.png',
-    imgPath: '/files/img/sprite/tabs.&lt;%= sprite.dist.dt %&gt;.png',
-    destCSS: '../files/css/sass/libs/_sprite.scss',
-    algorithm: 'binary-tree',
-    padding: 2,
-    cssTemplate: 'spritesmith.mustache'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">sprite</span><span style="color:#f92672">:</span> {
+  <span style="color:#a6e22e">dist</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">dt</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;%= Date.now() %&gt;&#39;</span>,
+    <span style="color:#a6e22e">src</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;../files/img/sprite/tabs/*.png&#39;</span>,
+    <span style="color:#a6e22e">destImg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;../files/img/sprite/tabs.&lt;%= sprite.dist.dt %&gt;.png&#39;</span>,
+    <span style="color:#a6e22e">imgPath</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/files/img/sprite/tabs.&lt;%= sprite.dist.dt %&gt;.png&#39;</span>,
+    <span style="color:#a6e22e">destCSS</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;../files/css/sass/libs/_sprite.scss&#39;</span>,
+    <span style="color:#a6e22e">algorithm</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;binary-tree&#39;</span>,
+    <span style="color:#a6e22e">padding</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+    <span style="color:#a6e22e">cssTemplate</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;spritesmith.mustache&#39;</span>
   }
 }
-</code></pre>
-
+</code></pre></div>
 <p>各画像のオフセット値が分かるので<code>binary-tree</code>という、単純に縦並べ、横並べじゃなくてCompassの<code>Smart</code>みたいな、詰め込んだ並べ方ができるのも良さげ。</p>
 
 <p>Gruntでの設定がややめんどいし、キャッシュバスターのために<code>Date.now()</code>の値をファイル名に入れてるけど、タスクが実行される度に画像に変更がなくても新たにスプライト画像を生成してしまうし、以前のスプライト画像もCompassみたいに勝手に削除されない。この辺もうちょっと頑張ってみる必要性がある。</p>

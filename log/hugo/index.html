@@ -103,36 +103,30 @@
 <h2 id="hugoのスキなところ">Hugoのスキなところ</h2>
 
 <p><strong>速い！</strong>コレに尽きる。ほぼリアルタイムで更新されるんじゃないかくらい速い。<code>hugo server --watch</code>したら、デフォルトでLiveReloadで更新されるのも地味に便利である。移行にあたって必要のない記事を捨てた結果、240記事になった。<strong>0.2秒</strong>未満で生成される。</p>
-
-<pre><code class="language-shell">$ time hugo
-0 draft content
-0 future content
-240 pages created
-0 tags created
-12 categories created
-in 119 ms
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ time hugo
+<span style="color:#ae81ff">0</span> draft content
+<span style="color:#ae81ff">0</span> future content
+<span style="color:#ae81ff">240</span> pages created
+<span style="color:#ae81ff">0</span> tags created
+<span style="color:#ae81ff">12</span> categories created
+in <span style="color:#ae81ff">119</span> ms
 
 real	0m0.172s
 user	0m0.367s
-sys	0m0.108s
-</code></pre>
-
+sys	0m0.108s</code></pre></div>
 <p>対して、同記事数の生成でJekyllは<strong>2.5秒</strong>!!<br />
 Hugoとくらべて14倍時間がかかってる。</p>
-
-<pre><code class="language-shell">$ time jekyll build
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ time jekyll build
 Configuration file: _config.yml
             Source: .
        Destination: ./_site
       Generating...
-                    done.
+                    <span style="color:#66d9ef">done</span>.
  Auto-regeneration: disabled. Use --watch to enable.
 
 real	0m2.458s
 user	0m1.826s
-sys	0m0.323s
-</code></pre>
-
+sys	0m0.323s</code></pre></div>
 <p>そんなわけで、やっぱりGolang製は速いなと。HugoはGoで書かれているけどHugoを使う分には別にGoを勉強する必要はない。<code>brew install hugo</code>でインストールして、Jekyllのようにマークダウンを書いていくだけだ。テンプレートの記法もJekyllに似てるので問題ない。</p>
 
 <ul>

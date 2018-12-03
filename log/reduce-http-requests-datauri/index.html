@@ -158,35 +158,27 @@
 </ul>
 
 <p>ちなみにCompassだと<a href="http://compass-style.org/reference/compass/helpers/inline-data/">下記のような関数</a>を使うとbase64エンコードしてくれます。</p>
-
-<pre><code class="language-sass">.border{
-    border-image: inline-image(&quot;/path/to/border-image.png&quot;);
-}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">.border{</span>
+<span style="color:#960050;background-color:#1e0010">    border-image: inline-image(&#34;/path/to/border-image.png&#34;);</span>
+<span style="color:#960050;background-color:#1e0010">}</span></code></pre></div>
 <p>では、3つめのインライン画像をCSSファイルに含んだ時のレンダリングブロック回避について考えていく。通常のスタイルとインライン画像の指定をしたCSSを分けてみることにする。</p>
-
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/app.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/base64.css&quot;&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/app.css&#34;</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;css/base64.css&#34;</span>&gt;</code></pre></div>
 <ul>
 <li><a href="https://dl.dropboxusercontent.com/u/356242/test/include-datauri/block.html">Block : Include DataURI Source</a></li>
 </ul>
 
 <p>感覚的には、こういったマークアップをしてしまいがちだが、これでも結局、インライン画像を含んだ重いbase64.cssが読み込まれるまでレンダリングが始まらない。</p>
-
-<pre><code class="language-javascript">&lt;script&gt;
-(function(d){
-  var c = d.createElement('link');
-  c.rel = 'stylesheet';
-  c.href = 'css/base64.css';
-  var s = d.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(c, s);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;link&#39;</span>);
+  <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">rel</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;stylesheet&#39;</span>;
+  <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;css/base64.css&#39;</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;script&#39;</span>)[<span style="color:#ae81ff">0</span>];
+  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">s</span>);
 })(document);
-&lt;/script&gt;
-</code></pre>
-
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div>
 <ul>
 <li><a href="https://dl.dropboxusercontent.com/u/356242/test/include-datauri/index.html">Defer : Include DataURI Source</a></li>
 </ul>

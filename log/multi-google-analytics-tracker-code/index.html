@@ -74,20 +74,17 @@
         <p>『<a href="https://www.suzukikenichi.com/blog/tracking-access-by-mutiple-google-analytics-accounts/">Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ</a>』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は<code>_gat._getTracker()</code>で初期化する際に、変数を2つ用意してあげればいいってこと。</p>
 
 <p>ちょうど、『SIGMA DP2 : Special Contents』のサイトで似たようなコード見つけたので、挙げておく。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">“text/javascript”</span>&gt;
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">try</span> {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pageTracker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gat</span>.<span style="color:#a6e22e">_getTracker</span>(<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#a6e22e">UA</span><span style="color:#f92672">-</span><span style="color:#a6e22e">xxxxxx</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">”</span>);
+	<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_trackPageview</span>();
 
-<pre><code class="language-html">&lt;script type=“text/javascript”&gt;
-&lt;script&gt;
-try {
-	var pageTracker = _gat._getTracker(“UA-xxxxxx-1”);
-	pageTracker._trackPageview();
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pageTracker2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gat</span>.<span style="color:#a6e22e">_getTracker</span>(<span style="color:#960050;background-color:#1e0010">“</span><span style="color:#a6e22e">UA</span><span style="color:#f92672">-</span><span style="color:#a6e22e">yyyyy</span><span style="color:#f92672">-</span><span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">”</span>);
+	<span style="color:#a6e22e">pageTracker2</span>.<span style="color:#a6e22e">_trackPageview</span>();
 
-	var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”);
-	pageTracker2._trackPageview();
-
-} catch(err) {}
-&lt;/script&gt;
-</code></pre>
-
+} <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span>) {}
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
 <p><code>pageTracker</code>と<code>pageTracker2</code>に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。</p>
 
 <ul>
@@ -95,36 +92,33 @@ try {
 </ul>
 
 <p>上記にサイトはこんな感じのコードだった。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">try</span> {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pageTracker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gat</span>.<span style="color:#a6e22e">_getTracker</span>(<span style="color:#e6db74">&#34;UA-xxxxx-1&#34;</span>);
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isDev</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span>.<span style="color:#a6e22e">search</span>(<span style="color:#e6db74">/vkistudios.net/</span>);
 
-<pre><code class="language-html">&lt;script&gt;
-try {
-	var pageTracker = _gat._getTracker(&quot;UA-xxxxx-1&quot;);
-	var isDev = window.location.href.search(/vkistudios.net/);
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isDev</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_setDomainName</span>(<span style="color:#e6db74">&#34;.vkistudios.net&#34;</span>);
+	<span style="color:#66d9ef">else</span>
+	<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_setDomainName</span>(<span style="color:#e6db74">&#34;.vkistudios.com&#34;</span>);
 
-	if (isDev &gt; -1)
-	pageTracker._setDomainName(&quot;.vkistudios.net&quot;);
-	else
-	pageTracker._setDomainName(&quot;.vkistudios.com&quot;);
+	<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_setLocalRemoteServerMode</span>();
+	<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_initData</span>();
+	<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_trackPageview</span>();
+} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {}
 
-	pageTracker._setLocalRemoteServerMode();
-	pageTracker._initData();
-	pageTracker._trackPageview();
-} catch (e) {}
+<span style="color:#75715e">//event tracking profile
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">try</span> {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">eventTracker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gat</span>.<span style="color:#a6e22e">_getTracker</span>(<span style="color:#e6db74">&#34;UA-xxxxx-4&#34;</span>);
 
-//event tracking profile
-try {
-	var eventTracker = _gat._getTracker(&quot;UA-xxxxx-4&quot;);
-
-	if (isDev &gt; -1)
-	eventTracker._setDomainName(&quot;.vkistudios.net&quot;);
-	else
-	eventTracker._setDomainName(&quot;.vkistudios.com&quot;);
-	eventTracker._initData();
-	eventTracker._trackPageview();
-} catch (e) {}
-&lt;/script&gt;
-</code></pre>
-
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isDev</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#a6e22e">eventTracker</span>.<span style="color:#a6e22e">_setDomainName</span>(<span style="color:#e6db74">&#34;.vkistudios.net&#34;</span>);
+	<span style="color:#66d9ef">else</span>
+	<span style="color:#a6e22e">eventTracker</span>.<span style="color:#a6e22e">_setDomainName</span>(<span style="color:#e6db74">&#34;.vkistudios.com&#34;</span>);
+	<span style="color:#a6e22e">eventTracker</span>.<span style="color:#a6e22e">_initData</span>();
+	<span style="color:#a6e22e">eventTracker</span>.<span style="color:#a6e22e">_trackPageview</span>();
+} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {}
+&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
 <p>イベントトラッキングとコンテンツの情報は分けて管理してるのかな。URLを判別して、<code>_setDomainName()</code>の引数を変えることでマルチドメイントラッキングを可能にしてる。</p>
 
 <p>こんなふうにいろんなサイトのカスタマイズしたコード見てみたいもんだ。eコマーストランザクションとかどこか使ってないもんかな。</p>

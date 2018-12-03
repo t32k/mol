@@ -168,22 +168,20 @@
 <ul>
 <li><a href="https://github.com/filamentgroup/grunt-criticalcss">filamentgroup/grunt-criticalcss</a></li>
 </ul>
-
-<pre><code class="language-javascript">grunt.initConfig({
-  criticalcss: {
-    custom_options: {
-      options: {
-        url: &quot;http://localhost:8000&quot;,
-        width: 1024,
-        height: 768,
-        outputfile: &quot;_templates/includes/critical.css&quot;,
-        filename: &quot;skeleton.min.css&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">grunt</span>.<span style="color:#a6e22e">initConfig</span>({
+  <span style="color:#a6e22e">criticalcss</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">custom_options</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://localhost:8000&#34;</span>,
+        <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1024</span>,
+        <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">768</span>,
+        <span style="color:#a6e22e">outputfile</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;_templates/includes/critical.css&#34;</span>,
+        <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;skeleton.min.css&#34;</span>
       }
     }
   }
 });
-</code></pre>
-
+</code></pre></div>
 <p>こんな感じでGruntfileの方は記述する。重要なのはwidht/heightで、ここで自分の好きなAbove the Foldを定義する。で出力したCSSをテンプレート側で読み込む。</p>
 
 <p>今回は、1.) CriticalCSSでクリティカルCSSを生成、2.) CSSOでミニファイ、3.) Jadeでコンパイル読み込むという流れ。詳しくはGitHubにあげてあるので参照してね。</p>
@@ -193,30 +191,27 @@
 </ul>
 
 <p>で、Full CSSの方は、後から非同期で読み込む。こうしないとレンダリングをブロックするので。あ、ちなみにほぼ<a href="http://getskeleton.com/">Skeleton.css</a>をそのまま使ってる(^_^;)</p>
-
-<pre><code class="language-html">&lt;script&gt;
-/*!
-  loadCSS: load a CSS file asynchronously.
-  [c]2014 @scottjehl, Filament Group, Inc.
-  Licensed MIT
-*/
-function loadCSS(href, before, media) {
-  var ss = window.document.createElement('link');
-  var ref = before || window.document.getElementsByTagName('script')[0];
-  var sheets = window.document.styleSheets;
-  ss.rel = 'stylesheet';
-  ss.href = href;
-  ss.media = 'only x';
-  ref.parentNode.insertBefore(ss, ref);
-  return ss;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#75715e">/*!
+</span><span style="color:#75715e">  loadCSS: load a CSS file asynchronously.
+</span><span style="color:#75715e">  [c]2014 @scottjehl, Filament Group, Inc.
+</span><span style="color:#75715e">  Licensed MIT
+</span><span style="color:#75715e">*/</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">loadCSS</span>(<span style="color:#a6e22e">href</span>, <span style="color:#a6e22e">before</span>, <span style="color:#a6e22e">media</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ss</span> <span style="color:#f92672">=</span> window.document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;link&#39;</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ref</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">before</span> <span style="color:#f92672">||</span> window.document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;script&#39;</span>)[<span style="color:#ae81ff">0</span>];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sheets</span> <span style="color:#f92672">=</span> window.document.<span style="color:#a6e22e">styleSheets</span>;
+  <span style="color:#a6e22e">ss</span>.<span style="color:#a6e22e">rel</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;stylesheet&#39;</span>;
+  <span style="color:#a6e22e">ss</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">href</span>;
+  <span style="color:#a6e22e">ss</span>.<span style="color:#a6e22e">media</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;only x&#39;</span>;
+  <span style="color:#a6e22e">ref</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">ss</span>, <span style="color:#a6e22e">ref</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ss</span>;
 }
-loadCSS('/skeleton.min.css');
-&lt;/script&gt;
-&lt;noscript&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;/skeleton.min.css&quot;&gt;
-&lt;/noscript&gt;
-</code></pre>
-
+<span style="color:#a6e22e">loadCSS</span>(<span style="color:#e6db74">&#39;/skeleton.min.css&#39;</span>);
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">noscript</span>&gt;
+  &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/skeleton.min.css&#34;</span>&gt;
+&lt;/<span style="color:#f92672">noscript</span>&gt;</code></pre></div>
 <p>で、Critical CSSに対応した結果をPageSpeedにかけてみると、</p>
 
 <p><img src="/mol/images/2014/12-24-fig04.png" alt="PageSpeed Insights：After" /></p>

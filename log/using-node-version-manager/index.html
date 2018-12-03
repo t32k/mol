@@ -96,30 +96,21 @@
 <ul>
 <li><a href="https://gist.github.com/nicerobot/2697848">Mac OS X uninstall script for packaged install of node.js</a></li>
 </ul>
-
-<pre><code class="language-shell">$ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh
 $ chmod +x ./uninstall-node.sh
 $ ./uninstall-node.sh
-$ rm uninstall-node.sh
-</code></pre>
-
+$ rm uninstall-node.sh</code></pre></div>
 <p>上から順番に実行してくだけだよ。</p>
 
 <h2 id="homebrew">Homebrew</h2>
 
 <p>以前からbrew doctorをするとnodeがlinkしてねーよ！と注意されていたのだが、インストーラでインストールしたnode.jsが優先されていたのだろうと思う。ってことで、今はアンインストールしたから大丈夫ってことで、Homebrewでnode.jsを管理してみる。</p>
-
-<pre><code class="language-shell">$ brew install node
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install node</code></pre></div>
 <p>入ったー！簡単！</p>
 
 <p>あれ、npm使えなくね？とおもったら、<code>npm install -g</code>したnpmは以下に、<code>/usr/local/share/npm/bin</code>保存されるらしい。</p>
-
-<pre><code class="language-shell">#npm
-export PATH=&quot;/usr/local/share/npm/bin:$PATH&quot;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#npm</span>
+export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/share/npm/bin:</span>$PATH<span style="color:#e6db74">&#34;</span></code></pre></div>
 <p>ということで、bash_profileとかにpathを通しておく。</p>
 
 <ul>
@@ -143,25 +134,13 @@ export PATH=&quot;/usr/local/share/npm/bin:$PATH&quot;
 </ul>
 
 <p>Node.jsのバージョン管理には上記のようなものあるらしいけど、どれ使ったらいいんだろう&hellip; Rubyはrvm使ってるし、名前似てるし、nvm使ってみる！</p>
-
-<pre><code class="language-shell">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</code></pre></div>
 <p>でインストール！</p>
-
-<pre><code class="language-shell">source ~/.nvm/nvm.sh
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">source ~/.nvm/nvm.sh</code></pre></div>
 <p>を、bash_profileとかに書いておく。</p>
-
-<pre><code class="language-shell">$ nvm install 0.10
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ nvm install <span style="color:#ae81ff">0</span>.10</code></pre></div>
 <p>で、0.10.x系の最新がインストールされる。</p>
-
-<pre><code class="language-shell">$ nvm alias default 0.10
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ nvm alias default <span style="color:#ae81ff">0</span>.10</code></pre></div>
 <p>で、デフォルトで使用されるnode.js のバージョンが0.10.x系の最新になる。ほらね、簡単でしょ？</p>
 
     </section>

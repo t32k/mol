@@ -197,34 +197,28 @@ $ grunt-init gruntfile
 <p>次にGruntfileの作成ですが、少々面倒です。まず<code>grunt-init</code>というプラグインをインストールする必要があります。そして、gruntfileを作るためのテンプレートを<code>git clone</code>でダウンロードしてきます。そうすることで<code>grunt-init gruntfile</code>を打つとまた<code>npm init</code>のようにいろいろ黒い画面が問いてきますが、とりあえずはENTER押しておきましょう。</p>
 
 <p>こうすることで、Gruntfileが作成されます。なんかいろいろ黒い画面いっぱいで面倒だなと思った方は、最初の内は同じようなことをしているGruntfileをGitHubで見つけてコピペして作れば問題無いです。</p>
-
-<pre><code class="language-js">// Load the task:
-grunt.loadNpmTasks('grunt-csso');
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Load the task:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">grunt</span>.<span style="color:#a6e22e">loadNpmTasks</span>(<span style="color:#e6db74">&#39;grunt-csso&#39;</span>);
+</code></pre></div>
 <p>Gruntfileの中身はいろいろ書かかれていますが、大事なのは3つの部分です。最初にnpm installしたパッケージを読み込む記述です。これがないと<code>csso</code>のタスクが使えません。</p>
-
-<pre><code class="language-js">// Configure the task:
-grunt.initConfig({
-  csso: {
-    dist: {
-      files: {
-        'output.css': ['input.css']
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Configure the task:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">grunt</span>.<span style="color:#a6e22e">initConfig</span>({
+  <span style="color:#a6e22e">csso</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">dist</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">files</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;output.css&#39;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;input.css&#39;</span>]
       }
     }
   },
-  foo: { //....}
-});
-</code></pre>
-
+  <span style="color:#a6e22e">foo</span><span style="color:#f92672">:</span> { <span style="color:#75715e">//....}
+</span><span style="color:#75715e"></span>});
+</code></pre></div>
 <p>次がGruntファイルのメインとなる部分のタスクの設定の部分です。<code>initConfig</code>配下にタスクを記述していきます。<code>dist</code>の部分はターゲットを表します。この部分の名前は別になんでも構いません。例えばプロダクション環境とディベロプメント環境で圧縮するファイルが違うのなら<code>prod:</code>や<code>dev:</code>といった名前をつけ、<code>grunt csso:prod</code>や<code>grunt csso:dev</code>とコマンドを打てば、実行したいタスクを分離できます。<code>grunt csso</code>と打つとprodとdev両方のタスクが実行されます。そしてdistの下の階層には大抵処理したいファイルのインプットと処理したあとのファイルのアウトプット先、あと必要であればプラグインのオプションを記述しまうす。</p>
 
 <p>これらが基本的なタスクの設定で、この粒度でタスクをどんどん追加していきます。</p>
-
-<pre><code class="language-js">// Register the task:
-grunt.registerTask('default', ['csso']);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Register the task:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">grunt</span>.<span style="color:#a6e22e">registerTask</span>(<span style="color:#e6db74">&#39;default&#39;</span>, [<span style="color:#e6db74">&#39;csso&#39;</span>]);
+</code></pre></div>
 <p>最後にカスタムタスクを登録します。<code>default</code>を文字通りデフォルトでこの文字列で指定したタスクは<code>grunt</code>だけで実行できます。<code>grunt.registerTask('foo', ['csso']);</code>とすれば、<code>grunt foo</code>でcssoタスクを実行できます。もちろん、CSSの縮小化、JSの縮小化、画像の最適化などの複数のタスクをまとめて任意のタスク名と登録することもできるので、かっこいタスク名考えときましょう。グラント・ティロ・フィナーレ！！！！！</p>
 
 <h2 id="customize-your-gruntfile">Customize your Gruntfile!</h2>

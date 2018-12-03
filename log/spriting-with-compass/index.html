@@ -120,78 +120,66 @@
 <h2 id="compassによる解決策">Compassによる解決策</h2>
 
 <p>そこで目につけたのが、Compassフレームワークだ。Sassは開発当初から利用していたが、Compass自体は利用していなかった。Compassにはスプライトを簡単に利用できるAPIが備わっており、画像編集ソフトなど使わなくても画像を一つにまとめたり、それぞれの<code>background-position</code>を算出してくれる。 使い方は非常にシンプルだ。スプライト画像にまとめたい個々の画像を任意のディレクトリに格納しておき、<code>@import</code>でそのディレクトリを指定し、<code>@include all-ディレクトリ名-sprites</code>で展開するだけだ。</p>
-
-<pre><code class="language-sass">// 基本的なCompassスプライトの利用方法
-@import &quot;my-icons/.png&quot;;
-@include all-my-icons-sprites;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">// 基本的なCompassスプライトの利用方法</span>
+<span style="color:#960050;background-color:#1e0010">@import &#34;my-icons/.png&#34;;</span>
+<span style="color:#960050;background-color:#1e0010">@include all-my-icons-sprites;</span></code></pre></div>
 <p>上記のSCSSコードは下記のようにコンパイルされる。</p>
-
-<pre><code class="language-css">/* コンパイルされたCSS */
-.my-icons-sprite,
-.my-icons-fav,
-.my-icons-hist,
-.my-icons-my,
-.my-icons-new {
-  background: url(&quot;/images/my-icons-sab4abd7554.png&quot;) no-repeat;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* コンパイルされたCSS */</span>
+.<span style="color:#a6e22e">my-icons-sprite</span><span style="color:#f92672">,</span>
+.<span style="color:#a6e22e">my-icons-fav</span><span style="color:#f92672">,</span>
+.<span style="color:#a6e22e">my-icons-hist</span><span style="color:#f92672">,</span>
+.<span style="color:#a6e22e">my-icons-my</span><span style="color:#f92672">,</span>
+.<span style="color:#a6e22e">my-icons-new</span> {
+  <span style="color:#66d9ef">background</span>: url(<span style="color:#e6db74">&#34;/images/my-icons-sab4abd7554.png&#34;</span>) <span style="color:#66d9ef">no-repeat</span>;
 }
-.my-icons-fav { background-position: 0 -68px; }
-.my-icons-hist { background-position: 0 -136px; }
-.my-icons-my { background-position: 0 -204px; }
-.my-icons-new { background-position: 0 0; }
-</code></pre>
-
+.<span style="color:#a6e22e">my-icons-fav</span> { <span style="color:#66d9ef">background-position</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-68</span><span style="color:#66d9ef">px</span>; }
+.<span style="color:#a6e22e">my-icons-hist</span> { <span style="color:#66d9ef">background-position</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-136</span><span style="color:#66d9ef">px</span>; }
+.<span style="color:#a6e22e">my-icons-my</span> { <span style="color:#66d9ef">background-position</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-204</span><span style="color:#66d9ef">px</span>; }
+.<span style="color:#a6e22e">my-icons-new</span> { <span style="color:#66d9ef">background-position</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>; }</code></pre></div>
 <p>また上記のコードではmy-iconsディレクトリ以下にある個々の画像をひとつのスプライト画像にまとめてくれる。</p>
 
 <p><img src="/static/blog/2012/12/compile.png" alt="" /></p>
 
 <p>ただ、基本的な利用方法ではRetina対応や、自分のコードスタイルに合わず、独自でmixinを作成する必要があった。</p>
-
-<pre><code class="language-sass">//　自分で定義したmixin
-@mixin sprites($map, $map-item, $isCommon:false) {
-  @if $isCommon {
-    background-image: sprite-url($map);
-    background-repeat: no-repeat;
-    background-size: round(image-width(sprite-path($map)) / 2) round(image-height(sprite-path($map)) / 2);
-  } @else {
-    $pos-y: round(nth(sprite-position($map, $map-item), 2) / 2);
-    width: round(image-width(sprite-file($map, $map-item)) / 2);
-    height: round(image-height(sprite-file($map, $map-item)) / 2);
-    background-position: 0 $pos-y;
-  }
-}
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">//　自分で定義したmixin</span>
+<span style="color:#960050;background-color:#1e0010">@mixin sprites($map, $map-item, $isCommon:false) {</span>
+<span style="color:#960050;background-color:#1e0010">  @if $isCommon {</span>
+<span style="color:#960050;background-color:#1e0010">    background-image: sprite-url($map);</span>
+<span style="color:#960050;background-color:#1e0010">    background-repeat: no-repeat;</span>
+<span style="color:#960050;background-color:#1e0010">    background-size: round(image-width(sprite-path($map)) / 2) round(image-height(sprite-path($map)) / 2);</span>
+<span style="color:#960050;background-color:#1e0010">  } @else {</span>
+<span style="color:#960050;background-color:#1e0010">    $pos-y: round(nth(sprite-position($map, $map-item), 2) / 2);</span>
+<span style="color:#960050;background-color:#1e0010">    width: round(image-width(sprite-file($map, $map-item)) / 2);</span>
+<span style="color:#960050;background-color:#1e0010">    height: round(image-height(sprite-file($map, $map-item)) / 2);</span>
+<span style="color:#960050;background-color:#1e0010">    background-position: 0 $pos-y;</span>
+<span style="color:#960050;background-color:#1e0010">  }</span>
+<span style="color:#960050;background-color:#1e0010">}</span></code></pre></div>
 <p>実際の使い方</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">// mapを指定する</span>
+<span style="color:#960050;background-color:#1e0010">// $spacingの引数で個々の画像のマージンを指定できる</span>
+<span style="color:#960050;background-color:#1e0010">// この値がなければぴっちり縦に並ぶことになる</span>
+<span style="color:#960050;background-color:#1e0010">$map-tabs: sprite-map(&#34;/files/img/sprites/tabs/&#34;, $spacing: 4px);</span>
 
-<pre><code class="language-sass">// mapを指定する
-// $spacingの引数で個々の画像のマージンを指定できる
-// この値がなければぴっちり縦に並ぶことになる
-$map-tabs: sprite-map(&quot;/files/img/sprites/tabs/&quot;, $spacing: 4px);
+<span style="color:#960050;background-color:#1e0010">// 共通プロパティのextend</span>
+<span style="color:#960050;background-color:#1e0010">%tabs { @include sprites($map-tabs, common, true); }</span>
 
-// 共通プロパティのextend
-%tabs { @include sprites($map-tabs, common, true); }
+<span style="color:#960050;background-color:#1e0010">// 共通プロパティ指定</span>
+<span style="color:#960050;background-color:#1e0010">i {</span>
+<span style="color:#960050;background-color:#1e0010">    @extend %tabs;</span>
+<span style="color:#960050;background-color:#1e0010">    position: relative;</span>
+<span style="color:#960050;background-color:#1e0010">    display: block;</span>
+<span style="color:#960050;background-color:#1e0010">    margin: 0 auto;</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
 
-// 共通プロパティ指定
-i {
-    @extend %tabs;
-    position: relative;
-    display: block;
-    margin: 0 auto;
-}
-
-// 個別プロパティ指定
-.tab-new i { @include sprites($map-tabs, new, false); }
-.tab-fav i { @include sprites($map-tabs, fav, false); }
-.tab-hist i { @include sprites($map-tabs, hist, false); }
-.tab-mypage i { @include sprites($map-tabs, my, false); }
-.tab-new.active i { @include sprites($map-tabs, new-on, false);}
-.tab-fav.active i { @include sprites($map-tabs, fav-on, false); }
-.tab-hist.active i { @include sprites($map-tabs, hist-on, false); }
-.tab-mypage.active i {@include sprites($map-tabs, my-on, false); }
-</code></pre>
-
+<span style="color:#960050;background-color:#1e0010">// 個別プロパティ指定</span>
+<span style="color:#960050;background-color:#1e0010">.tab-new i { @include sprites($map-tabs, new, false); }</span>
+<span style="color:#960050;background-color:#1e0010">.tab-fav i { @include sprites($map-tabs, fav, false); }</span>
+<span style="color:#960050;background-color:#1e0010">.tab-hist i { @include sprites($map-tabs, hist, false); }</span>
+<span style="color:#960050;background-color:#1e0010">.tab-mypage i { @include sprites($map-tabs, my, false); }</span>
+<span style="color:#960050;background-color:#1e0010">.tab-new.active i { @include sprites($map-tabs, new-on, false);}</span>
+<span style="color:#960050;background-color:#1e0010">.tab-fav.active i { @include sprites($map-tabs, fav-on, false); }</span>
+<span style="color:#960050;background-color:#1e0010">.tab-hist.active i { @include sprites($map-tabs, hist-on, false); }</span>
+<span style="color:#960050;background-color:#1e0010">.tab-mypage.active i {@include sprites($map-tabs, my-on, false); }</span></code></pre></div>
 <p>上記のコードでは、実際の画像ファイルの縦・横サイズを半分にして計算し、Retina対応をしている。等倍の画像ファイルも用意するのであればメディアクエリーを利用し分岐処理のコードを追加すれば良い。</p>
 
 <p>このコードの肝というか、個人的に重要だと思っているのはこの<code>image-width(sprite-path($map)</code>部分である。これはスプライトした画像のパスを取り、その<code>width</code>を返すものだ。通常のCSSやSassではこのようにファイルアクセスしそのファイルの情報を得るということはできなかった。故に、人力で<code>background-position</code>を割り出すという面倒なことをやっていたのだ。</p>

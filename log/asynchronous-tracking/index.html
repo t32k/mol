@@ -122,11 +122,9 @@
 <p>しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、<code>www.google-analytics.com</code>から読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。</p>
 
 <h3 id="async属性に関して">async属性に関して</h3>
-
-<pre><code class="language-javascript">ga.type = &quot;text/javascript&quot;; 
-ga.async = true;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/javascript&#34;</span>; 
+<span style="color:#a6e22e">ga</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</code></pre></div>
 <p>話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。</p>
 
 <p>続・ハイパフォーマンスWebサイトでは、async属性を使わなくてもブラウザの実行をブロックしないスクリプトの読み込みテクニックとして以下の6つを挙げています。</p>
@@ -187,26 +185,22 @@ ga.async = true;
 </ul>
 
 <p>GoogleでWebパフォーマンスのエバンジェリストしているSteve Soudersさんのブログ記事なんですが、Google Analyticsの非同期トラッキングコードの変遷について解説しています。</p>
-
-<pre><code class="language-js">// 2009年12月段階のベータ版のトラッキングコード
-var ga = document.createElement('script');
-ga.src = ('https:' == document.location.protocol ?
-    'https://ssl' : 'http://www') +
-    '.google-analytics.com/ga.js';
-ga.setAttribute('async', 'true');
-document.documentElement.firstChild.appendChild(ga);
-</code></pre>
-
-<pre><code class="language-js">// 2010年の2月の段階のトラッキングコード
-var ga = document.createElement('script');
-ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 
-    'https://ssl' : 'http://www') + 
-    '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(ga, s);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 2009年12月段階のベータ版のトラッキングコード
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ga</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);
+<span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;https:&#39;</span> <span style="color:#f92672">==</span> document.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">protocol</span> <span style="color:#f92672">?</span>
+    <span style="color:#e6db74">&#39;https://ssl&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www&#39;</span>) <span style="color:#f92672">+</span>
+    <span style="color:#e6db74">&#39;.google-analytics.com/ga.js&#39;</span>;
+<span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;async&#39;</span>, <span style="color:#e6db74">&#39;true&#39;</span>);
+document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">firstChild</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">ga</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 2010年の2月の段階のトラッキングコード
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ga</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);
+<span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;text/javascript&#39;</span>; <span style="color:#a6e22e">ga</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+<span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;https:&#39;</span> <span style="color:#f92672">==</span> document.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">protocol</span> <span style="color:#f92672">?</span> 
+    <span style="color:#e6db74">&#39;https://ssl&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www&#39;</span>) <span style="color:#f92672">+</span> 
+    <span style="color:#e6db74">&#39;.google-analytics.com/ga.js&#39;</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;script&#39;</span>)[<span style="color:#ae81ff">0</span>];
+<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">ga</span>, <span style="color:#a6e22e">s</span>);
+</code></pre></div>
 <p>どこが変わったのですかね…まぁちょいちょい微妙に違うのですが、ここでもっとも重要な変更点はSCRIPT要素をDOMで生成した後、ページに挿入するメソッドを、appendChildからinsertBeforeに変更した点です。</p>
 
 <p>なんでこんなことをしたのかとSteve Souders考えるにjQueryで同じような問題があったので参考にしたのではないかと。</p>
@@ -244,12 +238,10 @@ s.parentNode.insertBefore(ga, s);
 <p>これまで見てきて非同期ってワンダホー♪って思うのですが、そもそもなぜスクリプトファイルが読み込まれると並列ダウンロードがブロックされるのでしょうか？その理由として、開発者としては上部に置いたコードが先に実行されるという前提の上で実装をしています。もし、A.js、B.jsの順番でHTMLファイル内に読み込んで、非同期のためにB.jsの方が早く読み込みが完了されちゃったとします。B.jsの中にはA.jsで定義されたオブジェクトなど使われているので、当然未定義になってエラーが返される、なんてことが考えられます。例えるなら、jquery.js読み込む前に、jquery-plugin.jsが読み込まれては問題なわけですよ。</p>
 
 <p>なので、非同期で読み込む場合はコードの実行順序を考慮する必要性があります。Google Analyticsの非同期トラッキングコードでは、前半部分がそれに対応した部分になっています。</p>
-
-<pre><code class="language-javascript">  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-XXXXX-X']);
-  _gaq.push(['_trackPageview']);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">||</span> [];
+  <span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_setAccount&#39;</span>, <span style="color:#e6db74">&#39;UA-XXXXX-X&#39;</span>]);
+  <span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_trackPageview&#39;</span>]);
+</code></pre></div>
 <p>JavaScriptを嗜む程度の自分なのであまり詳しくないですが、このコードを初めて見たとき、なんか見慣れないなと思いました。なんでこうゆう書き方をしているのかなと。Google Code Blogを読む分には、ga.jsが読み込まれていない状態でvar _gaqにはただの配列が代入されて、そのコマンドが配列中に記録されてキュー待ち状態になる。んで、ga.jsが読み込まれると_gaqはオブジェクトになってキュー待ちのコマンドを実行していくという感じです。</p>
 
 <p>まぁ、よく分かりませんが、とりあえず、コードの実行順序を維持するためにこのような書き方になったということが理解できて良かったです。ということで、ga.jsが読み込まれなかったとしてもただの配列の中に蓄えられるだけなのでエラーになる可能性が低くなったということです。</p>

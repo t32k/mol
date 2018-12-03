@@ -261,7 +261,7 @@ Amazon.co.jp で詳細を見る このガムシロップいい。
  OctopressからHugoへ移行した | SOTA  これまでのブログ遍歴  Blogger: Webサービスを使うのはよいことだ。最初にはてなを使ってたら僕の人生変わってたかもしれない。 WordPress + さくらサーバー: 僕は若かった。いったい誰が僕のことを責めれようか。いや誰もいない。 Jekyll + GitHub Pages: マークダウン最高w Hugo + GitHub Pages: イマココ  Jekyllのイヤなところ 遅い！コレに尽きる。上記のように、7年ほどブログを続けていると記事数が450くらいになってた。jekyll serve --watchして、記事を変更しても体感的に10秒くらいで更新されるような状態だった。ほんの少しスタイル確認したいだけなのに何秒も待たされるのは本当にイライラする。限界だ。
 あと、これは別にJekyllのせいじゃないけど、僕の使ってたテーマがRuby 1.9固定だったので、なんでブログ書く度にRubyのバージョンを変えなきゃいけないのか、本当にイライラする。限界だ。
 Hugoのスキなところ 速い！コレに尽きる。ほぼリアルタイムで更新されるんじゃないかくらい速い。hugo server --watchしたら、デフォルトでLiveReloadで更新されるのも地味に便利である。移行にあたって必要のない記事を捨てた結果、240記事になった。0.2秒未満で生成される。
-$ time hugo 0 draft content 0 future content 240 pages created 0 tags created 12 categories created in 119 ms real	0m0.172s user	0m0.367s sys	0m0.108s  対して、同記事数の生成でJekyllは2.5秒!!
+$ time hugo 0 draft content 0 future content 240 pages created 0 tags created 12 categories created in 119 ms real	0m0.172s user	0m0.367s sys	0m0.108s 対して、同記事数の生成でJekyllは2.5秒!!
 Hugoとくらべて14倍時間がかかってる。
 $ time jekyll build Configuration file: _config.</description>
     </item>
@@ -582,7 +582,7 @@ kanazawa.jsを開催する これも達成することはできなかった。ka
       <pubDate>Sat, 09 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/git-push-f/</guid>
-      <description>git push -f   ローカルのコミットを強制的に送信する。普通は行ってはいけないので注意。 実行しても問題ないのは公開していない個人用のリモートリポジトリに対してくらい。リモートのコミットがローカルのコミットの祖先でない場合は リモートへの送信が拒否される。 これを無効にするには「-f」または「&amp;ndash;force」オプションをつける。このとき、リモートリポジトリのコミットが失われる可能性がある。
+      <description>git push -f  ローカルのコミットを強制的に送信する。普通は行ってはいけないので注意。 実行しても問題ないのは公開していない個人用のリモートリポジトリに対してくらい。リモートのコミットがローカルのコミットの祖先でない場合は リモートへの送信が拒否される。 これを無効にするには「-f」または「&amp;ndash;force」オプションをつける。このとき、リモートリポジトリのコミットが失われる可能性がある。
   transitive.info - git push 使い方  このとき、リモートリポジトリのコミットが失われる可能性がある。
 このとき、リモートリポジトリのコミットが失われる可能性がある。
 このとき、リモートリポジトリのコミットが失われる可能性がある。

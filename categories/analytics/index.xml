@@ -21,7 +21,7 @@
 そういえば思い出したが、昔、何百万という商品ページがあったのをカテゴリーごとに、リクエストURIを書き換えてグルーピングしたのを思い出したが、今はもっと便利になっている。
 例えば、このブログならひとつひとつの記事がページになり、グループはいかようにも設定できるだろう。2016年、2015年、2014年&amp;hellip;という年次でグルーピングするのもひとつの方法だろう。たいていのブログサイトなら記事の公開年ごとにディレクトリを区切って管理しているかもしれないが、あいにく私のブログではURLが長くなるのは嫌だったので、そうゆうURL構成になってはいない。
 コンテンツグループのグルーピングはそういったURLやタイトルの規則性を利用してもできるが、トラッキングコード別にグループ化もできる点が素晴らしいと思う。
-ga(&#39;set&#39;, &#39;contentGroup1&#39;, &#39;{{.PublishedYear}}&#39;);  上記のように、トラッキングコードを記事に仕込むことでグルーピングできる（{{.PublishedYear}}部分は何かしらの変数で）。
+ga(&amp;#39;set&amp;#39;, &amp;#39;contentGroup1&amp;#39;, &amp;#39;{{.PublishedYear}}&amp;#39;);  上記のように、トラッキングコードを記事に仕込むことでグルーピングできる（{{.PublishedYear}}部分は何かしらの変数で）。
 こんな具合にcontentGroup1がyearというグループになっている。
 トラッキングコードでグルーピングできるということは、なんでもできるということだ。例えば、その記事の文字数をカウントしてGAトラッキングに渡して文字数ごとにグルーピングしたり、コメント数や、ソーシャルシェア数別に分けても良いだろう。可能性は無限大だが、解析できるグループのスロット数は5つまでなので、お気をつけて。
 そうゆうわけで、ページに対して新たな切り口で解析できるのは良いと思った。</description>
@@ -35,8 +35,8 @@ ga(&#39;set&#39;, &#39;contentGroup1&#39;, &#39;{{.PublishedYear}}&#39;);  上�
       <guid>https://t32k.me/mol/log/use-async-attribute/</guid>
       <description>最近、またGoogleアナリティクスの面倒を見ている。で、GAのドキュメントを見ていたら最近のイケてるトラッキングスニペットはこれだぜ！みたいなこと書いてあった。やれやれ、またかと思い、筆をとったのです。
 トラッキングスニペットの移り変わり激しいもので、最近だとこうゆうのが一般的だろう。
-&amp;lt;script&amp;gt; (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;); ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); &amp;lt;/script&amp;gt;  最近のおすすめはこれだとか。
-&amp;lt;script&amp;gt; window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); &amp;lt;/script&amp;gt; &amp;lt;script async src=&#39;//www.google-analytics.com/analytics.js&#39;&amp;gt;&amp;lt;/script&amp;gt;  まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべてasync属性が担っているので、とってもすっきり。
+&amp;lt;script&amp;gt; (function(i,s,o,g,r,a,m){i[&amp;#39;GoogleAnalyticsObject&amp;#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&amp;#39;script&amp;#39;,&amp;#39;//www.google-analytics.com/analytics.js&amp;#39;,&amp;#39;ga&amp;#39;); ga(&amp;#39;create&amp;#39;, &amp;#39;UA-XXXXX-Y&amp;#39;, &amp;#39;auto&amp;#39;); ga(&amp;#39;send&amp;#39;, &amp;#39;pageview&amp;#39;); &amp;lt;/script&amp;gt; 最近のおすすめはこれだとか。
+&amp;lt;script&amp;gt; window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date ga(&amp;#39;create&amp;#39;, &amp;#39;UA-XXXXX-Y&amp;#39;, &amp;#39;auto&amp;#39;); ga(&amp;#39;send&amp;#39;, &amp;#39;pageview&amp;#39;); &amp;lt;/script&amp;gt; &amp;lt;script async src=&amp;#39;//www.google-analytics.com/analytics.js&amp;#39;&amp;gt;&amp;lt;/script&amp;gt; まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべてasync属性が担っているので、とってもすっきり。
 非同期読み込みの利点は過去の記事を参照。
  Google Analytics トラッキング スニペット再考（2010） Google Analytics トラッキング スニペット再考（2012）  
 async属性の対応状況なのだけど、IE9以前とかを気にしなくてよいのなら、このスニペットに置き換えて良いかなと思う。
@@ -45,7 +45,8 @@ async属性の対応状況なのだけど、IE9以前とかを気にしなくて
  『わずかに向上させる』ってどうゆうことだってばよ？、『プリロード』ってなによ？と思い、また筆をとってしまったのです。
 ググったら、myakuraが書いてた。
  script async を使えば、非同期で読み込まれるし、プリロードスキャナの恩恵にも預かれるとのこと。- script asyncでJavaScriptの非同期読み込みを - fragmentary
- PreloadScanner 『プリロードスキャナ』ってなによ！</description>
+ PreloadScanner 『プリロードスキャナ』ってなによ！
+ わかりやすいYouTubeがあった。</description>
     </item>
     
     <item>
@@ -81,7 +82,7 @@ ga:avgPageLoadTime = (ga:pageLoadTime / ga:pageLoadSample) * 0.001 平均表示�
 ざっくり言えば、そのJavaScriptが本当に必要になるまで後にとっておくということです。スマホなどの携帯端末は言うまでもなく、デスクトップPCに比べれば非力なので、このような端末ではJavaScriptを解析するのにもなかなか時間を要してしまうので、注意しましょうってことです。
 PCサイトで、それも単純にドキュメント閲覧のようなページのパフォーマンス対策なんて、HTTPリクエストを減らすことだけ考えていれば十分事足りるなぁと個人的には考えています。ただ、最近やってるお仕事はスマホ向けのWebアプリ制作でして、JSゴリゴリ使ってます。。。この辺りのパフォーマンス対策というのをもうちょっと真剣に考えたいお年頃になってきたので、今回がんばってみます。
 ただ、僕はJSは書けないので難しいことはよく分からんとです。お先真っ暗、八方塞がりです。唯一気になっていることは今のプロジェクトでhead要素に入れてあるGoogleアナリティクスのスニペットって本当にここでいいのか？ということです。これね、これ。
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; var _gaq = _gaq || []; _gaq.push([&#39;_setAccount&#39;, &#39;UA-XXXXX-X&#39;]); _gaq.push([&#39;_trackPageview&#39;]); (function() { var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true; ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s); })(); &amp;lt;/script&amp;gt;   Google Analytics 非同期トラッキングコード再考（2010） - MOL  はい、2年前にこの記事を書いたのは僕でして、そこでは&amp;lt;/head&amp;gt;の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
+&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; var _gaq = _gaq || []; _gaq.push([&amp;#39;_setAccount&amp;#39;, &amp;#39;UA-XXXXX-X&amp;#39;]); _gaq.push([&amp;#39;_trackPageview&amp;#39;]); (function() { var ga = document.createElement(&amp;#39;script&amp;#39;); ga.type = &amp;#39;text/javascript&amp;#39;; ga.async = true; ga.src = (&amp;#39;https:&amp;#39; == document.location.protocol ? &amp;#39;https://ssl&amp;#39; : &amp;#39;http://www&amp;#39;) + &amp;#39;.google-analytics.com/ga.js&amp;#39;; var s = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s.parentNode.insertBefore(ga, s); })(); &amp;lt;/script&amp;gt;  Google Analytics 非同期トラッキングコード再考（2010） - MOL  はい、2年前にこの記事を書いたのは僕でして、そこでは&amp;lt;/head&amp;gt;の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
 script要素の読み込みと評価 
 script要素を入れることでかかるコストについて上記の図のような感じですね。LatencyとDownloadが読み込みに関わるところで、普通にscript要素を読み込むと、通常のリソースは並列ダウンロードできるのに対して、script要素は他のリソースのダウンロードをブロッキングします。まぁ、scriptを早い段階で読み込むとそれだけページ表示に余計に時間がかかってしまいます。この点でノンブロッキングな読み込みを実現したのがGoogle Analyticsの非同期トラッキングコードで並列ダウンロードが可能となりました。また、トラッキング用のJSファイルにはga.jsには12時間の有効期限が設定されているので、次ページビュー、当日中くらいのセッション再開後もキャッシュが有効となり、LatencyとDownloadの部分は省略できます。
 ただ、お気付きの通りParsingとEvaluationはキャッシュがあろうがなかろうが毎回コストを支払わなければなりません。しかもParsingとEvaluationの実行中はレンダリングが止まってしまいます。PCサイトであればこの点が無視できるほど短い時間で完了するので、head要素においても大した影響がないということでした。事実、@tobieさんの記事でもjQeuryのParsingとEvaluationのコストはMacBook Proが35msに対して、iPhone4が320msかかっている調査結果でした。つまり、jQueryを使おうが使わまいが、キャッシュが効いてようが効いてまいが、iPhone４ユーザーはjQueryが読み込まれている時点で毎回320ms（設置場所によっては）レンダリングが止まる時間ができるということです。
@@ -130,7 +131,7 @@ Google アナリティクスを大規模サイトで使用する上で問題に�
       <guid>https://t32k.me/mol/log/using-google-analytics-with-jquery-mobile/</guid>
       <description>とあるとこで、とある話をしたので、とあるスライド置いときますよ。 要点を言うと、jQuery MobileでAjax遷移してると、普通にGoogle Analytics置いてても作動しないから気をつけてねって話です。
 GATC for jQuery Mobile 僕はこうゆう感じでとりあえず対応しています。作動させるタイミングとフラグメント識別子を記録させるのがポイントです。あとはご自身のサイトに合わせてカスタマイズしていただければと思います。
-//Account Setting var _gaq = _gaq || []; _gaq.push([&#39;_setAccount&#39;, &#39;UA-xxxxxxx-x&#39;]); //Async Snippet (function () { var ga = document.createElement(&#39;script&#39;); ga.async = true; ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s); })(); //Execute $(&#39;[data-role=&amp;quot;page&amp;quot;]&#39;).live(&#39;pageshow&#39;, function () { var u = location.hash.replace(&#39;#&#39;, &#39;&#39;); u ? _gaq.push([&#39;_trackPageview&#39;, u]) : _gaq.push([&#39;_trackPageview&#39;]); });  jQuery Mobile XSS Problem ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。</description>
+//Account Setting var _gaq = _gaq || []; _gaq.push([&amp;#39;_setAccount&amp;#39;, &amp;#39;UA-xxxxxxx-x&amp;#39;]); //Async Snippet (function () { var ga = document.createElement(&amp;#39;script&amp;#39;); ga.async = true; ga.src = (&amp;#39;https:&amp;#39; == document.location.protocol ? &amp;#39;https://ssl&amp;#39; : &amp;#39;http://www&amp;#39;) + &amp;#39;.google-analytics.com/ga.js&amp;#39;; var s = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s.parentNode.insertBefore(ga, s); })(); //Execute $(&amp;#39;[data-role=&amp;#34;page&amp;#34;]&amp;#39;).live(&amp;#39;pageshow&amp;#39;, function () { var u = location.hash.replace(&amp;#39;#&amp;#39;, &amp;#39;&amp;#39;); u ? _gaq.push([&amp;#39;_trackPageview&amp;#39;, u]) : _gaq.push([&amp;#39;_trackPageview&amp;#39;]); });  jQuery Mobile XSS Problem ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。</description>
     </item>
     
     <item>
@@ -157,7 +158,7 @@ Google Website Optimizer とか使えば、テストを実行してしばらく�
  What is Modernizr? まずはタイトルにもある Modernizr ですが、これはHTML5時代のWeb技術、最近では「NEWT」、New Exciting Web Technologies （HTML5、CSS3、SVG、XHR2、Geolocation… などの技術総称）と呼ばれている技術がブラウザで実装されているか検出してくれるライブラリです。最近、開発者のPaul Irishさんが来日してその存在を知りました。
 Modernizr を読み込んだページにアクセスすると自動的にHTML要素のclass属性に対応状況がこん感じで記述される具合です。
 機能が実装されていばその機能名、実装されていなければno-が頭につく感じですね。おおもとのHTML要素にclass属性がついたので、
-.borderradius .hoge div { /* border-radiusのプロパティを記述 */ } .no-borderradius .hoge div { /* border-radiusに対応していないから画像で再現する記述とか */ }  こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。
+.borderradius .hoge div { /* border-radiusのプロパティを記述 */ } .no-borderradius .hoge div { /* border-radiusに対応していないから画像で再現する記述とか */ } こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。
 if (Modernizr.localstorage){ // localstorage 使う！使う！ } else { // 代替手段として Cookie 使ったりとか }  もちろんJavaScriptからもこんな感じで分岐処理することも可能です。
 Track HTML5 in Google Analytics この非常に便利な Modernizr を利用して、Google Analytics のレポート上でも確認できるようにしてくれるのが trackHTML5inGA です。Modernizr で検出したプロパティをカスタム変数（デフォルトではスロット#5を使用する）で取り込んで Google Analytics に渡す感じでしょうか。</description>
     </item>
@@ -194,7 +195,7 @@ Google Analytics で (not set) と言えば、キャンペーントラッキン�
 どうでしょうか。仕様どおりなら「script + img」と並列に読み込まれるはずですが、そうはならずにscriptファイルひとつしか読み込まれていません。つまり、scriptファイルを最初に読み込むでしまうとダウンロード・レンダリングが止まってしまいます。そのため、ハイパフォーマンスWebサイト、高速サイトの実現のための14のルールのひとつ「ルール6：スクリプトは最後に置く」というものがあります。
 このような理由から、非同期以前のトラッキングコードはの直前に置くことが推奨されています。出来る限りページ最下部に置くことでダウンロード・レンダリングを止めないようにしています。上記のグラフのような感じですね。ページを表示するために必要なコンポーネントはscriptの手前ですべて読み込まれているのでこれが最善策なのかなと。
 しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、www.google-analytics.comから読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。
-async属性に関して ga.type = &amp;quot;text/javascript&amp;quot;; ga.async = true;  話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。
+async属性に関して ga.type = &amp;#34;text/javascript&amp;#34;; ga.async = true;  話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。
 続・ハイパフォーマンスWebサイトでは、async属性を使わなくてもブラウザの実行をブロックしないスクリプトの読み込みテクニックとして以下の6つを挙げています。
  XHR eval XHR インジェクション iframe スクリプト Script DOM要素 Script Defer document.writeによるSCRIPTタグ書き出し  今回の非同期トラッキングコードではSCRIPT要素をDOMを使って生成することで実現しています。なので、ほとんどのブラウザで非同期で読み込むことが可能です。async属性を記述しているのは明示的に非同期で読み込むことをブラウザに通知するためとGoogle Code Blogには書いてあります。
  HTML5 “async” attribute in this part of the snippet.</description>
@@ -267,9 +268,9 @@ Google Analytics Data Export API が使えたら一番スマートですかね�
       <guid>https://t32k.me/mol/log/multi-google-analytics-tracker-code/</guid>
       <description>『Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は_gat._getTracker()で初期化する際に、変数を2つ用意してあげればいいってこと。
 ちょうど、『SIGMA DP2 : Special Contents』のサイトで似たようなコード見つけたので、挙げておく。
-&amp;lt;script type=“text/javascript”&amp;gt; &amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(“UA-xxxxxx-1”); pageTracker._trackPageview(); var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”); pageTracker2._trackPageview(); } catch(err) {} &amp;lt;/script&amp;gt;  pageTrackerとpageTracker2に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。
+&amp;lt;script type=“text/javascript”&amp;gt; &amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(“UA-xxxxxx-1”); pageTracker._trackPageview(); var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”); pageTracker2._trackPageview(); } catch(err) {} &amp;lt;/script&amp;gt; pageTrackerとpageTracker2に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。
  Digital Intelligence Solutions to Empower Data Driven, Confident Decision Making | Cardinal Path  上記にサイトはこんな感じのコードだった。
-&amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxx-1&amp;quot;); var isDev = window.location.href.search(/vkistudios.net/); if (isDev &amp;gt; -1) pageTracker._setDomainName(&amp;quot;.vkistudios.net&amp;quot;); else pageTracker._setDomainName(&amp;quot;.vkistudios.com&amp;quot;); pageTracker._setLocalRemoteServerMode(); pageTracker._initData(); pageTracker._trackPageview(); } catch (e) {} //event tracking profile try { var eventTracker = _gat.</description>
+&amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(&amp;#34;UA-xxxxx-1&amp;#34;); var isDev = window.location.href.search(/vkistudios.net/); if (isDev &amp;gt; -1) pageTracker._setDomainName(&amp;#34;.vkistudios.net&amp;#34;); else pageTracker._setDomainName(&amp;#34;.vkistudios.com&amp;#34;); pageTracker._setLocalRemoteServerMode(); pageTracker._initData(); pageTracker._trackPageview(); } catch (e) {} //event tracking profile try { var eventTracker = _gat.</description>
     </item>
     
     <item>
@@ -279,8 +280,8 @@ Google Analytics Data Export API が使えたら一番スマートですかね�
       
       <guid>https://t32k.me/mol/log/pagetracker-initdata/</guid>
       <description>数ヶ月前のGoogle Analyticsコードアップデートでスニペットにtry/catch文が挿入されたってことを書いた。でも、よくよく見たらpageTracker._initDataの関数もなくなっていない？ってことに気づいた。
-var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); pageTracker._initData(); pageTracker._trackPageview();  少し前のga.jsのコードはこんな感じだったともう。
-try { var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); pageTracker._trackPageview(); } catch (err) { }  initData()ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。
+var pageTracker = _gat._getTracker(&amp;#34;UA-xxxxxxx-x&amp;#34;); pageTracker._initData(); pageTracker._trackPageview();  少し前のga.jsのコードはこんな感じだったともう。
+try { var pageTracker = _gat._getTracker(&amp;#34;UA-xxxxxxx-x&amp;#34;); pageTracker._trackPageview(); } catch (err) { }  initData()ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。
 Analytics Tracking APIに載っていた。
  _initData() _initData()Deprecated. initData() now executes automatically in the ga.js tracking code. Initializes or re-initializes the GATC (Google Analytics Tracker Code) object.
  Deprecatedってことは廃止予定ってことか。なんかga.js内で自動的に実行しているらしい。 あーすっきり！しかしまぁ、もうちょっとアナウンスしてくれてもいいんだと思うんだけどな&amp;hellip;</description>

@@ -94,7 +94,6 @@
 </ul>
 
 <p>そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* Text and background color for light mode */</span>
 <span style="color:#f92672">body</span> {
   <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>;
@@ -107,7 +106,6 @@
     <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">black</span>;
   }
 }</code></pre></div>
-
 <p>環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。</p>
 
 <ul>
@@ -155,12 +153,10 @@
 <p>また、<a href="https://material.io/design/color/text-legibility.html#legibility-standards">Material Design</a>でも実装されているように、透明度を使ってグレーの濃淡を表現することにした。<code>#000000</code> は真っ黒だが、白地(<code>#FFFFFF</code>)の背景で、それの不透明度を60%にしたら、<code>#666666</code>相当のグレーを表現できる。</p>
 
 <p>このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。<code>#00000060</code>のようなアルファ値を含んだ<a href="https://caniuse.com/#feat=css-rrggbbaa">#rrggbbaa</a>をサポートしているブラウザも増えているが、<code>&quot;#000000&quot;　+ &quot;60&quot;</code>のように文字列結合をCSSファイルで実現するのは難しい。</p>
-
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">html</span> {
   <span style="color:#66d9ef">color</span>: rgba(<span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>rgb<span style="color:#f92672">-</span>surface), <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">alpha</span><span style="color:#ae81ff">-600</span>));
   <span style="color:#66d9ef">background</span>: rgb(<span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>rgb<span style="color:#f92672">-</span>background));
 }</code></pre></div>
-
 <p>ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。</p>
 
 <p><img src="/mol/images/2018/1130-04.png" alt="" /></p>

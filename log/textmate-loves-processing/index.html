@@ -112,12 +112,9 @@
 <p>まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、<strong>GetBundle</strong>をまずインストールする。</p>
 
 <p>ターミナルを開いて以下のコマンドを打ち込む。</p>
-
-<pre><code class="language-shell">$ mkdir Library/Application\ Support/TextMate/Bundles
-$ cd Library/Application\ Support/TextMate/Bundles
-$ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir Library/Application<span style="color:#ae81ff">\ </span>Support/TextMate/Bundles
+$ cd Library/Application<span style="color:#ae81ff">\ </span>Support/TextMate/Bundles
+$ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</code></pre></div>
 <p>ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、cdでそのディレクトリに移動、svn coでSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんそんな感じ。</p>
 
 <p>そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！</p>

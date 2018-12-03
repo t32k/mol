@@ -80,21 +80,20 @@
         
 
 <p><a href="/mol/log/circleci2-yml/">前回の記事</a>で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。</p>
-
-<pre><code>version: 2
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
 jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:<span style="color:#ae81ff">8</span>
 
     steps:
       - checkout
       - run:
           name: System information
-          command: |
-            echo &quot;Node $(node -v)&quot;
-            echo &quot;Yarn v$(yarn --version)&quot;
+          command: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            echo &#34;Node $(node -v)&#34;
+</span><span style="color:#e6db74">            echo &#34;Yarn v$(yarn --version)&#34;</span>
       - run:
           name: Install dependencies
           command: yarn
@@ -105,7 +104,7 @@ jobs:
           name: Test
           command: yarn test
       - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum &quot;yarn.lock&quot; }}
+          key: cache-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;yarn.lock&#34;</span> }}
           paths:
             - ~/repo/.cache/yarn
             - ~/repo/dist
@@ -120,17 +119,15 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum &quot;yarn.lock&quot; }}
+          key: cache-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;yarn.lock&#34;</span> }}
       - run:
           name: Deploy to Google App Engine
-          command: |
-            echo &quot;$GOOGLE_AUTH&quot; | base64 -i --decode &gt; &quot;$HOME/gcp-key.json&quot;
-            gcloud auth activate-service-account --key-file &quot;$HOME/gcp-key.json&quot;
-            gcloud --quiet config set project &quot;$GOOGLE_PROJECT_ID&quot;
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &quot;s/\//\-/g&quot;)
-          no_output_timeout: 20m
-</code></pre>
-
+          command: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            echo &#34;$GOOGLE_AUTH&#34; | base64 -i --decode &gt; &#34;$HOME/gcp-key.json&#34;
+</span><span style="color:#e6db74">            gcloud auth activate-service-account --key-file &#34;$HOME/gcp-key.json&#34;
+</span><span style="color:#e6db74">            gcloud --quiet config set project &#34;$GOOGLE_PROJECT_ID&#34;
+</span><span style="color:#e6db74">            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &#34;s/\//\-/g&#34;)</span>
+          no_output_timeout: 20m</code></pre></div>
 <p><code>build</code>と<code>deploy</code>でDockerイメージが違うのが嫌だなーって思っていて、これをどうすうるのがいいんだろうと考えたら、やっぱり <code>circleci/node</code>のイメージをベースに<a href="https://cloud.google.com/sdk/downloads?hl=ja">Google Cloud SDKをインストール</a>したイメージを用意するのがいいんだろうと思ったけど、ぼくのDocker力が足りないので、うまくいかず、すぐ諦めた。</p>
 
 <h2 id="google-cloud-sdk-インストール">Google Cloud SDK インストール</h2>
@@ -146,10 +143,7 @@ jobs:
 <p>CI上で試してみるとなぜかうまくいかない。<code>gcloud</code>コマンドなんてないよ！と怒られる。どうやら、CircleCI上の<code>$SHELL</code>の環境変数が<code>/bin/bash</code>になってないと、うまく環境を認識できず（<code>zsh</code>とか<code>fish</code>と区別できない）、<a href="https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package/blob/master/helpers-unix.js#L93">PATHが設定できてないっぽい</a>。</p>
 
 <p>なので、↓みたいに明示的に指定してあげる必要がある。</p>
-
-<pre><code>echo 'source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc' &gt;&gt; $BASH_ENV
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">echo <span style="color:#e6db74">&#39;source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39;</span> &gt;<span style="color:#e6db74">&gt; $BASH_ENV</span></code></pre></div>
 <p>というわけで、無事打てました。</p>
 
 <h2 id="job間のデータ共有">Job間のデータ共有</h2>
@@ -165,39 +159,38 @@ jobs:
 <p>Cachingは異なるWorkflow間でのデータ共有であり、異なるJob間のデータ共有はWorkspaceという機能を使うのが正しい。</p>
 
 <p><code>persist_to_workspace</code>という項目で、共有したいデータを指定し、<code>attach_workspace</code>で取り出す。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
 
-<pre><code>version: 2
-
-# =============================================
-# References: Reusable Sets
-# =============================================
+<span style="color:#75715e"># =============================================</span>
+<span style="color:#75715e"># References: Reusable Sets</span>
+<span style="color:#75715e"># =============================================</span>
 references:
-  container_config: &amp;container_config
+  container_config: <span style="color:#75715e">&amp;container_config</span>
     docker:
       - image: circleci/node
     working_directory: ~/repo
 
-  restore_npm: &amp;restore_npm
+  restore_npm: <span style="color:#75715e">&amp;restore_npm</span>
     restore_cache:
       keys:
-        - v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &quot;package-lock.json&quot; }}
+        - v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;package-lock.json&#34;</span> }}
         - v1-cache-{{ arch }}-{{ .Branch }}
         - v1-cache
 
-# =============================================
-# Jobs: Build and Deploy
-# =============================================
+<span style="color:#75715e"># =============================================</span>
+<span style="color:#75715e"># Jobs: Build and Deploy</span>
+<span style="color:#75715e"># =============================================</span>
 jobs:
   build:
-    &lt;&lt;: *container_config
+    &lt;&lt;: <span style="color:#75715e">*container_config</span>
     steps:
       - checkout
-      - *restore_npm
+      - <span style="color:#75715e">*restore_npm</span>
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum &quot;package-lock.json&quot; }}
+          key: v1-cache-{{ arch }}-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;package-lock.json&#34;</span> }}
           paths:
             - node_modules
       - run:
@@ -212,23 +205,21 @@ jobs:
           command: npm test
 
   deploy:
-    &lt;&lt;: *container_config
+    &lt;&lt;: <span style="color:#75715e">*container_config</span>
     steps:
       - checkout
-      - *restore_npm
+      - <span style="color:#75715e">*restore_npm</span>
       - run:
           name: Set $PATH for `gcloud` command
-          command: echo 'source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc' &gt;&gt; $BASH_ENV
-      - attach_workspace:
-          at: dist
-      - run:
-          name: Deploy to Google App Engine
-          command: gcloud app deploy app.yaml
-          no_output_timeout: 20m
-          
-# Workflowsの設定・・・
-</code></pre>
-
+          command: echo <span style="color:#e6db74">&#39;source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39;</span> &gt;<span style="color:#e6db74">&gt; $BASH_ENV
+</span><span style="color:#e6db74">      - attach_workspace:
+</span><span style="color:#e6db74">          at: dist
+</span><span style="color:#e6db74">      - run:
+</span><span style="color:#e6db74">          name: Deploy to Google App Engine
+</span><span style="color:#e6db74">          command: gcloud app deploy app.yaml
+</span><span style="color:#e6db74">          no_output_timeout: 20m
+</span><span style="color:#e6db74">          </span>
+<span style="color:#75715e"># Workflowsの設定・・・</span></code></pre></div>
 <p>というわけで、こんな感じになった。<code>&amp;</code>と<code>*</code>は<a href="https://qiita.com/gctfuji/items/5f8e4c5795ce41b214d1">YAML記法</a>アンカーとエイリアスで、変数っぽく使える。</p>
 
 <ul>

@@ -18,14 +18,14 @@
       <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
       <description>StyleStatsのChrome拡張を作った。
  StyleStats - Chrome ウェブストア  StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
-これまでの流れ CLI $ npm install -g stylestats  npmからインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
+これまでの流れ CLI $ npm install -g stylestats npmからインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
 Web そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、Unique Font Families、　Unique Colors がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
 あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。
 CRX そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。Unique Font Sizesもプレビュー可能になった。
 使った技術とか ES2015 当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。
-Promise + Fetch API + Arrow functions Promise.all(links.map(link =&amp;gt; fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text()) )) .then(texts =&amp;gt; {});  ということで、&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるのでXMLHttpRequestみたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
+Promise + Fetch API + Arrow functions Promise.all(links.map(link =&amp;gt; fetch(link.href, {mode: &amp;#39;cors&amp;#39;}).then(response =&amp;gt; response.text()) )) .then(texts =&amp;gt; {});  ということで、&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるのでXMLHttpRequestみたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
 Let + Const あとまぁ特にそこまで便利になるわけでもないけど、一応letとかconstとかも使っといた。
-CSS3 object-fit .screenshot img { object-fit: cover; object-position: top; }  background-size的なことをimg要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にしてbackground-size:cover的なことをしたが、これだと印刷したときに表示されないので、そういえばobject-fitがあったのを思い出した。今のところIEではサポートされていない。</description>
+CSS3 object-fit .screenshot img { object-fit: cover; object-position: top; } background-size的なことをimg要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にしてbackground-size:cover的なことをしたが、これだと印刷したときに表示されないので、そういえばobject-fitがあったのを思い出した。今のところIEではサポートされていない。</description>
     </item>
     
     <item>
@@ -106,10 +106,10 @@ $ vagrant up Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; pro
       <guid>https://t32k.me/mol/log/inheriting-link-colour/</guid>
       <description>最近のスマホサイトとかコーディングしてると上記のようなリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりアクションしたりする。
 これをコーディングするとなると、ul &amp;gt; li &amp;gt; aでaをBlock要素にすると思う。そのとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。
-body { color: black; } a { color: blue; }  下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。
-ul li { color: gray; }  それじゃ問題だから、ul &amp;gt; liにグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだaのcolorは継承しないんだったー』ってことが疲れてるとよくある。
-ul li, ul li a { color: gray; }  だもんで、めんどくさいけど、上記のようなスタイルを指定している（aで包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここでinheritさんの登場だ。
-a { color: inherit; } ul li { color: gray; }  こうしとけば、ul &amp;gt; li &amp;gt; aは、グレーの文字色を継承する。inheritなんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。
+body { color: black; } a { color: blue; } 下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。
+ul li { color: gray; } それじゃ問題だから、ul &amp;gt; liにグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだaのcolorは継承しないんだったー』ってことが疲れてるとよくある。
+ul li, ul li a { color: gray; } だもんで、めんどくさいけど、上記のようなスタイルを指定している（aで包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここでinheritさんの登場だ。
+a { color: inherit; } ul li { color: gray; } こうしとけば、ul &amp;gt; li &amp;gt; aは、グレーの文字色を継承する。inheritなんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。
 スマホサイトはタップエリアを大きくするためにBlock化して、aに多くの内容物が放り込まれるきらいがある。だもんで、aも通常のspanとかdiv感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。
  Inheriting Link Colour - Snook.ca  </description>
     </item>

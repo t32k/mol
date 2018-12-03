@@ -77,56 +77,48 @@
         
 
 <p>最近、Reactを触っているのだけど、Reactコンポーネント外から任意のReactコンポーネントを操作したい事情に駆られた（何を言ってるのか分からねぇと思うが俺も（ｒｙ）。</p>
-
-<pre><code class="language-javascript">export default class Hoge extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: '' };
-    this.handleClick = this.handleClick.bind(this);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hoge</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span> };
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleClick</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleClick</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>);
   }
-  handleClick(e) {
-      this.setState({ text: 'unko' });
+  <span style="color:#a6e22e">handleClick</span>(<span style="color:#a6e22e">e</span>) {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({ <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;unko&#39;</span> });
   }
-  render() {
+  <span style="color:#a6e22e">render</span>() {
       ...
   }
 }
-</code></pre>
-
+</code></pre></div>
 <p>普通のケースだと、こんな感じで<code>Hoge</code>のコンポーネントのどっかをクリックしたら、<code>state</code>の<code>text</code>に<code>unko</code>をセットすることによって、<code>render</code>がはしるみたいな、わかりやすい。なんの問題ない。</p>
 
 <p>ただ、このコンポーネントを、<code>window.Hoge.setState({ text: 'unko' })</code>みたいに、グローバルから操作したい場合ってどうしたらいいんだろうかとけっこう悩んだ。</p>
 
 <h2 id="re-render">re-render</h2>
-
-<pre><code class="language-javascript">export default class Hoge extends Component {
-  render() {
-      return(&lt;span id='hoge'&gt;{ this.props.text }&lt;/span&gt;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hoge</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">render</span>() {
+      <span style="color:#66d9ef">return</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hoge&#39;</span><span style="color:#f92672">&gt;</span>{ <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">text</span> }<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/span&gt;)</span>
   }
 }
-window.Hoge = Hoge;
-</code></pre>
-
+window.<span style="color:#a6e22e">Hoge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Hoge</span>;
+</code></pre></div>
 <p>とりあえず、<code>Hoge</code>をグローバルの<code>window</code>に生やす。</p>
-
-<pre><code class="language-javascript">export default class Fuga extends Component {
-  constructor(props) {
-    super(props);
-    window.createHoge = (value) =&gt; {
-      const Hoge = window.Hoge;
-      const elm = document.getElementById('hoge');
-      elm.innerHTML = '';
-      ReactDOM.render(&lt;Hoge text={value} /&gt;, elm);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fuga</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    window.<span style="color:#a6e22e">createHoge</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">value</span>) =&gt; {
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Hoge</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">Hoge</span>;
+      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elm</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;hoge&#39;</span>);
+      <span style="color:#a6e22e">elm</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+      <span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Hoge</span> <span style="color:#a6e22e">text</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">value</span>} <span style="color:#960050;background-color:#1e0010">/&gt;, elm);</span>
     };
   }
 }
-</code></pre>
-
+</code></pre></div>
 <p>親のコンポーネントなり、なんなりで、新規に<code>Hoge</code>を作るグローバル関数を定義する。</p>
-
-<pre><code class="language-javascript">window.createHoge('unko');
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">window.<span style="color:#a6e22e">createHoge</span>(<span style="color:#e6db74">&#39;unko&#39;</span>);
+</code></pre></div>
 <p>で、<code>Hoge</code>コンポーネントの<code>props</code>に<code>unko</code>渡して、上書きすることでできた。なんか無理矢理感あるけど&hellip;</p>
 
 <p>既にレンダリングしてある<code>Hoge</code>コンポーネントってどうやって取得したらいいんだろうか？(
@@ -135,42 +127,38 @@ window.Hoge = Hoge;
 <h2 id="custom-event">custom event</h2>
 
 <p>とりあえず<code>unko</code>を表示できてホッとしてたけど、今度はこの<code>unko</code>を他のコンポーネントに伝えたいって場合どうすればいいんだろうと悩んだ。</p>
-
-<pre><code class="language-javascript">export default class Fuga extends Component {
-  constructor(props) {
-    super(props);
-    window.createHoge = (value) =&gt; {
-     const event = new CustomEvent('createHoge', { 'detail': value });
-      document.getElementById('piyo').dispatchEvent(event);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fuga</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    window.<span style="color:#a6e22e">createHoge</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">value</span>) =&gt; {
+     <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">event</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">CustomEvent</span>(<span style="color:#e6db74">&#39;createHoge&#39;</span>, { <span style="color:#e6db74">&#39;detail&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span> });
+      document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;piyo&#39;</span>).<span style="color:#a6e22e">dispatchEvent</span>(<span style="color:#a6e22e">event</span>);
       ...
     };
   }
 }
-</code></pre>
-
+</code></pre></div>
 <p><code>createHoge</code>のときに、<code>createHoge</code>イベントを発火させる。んで伝えたい値もセットしておく。</p>
-
-<pre><code class="language-javascript">export default class Piyo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: '' };
-        this.handleHoge= this.handleHoge.bind(this);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Piyo</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+    <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span> };
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleHoge</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleHoge</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>);
   }
-  componentDidMount() {
-    this.refs.piyo.addEventListener('createHoge', this.handleHoge);
+  <span style="color:#a6e22e">componentDidMount</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">refs</span>.<span style="color:#a6e22e">piyo</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;createHoge&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleHoge</span>);
   }
-  componentWillUnmount() {
-    this.refs.piyo.removeListener('createHoge', this.handleHoge);
+  <span style="color:#a6e22e">componentWillUnmount</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">refs</span>.<span style="color:#a6e22e">piyo</span>.<span style="color:#a6e22e">removeListener</span>(<span style="color:#e6db74">&#39;createHoge&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleHoge</span>);
   }
-  handleHoge(e) {
-    this.setState({ text: e.detail });
+  <span style="color:#a6e22e">handleHoge</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({ <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">detail</span> });
   }
-  render() {
-      return(&lt;span ref='piyo' id='piyo'&gt;{this.state.text}&lt;/span&gt;);
+  <span style="color:#a6e22e">render</span>() {
+      <span style="color:#66d9ef">return</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">ref</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;piyo&#39;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;piyo&#39;</span><span style="color:#f92672">&gt;</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">text</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/span&gt;);</span>
   }
 }
-</code></pre>
-
+</code></pre></div>
 <p>受け手のコンポーネント<code>Piyo</code>でリッスン♪これで、<code>window.createHoge('unko');</code>することで、<code>Hoge</code>コンポーネントが作られ上書きし、<code>Piyo</code>コンポーネントにも<code>unko</code>が表示される。</p>
 
 <p>なんか<a href="https://mobx.js.org/">MobX</a>みたいなストア管理のライブラリ使えば、もっとシュッとできるんだろうなと思いつつ、しかし、そこまでの規模じゃないと思い、この結果に至りました。ちーん( ˘ω˘)</p>

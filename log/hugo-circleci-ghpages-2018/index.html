@@ -97,89 +97,68 @@
 <p><img src="/mol/images/2018/1106-01.png" alt="" /></p>
 
 <p>まずは、CircleCI側、config.ymlの設定。</p>
-
-<pre><code>version: 2
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
 jobs:
   build:
     branches:
       only:
-        - master
-</code></pre>
-
+        - master</code></pre></div>
 <p>まぁ、ブログなので、<code>master</code>オンリーのブランチで実行。</p>
-
-<pre><code> docker:
-      - image: cibuilds/hugo:latest
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"> docker:
+      - image: cibuilds/hugo:latest</code></pre></div>
 <p>dockerイメージとして、<a href="https://github.com/cibuilds/docker-hugo">cibuilds/hugo:latest</a>という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。</p>
-
-<pre><code>    working_directory: ~/hugo
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">    working_directory: ~/hugo
     steps:
       - run:
           name: Update enviroment
-          command: apk update &amp;&amp; apk add git
-</code></pre>
-
+          command: apk update <span style="color:#75715e">&amp;&amp;</span> apk add git</code></pre></div>
 <p><code>cibuilds/hugo</code>イメージはAlpine Linuxベースとのことで、<code>apk</code>でパッケージを最新にしといて、<code>git</code>も追加。</p>
-
-<pre><code>      - run:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - run:
           name: Hugo version
-          command: echo &quot;$(hugo version)&quot;
+          command: echo <span style="color:#e6db74">&#34;$(hugo version)&#34;</span>
       - checkout
       - run:
           name: Building blog pages
-          command: |
-            HUGO_ENV=production hugo -v
-            cp public/index.xml public/feed.xml
-</code></pre>
-
+          command: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">            HUGO_ENV=production hugo -v
+</span><span style="color:#e6db74">            cp public/index.xml public/feed.xml</span></code></pre></div>
 <p>あとは、GitHubからコードをチェックアウトして、Hugoで生成している。RSS用に<code>feed.xml</code> にコピーしとく。</p>
-
-<pre><code>      - add_ssh_keys:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - add_ssh_keys:
           fingerprints:
-            - &quot;SO:ME:FIN:G:ER:PR:IN:T&quot;
-</code></pre>
-
+            - <span style="color:#e6db74">&#34;SO:ME:FIN:G:ER:PR:IN:T&#34;</span></code></pre></div>
 <p>デフォルトで作成されるdeploy keyはチェックアウトする(read)だけの権限なので、ghpageブランチにコミット(write)できる権限を作成しとく。</p>
 
 <p><strong>Add user key</strong> ボタンを押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページで、そのFingerprintをコピーして上記に追加。</p>
-
-<pre><code>      - deploy:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - deploy:
           name: Deploy to GitHub Pages
-          command: ./.circleci/deploy.sh
-</code></pre>
-
+          command: ./.circleci/deploy.sh</code></pre></div>
 <p>あとはデプロイ用のシェルスクリプトを実行している。</p>
 
 <h2 id="github-pages">GitHub Pages</h2>
 
 <p>シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼ<a href="https://github.com/RealOrangeOne/circleci-hugo-template/blob/master/.circleci/deploy.sh">RealOrangeOne</a>氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。</p>
-
-<pre><code>#!/usr/bin/env bash
-
-# エラー時、実行を止める
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># エラー時、実行を止める</span>
 set -e
 
-DEPLOY_DIR=deploy
+DEPLOY_DIR<span style="color:#f92672">=</span>deploy
 
-# gitの諸々の設定
+<span style="color:#75715e"># gitの諸々の設定</span>
 git config --global push.default simple
-git config --global user.email $(git --no-pager show -s --format='%ae' HEAD)
+git config --global user.email <span style="color:#66d9ef">$(</span>git --no-pager show -s --format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%ae&#39;</span> HEAD<span style="color:#66d9ef">)</span>
 git config --global user.name $CIRCLE_USERNAME
 
-# gh-pagesブランチをdeployディレクトリにクローン
-git clone -q --branch=gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
+<span style="color:#75715e"># gh-pagesブランチをdeployディレクトリにクローン</span>
+git clone -q --branch<span style="color:#f92672">=</span>gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
 
-# rsyncでhugoで生成したHTMLをコピー
+<span style="color:#75715e"># rsyncでhugoで生成したHTMLをコピー</span>
 cd $DEPLOY_DIR
 rsync -arv --delete ../public/* .
 
 git add -f .
-git commit -m &quot;Deploy #$CIRCLE_BUILD_NUM from CircleCI [ci skip]&quot; || true
-git push -f
-</code></pre>
-
+git commit -m <span style="color:#e6db74">&#34;Deploy #</span>$CIRCLE_BUILD_NUM<span style="color:#e6db74"> from CircleCI [ci skip]&#34;</span> <span style="color:#f92672">||</span> true
+git push -f</code></pre></div>
 <p><code>push.default simple</code> って何の設定なんだろうと思ったけど、これのおかげで、<code>git push origin gh-pages</code>とかしなくていいのか。なるほど simple!</p>
 
 <ul>

@@ -76,28 +76,16 @@
 <p>最近のスマホサイトとかコーディングしてると上記のようなリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりアクションしたりする。</p>
 
 <p>これをコーディングするとなると、<code>ul &gt; li &gt; a</code>で<code>a</code>をBlock要素にすると思う。そのとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。</p>
-
-<pre><code class="language-css">body { color: black; }
-a { color: blue; }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>; }
+<span style="color:#f92672">a</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>; }</code></pre></div>
 <p>下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。</p>
-
-<pre><code class="language-css">ul li { color: gray; }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">gray</span>; }</code></pre></div>
 <p>それじゃ問題だから、<code>ul &gt; li</code>にグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだ<code>a</code>の<code>color</code>は継承しないんだったー』ってことが疲れてるとよくある。</p>
-
-<pre><code class="language-css">ul li,
-ul li a { color: gray; }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">ul</span> <span style="color:#f92672">li</span><span style="color:#f92672">,</span>
+<span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> <span style="color:#f92672">a</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">gray</span>; }</code></pre></div>
 <p>だもんで、めんどくさいけど、上記のようなスタイルを指定している（<code>a</code>で包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここで<code>inherit</code>さんの登場だ。</p>
-
-<pre><code class="language-css">a { color: inherit; }
-ul li { color: gray; }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">a</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">inherit</span>; }
+<span style="color:#f92672">ul</span> <span style="color:#f92672">li</span> { <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">gray</span>; }</code></pre></div>
 <p>こうしとけば、<code>ul &gt; li &gt; a</code>は、グレーの文字色を継承する。<code>inherit</code>なんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。</p>
 
 <p>スマホサイトはタップエリアを大きくするためにBlock化して、<code>a</code>に多くの内容物が放り込まれるきらいがある。だもんで、<code>a</code>も通常の<code>span</code>とか<code>div</code>感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。</p>

@@ -90,10 +90,8 @@
 </ul>
 
 <p>Fx3.0 は対応していないけど、IE8 は対応してるのか。素敵！</p>
-
-<pre><code class="language-javascript">element = document.querySelector(selectors);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#a6e22e">selectors</span>);
+</code></pre></div>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">Document.querySelector() - Web API Interfaces | MDN</a></li>
 </ul>
@@ -102,10 +100,8 @@
 
 <blockquote>
 </blockquote>
-
-<pre><code class="language-javascript">elementList = document.querySelectorAll(selectors);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">elementList</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#a6e22e">selectors</span>);
+</code></pre></div>
 <p>elementList is a non-live NodeList of element objects.</p>
 
 <ul>
@@ -113,10 +109,8 @@
 </ul>
 
 <p>querySelectorAll はノードリストを返す。</p>
-
-<pre><code class="language-javascript">var node = document.querySelectorAll(&quot;#hoge &gt; h2&quot;);
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#34;#hoge &gt; h2&#34;</span>);
+</code></pre></div>
 <p>つまり、<code>#hoge</code>の中の子供の h2 だけを取ってくるなんてことも、上記のように CSS セレクタで簡単に書けちゃう。jQuery ライクに書けちゃう。だから、これまで Firefox のグリモンとか Chrome の拡張機能を作成するときは僕は jQuery 読み込んでいたんだけど、簡単なものであれば Selectors API 使えば、jQuery に頼らなくても良くなった。</p>
 
 <h2 id="live-nodelist-と-static-nodelist">Live NodeList と Static NodeList</h2>
@@ -132,25 +126,21 @@
 </ul>
 
 <p>静的なノードリストなわけですね。具体的な例だと、</p>
-
-<pre><code class="language-javascript">var divs = document.getElementsByTagName(&quot;div&quot;),
-  i = 0;
-while (i &gt; divs.length) {
-  document.body.appendChild(document.createElement(&quot;div&quot;));
-  i++;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">divs</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;div&#34;</span>),
+  <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">divs</span>.<span style="color:#a6e22e">length</span>) {
+  document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;div&#34;</span>));
+  <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
 }
-</code></pre>
-
+</code></pre></div>
 <p>getElementsByTagName()で返される値は動的なノードリストですので、上記のスクリプトは無限ループになる。</p>
-
-<pre><code class="language-javascript">var divs = document.querySelectorAll(&quot;div&quot;),
-  i = 0;
-while (i &lt; divs.length) {
-  document.body.appendChild(document.createElement(&quot;div&quot;));
-  i++;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">divs</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#34;div&#34;</span>),
+  <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">divs</span>.<span style="color:#a6e22e">length</span>) {
+  document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;div&#34;</span>));
+  <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
 }
-</code></pre>
-
+</code></pre></div>
 <p>代わって、<code>querySelectorAll</code>で返される値は静的なノードリストで、取得してきた時点での数になります。つまり、div が 10 個そのときあったのであれば、その後に何個 div を生成しようが 10 回でこのループは止まります。</p>
 
 <p>違いが分かりましたけど、なんでちゃうのん?</p>

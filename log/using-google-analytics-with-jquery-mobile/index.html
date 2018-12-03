@@ -86,27 +86,25 @@
 <h2 id="gatc-for-jquery-mobile">GATC for jQuery Mobile</h2>
 
 <p>僕はこうゆう感じでとりあえず対応しています。作動させるタイミングとフラグメント識別子を記録させるのがポイントです。あとはご自身のサイトに合わせてカスタマイズしていただければと思います。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//Account Setting
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">||</span> [];
+<span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_setAccount&#39;</span>, <span style="color:#e6db74">&#39;UA-xxxxxxx-x&#39;</span>]);
 
-<pre><code class="language-javascript">//Account Setting
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-xxxxxxx-x']);
-
-//Async Snippet
-(function () {
-    var ga = document.createElement('script');
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
+<span style="color:#75715e">//Async Snippet
+</span><span style="color:#75715e"></span>(<span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ga</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);
+    <span style="color:#a6e22e">ga</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+    <span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;https:&#39;</span> <span style="color:#f92672">==</span> document.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">protocol</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;https://ssl&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www&#39;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.google-analytics.com/ga.js&#39;</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;script&#39;</span>)[<span style="color:#ae81ff">0</span>];
+    <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">ga</span>, <span style="color:#a6e22e">s</span>);
 })();
 
-//Execute
-$('[data-role=&quot;page&quot;]').live('pageshow', function () {
-    var u = location.hash.replace('#', '');
-    u ? _gaq.push(['_trackPageview', u]) : _gaq.push(['_trackPageview']);
+<span style="color:#75715e">//Execute
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;[data-role=&#34;page&#34;]&#39;</span>).<span style="color:#a6e22e">live</span>(<span style="color:#e6db74">&#39;pageshow&#39;</span>, <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">u</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">hash</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;#&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>);
+    <span style="color:#a6e22e">u</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_trackPageview&#39;</span>, <span style="color:#a6e22e">u</span>]) <span style="color:#f92672">:</span> <span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_trackPageview&#39;</span>]);
 });
-</code></pre>
-
+</code></pre></div>
 <h3 id="jquery-mobile-xss-problem">jQuery Mobile XSS Problem</h3>
 
 <p>ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。</p>

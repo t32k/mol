@@ -121,12 +121,9 @@
 </ul>
 
 <p>まず、Mixinの説明する前に私が作っている<a href="https://github.com/t32k/maple">Maple</a>プロジェクトをダウンロードしてくる（Node.js, Ruby, Sass, Compassがインストールされていること前提）次に、grunt-init-mapleをインストールする。</p>
-
-<pre><code class="language-shell">$ npm install -g grunt-cli
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm install -g grunt-cli
 $ npm install -g grunt-init
-$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –recursive
-</code></pre>
-
+$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –recursive</code></pre></div>
 <p><code>grunt-init maple</code>を実行すると以下のようにMapleプロジェクトに必要なファイルがスキャフォルディングされる。</p>
 
 <p><img src="/static/blog/2013/08/grunt-init.gif" alt="Demo maple" /></p>
@@ -134,38 +131,32 @@ $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –
 <p>落ちてきたら、/src/tools（Gruntfile, package.jsonがある場所）に移動し、必要なGruntプラグインをインストール（npm install）しておく。これで下準備はOK。</p>
 
 <p>その場所で<code>grunt develop</code>して<code>http://localhost:8080/components/</code>を見にいく。そこにスプライトした画像が表示されていますからDevToolsなどで確認してみる。</p>
-
-<pre><code class="language-css">.sprt-a {
-  background-image: url(/files/img/sprite/tabs-s3217a038c5.png);
-  background-repeat: no-repeat;
-  background-size: 120px 25px;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">sprt-a</span> {
+  <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">/files/img/sprite/tabs-s3217a038c5.png</span>);
+  <span style="color:#66d9ef">background-repeat</span>: <span style="color:#66d9ef">no-repeat</span>;
+  <span style="color:#66d9ef">background-size</span>: <span style="color:#ae81ff">120</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
 }
-.sprt-a-bird1 {
-  width: 30px;
-  height: 25px;
-  background-position: 0 0;
+.<span style="color:#a6e22e">sprt-a-bird1</span> {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">background-position</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>;
 }
-.sprt-a-bird2 {
-  width: 30px;
-  height: 25px;
-  background-position: -30px 0;
-…
-</code></pre>
-
+.<span style="color:#a6e22e">sprt-a-bird2</span> {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">background-position</span>: <span style="color:#ae81ff">-30</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#960050;background-color:#1e0010">…</span></code></pre></div>
 <p>上記のようなスタイルが当たっているかと思う。コレ自体はCSSなので普通のCSSスプライトのコードだ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">$map-tabs: sprite-map(“/files/img/sprite/tabs/*.png”, $date: horizontal);</span>
 
-<pre><code class="language-sass">$map-tabs: sprite-map(“/files/img/sprite/tabs/*.png”, $date: horizontal);
+<span style="color:#960050;background-color:#1e0010">// 共通クラス</span>
+<span style="color:#960050;background-color:#1e0010">.sprt-a { @include sprite(parent, $map-tabs); }</span> 
 
-// 共通クラス
-.sprt-a { @include sprite(parent, $map-tabs); } 
-
-// 個別クラス 
-.sprt-a-bird1 { @include sprite(child, $map-tabs, bird1); } 
-.sprt-a-bird2 { @include sprite(child, $map-tabs, bird2); } 
-.sprt-a-bird3 { @include sprite(child, $map-tabs, bird3); } 
-.sprt-a-bird4 { @include sprite(child, $map-tabs, bird4); }
-</code></pre>
-
+<span style="color:#960050;background-color:#1e0010">// 個別クラス</span> 
+<span style="color:#960050;background-color:#1e0010">.sprt-a-bird1 { @include sprite(child, $map-tabs, bird1); }</span> 
+<span style="color:#960050;background-color:#1e0010">.sprt-a-bird2 { @include sprite(child, $map-tabs, bird2); }</span> 
+<span style="color:#960050;background-color:#1e0010">.sprt-a-bird3 { @include sprite(child, $map-tabs, bird3); }</span> 
+<span style="color:#960050;background-color:#1e0010">.sprt-a-bird4 { @include sprite(child, $map-tabs, bird4); }</span></code></pre></div>
 <p>実際のSassコードは上記。特に煩わしいbackground-positionが書いてないことが見てとれる。各画像のbackground-positionの算出はspriteというMixinで定義してあるので、使う人は画像の位置をいちいちPhotoshopで測るといったことをしなくてもよくなる。</p>
 
 <p>説明すると<code>$map-tabs:</code>で、スプライトしたい画像を指定。imgディレクトリ配下にspriteディレクトリを作って、そこにスプライト画像をおいておけば、普通の画像と区別できて便利。このディレクトリの中にスプライト前の１個１々独立した画像が入っている。これらの画像をCompassがまとめてくれる。</p>
@@ -177,12 +168,9 @@ $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –
 <p>parentは親（共通）classであることを示し、$map-tabsは展開するスプライト画像を指定している。</p>
 
 <p>.sprt-a-bird1のchildは子（個別）classであることを示し、$map-tabsは上記と同じく、第3引数でそのスプライト画像で使いたい画像名を指定している。ここではbird1を指定しているので、/files/img/sprite/tabs/bird1.pngのbackground-positionが生成される。</p>
-
-<pre><code class="language-sass">// 個別クラスにwidth/height吐き出さない場合
-.sprt-a { @include sprite(parent, $map-tabs, bird1, true); }
-.sprt-a-bird1 { @include sprite(child, $map-tabs, bird1, true); }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">// 個別クラスにwidth/height吐き出さない場合</span>
+<span style="color:#960050;background-color:#1e0010">.sprt-a { @include sprite(parent, $map-tabs, bird1, true); }</span>
+<span style="color:#960050;background-color:#1e0010">.sprt-a-bird1 { @include sprite(child, $map-tabs, bird1, true); }</span></code></pre></div>
 <p>もし、個別のスプライト画像が全て同じサイズの場合、第4引数にtrueをつけて@includeすれば、個別クラスにはサイズ指定されず、共通クラスにwidth/heightが記述されて、コード量を節約することができる。</p>
 
 <p>このようにMixinを活用出来れば、フロントエンドデベロッパーはデザイナーからもらったアイコン画像を任意のディレクトリに放り込んで、コマンドを打つだけでスプライト画像を生成することができる。冷えきったデザイナーとの関係にも終止符をうてる。</p>

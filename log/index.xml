@@ -113,9 +113,9 @@ wraplus for MacBook Air Retina 13 インチ [ブラックカーボン] スキン
 まぁ、そうゆうわけで、Hugo + CircleCI + GitHub Pagesの構成で動かしたかったわけだけど、うまいことコレ！ってのがなかったので、以下の記事を参考にかけ合わせた感じ。
  Automate Your Static Site Deployment with CircleCI - CircleCI RealOrangeOne: Example setup for deploying a hugo site to github pages using circleci  以下はメモ
 CircleCI 2.0 まずは、CircleCI側、config.ymlの設定。
-version: 2 jobs: build: branches: only: - master  まぁ、ブログなので、masterオンリーのブランチで実行。
- docker: - image: cibuilds/hugo:latest  dockerイメージとして、cibuilds/hugo:latestという、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。
- working_directory: ~/hugo steps: - run: name: Update enviroment command: apk update &amp;amp;&amp;amp; apk add git  cibuilds/hugoイメージはAlpine Linuxベースとのことで、apkでパッケージを最新にしといて、gitも追加。</description>
+version: 2 jobs: build: branches: only: - master まぁ、ブログなので、masterオンリーのブランチで実行。
+docker: - image: cibuilds/hugo:latest dockerイメージとして、cibuilds/hugo:latestという、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。
+working_directory: ~/hugo steps: - run: name: Update enviroment command: apk update &amp;amp;&amp;amp; apk add git cibuilds/hugoイメージはAlpine Linuxベースとのことで、apkでパッケージを最新にしといて、gitも追加。</description>
     </item>
     
     <item>
@@ -323,7 +323,7 @@ controller.hears([&#39;hello&#39;], &#39;direct_mention&#39;, (bot, message) =&a
       
       <guid>https://t32k.me/mol/log/circleci2-yml-nodejs/</guid>
       <description>前回の記事で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。
-version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node:8 steps: - checkout - run: name: System information command: | echo &amp;quot;Node $(node -v)&amp;quot; echo &amp;quot;Yarn v$(yarn --version)&amp;quot; - run: name: Install dependencies command: yarn - run: name: Build command: yarn run build - run: name: Test command: yarn test - save_cache: key: cache-{{ .Branch }}-{{ checksum &amp;quot;yarn.lock&amp;quot; }} paths: - ~/repo/.cache/yarn - ~/repo/dist - ~/repo/node_modules - ~/repo/package.json deploy: working_directory: ~/repo docker: - image: google/cloud-sdk steps: - checkout - restore_cache: key: cache-{{ .</description>
+version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node:8 steps: - checkout - run: name: System information command: | echo &amp;#34;Node $(node -v)&amp;#34; echo &amp;#34;Yarn v$(yarn --version)&amp;#34; - run: name: Install dependencies command: yarn - run: name: Build command: yarn run build - run: name: Test command: yarn test - save_cache: key: cache-{{ .Branch }}-{{ checksum &amp;#34;yarn.lock&amp;#34; }} paths: - ~/repo/.cache/yarn - ~/repo/dist - ~/repo/node_modules - ~/repo/package.json deploy: working_directory: ~/repo docker: - image: google/cloud-sdk steps: - checkout - restore_cache: key: cache-{{ .</description>
     </item>
     
     <item>
@@ -548,9 +548,9 @@ const crypto = require(&#39;crypto&#39;); const shas256 = crypto.createHash(&#39
       <guid>https://t32k.me/mol/log/circleci2-yml/</guid>
       <description>基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。今年の7月にCircleCI 2.0がリリースされ、config.ymlの記法も刷新されたとかで、ググって出て来るのは1.0の記法ばかりで苦労したので、メモ代わりに残しとく。
  CircleCI2.0事始め -新しいcircle.ymlとworkflows編 · tehepero note(・ω&amp;lt;) 2.0  基本は上記のブログがわかりやすい。
-version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node:8 steps: - checkout - run: name: System information command: | echo &amp;quot;Node $(node -v)&amp;quot; echo &amp;quot;Yarn v$(yarn --version)&amp;quot; - run: name: Install dependencies command: yarn - run: name: Build command: yarn run build - run: name: Test command: yarn test  version: 2 で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。yarn がデフォルトで入ってるらしく、GAE/Node.jsもyarnが使えるのでyarnを使っていく。
+version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node:8 steps: - checkout - run: name: System information command: | echo &amp;#34;Node $(node -v)&amp;#34; echo &amp;#34;Yarn v$(yarn --version)&amp;#34; - run: name: Install dependencies command: yarn - run: name: Build command: yarn run build - run: name: Test command: yarn test version: 2 で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。yarn がデフォルトで入ってるらしく、GAE/Node.jsもyarnが使えるのでyarnを使っていく。
 あとはrunでステップを指定していく。commandは|を置けば、複数行でも書ける。
- - save_cache: key: cache-{{ .</description>
+- save_cache: key: cache-{{ .</description>
     </item>
     
     <item>
@@ -747,9 +747,9 @@ Amazon.co.jp で詳細を見る 昔勤めていたところで、ビットコイ
       
       <guid>https://t32k.me/mol/log/react-custom-event/</guid>
       <description>最近、Reactを触っているのだけど、Reactコンポーネント外から任意のReactコンポーネントを操作したい事情に駆られた（何を言ってるのか分からねぇと思うが俺も（ｒｙ）。
-export default class Hoge extends Component { constructor(props) { super(props); this.state = { text: &#39;&#39; }; this.handleClick = this.handleClick.bind(this); } handleClick(e) { this.setState({ text: &#39;unko&#39; }); } render() { ... } }  普通のケースだと、こんな感じでHogeのコンポーネントのどっかをクリックしたら、stateのtextにunkoをセットすることによって、renderがはしるみたいな、わかりやすい。なんの問題ない。
+export default class Hoge extends Component { constructor(props) { super(props); this.state = { text: &amp;#39;&amp;#39; }; this.handleClick = this.handleClick.bind(this); } handleClick(e) { this.setState({ text: &amp;#39;unko&amp;#39; }); } render() { ... } }  普通のケースだと、こんな感じでHogeのコンポーネントのどっかをクリックしたら、stateのtextにunkoをセットすることによって、renderがはしるみたいな、わかりやすい。なんの問題ない。
 ただ、このコンポーネントを、window.Hoge.setState({ text: &#39;unko&#39; })みたいに、グローバルから操作したい場合ってどうしたらいいんだろうかとけっこう悩んだ。
-re-render export default class Hoge extends Component { render() { return(&amp;lt;span id=&#39;hoge&#39;&amp;gt;{ this.props.text }&amp;lt;/span&amp;gt;) } } window.Hoge = Hoge;  とりあえず、Hogeをグローバルのwindowに生やす。
+re-render export default class Hoge extends Component { render() { return(&amp;lt;span id=&amp;#39;hoge&amp;#39;&amp;gt;{ this.props.text }&amp;lt;/span&amp;gt;) } } window.Hoge = Hoge;  とりあえず、Hogeをグローバルのwindowに生やす。
 export default class Fuga extends Component { constructor(props) { super(props); window.</description>
     </item>
     
@@ -1106,7 +1106,7 @@ xo: JavaScript happiness style linter  sindresorhus/xo: ❤️ JavaScript happin
 僕みたいな、あまりJSにこだわりがない三等兵にとっては、こうゆう業界の先いってる人の考えを真似て従うのは性に合ってる。というかリントの設定で時間つぶしたくないもんね。
 似たようなものでfeross/standardがある。この圧倒的な名前の王道感のおかげが、こっちのほうが有名だ。ただこっちはセミコロンなしが既定のルールとなっている。さきほど、こだわりはないと言ったが、こだわりがないからこそ小さい頃に『JSはセミコロンを必ずつけろ！』と教わって生きてきたので敷かれたレールから外れるのがこわい。そうゆう人も多いのか、Flet/semistandardというリンターもある。さっそくスタンダード分裂してんじゃねーか！と思ったのはいざ知らず。
 xoのほうはセミコロンつけるな！とは言わないしログもきれい( ˘ω˘) ただ、デフォルトでインデントはタブというルールがある。これが気に食わない人はpackage.jsonにxoのフィールドを作って設定を変更できる。その他のいくつかの設定もpackage.jsonから変更できる。
-{ &amp;quot;name&amp;quot;: &amp;quot;awesome-package&amp;quot;, &amp;quot;xo&amp;quot;: { &amp;quot;spacce&amp;quot;: true } }  またスペース派だったけど、今回からタブ派に切り替えようかしらって思った人はxo --fixですぐに対応できる。今まで使ってたESlintの設定よりもチョイ厳し目だが、全体的に納得感あるので気に入っている。
+{ &amp;#34;name&amp;#34;: &amp;#34;awesome-package&amp;#34;, &amp;#34;xo&amp;#34;: { &amp;#34;spacce&amp;#34;: true } } またスペース派だったけど、今回からタブ派に切り替えようかしらって思った人はxo --fixですぐに対応できる。今まで使ってたESlintの設定よりもチョイ厳し目だが、全体的に納得感あるので気に入っている。
 ava: Futuristic JavaScript test runner  avajs/ava: Futuristic JavaScript test runner  xoのドキュメントを読んでいるとavaという単語が目につく。同じsindresorhus氏作のテストランナーだ。自分で未来的って言っちゃうほどなんだから、新しい仕様が採用されているのだろうと思い、せっかくなのでxoと一緒にこっちも採用してみた。1000ch君パイセンも最近使ってると言ってたし。</description>
     </item>
     
@@ -1283,7 +1283,7 @@ IT企業とかに置き換えて考えてみたら、R&amp;amp;D的な部署と�
 そういえば思い出したが、昔、何百万という商品ページがあったのをカテゴリーごとに、リクエストURIを書き換えてグルーピングしたのを思い出したが、今はもっと便利になっている。
 例えば、このブログならひとつひとつの記事がページになり、グループはいかようにも設定できるだろう。2016年、2015年、2014年&amp;hellip;という年次でグルーピングするのもひとつの方法だろう。たいていのブログサイトなら記事の公開年ごとにディレクトリを区切って管理しているかもしれないが、あいにく私のブログではURLが長くなるのは嫌だったので、そうゆうURL構成になってはいない。
 コンテンツグループのグルーピングはそういったURLやタイトルの規則性を利用してもできるが、トラッキングコード別にグループ化もできる点が素晴らしいと思う。
-ga(&#39;set&#39;, &#39;contentGroup1&#39;, &#39;{{.PublishedYear}}&#39;);  上記のように、トラッキングコードを記事に仕込むことでグルーピングできる（{{.PublishedYear}}部分は何かしらの変数で）。
+ga(&amp;#39;set&amp;#39;, &amp;#39;contentGroup1&amp;#39;, &amp;#39;{{.PublishedYear}}&amp;#39;);  上記のように、トラッキングコードを記事に仕込むことでグルーピングできる（{{.PublishedYear}}部分は何かしらの変数で）。
 こんな具合にcontentGroup1がyearというグループになっている。
 トラッキングコードでグルーピングできるということは、なんでもできるということだ。例えば、その記事の文字数をカウントしてGAトラッキングに渡して文字数ごとにグルーピングしたり、コメント数や、ソーシャルシェア数別に分けても良いだろう。可能性は無限大だが、解析できるグループのスロット数は5つまでなので、お気をつけて。
 そうゆうわけで、ページに対して新たな切り口で解析できるのは良いと思った。</description>
@@ -1315,8 +1315,8 @@ ga(&#39;set&#39;, &#39;contentGroup1&#39;, &#39;{{.PublishedYear}}&#39;);  上�
       <guid>https://t32k.me/mol/log/use-async-attribute/</guid>
       <description>最近、またGoogleアナリティクスの面倒を見ている。で、GAのドキュメントを見ていたら最近のイケてるトラッキングスニペットはこれだぜ！みたいなこと書いてあった。やれやれ、またかと思い、筆をとったのです。
 トラッキングスニペットの移り変わり激しいもので、最近だとこうゆうのが一般的だろう。
-&amp;lt;script&amp;gt; (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;); ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); &amp;lt;/script&amp;gt;  最近のおすすめはこれだとか。
-&amp;lt;script&amp;gt; window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;); ga(&#39;send&#39;, &#39;pageview&#39;); &amp;lt;/script&amp;gt; &amp;lt;script async src=&#39;//www.google-analytics.com/analytics.js&#39;&amp;gt;&amp;lt;/script&amp;gt;  まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべてasync属性が担っているので、とってもすっきり。
+&amp;lt;script&amp;gt; (function(i,s,o,g,r,a,m){i[&amp;#39;GoogleAnalyticsObject&amp;#39;]=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,&amp;#39;script&amp;#39;,&amp;#39;//www.google-analytics.com/analytics.js&amp;#39;,&amp;#39;ga&amp;#39;); ga(&amp;#39;create&amp;#39;, &amp;#39;UA-XXXXX-Y&amp;#39;, &amp;#39;auto&amp;#39;); ga(&amp;#39;send&amp;#39;, &amp;#39;pageview&amp;#39;); &amp;lt;/script&amp;gt; 最近のおすすめはこれだとか。
+&amp;lt;script&amp;gt; window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date ga(&amp;#39;create&amp;#39;, &amp;#39;UA-XXXXX-Y&amp;#39;, &amp;#39;auto&amp;#39;); ga(&amp;#39;send&amp;#39;, &amp;#39;pageview&amp;#39;); &amp;lt;/script&amp;gt; &amp;lt;script async src=&amp;#39;//www.google-analytics.com/analytics.js&amp;#39;&amp;gt;&amp;lt;/script&amp;gt; まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべてasync属性が担っているので、とってもすっきり。
 非同期読み込みの利点は過去の記事を参照。
  Google Analytics トラッキング スニペット再考（2010） Google Analytics トラッキング スニペット再考（2012）  
 async属性の対応状況なのだけど、IE9以前とかを気にしなくてよいのなら、このスニペットに置き換えて良いかなと思う。
@@ -1325,7 +1325,8 @@ async属性の対応状況なのだけど、IE9以前とかを気にしなくて
  『わずかに向上させる』ってどうゆうことだってばよ？、『プリロード』ってなによ？と思い、また筆をとってしまったのです。
 ググったら、myakuraが書いてた。
  script async を使えば、非同期で読み込まれるし、プリロードスキャナの恩恵にも預かれるとのこと。- script asyncでJavaScriptの非同期読み込みを - fragmentary
- PreloadScanner 『プリロードスキャナ』ってなによ！</description>
+ PreloadScanner 『プリロードスキャナ』ってなによ！
+ わかりやすいYouTubeがあった。</description>
     </item>
     
     <item>
@@ -2025,14 +2026,14 @@ Amazon.co.jp で詳細を見る タイトルの『住所不定』が気になっ
       <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
       <description>StyleStatsのChrome拡張を作った。
  StyleStats - Chrome ウェブストア  StyleStatsはCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。
-これまでの流れ CLI $ npm install -g stylestats  npmからインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
+これまでの流れ CLI $ npm install -g stylestats npmからインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。
 Web そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、Unique Font Families、　Unique Colors がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。
 あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。
 CRX そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。Unique Font Sizesもプレビュー可能になった。
 使った技術とか ES2015 当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。
-Promise + Fetch API + Arrow functions Promise.all(links.map(link =&amp;gt; fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text()) )) .then(texts =&amp;gt; {});  ということで、&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるのでXMLHttpRequestみたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
+Promise + Fetch API + Arrow functions Promise.all(links.map(link =&amp;gt; fetch(link.href, {mode: &amp;#39;cors&amp;#39;}).then(response =&amp;gt; response.text()) )) .then(texts =&amp;gt; {});  ということで、&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるのでXMLHttpRequestみたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。
 Let + Const あとまぁ特にそこまで便利になるわけでもないけど、一応letとかconstとかも使っといた。
-CSS3 object-fit .screenshot img { object-fit: cover; object-position: top; }  background-size的なことをimg要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にしてbackground-size:cover的なことをしたが、これだと印刷したときに表示されないので、そういえばobject-fitがあったのを思い出した。今のところIEではサポートされていない。</description>
+CSS3 object-fit .screenshot img { object-fit: cover; object-position: top; } background-size的なことをimg要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にしてbackground-size:cover的なことをしたが、これだと印刷したときに表示されないので、そういえばobject-fitがあったのを思い出した。今のところIEではサポートされていない。</description>
     </item>
     
     <item>
@@ -2332,7 +2333,7 @@ UNIXの考え方について、以下の9つが挙げられている。
   スモール・イズ・ビューティフル 一つのプログラムには一つのことをうまくやらせる できるだけ早く試作を作成する 効率より移植性 数値データはASCIIフラットファイルに保存する ソフトウェアの挺子を有効に活用する シェルスクリプトを使うことで挺子の効果と移植性を高める 過度の対話的インタフェースを避ける すべてのプログラムをフィルタにする   なかでも、『プログラムはフィルタ』、『プログラムはデータを作らない。人間がつくる』という言葉は興味深かったし、なるほどなぁと思った。プログラムはデータの通り道と考えれば、『一つのプログラムには一つのことをうまくやらせる』だけでいい。機能が足りないのであれば、stdin stdout stderrの入出力があるのでパイプでつなげて、必要な機能を持つ次のプログラムに渡せることができる。
 結果として、プログラムは小さく保てるし、『部分は全体の総和より大きい』というように、プログラムの組み合わせで柔軟性も持てる。
 個人的にもNode.jsのCLIツールだが、GAERでstdinを受けつけるようにした時、すごく感動したし、世界が広がったように感じた。こんな感じで繋げれるようになった。
-stylestats -f json -n path/to/css/file.css | gaer -t UA-xxxxxxx-x -r ReportName   t32k/stylestats - CSS解析ツール t32k/gaer - GAのレポートにデータ送るツール  30年も使われているということは必ずそこには理由がある。ページ数も少なくコンパクトにまとまっているので、そのエッセンスを取り入れるためには最適な一冊だ。まさしく、エンジニアの教養としての一冊だろう。</description>
+stylestats -f json -n path/to/css/file.css | gaer -t UA-xxxxxxx-x -r ReportName  t32k/stylestats - CSS解析ツール t32k/gaer - GAのレポートにデータ送るツール  30年も使われているということは必ずそこには理由がある。ページ数も少なくコンパクトにまとまっているので、そのエッセンスを取り入れるためには最適な一冊だ。まさしく、エンジニアの教養としての一冊だろう。</description>
     </item>
     
     <item>
@@ -2506,12 +2507,12 @@ makeの導入 makeはとても古いツールであり、ネイティブ開発�
 君はすでにUNIXのエコシステムを持っている。パイプ、ストリーム、ユーティリティなどがすべてそこにある。ビルドする必要性のあるのツールのほとんどは、すでにそのエコシステムに存在している。もし、Windowsのような非UNIXのマシンで開発しているのなら、悪いことを言わないから適切なシェルとgowのようなバンドルをインストールするべきだろう。あるいは、cmd.exeも同様にcmderのような、よりよいターミナル端末に置き換えべきだろう。
 makeは一般的にMakefileと呼ばれるファイルで定義、使用し、拡張子は必要ない、大文字に気をつけること。ルールはターゲットと依存するファイルから成り、シェルコマンドも有しており、普通それらはレシピと呼ばれる。
 一般的なルールは以下のような感じ。
-ターゲット: 依存するファイル レシピ # 注意！スペースじゃなくてタブ！  では、以上の知識を使って簡単な例をやってみよう。依存するファイルであるinput.txtをターゲットであるoutput.txtにコピーしたい場合、レシピは以下の様なシンプルなコマンドラインとなるだろう。
-output.txt: input.txt cp $&amp;lt; $@  とってもシンプルだろう？cp(1)の起動といくつかの自動変数である、$@はターゲットのファイル名を保持し、$&amp;lt;は最初の依存するファイル名を保持する。
+ターゲット: 依存するファイル レシピ # 注意！スペースじゃなくてタブ！ では、以上の知識を使って簡単な例をやってみよう。依存するファイルであるinput.txtをターゲットであるoutput.txtにコピーしたい場合、レシピは以下の様なシンプルなコマンドラインとなるだろう。
+output.txt: input.txt cp $&amp;lt; $@ とってもシンプルだろう？cp(1)の起動といくつかの自動変数である、$@はターゲットのファイル名を保持し、$&amp;lt;は最初の依存するファイル名を保持する。
 では、次はもっと実践的な例をやってみよう。
 コードのコンパイル Coffeescript、Typescriptや、babelのようなJavaScriptトランスパイラーは最近では普通に使われているので、モダンなJavaScriptから現在のブラウザで解釈できるようなスクリプトにコンパイルする必要がある。
 このルールを定義するには、srcディレクトリにあるファイルを変換し、トランスパイルしたファイルをlibディレクトリに保存することだ。
-# まず、JavaScriptコンパイラを変数として割り当てる # この場合babelで、厳密には必要ないが # あったほうがメンテナンス性が少し良くなるだろう JC = babel # looseトランスパイルを有効にする JCFLAGS = --loose # 次にsrcディレクトリからソースとなるファイルを見つける SRC = $(shell find src -name &amp;quot;*.js&amp;quot;) # それから取得した文字列を置き換え、 # ソースディレクトリとライブラリディレクトリでマップする LIB = $(SRC:src/%.js=lib/%.js) # 最後に、ソースからライブラリにコンバートするルールを定義する # これはコンパイラをそのオプションとその依存ファイルで起動させるためである # ようやく定義したルールで、ターゲットを出力する $(LIB): $(SRC) mkdir -p $(@D) $(JC) $(JCFLAGS) $&amp;lt; -o $@  すべてbashスクリプトに似ていると思う、 $(VARIABLE) は変数を展開し、$(@D) は別の自動変数で、ターゲットファイル名のディレクトリ部分を保持する。</description>
+# まず、JavaScriptコンパイラを変数として割り当てる # この場合babelで、厳密には必要ないが # あったほうがメンテナンス性が少し良くなるだろう JC = babel # looseトランスパイルを有効にする JCFLAGS = --loose # 次にsrcディレクトリからソースとなるファイルを見つける SRC = $(shell find src -name &amp;#34;*.js&amp;#34;) # それから取得した文字列を置き換え、 # ソースディレクトリとライブラリディレクトリでマップする LIB = $(SRC:src/%.js=lib/%.js) # 最後に、ソースからライブラリにコンバートするルールを定義する # これはコンパイラをそのオプションとその依存ファイルで起動させるためである # ようやく定義したルールで、ターゲットを出力する $(LIB): $(SRC) mkdir -p $(@D) $(JC) $(JCFLAGS) $&amp;lt; -o $@ すべてbashスクリプトに似ていると思う、 $(VARIABLE) は変数を展開し、$(@D) は別の自動変数で、ターゲットファイル名のディレクトリ部分を保持する。</description>
     </item>
     
     <item>
@@ -2543,13 +2544,13 @@ Web Components  Custom Elements: HTML に新しい要素を定義する - HTML5 
       
       <guid>https://t32k.me/mol/log/gaer/</guid>
       <description>t32k/gaer - GitHub  表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。
-$ npm install -g gaer $ gaer -t UA-xxxxx-xx -r reportName path/to/data.json Sending [||||||||||||||||||||||||] 100% Success: The data is sent to UA-xxxxx-xx  デベロッパーとGoogleアナリティクス 基本的にイベントトラッキングレポートは、ページ遷移をともわないイベント、例えばPDFのダウンロードリンクをクリックした等を計測するために使われる。
-// JavaScript ga(&#39;send&#39;, &#39;event&#39;, &#39;クリックイベント&#39;, &#39;PDF&#39;, &#39;資料請求&#39;);  クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前からJavaScriptのエラーが発生したらそのページのURLを記録する等、デベロッパーライクな使い方をしてる人がいたりする。
+$ npm install -g gaer $ gaer -t UA-xxxxx-xx -r reportName path/to/data.json Sending [||||||||||||||||||||||||] 100% Success: The data is sent to UA-xxxxx-xx デベロッパーとGoogleアナリティクス 基本的にイベントトラッキングレポートは、ページ遷移をともわないイベント、例えばPDFのダウンロードリンクをクリックした等を計測するために使われる。
+// JavaScript ga(&amp;#39;send&amp;#39;, &amp;#39;event&amp;#39;, &amp;#39;クリックイベント&amp;#39;, &amp;#39;PDF&amp;#39;, &amp;#39;資料請求&amp;#39;);  クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前からJavaScriptのエラーが発生したらそのページのURLを記録する等、デベロッパーライクな使い方をしてる人がいたりする。
 そうでもなくても、Googleアナリティクスは、『サイトの速度』であったり、『ユーザーの環境』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAERを利用して欲しい。
 GAERはMeasurement Protocolを使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。
-{ &amp;quot;foo&amp;quot; : 12, &amp;quot;bar&amp;quot; : 2.1, &amp;quot;baz&amp;quot; : 9 }  こんな感じのシンプルなデータ構造のJSONなら送れる。
+{ &amp;#34;foo&amp;#34; : 12, &amp;#34;bar&amp;#34; : 2.1, &amp;#34;baz&amp;#34; : 9 } こんな感じのシンプルなデータ構造のJSONなら送れる。
 モニタリングツールとして使う なぜ、GAERを作ったのか。StyleStatsという、CSSのヘルスチェックツールがある。下記のように使うとJSONデータでCSSの状態を確認することができる。
-$ npm install -g stylestats $ stylestats -f json -n foo.</description>
+$ npm install -g stylestats $ stylestats -f json -n foo.css { &amp;#34;stylesheets&amp;#34;: 2, &amp;#34;size&amp;#34;: 6682, &amp;#34;dataUriSize&amp;#34;: 0, &amp;#34;gzippedSize&amp;#34;: 1992, &amp;#34;rules&amp;#34;: 86, &amp;#34;selectors&amp;#34;: 179, &amp;#34;simplicity&amp;#34;: 0.</description>
     </item>
     
     <item>
@@ -2575,7 +2576,7 @@ Amazon.co.jp で詳細を見る 情報の鮮度は非常に重要だというこ
       
       <guid>https://t32k.me/mol/log/npm-run-script/</guid>
       <description>先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的に以下の記事読んだら分かります。要はGulpとかGruntといったモノ使わずにnpm run hogehogeでビルドしよーぜって話です。
- task automation with npm run オレ的Gruntに対する最新の気持ち - from scratch Node - npm で依存もタスクも一元化する How to Use npm as a Build Tool  // package.json &amp;quot;scripts&amp;quot;: { &amp;quot;start&amp;quot;: &amp;quot;npm run start-serve &amp;amp; npm run watch&amp;quot;, &amp;quot;test&amp;quot;: &amp;quot;stylestats public/files/css/maple.css&amp;quot;, &amp;quot;start-serve&amp;quot;: &amp;quot;browser-sync start --server public/ --files public/files/**/*&amp;quot;, &amp;quot;clean&amp;quot;: &amp;quot;rm -rf public/files/css/*&amp;quot;, &amp;quot;js:min&amp;quot;: &amp;quot;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;quot;, &amp;quot;build:js&amp;quot;: &amp;quot;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;quot;, &amp;quot;css:sass&amp;quot;: &amp;quot;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;quot;, &amp;quot;css:prefix&amp;quot;: &amp;quot;autoprefixer -b &#39;last 2 versions&#39; public/files/css/maple.</description>
+ task automation with npm run オレ的Gruntに対する最新の気持ち - from scratch Node - npm で依存もタスクも一元化する How to Use npm as a Build Tool  // package.json &amp;#34;scripts&amp;#34;: { &amp;#34;start&amp;#34;: &amp;#34;npm run start-serve &amp;amp; npm run watch&amp;#34;, &amp;#34;test&amp;#34;: &amp;#34;stylestats public/files/css/maple.css&amp;#34;, &amp;#34;start-serve&amp;#34;: &amp;#34;browser-sync start --server public/ --files public/files/**/*&amp;#34;, &amp;#34;clean&amp;#34;: &amp;#34;rm -rf public/files/css/*&amp;#34;, &amp;#34;js:min&amp;#34;: &amp;#34;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;#34;, &amp;#34;build:js&amp;#34;: &amp;#34;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;#34;, &amp;#34;css:sass&amp;#34;: &amp;#34;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;#34;, &amp;#34;css:prefix&amp;#34;: &amp;#34;autoprefixer -b &amp;#39;last 2 versions&amp;#39; public/files/css/maple.</description>
     </item>
     
     <item>
@@ -2738,7 +2739,7 @@ Amazon.co.jp で詳細を見る 話は変わるが、気の合う仲間たちと
  OctopressからHugoへ移行した | SOTA  これまでのブログ遍歴  Blogger: Webサービスを使うのはよいことだ。最初にはてなを使ってたら僕の人生変わってたかもしれない。 WordPress + さくらサーバー: 僕は若かった。いったい誰が僕のことを責めれようか。いや誰もいない。 Jekyll + GitHub Pages: マークダウン最高w Hugo + GitHub Pages: イマココ  Jekyllのイヤなところ 遅い！コレに尽きる。上記のように、7年ほどブログを続けていると記事数が450くらいになってた。jekyll serve --watchして、記事を変更しても体感的に10秒くらいで更新されるような状態だった。ほんの少しスタイル確認したいだけなのに何秒も待たされるのは本当にイライラする。限界だ。
 あと、これは別にJekyllのせいじゃないけど、僕の使ってたテーマがRuby 1.9固定だったので、なんでブログ書く度にRubyのバージョンを変えなきゃいけないのか、本当にイライラする。限界だ。
 Hugoのスキなところ 速い！コレに尽きる。ほぼリアルタイムで更新されるんじゃないかくらい速い。hugo server --watchしたら、デフォルトでLiveReloadで更新されるのも地味に便利である。移行にあたって必要のない記事を捨てた結果、240記事になった。0.2秒未満で生成される。
-$ time hugo 0 draft content 0 future content 240 pages created 0 tags created 12 categories created in 119 ms real	0m0.172s user	0m0.367s sys	0m0.108s  対して、同記事数の生成でJekyllは2.5秒!!
+$ time hugo 0 draft content 0 future content 240 pages created 0 tags created 12 categories created in 119 ms real	0m0.172s user	0m0.367s sys	0m0.108s 対して、同記事数の生成でJekyllは2.5秒!!
 Hugoとくらべて14倍時間がかかってる。
 $ time jekyll build Configuration file: _config.</description>
     </item>
@@ -2966,10 +2967,10 @@ Critical Rendering Path Critical Rendering Pathとは、HTML/CSS/JSなどのバ�
  A Tour of Go | Hello, 世界  ひととおりチュートリアルはやってみたんですけど、やっぱりWeb上で動かしたいわけですよ。そうゆうわけで、Heroku上でGoアプリを動かしてみようと思います。
 Go on Heroku  Getting Started with Go on Heroku  まぁ、上記の記事を参考にしたらちゃんとGoアプリをHerokuで稼働させることができます。以下は自分の備忘録代わりということで。
 Install Go goenvというGoのバージョン管理ツールもあるみたいだけど、初心者なのでHomebrewで入れることにする。
-$ brew install go $ go version go version go1.3.3 darwin/amd64  わーい、かんたん٩(๑❛ᴗ❛๑)۶
+$ brew install go $ go version go version go1.3.3 darwin/amd64 わーい、かんたん٩(๑❛ᴗ❛๑)۶
 Go Environment $GOPATH等を設定する。ここで指定したパス以下がGoのワークスペースとなる。お好きなシェルプロファイルに記述。
-$ echo &#39;export GOPATH=$HOME&#39; &amp;gt;&amp;gt; $HOME/.bash_profile $ echo &#39;export PATH=$PATH:$GOPATH/bin&#39; &amp;gt;&amp;gt; $HOME/.bash_profile  以下のようなディレクトリ構成で管理される。
-$GOPATH ├── bin（コンパイルしたバイナリファイル） ├── pkg（パッケージオブジェクトファイル） └── src（Goの作業ソースファイル）  GitHub上に置かれているソースファイルは、 ~/src/github.</description>
+$ echo &amp;#39;export GOPATH=$HOME&amp;#39; &amp;gt;&amp;gt; $HOME/.bash_profile $ echo &amp;#39;export PATH=$PATH:$GOPATH/bin&amp;#39; &amp;gt;&amp;gt; $HOME/.bash_profile 以下のようなディレクトリ構成で管理される。
+$GOPATH ├── bin（コンパイルしたバイナリファイル） ├── pkg（パッケージオブジェクトファイル） └── src（Goの作業ソースファイル） GitHub上に置かれているソースファイルは、 ~/src/github.</description>
     </item>
     
     <item>
@@ -3549,11 +3550,11 @@ npm ERR! peerinvalid The package flatiron does not satisfy its siblings&#39; pee
 MapleでCompassを使っている理由は2つ。
  ベンダープレフィックスを付ける手間をなくしたい CSSスプライトを自動化したい  これらをGruntプラグインでなんとか置き換えれないものか。
 grunt-autoprefixer  nDmitry/grunt-autoprefixer  ちょうど、myakura氏のブログで取り上げられていたAutoprefixerが便利そうなので、これのGruntプラグインがないか探したらもちろんあった。
-autoprefixer: { options: { browsers: [&#39;ios &amp;gt;= 5&#39;, &#39;android &amp;gt;= 2.3&#39;] }, dist: { src: &#39;../files/css/maple.css&#39; }, }  Gruntの設定も至極簡単だ。対象のCSSファイルとと対応するバージョンを指定するだけだ。 あとは正規のプロパティ書いておくだけ、Autoprefixerがバージョンに応じてベンダープレフィックス付きのプロパティを追加・削除してくれる。
+autoprefixer: { options: { browsers: [&amp;#39;ios &amp;gt;= 5&amp;#39;, &amp;#39;android &amp;gt;= 2.3&amp;#39;] }, dist: { src: &amp;#39;../files/css/maple.css&amp;#39; }, }  Gruntの設定も至極簡単だ。対象のCSSファイルとと対応するバージョンを指定するだけだ。 あとは正規のプロパティ書いておくだけ、Autoprefixerがバージョンに応じてベンダープレフィックス付きのプロパティを追加・削除してくれる。
 Compassのミックスインによる書き方よりも、真っ当というか、なんかこっちの実装のほうが素敵だと素直に思った。あと対応するバージョンの指定方法も、CompassみたいにベンダーごとにON/OFFするんじゃなくて、last 2 versionsといった書き方もできたり、蟹ｳｾﾞのデータを元にしてあったりと柔軟に指定できるのも魅力かな。
 grunt-spritesmith  Ensighten/grunt-spritesmith  CSSスプライトを自動化するためにCompassを使用しはじめたのもあって、移行しんどかった。使い勝手的にはCompass Spriteのほうが今のところは良いと思う。
 しかし、Spritesmithに変更することでCSSプリプロセッサに依存せずにCSSスプライトの自動化を手に入れることができる。MapleではSass用にコードを吐き出してるけど、Stylus用にも吐き出せるし、生のCSSでもできる。
-$_bird1: 0px 149px 0px -149px 60px 49px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;; $_bird2: 0px 0px 0px 0px 180px 147px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;; $_bird3: 182px 0px -182px 0px 120px 98px 302px 198px &amp;quot;/files/img/sprite/tabs.</description>
+$_bird1: 0px 149px 0px -149px 60px 49px 302px 198px &amp;#34;/files/img/sprite/tabs.1383826639213.png&amp;#34;; $_bird2: 0px 0px 0px 0px 180px 147px 302px 198px &amp;#34;/files/img/sprite/tabs.1383826639213.png&amp;#34;; $_bird3: 182px 0px -182px 0px 120px 98px 302px 198px &amp;#34;/files/img/sprite/tabs.</description>
     </item>
     
     <item>
@@ -3640,11 +3641,11 @@ Serverレスポンスタイムは完全のバックエンドのエンジニア�
 それではWebフォントって一体どうやって作るのだろうか？高いフォント作成アプリを購入しなければならないのだろうか？オンライン作成ツールもあるようだが、毎回、新規アイコン追加の度にそのツールのサイトを訪問しなければならないのだろうか？
  ❍ IcoMoon - icon font &amp;amp; SVG icon sets  以前は上記オンラインツールを使っていたが、やはり更新対応を考えるとめんどうだった。そうゆうわけで、Mapleプロジェクトではgrunt-webfontを導入している。
 前回の記事を見ながらMapleプロジェクトを準備してもらいたい。そのほかの必要環境として以下のものインストールしておく。Homebrewも入っていなければインストールする。
-$ brew install fontforge ttfautohint $ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb  あと事前に必要になるのはフォントの元となるSVGファイル。SVGファイルを作るうえで便利なテンプレートがあるのでそれを拝借する。
+$ brew install fontforge ttfautohint $ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb あと事前に必要になるのはフォントの元となるSVGファイル。SVGファイルを作るうえで便利なテンプレートがあるのでそれを拝借する。
  cognitom/symbols  テンプレートを使ってMapleでは上記のようなイラレファイルを作成した。iconmonstrにはいろいろ使い勝手がいいアイコンが無料で配布されているので、ここから必要なものをとってくるのもいいだろう。Illustratorでアートボード別に書きだして、SVGファイルとして保存する。要注意なのはこのアートボードの空白部分も含めてSVGファイルなので気をつける。
 基本的にこの部分はデザイナーさんにやってもらえればよいことなので、フロントエンドデベロッパーは完成したSVGファイルを、/src/files/font/svgディレクトリに投げ込んでコマンド打つだけだ。
-$ grunt webfont Running “webfont:dist” (webfont) task Font ‘myfont-b5fd89266afbbfbfc281a0ce9a5bf50e’ with 13 glyphs created.  で、/src/tools/でgrunt webfontを実行すれば上記のようなログとともに、.woffと.ttfと_myfont.scssが作成される。
-// _setting.scss //------------------------------------- @import &amp;quot;../vendors/myfont&amp;quot;; // _myfont.</description>
+$ grunt webfont Running “webfont:dist” (webfont) task Font ‘myfont-b5fd89266afbbfbfc281a0ce9a5bf50e’ with 13 glyphs created. で、/src/tools/でgrunt webfontを実行すれば上記のようなログとともに、.woffと.ttfと_myfont.scssが作成される。
+// _setting.scss //------------------------------------- @import &amp;#34;../vendors/myfont&amp;#34;; // _myfont.scss .</description>
     </item>
     
     <item>
@@ -3665,9 +3666,10 @@ CSSスプライトは非常に便利だが問題点もある。スプライト�
 もう、なんというかCSSスプライトが嫌すぎてデザイナーと喧嘩することもしばしば。これでは精神衛生上よくない。
 そこでそのめんどくさいタスクSass/CompassのMixinにやってもらおうと思う。
  CSS Sprite for Retina Display Maple.css  まず、Mixinの説明する前に私が作っているMapleプロジェクトをダウンロードしてくる（Node.js, Ruby, Sass, Compassがインストールされていること前提）次に、grunt-init-mapleをインストールする。
-$ npm install -g grunt-cli $ npm install -g grunt-init $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –recursive  grunt-init mapleを実行すると以下のようにMapleプロジェクトに必要なファイルがスキャフォルディングされる。
+$ npm install -g grunt-cli $ npm install -g grunt-init $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple –recursive grunt-init mapleを実行すると以下のようにMapleプロジェクトに必要なファイルがスキャフォルディングされる。
 落ちてきたら、/src/tools（Gruntfile, package.jsonがある場所）に移動し、必要なGruntプラグインをインストール（npm install）しておく。これで下準備はOK。
-その場所でgrunt developしてhttp://localhost:8080/components/を見にいく。そこにスプライトした画像が表示されていますからDevToolsなどで確認してみる。</description>
+その場所でgrunt developしてhttp://localhost:8080/components/を見にいく。そこにスプライトした画像が表示されていますからDevToolsなどで確認してみる。
+.sprt-a { background-image: url(/files/img/sprite/tabs-s3217a038c5.</description>
     </item>
     
     <item>
@@ -3783,14 +3785,15 @@ Mac OS X Installer (.pkg) 幸い、私のような最下級サイヤ戦士でも
  Node.js  しかし、node.jsの進化は凄まじいものがありまして、月単位？週単位？で新しいバージョンがアップデートされていたなんてのはザラです。プラス、私は出来る限り（stableで）最新のバージョンにしておきたいという性格なので、node.jsのバージョンが新しく出るたびに、公式サイト行って、インストーラーDLして、インストール画面をクリック！クリック！クリック！なんて作業はもうやなんだよ！
 ということで、インストーラーによる管理は辞めたい！
 思い立ったら吉日DAY！インストーラーでインストールしたnode.jsをアンインストールしましょう。インストーラがあるのならアンインストーラあるのかなと思ったらなかった／(^o^)＼けど、スクリプトあったよ。
- Mac OS X uninstall script for packaged install of node.js  $ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh $ chmod +x ./uninstall-node.sh $ ./uninstall-node.sh $ rm uninstall-node.sh  上から順番に実行してくだけだよ。
+ Mac OS X uninstall script for packaged install of node.js  $ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh $ chmod +x ./uninstall-node.sh $ ./uninstall-node.sh $ rm uninstall-node.sh 上から順番に実行してくだけだよ。
 Homebrew 以前からbrew doctorをするとnodeがlinkしてねーよ！と注意されていたのだが、インストーラでインストールしたnode.jsが優先されていたのだろうと思う。ってことで、今はアンインストールしたから大丈夫ってことで、Homebrewでnode.jsを管理してみる。
-$ brew install node  入ったー！簡単！
+$ brew install node 入ったー！簡単！
 あれ、npm使えなくね？とおもったら、npm install -gしたnpmは以下に、/usr/local/share/npm/bin保存されるらしい。
-#npm export PATH=&amp;quot;/usr/local/share/npm/bin:$PATH&amp;quot;  ということで、bash_profileとかにpathを通しておく。
+#npm export PATH=&amp;#34;/usr/local/share/npm/bin:$PATH&amp;#34; ということで、bash_profileとかにpathを通しておく。
  Homebrewでnode.jsとnpmをインストール | bulblub  これで、完璧だね、やったね、たえちゃん！
  @t32k nvmかnodebrewかnaveのどれか絶対使った方がいいです！
- と思ったら、同僚のエンジニアさんから親切なツイートが！</description>
+ と思ったら、同僚のエンジニアさんから親切なツイートが！
+nvm  creationix/nvm isaacs/nave hokaccha/nodebrew  Node.</description>
     </item>
     
     <item>
@@ -3917,10 +3920,10 @@ Amazon.co.jp で詳細を見る メモリの交換の仕方は公式サポート
       <guid>https://t32k.me/mol/log/inheriting-link-colour/</guid>
       <description>最近のスマホサイトとかコーディングしてると上記のようなリストビューのコンポーネントをよくマークアップする。リストのひとつの項目全体がタップエリアで遷移したりアクションしたりする。
 これをコーディングするとなると、ul &amp;gt; li &amp;gt; aでaをBlock要素にすると思う。そのとき、上記の普通のテキスト文もリンクテキストになってしまって、いわゆる青色の下線テキストリンクのようなスタイルになってしまう。
-body { color: black; } a { color: blue; }  下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。
-ul li { color: gray; }  それじゃ問題だから、ul &amp;gt; liにグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだaのcolorは継承しないんだったー』ってことが疲れてるとよくある。
-ul li, ul li a { color: gray; }  だもんで、めんどくさいけど、上記のようなスタイルを指定している（aで包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここでinheritさんの登場だ。
-a { color: inherit; } ul li { color: gray; }  こうしとけば、ul &amp;gt; li &amp;gt; aは、グレーの文字色を継承する。inheritなんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。
+body { color: black; } a { color: blue; } 下線付きとは言わなくても、たいていリセットの段階で基本的なリンク色を設定してると思う。
+ul li { color: gray; } それじゃ問題だから、ul &amp;gt; liにグレーの文字色を定義したりする。『あれ？青色のままじゃん？あ、そうだaのcolorは継承しないんだったー』ってことが疲れてるとよくある。
+ul li, ul li a { color: gray; } だもんで、めんどくさいけど、上記のようなスタイルを指定している（aで包まない時にも文字色を維持するため）。なんかこれは単純な例だけど、もうちょっと複雑になると、詳細度の兼ね合いとかめんどくさくなってくる。しかしまぁよくよく考えたら、継承させればいいんだよねってことで、ここでinheritさんの登場だ。
+a { color: inherit; } ul li { color: gray; } こうしとけば、ul &amp;gt; li &amp;gt; aは、グレーの文字色を継承する。inheritなんて初めて使ったよ。スマホコーディングとなるとCSS3ばっか意識がいっちゃって、基本を疎かににしていた。反省。
 スマホサイトはタップエリアを大きくするためにBlock化して、aに多くの内容物が放り込まれるきらいがある。だもんで、aも通常のspanとかdiv感覚に扱うようになってきから、継承させたほうがなにかと都合が良い気がする。そのほうが素直な気がする。
  Inheriting Link Colour - Snook.ca  </description>
     </item>
@@ -3931,7 +3934,7 @@ a { color: inherit; } ul li { color: gray; }  こうしとけば、ul &amp;gt; l
       <pubDate>Sat, 09 Mar 2013 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/git-push-f/</guid>
-      <description>git push -f   ローカルのコミットを強制的に送信する。普通は行ってはいけないので注意。 実行しても問題ないのは公開していない個人用のリモートリポジトリに対してくらい。リモートのコミットがローカルのコミットの祖先でない場合は リモートへの送信が拒否される。 これを無効にするには「-f」または「&amp;ndash;force」オプションをつける。このとき、リモートリポジトリのコミットが失われる可能性がある。
+      <description>git push -f  ローカルのコミットを強制的に送信する。普通は行ってはいけないので注意。 実行しても問題ないのは公開していない個人用のリモートリポジトリに対してくらい。リモートのコミットがローカルのコミットの祖先でない場合は リモートへの送信が拒否される。 これを無効にするには「-f」または「&amp;ndash;force」オプションをつける。このとき、リモートリポジトリのコミットが失われる可能性がある。
   transitive.info - git push 使い方  このとき、リモートリポジトリのコミットが失われる可能性がある。
 このとき、リモートリポジトリのコミットが失われる可能性がある。
 このとき、リモートリポジトリのコミットが失われる可能性がある。
@@ -3997,7 +4000,7 @@ The Icon 自分でSublime Textアイコンを作る前に、アイコンの予�
  CSS Sprite Generator, Editor, and Code  CSS Sprite Generatorのような便利なオンラインツールが存在するが、画像の変更があった場合、再度オンラインにアップロードしてコードをジェネレートする必要があったり、Retina対応を考えると自分で画像のサイズを半分にして計算しないといけない。 これでは、サービスリリース後などの度重なる改善・修正にマークアップが追いつかず不必要な画像までもそのままスプライト画像に残してしまった状態で無駄な転送量が発生してしまう。
 実際に私がやっている案件でもグローバルナビゲーションや、カテゴリナビゲーションなどにスプライト画像を使用しHTTPリクエストを最小限に抑えている。リリース当時はきれいにまとまったスプライト画像も度重なるサービス改善で、スプライト画像のカテゴリアイコンがなくなったり、追加したりと何度も手入れをしなければならないことが発生し、その度に画像の作成・位置の再計算など非常に面倒な作業だった。
 Compassによる解決策 そこで目につけたのが、Compassフレームワークだ。Sassは開発当初から利用していたが、Compass自体は利用していなかった。Compassにはスプライトを簡単に利用できるAPIが備わっており、画像編集ソフトなど使わなくても画像を一つにまとめたり、それぞれのbackground-positionを算出してくれる。 使い方は非常にシンプルだ。スプライト画像にまとめたい個々の画像を任意のディレクトリに格納しておき、@importでそのディレクトリを指定し、@include all-ディレクトリ名-spritesで展開するだけだ。
-// 基本的なCompassスプライトの利用方法 @import &amp;quot;my-icons/.png&amp;quot;; @include all-my-icons-sprites;  上記のSCSSコードは下記のようにコンパイルされる。</description>
+// 基本的なCompassスプライトの利用方法 @import &amp;#34;my-icons/.png&amp;#34;; @include all-my-icons-sprites; 上記のSCSSコードは下記のようにコンパイルされる。</description>
     </item>
     
     <item>
@@ -4046,7 +4049,7 @@ gzip圧縮を想定してない場合意味ないとか、たった400バイト�
 ざっくり言えば、そのJavaScriptが本当に必要になるまで後にとっておくということです。スマホなどの携帯端末は言うまでもなく、デスクトップPCに比べれば非力なので、このような端末ではJavaScriptを解析するのにもなかなか時間を要してしまうので、注意しましょうってことです。
 PCサイトで、それも単純にドキュメント閲覧のようなページのパフォーマンス対策なんて、HTTPリクエストを減らすことだけ考えていれば十分事足りるなぁと個人的には考えています。ただ、最近やってるお仕事はスマホ向けのWebアプリ制作でして、JSゴリゴリ使ってます。。。この辺りのパフォーマンス対策というのをもうちょっと真剣に考えたいお年頃になってきたので、今回がんばってみます。
 ただ、僕はJSは書けないので難しいことはよく分からんとです。お先真っ暗、八方塞がりです。唯一気になっていることは今のプロジェクトでhead要素に入れてあるGoogleアナリティクスのスニペットって本当にここでいいのか？ということです。これね、これ。
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; var _gaq = _gaq || []; _gaq.push([&#39;_setAccount&#39;, &#39;UA-XXXXX-X&#39;]); _gaq.push([&#39;_trackPageview&#39;]); (function() { var ga = document.createElement(&#39;script&#39;); ga.type = &#39;text/javascript&#39;; ga.async = true; ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s); })(); &amp;lt;/script&amp;gt;   Google Analytics 非同期トラッキングコード再考（2010） - MOL  はい、2年前にこの記事を書いたのは僕でして、そこでは&amp;lt;/head&amp;gt;の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
+&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; var _gaq = _gaq || []; _gaq.push([&amp;#39;_setAccount&amp;#39;, &amp;#39;UA-XXXXX-X&amp;#39;]); _gaq.push([&amp;#39;_trackPageview&amp;#39;]); (function() { var ga = document.createElement(&amp;#39;script&amp;#39;); ga.type = &amp;#39;text/javascript&amp;#39;; ga.async = true; ga.src = (&amp;#39;https:&amp;#39; == document.location.protocol ? &amp;#39;https://ssl&amp;#39; : &amp;#39;http://www&amp;#39;) + &amp;#39;.google-analytics.com/ga.js&amp;#39;; var s = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s.parentNode.insertBefore(ga, s); })(); &amp;lt;/script&amp;gt;  Google Analytics 非同期トラッキングコード再考（2010） - MOL  はい、2年前にこの記事を書いたのは僕でして、そこでは&amp;lt;/head&amp;gt;の直前に入れるということで結論づけました。ただこれはPCサイト前提での話なので、今のスマホ時代にも通じるのかもう一度考えてみましょう。
 script要素の読み込みと評価 
 script要素を入れることでかかるコストについて上記の図のような感じですね。LatencyとDownloadが読み込みに関わるところで、普通にscript要素を読み込むと、通常のリソースは並列ダウンロードできるのに対して、script要素は他のリソースのダウンロードをブロッキングします。まぁ、scriptを早い段階で読み込むとそれだけページ表示に余計に時間がかかってしまいます。この点でノンブロッキングな読み込みを実現したのがGoogle Analyticsの非同期トラッキングコードで並列ダウンロードが可能となりました。また、トラッキング用のJSファイルにはga.jsには12時間の有効期限が設定されているので、次ページビュー、当日中くらいのセッション再開後もキャッシュが有効となり、LatencyとDownloadの部分は省略できます。
 ただ、お気付きの通りParsingとEvaluationはキャッシュがあろうがなかろうが毎回コストを支払わなければなりません。しかもParsingとEvaluationの実行中はレンダリングが止まってしまいます。PCサイトであればこの点が無視できるほど短い時間で完了するので、head要素においても大した影響がないということでした。事実、@tobieさんの記事でもjQeuryのParsingとEvaluationのコストはMacBook Proが35msに対して、iPhone4が320msかかっている調査結果でした。つまり、jQueryを使おうが使わまいが、キャッシュが効いてようが効いてまいが、iPhone４ユーザーはjQueryが読み込まれている時点で毎回320ms（設置場所によっては）レンダリングが止まる時間ができるということです。
@@ -4111,11 +4114,11 @@ Original：Social button BFFs（2011-09-27）by Stoyan Stefanov
 TL;DR:JavaScriptの非同期読み込みはWebアプリのパフォーマンスにおいて重要な問題だ。以降に書かれている内容は一般的なソーシャルボタンに共通する取り扱い方についての記事であり、ソーシャルボタンに残りのコンテンツ読み込みをブロックさせないことを学べるだろう。結局のところ、ユーザーはあなたの コンテンツを最初 に見たいのであって、それから、そのコンテンツがシェアする価値があるのか決めるのである。
 現在、FacebookはJavaScript SDKを読み込むための新しい非同期スニペットを提供している。そのSDKとはとてもパワフルなソーシャルプラグイン（例：いいね！ボタン）を利用するのために必要なものだ。
 これまでもJS SDKは非同期読み込みできたが、最近このパターンがデフォルトになった。そのスニペットは極めてナイスでチクショーな（知ってる、正解！）感じだが、ここではどのようになってるか見てみるとする。（コードはここから入手）
-(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = &amp;quot;//connect.facebook.net/en_US/all.js#xfbml=1&amp;quot;; fjs.parentNode.insertBefore(js, fjs); }(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));  私のJavaScriptパターンからナイスなとこを抜き出してみる。
+(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = &amp;#34;//connect.facebook.net/en_US/all.js#xfbml=1&amp;#34;; fjs.parentNode.insertBefore(js, fjs); }(document, &amp;#39;script&amp;#39;, &amp;#39;facebook-jssdk&amp;#39;));  私のJavaScriptパターンからナイスなとこを抜き出してみる。
  即時（自己呼び出し）関数なので、グローバル変数を汚さない よく使う( document)オブジェクトと文字列（&amp;rdquo;scripts&amp;rdquo;, &amp;ldquo;Facebook-jssdk&amp;rdquo;）はその即時関数の引数として渡される。可読性を保ちながらできる初歩的な縮小化テクニックである 生成したscriptノードはドキュメントで使用されている最初の script要素を利用することによって追加される。あなたのコードが body load=&amp;quot;...&amp;quot;や、img onload、もしくはそれ同様（ぶっ飛んだ方法を私は知っていますが、とりあえずは0.01%くらい寛大に受け止めよう）のパターンで呼び出されない限り、99.99%確実に動作することを保証できる 追加したノードにはidが割り当てられることで2回同じScriptを読み込むのを防止する（例：ヘッダーや、フッター、記事でいいね！ボタンが使用されているとか）  ソーシャルボタンのJSファイルすべて 他のソーシャルボタンも存在する。有名なところでTwitterとGoogle +1 ボタンだ。これら両方のボタンは、デフォルトかどうか分からないが、各々の設定次第で非同期読み込みが可能だ。
 それではなぜすべてうまいことやってけないのか、そしてfacebookの即時関数中に全部収めることがきないのか？私たちはHTMLのバイト数を少しでも削りたいし、余計なscriptタグなんていらないのだ。Google+やTwitterなどのすべてのソーシャルボタンのために新しいscriptノードが必要だ。Google+のスニペットには typeや asyncなどの属性を持っているが、実際これらは必要ないのだ。なぜなら typeは常に text/javascriptだし、 asyncはいつも trueだから。加えて今async部分をいじってるのだから。
 結果がこれだ。
-&amp;lt;div id=&amp;quot;fb-root&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; (function(d, s, id) { // fb + common var js, fjs = d.</description>
+&amp;lt;div id=&amp;#34;fb-root&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; (function(d, s, id) { // fb + common  var js, fjs = d.</description>
     </item>
     
     <item>
@@ -4172,9 +4175,9 @@ Nesting あと、便利っちゃー便利なのがネストです。下記のよ
       <guid>https://t32k.me/mol/log/dont-docwrite-scripts/</guid>
       <description>Original：Don’t docwrite scripts（2012-04-10）by Steve Souders 
 昨日のブログ記事のHTTP Archiveが速くなっている、大きな要因の一つとしてはスクリプトローダーを使用しないことです。そのスクリプトローダーとはスクリプトを動的に読み込むためにdocument.writeを使用しているものです。振り返れば、私は2009年4月のブロッキングなしのスクリプト読み込み、続・ハイパフォーマンスWebサイト(4章)において、document.writeテクニックについて記述していました。それは以下のようなものです。
-document.write(&#39;&amp;lt;script src=&amp;quot;&#39; + src + &#39;&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;\/script&amp;gt;’);  document.writeを使ったスクリプトローダーの問題点：  挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (example). また、ほかの動的読み込みもブロックします (example)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(example)。 
+document.write(&amp;#39;&amp;lt;script src=&amp;#34;&amp;#39; + src + &amp;#39;&amp;#34; type=&amp;#34;text/javascript&amp;#34;&amp;gt;&amp;lt;\/script&amp;gt;’);  document.writeを使ったスクリプトローダーの問題点：  挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (example). また、ほかの動的読み込みもブロックします (example)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(example)。 
 document.writeを使用したスクリプトローダーのため、私が最適化しようとしたページのレンダリングは遅れ、同じページ内の他の非同期スクリプトに関しても読み込みに時間がかかるようになりました。私はこのスクリプトローダーをはずし、非同期にスクリプトを読み込むために代わりのコードを書きました。それはGoogle アナリティクスの非同期スニペットで有名になった createElement-insertBefore パターンです。
-var sNew = document.createElement(&amp;quot;script&amp;quot;); sNew.async = true; sNew.src = &amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&amp;quot;; var s0 = document.getElementsByTagName(&#39;script&#39;)[0]; s0.parentNode.insertBefore(sNew, s0);  なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？
+var sNew = document.createElement(&amp;#34;script&amp;#34;); sNew.async = true; sNew.src = &amp;#34;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&amp;#34;; var s0 = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s0.parentNode.insertBefore(sNew, s0);  なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？
 順を追って考えて見れば、そんなに不思議なことではありません。通常のマークアップによるSCRPT SRC=読み込みは後続のDOM要素のレンダリングを止めることを既に私たち知っています。また、スクリプト実行段階を抜ける前にdocument.writeは評価され、その後、ページのパースが再開されることも理解しています。したがって、通常のSCRPT SRC=をスニペットとした document.writeテクニックは残りのページのレンダリングをブロックしてしまいます。
 反対に、createElement-insertBeforeテクニックはレンダリングをブロックしません。事実、document.writeでcreateElement-insertBefore スニペットを生成しても、そのときレンダリングはブロックされません。
 ブロッキングなしのスクリプト読み込み記事での私の結論はスクリプトロード手法を選択するための決定木を使用することです。そうすれば異なるシナリオにおいてどの非同期読み込みテクニックを選択するか困らないでしょう。また注意深く見れば、document.writeの使用は決して推奨されないこともお分かりになるでしょう。Webの世界はたいへん多くのものが移り変わりますが、私が2009年に出したアドバイスは今日においても正しいのです。
@@ -4376,7 +4379,7 @@ Original：3 Reasons Why Learning To Code Makes You A Better Designer（2011-06-
       <guid>https://t32k.me/mol/log/using-google-analytics-with-jquery-mobile/</guid>
       <description>とあるとこで、とある話をしたので、とあるスライド置いときますよ。 要点を言うと、jQuery MobileでAjax遷移してると、普通にGoogle Analytics置いてても作動しないから気をつけてねって話です。
 GATC for jQuery Mobile 僕はこうゆう感じでとりあえず対応しています。作動させるタイミングとフラグメント識別子を記録させるのがポイントです。あとはご自身のサイトに合わせてカスタマイズしていただければと思います。
-//Account Setting var _gaq = _gaq || []; _gaq.push([&#39;_setAccount&#39;, &#39;UA-xxxxxxx-x&#39;]); //Async Snippet (function () { var ga = document.createElement(&#39;script&#39;); ga.async = true; ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;; var s = document.getElementsByTagName(&#39;script&#39;)[0]; s.parentNode.insertBefore(ga, s); })(); //Execute $(&#39;[data-role=&amp;quot;page&amp;quot;]&#39;).live(&#39;pageshow&#39;, function () { var u = location.hash.replace(&#39;#&#39;, &#39;&#39;); u ? _gaq.push([&#39;_trackPageview&#39;, u]) : _gaq.push([&#39;_trackPageview&#39;]); });  jQuery Mobile XSS Problem ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。</description>
+//Account Setting var _gaq = _gaq || []; _gaq.push([&amp;#39;_setAccount&amp;#39;, &amp;#39;UA-xxxxxxx-x&amp;#39;]); //Async Snippet (function () { var ga = document.createElement(&amp;#39;script&amp;#39;); ga.async = true; ga.src = (&amp;#39;https:&amp;#39; == document.location.protocol ? &amp;#39;https://ssl&amp;#39; : &amp;#39;http://www&amp;#39;) + &amp;#39;.google-analytics.com/ga.js&amp;#39;; var s = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s.parentNode.insertBefore(ga, s); })(); //Execute $(&amp;#39;[data-role=&amp;#34;page&amp;#34;]&amp;#39;).live(&amp;#39;pageshow&amp;#39;, function () { var u = location.hash.replace(&amp;#39;#&amp;#39;, &amp;#39;&amp;#39;); u ? _gaq.push([&amp;#39;_trackPageview&amp;#39;, u]) : _gaq.push([&amp;#39;_trackPageview&amp;#39;]); });  jQuery Mobile XSS Problem ちなみに上記と関係ないですけど、jQuery Mobileのアルファ版使ってる人は直ちに最新版にアップデートしときましょうってお知らせ。</description>
     </item>
     
     <item>
@@ -4606,7 +4609,7 @@ querySelector と querySelectorAll  IE8 で実装された Selectors API とは�
 element = document.querySelector(selectors);   Document.querySelector() - Web API Interfaces | MDN  querySelectorってのもある。基本的な使い方は両方一緒でselectors&amp;lt;/emの引数に、取得したい要素の CSS セレクタ書いてあげればいい。querySelectorは最初に見つけてきた単一の要素を返すのに対して、
   elementList = document.querySelectorAll(selectors);  elementList is a non-live NodeList of element objects.
  Document.querySelectorAll() - Web APIs | MDN  querySelectorAll はノードリストを返す。
-var node = document.querySelectorAll(&amp;quot;#hoge &amp;gt; h2&amp;quot;);  つまり、#hogeの中の子供の h2 だけを取ってくるなんてことも、上記のように CSS セレクタで簡単に書けちゃう。jQuery ライクに書けちゃう。だから、これまで Firefox のグリモンとか Chrome の拡張機能を作成するときは僕は jQuery 読み込んでいたんだけど、簡単なものであれば Selectors API 使えば、jQuery に頼らなくても良くなった。</description>
+var node = document.querySelectorAll(&amp;#34;#hoge &amp;gt; h2&amp;#34;);  つまり、#hogeの中の子供の h2 だけを取ってくるなんてことも、上記のように CSS セレクタで簡単に書けちゃう。jQuery ライクに書けちゃう。だから、これまで Firefox のグリモンとか Chrome の拡張機能を作成するときは僕は jQuery 読み込んでいたんだけど、簡単なものであれば Selectors API 使えば、jQuery に頼らなくても良くなった。</description>
     </item>
     
     <item>
@@ -4749,7 +4752,7 @@ Amazon.co.jp で詳細を見る 終了のお知らせ 月イチの社内勉強�
  What is Modernizr? まずはタイトルにもある Modernizr ですが、これはHTML5時代のWeb技術、最近では「NEWT」、New Exciting Web Technologies （HTML5、CSS3、SVG、XHR2、Geolocation… などの技術総称）と呼ばれている技術がブラウザで実装されているか検出してくれるライブラリです。最近、開発者のPaul Irishさんが来日してその存在を知りました。
 Modernizr を読み込んだページにアクセスすると自動的にHTML要素のclass属性に対応状況がこん感じで記述される具合です。
 機能が実装されていばその機能名、実装されていなければno-が頭につく感じですね。おおもとのHTML要素にclass属性がついたので、
-.borderradius .hoge div { /* border-radiusのプロパティを記述 */ } .no-borderradius .hoge div { /* border-radiusに対応していないから画像で再現する記述とか */ }  こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。
+.borderradius .hoge div { /* border-radiusのプロパティを記述 */ } .no-borderradius .hoge div { /* border-radiusに対応していないから画像で再現する記述とか */ } こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。
 if (Modernizr.localstorage){ // localstorage 使う！使う！ } else { // 代替手段として Cookie 使ったりとか }  もちろんJavaScriptからもこんな感じで分岐処理することも可能です。
 Track HTML5 in Google Analytics この非常に便利な Modernizr を利用して、Google Analytics のレポート上でも確認できるようにしてくれるのが trackHTML5inGA です。Modernizr で検出したプロパティをカスタム変数（デフォルトではスロット#5を使用する）で取り込んで Google Analytics に渡す感じでしょうか。</description>
     </item>
@@ -4996,7 +4999,7 @@ Amazon.co.jp で詳細を見る 前回読んだ『幻想曲』と似たような
 どうでしょうか。仕様どおりなら「script + img」と並列に読み込まれるはずですが、そうはならずにscriptファイルひとつしか読み込まれていません。つまり、scriptファイルを最初に読み込むでしまうとダウンロード・レンダリングが止まってしまいます。そのため、ハイパフォーマンスWebサイト、高速サイトの実現のための14のルールのひとつ「ルール6：スクリプトは最後に置く」というものがあります。
 このような理由から、非同期以前のトラッキングコードはの直前に置くことが推奨されています。出来る限りページ最下部に置くことでダウンロード・レンダリングを止めないようにしています。上記のグラフのような感じですね。ページを表示するために必要なコンポーネントはscriptの手前ですべて読み込まれているのでこれが最善策なのかなと。
 しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、www.google-analytics.comから読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。
-async属性に関して ga.type = &amp;quot;text/javascript&amp;quot;; ga.async = true;  話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。
+async属性に関して ga.type = &amp;#34;text/javascript&amp;#34;; ga.async = true;  話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。
 続・ハイパフォーマンスWebサイトでは、async属性を使わなくてもブラウザの実行をブロックしないスクリプトの読み込みテクニックとして以下の6つを挙げています。
  XHR eval XHR インジェクション iframe スクリプト Script DOM要素 Script Defer document.writeによるSCRIPTタグ書き出し  今回の非同期トラッキングコードではSCRIPT要素をDOMを使って生成することで実現しています。なので、ほとんどのブラウザで非同期で読み込むことが可能です。async属性を記述しているのは明示的に非同期で読み込むことをブラウザに通知するためとGoogle Code Blogには書いてあります。
  HTML5 “async” attribute in this part of the snippet.</description>
@@ -5047,19 +5050,19 @@ Webデザインをしていてそれが役に立ったかどうかは、簡単�
       <description>今回の記事の主題はデータURIスキームとはなんぞいねってことなんですが、簡単に言いますと、このスキームを使うとサーバにリクエストすることなく、ページ内のコードに画像を埋め込むことができるという話です。スキームといえば、このほかにもhttp:、ftp:、mailto:なんてものがありますね。
 Webパフォーマンスにとって高コストなものといえば、HTTPリクエストですから、それを使わず画像を表示できるということはこのスキームを使う最大のメリットと言えるでしょう。
 てなわけで、実際にどんなものか見てみましょう。例えば、隣にあるこのフィードアイコン はHTMLソースの中ではこんな感じでに記述されています。
-&amp;lt;img src=&amp;quot;http://www.feedburner.com/fb/images/pub/feed-icon16x16.png&amp;quot;&amp;gt;  これをデータURIスキームを使って表現するとこんな感じになります。
-&amp;lt;img src=&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=&amp;quot;&amp;gt;  なんかわかりませんが、わっさー長くなりましたね。 これは画像のバイナリデータをBase64で表現したものになります。はい、よくわからんですね… バイナリというのは文字データ以外のデータ形式全般のことと書かれていますが、映画のマトリックスに出てくる数字の羅列みたいな感じを個人的には想像しています。まぁ、それをBase64ってゆう形式で表現し直しているって感じでしょうか。Base64に関してはこちらを参照↓
+&amp;lt;img src=&amp;#34;http://www.feedburner.com/fb/images/pub/feed-icon16x16.png&amp;#34;&amp;gt; これをデータURIスキームを使って表現するとこんな感じになります。
+&amp;lt;img src=&amp;#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=&amp;#34;&amp;gt; なんかわかりませんが、わっさー長くなりましたね。 これは画像のバイナリデータをBase64で表現したものになります。はい、よくわからんですね… バイナリというのは文字データ以外のデータ形式全般のことと書かれていますが、映画のマトリックスに出てくる数字の羅列みたいな感じを個人的には想像しています。まぁ、それをBase64ってゆう形式で表現し直しているって感じでしょうか。Base64に関してはこちらを参照↓
  Base64は、データを64種類の印字可能な英数字のみを用いて、それ以外の文字を扱うことの出来ない通信環境にてマルチバイト文字やバイナリデータを扱うためのエンコード方式である。
  そういうわけで、より大きな画像をBase64に変換すればそれだけ結果も長く、容量が大きいものになります。例えば、先程のアイコンよりも大きいこのCSS Niteのバナーを変換してみましょう。
-&amp;lt;img src=&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAACTUExURd9+g++ws+WVmdu8qNiDgOerqvvx8NlwdvfEyNltdN+JivLT0Nt4fPXd2+Oamt14fuKKjttzefjn5fS9wdieku3Avt2Ag+uipvG2uu/Kx9huc+SQlOGRkuajotvRuOu2tNiRiemcoOCEie2prdvDrdh8e9d1d9utndu1otvKs9qmmNiKhNmXjdvYvf////rLz9dmb3ITzt8AAA/GSURBVHja7VvnYrLMEgYVkKZYwB5rNO1F7//qDmyvgJCi32H/BGGZnWf67BLj9h8ZRgukBdIC+X8GYjzwGFUE4q6O/etjj/nsUApkNLs+xZhExUA6v8yPGRn7mvqfD/VAXBPNWRkuczdCS/VnB8E+R3ssoJVoosYcr3gc3tzOdbIHxj0y9hPKzCqfOczIzxW2Qqlf5x3WMzBDkQ6IC9c2hyLFIWTIVSwGVNhfKZ4gatcjZIp5csBQJvB3dJ24ageGBmIaaoZ4JMwksHJfJZsZlp7Mbv7KUPkogqspHrrIEfdI8tdIE1JdHUNHGQkFAhSpZiqTzEyzVmaNmlRkwMWUzyCSGQaiTWZzyRU4X2a5Nbh1NcLdX/sa5d/6WohFQKBIiWkddED6GoZwbDUVQMyr3n4mRdzqxHksAuL2iUoyZz9qqUcFb/PGZbD+M1G/drzqrNjo6zglkbzwsdnpzHKmOhrqppqhOQ3CEpAZh8+N9iYZ+Upomsvczsac4fRw5B6RIMt4/97cR7xQSR6ZwLewKWPqdPpqRmmz6WQoAgEL4yAZSUkKTRseWXQcpyvlOhTICIpx7jKS2+M8IkwmJPDkVfaiLKMrq0sDRw7Gsg5yHpXd0T2YOtsZrSYyEFPwz4hxdh0QkzA0HymTLePuBhNiTDah8GOvtOGJJlGwtQ4fw+h8g8kjOiA4CEyEjDmiSpwIQFYst6oiTe91+6LgS3jrSMbAXmmAdHBe7GjCL6Nxg1mnoweiiSu5aDShfqUxexLJqwMxpBDfKQZSoBFdAO6w/suPiQaI+aMaiUp8JKeq4nekrc+w1JoA0fnI8KoFYpRELfC4ozAi3Fe4JSVKLSBzTdRiguJcAOJei/MIZQONlcTgBD8afhsQkkcyhvrqPHVUJsQVzewdPrMzfIIxMxgznHOPsAl+BxB9qcH1ZiyQfXGtpYlaORN9TdV4+AYgk7JaixgRATK6Fla/uvp0qK9+998ARMdQX7IsWsbPrto0nfGk6xhm2vIWL9YMSEk/wkjR4NO+rkM0tAq5FiukAhC3AIi+ZRUUwrS6MBUrNxJmmnQICle3MLFjHU/EgHlgr7STi3t2tm81JH0pNy0m2i0UZfM4OgrxMZJqBBPX1K5Uy0ZCxDc0KYrTlqGwPNU2krjzxGxQHQXtDyNuuzLLKyN+468zuhnAevrZ1WFePFnB0Aq6Xz/S7jTur080BO8xFB3GUwxxv1C0v+g5oByN8vORYcd8bDDmLBq1R28tkBZIC6QF8phAhqtOpzOsSQu8XDiiKnIbGvKLK93xuhoIrlAmdfRkmNVOY1dFLLmR9pS/fyx805BP/a4FLbp+RNVT80yn8tJTftOoAoRjZfVzOHIoqvbGrVJ8a6EY/Kah4gSl0hjdW4MbytOvKmPvlgAR1Hq8C8j9X36s9PvSZV7mFgMRBXIXkBrfYcxqS0K5IWGoNoaFnZbvtyxJJ/d9BKNCYkgnM3WAGLUaC0PclWxiXX8JhGzNuHdbpvlQQEi26lwbx4q/BYI22NwaoaI/eiQgSK5RnVdnDwVkzm6A3jmGjwQEHm/U+xhw9lBAorpJSNo9/2MgncYO9sNADHWz0VflA+nlfG9bbNkmZbnkN4Eo6iAlkEPRwZGuGvxdINK3CBPVy6tbNSTGHwLZK6RqqM5DyBgyR7JFgH8ZyKwSEN5jZiPhNE/Zj/8ykIkiI7ql5Uik7hXMvwMSKXmZVEo3cuL8DSAr1X9+HGbqEDqrWI+YfwDkrkK+QltlPjqQw62abYGi7JGBuFXr+MNjAznK32wU2OADA8FH/qP+cwOZVCfw2KbFfIMR9Z/Y2TlGhpOnDb/CRoh7fNaEKH+FMX+8EuU+B6Fbp8dHKxrr7ajn3EaziaaM7/xFGV/q54VnmyPjYRqrSg3GfeNvWt3CNLhya+Do/M3mg96m9nVO8RttB5UbiElEW62xMgpO/Y3Z/Kc26O4x9kbqvNH/2/6OLVO3VpWBtpIbAnEntVdWnOo2qcQbApl/Q2FAf5r1gIBTp2ZAOtfmCpG+ja+3Kd4MSJ3zEf3RW+1jCrMpkGHzM4Wb6iP/Om3er1ecZtHXQXVV8gdAij4YqOt0QDijvy+djcZhcNb0i5zRd+Dggbh1kBwafyNlNrYr6ePMGkjmKqnelw/vs63SD8/KdwCK1BxpW7darYbeI8s/BcQbTJN65sog2d9dps+awlB+wBxV1wr7kSX51vZQo+E4VBCfWflzWeZu6afI4HNkgfCw0+DrZ6N4LaOMbvttfAukBdICaYG0QFogLZAWSAukBfJfABLEdppuf2IxZ7MhV4MfB2KlYDReaJuOA+FWmKYeuUp+GEgMcaR2oH9p4y9K2VhnNCz+1iDFQOhVkSDCJkAwDokLgSG/jPBY1uoiuxWQK6cMR5o2ALImOApYjSsA8VKZ18z1xuJV0ft+fSCODXQR5H6y0L7jF+qLghUpZLdicoWiydqPtWus6wPZIjd3sj+bQiAli+QERC/wiLF5hEB+pXK3JC3VWRGQgPhG5ml6G7bLXXWjsAze1xOiOE+j0G19IFsqB0+PI5dWWsHVPQVzoiNnXh/q3l/XBgI8RHrdEzA5oQZI4olxzUmELGIT20TySqyNSmIBCRWBp0oDXlIIJF8+FLN8TpLNbINcWHSaswnTseVAgce8QDN6rIESa3MogYSFEQwsK3E8KwDBM0S6s/FTK0xDC4tyUATEl0L/wIahGMcfZ8vfcCz4O0SBe0CD+BiaoMdbZP4zybNImmsi48ima/k48NugushAB0D5AVwZPotx7ZHogQRS6B+QpAINbmPz2TIJ8e8Bqmy2lrWB+c4CcmHWo8RI6bCgNkpJ5UAWwNc9G/7KH5OVEyjw1LYsa60GIiVsD0o7xSGAZn0oaGfMlAFWSpfa5ja1SXlfsgQg6cajsYVDGQNWxzGVWWCzBceCIlYC2Qp5DvAZJtAmAoQjHABzC3ChMfZyJ86SDgskc1EHrc0XKJxGnJhkK4TDh9YV3MbMPAfGiTT0HBTLyoCIeS4X6dhBDzzoBDETPIFHOjDWBVRdCya2saY65mHEzo1IBIjKzr1mCwlw6oHKzOYHAD6EJZWDBhceudhPfoOsBfj12dg/hmS3UK42ssKxwxWfFpfrychneQR1mOL4toDEUs6IHVSaLaCkA2zwvsbZBV8PSJDMZZkMSACxoZgGkM0BZAc42JoErpg1NOJw4wRboIU0OyBh3yFemSDntD0EwIITcbbPf1pbUkmrgSQoZG+YhiIB1hjikg+XTAAeoJqLNze/POnY1ObHYzZyW8hwLRIFQ8wLuYA1K44y6wBxnt91HFxzQ/2EYgkkAAGmlPsp9F4PB4H4RhQSQ8UBhrYhlDNAvc2xLQiODYqTTIESEGYDRuMJhgv9KkS0LUBmDX01tcZIbWDSIJAKcIOvBTfY6ykQsLJHQqUH1nJoDMqpg4gfJIg6UGGCLcWjoYRcpChW5Cp2sMl4Y9wHLSAe2IgNmDiHVgpJAbq2bUcZtRZ4+QCGCiSBBeIf5frF2mbdNolheFlD6vlDOys1WCWDS5vYWIhNHZc8WXoLSUPnIOMDsrfYALaGuRBaNAqsiQRkA1N0gsIToBADlWZJOIB520+l4RNxAehroCsvM8/QCajb0Y4PlR/gr70dy/SAuMc3LnZxkXuNejsAayybVsLw5eGfJI+LK9o2/zNhc/cABqkxTVobDshClekzRQF1owJFByR3yZvP1xhC0TjmshCZbA+Ivhi5BTH/k60ztjjwUJe0yCW+IgRjn9AARYKD44qNlufMYOFw4X2gK+OZySg5x4G4v5JnYRx+IAse0/GDh+RpyETfgLsKkIDXWQ3t+4tNgL3Tw0Fni+DRijFdeGwZCKxM1SFCbY8Jyqw/GNCsM1j4/sYJslW3MOpvFn7WIgAWkHFmOh3Dh0gqvkMeYbLkKosb9oJtGwDD8S3w/TVZP4F5beGPuZVA0AnZpkzYRVlbG+/2PSPI6uy7aIGAWLQv+ASb2M7Gim2m8akiJ8/zAufBgOBSmbX5AgiD2EcxM3gwIBs29ulHMsh8BWII/cUg8B7OtAZs7FPrbL0lXYgfew/rI3x4lE86bAzBwptTiZe9s4i3T3ZilcShT8KpM4hh6s7sa/2UR2/J2lqEoIyxF9luTfCUZ4jrDd32itdPehjqxcjRw+1mHTx0QiyLBVt77G/WT5DZf+IwtAXSAmmBtEBaIC2QFkgL5IGALHv8OEtTwW3uzplOf1XQXspvMG9KN5aKSRL5njxeOSC9l3/CeN+xRHdv6PaJ3t6x07sCH8vdCT15k7F85PRZ7NPsxosgDAX51/d/igGeISDLF8WEE9HK64lFiBjr8bM/OC4+2SW7ZxWL78xscOOFk4VA/pLfU+L4929KgeyUEzBl8SlUykWYLIqcffbJAenCu1RTSN3crKlMvqfGAURiKN8iotSg3DGrk8EwcZHe+CwE0qWS1cniXwGQFwrkVTPlVfMs5+tLC0ShX84BKgHZyeSXGi7fGGe/6K3vXWN0y5MGyFnpcPcCuSnIqz0AECLhd9dlx4naFhX8e/fEIVx+wckiECqUU/ddcKw7gKjI994YJt9ZB9AlxA8yB08/5eueuwrXFoAQA3jLg1XvxPnbHUA05CUykA4L5Pz1JoPFHnJavr51s5Tw9k/kQlxpRwLmZ7d7eSUWuPxmID1OQhTI8qL0EczWGb73iTPOVLsSioDvyx308t4/Dd8NgXAKoUBeX9RRa4phn1DIvpQB6eIE+YJCClLJl8SCKrRUBsIrhABRRpp80hSvgelNacgrBLLrYW+S5P32HUB4hRAgStqnJQFyQfIlQD7KgEzPOO5KQHbfAERQCAZy1hZj2OJRHLtgQ9Gb1gWrDAKYYq+iyV1Z2d0JRFAIBqJI/qhoxU++AIPd5U5OC8JKOPH0ll2guSlTJXBFYhMgokKEWuvli1T5Ip2M83NW+n9iYZ61K+GA/dK7vWZtzZeqqNy9NAQiKkQAcuJbliWXp7u73q7LlZOoGcM0sQBINr/sel9drsw/4xbp/HHSACFTdOSVCimpfnc69wGSUIo1q9iVvvxyRkLpLrU5eopKCjhFR16pkBIgwEE/NPWmpqjOOO5qzGZKWyQdkCkRtJ68SiFlQN4UZSiKy0qAMCws5YIZcP9SUjVNiVme9SxNGXPvVQYCXeGkwlGUn6UyARpLWfn3Rab0tI0FANKVFFLWWH2oyrC3JRdmVY617Kr6+ZMcvriI/YoT80sJ+Q9JISWNFdkO6FHG3nFiW56U76AOakfNq8vHmp1i4+iEzQ/qcldCHhZUF+W+1rQrjwuTLF6noMafMmlteVG8MyVBqQdIvn2xRLJO4FOVK3JSUzylC6csP/Tkz2R+u2XaAmmBtECec/wPNLkv4aM45+gAAAAASUVORK5CYII=&amp;quot;&amp;gt;  ちょっとここでは分かりにくいですが、コピペしてテキストエディタで表示してみると差は歴然でしょう。
+&amp;lt;img src=&amp;#34;data:image/png;base64,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&amp;#34;&amp;gt; ちょっとここでは分かりにくいですが、コピペしてテキストエディタで表示してみると差は歴然でしょう。
 そんなわけで、データURIスキームの書式はこんな感じです。
-data:[メディアタイプ][;base64],データ  まぁ変換ツールを使えば一発です。
+data:[メディアタイプ][;base64],データ まぁ変換ツールを使えば一発です。
 オンライン変換ツール
  DataURL.net - Data URL Maker, Data URL CSS Optimizer and the Data URL Toolkit Image To Data URI Convertor - webSemantics  PHPが使える環境ならば、 file_get_contents関数ってのを使うと、画像修正の度にツールで変換することもなくなります。
-&amp;lt;img src=&amp;quot;data:image/png;base64,&amp;lt;?php echo base64_encode(file_get_contents(&amp;quot;../images/feed-icon16x16.png&amp;quot;)) ?&amp;gt;&amp;quot;&amp;gt;  容量の肥大化 ただ、問題点もちらほらあります。Base64で表現しますと、元のバイナリデータより30~40%大きくなってしまうことです。
+&amp;lt;img src=&amp;#34;data:image/png;base64,&amp;lt;?php echo base64_encode(file_get_contents(&amp;#34;../images/feed-icon16x16.png&amp;#34;)) ?&amp;gt;&amp;#34;&amp;gt; 容量の肥大化 ただ、問題点もちらほらあります。Base64で表現しますと、元のバイナリデータより30~40%大きくなってしまうことです。
 上記のように、先程のフィードアイコンも元が764バイトに対して、Base64にエンコードした結果は1020バイトと約36%の増加となっています。というか、そもそもそのような長いコードをHTML内に記述すれば、フィードアイコンのある全てのページでHTML容量が増加してしまうことが考えられます。
 そのような時は、外部CSSファイル内に記述し、キャッシュを効かすのがよいかなと考えます。
-.hoge { width: 16px;　height: 16px; background-repeat: no-repeat; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=); }  さらに欲をいえば、肥大化したCSSファイルをgzip圧縮すれば、Base64で増加した分など微々たるものと言えるでしょう。</description>
+.hoge { width: 16px;　height: 16px; background-repeat: no-repeat; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKOSURBVHjadJNNSFRRGIbfc+6dO6OOOplDykSZaRCtnKRc+ANRUBFEm0gicxG0bGoVhERRYIvIjRAtW+UmW5QQQS6qRWQSWJRaUcjkT0LiVWfm/pzTd869M5LShe+eufC973m+n2Fj55KJymTt9ZgVy3AGMHoxvvEs/qZgDL4AlhbsAfv34g1TiRPxRMZbWwU3GQzO9clNhGcYBpkY4UlGiWRd5scnMvx5tUWano9IMoXy1pOUBPgz4xC/xv8r1hSexNKiB1Nhq6RIbQoVhy6i+MiCDffDEPyJITBvZZPYLwiQFFzVZ0Q45Moc8q8fwP34FGJ5FixaCevgBZT1DMNs7Nok9iikL8GyfWkZ3VgvhbljP6yOy2BbmzWR/+o2vM/PSmLfkchTaAIlsHa1ourSS5Sfvg8r3Q38mYb7+DzE9Ig2MDquAan2kth3AgKu0JSBapLCNranEWnPIHp2GDzZDEE3+1OBiXW4D4LHtViZCB/rBHJuHPmHp+CO3oK0Zyk7DvP4IGR1EwrPb673JX0mELslgvVRYW0O8usIvCe9AboyOdIPn1Ug9+Kupihr69ZiZSJFsYRwztbRO4icGARv6IT3ZkCTsKp68J2dyE2MQuZtsFgllbZHTyMsAVqsaldCVt8CtvsYPHsZzvtH+tZIc5e+sfBtLOhFYytRFAlYuGGED2clGNn8lO62m53U37y6XmM7M8E3onEIIpCSLp/vPyC31Bp6SUSsjmIbnO9jpVEZqbROzn15F5RDZs5CFs58FmaNBTZ5Ze+9hn11Genl/1mS0qjChumaCVvo2iViNXHkuD1g9Daxt7lVEQPMNpcSdah1pQb5kqho4yVXQc2iacHiMMpNFPia/jv/FWAAUTVTOunExzkAAAAASUVORK5CYII=); } さらに欲をいえば、肥大化したCSSファイルをgzip圧縮すれば、Base64で増加した分など微々たるものと言えるでしょう。</description>
     </item>
     
     <item>
@@ -5347,10 +5350,10 @@ Amazon.co.jp で詳細を見る </description>
       <description>Web Directions East | カンファレンス：11月13日（金）  Nicole Sullivan（ニコール・サリバン） 3000以上にも昇る大規模サイトの最適化に携わって来た Nicole Sullivan は、現在 Yahoo! のパフォーマンスエンジニアと最適化のエバンジェリストとして国内外のセミナーで講演。Webサイトに関する研究だけでなく、プロジェクト管理もこなすマルチタスクなリーダーシップを発揮。フロントエンドエンジニアとしての高いスキルを持つ。
  Stubbornella Nicole Sullivan (@stubbornella) | Twitter Nicole Sullivan presentations | SlideShare  高速ウェブアプリのためのCSSパフォーマンス UNDERSTANDING THE CASCADE デフォルトのスタイルがブラウザ毎で存在しそれは全て違う YUIのrecet.cssを使うと良い
 クラスの順序に違いはない プロパティと値の順序 スペルミスはエラーにならない（無視されるだけ）
-color: red, colour: blue  スタイルの順序
-.foo {color: red;} .foo {color: blue;}  この場合、blueが勝つ
-&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;styles.css&amp;quot;&amp;gt; &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;moreStyles.css&amp;quot;&amp;gt;   この場合、moreStyles.cssの方が勝つ 同じ詳細度なら最後に出てきた方が勝つ 詳細度は速く計算される必要がある  IDとクラス
-#nav p {color: red } .</description>
+color: red, colour: blue スタイルの順序
+.foo {color: red;} .foo {color: blue;} この場合、blueが勝つ
+&amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;styles.css&amp;#34;&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;moreStyles.css&amp;#34;&amp;gt;  この場合、moreStyles.cssの方が勝つ 同じ詳細度なら最後に出てきた方が勝つ 詳細度は速く計算される必要がある  IDとクラス
+#nav p {color: red } .nav p {color: blue } INLINE STYLES</description>
     </item>
     
     <item>
@@ -5712,7 +5715,7 @@ funと入力してTabキーを押すと（JavaScriptの場合）
 GetBundleをインストール てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
  Mac OS X 10.5.8 TextMate 1.5.8 Processing 1.0.5  まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、GetBundleをまずインストールする。
 ターミナルを開いて以下のコマンドを打ち込む。
-$ mkdir Library/Application\ Support/TextMate/Bundles $ cd Library/Application\ Support/TextMate/Bundles $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/  ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、cdでそのディレクトリに移動、svn coでSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんそんな感じ。
+$ mkdir Library/Application\ Support/TextMate/Bundles $ cd Library/Application\ Support/TextMate/Bundles $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/ ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、cdでそのディレクトリに移動、svn coでSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんそんな感じ。
 そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！
 で動かなかった場合、 Bundles &amp;gt; Bundle Editor &amp;gt; Show Bundle Editor &amp;gt; GetBundle&amp;gt; Install BundleのBASE_URL部分を以下に変更。
 BASE_URL=http://svn.textmate.org/trunk/  再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。</description>
@@ -5846,9 +5849,9 @@ Amazonで詳しく見るby G-Tools
       <guid>https://t32k.me/mol/log/multi-google-analytics-tracker-code/</guid>
       <description>『Google Analyticsを複数のプロファイルでトラッキング | 海外SEO情報ブログ』でGAのカスタマイズってほどでもないけど、トラッキングコードのTipsが紹介されている。要は_gat._getTracker()で初期化する際に、変数を2つ用意してあげればいいってこと。
 ちょうど、『SIGMA DP2 : Special Contents』のサイトで似たようなコード見つけたので、挙げておく。
-&amp;lt;script type=“text/javascript”&amp;gt; &amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(“UA-xxxxxx-1”); pageTracker._trackPageview(); var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”); pageTracker2._trackPageview(); } catch(err) {} &amp;lt;/script&amp;gt;  pageTrackerとpageTracker2に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。
+&amp;lt;script type=“text/javascript”&amp;gt; &amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(“UA-xxxxxx-1”); pageTracker._trackPageview(); var pageTracker2 = _gat._getTracker(“UA-yyyyy-4”); pageTracker2._trackPageview(); } catch(err) {} &amp;lt;/script&amp;gt; pageTrackerとpageTracker2に格納してるんすね。違うアカウントで同じプロファイルを共有したい時ってゆう状態が、よくわからないんだけども。クライアントさんと制作者側が両方アクセス解析の情報を知りたいって時には便利なのかもしれないね。たぶん。
  Digital Intelligence Solutions to Empower Data Driven, Confident Decision Making | Cardinal Path  上記にサイトはこんな感じのコードだった。
-&amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxx-1&amp;quot;); var isDev = window.location.href.search(/vkistudios.net/); if (isDev &amp;gt; -1) pageTracker._setDomainName(&amp;quot;.vkistudios.net&amp;quot;); else pageTracker._setDomainName(&amp;quot;.vkistudios.com&amp;quot;); pageTracker._setLocalRemoteServerMode(); pageTracker._initData(); pageTracker._trackPageview(); } catch (e) {} //event tracking profile try { var eventTracker = _gat.</description>
+&amp;lt;script&amp;gt; try { var pageTracker = _gat._getTracker(&amp;#34;UA-xxxxx-1&amp;#34;); var isDev = window.location.href.search(/vkistudios.net/); if (isDev &amp;gt; -1) pageTracker._setDomainName(&amp;#34;.vkistudios.net&amp;#34;); else pageTracker._setDomainName(&amp;#34;.vkistudios.com&amp;#34;); pageTracker._setLocalRemoteServerMode(); pageTracker._initData(); pageTracker._trackPageview(); } catch (e) {} //event tracking profile try { var eventTracker = _gat.</description>
     </item>
     
     <item>
@@ -5858,8 +5861,8 @@ Amazonで詳しく見るby G-Tools
       
       <guid>https://t32k.me/mol/log/pagetracker-initdata/</guid>
       <description>数ヶ月前のGoogle Analyticsコードアップデートでスニペットにtry/catch文が挿入されたってことを書いた。でも、よくよく見たらpageTracker._initDataの関数もなくなっていない？ってことに気づいた。
-var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); pageTracker._initData(); pageTracker._trackPageview();  少し前のga.jsのコードはこんな感じだったともう。
-try { var pageTracker = _gat._getTracker(&amp;quot;UA-xxxxxxx-x&amp;quot;); pageTracker._trackPageview(); } catch (err) { }  initData()ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。
+var pageTracker = _gat._getTracker(&amp;#34;UA-xxxxxxx-x&amp;#34;); pageTracker._initData(); pageTracker._trackPageview();  少し前のga.jsのコードはこんな感じだったともう。
+try { var pageTracker = _gat._getTracker(&amp;#34;UA-xxxxxxx-x&amp;#34;); pageTracker._trackPageview(); } catch (err) { }  initData()ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。
 Analytics Tracking APIに載っていた。
  _initData() _initData()Deprecated. initData() now executes automatically in the ga.js tracking code. Initializes or re-initializes the GATC (Google Analytics Tracker Code) object.
  Deprecatedってことは廃止予定ってことか。なんかga.js内で自動的に実行しているらしい。 あーすっきり！しかしまぁ、もうちょっとアナウンスしてくれてもいいんだと思うんだけどな&amp;hellip;</description>

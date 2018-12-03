@@ -75,20 +75,16 @@
     </header>
     <section>
         <p>数ヶ月前のGoogle Analyticsコードアップデートでスニペットに<code>try/catch</code>文が挿入されたってことを書いた。でも、よくよく見たらpageTracker._initDataの関数もなくなっていない？ってことに気づいた。</p>
-
-<pre><code class="language-javascript">var pageTracker = _gat._getTracker(&quot;UA-xxxxxxx-x&quot;); 
-pageTracker._initData();
-pageTracker._trackPageview();
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pageTracker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gat</span>.<span style="color:#a6e22e">_getTracker</span>(<span style="color:#e6db74">&#34;UA-xxxxxxx-x&#34;</span>); 
+<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_initData</span>();
+<span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_trackPageview</span>();
+</code></pre></div>
 <p>少し前のga.jsのコードはこんな感じだったともう。</p>
-
-<pre><code class="language-javascript">try {
-    var pageTracker = _gat._getTracker(&quot;UA-xxxxxxx-x&quot;);
-    pageTracker._trackPageview();
-} catch (err) { }
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">try</span> {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pageTracker</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gat</span>.<span style="color:#a6e22e">_getTracker</span>(<span style="color:#e6db74">&#34;UA-xxxxxxx-x&#34;</span>);
+    <span style="color:#a6e22e">pageTracker</span>.<span style="color:#a6e22e">_trackPageview</span>();
+} <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">err</span>) { }
+</code></pre></div>
 <p><code>initData()</code>ってゆうくらいだから初期化する関数なのかと思いGoogle Analyticsトラッキング コード移行ガイドで初期化部分探したけど、載ってない。</p>
 
 <p>Analytics Tracking APIに載っていた。</p>
