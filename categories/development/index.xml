@@ -19,7 +19,7 @@
       <description>昔フロントレンドで、環境光の明るさによってCSS変えられたらおもしろいよね的なことを@simuraiが彼の作ったAtomのテーマを解説しながら言っていた。環境光については@girlie_macが2014年に記事を書いていたので、CSSスゴイ！ほえー！と思ってた。
  HTML5で実現できる！環境光に合わせたレスポンシブなUI | HTML5Experts.jp  media feature luminosityはlight-levelに名前を変えたが今も実装の気配なさそうだ。一方で、2018年、macOS Mojaveがリリースされ、ダークモードが利用できるようになった。自分も流行りに乗って自宅のMacで利用している。
  Paul Miller — Using dark mode in CSS with MacOS Mojave  そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。
-/* Text and background color for light mode */ body { color: black; } /* Text and background color for dark mode */ @media (prefers-color-scheme: dark) { body { color: white; background-color: black; } }  環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。
+/* Text and background color for light mode */ body { color: black; } /* Text and background color for dark mode */ @media (prefers-color-scheme: dark) { body { color: white; background-color: black; } } 環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。
  prefers-color-scheme を用いた Dark Mode 対応と User Preference Media Features | blog.</description>
     </item>
     

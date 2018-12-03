@@ -21,8 +21,8 @@
     <meta property="fb:app_id" content="212646065416408">
     <link rel="canonical" href="https://t32k.me/mol/log/dive-into-the-dark-side/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
-    <link rel="stylesheet" href="/mol/css/layout.css?20181129">
-    <link rel="stylesheet" href="/mol/css/app.css?20181129">
+    <link rel="stylesheet" href="/mol/css/layout.css?20181201">
+    <link rel="stylesheet" href="/mol/css/app.css?20181201">
     <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="MOL">
 </head>
 
@@ -95,19 +95,18 @@
 
 <p>そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。</p>
 
-<pre><code>/* Text and background color for light mode */
-body {
-  color: black;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* Text and background color for light mode */</span>
+<span style="color:#f92672">body</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>;
 }
 
-/* Text and background color for dark mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background-color: black;
+<span style="color:#75715e">/* Text and background color for dark mode */</span>
+@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">prefers-color-scheme</span><span style="color:#f92672">:</span> <span style="color:#f92672">dark</span><span style="color:#f92672">)</span> {
+  <span style="color:#f92672">body</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">black</span>;
   }
-}
-</code></pre>
+}</code></pre></div>
 
 <p>環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。</p>
 
@@ -157,11 +156,10 @@ body {
 
 <p>このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。<code>#00000060</code>のようなアルファ値を含んだ<a href="https://caniuse.com/#feat=css-rrggbbaa">#rrggbbaa</a>をサポートしているブラウザも増えているが、<code>&quot;#000000&quot;　+ &quot;60&quot;</code>のように文字列結合をCSSファイルで実現するのは難しい。</p>
 
-<pre><code>html {
-  color: rgba(var(--rgb-surface), var(--alpha-600));
-  background: rgb(var(--rgb-background));
-}
-</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">html</span> {
+  <span style="color:#66d9ef">color</span>: rgba(<span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>rgb<span style="color:#f92672">-</span>surface), <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">alpha</span><span style="color:#ae81ff">-600</span>));
+  <span style="color:#66d9ef">background</span>: rgb(<span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>rgb<span style="color:#f92672">-</span>background));
+}</code></pre></div>
 
 <p>ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。</p>
 

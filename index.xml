@@ -33,19 +33,18 @@
 
 &lt;p&gt;そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;/* Text and background color for light mode */
-body {
-  color: black;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Text and background color for light mode */&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;;
 }
 
-/* Text and background color for dark mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background-color: black;
+&lt;span style=&#34;color:#75715e&#34;&gt;/* Text and background color for dark mode */&lt;/span&gt;
+@&lt;span style=&#34;color:#66d9ef&#34;&gt;media&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;prefers-color-scheme&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;dark&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
+  &lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;white&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;background-color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;;
   }
-}
-&lt;/code&gt;&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。&lt;/p&gt;
 
@@ -95,11 +94,10 @@ body {
 
 &lt;p&gt;このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。&lt;code&gt;#00000060&lt;/code&gt;のようなアルファ値を含んだ&lt;a href=&#34;https://caniuse.com/#feat=css-rrggbbaa&#34;&gt;#rrggbbaa&lt;/a&gt;をサポートしているブラウザも増えているが、&lt;code&gt;&amp;quot;#000000&amp;quot;　+ &amp;quot;60&amp;quot;&lt;/code&gt;のように文字列結合をCSSファイルで実現するのは難しい。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;html {
-  color: rgba(var(--rgb-surface), var(--alpha-600));
-  background: rgb(var(--rgb-background));
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: rgba(&lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;rgb&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;surface), &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;alpha&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;-600&lt;/span&gt;));
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;: rgb(&lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;rgb&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;background));
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。&lt;/p&gt;
 
