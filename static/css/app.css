@@ -124,6 +124,14 @@ pre > code {
   overflow: hidden;
 }
 
+
+.highlight > pre {
+  border-radius: 4px;
+}
+.highlight > pre > code {
+  color: rgba(255, 255, 255, var(--alpha-600));
+}
+
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
