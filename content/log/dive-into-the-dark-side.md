@@ -20,7 +20,7 @@ media feature `luminosity`は`light-level`に名前を変えたが今も実装�
 
 そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。
 
-{{< highlight css >}}
+```css
 /* Text and background color for light mode */
 body {
   color: black;
@@ -33,7 +33,7 @@ body {
     background-color: black;
   }
 }
-{{< / highlight >}}
+```
 
 環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。
 
@@ -79,12 +79,12 @@ body {
 このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。`#00000060`のようなアルファ値を含んだ[#rrggbbaa](https://caniuse.com/#feat=css-rrggbbaa)をサポートしているブラウザも増えているが、`"#000000"　+ "60"`のように文字列結合をCSSファイルで実現するのは難しい。
 
 
-{{< highlight css >}}
+```css
 html {
   color: rgba(var(--rgb-surface), var(--alpha-600));
   background: rgb(var(--rgb-background));
 }
-{{< / highlight >}}
+```
 
 ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。
 

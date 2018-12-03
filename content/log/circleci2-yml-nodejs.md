@@ -10,7 +10,7 @@ ogimage: https://t32k.me/mol/images/2018/0130-00.png
 
 [前回の記事](/mol/log/circleci2-yml/)で、CircleCIからGAEにNode.jsアプリをデプロイ方法を説明したのだけど、もっといい方法があるのではないかと思ってた。
 
-```
+```yaml
 version: 2
 jobs:
   build:
@@ -74,7 +74,7 @@ CI上で試してみるとなぜかうまくいかない。`gcloud`コマンド�
 
 なので、↓みたいに明示的に指定してあげる必要がある。
 
-```
+```yaml
 echo 'source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc' >> $BASH_ENV
 ```
 
@@ -95,7 +95,7 @@ Cachingは異なるWorkflow間でのデータ共有であり、異なるJob間�
 `persist_to_workspace`という項目で、共有したいデータを指定し、`attach_workspace`で取り出す。
 
 
-```  
+```yaml
 version: 2
 
 # =============================================

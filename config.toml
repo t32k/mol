@@ -3,6 +3,7 @@ baseurl = "https://t32k.me/mol/"
 title = "MOL"
 publishdir = "public"
 MetaDataFormat = "yaml"
+pygmentsCodeFences = true
 [params]
   description = "Designing for User Interface"
   author = "Koji Ishimoto"

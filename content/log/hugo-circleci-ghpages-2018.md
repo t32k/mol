@@ -25,7 +25,7 @@ ogimage: https://t32k.me/mol/images/2018/1106-00.png
 
 まずは、CircleCI側、config.ymlの設定。
 
-```
+```yaml
 version: 2
 jobs:
   build:
@@ -36,14 +36,14 @@ jobs:
 
 まぁ、ブログなので、`master`オンリーのブランチで実行。
 
-```
+```yaml
  docker:
       - image: cibuilds/hugo:latest
 ```
 
 dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds/docker-hugo)という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。
 
-```
+```yaml
     working_directory: ~/hugo
     steps:
       - run:
@@ -55,7 +55,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 `cibuilds/hugo`イメージはAlpine Linuxベースとのことで、`apk`でパッケージを最新にしといて、`git`も追加。
 
 
-```
+```yaml
       - run:
           name: Hugo version
           command: echo "$(hugo version)"
@@ -70,7 +70,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 あとは、GitHubからコードをチェックアウトして、Hugoで生成している。RSS用に`feed.xml` にコピーしとく。
 
 
-```
+```yaml
       - add_ssh_keys:
           fingerprints:
             - "SO:ME:FIN:G:ER:PR:IN:T"
@@ -80,7 +80,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 
 **Add user key** ボタンを押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページで、そのFingerprintをコピーして上記に追加。
    
-```
+```yaml
       - deploy:
           name: Deploy to GitHub Pages
           command: ./.circleci/deploy.sh
@@ -92,7 +92,7 @@ dockerイメージとして、[cibuilds/hugo:latest](https://github.com/cibuilds
 
 シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼ[RealOrangeOne](https://github.com/RealOrangeOne/circleci-hugo-template/blob/master/.circleci/deploy.sh)氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。
 
-```
+```bash
 #!/usr/bin/env bash
 
 # エラー時、実行を止める

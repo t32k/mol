@@ -13,7 +13,7 @@ excerpt: 基本、ずっとTravisかWerckerを使ってたんだけど、CircleC
 
 基本は上記のブログがわかりやすい。
 
-```
+```yaml
 version: 2
 jobs:
   build:
@@ -43,7 +43,7 @@ jobs:
 
 あとは`run`でステップを指定していく。`command`は`|`を置けば、複数行でも書ける。
 
-```
+```yaml
       - save_cache:
           key: cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
@@ -60,7 +60,7 @@ jobs:
 
 `build`ステップは終わり。
 
-```
+```yaml
   deploy:
     working_directory: ~/repo
     docker:
@@ -96,7 +96,7 @@ jobs:
 
 あと`no_output_timeout`は、GAE/Node.jsへのデプロイがくっそ遅くて、タイムアウト（デフォルト10分）になるので20分に伸ばしてる。
 
-```
+```yaml
 workflows:
   version: 2
   build_and_deploy:
