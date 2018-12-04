@@ -4,15 +4,16 @@ title: Material Design Color Paletteプラグインつくった
 subtitle: Sketch 3 Advent Calendar 2014
 categories: 
     - blog
-cover_image: /2014/12-16-1-cover.png
+cover_image: https://t32k.me/mol/images/2014/12-16-1-cover.png
 excerpt: Sketch app plugin for displaying Google material design color palette.
 ---
+
+![](/mol/images/2014/12-16-1-cover.png)
 
 [Sketch 3 Advent Calendar 2014 - Adventar](http://www.adventar.org/calendars/347) 16日目です。
 
 表題の通りなんですけど、Sketch.appのプラグインとか作ってみたいなーて思ってて作ったわけです。
 
-<iframe src="//player.vimeo.com/video/114320997?title=0&amp;byline=0&amp;portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 + __[t32k/material-design-color-palette-sketch-plugin](https://github.com/t32k/material-design-color-palette-sketch-plugin)__
 
@@ -42,9 +43,7 @@ GoogleのMaterial Designってありますよね？あれの色見本的なも�
 
 あとは、Sketchのリソース関連で有名なSketch App Sourcesに載せるため[Submit free resources](http://www.sketchappsources.com/submit-free-resource.html)に申請しておきましょう。
 
-<blockquote class="twitter-tweet" lang="en"><p>Sketch App plugin for displaying Google Material Design Color Palette by <a href="https://twitter.com/t32k">@t32k</a> <a href="http://t.co/E7inQyFGVs">http://t.co/E7inQyFGVs</a> <a href="http://t.co/n2w5hxQeXi">pic.twitter.com/n2w5hxQeXi</a></p>&mdash; Sketch App Sources (@sketchsources) <a href="https://twitter.com/sketchsources/status/544039316067209216">December 14, 2014</a></blockquote>
-
-こんな感じでツイートしてくれます！いっぱいFavorite付いてるけど、GitHubのスターが欲しいんだボクは！
+[こんな感じでツイート](https://twitter.com/sketchsources/status/544039316067209216)してくれます！いっぱいFavorite付いてるけど、GitHubのスターが欲しいんだボクは！
 
 とまぁ作ってみたけど、もっと環境がよかったらなーもっと作ってみたいと思うけど、満足したので、もうプラグイン作るのはお休み(´･ωゞ)。
 
