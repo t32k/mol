@@ -81,16 +81,14 @@
 </blockquote>
 
 <p>SeverとClientでレンダリング結果が微妙に違うとのこと。</p>
-
-<pre><code>new Intl.DateTimeFormat(locales, {
-  year: &quot;numeric&quot;,
-  month: &quot;numeric&quot;,
-  day: &quot;numeric&quot;,
-  hour: &quot;numeric&quot;,
-  minute: &quot;numeric&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Intl</span>.<span style="color:#a6e22e">DateTimeFormat</span>(<span style="color:#a6e22e">locales</span>, {
+  <span style="color:#a6e22e">year</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+  <span style="color:#a6e22e">month</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+  <span style="color:#a6e22e">day</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+  <span style="color:#a6e22e">hour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>,
+  <span style="color:#a6e22e">minute</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;numeric&#34;</span>
 });
-</code></pre>
-
+</code></pre></div>
 <p>該当のコード。</p>
 
 <p>Node.js側の<code>Intl</code>オブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、しばらく放っておいた。</p>
@@ -110,10 +108,7 @@
 <p>ちなみにICUとは<a href="http://site.icu-project.org/">International Components for Unicode</a>の略らしい。確かに全言語対応のデータ毎回入れてたら重いよね。</p>
 
 <p>Node.jsのバージョンマネージャーは<code>nvm</code>使ってるんだけど、nvmインストールするときに下記のようなオプションつけると<code>full-icu</code>でビルドしたものをインストールできる。</p>
-
-<pre><code>nvm install -s v9.4.0 --with-intl=full-icu --download=all
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvm install -s v9.4.0 --with-intl<span style="color:#f92672">=</span>full-icu --download<span style="color:#f92672">=</span>all</code></pre></div>
 <p>でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、</p>
 
 <ul>
@@ -121,10 +116,7 @@
 </ul>
 
 <p>後づけで言語データをインストールができるnpmがある。</p>
-
-<pre><code>NODE_ICU_DATA=node_modules/full-icu/
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">NODE_ICU_DATA<span style="color:#f92672">=</span>node_modules/full-icu/</code></pre></div>
 <p>あとは環境変数<code>NODE_ICU_DATA</code>にfull-icuの言語データへのパスを設定するだけでよい。</p>
 
 <p>国際化とかホント苦手だわと思ったけど、今回の場合、日付の<code>/</code>と<code>-</code>が違うだけだったので、あんまり考えがめぐらなかったのが反省点。</p>

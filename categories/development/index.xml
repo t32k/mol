@@ -99,12 +99,12 @@ version: 2 jobs: build: working_directory: ~/repo docker: - image: circleci/node
       <description>Reactをアイソモーフィックに実行しているのだけど、下記のようなエラーが出てた。
  Warning: Text content did not match. Server: &amp;ldquo;1970-1-18 22:09&amp;rdquo; Client: &amp;ldquo;1970/1/18 22:09&amp;rdquo;
  SeverとClientでレンダリング結果が微妙に違うとのこと。
-new Intl.DateTimeFormat(locales, { year: &amp;quot;numeric&amp;quot;, month: &amp;quot;numeric&amp;quot;, day: &amp;quot;numeric&amp;quot;, hour: &amp;quot;numeric&amp;quot;, minute: &amp;quot;numeric&amp;quot; });  該当のコード。
+new Intl.DateTimeFormat(locales, { year: &amp;#34;numeric&amp;#34;, month: &amp;#34;numeric&amp;#34;, day: &amp;#34;numeric&amp;#34;, hour: &amp;#34;numeric&amp;#34;, minute: &amp;#34;numeric&amp;#34; });  該当のコード。
 Node.js側のIntlオブジェクトが対応していないのかなと思いつつ、Node v8だし結構新しいしなーと思っていて、原因がわからず、しばらく放っておいた。
  Internationalization Support | Node.js v9.4.0 Documentation  あとで国際化のサポートがビルドの設定ごとで違うらしいと気づいた。デフォルトのビルドでは--with-intl=small-icuというもので、部分的なサポートでしかない。それとは別にfull-icuという全サポートがあるらしく、これ入れたら、サーバーとクライアントでの差異はなくなった。
  Intl · nodejs/node Wiki  ちなみにICUとはInternational Components for Unicodeの略らしい。確かに全言語対応のデータ毎回入れてたら重いよね。
 Node.jsのバージョンマネージャーはnvm使ってるんだけど、nvmインストールするときに下記のようなオプションつけるとfull-icuでビルドしたものをインストールできる。
-nvm install -s v9.4.0 --with-intl=full-icu --download=all  でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、
+nvm install -s v9.4.0 --with-intl=full-icu --download=all でもこれだと毎バージョンごとにICUのデータ入れないといけないからめんどいよね。あとGAE Node.jsのインスタンスとかどこでNode.jsのビルドしてんだ？って感じなので、
  unicode-org/full-icu-npm: npm module to autoload full ICU data.</description>
     </item>
     
