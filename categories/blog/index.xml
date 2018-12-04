@@ -418,7 +418,7 @@ Downtown 今回のお店はWaterfront駅という近くです。交通の要所�
       <guid>https://t32k.me/mol/log/my-sketch-plugin/</guid>
       <description>Sketch 3 Advent Calendar 2014 - Adventar 16日目です。
 表題の通りなんですけど、Sketch.appのプラグインとか作ってみたいなーて思ってて作ったわけです。
-  t32k/material-design-color-palette-sketch-plugin  GoogleのMaterial Designってありますよね？あれの色見本的なものを生成してくれるやつです。公式サイトみたらIllustrator/Photoshop用のSwatchesファイルがあったんですけど、Sketch用のなかったわけですよ！（そもそもそんなファイルSketchにはないのか？）よくわかりませんが、なかったら自分で作りなはれ精神で作りました。
+ t32k/material-design-color-palette-sketch-plugin  GoogleのMaterial Designってありますよね？あれの色見本的なものを生成してくれるやつです。公式サイトみたらIllustrator/Photoshop用のSwatchesファイルがあったんですけど、Sketch用のなかったわけですよ！（そもそもそんなファイルSketchにはないのか？）よくわかりませんが、なかったら自分で作りなはれ精神で作りました。
  Color - Style - Google design guidelines  個人的に明度ごとに各色のパレット作り出すやつが欲しかったやつなのでお気に入りです。なんか不具合とかあったら@t32kまで、ご連絡くださいませ。
 Sketch Pluginの作り方  Bohemian Coding - Sketch Developer  上記の公式リファレンスを見れば作れる。。。なんてことはない！！CocoaScriptという、JavaScriptの文法でCocoaフレームワークにアクセスできる代物。てか、Cocoaフレームワークが分からんし！なんかカッコ多くてよくわからんし！！リファレンス不親切だし！！！って感じで、作りたいものに似たプラグインを探して真似するのが最善の策かと思われる。
 みんなCocoaに精通しているのか、それともググりながらがんばってるのか、いずれにせよ、Sketchプラグインのエコシステムはデベロッパーの皆様の多大なる努力の賜物であることを身にしみた。
@@ -426,8 +426,8 @@ Sketch Pluginの作り方  Bohemian Coding - Sketch Developer  上記の公式�
 Sketch Pluginを作ったら… Sketch Toolboxという、Sketchプラグインを管理するアプリがあるのですけど、せっかくなのでここに登録したいと思いまして、どうしたら登録できるのだろうと探していたら、どうやらsketchplugins/plugin-directoryここにプルリクを送ればいいっぽい（マージされない。。。）
 なんとまぁアナログな！Bohemian Codingさんはプラグインサーバー立てて、そこにアップロードできるようにすればいいのになー（儲かってないのかな）。
 あとは、Sketchのリソース関連で有名なSketch App Sourcesに載せるためSubmit free resourcesに申請しておきましょう。
-Sketch App plugin for displaying Google Material Design Color Palette by @t32k http://t.co/E7inQyFGVs pic.twitter.com/n2w5hxQeXi
-&amp;mdash; Sketch App Sources (@sketchsources) December 14, 2014 こんな感じでツイートしてくれます！いっぱいFavorite付いてるけど、GitHubのスターが欲しいんだボクは！</description>
+こんな感じでツイートしてくれます！いっぱいFavorite付いてるけど、GitHubのスターが欲しいんだボクは！
+とまぁ作ってみたけど、もっと環境がよかったらなーもっと作ってみたいと思うけど、満足したので、もうプラグイン作るのはお休み(´･ωゞ)。</description>
     </item>
     
     <item>
