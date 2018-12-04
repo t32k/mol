@@ -13,7 +13,7 @@ Reactをアイソモーフィックに実行しているのだけど、下記の
 
 SeverとClientでレンダリング結果が微妙に違うとのこと。
 
-```
+```js
 new Intl.DateTimeFormat(locales, {
   year: "numeric",
   month: "numeric",
@@ -39,7 +39,7 @@ Node.js側の`Intl`オブジェクトが対応していないのかなと思い�
 
 Node.jsのバージョンマネージャーは`nvm`使ってるんだけど、nvmインストールするときに下記のようなオプションつけると`full-icu`でビルドしたものをインストールできる。
 
-```
+```bash
 nvm install -s v9.4.0 --with-intl=full-icu --download=all
 ```
 
@@ -49,7 +49,7 @@ nvm install -s v9.4.0 --with-intl=full-icu --download=all
 
 後づけで言語データをインストールができるnpmがある。
 
-```
+```bash
 NODE_ICU_DATA=node_modules/full-icu/
 ```
 
