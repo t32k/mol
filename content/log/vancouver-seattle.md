@@ -12,12 +12,6 @@ ogimage: https://t32k.me/mol/images/2015/seattle/11.jpg
 
 ## 4:00 AM 起床
 
-<div class="ad">
-<a href="http://px.a8.net/svt/ejp?a8mat=2HK2TG+88HWT6+327I+60WN5&asid=a15042247792" target="_blank">
-<img border="0" width="300" height="250" alt="" src="http://www24.a8.net/svt/bgt?aid=150422596498&wid=002&eno=01&mid=s00000014283001012000&mc=1"></a>
-<img border="0" width="1" height="1" src="http://www16.a8.net/0.gif?a8mat=2HK2TG+88HWT6+327I+60WN5" alt="">
-</div>
-
 いつ起きてもいつ寝てもいい、そんなニート生活しているt32kにとって目覚まし時計は単に時を刻むだけの代物と成り下がっていた。だがそれゆえに、目覚ましアラーム特有の電子音には敏感に反応することができのだ（寝坊せずに済んだ）。
 
 完全に眠気を覚ますためにシャワーを浴びる。このまま二度寝したらなんと幸せなことか、なぜ日帰りでわざわざシアトルまでいくのか？ベッド最高じゃん？家でネット最高じゃん？などと甘い囁きが頭の中でグルグル回っている。
@@ -185,14 +179,7 @@ Cherry Street Coffeeの店内。なんかどこもこーゆアンティークな
 
 帰りの[BoltBus](https://www.boltbus.com/)。チケットの確認がすごいテキトーだったり、指定席じゃなかったり、かなりアレだけど、バスはWi-Fiついているし、席によっては電源もある（ない席もある）し、快適だ。僕が買った時は30ドルだった。まぁアリだろう。
 
-<div class="ad">
-<a href="http://px.a8.net/svt/ejp?a8mat=2HO30J+4SNQZE+26ZC+3SYRPT" target="_blank">
-<img border="0" width="300" height="250" alt="" src="http://www28.a8.net/svt/bgt?aid=150609475290&wid=002&eno=01&mid=s00000010236023005000&mc=1"></a>
-<img border="0" width="1" height="1" src="http://www17.a8.net/0.gif?a8mat=2HO30J+4SNQZE+26ZC+3SYRPT" alt="">
-</div>
-
 バスに乗ったら税関申告書を書いて、ボーダーで入国審査うける。ボーダーにつくとバスの乗客が全員降りて、全員が終わるまでバスは出発しないし、ほかのバスがまた後ろに来たりするので、審査官もプレッシャーなのか、ここの入国審査はちょっと適当な気がした。『何しにカナダきたの？』『ワーホリ』『どこ行ってたの？』『シアトル』『何日？』『日帰り』『OK、GO!』って感じだった。
-
 
 ## 10:00 PM パシフィックセントラル駅到着
 
