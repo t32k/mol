@@ -69,7 +69,7 @@ Flexbox何それおいしいの？ display:table 最強じゃん！って状態�
 てか、最強のCSSなんて存在しないからなっ！！
  t32k/maple - GitHub  ありがちな落とし穴 これを作るにあたって社内のほかのプロジェクトのCSSがどんな風に書いてるのか調べった結果、以下の点が気になった。
  無用な Vendor Prefixes Data URI 多用 Nest が深い @extend 多用 ID セレクタ使用  無用な Vendor Prefixes 基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、
-$experimental-support-for-opera: false; $experimental-support-for-mozilla: false; $experimental-support-for-microsoft: false;  そういったものを吐き出さないように、変数で指定する必要がある。また-webkit-border-radiusのようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかはCan I use…で調べればよい（逆に正規プロパティを書いてないとこもあった）。
+$experimental-support-for-opera: false; $experimental-support-for-mozilla: false; $experimental-support-for-microsoft: false; そういったものを吐き出さないように、変数で指定する必要がある。また-webkit-border-radiusのようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかはCan I use…で調べればよい（逆に正規プロパティを書いてないとこもあった）。
 Data URI 多用 WebパフォーマンスにおいてHTTPリクエストを削減することは真っ先に優先されるべきことだが、あまり何でもかんでも画像をDataURI化してCSSファイルの中に記述してしまうと、CSSファイルの肥大化が問題になってしまう。CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
 ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。
 Nestが深い ロケーションに基づいたスタイル付け、ページに基づいたCSSを書いていくと当然ネストが深くなっていく（ex. body.login-page a.login-btn &amp;gt; span）。ここではセレクタの数が増えることによるファイルサイズ増量が問題というわけでなく、詳細度が高まれば高まるほど、そこでしか使用できないセレクタになってしまうことが問題だ。結果、同じようなスタイルでも新しくCSSを記述しなければならずファイルサイズが増えていくことになる。

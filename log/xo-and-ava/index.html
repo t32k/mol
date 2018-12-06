@@ -139,20 +139,18 @@
 <p>xoのドキュメントを読んでいるとavaという単語が目につく。同じsindresorhus氏作のテストランナーだ。自分で未来的って言っちゃうほどなんだから、新しい仕様が採用されているのだろうと思い、せっかくなのでxoと一緒にこっちも採用してみた。1000ch君パイセンも最近使ってると言ってたし。</p>
 
 <p>以前までは<a href="https://mochajs.org/">Mocha</a>を使用していたが、非同期のテストがしづらいというか、よくわかんないままやってた。avaはテストの実行自体も非同期にやってくれて早い。またPromiseをサポートしているので、<code>done()</code>とかいちいち呼び出さなくてもいい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Promiseを返す関数のテスト&#39;</span>, <span style="color:#a6e22e">t</span> =&gt; {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Promiseを返す関数のテスト&#39;</span>, <span style="color:#a6e22e">t</span> =&gt; {
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">somePromise</span>().<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">result</span> =&gt; {
         <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">is</span>(<span style="color:#a6e22e">result</span>, <span style="color:#e6db74">&#39;おんなじあたい&#39;</span>);
     });
 });
 </code></pre></div>
 <p>ちょうど、<code>StyleStats#parse()</code>もPromiseを返すように変更したのでだいぶ楽に書けるようになった。と思っていたが、xoとavaを併用していると、上記のテストは『Async/Awaitを使えよー！』とxoに怒られる( ˘ω˘)</p>
-
-<pre><code>test('Promiseを返す関数のテスト', async t =&gt; {
-    const result = await somePromise();
-    t.is(result, 'おんなじあたい');
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#39;Promiseを返す関数のテスト&#39;</span>, <span style="color:#66d9ef">async</span> <span style="color:#a6e22e">t</span> =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">somePromise</span>();
+    <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">is</span>(<span style="color:#a6e22e">result</span>, <span style="color:#e6db74">&#39;おんなじあたい&#39;</span>);
 });
-</code></pre>
-
+</code></pre></div>
 <p>言われたとおりにしたら、さらに見やすくなって感動した。</p>
 
 <p>あとは、Mochaを使ってると<code>describe</code>や<code>it</code>といったグローバル変数を使うはめになって、ESlintで『そんなもん宣言されてないやんけ！』と怒られて、テストファイルだけ、その変数を除外するとかゆうめんどくさいことからも開放されてよい( ˘ω˘)</p>

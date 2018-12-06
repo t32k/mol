@@ -122,10 +122,7 @@ $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</code></pre><
 <p>で動かなかった場合、 <code>Bundles</code> &gt; <code>Bundle Editor</code> &gt; <code>Show Bundle Editor</code> &gt; <code>GetBundle</code>&gt; <code>Install Bundle</code>のBASE_URL部分を以下に変更。</p>
 
 <p><img src="http://lh4.ggpht.com/_1drnogi3vdg/SoWQhyEn9XI/AAAAAAAAAgw/IIk_x0lpycU/base.png" alt="" /></p>
-
-<pre><code>BASE_URL=http://svn.textmate.org/trunk/
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">BASE_URL<span style="color:#f92672">=</span>http://svn.textmate.org/trunk/</code></pre></div>
 <p>再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。</p>
 
 <h2 id="processingのbundleをインストール">ProcessingのBundleをインストール</h2>
@@ -133,19 +130,16 @@ $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</code></pre><
 <p>ProcessingのBundleをインストールして、Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; Processing &gt; Run in ProcessingのCommands部分を以下に書き換え。</p>
 
 <p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SoWQhx3IxtI/AAAAAAAAAg4/hEepORHoY7w/pro.png" alt="" /></p>
-
-<pre><code>osascript  &lt;&lt;EOF
-tell application “Processing” to run
-tell application “Processing” to activate
-tell application “Processing” to open POSIX file “${TM_FILEPATH}”
-delay 1
-tell application “System Events” to tell process “Processing”
-
-keystroke “r” using command down
-end tell
-EOF
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">osascript  <span style="color:#e6db74">&lt;&lt;EOF
+</span><span style="color:#e6db74">tell application “Processing” to run
+</span><span style="color:#e6db74">tell application “Processing” to activate
+</span><span style="color:#e6db74">tell application “Processing” to open POSIX file “${TM_FILEPATH}”
+</span><span style="color:#e6db74">delay 1
+</span><span style="color:#e6db74">tell application “System Events” to tell process “Processing”
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">keystroke “r” using command down
+</span><span style="color:#e6db74">end tell
+</span><span style="color:#e6db74">EOF</span></code></pre></div>
 <p>これで設定完了。TextMateで適当にProcessingのコードを打ち込んで<code>Ctrl</code> + <code>R</code>を押すとProcessingが立ち上がる。</p>
 
     </section>

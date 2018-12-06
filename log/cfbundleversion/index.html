@@ -98,10 +98,7 @@
 <p><img src="/static/blog/2011/06/tistudio.png" alt="Titanium Studio" /></p>
 
 <p>Titanium Studioでは上図。</p>
-
-<pre><code>&lt;version&gt;1.0&lt;/version&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">version</span>&gt;1.0&lt;/<span style="color:#f92672">version</span>&gt;</code></pre></div>
 <p>この部分がtiapp.xmlに反映されるわけ。</p>
 
 <h2 id="bundle-version-cfbundleversion">Bundle version (CFBundleVersion)</h2>
@@ -109,10 +106,7 @@
 <p><img src="/static/blog/2011/06/info.png" alt="Xcode" /></p>
 
 <p>前述のtiapp.xmlの内容が、<code>/APPLICATION_PROJECT/build/iphone/Info.plist</code> のBundle version (CFBundleVersion) に反映される。通常のテキストエディタでInfo.plistを開いてみると、</p>
-
-<pre><code>&lt;key&gt;CFBundleVersion&lt;/key&gt; &lt;string&gt;1.0&lt;/string&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">key</span>&gt;CFBundleVersion&lt;/<span style="color:#f92672">key</span>&gt; &lt;<span style="color:#f92672">string</span>&gt;1.0&lt;/<span style="color:#f92672">string</span>&gt;</code></pre></div>
 <p>こんな感じになってるかと思う。試しにテストアプリを作ってバージョンはどの段階においても1.0だ。問題ない。</p>
 
 <h2 id="build-number">Build Number</h2>

@@ -102,12 +102,9 @@
 <h3 id="無用な-vendor-prefixes">無用な Vendor Prefixes</h3>
 
 <p>基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、</p>
-
-<pre><code>$experimental-support-for-opera: false;
-$experimental-support-for-mozilla: false;
-$experimental-support-for-microsoft: false;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">$experimental-support-for-opera: false;</span>
+<span style="color:#960050;background-color:#1e0010">$experimental-support-for-mozilla: false;</span>
+<span style="color:#960050;background-color:#1e0010">$experimental-support-for-microsoft: false;</span></code></pre></div>
 <p>そういったものを吐き出さないように、変数で指定する必要がある。また<code>-webkit-border-radius</code>のようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかは<a href="http://caniuse.com/#search=border-ra">Can I use…</a>で調べればよい（逆に正規プロパティを書いてないとこもあった）。</p>
 
 <h3 id="data-uri-多用">Data URI 多用</h3>
@@ -149,8 +146,7 @@ $experimental-support-for-microsoft: false;
 <p>これはデザイナーの責任とは100％言い切れない、クライアントの要望であったり、力のあるステークホルダーからの意見であったりと、UIとは最初に設計したものから変幻自在にその姿を変える。未来は誰にもわからないのである。</p>
 
 <p>このため、私はモジュール単位で設計すると同時に、<a href="https://github.com/t32k/maple/blob/master/src/files/css/sass/core/_helper.scss">helper.sccs</a>を充実させた。</p>
-
-<pre><code># Directory structure
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Directory structure</span>
 ├── maple.css
 └── sass
     ├── maple.scss
@@ -171,10 +167,7 @@ $experimental-support-for-microsoft: false;
     │   ├── _listviews.scss
     │   └── _misc.scss
     └── vendors
-        └── _myfont.scss
-
-</code></pre>
-
+        └── _myfont.scss</code></pre></div>
 <p>helper.scssはユーティリティ的に使える便利classをまとめたものだ。<code>.c{ text-align:center !imporatnt}</code> などのように単一のCSSプロパティだけを記述した短い名前のclassだ。</p>
 
 <p>これらのCSSを充実させることで、パターンに外れたUIの変更、例えばこのページのこのモジュールだけ文字色はこれ！とか、このページの時は余白を大きく！などのケースは、<code>.module.helper</code>のようにマルチクラスで、モジュールに任意のヘルパーclassを追加するだけで対応できるようになる。</p>
@@ -248,15 +241,12 @@ $experimental-support-for-microsoft: false;
 <p>現時点でCSSは全然書いてないのはずーっとGrunt Taskの設定をしていたり、プラグイン作ってたりしてたという理由があります。マシなCSSを書くために必要なGrunt用意しましたー。</p>
 
 <p>Mapleプロジェクトは<a href="https://github.com/t32k/grunt-init-maple">grunt-init-maple</a>を使えば、gurnt-init mapleでプロジェクトをスキャフォルドできます。あとはプロジェクトに必要なnode_moduleを落としてくれば、すぐに使えます！</p>
-
-<pre><code>$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --recursive
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --recursive
 $ git-init maple
 $ cd /path/to/maple_project/src/tools 
 $ npm install
-# ローカルサーバが立ち上がってSassがwatchの状態になる。
-$ grunt develop
-</code></pre>
-
+<span style="color:#75715e"># ローカルサーバが立ち上がってSassがwatchの状態になる。</span>
+$ grunt develop</code></pre></div>
 <h3 id="grunt-contrib-connect-grunt-contrib-watch">grunt-contrib-connect / grunt-contrib-watch</h3>
 
 <p>ローカルサーバーとウォッチ、ライブリロード機能を有効にしています。コンポーネントページでモジュールを開発したりするとき便利です。</p>

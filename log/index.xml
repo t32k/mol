@@ -168,7 +168,7 @@ Bodymovin アニGIFに書き出しては旧態依然の体たらくぶりなの�
  Bodymovin | Creative Cloud  BodymovinはAfter Effectsのスクリプトで、これをインストールすると作成した動画をJSON形式で保存することができる。いろいろインストール方法はあるみたいだが、私はAdobeストアからインストールすればCreative Cloud Desktop Appが勝手にやってくれた。
 んで、インスコが終わったらメニューの ウィンドウ &amp;gt; 拡張機能 &amp;gt; Bodymovin を開くと上記のようなパネルが出てくる。保存先のパスを設定して、Renderボタンを押そう。
 たぶん、そのままだとエラーが出るので、環境設定からスクリプトによるファイルへの書き込みとネットワークへのアクセスを許可にチェック入れとこう。
-{&amp;quot;v&amp;quot;:&amp;quot;5.1.16&amp;quot;,&amp;quot;fr&amp;quot;:29.9700012207031,&amp;quot;ip&amp;quot;:0,&amp;quot;op&amp;quot;:90.0000036657751,&amp;quot;w&amp;quot;:1280,&amp;quot;h&amp;quot;:720,&amp;quot;nm&amp;quot;:&amp;quot;Logo Animation&amp;quot;,&amp;quot;ddd&amp;quot;:0,&amp;quot;assets&amp;quot;:[{&amp;quot;id&amp;quot;:&amp;quot;image_0&amp;quot;,&amp;quot;w&amp;quot;:1280,&amp;quot;h&amp;quot;:720,&amp;quot;u&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;p&amp;quot;:&amp;quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAgAEl...  そうすると、こういったJSONファイルができるので、各クライアントに実装するエンジニアさんに渡そう！
+{&amp;#34;v&amp;#34;:&amp;#34;5.1.16&amp;#34;,&amp;#34;fr&amp;#34;:29.9700012207031,&amp;#34;ip&amp;#34;:0,&amp;#34;op&amp;#34;:90.0000036657751,&amp;#34;w&amp;#34;:1280,&amp;#34;h&amp;#34;:720,&amp;#34;nm&amp;#34;:&amp;#34;Logo Animation&amp;#34;,&amp;#34;ddd&amp;#34;:0,&amp;#34;assets&amp;#34;:[{&amp;#34;id&amp;#34;:&amp;#34;image_0&amp;#34;,&amp;#34;w&amp;#34;:1280,&amp;#34;h&amp;#34;:720,&amp;#34;u&amp;#34;:&amp;#34;&amp;#34;,&amp;#34;p&amp;#34;:&amp;#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAgAEl...  そうすると、こういったJSONファイルができるので、各クライアントに実装するエンジニアさんに渡そう！
 Lottie Web JSONファイル自体はただの文字列なので、これをアニメーションとして、各クライアント（私の場合はWebブラウザ）上で動かしたい。そうするためにはLottieというライブラリを使用してJSONをパースする必要がある。
  Render After Effects animations natively on Web, Android and iOS, and React Native.  ちょっとややこしかったのだけど、ちょっと前まではこのLottieのライブラリ名もbodymovin.jsと言ってたらしくて、AEスクリプトなのか、JSライブラリなのか、bodymovinがごっちゃになってた。
  chenqingspring/vue-lottie  私の場合はVueアプリで、このLottieを使いたいので、vue-lottieという便利なラッパーがあるので使用する。</description>
@@ -3761,7 +3761,7 @@ DOMとCSSOMがガッチャンコしてRender Treeが構築され、そこにレ�
 てか、最強のCSSなんて存在しないからなっ！！
  t32k/maple - GitHub  ありがちな落とし穴 これを作るにあたって社内のほかのプロジェクトのCSSがどんな風に書いてるのか調べった結果、以下の点が気になった。
  無用な Vendor Prefixes Data URI 多用 Nest が深い @extend 多用 ID セレクタ使用  無用な Vendor Prefixes 基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、
-$experimental-support-for-opera: false; $experimental-support-for-mozilla: false; $experimental-support-for-microsoft: false;  そういったものを吐き出さないように、変数で指定する必要がある。また-webkit-border-radiusのようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかはCan I use…で調べればよい（逆に正規プロパティを書いてないとこもあった）。
+$experimental-support-for-opera: false; $experimental-support-for-mozilla: false; $experimental-support-for-microsoft: false; そういったものを吐き出さないように、変数で指定する必要がある。また-webkit-border-radiusのようにAndroid2.3+, iOS4.3+のバージョンをターゲットとしているのであれば、この場合のベンダープレフィックスは不要だ。どのバージョンからベンダープレフィックスが必要か、必要でないかはCan I use…で調べればよい（逆に正規プロパティを書いてないとこもあった）。
 Data URI 多用 WebパフォーマンスにおいてHTTPリクエストを削減することは真っ先に優先されるべきことだが、あまり何でもかんでも画像をDataURI化してCSSファイルの中に記述してしまうと、CSSファイルの肥大化が問題になってしまう。CSSファイルがパースされなければレンダリングが始まらないのでCSSファイルの肥大化は絶対に避けなければならない。画像の1KBとCSSファイルの1KBを同じように考えてはいけない。
 ましてやDataURI化すれば元の画像の2,3割ファイルサイズが増えるし、仕様的にあまり大きなファイルサイズのものに適用してしまうのは気をつけたほうがいい。私の場合はログインページなど一回しか出てこないような場面において使うアイコン画像などをHTML内に埋め込んでいる。何回でも出てくるような画像であればCSSスプライトしたほうが無難だ。
 Nestが深い ロケーションに基づいたスタイル付け、ページに基づいたCSSを書いていくと当然ネストが深くなっていく（ex. body.login-page a.login-btn &amp;gt; span）。ここではセレクタの数が増えることによるファイルサイズ増量が問題というわけでなく、詳細度が高まれば高まるほど、そこでしか使用できないセレクタになってしまうことが問題だ。結果、同じようなスタイルでも新しくCSSを記述しなければならずファイルサイズが増えていくことになる。
@@ -4394,13 +4394,14 @@ GATC for jQuery Mobile 僕はこうゆう感じでとりあえず対応してい
  前、申請したバージョンよりCFBundleVersionが低いからダメってことよね？1.2から1.2.1ってどーみても上がってんじゃん！てめぇ、数字も数えられねーのかよ!てことで調べてみた。
 Version (tiapp.xml) バージョンに関して記入するところと言えば、Titanium Developer 1.2.2では上図。
 Titanium Studioでは上図。
-&amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt;  この部分がtiapp.xmlに反映されるわけ。
+&amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; この部分がtiapp.xmlに反映されるわけ。
 Bundle version (CFBundleVersion) 前述のtiapp.xmlの内容が、/APPLICATION_PROJECT/build/iphone/Info.plist のBundle version (CFBundleVersion) に反映される。通常のテキストエディタでInfo.plistを開いてみると、
-&amp;lt;key&amp;gt;CFBundleVersion&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;1.0&amp;lt;/string&amp;gt;  こんな感じになってるかと思う。試しにテストアプリを作ってバージョンはどの段階においても1.0だ。問題ない。
+&amp;lt;key&amp;gt;CFBundleVersion&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;1.0&amp;lt;/string&amp;gt; こんな感じになってるかと思う。試しにテストアプリを作ってバージョンはどの段階においても1.0だ。問題ない。
 Build Number はい、でこのアプリを実機にインストールもしくはパッケージ化し、Info.plistのBundle Versionを確認してみよう。なんということでしょう。こんなんになってた！
 1.0.1308740503  1.0以降に変な数字でてるやないですか！たぶんこれBuild Numberってゆうやつだと思われる（なんかググってみてそんな感じのようなことが書かれてた）。これがなんか勝手に生成されるようだ。
 ってことで、今回のNyarsマイナーアップデート申請がなぜ却下されたのか考えてみると、前回のバージョンが1.2で今回出したバージョンが1.2.1てことで、それらにBuild Numberをくっつけたのを比較してみますと、
-1.2.BUILD_NUMBER 1.2.1.BUILD_NUMBER  ってことなので、3番目の値で比較（Build Numberと1）され却下されたのではないかと結論づけた。</description>
+1.2.BUILD_NUMBER 1.2.1.BUILD_NUMBER  ってことなので、3番目の値で比較（Build Numberと1）され却下されたのではないかと結論づけた。
+Version Number (iTunes Connect) ということで今回は、1.</description>
     </item>
     
     <item>
@@ -5718,7 +5719,7 @@ GetBundleをインストール てことで、TextMateの使い方も大体分�
 $ mkdir Library/Application\ Support/TextMate/Bundles $ cd Library/Application\ Support/TextMate/Bundles $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/ ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、cdでそのディレクトリに移動、svn coでSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんそんな感じ。
 そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！
 で動かなかった場合、 Bundles &amp;gt; Bundle Editor &amp;gt; Show Bundle Editor &amp;gt; GetBundle&amp;gt; Install BundleのBASE_URL部分を以下に変更。
-BASE_URL=http://svn.textmate.org/trunk/  再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。</description>
+BASE_URL=http://svn.textmate.org/trunk/ 再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。</description>
     </item>
     
     <item>

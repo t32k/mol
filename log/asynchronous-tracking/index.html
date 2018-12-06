@@ -122,7 +122,7 @@
 <p>しかし、非同期トラッキングコードはダウンロードの中断を考えなくてもいいので上記のようなグラフになります。なおかつ、Google Analyticsの解析コードga.jsは、<code>www.google-analytics.com</code>から読み込まれていますので、トラッキングコードを挿入したページを読み出すホスト名とは異なるはずなので、ページのレンダリングとは非同期に読む込むことができます。</p>
 
 <h3 id="async属性に関して">async属性に関して</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/javascript&#34;</span>; 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">ga</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/javascript&#34;</span>; 
 <span style="color:#a6e22e">ga</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
 </code></pre></div>
 <p>話はちょっと変わりますが、非同期トラッキングコードについて調べていると、HTML5で定義されているasync属性によってこの非同期を実現しているのでasync属性に対応しているFx3.6しか効果がないと書いている人がちらほらいたのですが、それは誤解です。</p>
@@ -238,7 +238,7 @@ document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#
 <p>これまで見てきて非同期ってワンダホー♪って思うのですが、そもそもなぜスクリプトファイルが読み込まれると並列ダウンロードがブロックされるのでしょうか？その理由として、開発者としては上部に置いたコードが先に実行されるという前提の上で実装をしています。もし、A.js、B.jsの順番でHTMLファイル内に読み込んで、非同期のためにB.jsの方が早く読み込みが完了されちゃったとします。B.jsの中にはA.jsで定義されたオブジェクトなど使われているので、当然未定義になってエラーが返される、なんてことが考えられます。例えるなら、jquery.js読み込む前に、jquery-plugin.jsが読み込まれては問題なわけですよ。</p>
 
 <p>なので、非同期で読み込む場合はコードの実行順序を考慮する必要性があります。Google Analyticsの非同期トラッキングコードでは、前半部分がそれに対応した部分になっています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">||</span> [];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_gaq</span> <span style="color:#f92672">||</span> [];
   <span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_setAccount&#39;</span>, <span style="color:#e6db74">&#39;UA-XXXXX-X&#39;</span>]);
   <span style="color:#a6e22e">_gaq</span>.<span style="color:#a6e22e">push</span>([<span style="color:#e6db74">&#39;_trackPageview&#39;</span>]);
 </code></pre></div>
