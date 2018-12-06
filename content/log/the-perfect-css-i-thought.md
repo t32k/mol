@@ -32,7 +32,7 @@ excerpt: "俺ももう30だし、夏なんで、CSSフレームワークはじ�
 
 基本、我々はWebkitをターゲットとしたWebアプリを作ってるので、-moz-とか、-ms-とかいらないはずなんだけど、なんか付いている・・・多分、CompassのCSS3 Mixinとか使ってると、デフォルトで全部のベンダープレフィックスが吐出されてしまうので、
 
-```
+```sass
 $experimental-support-for-opera: false;
 $experimental-support-for-mozilla: false;
 $experimental-support-for-microsoft: false;
@@ -79,7 +79,7 @@ CSSとは時とともに増えるものだ。新しいページが増えるイ�
 
 このため、私はモジュール単位で設計すると同時に、<a href="https://github.com/t32k/maple/blob/master/src/files/css/sass/core/_helper.scss">helper.sccs</a>を充実させた。
 
-```
+```bash
 # Directory structure
 ├── maple.css
 └── sass
@@ -173,7 +173,7 @@ v1.0の正式リリースに向けて、UIスタイルを設けるつもりだ�
 
 Mapleプロジェクトは<a href="https://github.com/t32k/grunt-init-maple">grunt-init-maple</a>を使えば、gurnt-init mapleでプロジェクトをスキャフォルドできます。あとはプロジェクトに必要なnode_moduleを落としてくれば、すぐに使えます！
 
-```
+```bash
 $ git clone https://github.com/t32k/grunt-init-maple.git ~/.grunt-init/maple --recursive
 $ git-init maple
 $ cd /path/to/maple_project/src/tools 

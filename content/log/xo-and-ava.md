@@ -62,7 +62,7 @@ xoのドキュメントを読んでいるとavaという単語が目につく。
 
 以前までは[Mocha](https://mochajs.org/)を使用していたが、非同期のテストがしづらいというか、よくわかんないままやってた。avaはテストの実行自体も非同期にやってくれて早い。またPromiseをサポートしているので、`done()`とかいちいち呼び出さなくてもいい。
 
-```javascript
+```js
 test('Promiseを返す関数のテスト', t => {
     return somePromise().then(result => {
         t.is(result, 'おんなじあたい');
@@ -72,7 +72,7 @@ test('Promiseを返す関数のテスト', t => {
 
 ちょうど、`StyleStats#parse()`もPromiseを返すように変更したのでだいぶ楽に書けるようになった。と思っていたが、xoとavaを併用していると、上記のテストは『Async/Awaitを使えよー！』とxoに怒られる( ˘ω˘)
 
-```
+```js
 test('Promiseを返す関数のテスト', async t => {
     const result = await somePromise();
     t.is(result, 'おんなじあたい');

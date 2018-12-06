@@ -55,7 +55,7 @@ $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/
 
 ![](http://lh4.ggpht.com/_1drnogi3vdg/SoWQhyEn9XI/AAAAAAAAAgw/IIk_x0lpycU/base.png)
 
-```
+```bash
 BASE_URL=http://svn.textmate.org/trunk/
 ```
 
@@ -67,7 +67,7 @@ ProcessingのBundleをインストールして、Bundles > Bundle Editor > Show 
 
 ![](http://lh5.ggpht.com/_1drnogi3vdg/SoWQhx3IxtI/AAAAAAAAAg4/hEepORHoY7w/pro.png)
 
-```
+```bash
 osascript  <<EOF
 tell application “Processing” to run
 tell application “Processing” to activate

@@ -16,7 +16,7 @@ ogimage: http://i.imgur.com/wtaftdU.png
 
 僕はこうゆう感じでとりあえず対応しています。作動させるタイミングとフラグメント識別子を記録させるのがポイントです。あとはご自身のサイトに合わせてカスタマイズしていただければと思います。
 
-```javascript
+```js
 //Account Setting
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-xxxxxxx-x']);
