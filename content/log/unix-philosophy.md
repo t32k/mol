@@ -37,9 +37,10 @@ UNIXの考え方について、以下の9つが挙げられている。
 
 個人的にもNode.jsのCLIツールだが、[GAER](https://github.com/t32k/gaer)で`stdin`を受けつけるようにした時、すごく感動したし、世界が広がったように感じた。こんな感じで繋げれるようになった。
 
-```shell
+```bash
 stylestats -f json -n path/to/css/file.css | gaer -t UA-xxxxxxx-x -r ReportName
 ```
+
 + [t32k/stylestats](https://github.com/t32k/stylestats) - CSS解析ツール
 + [t32k/gaer](https://github.com/t32k/gaer) - GAのレポートにデータ送るツール
 

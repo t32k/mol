@@ -26,7 +26,7 @@ ogimage: /static/blog/2011/06/itunes.png
 
 Titanium Studioでは上図。
 
-```
+```html
 <version>1.0</version>
 ```
 
@@ -39,7 +39,7 @@ Titanium Studioでは上図。
 
 前述のtiapp.xmlの内容が、`/APPLICATION_PROJECT/build/iphone/Info.plist` のBundle version (CFBundleVersion) に反映される。通常のテキストエディタでInfo.plistを開いてみると、
 
-```
+```html
 <key>CFBundleVersion</key> <string>1.0</string>
 ```
 

@@ -48,7 +48,7 @@ BodymovinはAfter Effectsのスクリプトで、これをインストールす�
 
 たぶん、そのままだとエラーが出るので、環境設定から**スクリプトによるファイルへの書き込みとネットワークへのアクセスを許可**にチェック入れとこう。
 
-```
+```js
 {"v":"5.1.16","fr":29.9700012207031,"ip":0,"op":90.0000036657751,"w":1280,"h":720,"nm":"Logo Animation","ddd":0,"assets":[{"id":"image_0","w":1280,"h":720,"u":"","p":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAgAEl...
 ```
 

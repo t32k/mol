@@ -68,7 +68,7 @@ GitHubのMapleのSettingsから__Service Hooks__で、Jenkins (Git plugin)を選
 
 __ビルド__には『シェルの実行』を選択し、下記のようなコマンドを設定。
 
-```
+```bash
 git checkout gh-pages
 git rebase origin/master
 git push origin gh-pages
@@ -94,7 +94,7 @@ WebPagetestはこのブログでも何回か紹介しているが、Webパフォ
 
 + [how can i get an api key? · Issue #8 · marcelduran/webpagetest-api](https://github.com/marcelduran/webpagetest-api/issues/8)
 
-```
+```bash
 webpagetest test https://t32k.me/maple/test/fixtures/perf_test.html --server $1 --poll 3 --specs test/spec.json --reporter xunit > webpagetest.xml
 ```
 

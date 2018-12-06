@@ -51,7 +51,7 @@ excerpt: 非同期トラッキングコードが公式に推奨されるよう�
 
 ### async属性に関して
 
-```javascript
+```js
 ga.type = "text/javascript"; 
 ga.async = true;
 ```
@@ -161,7 +161,7 @@ Brian… あなたにもっと早く出会えていれば….
 
 なので、非同期で読み込む場合はコードの実行順序を考慮する必要性があります。Google Analyticsの非同期トラッキングコードでは、前半部分がそれに対応した部分になっています。
 
-```javascript
+```js
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-XXXXX-X']);
   _gaq.push(['_trackPageview']);
