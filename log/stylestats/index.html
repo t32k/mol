@@ -9,8 +9,8 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@t32k">
     
-    <meta name="description" content="スタイルシートの統計情報を出力するNode Packageを作った。Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。">
-    <meta name="twitter:description" content="スタイルシートの統計情報を出力するNode Packageを作った。Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。">
+    <meta name="description" content="スタイルシートの統計情報を出力するNode Packageを作った">
+    <meta name="twitter:description" content="スタイルシートの統計情報を出力するNode Packageを作った">
     
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="MOL">
@@ -76,57 +76,50 @@
     <section>
         
 
-<p><a href="https://github.com/t32k/stylestats"><img src="https://github-camo.global.ssl.fastly.net/84b33de130aae5ae27d571c5aa7e4970fc426be8/687474703a2f2f692e696d6775722e636f6d2f38316b4b6e78482e706e67" alt="" /></a>
-スタイルシートの統計情報を出力するNode Packageを作った。</p>
+<p>スタイルシートの統計情報を出力するNode Packageを作った。</p>
 
 <ul>
 <li><strong><a href="https://github.com/t32k/stylestats">t32k/stylestats</a></strong></li>
 </ul>
 
 <p>Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。</p>
-
-<pre><code>$ npm install -g stylestats
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install -g stylestats
 $ stylestats path/to/stylesheet.css
 StyleStats!
-┌──────────────────────────┬───────────────┐
-│ Size                     │ 498.0B        │
-├──────────────────────────┼───────────────┤
-│ Rules                    │ 7             │
-├──────────────────────────┼───────────────┤
-│ Selectors                │ 11            │
-├──────────────────────────┼───────────────┤
-│ Simplicity               │ 63.64%        │
-├──────────────────────────┼───────────────┤
-│ Lowest Cohesion          │ 6             │
-├──────────────────────────┼───────────────┤
-│ Lowest Cohesion Selector │ hr            │
-├──────────────────────────┼───────────────┤
-│ Total Unique Font Sizes  │ 3             │
-├──────────────────────────┼───────────────┤
-│ Unique Font Size         │ 10px          │
-│                          │ 12px          │
-│                          │ 18px          │
-├──────────────────────────┼───────────────┤
-│ Total Unique Colors      │ 1             │
-├──────────────────────────┼───────────────┤
-│ Unique Color             │ #333          │
-├──────────────────────────┼───────────────┤
-│ Id Selectors             │ 1             │
-├──────────────────────────┼───────────────┤
-│ Universal Selectors      │ 0             │
-├──────────────────────────┼───────────────┤
-│ Important Keywords       │ 1             │
-├──────────────────────────┼───────────────┤
-│ Media Queries            │ 1             │
-├──────────────────────────┼───────────────┤
-│ Properties Count         │ font-size: 5  │
-│                          │ margin: 4     │
-│                          │ padding: 3    │
-│                          │ color: 2      │
-│                          │ display: 1    │
-└──────────────────────────┴───────────────┘
-</code></pre>
-
+┌────────────────────────┬──────────┐
+│Size                    │ <span style="color:#ae81ff">498</span>.0B   │
+├────────────────────────┼──────────┤
+│Rules                   │ <span style="color:#ae81ff">7</span>        │
+├────────────────────────┼──────────┤
+│Selectors               │ <span style="color:#ae81ff">11</span>       │
+├────────────────────────┼──────────┤
+│Simplicity              │ <span style="color:#ae81ff">63</span>.64%   │
+├────────────────────────┼──────────┤
+│Lowest Cohesion         │ <span style="color:#ae81ff">6</span>        │
+├────────────────────────┼──────────┤
+│Lowest Cohesion Selector│ hr       │
+├────────────────────────┼──────────┤
+│Total Unique Font Sizes │ <span style="color:#ae81ff">3</span>        │
+├────────────────────────┼──────────┤
+│Unique Font Size        │ 10px     │
+│                        │ 12px     │
+│                        │ 18px     │
+├────────────────────────┼──────────┤
+│Total Unique Colors     │ <span style="color:#ae81ff">1</span>        │
+├────────────────────────┼──────────┤
+│Unique Color            │ <span style="color:#75715e">#333     │</span>
+├────────────────────────┼──────────┤
+│Id Selectors            │ <span style="color:#ae81ff">1</span>        │
+├────────────────────────┼──────────┤
+│Universal Selectors     │ <span style="color:#ae81ff">0</span>        │
+├────────────────────────┼──────────┤
+│Important Keywords      │ <span style="color:#ae81ff">1</span>        │
+├────────────────────────┼──────────┤
+│Media Queries           │ <span style="color:#ae81ff">1</span>        │
+├────────────────────────┼──────────┤
+│Properties Count        │ color: <span style="color:#ae81ff">2</span> │
+│                        │ margin: <span style="color:#ae81ff">4</span>│
+└────────────────────────┴──────────┘</code></pre></div>
 <h2 id="なんで作ったの">なんで作ったの？</h2>
 
 <p>そもそも論の話、HTML/CSSを書く人って私のようにデザイナー上がりだったり、私のようにプログラミング的バックグラウンドが無かったりする人が多い。そんもんだから、Sassなどのような多少なりともプログラミング的知識の必要となるCSSプリプロセッサを使うと、お盆の帰省ラッシュのようなCSSが吐出されて大変な結果になるってことを何度も経験してきた。</p>
