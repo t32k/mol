@@ -59,7 +59,7 @@ ogimage: https://t32k.me/mol/images/2018/1209-00.jpg
 </div>
 </a></div>
 
-というわけで、好日山荘でよいものを見つけた。[グロワーズカップ](https://growerscup.universal-trading.jp/)というものらしい。
+というわけで、好日山荘でよいものを見つけた。[グロワーズカップ](https://growerscup.universal-trading.jp/)というものらしい。紅茶バージョンもあるので紅茶党の方もトライして欲しい。
 
 ![](/mol/images/2018/1209-01.jpg)
 
@@ -77,6 +77,10 @@ ogimage: https://t32k.me/mol/images/2018/1209-00.jpg
 
 あとは注ぐだけ。こぼれてるのは、どうゆう構造なんだろうかといろいろドリップバッグをいじってたら、コーヒーが漏れたｗ次はないようにしたい。入れ終わったらゴミ袋にいれるだけ。
 
+{{< youtube k9VlGP3o_uY >}}
+
+動画で見ると手軽さが分かる。
+
 <div class="__media"><a href="https://www.amazon.co.jp/dp/B00IADMKJ8/?tag=warikiru-22" target="_blank" rel="noopener">
 <img src="https://images-na.ssl-images-amazon.com/images/I/51qyiriKH%2BL._SL1000_.jpg" alt="" class="__media__image">
 <div class="__media__body">
@@ -91,7 +95,7 @@ ogimage: https://t32k.me/mol/images/2018/1209-00.jpg
 
 ![](/mol/images/2018/1209-05.jpg)
 
-[高尾山](https://yamap.com/activities/2816910)だったので、ガスバーナーは持っていかず、お湯をボトルに入れてもっていった。
+今回登ったのは、[高尾山](https://yamap.com/activities/2816910)だったので、荷物になるガスバーナーは持っていかず、単にお湯をボトルに入れて持っていった。
 
 <div class="__media"><a href="https://www.amazon.co.jp/dp/B00FH2K69Q/?tag=warikiru-22" target="_blank" rel="noopener">
 <img src="https://images-na.ssl-images-amazon.com/images/I/51LhqLUZDOL._SL1200_.jpg" alt="" class="__media__image">
