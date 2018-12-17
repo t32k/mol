@@ -3,7 +3,7 @@ date: 2018-12-09
 title: 山の上の珈琲
 subtitle: Coffee Advent Calendar 2018
 categories: 
-    - coffee
+    - trekking
 excerpt: この記事はCoffee Advent Calendar 2018の9日目です、知らんけど。
 ogimage: https://t32k.me/mol/images/2018/1209-00.jpg
 ---
