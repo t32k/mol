@@ -42,4 +42,14 @@ ogimage: https://t32k.me/mol/images/2018/1220-05.jpg
 
 あとは、音質だけどXM3ではノイズキャンセリングの処理能力が約4倍アップしたとか聞くが、もともとXM2でも十分ノイズキャンセリングの性能は高かったので、あんまり違いが分かってない。なんとなくよい気がする。
 
+<div class="__media"><a href="https://www.amazon.co.jp/dp/B07GZ8DZC8/?tag=warikiru-22" target="_blank" rel="noopener">
+<img src="https://images-na.ssl-images-amazon.com/images/I/51B826tw4FL._SL1100_.jpg" alt="" class="__media__image">
+<div class="__media__body">
+    <div>ソニー SONY ワイヤレスノイズキャンセリングヘッドホン WH-1000XM3 : LDAC/Bluetooth/ハイレゾ 最大30時間連続再生 密閉型 マイク付 2018年モデル ブラック WH-1000XM3 B</div>
+    <div class="__media__text">ソニー(SONY)</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+</div>
+</a></div>
+
+
 よい( ˘ω˘)
