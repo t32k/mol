@@ -10,6 +10,8 @@ ogimage: https://t32k.me/mol/images/2018/1217-06.jpg
 
 ![大岳山からの富士山](/mol/images/2018/1217-00.jpg)
 
+この記事は[登山 Advent Calendar 2018](https://adventar.org/calendars/3111#list-2018-12-10)の10日目です、知らんけど。
+
 最近山登りをするようになった。登山自体は前々から興味を持っていて登山系漫画はだいたい読んでいた。[岳](https://www.amazon.co.jp/dp/B07L4MX9WN/?tag=warikiru-22)でカジュアルに山で人が死に、[孤高の人](https://www.amazon.co.jp/dp/B00BQ9UYVO/?tag=warikiru-22)で山にまつわる人々の恐ろしさを知り、 [神々の山嶺](https://www.amazon.co.jp/dp/B00WMKOVTW/?tag=warikiru-22)で山の厳しさを知っていたので、山なんて登るもんじゃないと思ってた。
 
 <div class="__media"><a href="https://www.amazon.co.jp/dp/4107718859/?tag=warikiru-22" target="_blank" rel="noopener">
