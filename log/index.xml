@@ -32,7 +32,7 @@
     <item>
       <title>山とメスティンと私</title>
       <link>https://t32k.me/mol/log/trangia-mestin-teflon/</link>
-      <pubDate>Mon, 17 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/trangia-mestin-teflon/</guid>
       <description>最近山登りをするようになった。登山自体は前々から興味を持っていて登山系漫画はだいたい読んでいた。岳でカジュアルに山で人が死に、孤高の人で山にまつわる人々の恐ろしさを知り、 神々の山嶺で山の厳しさを知っていたので、山なんて登るもんじゃないと思ってた。
@@ -72,22 +72,9 @@ THERMOS(サーモス) 山専用ステンレスボトル９００ｍｌ FFX-900 T
     </item>
     
     <item>
-      <title>Dive into the dark side</title>
-      <link>https://t32k.me/mol/log/dive-into-the-dark-side/</link>
-      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/log/dive-into-the-dark-side/</guid>
-      <description>昔フロントレンドで、環境光の明るさによってCSS変えられたらおもしろいよね的なことを@simuraiが彼の作ったAtomのテーマを解説しながら言っていた。環境光については@girlie_macが2014年に記事を書いていたので、CSSスゴイ！ほえー！と思ってた。
- HTML5で実現できる！環境光に合わせたレスポンシブなUI | HTML5Experts.jp  media feature luminosityはlight-levelに名前を変えたが今も実装の気配なさそうだ。一方で、2018年、macOS Mojaveがリリースされ、ダークモードが利用できるようになった。自分も流行りに乗って自宅のMacで利用している。
- Paul Miller — Using dark mode in CSS with MacOS Mojave  そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。
-/* Text and background color for light mode */ body { color: black; } /* Text and background color for dark mode */ @media (prefers-color-scheme: dark) { body { color: white; background-color: black; } } 環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。
- prefers-color-scheme を用いた Dark Mode 対応と User Preference Media Features | blog.</description>
-    </item>
-    
-    <item>
       <title>ザ・ノース・フェイスの登山靴をいろいろ試してみた</title>
       <link>https://t32k.me/mol/log/the-north-face-trekking-shoes-2018/</link>
-      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/the-north-face-trekking-shoes-2018/</guid>
       <description>最近、友人に登山に連れてってもらい、登山にハマったt32k。何ごとも形から入るタイプだが、やっぱり登山は靴が命みたいなところありまして、今後ちゃんと登るためには良い登山靴を購入したいもの。
@@ -104,6 +91,19 @@ THERMOS(サーモス) 山専用ステンレスボトル９００ｍｌ FFX-900 T
 つま先もしっかりしてる。
 夏用ということで軽量化してるのか、エンデュラスのように歩きやすく、それでいてサポートもしっかりしてる感じがする。ちょうど次に紹介するヴェルト S3Kとエンデュラスの間にあるような登山靴。
 トレッキングシューズ Creston Mid GORE-TEX メンズ THE NORTH FACE(ザノースフェイス) Amazon.co.jpで詳細を見る   ヴェルト S3K II GORE-TEX / Verto S3K II GORE-TEX  冬期を除いた3シーズンに対応した縦走登山での着用にお勧めする軽量防水トレッキングシューズ。歩行の安定性を高めるCRADLEテクノロジーを採用し、全体をバリスティックナイロンで仕上げ、負荷のかかる部分にスエードレザーを使用することで軽量化を実現。足首をやや低めに設計して軽快な歩行感を追求し、ネオプレーンの履き口でフィット感を高めています。防水メンブレンには信頼性が高いGORE-TEX。滑りにくいラグデザインのビブラム®ムラツアウトソールを配備。軽量さと耐久性を両立したテクニカルな仕上がりです。</description>
+    </item>
+    
+    <item>
+      <title>Dive into the dark side</title>
+      <link>https://t32k.me/mol/log/dive-into-the-dark-side/</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/dive-into-the-dark-side/</guid>
+      <description>昔フロントレンドで、環境光の明るさによってCSS変えられたらおもしろいよね的なことを@simuraiが彼の作ったAtomのテーマを解説しながら言っていた。環境光については@girlie_macが2014年に記事を書いていたので、CSSスゴイ！ほえー！と思ってた。
+ HTML5で実現できる！環境光に合わせたレスポンシブなUI | HTML5Experts.jp  media feature luminosityはlight-levelに名前を変えたが今も実装の気配なさそうだ。一方で、2018年、macOS Mojaveがリリースされ、ダークモードが利用できるようになった。自分も流行りに乗って自宅のMacで利用している。
+ Paul Miller — Using dark mode in CSS with MacOS Mojave  そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。
+/* Text and background color for light mode */ body { color: black; } /* Text and background color for dark mode */ @media (prefers-color-scheme: dark) { body { color: white; background-color: black; } } 環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。
+ prefers-color-scheme を用いた Dark Mode 対応と User Preference Media Features | blog.</description>
     </item>
     
     <item>
