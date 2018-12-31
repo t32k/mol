@@ -46,7 +46,7 @@ async属性の対応状況なのだけど、IE9以前とかを気にしなくて
 ググったら、myakuraが書いてた。
  script async を使えば、非同期で読み込まれるし、プリロードスキャナの恩恵にも預かれるとのこと。- script asyncでJavaScriptの非同期読み込みを - fragmentary
  PreloadScanner 『プリロードスキャナ』ってなによ！
- わかりやすいYouTubeがあった。</description>
+  わかりやすいYouTubeがあった。</description>
     </item>
     
     <item>
