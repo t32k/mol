@@ -7,7 +7,7 @@ categories:
 excerpt: シリコンバレーでベンチャーキャピタリストとして10年働き、3000人以上の起業家と出会ってきた著者・伊佐山元氏が語る世界最先端の地の「働き方」、「生き方」の“流儀"。
 ---
 
-<div class="fluid"><iframe src="//www.youtube-nocookie.com/embed/JGnqfdLeViI?list=PLgMTwkOhq4nIrfKV9hbaX_qIvlZ9I378j" frameborder="0" allowfullscreen></iframe></div>
+{{< youtube JGnqfdLeViI >}}
 
 新経済サミット2014のセッションの動画を見て気になってた伊佐山氏の書籍。読んでみて、すごくモチベーションのアガる一冊だった。
 

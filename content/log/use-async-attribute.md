@@ -61,7 +61,7 @@ ga('send', 'pageview');
 
 『プリロードスキャナ』ってなによ！
 
-<div class="fluid"><iframe src="https://www.youtube.com/embed/-GWWQ9jKgxA" frameborder="0" allowfullscreen></iframe></div>
+{{< youtube -GWWQ9jKgxA >}}
 
 わかりやすいYouTubeがあった。
 
