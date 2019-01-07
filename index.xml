@@ -7,7 +7,51 @@
         
         
         
-        <updated>Wed, 02 Jan 2019 00:00:00 UTC</updated>
+        <updated>Mon, 07 Jan 2019 00:00:00 UTC</updated>
+        
+        <item>
+            <title>デザイン思考の先を行くもの</title>
+            <link>https://t32k.me/mol/log/978-4295402473-design-the-future/</link>
+            <pubDate>Mon, 07 Jan 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4295402473-design-the-future/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4295402478/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61TA1P3bT1L.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;デザイン思考の先を行くもの&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;各務 太郎&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;いまだに&lt;a href=&#34;https://note.mu/mikiok/n/n19f6185630f8&#34;&gt;デザイン思考ってよく分からないまま&lt;/a&gt;、デザイン思考の次なるものを扱ったと思われる本書を手にとってしまった。&lt;/p&gt;
+
+&lt;p&gt;一般的にデザイン思考を実践するプロセスとして以下の6つのようなステップに区別することができる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Discover（課題の発見）&lt;/li&gt;
+&lt;li&gt;Define（課題の定義）&lt;/li&gt;
+&lt;li&gt;Ideation（アイデア出し）&lt;/li&gt;
+&lt;li&gt;Prototype（試作）&lt;/li&gt;
+&lt;li&gt;Implement（実装）&lt;/li&gt;
+&lt;li&gt;Evaluate（評価）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が、著者の主張にしてみれば、これはPDCAサイクルと同じで、アイデアを改善することには長けている（1→10）が、ゼロからアイデアを創出する（0→1）には適してはないのだろうかということ。&lt;/p&gt;
+
+&lt;p&gt;というわけで、0→1のイノベーションには&lt;strong&gt;見立てる力&lt;/strong&gt;が必要だと言っている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;全く関係のないふたつの異なるものも、それぞれをシナリオまで抽象化して捉えることで、同じ土俵で結びつけることができる能力&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;見立てる力を養うために、アイデア出しの方法論や、バックグラウンドの違うもの同士を同じ問題解決に当たらすことの重要性などを説いている。&lt;/p&gt;
+
+&lt;p&gt;再現性あるイノベーションができたら苦労しないわけで、ここで挙げられてるような事例や方法論は、まぁそうだよなという感想しかない。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、2、3時間で読めそうな文量で、最近の動向が簡潔にまとまっているので、手にとってみる再確認するという意味では良いのではないだろうか。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>ウルトラマラソン マン</title>
@@ -1014,91 +1058,6 @@ git push -f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;あとは、後年のブロックマンは日本人の&lt;a href=&#34;https://www.japandesign.ne.jp/event/yoshikawashizuko-ag/&#34;&gt;吉川静子&lt;/a&gt;さんと結婚していたというのも初めて知った。しかも、同じようにグラフィックデザインをしており、最近展覧会があったのも後で知った。参加したかった&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;ブロックマン以外にも、白井さんのセミナーでは往年のデザイナーの名前がでてきたので、またデザイン史でも勉強してもみようと思う。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>AfterEffects-Bodymovin-Lottie-Vueを使ってみる</title>
-            <link>https://t32k.me/mol/log/aftereffects-bodymovin-lottie-vue/</link>
-            <pubDate>Thu, 23 Aug 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/aftereffects-bodymovin-lottie-vue/</guid>
-            <description>
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-05.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;最近、&lt;a href=&#34;https://jp.vuejs.org/&#34;&gt;Vue.js&lt;/a&gt;を触っている。そんで、UIデザインは外注していて、アニメーションの納品はどうしますか？と聞かれたので、聞きかじった程度の知識で「After EffectsでBodymovinでちょちょいのちょいですよ！」とテキトーに答えてしまって、後に引けない感じになったので実際に触ってみることにした。&lt;/p&gt;
-
-&lt;h2 id=&#34;after-effects&#34;&gt;After Effects&lt;/h2&gt;
-
-&lt;p&gt;ご存知の通り、Adobe製品。モーショングラフィックとか作るときに用いるツール。Adobe Premiere Proというのもあるが、こちらは動画編集メインで、今回のような込みいった短めのアニメーションなど制作するのはAfter Effectsが適している。&lt;/p&gt;
-
-&lt;p&gt;かくゆう、私も大学生の頃、VJというものに興味があり、本ツール（v5.5くらいかな？）を使い、いろいろモーショングラフィックを作成していたものだ。そして今回一万と二千年ぶりにAfter Effects開いて触ってみる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;せっかくなので、会社のロゴアニメーションを作ってみた。画面構成的にはコンポジションって箱を作ってそんなかでワチャワチャ下のタイムラインで動かす。右パネルにエフェクトがあるのでイケイケにする。&lt;/p&gt;
-
-&lt;p&gt;要は、レイヤーごとにタイムラインで各オブジェクトを操作できるので込み入ったアニメーションを作りやすいということだ。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-01.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=GpwyPFR_ryc&#34;&gt;アフターエフェクトでPS4の文字が描かれる文字書きアニメーションの作り方 - YouTube&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;で、できたのがドーン！上記のYouTubeを見ながら簡単にできた。あと上記の画像はアニGIFなんだけど、After Effectsから直でアニメーションGIF書き出せないのね。書き出したかったら、&lt;a href=&#34;https://www.flashbackj.com/aescripts/gifgun/&#34;&gt;GifGun&lt;/a&gt;というAEスクリプトを購入しなければならない。（※追記 Adobe Media Encodeにキューを追加すればAMEでアニメーションGIF形式にレンダリングできる！）&lt;/p&gt;
-
-&lt;p&gt;だもんで、まずはMOV（動画）で書き出して、それをPhotoshopで開いてアニメーションGIFに書き出す（めんどくさ）。&lt;/p&gt;
-
-&lt;h2 id=&#34;bodymovin&#34;&gt;Bodymovin&lt;/h2&gt;
-
-&lt;p&gt;アニGIFに書き出しては旧態依然の体たらくぶりなので、今回はBodymovinを使用してみる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.adobeexchange.com/creativecloud.details.12557.html&#34;&gt;Bodymovin | Creative Cloud&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;BodymovinはAfter Effectsのスクリプトで、これをインストールすると作成した動画をJSON形式で保存することができる。いろいろインストール方法はあるみたいだが、私はAdobeストアからインストールすればCreative Cloud Desktop Appが勝手にやってくれた。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;んで、インスコが終わったらメニューの &lt;code&gt;ウィンドウ &amp;gt; 拡張機能 &amp;gt; Bodymovin&lt;/code&gt; を開くと上記のようなパネルが出てくる。保存先のパスを設定して、Renderボタンを押そう。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;たぶん、そのままだとエラーが出るので、環境設定から&lt;strong&gt;スクリプトによるファイルへの書き込みとネットワークへのアクセスを許可&lt;/strong&gt;にチェック入れとこう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;5.1.16&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fr&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;29.9700012207031&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ip&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;op&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90.0000036657751&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1280&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;720&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;nm&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Logo Animation&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ddd&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;assets&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;[{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;image_0&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1280&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;720&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;u&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;p&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAgAEl...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;そうすると、こういったJSONファイルができるので、各クライアントに実装するエンジニアさんに渡そう！&lt;/p&gt;
-
-&lt;h2 id=&#34;lottie-web&#34;&gt;Lottie Web&lt;/h2&gt;
-
-&lt;p&gt;JSONファイル自体はただの文字列なので、これをアニメーションとして、各クライアント（私の場合はWebブラウザ）上で動かしたい。そうするためにはLottieというライブラリを使用してJSONをパースする必要がある。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/airbnb/lottie-web&#34;&gt;Render After Effects animations natively on Web, Android and iOS, and React Native.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ちょっとややこしかったのだけど、ちょっと前まではこのLottieのライブラリ名も&lt;a href=&#34;https://cdnjs.com/libraries/bodymovin&#34;&gt;bodymovin.js&lt;/a&gt;と言ってたらしくて、AEスクリプトなのか、JSライブラリなのか、bodymovinがごっちゃになってた。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chenqingspring/vue-lottie&#34;&gt;chenqingspring/vue-lottie&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;私の場合はVueアプリで、このLottieを使いたいので、&lt;code&gt;vue-lottie&lt;/code&gt;という便利なラッパーがあるので使用する。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/0824-04.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;まぁー、ドキュメント通りやればできた。なんか、アニメーションのタイミングがバラバラだけど（たぶんAEの作り方が悪いのだと思う）、力尽きた。一応、再生できてるので良い。（再生が少しまごついているのはアニGIFに書き出したため）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.lottiefiles.com/&#34;&gt;LottieFiles - Free animation files build for Lottie, Bodymovin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;今回はロゴアニメーションで、まぁよくわからない使い道だけど、LottieFilesというサイトには実用的というか、いわゆるマイクロインタラクションに使えそうなアイコンアニメーションがいっぱいある。しかもJSONファイルで落とせるのですく使える。またアニGIFと違い、Lottieは再生と停止がコントロールできるので、用法用量を守って正しく使えばアプリのルック・アンド・フィールの向上につながるのではないだろうか。&lt;/p&gt;
-
-&lt;p&gt;というわけで、あやふやな知識だったけどすっきりした。今後はAfter Effectsも触っていきたい。&lt;/p&gt;
 </description>
         </item>
         
