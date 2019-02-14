@@ -120,8 +120,8 @@ jobs:
       - run:
           name: Building blog pages
           command: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            HUGO_ENV=production hugo -v
-</span><span style="color:#e6db74">            cp public/index.xml public/feed.xml</span></code></pre></div>
+</span><span style="color:#e6db74">            HUGO_ENV=production hugo -v</span>
+            cp public/index.xml public/feed.xml</code></pre></div>
 <p>あとは、GitHubからコードをチェックアウトして、Hugoで生成している。RSS用に<code>feed.xml</code> にコピーしとく。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - add_ssh_keys:
           fingerprints:

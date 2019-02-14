@@ -606,7 +606,8 @@ $ vagrant init centos-6.4 A `Vagrantfile` has been placed in this directory. You
  CSS Sprite Generator, Editor, and Code  CSS Sprite Generatorのような便利なオンラインツールが存在するが、画像の変更があった場合、再度オンラインにアップロードしてコードをジェネレートする必要があったり、Retina対応を考えると自分で画像のサイズを半分にして計算しないといけない。 これでは、サービスリリース後などの度重なる改善・修正にマークアップが追いつかず不必要な画像までもそのままスプライト画像に残してしまった状態で無駄な転送量が発生してしまう。
 実際に私がやっている案件でもグローバルナビゲーションや、カテゴリナビゲーションなどにスプライト画像を使用しHTTPリクエストを最小限に抑えている。リリース当時はきれいにまとまったスプライト画像も度重なるサービス改善で、スプライト画像のカテゴリアイコンがなくなったり、追加したりと何度も手入れをしなければならないことが発生し、その度に画像の作成・位置の再計算など非常に面倒な作業だった。
 Compassによる解決策 そこで目につけたのが、Compassフレームワークだ。Sassは開発当初から利用していたが、Compass自体は利用していなかった。Compassにはスプライトを簡単に利用できるAPIが備わっており、画像編集ソフトなど使わなくても画像を一つにまとめたり、それぞれのbackground-positionを算出してくれる。 使い方は非常にシンプルだ。スプライト画像にまとめたい個々の画像を任意のディレクトリに格納しておき、@importでそのディレクトリを指定し、@include all-ディレクトリ名-spritesで展開するだけだ。
-// 基本的なCompassスプライトの利用方法 @import &amp;#34;my-icons/.png&amp;#34;; @include all-my-icons-sprites; 上記のSCSSコードは下記のようにコンパイルされる。</description>
+// 基本的なCompassスプライトの利用方法 @import &amp;#34;my-icons/.png&amp;#34;; @includeall-my-icons-sprites; 上記のSCSSコードは下記のようにコンパイルされる。
+/* コンパイルされたCSS */ .</description>
     </item>
     
     <item>

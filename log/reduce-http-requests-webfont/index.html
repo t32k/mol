@@ -127,13 +127,13 @@ $ brew install https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2
 Running “webfont:dist” <span style="color:#f92672">(</span>webfont<span style="color:#f92672">)</span> task
 Font ‘myfont-b5fd89266afbbfbfc281a0ce9a5bf50e’ with <span style="color:#ae81ff">13</span> glyphs created.</code></pre></div>
 <p>で、<code>/src/tools/</code>で<code>grunt webfont</code>を実行すれば上記のようなログとともに、.woffと.ttfと_myfont.scssが作成される。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#960050;background-color:#1e0010">// _setting.scss</span>
-<span style="color:#960050;background-color:#1e0010">//-------------------------------------</span>
-<span style="color:#960050;background-color:#1e0010">@import &#34;../vendors/myfont&#34;;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sass" data-lang="sass"><span style="color:#f92672">//</span> <span style="color:#f92672">_setting</span><span style="color:#a6e22e">.scss</span>
+<span style="color:#f92672">//</span><span style="color:#f92672">-------------------------------------</span>
+<span style="color:#66d9ef">@import</span> <span style="color:#e6db74">&#34;../vendors/myfont&#34;;</span>
 
-<span style="color:#960050;background-color:#1e0010">// _myfont.scss</span>
-<span style="color:#960050;background-color:#1e0010">.icon-hoge:before {</span>
-<span style="color:#960050;background-color:#1e0010">content:&#34;\f100&#34;;</span>
+<span style="color:#f92672">//</span> <span style="color:#f92672">_myfont</span><span style="color:#a6e22e">.scss</span>
+<span style="color:#a6e22e">.icon-hoge</span><span style="color:#a6e22e">:before</span> <span style="color:#960050;background-color:#1e0010">{</span>
+<span style="color:#a6e22e">content</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;\f100&#34;</span><span style="color:#960050;background-color:#1e0010">;</span>
 <span style="color:#960050;background-color:#1e0010">}</span></code></pre></div>
 <p>_myfont.scssは_setting.scssで<code>@import</code>されていますので、特にCSSをいじる必要性はない。</p>
 

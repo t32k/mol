@@ -92,8 +92,8 @@ jobs:
       - run:
           name: System information
           command: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            echo &#34;Node $(node -v)&#34;
-</span><span style="color:#e6db74">            echo &#34;Yarn v$(yarn --version)&#34;</span>
+</span><span style="color:#e6db74">            echo &#34;Node $(node -v)&#34;</span>
+            echo <span style="color:#e6db74">&#34;Yarn v$(yarn --version)&#34;</span>
       - run:
           name: Install dependencies
           command: yarn
@@ -123,10 +123,10 @@ jobs:
       - run:
           name: Deploy to Google App Engine
           command: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            echo &#34;$GOOGLE_AUTH&#34; | base64 -i --decode &gt; &#34;$HOME/gcp-key.json&#34;
-</span><span style="color:#e6db74">            gcloud auth activate-service-account --key-file &#34;$HOME/gcp-key.json&#34;
-</span><span style="color:#e6db74">            gcloud --quiet config set project &#34;$GOOGLE_PROJECT_ID&#34;
-</span><span style="color:#e6db74">            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed &#34;s/\//\-/g&#34;)</span>
+</span><span style="color:#e6db74">            echo &#34;$GOOGLE_AUTH&#34; | base64 -i --decode &gt; &#34;$HOME/gcp-key.json&#34;</span>
+            gcloud auth activate-service-account --key-file <span style="color:#e6db74">&#34;$HOME/gcp-key.json&#34;</span>
+            gcloud --quiet config set project <span style="color:#e6db74">&#34;$GOOGLE_PROJECT_ID&#34;</span>
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed <span style="color:#e6db74">&#34;s/\//\-/g&#34;</span>)
           no_output_timeout: 20m</code></pre></div>
 <p><code>build</code>と<code>deploy</code>でDockerイメージが違うのが嫌だなーって思っていて、これをどうすうるのがいいんだろうと考えたら、やっぱり <code>circleci/node</code>のイメージをベースに<a href="https://cloud.google.com/sdk/downloads?hl=ja">Google Cloud SDKをインストール</a>したイメージを用意するのがいいんだろうと思ったけど、ぼくのDocker力が足りないので、うまくいかず、すぐ諦めた。</p>
 
@@ -143,7 +143,7 @@ jobs:
 <p>CI上で試してみるとなぜかうまくいかない。<code>gcloud</code>コマンドなんてないよ！と怒られる。どうやら、CircleCI上の<code>$SHELL</code>の環境変数が<code>/bin/bash</code>になってないと、うまく環境を認識できず（<code>zsh</code>とか<code>fish</code>と区別できない）、<a href="https://github.com/GoogleCloudPlatform/cloud-sdk-npm-package/blob/master/helpers-unix.js#L93">PATHが設定できてないっぽい</a>。</p>
 
 <p>なので、↓みたいに明示的に指定してあげる必要がある。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">echo <span style="color:#e6db74">&#39;source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39;</span> &gt;<span style="color:#e6db74">&gt; $BASH_ENV</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">echo <span style="color:#e6db74">&#39;source ~/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39;</span> &gt;&gt; $BASH_ENV</code></pre></div>
 <p>というわけで、無事打てました。</p>
 
 <h2 id="job間のデータ共有">Job間のデータ共有</h2>
@@ -211,14 +211,14 @@ jobs:
       - <span style="color:#75715e">*restore_npm</span>
       - run:
           name: Set $PATH for `gcloud` command
-          command: echo <span style="color:#e6db74">&#39;source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39;</span> &gt;<span style="color:#e6db74">&gt; $BASH_ENV
-</span><span style="color:#e6db74">      - attach_workspace:
-</span><span style="color:#e6db74">          at: dist
-</span><span style="color:#e6db74">      - run:
-</span><span style="color:#e6db74">          name: Deploy to Google App Engine
-</span><span style="color:#e6db74">          command: gcloud app deploy app.yaml
-</span><span style="color:#e6db74">          no_output_timeout: 20m
-</span><span style="color:#e6db74">          </span>
+          command: echo <span style="color:#e6db74">&#39;source /home/circleci/repo/node_modules/@google-cloud/cloud-sdk/google-cloud-sdk/path.bash.inc&#39;</span> &gt;&gt; $BASH_ENV
+      - attach_workspace:
+          at: dist
+      - run:
+          name: Deploy to Google App Engine
+          command: gcloud app deploy app.yaml
+          no_output_timeout: 20m
+          
 <span style="color:#75715e"># Workflowsの設定・・・</span></code></pre></div>
 <p>というわけで、こんな感じになった。<code>&amp;</code>と<code>*</code>は<a href="https://qiita.com/gctfuji/items/5f8e4c5795ce41b214d1">YAML記法</a>アンカーとエイリアスで、変数っぽく使える。</p>
 

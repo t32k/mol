@@ -3,20 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ - MOL</title>
+    <title>Design Systems - MOL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="twitter:title" content="CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ - MOL">
+    <meta name="twitter:title" content="Design Systems - MOL">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@t32k">
-    
-    <meta name="description" content="基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。">
-    <meta name="twitter:description" content="基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。">
     
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="MOL">
     
+    <meta property="og:image" content="https://images-na.ssl-images-amazon.com/images/I/51s1RuZ1xiL._SX353_BO1,204,203,200_.jpg">
+    <meta name="twitter:image" content="https://images-na.ssl-images-amazon.com/images/I/51s1RuZ1xiL._SX353_BO1,204,203,200_.jpg">
+    
     <meta property="fb:app_id" content="212646065416408">
-    <link rel="canonical" href="https://t32k.me/mol/log/circleci2-yml/">
+    <link rel="canonical" href="https://t32k.me/mol/log/978-4862464125-design-system/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
     <link rel="stylesheet" href="/mol/css/layout.css?20181201">
     <link rel="stylesheet" href="/mol/css/app.css?20181201">
@@ -69,128 +69,81 @@
 <div class="container">
 <article role="main" class="post">
     <header class="post-header">
-        <p class="u-mute u-mbn"><time datetime='2017-09-14T00:00:00Z'>September 14, 2017</time></p>
-        <h1 class="post-h1">CircleCI 2.0でGAE/Node.jsのプロジェクトをデプロイ</h1>
-        
+        <p class="u-mute u-mbn"><time datetime='2019-02-14T00:00:00Z'>February 14, 2019</time></p>
+        <h1 class="post-h1">Design Systems</h1>
+         <h3 class="u-mute u-mtn">デジタルプロダクトのためのデザインシステム実践ガイド</h3>
     </header>
     <section>
         
 
-<p>基本、ずっとTravisかWerckerを使ってたんだけど、CircleCIデビューしてみた。今年の7月にCircleCI 2.0がリリースされ、config.ymlの記法も刷新されたとかで、ググって出て来るのは1.0の記法ばかりで苦労したので、メモ代わりに残しとく。</p>
+<div class="__media"><a href="https://www.amazon.co.jp/dp/4862464122/?tag=warikiru-22" target="_blank" rel="noopener">
+<img src="https://images-na.ssl-images-amazon.com/images/I/51s1RuZ1xiL._SX353_BO1,204,203,200_.jpg" alt="" class="__media__image">
+<div class="__media__body">
+    <div>Design Systems<br>デジタルプロダクトのためのデザインシステム実践ガイド</div>
+    <div class="__media__text">アラ・コルマトヴァ (著), 佐藤伸哉  (監修), & 1 その他</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+</div>
+</a></div>
+
+<p>私のキャリアのはじめはWebデザイナーだった。Webデザイナーと言っても簡単なHTML/CSSコーディングもするデザイナーだった。というわけで、自分が作ったUIカンプを自分でコーディングするのだが、どうしてもデザインしているときに後々のコーディング工程を意識してしまうので、できるかぎり角丸は避けたり（当時はCSSのborder-radiusなどなかった）していた。でも世の中的にはWeb 2.0の丸っこいアクアボタンが流行ってたときだ。こうゆうのはよくないなと思いつつも、納期との兼ね合いだったり、いろいろ妥協せざるを得なかった。</p>
+
+<p>時が経ちフロントエンドエンジニアになった私は、ここで初めてUIデザイナーと分業に入るわけだが、デザイナーからあがってくる無限に増殖するボタンであったり、無限に増殖するカラバリに苦悩する。当時はコーディング都合でUIのクリエイティビティも阻害してはいけないと思っていたが、それでプロダクトのパフォーマンスが低下したら元も子もない。現状の環境においての妥協・最適解を見つけなければならない。</p>
+
+<p>そうゆうわけで、個人的にCSSフレームワークを探求する日々が続いた。デザイナーの要望をできる限り受け止めつつも、スパゲッティなコードにならない・破綻しない、そんなフレームワークを探していたが、そんなものはなかった。</p>
+
+<p>また時は経ち、今度はデザイナー側からデザインシステムという単語を聞くようになった。結局それなんてBootstrapよ？と思ってたけど、本書を読み、いくぶんか理解した。デザインシステムの構成要素は以下の通り。</p>
 
 <ul>
-<li><a href="https://blog.stormcat.io/post/entry/circleci2.0-overview01/">CircleCI2.0事始め -新しいcircle.ymlとworkflows編 · tehepero note(・ω&lt;) 2.0</a></li>
+<li>デザイン原則 / Design Principles</li>
+<li>機能パターン / Functional Patterns</li>
+<li>認知パターン / Perceptual Patterns</li>
+<li>共有言語 / Shared Language</li>
 </ul>
 
-<p>基本は上記のブログがわかりやすい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">version: <span style="color:#ae81ff">2</span>
-jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:<span style="color:#ae81ff">8</span>
+<p>デザイン原則はそのシステムまたはカルチャーを表す短い文章や単語のことで、Pinterestの場合、『<a href="https://medium.com/@suprb/redesigning-pinterest-block-by-block-6040a00d80a3">明快・活気・壊れない</a>』だそうだ。こうした原則をもとに次のデザインパターンを作成していく。</p>
 
-    steps:
-      - checkout
-      - run:
-          name: System information
-          command: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            echo &#34;Node $(node -v)&#34;</span>
-            echo <span style="color:#e6db74">&#34;Yarn v$(yarn --version)&#34;</span>
-      - run:
-          name: Install dependencies
-          command: yarn
-      - run:
-          name: Build
-          command: yarn run build
-      - run:
-          name: Test
-          command: yarn test</code></pre></div>
-<p><code>version: 2</code> で2.0でやりまっせーって宣言して、dockerイメージとか指定していく。<code>yarn</code> がデフォルトで入ってるらしく、GAE/Node.jsも<code>yarn</code>が使えるので<code>yarn</code>を使っていく。</p>
+<p><img src="/mol/images/2019/0214.png" alt="" />
+(MDとiOSではSteppersという同じ名前のコンポーネントでも機能は違う)</p>
 
-<p>あとは<code>run</code>でステップを指定していく。<code>command</code>は<code>|</code>を置けば、複数行でも書ける。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">      - save_cache:
-          key: cache-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;yarn.lock&#34;</span> }}
-          paths:
-            - ~/repo/.cache/yarn
-            - ~/repo/dist
-            - ~/repo/node_modules
-            - ~/repo/package.json</code></pre></div>
+<p>機能パターンは、カードやボタン・スライドショーといった、いわゆるUIコンポーネントのことを指す。認知パターンはカラーやタイポグラフィなどスタイルのこと。そして最後にチーム内での共有言語。例えば、アプリ内で特に目立つボタンをなんと呼ぶのか、『プライマリーボタン』『ビッグボタン』呼び方自体はなんでもいいが、それをデザイナー・エンジニア全員が共有しておく必要がある。</p>
+
+<p>結局、フロントエンドエンジニアである私が頑張っていた領域というのは機能・認知パターンだけだったのだ。それもUIカンプからエンジニアが抽出したパターンにエンジニアが命名してできたUIフレームワークなどデザイナーには関心がなかったことだろう。</p>
+
+<p>そうゆうわけで、システムは一人で作れない。プロダクトに関わる全員が関心をもって取り組まなければならない。そうでないとすぐさまメンテもされず廃れていくことだろう。そうならないためにも、みんなでレビューするシステムだったり、いつでもUIコンポーネントを試せるプレイグラウンドであったり、デザインシステムをメンテナンスするシステムが必要になってくるだろう。</p>
+
+<p>最近では、DevOpsにちなんで<a href="https://airbnb.design/designops-airbnb/">DesignOps</a>という言葉も聞く。Airbnbにはデザインオペレーションチームが存在し、各スペシャリストをつなぐ仕事をしている。これはAirbnbみたいなでっかい会社だからできることであるだろう。数人で開発してるようなスタートアップでのデザイン・システム導入は現実的ではない。</p>
+
 <ul>
-<li><a href="https://circleci.com/docs/2.0/caching/#using-keys-and-templates">Using Keys and Templates - Caching Dependencies - CircleCI</a></li>
+<li><a href="https://yasuhisa.com/could/article/start-with-principles/">デザインシステムの最初の一歩として原則を作る理由 : could</a></li>
 </ul>
 
-<p><code>{{ hoge }}</code>はテンプレートで、<code>checksum</code> は base64でハッシュを作ってくれる。
-ここではユニークなkey名を指定したくて、こんな風にしている。あとはキャッシュさせたいパス。</p>
+<p>最初から大層なデザイン・システムを作ろうとしなくてもよい。上記事のようにデザイン原則だけでも最初に決めておくのは良いことだろう。それがアンカーとなりデザイナー・エンジニアの共通理解となる。要は全員の目先を合わせることが必要なんだろうと思った。デザイン・システムを作ること自体が目的になってはいけない。</p>
 
-<p><code>build</code>ステップは終わり。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  deploy:
-    working_directory: ~/repo
-    docker:
-      - image: google/cloud-sdk
-
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ .Branch }}-{{ checksum <span style="color:#e6db74">&#34;yarn.lock&#34;</span> }}
-      - run:
-          name: Deploy to Google App Engine
-          command: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">            echo &#34;$GOOGLE_AUTH&#34; | base64 -i --decode &gt; &#34;$HOME/gcp-key.json&#34;</span>
-            gcloud auth activate-service-account --key-file <span style="color:#e6db74">&#34;$HOME/gcp-key.json&#34;</span>
-            gcloud --quiet config set project <span style="color:#e6db74">&#34;$GOOGLE_PROJECT_ID&#34;</span>
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed <span style="color:#e6db74">&#34;s/\//\-/g&#34;</span>)
-          no_output_timeout: 20m</code></pre></div>
-<p>つぎに、<code>deploy</code>ステップ。<code>gcloud app deploy</code>のコマンドでデプロイするので、<code>gcloud</code>が入ったdockerイメージを指定。</p>
-
-<p><code>restore_cache</code> で先のステップで保存しといたファイルを呼び出す。</p>
-
-<p>あとはデプロイコマンド。CI上でデプロイするので権限をもったサービスアカウントを作らなければならない。</p>
+<h2 id="see-also">See also</h2>
 
 <ul>
-<li><a href="http://int128.hatenablog.com/entry/2017/08/12/153538">Circle CIでCloud Functionをデプロイする - GeekFactory</a></li>
-</ul>
-
-<p>上記はCloud Functionだけど、認証の部分は同じなので真似するとよい。んで、エンコードしたものをCircleCIの環境変数として登録しておく。</p>
-
-<ul>
-<li><a href="https://circleci.com/docs/2.0/env-vars/#build-details">Using Environment Variables - CircleCI</a></li>
-</ul>
-
-<p><code>$CIRCLE_BRANCH</code>はCircleCIが設定している環境変数。ビルド番号とかもある。</p>
-
-<p>あと<code>no_output_timeout</code>は、GAE/Node.jsへのデプロイがくっそ遅くて、タイムアウト（デフォルト10分）になるので20分に伸ばしてる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">workflows:
-  version: <span style="color:#ae81ff">2</span>
-  build_and_deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build</code></pre></div>
-<p>最後はワークフローの設定。<a href="https://circleci.com/docs/2.0/configuration-reference/#filters">フィルター</a>とかでmasterブランチのときだけ実行とか、必須条件とか決めれる。便利。</p>
-
-<h2 id="参考">参考</h2>
-
-<ul>
-<li><a href="http://engineer.crowdworks.jp/entry/2017/04/04/202719">CircleCI 2.0に移行して新機能を活用したらCIの実行時間が半分になった話 - クラウドワークス エンジニアブログ</a></li>
+<li><a href="https://airbnb.design/the-way-we-build/">The Way We Build – Airbnb Design</a></li>
+<li><a href="https://atlassian.design/">Atlassian Design</a></li>
+<li><a href="https://style.eurostar.com/">Eurostar GLU | Eurostar GLU</a></li>
+<li><a href="https://www.sipgatedesign.com/">sipgate design</a></li>
+<li><a href="https://www.ted.com/swatch">TED Swatches</a></li>
 </ul>
 
     </section>
 </article>
 
     
-      <div class="post-tags"><a href="/mol/categories/development/">development</a> </div>
+      <div class="post-tags"><a href="/mol/categories/books/">books</a> </div>
     
 
     <div class="post-social">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=CircleCI%202.0%e3%81%a7GAE%2fNode.js%e3%81%ae%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fcircleci2-yml%2f" title="はてなブックマークで共有する"
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=Design%20Systems - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2f978-4862464125-design-system%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
-  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fcircleci2-yml%2f&text=CircleCI%202.0%e3%81%a7GAE%2fNode.js%e3%81%ae%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%92%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4 - MOL" title="Twitterで共有する"
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2f978-4862464125-design-system%2f&text=Design%20Systems - MOL" title="Twitterで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-tw" /></svg></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fcircleci2-yml%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2f978-4862464125-design-system%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-fb" /></svg></a>
 </div>
 <hr>
@@ -201,12 +154,11 @@ jobs:
 <hr>
 <div class="row post-pager">
   <div class="six columns">
-    <div class="post-previous">  Later article<br>
-      <a href="https://t32k.me/mol/log/how-bitcoin-mining-works/"> ブロックチェーンとマイニング</a>  </div>
+    <div class="post-previous">  &nbsp;  </div>
   </div>
   <div class="six columns">
     <div class="post-next">  Older article<br>
-      <a href="https://t32k.me/mol/log/978-4799321591/"> なめらかなお金がめぐる社会。</a>  </div>
+      <a href="https://t32k.me/mol/log/978-4802511056-ui-graphics/"> 【新版】UI GRAPHICS</a>  </div>
   </div>
 </div>
 
@@ -247,7 +199,7 @@ jobs:
   (adsbygoogle = window.adsbygoogle || []).push({});
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
   ga('create', 'UA-2317436-26', 'auto');
-  ga('set', 'contentGroup1', "2017");
+  ga('set', 'contentGroup1', "2019");
   ga('send', 'pageview');
 </script>
 <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
