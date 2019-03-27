@@ -5,9 +5,17 @@ subtitle: How to Figure Out What the Problem Really Is.
 categories: 
     - books
 excerpt: ジェリー・ワインバーグとその仲間たちの〈計算機の人間学〉の本。この本は問題発見についての本である。問題は解くより発見する方がずっとむずかしく、ずっと面白い。―実人生で本当にものをいうのはそこなのだ。
+ogimage: https://images-na.ssl-images-amazon.com/images/I/410X6YM9F7L._SX334_BO1,204,203,200_.jpg
 ---
 
-<div class="azlink-box"><div class="azlink-image" style="float:left"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4320023684/warikiru-22/" name="azlinklink" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/410X6YM9F7L._SL160_.jpg" alt="ライト、ついてますか―問題発見の人間学" style="border:none" /></a></div><div class="azlink-info" style="float:left;margin-left:15px;line-height:120%"><div class="azlink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4320023684/warikiru-22/" name="azlinklink" target="_blank">ライト、ついてますか―問題発見の人間学</a><div class="azlink-powered-date" style="font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%">posted at 2015.1.12</div></div><div class="azlink-detail">ドナルド・C・ゴース,G.M.ワインバーグ,木村 泉<br />共立出版<br />売り上げランキング: 9870<br /></div><div class="azlink-link" style="margin-top:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4320023684/warikiru-22/" target="_blank">Amazon.co.jp で詳細を見る</a></div></div><div class="azlink-footer" style="clear:left"></div></div>
+<div class="__media"><a href="https://www.amazon.co.jp/exec/obidos/ASIN/4320023684/warikiru-22/" target="_blank" rel="noopener">
+<img src="https://images-na.ssl-images-amazon.com/images/I/410X6YM9F7L._SX334_BO1,204,203,200_.jpg" alt="" class="__media__image">
+<div class="__media__body">
+    <div>ライト、ついてますか―問題発見の人間学</div>
+    <div class="__media__text">ドナルド・C・ゴース (著), G.M.ワインバーグ (著), 木村 泉 (翻訳)</div>
+    <div>Amazon.co.jpで詳細を見る</div>
+</div>
+</a></div>
 
 目次
 
