@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Books on MOL</title>
+    <title>books on MOL</title>
     <link>https://t32k.me/mol/categories/books/</link>
-    <description>Recent content in Books on MOL</description>
+    <description>Recent content in books on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/books/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ブチ抜く力</title>
+      <link>https://t32k.me/mol/log/978-4594079437-yozawa/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/978-4594079437-yozawa/</guid>
+      <description>ブチ抜く力 与沢翼 (著) Amazon.co.jpで詳細を見る   Amazonで評価が高かったので購入してみた。ご存知の”秒速の男”さんの著書。正直言って、この人は情報商材で儲けたうさんくさい人のイメージしかなくて、興味がなかったのだけど、去年の夏くらいにダイエットの経過報告をTwitterでつぶやいているのをリアルタイムで見ていて、そしてみるみる痩せていって、すごい人だと見直した。
+本書では、そのダイエットや仮想通貨で儲けた話を軸に与沢氏の哲学について説明している。要はブチ抜く力が必要で、人と一緒にならないためにどう最短で差別化するかについて持論を述べている。
+例えば、先述のダイエットの件も『1年で10kg痩せます！』と言っても、あーすごいね（棒）、がんばってね、という反応になるが、『1ヶ月で10kg痩せます！』と言えば、いやーそれは無理でしょ？健康に悪いでしょ？などのいろいろなリアクションをもらうことになる。言うだけなら誰でもできるが、実行してしまうのが与沢氏の凄さだ。
+一見、無理そうな短期目標だが、長期目標に比べて集中する時間が短くて済むというメリットもある。1ヶ月目で1kgも痩せれなくても残りの11ヶ月で挽回する！といったように言い訳（逃げ）ができてしまうので、そういったものを断つためにも短期目標で全力で頑張るほうが著者の性に合っているそうだ。
+なるほど、理にかなっている気がする。ただ、ここだけ聞くと単細胞的な努力・根性のみでやってのける印象だが、仮想通貨のときで言えば、Rippleに1億近く投資して、27億になったのが実績なのだが、その前にFactomや他の仮想通貨で小口のお金を投資して痛い目にあっているのも事実なのだ。小さくはじめて、確信を持てたら一気にアクセルを踏むのも与沢流である。
+そもそも、ネオヒルズ族と呼ばれた頃から一文無しになったりと何度も事業で失敗して、その度に学習をし立ち上がってくる様が、彼の魅力なんだろうなと思った。
+ブチ抜くためには相当の覚悟や努力が必要だが、だからこそ、それをやっている様に感化される。GWボケしている中、よい刺激をもらった。</description>
+    </item>
     
     <item>
       <title>Design Systems</title>

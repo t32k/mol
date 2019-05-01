@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>MOL</title>
@@ -7,7 +6,38 @@
         
         
         
-        <updated>Thu, 14 Feb 2019 00:00:00 UTC</updated>
+        <updated>Wed, 01 May 2019 00:00:00 UTC</updated>
+        
+        <item>
+            <title>ブチ抜く力</title>
+            <link>https://t32k.me/mol/log/978-4594079437-yozawa/</link>
+            <pubDate>Wed, 01 May 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4594079437-yozawa/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4594079431/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51UiaQcwO0L._SX333_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ブチ抜く力&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;与沢翼 (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;Amazonで評価が高かったので購入してみた。ご存知の”秒速の男”さんの著書。正直言って、この人は情報商材で儲けたうさんくさい人のイメージしかなくて、興味がなかったのだけど、去年の夏くらいにダイエットの経過報告をTwitterでつぶやいているのをリアルタイムで見ていて、そしてみるみる痩せていって、すごい人だと見直した。&lt;/p&gt;
+
+&lt;p&gt;本書では、そのダイエットや仮想通貨で儲けた話を軸に与沢氏の哲学について説明している。要はブチ抜く力が必要で、人と一緒にならないためにどう最短で差別化するかについて持論を述べている。&lt;/p&gt;
+
+&lt;p&gt;例えば、先述のダイエットの件も『1年で10kg痩せます！』と言っても、あーすごいね（棒）、がんばってね、という反応になるが、『1ヶ月で10kg痩せます！』と言えば、いやーそれは無理でしょ？健康に悪いでしょ？などのいろいろなリアクションをもらうことになる。言うだけなら誰でもできるが、実行してしまうのが与沢氏の凄さだ。&lt;/p&gt;
+
+&lt;p&gt;一見、無理そうな短期目標だが、長期目標に比べて集中する時間が短くて済むというメリットもある。1ヶ月目で1kgも痩せれなくても残りの11ヶ月で挽回する！といったように言い訳（逃げ）ができてしまうので、そういったものを断つためにも短期目標で全力で頑張るほうが著者の性に合っているそうだ。&lt;/p&gt;
+
+&lt;p&gt;なるほど、理にかなっている気がする。ただ、ここだけ聞くと単細胞的な努力・根性のみでやってのける印象だが、仮想通貨のときで言えば、Rippleに1億近く投資して、27億になったのが実績なのだが、その前にFactomや他の仮想通貨で小口のお金を投資して痛い目にあっているのも事実なのだ。小さくはじめて、確信を持てたら一気にアクセルを踏むのも与沢流である。&lt;/p&gt;
+
+&lt;p&gt;そもそも、ネオヒルズ族と呼ばれた頃から一文無しになったりと何度も事業で失敗して、その度に学習をし立ち上がってくる様が、彼の魅力なんだろうなと思った。&lt;/p&gt;
+
+&lt;p&gt;ブチ抜くためには相当の覚悟や努力が必要だが、だからこそ、それをやっている様に感化される。GWボケしている中、よい刺激をもらった。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Design Systems</title>
@@ -963,104 +993,6 @@
 &lt;p&gt;こういった歴史も教えてくれる、ワロタｗ&lt;/p&gt;
 
 &lt;p&gt;全部で60ページくらいで薄いんだけど、それは著者の簡潔な説明の賜物なので物足りないというはことはない。むしろ多くの例・図版があるので、手元に置いといて常に見返したいものである。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>CircleCIでHugoを実行してGitHub Pagesにデプロイ</title>
-            <link>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</link>
-            <pubDate>Tue, 06 Nov 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/hugo-circleci-ghpages-2018/</guid>
-            <description>
-
-&lt;p&gt;これまではHugoで生成したHTMLをWerckerでGitHub Pagesにデプロイしていたんだけど、定期的にWerckerのアップデートかなんかで動かなくなる・修正するを何回かやった結果、疲弊して、めんどくさくなった。&lt;/p&gt;
-
-&lt;p&gt;最近ではすっかりブログ書かなくなったのもあって、手元でHugoを動かして&lt;code&gt;docs&lt;/code&gt;フォルダにHTMLを直接コミットするという体たらくである。&lt;a href=&#34;https://t32k.me/mol/mol/log/978-4297101725-web-db-press-107/&#34;&gt;先の記事で購入したWEB+DB PRESS&lt;/a&gt;の特集の一つがCircleCIだったので、ちゃんとCIでデプロイしてみようとした話。&lt;/p&gt;
-
-&lt;p&gt;まぁ、そうゆうわけで、&lt;code&gt;Hugo&lt;/code&gt; + &lt;code&gt;CircleCI&lt;/code&gt; + &lt;code&gt;GitHub Pages&lt;/code&gt;の構成で動かしたかったわけだけど、うまいことコレ！ってのがなかったので、以下の記事を参考にかけ合わせた感じ。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://circleci.com/blog/automate-your-static-site-deployment-with-circleci/&#34;&gt;Automate Your Static Site Deployment with CircleCI - CircleCI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/RealOrangeOne/circleci-hugo-template&#34;&gt;RealOrangeOne: Example setup for deploying a hugo site to github pages using circleci&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;以下はメモ&lt;/p&gt;
-
-&lt;h2 id=&#34;circleci-2-0&#34;&gt;CircleCI 2.0&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1106-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;まずは、CircleCI側、config.ymlの設定。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;version: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-jobs:
-  build:
-    branches:
-      only:
-        - master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;まぁ、ブログなので、&lt;code&gt;master&lt;/code&gt;オンリーのブランチで実行。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt; docker:
-      - image: cibuilds/hugo:latest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;dockerイメージとして、&lt;a href=&#34;https://github.com/cibuilds/docker-hugo&#34;&gt;cibuilds/hugo:latest&lt;/a&gt;という、ドンピシャなイメージがあった。Hugoはgolang製なので、記事をググってると、まずみんなgolangのイメージを選んでHugoをインストールしてしてたけど、このイメージはそのステップが必要はないので便利。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;    working_directory: ~/hugo
-    steps:
-      - run:
-          name: Update enviroment
-          command: apk update &lt;span style=&#34;color:#75715e&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apk add git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;cibuilds/hugo&lt;/code&gt;イメージはAlpine Linuxベースとのことで、&lt;code&gt;apk&lt;/code&gt;でパッケージを最新にしといて、&lt;code&gt;git&lt;/code&gt;も追加。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;      - run:
-          name: Hugo version
-          command: echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$(hugo version)&amp;#34;&lt;/span&gt;
-      - checkout
-      - run:
-          name: Building blog pages
-          command: &lt;span style=&#34;color:#e6db74&#34;&gt;|
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            HUGO_ENV=production hugo -v&lt;/span&gt;
-            cp public/index.xml public/feed.xml&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;あとは、GitHubからコードをチェックアウトして、Hugoで生成している。RSS用に&lt;code&gt;feed.xml&lt;/code&gt; にコピーしとく。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;      - add_ssh_keys:
-          fingerprints:
-            - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SO:ME:FIN:G:ER:PR:IN:T&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;デフォルトで作成されるdeploy keyはチェックアウトする(read)だけの権限なので、ghpageブランチにコミット(write)できる権限を作成しとく。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Add user key&lt;/strong&gt; ボタンを押すとユーザーレベルのSSH keyが登録されるので、GitHubの設定ページで、そのFingerprintをコピーして上記に追加。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;      - deploy:
-          name: Deploy to GitHub Pages
-          command: ./.circleci/deploy.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;あとはデプロイ用のシェルスクリプトを実行している。&lt;/p&gt;
-
-&lt;h2 id=&#34;github-pages&#34;&gt;GitHub Pages&lt;/h2&gt;
-
-&lt;p&gt;シェルスクリプトの書き方覚えても数秒で忘れてしまう難病なので、ほぼ&lt;a href=&#34;https://github.com/RealOrangeOne/circleci-hugo-template/blob/master/.circleci/deploy.sh&#34;&gt;RealOrangeOne&lt;/a&gt;氏のコードを拝借している。何してるか、わかんなかったので自分用にコメントしとく。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# エラー時、実行を止める&lt;/span&gt;
-set -e
-
-DEPLOY_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;deploy
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# gitの諸々の設定&lt;/span&gt;
-git config --global push.default simple
-git config --global user.email &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;git --no-pager show -s --format&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%ae&amp;#39;&lt;/span&gt; HEAD&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
-git config --global user.name $CIRCLE_USERNAME
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# gh-pagesブランチをdeployディレクトリにクローン&lt;/span&gt;
-git clone -q --branch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;gh-pages $CIRCLE_REPOSITORY_URL $DEPLOY_DIR
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# rsyncでhugoで生成したHTMLをコピー&lt;/span&gt;
-cd $DEPLOY_DIR
-rsync -arv --delete ../public/* .
-
-git add -f .
-git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deploy #&lt;/span&gt;$CIRCLE_BUILD_NUM&lt;span style=&#34;color:#e6db74&#34;&gt; from CircleCI [ci skip]&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; true
-git push -f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;push.default simple&lt;/code&gt; って何の設定なんだろうと思ったけど、これのおかげで、&lt;code&gt;git push origin gh-pages&lt;/code&gt;とかしなくていいのか。なるほど simple!&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/dehali22/items/09cc89ed87f022668d80&#34;&gt;git push引数省略時のデフォルト動作設定 - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;これでしばらくは、デプロイが安定するだろう&amp;hellip;( ˘ω˘)&lt;/p&gt;
 </description>
         </item>
         
