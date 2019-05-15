@@ -50,7 +50,8 @@ gh-pagesをDev環境と見立てて、Dev環境でBuildした内容がパフォ�
 Travis-CI CIサーバーはなにもJenkinsだけではない。GitHub上でレポジトリを管理しているのなら連携しているTravis-CIを使用するのが何かと都合がよい。
 Travisを使うにはアカウントを連携して、自分のプロフィールから検証したいレポジトリをONにする。
 Travisをどのように使用するかは.travis.ymlというファイルに記述する。Mapleでの設定は下記ファイルを見てもらえればよい。
- maple/.travis.yml at master · t32k/maple  language: node_js node_js: 0.10  最初の行は実行環境を指定する。node.jsを使ったテストがしたいので、node_jsを指定する。バージョンは0.8、0.10とか複数指定できる。
+ maple/.travis.yml at master · t32k/maple
+language: node_js node_js: 0.10   最初の行は実行環境を指定する。node.jsを使ったテストがしたいので、node_jsを指定する。バージョンは0.8、0.10とか複数指定できる。
 env: global: &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD - GIT_AUTHOR_NAME=YOUR_ID - GIT_AUTHOR_EMAIL=YOUR_MAIL_ADDRESS - GIT_COMMITTER_NAME=YOUR_ID - GIT_COMMITTER_EMAIL=YOUR_MAIL_ADDRESS ======= - GIT_AUTHOR_NAME=your-name - GIT_AUTHOR_EMAIL=your-mail - GIT_COMMITTER_NAME=your-name - GIT_COMMITTER_EMAIL=your-mail &amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; bc00bb731570eceb7f151001eafb282b7ce2fe56 - secure: &amp;quot;Xtk................&amp;quot;  TravisからGitHubにコミットするには、OAuth access tokensが必要になのでここから発行する。そんでトークンをこんなパブリックなところに公開できないので、コマンドラインのtravisで暗号化したのがsecureのところ。
 $ gem install travis $ travis encrypt -r t32k/maple &amp;quot;GH_TOKEN=&amp;lt;生成したトークン&amp;gt;&amp;quot;  こんな感じで暗号化する。詳しくは下記のサイトを参照して欲しい。
  Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ MiddlemanとTravis CIでgh-pagesを運用したら身長が伸びた | 1000ch.</description>

@@ -587,7 +587,8 @@ $ vagrant init centos-6.4 A `Vagrantfile` has been placed in this directory. You
       <description>世の中、Grunt0.4 が出たって持ちきりでやんス。
  Grunt 0.4.0 released - Grunt: The JavaScript Task Runner  今までビルトインタスクだった下記はことごとく grunt-contrib-*シリーズと呼ばれるプラグインに置き換わってしまった。
  concat grunt-contrib-concat plugin init stand-alone grunt-init utility lint grunt-contrib-jshint plugin min grunt-contrib-uglify plugin qunit grunt-contrib-qunit plugin server grunt-contrib-connect plugin test grunt-contrib-nodeunit plugin watch grunt-contrib-watch plugin  もし諸君が concat、lint、min といったタスクを Grunt 0.4 でも使いたい場合は、このように書いてないだろうか。
- Upgrading from 0.3 to 0.4 - Grunt: The JavaScript Task Runner  module.exports = function(grunt) { // Project configuration. grunt.initConfig({ pkg: grunt.</description>
+ Upgrading from 0.3 to 0.4 - Grunt: The JavaScript Task Runner
+module.exports = function(grunt) { // Project configuration. grunt.initConfig({ pkg: grunt.file.readJSON(&#39;package.json&#39;), uglify: { .</description>
     </item>
     
     <item>

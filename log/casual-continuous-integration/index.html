@@ -101,12 +101,12 @@
 <p>Travisをどのように使用するかは<code>.travis.yml</code>というファイルに記述する。Mapleでの設定は下記ファイルを見てもらえればよい。</p>
 
 <ul>
-<li><a href="https://github.com/t32k/maple/blob/master/.travis.yml">maple/.travis.yml at master · t32k/maple</a></li>
-</ul>
+<li><p><a href="https://github.com/t32k/maple/blob/master/.travis.yml">maple/.travis.yml at master · t32k/maple</a></p>
 
 <pre><code>language: node_js
 node_js: 0.10
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>最初の行は実行環境を指定する。node.jsを使ったテストがしたいので、<code>node_js</code>を指定する。バージョンは0.8、0.10とか複数指定できる。</p>
 
@@ -174,11 +174,11 @@ $ travis encrypt -r t32k/maple &quot;GH_TOKEN=&lt;生成したトークン&gt;&q
 <p>で、<code>yslow.sh</code>を実行するって書いてあるから、yslow.shのファイルは以下。</p>
 
 <ul>
-<li><a href="https://github.com/t32k/maple/blob/master/test/yslow.sh">maple/test/yslow.sh at master · t32k/maple</a></li>
-</ul>
+<li><p><a href="https://github.com/t32k/maple/blob/master/test/yslow.sh">maple/test/yslow.sh at master · t32k/maple</a></p>
 
 <pre><code>./node_modules/phantomjs/bin/phantomjs test/yslow.js --info grade --format tap --threshold '{&quot;ycdn&quot;: 10, &quot;yexpires&quot;: 10}' t32k.me/maple/test/fixtures/perf_test.html?${CACHE_CLEAR}
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>長ったらしく書いてあってややこいけど、基本的には以下のような構造になってる。</p>
 

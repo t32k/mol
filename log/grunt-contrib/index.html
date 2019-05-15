@@ -93,28 +93,28 @@
 <p>もし諸君が concat、lint、min といったタスクを Grunt 0.4 でも使いたい場合は、このように書いてないだろうか。</p>
 
 <ul>
-<li><a href="http://gruntjs.com/upgrading-from-0.3-to-0.4">Upgrading from 0.3 to 0.4 - Grunt: The JavaScript Task Runner</a></li>
-</ul>
+<li><p><a href="http://gruntjs.com/upgrading-from-0.3-to-0.4">Upgrading from 0.3 to 0.4 - Grunt: The JavaScript Task Runner</a></p>
 
 <pre><code>module.exports = function(grunt) {
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    uglify: { .... },
-    min: { .... },
-    concat: { .... },
-    lint: { .... },
-    }
-  });
-  // Load the plugins
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-min');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-lint');
-  // Default task.
-  grunt.registerTask('default', ['uglify']);
+// Project configuration.
+grunt.initConfig({
+pkg: grunt.file.readJSON('package.json'),
+uglify: { .... },
+min: { .... },
+concat: { .... },
+lint: { .... },
+}
+});
+// Load the plugins
+grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-min');
+grunt.loadNpmTasks('grunt-contrib-concat');
+grunt.loadNpmTasks('grunt-contrib-lint');
+// Default task.
+grunt.registerTask('default', ['uglify']);
 };
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>contrib シリーズのタスクを利用したいのなら、全部入りの<strong><a href="https://github.com/gruntjs/grunt-contrib">grunt-contrib</a></strong>をひとつ読みこむだけで利用できる。</p>
 
