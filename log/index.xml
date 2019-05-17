@@ -5,10 +5,32 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 01 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>display=swapとはなにか</title>
+      <link>https://t32k.me/mol/log/font-display-swap/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/font-display-swap/</guid>
+      <description>Shipped! @GoogleFonts now let&amp;#39;s you control web font loading using font-display. Say hello to the display parameter 🎉
+What&amp;#39;s font-display? https://t.co/Q7RDeESwkm pic.twitter.com/sn27ySza1B
+&amp;mdash; Addy Osmani (@addyosmani) May 15, 2019 
+Google I/0 2019に参加してきたのだが、Google Fontsがfont-display: swap;に対応するとかで盛り上がってるのを横目で見てた（5/15の時点で対応済とのこと）。
+最近はCSSもなにもコードを書いていないので、世間に疎くて困るのでリハビリする。
+図出典：Font-display playground
+例えば、Robotoのフォントがローカルシステムにないとき、ブラウザはテキストを不可視代替フォントで描画する（つまり何も読めない）。これをブロック期という。
+次にスワップ期という ローカルにある代替フォントで描画する段階に移るのだが、テキストが何も表示されない状態が見えてしまうので、これをFOIT(Flash of Invisible Text)という。
+Robotoが読み込まれていれば、すぐさまそのフォントにスワップするという算段だ。 またこのとき、代替フォントからWebフォントに切り替わるので、FOUT(Flash of Unstyled Text)という現象が起きる。
+また、もしWebフォントが読み込みに失敗すれば、それは失敗期という段階で、そのまま代替フォントを使用する。
+
+この段階をコントロールするのが、font-diplayプロパティで、@font-face内に記述する。Linkタグで読みこむGoogle Fontsはこの部分の記述をカスタマイズできなかったが、今回の発表のdisplay=swapのようにURLパラメーターで指定できるようになった。
+https://fonts.googleapis.com/css?family=Roboto&amp;amp;display=swap @font-face { font-family: &#39;Roboto&#39;; font-style: normal; font-weight: 400; font-display: swap; src: local(&#39;Roboto&#39;).... }  では、font-diplayを指定しなかった場合は、どうなっていたのだろうか。それはautoとなり、各ブラウザの挙動に任せられるのだが、下記のような状況とのこと。
+図出典：ウェブフォントの最適化 | Web Fundamentals | Google Developers</description>
+    </item>
     
     <item>
       <title>ブチ抜く力</title>

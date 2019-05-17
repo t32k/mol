@@ -6,7 +6,78 @@
         
         
         
-        <updated>Wed, 01 May 2019 00:00:00 UTC</updated>
+        <updated>Fri, 17 May 2019 00:00:00 UTC</updated>
+        
+        <item>
+            <title>display=swapとはなにか</title>
+            <link>https://t32k.me/mol/log/font-display-swap/</link>
+            <pubDate>Fri, 17 May 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/font-display-swap/</guid>
+            <description>&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Shipped! &lt;a href=&#34;https://twitter.com/googlefonts?ref_src=twsrc%5Etfw&#34;&gt;@GoogleFonts&lt;/a&gt; now let&amp;#39;s you control web font loading using &lt;code&gt;font-display&lt;/code&gt;. Say hello to the &lt;code&gt;display&lt;/code&gt; parameter 🎉&lt;br&gt;&lt;br&gt;What&amp;#39;s font-display? &lt;a href=&#34;https://t.co/Q7RDeESwkm&#34;&gt;https://t.co/Q7RDeESwkm&lt;/a&gt; &lt;a href=&#34;https://t.co/sn27ySza1B&#34;&gt;pic.twitter.com/sn27ySza1B&lt;/a&gt;&lt;/p&gt;&amp;mdash; Addy Osmani (@addyosmani) &lt;a href=&#34;https://twitter.com/addyosmani/status/1128548064287952896?ref_src=twsrc%5Etfw&#34;&gt;May 15, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Google I/0 2019に参加してきたのだが、Google Fontsが&lt;code&gt;font-display: swap;&lt;/code&gt;に対応するとかで盛り上がってるのを横目で見てた（5/15の時点で対応済とのこと）。&lt;/p&gt;
+
+&lt;p&gt;最近はCSSもなにもコードを書いていないので、世間に疎くて困るのでリハビリする。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0517-00.png&#34; alt=&#34;&#34; /&gt;
+図出典：&lt;a href=&#34;https://font-display.glitch.me/&#34;&gt;Font-display playground&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;例えば、&lt;code&gt;Roboto&lt;/code&gt;のフォントがローカルシステムにないとき、ブラウザはテキストを不可視代替フォントで描画する（つまり何も読めない）。これを&lt;strong&gt;ブロック期&lt;/strong&gt;という。&lt;/p&gt;
+
+&lt;p&gt;次に&lt;strong&gt;スワップ期&lt;/strong&gt;という
+ローカルにある代替フォントで描画する段階に移るのだが、テキストが何も表示されない状態が見えてしまうので、これを&lt;strong&gt;FOIT(Flash of Invisible Text)&lt;/strong&gt;という。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Roboto&lt;/code&gt;が読み込まれていれば、すぐさまそのフォントにスワップするという算段だ。
+またこのとき、代替フォントからWebフォントに切り替わるので、&lt;strong&gt;FOUT(Flash of Unstyled Text)&lt;/strong&gt;という現象が起きる。&lt;/p&gt;
+
+&lt;p&gt;また、もしWebフォントが読み込みに失敗すれば、それは&lt;strong&gt;失敗期&lt;/strong&gt;という段階で、そのまま代替フォントを使用する。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://caniuse.com/#search=font-display&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0517-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この段階をコントロールするのが、&lt;code&gt;font-diplay&lt;/code&gt;プロパティで、&lt;code&gt;@font-face&lt;/code&gt;内に記述する。Linkタグで読みこむGoogle Fontsはこの部分の記述をカスタマイズできなかったが、今回の発表の&lt;code&gt;display=swap&lt;/code&gt;のようにURLパラメーターで指定できるようになった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://fonts.googleapis.com/css?family=Roboto&amp;amp;display=swap
+
+@font-face {
+  font-family: &#39;Roboto&#39;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local(&#39;Roboto&#39;)....
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;では、&lt;code&gt;font-diplay&lt;/code&gt;を指定しなかった場合は、どうなっていたのだろうか。それは&lt;code&gt;auto&lt;/code&gt;となり、各ブラウザの挙動に任せられるのだが、下記のような状況とのこと。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0517-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;図出典：&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ja&#34;&gt;ウェブフォントの最適化 | Web Fundamentals | Google Developers &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大方のブラウザは3秒をタイムアウトに設定している。つまり、Webフォントの読み込みに3秒以上かかれば、テキストが表示されない状態（ブロック期）が3秒も続くということだ。&lt;/p&gt;
+
+&lt;p&gt;これでは文章が読めなくて困るので、&lt;code&gt;font-display: swap;&lt;/code&gt;にすることで、ブロック期を0秒にできる。ブロック期がない最初からスワップ期なので、ローカルにある代替フォントで表示してくれる。つまり、読める、読めるぞ、文章が！&lt;/p&gt;
+
+&lt;p&gt;だいたいの場合において、この指定はよいと思う。特に当ブログでは日本語フォントである&lt;code&gt;Noto Sans JP&lt;/code&gt;をGoogle Fontsから読み込んでいるので、ダウンロードに多くの時間を必要とするだろう。&lt;/p&gt;
+
+&lt;p&gt;ただ、代替フォントからWebフォントに切り替わるときのFOUTのちらつきはいかんせん起きてしまう。FOUTが嫌な場合は&lt;code&gt;font-display: optional;&lt;/code&gt;を指定するのも良いだろう。これを指定すると非常に短いブロック期（ほとんどの場合100ms以下が推奨）の後に、スワップ期が0秒になる。つまり、100msくらいでWebフォントを読み込めなければ、そのまま代替フォントで表示したままになる。まぁ、FOITを最小限に防ぎつつ、Webフォントがあればよいといった感じかな。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://fonts.googleapis.com/css?family=Roboto&amp;amp;display=optional
+
+@font-face {
+  font-family: &#39;Roboto&#39;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: local(&#39;Roboto&#39;)....
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もちろん、Google Fontsのパラメータを&lt;code&gt;optional&lt;/code&gt;に変更すれば対応してくれる。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、良いリハビリになった( ˘ω˘)&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>ブチ抜く力</title>
@@ -960,39 +1031,6 @@
 &lt;p&gt;個人的に興味深かったのは、それまで優秀なクレイモデラーとは、デザイナーの描いたスケッチをクレイを使って完璧に&amp;rdquo; &lt;em&gt;再現&lt;/em&gt; &amp;ldquo;することだと思われていたフシがあったが、「魂動デザイン」とは何かを開発サイド全員で考え始めたことによって、クレイモデラーからデザインの提案がでてくるようになったという。&lt;/p&gt;
 
 &lt;p&gt;これはUIデザイナーとフロントエンドエンジニアの関係にも似てるなと読みながら、納得した。どこの世界も縦割りの組織では、良いものは作れない。明確なゴールと情熱あるリーダーがいると、ここまで組織・会社は変われることができるのかと改めて気づかされた。デザインに興味なくてもモノづくりをしている人すべてに読んで欲しい一冊だ。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>ディテール・イン・タイポグラフィ</title>
-            <link>https://t32k.me/mol/log/978-4773870015-detail-in-typography/</link>
-            <pubDate>Wed, 07 Nov 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4773870015-detail-in-typography/</guid>
-            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/477387001X/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41pd3lfPG4L._SX298_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;ディテール・イン・タイポグラフィ&lt;br&gt;読みやすい欧文組版のための基礎知識と考え方&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;ヨースト・ホフリ (著), 麥倉 聖子 (監修)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;欧文組版で有名な日本語書籍といえば、&lt;a href=&#34;https://blog.excite.co.jp/t-director/&#34;&gt;小林章&lt;/a&gt;氏の『&lt;a href=&#34;https://www.amazon.co.jp/dp/4568502772/?tag=warikiru-22&#34;&gt;欧文書体&lt;/a&gt;』と『&lt;a href=&#34;https://www.amazon.co.jp/dp/4568503647/?tag=warikiru-22&#34;&gt;欧文書体2&lt;/a&gt;』だが、こちらは、欧州のタイポグラファなら必携と言われる、ヨースト・ホフリ氏のベーシック『&lt;strong&gt;Detail in Typography&lt;/strong&gt;』の待望の翻訳版が2017年に出版されていた。&lt;/p&gt;
-
-&lt;p&gt;本書は、タイポグラフィの構成やレイアウトなど、マクロなものを解説するものではなく、マイクロ・タイポグラフィを解説している。
-&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1107-00.png&#34; alt=&#34;&#34; /&gt;
-事実、本書の構成は、文字・単語・行間といった、タイポグラフィの最小の構成物から、分かりやすく説明している。&lt;/p&gt;
-
-&lt;p&gt;読みやすさとはなにか、文字における幾何学的錯視について、カーニングや、数字・約物について、ひととおり説明している。それらには派手さはないかもしれないが、基礎が疎かにだと良いものは作れない。まさに、&lt;em&gt;God is in the details.&lt;/em&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ただし、カーニングテーブルを信用しすぎるのもよくない。（中略）これは活版以外の方法で組版が行われるようになった初期、写植時代の負の遺産である。当時、字間を詰められるようになったことがあまりに幸せで、常に詰め気味で組版が行われるようになっていた ― P33, The word&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;こういった歴史も教えてくれる、ワロタｗ&lt;/p&gt;
-
-&lt;p&gt;全部で60ページくらいで薄いんだけど、それは著者の簡潔な説明の賜物なので物足りないというはことはない。むしろ多くの例・図版があるので、手元に置いといて常に見返したいものである。&lt;/p&gt;
 </description>
         </item>
         
