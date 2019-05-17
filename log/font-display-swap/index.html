@@ -77,24 +77,29 @@
          <h3 class="u-mute u-mtn">Google Fonts is Adding font-display</h3>
     </header>
     <section>
-        <p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shipped! <a href="https://twitter.com/googlefonts?ref_src=twsrc%5Etfw">@GoogleFonts</a> now let&#39;s you control web font loading using <code>font-display</code>. Say hello to the <code>display</code> parameter 🎉<br><br>What&#39;s font-display? <a href="https://t.co/Q7RDeESwkm">https://t.co/Q7RDeESwkm</a> <a href="https://t.co/sn27ySza1B">pic.twitter.com/sn27ySza1B</a></p>&mdash; Addy Osmani (@addyosmani) <a href="https://twitter.com/addyosmani/status/1128548064287952896?ref_src=twsrc%5Etfw">May 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+        
 
-<p>Google I/0 2019に参加してきたのだが、Google Fontsが<code>font-display: swap;</code>に対応するとかで盛り上がってるのを横目で見てた（5/15の時点で対応済とのこと）。</p>
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shipped! <a href="https://twitter.com/googlefonts?ref_src=twsrc%5Etfw">@GoogleFonts</a> now let&#39;s you control web font loading using <code>font-display</code>. Say hello to the <code>display</code> parameter 🎉<br><br>What&#39;s font-display? <a href="https://t.co/Q7RDeESwkm">https://t.co/Q7RDeESwkm</a> <a href="https://t.co/sn27ySza1B">pic.twitter.com/sn27ySza1B</a></p>&mdash; Addy Osmani (@addyosmani) <a href="https://twitter.com/addyosmani/status/1128548064287952896?ref_src=twsrc%5Etfw">May 15, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><a href="https://www.youtube.com/watch?v=YJGCZCaIZkQ">Google I/0 2019</a>に参加してきたのだが、<a href="https://fonts.google.com/">Google Fonts</a>が<code>font-display: swap;</code>に対応するとかで盛り上がってるのを横目で見てた（5/15の時点で対応済とのこと）。</p>
 
 <p>最近はCSSもなにもコードを書いていないので、世間に疎くて困るのでリハビリする。</p>
+
+<h2 id="the-font-display-timeline">The font display timeline</h2>
 
 <p><img src="/mol/images/2019/0517-00.png" alt="" />
 図出典：<a href="https://font-display.glitch.me/">Font-display playground</a></p>
 
-<p>例えば、<code>Roboto</code>のフォントがローカルシステムにないとき、ブラウザはテキストを不可視代替フォントで描画する（つまり何も読めない）。これを<strong>ブロック期</strong>という。</p>
+<p>例えば、<strong>Roboto</strong>フォントがローカルシステムにないとき、ブラウザはテキストを不可視代替フォントで描画する（つまり何も読めない）。これを<strong>ブロック期</strong>という。</p>
 
 <p>次に<strong>スワップ期</strong>という
-ローカルにある代替フォントで描画する段階に移るのだが、テキストが何も表示されない状態が見えてしまうので、これを<strong>FOIT(Flash of Invisible Text)</strong>という。</p>
+ローカルにある代替フォントで描画する段階に移るのだが、この時テキストが何も表示されない状態が見えてしまうので、これを<strong>FOIT(Flash of Invisible Text)</strong>という。</p>
 
-<p><code>Roboto</code>が読み込まれていれば、すぐさまそのフォントにスワップするという算段だ。
-またこのとき、代替フォントからWebフォントに切り替わるので、<strong>FOUT(Flash of Unstyled Text)</strong>という現象が起きる。</p>
+<p><strong>Roboto</strong>が読み込まれていれば、すぐさまそのフォントにスワップするという算段だ。またこのとき、代替フォントからWebフォントに切り替わるので、<strong>FOUT(Flash of Unstyled Text)</strong>という現象が起きる。</p>
 
-<p>また、もしWebフォントが読み込みに失敗すれば、それは<strong>失敗期</strong>という段階で、そのまま代替フォントを使用する。</p>
+<p>もし、Webフォントが読み込みに失敗すれば、それは<strong>失敗期</strong>という段階で、以後そのまま代替フォントを使用したままになる。</p>
+
+<h2 id="css-font-rendering-controls">CSS font-rendering controls</h2>
 
 <p><a href="https://caniuse.com/#search=font-display"><img src="/mol/images/2019/0517-01.png" alt="" /></a></p>
 
@@ -106,22 +111,24 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: swap;  /* display=swapの設定 */
   src: local('Roboto')....
 }
 </code></pre>
 
-<p>では、<code>font-diplay</code>を指定しなかった場合は、どうなっていたのだろうか。それは<code>auto</code>となり、各ブラウザの挙動に任せられるのだが、下記のような状況とのこと。</p>
+<h2 id="the-text-rendering-delay">The text rendering delay</h2>
+
+<p>では、<code>font-diplay</code>を指定しなかった場合は、どうなっていたのだろうか。値は<code>auto</code>となり、各ブラウザの挙動に任せられるのだが、Ilya Grigorik大先生によると下記のような状況とのこと。</p>
 
 <p><img src="/mol/images/2019/0517-02.png" alt="" /></p>
 
-<p>図出典：<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ja">ウェブフォントの最適化 | Web Fundamentals | Google Developers </a></p>
+<p>図出典：<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ja#_9">ウェブフォントの最適化 | Web Fundamentals | Google Developers </a></p>
 
 <p>大方のブラウザは3秒をタイムアウトに設定している。つまり、Webフォントの読み込みに3秒以上かかれば、テキストが表示されない状態（ブロック期）が3秒も続くということだ。</p>
 
 <p>これでは文章が読めなくて困るので、<code>font-display: swap;</code>にすることで、ブロック期を0秒にできる。ブロック期がない最初からスワップ期なので、ローカルにある代替フォントで表示してくれる。つまり、読める、読めるぞ、文章が！</p>
 
-<p>だいたいの場合において、この指定はよいと思う。特に当ブログでは日本語フォントである<code>Noto Sans JP</code>をGoogle Fontsから読み込んでいるので、ダウンロードに多くの時間を必要とするだろう。</p>
+<p>だいたいの場合において、この指定はよいと思われる。特に当ブログでは日本語フォントである<strong>Noto Sans JP</strong>をGoogle Fontsから読み込んでいるので、ダウンロードに多くの時間を必要とするだろうし、その間、ブログの文章が読めないというのはクリティカルだ。</p>
 
 <p>ただ、代替フォントからWebフォントに切り替わるときのFOUTのちらつきはいかんせん起きてしまう。FOUTが嫌な場合は<code>font-display: optional;</code>を指定するのも良いだろう。これを指定すると非常に短いブロック期（ほとんどの場合100ms以下が推奨）の後に、スワップ期が0秒になる。つまり、100msくらいでWebフォントを読み込めなければ、そのまま代替フォントで表示したままになる。まぁ、FOITを最小限に防ぎつつ、Webフォントがあればよいといった感じかな。</p>
 
@@ -131,12 +138,12 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-display: optional;
+  font-display: optional;  /* display=optionalの設定 */
   src: local('Roboto')....
 }
 </code></pre>
 
-<p>もちろん、Google Fontsのパラメータを<code>optional</code>に変更すれば対応してくれる。</p>
+<p>もちろん、Google FontsのURLパラメータを<code>optional</code>に変更すれば対応してくれる。</p>
 
 <p>そんなわけで、良いリハビリになった( ˘ω˘)</p>
 
