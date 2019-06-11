@@ -6,7 +6,74 @@
         
         
         
-        <updated>Fri, 17 May 2019 00:00:00 UTC</updated>
+        <updated>Tue, 11 Jun 2019 00:00:00 UTC</updated>
+        
+        <item>
+            <title>サブスクリプション</title>
+            <link>https://t32k.me/mol/log/978-4478105528-subscribed/</link>
+            <pubDate>Tue, 11 Jun 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4478105528-subscribed/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4478105529/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41S9BEsoOFL._SX344_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;サブスクリプション&lt;br&gt;顧客の成功が収益を生む新時代のビジネスモデル&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ティエン・ツォ (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;最近、サブスクリプションサービスを提供する企業が多くなった。Amazon Primeで商品を配達してもらい、Netflixで映画・ドラマを見、Spotifyで音楽を聞くといったように、自分もいくつかのサービスを定期購読している。&lt;/p&gt;
+
+&lt;p&gt;本書の著者は、SaaSの雄Salesforceの創業期から参加して、自らもSaaS企業を立ち上げたZuora CEOのティエン・ツォ氏。前半の第一部はサブスクリプション経営に移行しているさまざまな業種・業界を解説。後半の第二部はサブスクリプション経営をするための考え方や戦略を解説している。&lt;/p&gt;
+
+&lt;p&gt;昔、Kaizen Platform(デザインリソースのSaaS)で働いてたとき「壁に棚を付けたいと思ったとき、ほしいのは電動ドリルじゃない。穴だ。」という話をよく聞かされた。結局、サブスクリプションというのは、モノや道具を売るというのではなくて、結果の共有なんだと本書を読んで改めて感じた。&lt;/p&gt;
+
+&lt;p&gt;物理的なモノを売ってしまえばそれで終わりだが、SaaS（Software as a Service)として提供しているのであれば、デジタル上でユーザーの行動がすべて把握することができる。ユーザーがなににひっかかっているのか、不満に思っているのか、これまでの経営では分からなかったことがより正確に知ることになり、サービスの改善につながる。カスタマーサポートがカスタマーサクセスと呼ばれるようになったのも継続的なサポートが顧客のサクセスにつながるのに重要な要因となっている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;サブスクリプション・サービスにおいては、必要なすべてのインサイトが自社のシステムの中に存在している&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;サブスクリプション経営をするからといって、万事安泰というわけではない。サブスクリション企業ならではの悩みがつきまとう。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;会員にとって、この新しいサービスの価値は何か？&lt;/li&gt;
+&lt;li&gt;会員は私たちが提供しようとしているようなサポートを受けているか？&lt;/li&gt;
+&lt;li&gt;会員はいつまで会員であり続けてくれるのか？&lt;/li&gt;
+&lt;li&gt;わが社の成長率はどうなるのか？外からはどう見えるのか？&lt;/li&gt;
+&lt;li&gt;利用状態のどこを見れば、どこにリソースを重点配分すればよいかわかるのか？&lt;/li&gt;
+&lt;li&gt;どの会員がチャーン（解約・離脱）しそうか？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;特に、この&lt;strong&gt;チャーン&lt;/strong&gt;という言葉は先の企業にいたときによく聞いたものだ。みんなチャーン、チャーン言ってて最初はなんか可愛らしいなと思ったけど、要は解約の話だ。穴の空いたバケツにいくら水を注いでもたまらないと同じことである。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0611.png&#34; alt=&#34;損益計算書&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;チャーンレートを低く抑えなければ、企業は利益を得られない。&lt;/p&gt;
+
+&lt;p&gt;そこで、Zuoraでは企業にサブスクリプション文化を根付かせるために&lt;strong&gt;PADRE&lt;/strong&gt;というフレームワークを開発した。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;パイプライン（Pipeline）：ウェブとソーシャルメディア、PRなど&lt;/li&gt;
+&lt;li&gt;獲得（Acquire）：営業チーム、セルフサービス&lt;/li&gt;
+&lt;li&gt;導入（Diploy）：実装・導入、カスタマートレーニング&lt;/li&gt;
+&lt;li&gt;利用（Run）：アカウント管理、テクニカルサポート&lt;/li&gt;
+&lt;li&gt;拡大（Expand）：アップセル、クロスセル、カスタマーエバンジェリズ1.&lt;/li&gt;
+&lt;li&gt;人材（People）：採用と研修、キャリア開発&lt;/li&gt;
+&lt;li&gt;製品（Product）：研究開発、ベータ版イノベーション&lt;/li&gt;
+&lt;li&gt;資金（Money）：財務、法務&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;サブスクリプション経営は従来のようなモノを売るだけの経営とは異なる。それを社員全員が一人ひとりが意識しなければ成功に近づけないので、こういったフレームワークが必要になる。&lt;/p&gt;
+
+&lt;p&gt;当たり前だけど、じゃすべてのサービスをサブスクリション化すればよいわけでもない。経営する側も、利用する側もまだまだ理解が必要だなと感じた。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>display=swapとはなにか</title>
@@ -1004,40 +1071,6 @@
 &lt;/a&gt;&lt;/div&gt;
 
 &lt;p&gt;満足&amp;hellip;(^q^)&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>デザインが日本を変える</title>
-            <link>https://t32k.me/mol/log/978-4334043551-design/</link>
-            <pubDate>Thu, 08 Nov 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4334043551-design/</guid>
-            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4334043550/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/31w8VKPMo-L._SX306_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;デザインが日本を変える&lt;br&gt;日本人の美意識を取り戻す (光文社新書)&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;前田育男&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;高校の政経担当の先生が、『マツダ車はいいぞ〜』とベタ褒めしていたのをナゼか今でも思い出す。それ以来、車を買うことがあればマツダ車にしようと密かに思っていたが、東京に出てきてしまったので、いまだに車を購入する予定はない。&lt;/p&gt;
-
-&lt;p&gt;そんなマツダ車のデザイン部長さんの話。なかなか大層な本書のタイトルだが中身も熱い。デザインへの熱い想いが重いｗ それもそのはず2009年に米企業傘下から外れ、デザイン部門のトップも久しぶりに日本人（著者である前田育男氏）になったからだ。&lt;/p&gt;
-
-&lt;p&gt;前任のオランダ人デザイン部長は、マツダは日本の自動車メーカーだから日本的なデザインにしようということで、枯山水の砂紋を車のデザインに取り込もうとするなど、いささか安直な考えで、前田氏と何回か対立していた。そういった経緯から自分がその立場になったとき、はじめてその問題の難しさに気づいたという。日本らしさとはなにか、はてはマツダらしいとはなにか？&lt;/p&gt;
-
-&lt;p&gt;長い間考えぬいた結果、&lt;strong&gt;魂動デザイン&lt;/strong&gt;というコンセプトをひねり出す。なんか暴走族っぽい当て字だなと本書を読む前は思ったけど読み通してみると、なるほど言い得て妙とはこのことである。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.mazda.co.jp/beadriver/design/thought/01/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1108-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
-図版：【MAZDA】クルマに命を宿す 、デザインの力。 Vol.01&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;また、そのコンセプトを表現した、ご神体と呼ばれるオブジェもクレイモデラーたちが、自主的に作り、「魂動デザイン」とコンセプトともに、マツダデザインの進むべき方向性が明確になった。その後はワールド・カー・オブ・ザ・イヤーなどで受賞するなど華々しい結果となる。&lt;/p&gt;
-
-&lt;p&gt;個人的に興味深かったのは、それまで優秀なクレイモデラーとは、デザイナーの描いたスケッチをクレイを使って完璧に&amp;rdquo; &lt;em&gt;再現&lt;/em&gt; &amp;ldquo;することだと思われていたフシがあったが、「魂動デザイン」とは何かを開発サイド全員で考え始めたことによって、クレイモデラーからデザインの提案がでてくるようになったという。&lt;/p&gt;
-
-&lt;p&gt;これはUIデザイナーとフロントエンドエンジニアの関係にも似てるなと読みながら、納得した。どこの世界も縦割りの組織では、良いものは作れない。明確なゴールと情熱あるリーダーがいると、ここまで組織・会社は変われることができるのかと改めて気づかされた。デザインに興味なくてもモノづくりをしている人すべてに読んで欲しい一冊だ。&lt;/p&gt;
 </description>
         </item>
         
