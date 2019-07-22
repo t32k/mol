@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "description": "Powered by Hugo. Hosted by GitHub Pages.",
   "scripts": {
-    "start": "hugo server -DFw"
+    "start": "hugo server -DFw & open http://localhost:1313/mol/"
   },
   "bugs": {
     "url": "https://github.com/t32k/mol/issues"
