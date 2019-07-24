@@ -56,9 +56,9 @@ ogimage: https://t32k.me/mol/images/2019/0723/06.png
 
 ## Material Designとは？
 
-正確には、上長から「ちょっと、デザインシステム作ってよ」と言われたのですが、調べてみると、そのUIを実装するためのコードも用意してあったりと、とうていデザイナー１人で作れるようなものではない。事実、デザインシステムまわりでは、DevOpsにちなんで[DesignOps](https://www.designbetter.co/designops-handbook)エンジニアなんて職種もあるとか。
+正確には上長から「ちょっと、デザインシステム作ってよ」と言われたのですが、調べてみると、UIを実装するためのコードも用意してあったりと、とうていデザイナー１人で作れるようなものではないです。事実、デザインシステムまわりではDevOpsにちなんで[DesignOps](https://www.designbetter.co/designops-handbook)エンジニアなんて職種もあるとか。
 
-それならば、すでにあるものを利用してしまうということで、Material Designについて説明します。
+それならば、すでにあるものを利用しよう！ということで、Material Designについて説明します。
 
 [![Material Design](/mol/images/2019/0723/03.png)](https://material.io/)
 
@@ -70,15 +70,15 @@ Themeについては今年のGoogle IOで良いセッションがありました
 
 ![Material Theming: Build Expressively with Material Components 01](/mol/images/2019/0723/04.png)
 
-どうせTheme Editorで作るもんなんて、どれも色違いの金太郎飴みたいなもんでしょ？と思われるかもしれません。たしかに、そういった事例が多くありました。
+どうせTheme Editorで作るもんなんて、どれも色違いの金太郎アメみたいなもんでしょ？と思われるかもしれません。たしかに、そういった事例が多くありました。
 
 ![Material Theming: Build Expressively with Material Components 02](/mol/images/2019/0723/05.png)
 
-でも、Theme Editorうまく使えば、[上記のような](https://material.io/design/material-studies/about-our-material-studies.html#usage)独自性のあるアプリも作成可能です。
+でも、Theme Editorうまく使えば、[上記のような](https://material.io/design/material-studies/about-our-material-studies.html#usage)ユニークなUIのアプリを作成可能です。
 
 ![Material Theming: Build Expressively with Material Components 03](/mol/images/2019/0723/06.png)
 
-結局のところ、重要なパラメーターというのは3つしかありません。タイポグラフィとシェイプと色をうまく組み合わせれば、差別化というのは可能です。
+結局のところ、重要なパラメーターというのは3つしかありません。タイポグラフィとシェイプと色をうまく組み合わせれば、差別化というのは可能なのです。
 
 ![Theme Editor](/mol/images/2019/0723/07.png)
 
@@ -90,9 +90,9 @@ Themeについては今年のGoogle IOで良いセッションがありました
 
 というわけで、Material Theme Editorを利用すれば、弊社オリジナルのデザインシステムが作れそうです。
 
-弊社の業務内容的に、既にプロダクションで稼働しているサービスを開発・運用しているわけではなく、さまざまなPoC検証のモックアップを作ることが多いです。というわけで、このプロトタイプのためのデザインシステムが必要とされています。
+弊社の業務内容的に、既にプロダクションで稼働しているサービスを開発・運用しているわといったわけでなく、さまざまなプロジェクトでPoC検証のモックアップを作ることが多いです。というわけで、このプロトタイプのためのデザインシステムが必要とされています。
 
-ブランドコンセプトなど固まってない、とりあえず動かしてみまひょか？という段階なので、毎回、色をどうするか？とかそうゆうことで迷っていても仕方がないのです。どのPoC検証のプロジェクトも同じデザインシステムで作成すれば、前述のようなメリットがあります。
+ブランドコンセプトなど固まってない、とりあえず動かしてみまひょか？という段階なので、毎回、色をどうするか？とかボタンの形状をどうするか？とか、そうゆうことで迷っていても仕方がないのです。どのPoC検証プロジェクトも同じデザインシステムで作成すれば、前述のようなメリットがあります。
 
 ### Design Principles
 
@@ -102,7 +102,7 @@ Themeについては今年のGoogle IOで良いセッションがありました
 
 そうゆうわけで、このプロトタイプのためのデザインシステムの原則というものも弊CXOに考えてもらいました。
 
-はい、がんばります。
+はい、この原則をまっとうできるよう、がんばります。
 
 ### Perceptual Patterns
 
