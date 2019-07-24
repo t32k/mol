@@ -6,7 +6,163 @@
         
         
         
-        <updated>Sun, 14 Jul 2019 00:00:00 UTC</updated>
+        <updated>Wed, 24 Jul 2019 00:00:00 UTC</updated>
+        
+        <item>
+            <title>がんばらないデザインシステム</title>
+            <link>https://t32k.me/mol/log/adaptable-system/</link>
+            <pubDate>Wed, 24 Jul 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/adaptable-system/</guid>
+            <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Material Designをカスタマイズして利用した話&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://airbnb.design/the-way-we-build/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/01.png&#34; alt=&#34;The Way We Build&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近、&lt;strong&gt;デザインシステム&lt;/strong&gt;って言葉よく聞きますよね。airbnbではDLSというデザインシステムを持っていたり、Uberは&lt;a href=&#34;https://eng.uber.com/introducing-base-web/&#34;&gt;Base Web&lt;/a&gt;というデザインシステムを持っていたり、&lt;a href=&#34;https://www.catapultsuplex.com/entry/building-a-large-scale-design-system&#34;&gt;アメリカ連邦政府&lt;/a&gt;も持ってたりします。国内のIT企業でもデザインシステムを作成しているとの事例もよく耳にします。&lt;/p&gt;
+
+&lt;h2 id=&#34;デザインシステムとは&#34;&gt;デザインシステムとは？&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blog.prototypr.io/pattern-library-style-guides-design-systems-do-you-need-one-b7857af0f255&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/02.png&#34; alt=&#34;Design Systems&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;デザインシステム&lt;/strong&gt;：デザインの基準やドキュメント、原則に加えて、基準を達成するためのUIパターンやコンポーネントなどのツールキットをすべて備えたもの。&lt;br /&gt;
+&lt;a href=&#34;https://uxmilk.jp/72387&#34;&gt;デザインシステムの定義と作成方法、導入事例 | UX MILK&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;では、デザインシステムってのはどういったもんなんでしょうか？これまでも、スタイルガイドやコンポーネントライブラリといったものは聞いたことがありますが、デザインシステムというのはそれらも含めたもう少し大きなモノと個人的に考えています。&lt;/p&gt;
+
+&lt;p&gt;「Design Systems」という、まさしくな書籍がありますが、その著者が調べたことによると、デザインシステムというのは以下の4つの要素を含んでいるのではないかと言っています。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4862464122/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51s1RuZ1xiL._SX353_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Design Systems&lt;br&gt;デジタルプロダクトのためのデザインシステム実践ガイド&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;アラ・コルマトヴァ (著), 佐藤伸哉  (監修), &amp; 1 その他&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デザイン原則 / Design Principles&lt;/li&gt;
+&lt;li&gt;認知パターン / Perceptual Patterns&lt;/li&gt;
+&lt;li&gt;機能パターン / Functional Patterns&lt;/li&gt;
+&lt;li&gt;共有言語 / Shared Language&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;デザイン原則というのはそのシステムのデザイン指針を表した短い言葉ですね、airbnbですと、&lt;strong&gt;Unified&lt;/strong&gt;や&lt;strong&gt;Conversational&lt;/strong&gt;といったものがデザイン原則として掲げています。&lt;/p&gt;
+
+&lt;p&gt;認知パターンというのは、カラーやタイポグラフィといったブランドの認知に必要なものです。機能パターンは、ボタンやタブといったUIコンポーネントを指します。&lt;/p&gt;
+
+&lt;p&gt;また共有言語というのは、例えば、そのアプリ・サイト内で一番目立つボタンを何というか？「プライマリーボタン」、「ビックボタン」名前はなんでも良いのですが、それと決めたら、デザイナーだけでなく、エンジニア・ビジネスサイドも同じ言葉で話が通じる状態のことを言います。&lt;/p&gt;
+
+&lt;p&gt;そうゆうものを含んだデザインシステムを利用すると何が良いのでしょうか？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;市場に投入されるまでの時間が短縮される&lt;/li&gt;
+&lt;li&gt;プラットフォームや製品をまたいでもUXが一貫する&lt;/li&gt;
+&lt;li&gt;バージョン管理の問題が減る&lt;/li&gt;
+&lt;li&gt;協力とコミュニケーションが簡単になる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メリットいっぱいですね。というわけで、弊社でもデザインシステム作りたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;material-designとは&#34;&gt;Material Designとは？&lt;/h2&gt;
+
+&lt;p&gt;正確には、上長から「ちょっと、デザインシステム作ってよ」と言われたのですが、調べてみると、そのUIを実装するためのコードも用意してあったりと、とうていデザイナー１人で作れるようなものではない。事実、デザインシステムまわりでは、DevOpsにちなんで&lt;a href=&#34;https://www.designbetter.co/designops-handbook&#34;&gt;DesignOps&lt;/a&gt;エンジニアなんて職種もあるとか。&lt;/p&gt;
+
+&lt;p&gt;それならば、すでにあるものを利用してしまうということで、Material Designについて説明します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://material.io/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/03.png&#34; alt=&#34;Material Design&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Googleさんが作っているデザインシステムですね。良さそうです。カスタマイズ可能ということで、&lt;a href=&#34;https://material.io/tools/theme-editor/&#34;&gt;Material Theme Editor&lt;/a&gt;というSketchのプラグインを公式で配布しております。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/IaT4wdWTwuo&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Themeについては今年のGoogle IOで良いセッションがありました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/04.png&#34; alt=&#34;Material Theming: Build Expressively with Material Components 01&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;どうせTheme Editorで作るもんなんて、どれも色違いの金太郎飴みたいなもんでしょ？と思われるかもしれません。たしかに、そういった事例が多くありました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/05.png&#34; alt=&#34;Material Theming: Build Expressively with Material Components 02&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;でも、Theme Editorうまく使えば、&lt;a href=&#34;https://material.io/design/material-studies/about-our-material-studies.html#usage&#34;&gt;上記のような&lt;/a&gt;独自性のあるアプリも作成可能です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/06.png&#34; alt=&#34;Material Theming: Build Expressively with Material Components 03&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;結局のところ、重要なパラメーターというのは3つしかありません。タイポグラフィとシェイプと色をうまく組み合わせれば、差別化というのは可能です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/07.png&#34; alt=&#34;Theme Editor&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;もちろん、Sketchのプラグインでこれらのパラメーター変更可能で、変更すると即座に数百のコンポーネントに適用され利用可能です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/08.png&#34; alt=&#34;Sketch&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;wとは&#34;&gt;Wとは？&lt;/h2&gt;
+
+&lt;p&gt;というわけで、Material Theme Editorを利用すれば、弊社オリジナルのデザインシステムが作れそうです。&lt;/p&gt;
+
+&lt;p&gt;弊社の業務内容的に、既にプロダクションで稼働しているサービスを開発・運用しているわけではなく、さまざまなPoC検証のモックアップを作ることが多いです。というわけで、このプロトタイプのためのデザインシステムが必要とされています。&lt;/p&gt;
+
+&lt;p&gt;ブランドコンセプトなど固まってない、とりあえず動かしてみまひょか？という段階なので、毎回、色をどうするか？とかそうゆうことで迷っていても仕方がないのです。どのPoC検証のプロジェクトも同じデザインシステムで作成すれば、前述のようなメリットがあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;design-principles&#34;&gt;Design Principles&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最小表現で作る&lt;/li&gt;
+&lt;li&gt;最短時間で作る&lt;/li&gt;
+&lt;li&gt;最小コストで作る&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そうゆうわけで、このプロトタイプのためのデザインシステムの原則というものも弊CXOに考えてもらいました。&lt;/p&gt;
+
+&lt;p&gt;はい、がんばります。&lt;/p&gt;
+
+&lt;h3 id=&#34;perceptual-patterns&#34;&gt;Perceptual Patterns&lt;/h3&gt;
+
+&lt;p&gt;弊社では、デザインツールはSketchではなく、Figmaを使用してるので、一回SketchのMaterial Theme Editorで作成したファイルを移行しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/09.png&#34; alt=&#34;Perceptual Patterns&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;認知パターンに関しては、Figmaに&lt;a href=&#34;https://help.figma.com/article/187-styles-managing-and-sharing-styles&#34;&gt;Shared Style&lt;/a&gt;という機能があるので、これで共有しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;functional-patterns&#34;&gt;Functional Patterns&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/10.png&#34; alt=&#34;Functional Patterns&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;機能パターンに関しては、とりあえずプロジェクト毎に必要になったらコンポーネントを追加していくっていう方向でやっているので今のところ少ないです。元の生成されたSketchファイル見ると分かるのですが、ほんと職人芸のような複雑なコンポーネントになっていて、ちょっと理解できないし、私たちの使用目的からみれば、オーバースペックなので。&lt;/p&gt;
+
+&lt;h2 id=&#34;shared-language&#34;&gt;Shared Language&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://material.io/develop/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/11.png&#34; alt=&#34;Shared Language&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Material Designベースで作成する最大のメリットと言ってもいいのは、そのUIを実装するためのフレームワークが用意されていることです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/12.png&#34; alt=&#34;MDC Web 1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;例えば、Webで言えば、&lt;a href=&#34;https://github.com/material-components/material-components-web&#34;&gt;Material Components for Web&lt;/a&gt;のJSとCSSを読み込んで、&lt;code&gt;mdc-button&lt;/code&gt;というclass属性を与えるだけで、マテリアルデザインの見た目のボタンを作成することができます。一行もスタイルを実装するためのCSS書いてません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/13.png&#34; alt=&#34;MDC Web 2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;また、われわれのデザインシステムは青基調としていてフォントもNoto Sans JPを使用しています。この変更に対応をするには、Sassの変数を変更する必要があります。ここでも色とタイポグラフィとシェイプの変数を変えるだけです（実際はもっと多くの変数がありカスタマイズ可能）。&lt;/p&gt;
+
+&lt;p&gt;このようなデザイントークンは一つのファイルにまとめて、&lt;a href=&#34;https://github.com/salesforce-ux/theo&#34;&gt;Theo&lt;/a&gt;というツールで各プラットフォーム向けにエクスポートすることも可能です（FigmaでやってるのでAPIで変更感知して自動ビルドしたい&amp;hellip;）。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;このようにMaterial Designベースのデザインシステムを採用することで、デザイナーもエンジニアも、UIからコードまで一貫した恩恵を得られることができます。&lt;/p&gt;
+
+&lt;p&gt;というわけで、取っ掛かり的にはいいんじゃないでしょうか。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>ＥＡＴ＆ＲＵＮ</title>
@@ -905,108 +1061,6 @@
 &lt;p&gt;あと今回の4足、購入するとなると普通に10万以上になっちゃうので、&lt;a href=&#34;https://www.amazon.co.jp/b/?ie=UTF8&amp;amp;bbn=5429200051&amp;amp;node=5425661051&amp;amp;tag=googhydr-22&amp;amp;ref=pd_sl_8asslomlsr_b&amp;amp;adgrpid=59329490045&amp;amp;hvpone=&amp;amp;hvptwo=&amp;amp;hvadid=305683474748&amp;amp;hvpos=1t1&amp;amp;hvnetw=g&amp;amp;hvrand=2786119122743167591&amp;amp;hvqmt=b&amp;amp;hvdev=c&amp;amp;hvdvcmdl=&amp;amp;hvlocint=&amp;amp;hvlocphy=1028853&amp;amp;hvtargid=kwd-548920076048&#34;&gt;Prime Wardrobe&lt;/a&gt;というサービスを使ってみた。Amazonプライム会員のサービスだけど、とりあえず注文して、気に入らなかったら返品して、返品しなかったものだけ請求される仕組み。もちろん返品にかかる送料は無料だ。&lt;/p&gt;
 
 &lt;p&gt;登山靴はやっぱり実際に履いて試したほうがよいが、小さい店舗だと履きたいモデルが置いてないこともあるので、Amazonの中の大量の選択肢から選べるのは大変よかった。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Dive into the dark side</title>
-            <link>https://t32k.me/mol/log/dive-into-the-dark-side/</link>
-            <pubDate>Fri, 30 Nov 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/dive-into-the-dark-side/</guid>
-            <description>
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;昔フロントレンドで、環境光の明るさによってCSS変えられたらおもしろいよね的なことを@simuraiが彼の作った&lt;a href=&#34;http://simurai.com/projects/2016/01/01/duotone-themes&#34;&gt;Atomのテーマ&lt;/a&gt;を解説しながら言っていた。環境光については@girlie_macが2014年に記事を書いていたので、CSSスゴイ！ほえー！と思ってた。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://html5experts.jp/girlie_mac/4558/&#34;&gt;HTML5で実現できる！環境光に合わせたレスポンシブなUI | HTML5Experts.jp&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;media feature &lt;code&gt;luminosity&lt;/code&gt;は&lt;code&gt;light-level&lt;/code&gt;に名前を変えたが今も実装の気配なさそうだ。一方で、2018年、macOS Mojaveがリリースされ、ダークモードが利用できるようになった。自分も流行りに乗って自宅のMacで利用している。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://paulmillr.com/posts/using-dark-mode-in-css/&#34;&gt;Paul Miller — Using dark mode in CSS with MacOS Mojave&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;そして、どうやらSafari Tech Preview 68からダークモードかどうかをCSS上検知できるようになってるらしい。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* Text and background color for light mode */&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;;
-}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;/* Text and background color for dark mode */&lt;/span&gt;
-@&lt;span style=&#34;color:#66d9ef&#34;&gt;media&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;prefers-color-scheme&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;dark&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
-  &lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;white&lt;/span&gt;;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;background-color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;black&lt;/span&gt;;
-  }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;環境光の変化に比べたら明示的だが、よりResponsiveなUIについて考える機会ができた。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.jxck.io/entries/2018-11-10/dark-mode-via-prefers-color-scheme.html&#34;&gt;prefers-color-scheme を用いた Dark Mode 対応と User Preference Media Features | blog.jxck.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ちなみに、&lt;code&gt;prefers-color-scheme&lt;/code&gt;はMediaQueries Lv5のUser Preference Media Featuresという仕様らしい、カラースキームの他にも。コントラストの強弱、アニメーションの動きを減らすなどのユーザー設定をCSSから検知できる未来がくるかもしれない。その人のコンテキストに応じたデザインを今後考える必要性がある。&lt;/p&gt;
-
-&lt;h2 id=&#34;考慮すべきこと&#34;&gt;考慮すべきこと&lt;/h2&gt;
-
-&lt;p&gt;個人的に、なにかをデザインするとき黒基調を選択した憶えがない。うまくやれば高級感・エレガンスさを醸し出せるが、下手を放けば、たちまちアングラ・いかがわしい感じになってしまうので難しい。そんなもので、あまりダークテーマについて考えたことがなかったからだ&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://uxplanet.org/dark-side-of-ui-benefits-of-dark-background-12f560bf7165&#34;&gt;Dark Side of UI. Benefits of Dark Background – UX Planet&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記の記事によれば、感情的な側面において、暗い色は一般的に優雅さやミステリーさを想起させる。またときには、エレガンスさ、フォーマルさ、荘厳・一流といったものをイメージさせる。それゆえ、多くの世界的なブランドは、モノトーンなプレゼンテーションを多用し、消費者にそれを知らせる。ゆえに、UIにおいてもこのような効果は期待できる。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://problogger.com/light-or-dark-blog-backgrounds-poll-results/&#34;&gt;2009年のプロブロガー向けの投票&lt;/a&gt;だが、ほぼ半数がライトテーマを好み、10%がダークテーマがブログデザインにおいて良いと答えた。また36%のユーザーはコンテンツ次第だとも答えている。&lt;/p&gt;
-
-&lt;p&gt;また、&lt;a href=&#34;http://lite.mst.edu/media/research/ctel/documents/LITE-2003-04.pdf&#34;&gt;Richard H. HallとPatrick Hannaの調査&lt;/a&gt;によれば、ポジティブテキスト（明るい背景で暗いテキスト）が、可読性のパフォーマンスが高いことが判明した。一方で、ネガティブテキスト（暗い背景で明るいテキスト）でも十分なコントラストがあれば、ポジティブテキストと同じくらい効率になる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.wadackel.me/2018/improve-design-and-refactor/&#34;&gt;ブログのダークモード対応とその他リファクタリングなど - wadackel.me&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;コントラストにおいては、&lt;a href=&#34;https://waic.jp/docs/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html&#34;&gt;WCAG 2.0&lt;/a&gt;によると&lt;code&gt;4.5 : 1&lt;/code&gt; のコントラスト比があればよいらしいので、本ブログでもリンクの色を修正した。&lt;/p&gt;
-
-&lt;h2 id=&#34;実装&#34;&gt;実装&lt;/h2&gt;
-
-&lt;p&gt;というわけで、ぼくも自分のブログをダークモード対応してみる。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://caniuse.com/#search=custom%20properties&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;当然だが、ライトモードとダークモードで２つの色のセットがある、セレクタ毎にそれらを指定していくのは大変苦労する。気づいたら2018年末、カスタムプロパティがほとんどのブラウザで対応している。やった！ということで、基本CSSでの色指定はカスタムプロパティを使用しモードの切替時に変数を上書きすることで、楽に管理できる。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://medium.com/@mwichary/dark-theme-in-a-day-3518dde2955a&#34;&gt;Dark theme in a day – Marcin Wichary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記のブログ主はHSL、色相（Hue）、彩度（Saturation）、輝度（Lightness)で色を管理している。色相を変数化することで、ダークモードでも複数のカラーパターンを実装している。なるほど、頭が良い。&lt;/p&gt;
-
-&lt;p&gt;しかし、私のブログは基本モノトーンなので、&lt;code&gt;#ddd&lt;/code&gt;とか&lt;code&gt;#eee&lt;/code&gt;といった似たようなグレーが無駄に多くあった。まず、それらを6種類のグレーに整理した。&lt;/p&gt;
-
-&lt;p&gt;また、&lt;a href=&#34;https://material.io/design/color/text-legibility.html#legibility-standards&#34;&gt;Material Design&lt;/a&gt;でも実装されているように、透明度を使ってグレーの濃淡を表現することにした。&lt;code&gt;#000000&lt;/code&gt; は真っ黒だが、白地(&lt;code&gt;#FFFFFF&lt;/code&gt;)の背景で、それの不透明度を60%にしたら、&lt;code&gt;#666666&lt;/code&gt;相当のグレーを表現できる。&lt;/p&gt;
-
-&lt;p&gt;このようにベースとなる色と不透明度を変数を使って別途管理したいのだけど、16進数だと使い勝手が悪い。&lt;code&gt;#00000060&lt;/code&gt;のようなアルファ値を含んだ&lt;a href=&#34;https://caniuse.com/#feat=css-rrggbbaa&#34;&gt;#rrggbbaa&lt;/a&gt;をサポートしているブラウザも増えているが、&lt;code&gt;&amp;quot;#000000&amp;quot;　+ &amp;quot;60&amp;quot;&lt;/code&gt;のように文字列結合をCSSファイルで実現するのは難しい。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt; {
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: rgba(&lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;rgb&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;surface), &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;alpha&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;-600&lt;/span&gt;));
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;background&lt;/span&gt;: rgb(&lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;rgb&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;background));
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;ということで、rgba関数であれば上記のように色と不透明度を別々にvar関数を展開できて便利。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;このように色指定を変数と不透明度を利用することで、ダークモード時は、&lt;code&gt;--rgb-surface&lt;/code&gt;の黒(0, 0, 0)を白(255, 255, 255)にするだけでほぼほぼ対応できる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あとは背景の色とかアクセントカラーとかを、お好みにあわせて変えるだけなので、カスタムプロパティ最高かよと思いました（小並感）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1130-03.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;今はSafari Technology Preview 68+だけの対応だけど、通常のSafariやChromeがサポートするようになったときに、購読してるブログがダークモード対応してたら、おっ！っとなるかもしれない。知らんけど( ˘ω˘)&lt;/p&gt;
 </description>
         </item>
         

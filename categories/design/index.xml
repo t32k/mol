@@ -5,10 +5,36 @@
     <link>https://t32k.me/mol/categories/design/</link>
     <description>Recent content in design on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 04 Jul 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/design/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>がんばらないデザインシステム</title>
+      <link>https://t32k.me/mol/log/adaptable-system/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/adaptable-system/</guid>
+      <description>TLDR: Material Designをカスタマイズして利用した話
+ 
+最近、デザインシステムって言葉よく聞きますよね。airbnbではDLSというデザインシステムを持っていたり、UberはBase Webというデザインシステムを持っていたり、アメリカ連邦政府も持ってたりします。国内のIT企業でもデザインシステムを作成しているとの事例もよく耳にします。
+デザインシステムとは？ 
+ デザインシステム：デザインの基準やドキュメント、原則に加えて、基準を達成するためのUIパターンやコンポーネントなどのツールキットをすべて備えたもの。
+デザインシステムの定義と作成方法、導入事例 | UX MILK
+ では、デザインシステムってのはどういったもんなんでしょうか？これまでも、スタイルガイドやコンポーネントライブラリといったものは聞いたことがありますが、デザインシステムというのはそれらも含めたもう少し大きなモノと個人的に考えています。
+「Design Systems」という、まさしくな書籍がありますが、その著者が調べたことによると、デザインシステムというのは以下の4つの要素を含んでいるのではないかと言っています。
+Design Systems
+デジタルプロダクトのためのデザインシステム実践ガイド アラ・コルマトヴァ (著), 佐藤伸哉 (監修), &amp; 1 その他 Amazon.co.jpで詳細を見る    デザイン原則 / Design Principles 認知パターン / Perceptual Patterns 機能パターン / Functional Patterns 共有言語 / Shared Language  デザイン原則というのはそのシステムのデザイン指針を表した短い言葉ですね、airbnbですと、UnifiedやConversationalといったものがデザイン原則として掲げています。
+認知パターンというのは、カラーやタイポグラフィといったブランドの認知に必要なものです。機能パターンは、ボタンやタブといったUIコンポーネントを指します。
+また共有言語というのは、例えば、そのアプリ・サイト内で一番目立つボタンを何というか？「プライマリーボタン」、「ビックボタン」名前はなんでも良いのですが、それと決めたら、デザイナーだけでなく、エンジニア・ビジネスサイドも同じ言葉で話が通じる状態のことを言います。
+そうゆうものを含んだデザインシステムを利用すると何が良いのでしょうか？
+ 市場に投入されるまでの時間が短縮される プラットフォームや製品をまたいでもUXが一貫する バージョン管理の問題が減る 協力とコミュニケーションが簡単になる  メリットいっぱいですね。というわけで、弊社でもデザインシステム作りたいです。
+Material Designとは？ 正確には、上長から「ちょっと、デザインシステム作ってよ」と言われたのですが、調べてみると、そのUIを実装するためのコードも用意してあったりと、とうていデザイナー１人で作れるようなものではない。事実、デザインシステムまわりでは、DevOpsにちなんでDesignOpsエンジニアなんて職種もあるとか。
+それならば、すでにあるものを利用してしまうということで、Material Designについて説明します。
+
+Googleさんが作っているデザインシステムですね。良さそうです。カスタマイズ可能ということで、Material Theme EditorというSketchのプラグインを公式で配布しております。</description>
+    </item>
     
     <item>
       <title>マイクロインタラクション事始め以前</title>
