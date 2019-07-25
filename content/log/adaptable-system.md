@@ -5,7 +5,7 @@ subtitle: Material is an adaptable system.
 categories: 
     - design
 excerpt: Material Designをカスタマイズして利用した話
-ogimage: https://t32k.me/mol/images/2019/0723/06.png
+ogimage: https://t32k.me/mol/images/2019/0723/ogp.png
 ---
 
 > **TLDR**: Material Designをカスタマイズして利用した話
@@ -136,9 +136,9 @@ Material Designベースで作成する最大のメリットと言ってもい�
 
 ---
 
-このようにMaterial Designベースのデザインシステムを採用することで、デザイナーもエンジニアも、UIからコードまで一貫した恩恵を得られることができます。
+このようにMaterial Designベースのデザインシステムを採用することで、デザイナー・エンジニアも、UIからコードまで一貫した恩恵を得られることができます。
 
-というわけで、取っ掛かり的にはいいんじゃないでしょうか。
+というわけで、あんまり最初から気負いすぎるのもアレなので、がんばらない程度に取っ掛かりにはいいんじゃないでしょうか。
 
 
 
