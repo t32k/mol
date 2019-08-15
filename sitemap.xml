@@ -5,11 +5,13 @@
   <url>
     <loc>https://t32k.me/mol/log/</loc>
     <lastmod>2019-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
     <lastmod>2019-08-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -20,11 +22,13 @@
   <url>
     <loc>https://t32k.me/mol/categories/</loc>
     <lastmod>2019-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/categories/design/</loc>
     <lastmod>2019-07-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -35,6 +39,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/books/</loc>
     <lastmod>2019-07-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -50,6 +55,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/css/</loc>
     <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -90,11 +96,13 @@
   <url>
     <loc>https://t32k.me/mol/categories/blog/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/categories/trekking/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -103,13 +111,14 @@
   </url>
   
   <url>
-    <loc>https://t32k.me/mol/categories/gadget/</loc>
+    <loc>https://t32k.me/mol/log/sony-wh-1000xm3/</loc>
     <lastmod>2018-12-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://t32k.me/mol/log/sony-wh-1000xm3/</loc>
+    <loc>https://t32k.me/mol/categories/gadget/</loc>
     <lastmod>2018-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -128,13 +137,14 @@
   </url>
   
   <url>
-    <loc>https://t32k.me/mol/categories/development/</loc>
+    <loc>https://t32k.me/mol/log/dive-into-the-dark-side/</loc>
     <lastmod>2018-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://t32k.me/mol/log/dive-into-the-dark-side/</loc>
+    <loc>https://t32k.me/mol/categories/development/</loc>
     <lastmod>2018-11-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -245,6 +255,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/trip/</loc>
     <lastmod>2017-12-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -455,6 +466,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/analytics/</loc>
     <lastmod>2016-10-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -640,6 +652,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/coffee/</loc>
     <lastmod>2016-02-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -780,6 +793,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/translation/</loc>
     <lastmod>2015-05-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -1010,6 +1024,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/performance/</loc>
     <lastmod>2014-01-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -1040,6 +1055,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/report/</loc>
     <lastmod>2013-12-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -1360,6 +1376,7 @@
   <url>
     <loc>https://t32k.me/mol/categories/javascript/</loc>
     <lastmod>2010-12-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -1979,6 +1996,7 @@
   
   <url>
     <loc>https://t32k.me/mol/tags/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

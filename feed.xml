@@ -9,12 +9,939 @@
         <updated>Thu, 15 Aug 2019 00:00:00 UTC</updated>
         
         <item>
-            <title>Logs</title>
-            <link>https://t32k.me/mol/log/</link>
+            <title>黒い純正キーボードがほしい（2019）</title>
+            <link>https://t32k.me/mol/log/satechi-aluminum-slim-wireless-keyboard/</link>
             <pubDate>Thu, 15 Aug 2019 00:00:00 UTC</pubDate>
             
-            <guid>https://t32k.me/mol/log/</guid>
-            <description></description>
+            <guid>https://t32k.me/mol/log/satechi-aluminum-slim-wireless-keyboard/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0815/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近、iMac(2019)を購入し、これを機にケーブル・周辺機器を黒色で統一したい欲に駆られている。当然のことながらiMac Proを購入するという選択肢はなく、アクセサリだけ別途購入した。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07CYDPHLG/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/515AsvvBE3L._SL1024_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Apple Magic Keyboard&lt;br&gt;(テンキー付き)- 英語(US) - スペースグレイ&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Apple(アップル)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;黒色（スペースグレイ）のMagic Keyboardはテンキー付きのものしかなくて、案の定長い。そもそもテンキーなんぞものは使わないので、文字通り無用の長物。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0815/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Magic Keyboard&lt;/li&gt;
+&lt;li&gt;Satechi Keyboard&lt;/li&gt;
+&lt;li&gt;Magic Keyboard（テンキー付き）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;画像上から、こんなかんじ。やっぱり白キーボードは短くてコンパクト。一度はテンキー付きの黒キーボードを購入して使用してみたものの、どうもマウスまで手をのばすのが辛い感じなってしまって、返品することにした。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07CPFHSVB/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/81Kwlb2fPzL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Satechi アルミニウム Bluetooth スリム ワイヤレス キーボード&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Satechi&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;そうゆうわけで、Mac風な周辺機器を出しているSatechiのキーボードを購入した。こちらもテンキーは付いているが、Magic Keyboardのそれよりもギュッと詰まっているので短い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0815/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;横から見るとこんな感じ。さすがにMagic Keyboardの高級感には及ばないが及第点はあるだろうか。キーストロークが純正よりも深いが許容範囲である。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0815/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いろいろ妥協した感が否めないが、ひとまず満足である。ただ、スペースグレイ、テンキーレスのMagic Keyboardが出たら真っ先に買うことだろう。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>がんばらないデザインシステム</title>
+            <link>https://t32k.me/mol/log/adaptable-system/</link>
+            <pubDate>Wed, 24 Jul 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/adaptable-system/</guid>
+            <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: Material Designをカスタマイズして利用した話&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://airbnb.design/the-way-we-build/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/01.png&#34; alt=&#34;The Way We Build&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近、&lt;strong&gt;デザインシステム&lt;/strong&gt;って言葉よく聞きますよね。airbnbではDLSというデザインシステムを持っていたり、Uberは&lt;a href=&#34;https://eng.uber.com/introducing-base-web/&#34;&gt;Base Web&lt;/a&gt;というデザインシステムを持っていたり、&lt;a href=&#34;https://www.catapultsuplex.com/entry/building-a-large-scale-design-system&#34;&gt;アメリカ連邦政府&lt;/a&gt;も持ってたりします。国内のIT企業でもデザインシステムを作成しているとの事例もよく耳にします。&lt;/p&gt;
+
+&lt;h2 id=&#34;デザインシステムとは&#34;&gt;デザインシステムとは？&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blog.prototypr.io/pattern-library-style-guides-design-systems-do-you-need-one-b7857af0f255&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/02.png&#34; alt=&#34;Design Systems&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;デザインシステム&lt;/strong&gt;：デザインの基準やドキュメント、原則に加えて、基準を達成するためのUIパターンやコンポーネントなどのツールキットをすべて備えたもの。&lt;br /&gt;
+&lt;a href=&#34;https://uxmilk.jp/72387&#34;&gt;デザインシステムの定義と作成方法、導入事例 | UX MILK&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;では、デザインシステムってのはどういったもんなんでしょうか？これまでも、スタイルガイドやコンポーネントライブラリといったものは聞いたことがありますが、デザインシステムというのはそれらも含めたもう少し大きなモノと個人的に考えています。&lt;/p&gt;
+
+&lt;p&gt;「Design Systems」という、まさしくな書籍がありますが、その著者が調べたことによると、デザインシステムというのは以下の4つの要素を含んでいるのではないかと言っています。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4862464122/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51s1RuZ1xiL._SX353_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Design Systems&lt;br&gt;デジタルプロダクトのためのデザインシステム実践ガイド&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;アラ・コルマトヴァ (著), 佐藤伸哉  (監修), &amp; 1 その他&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デザイン原則 / Design Principles&lt;/li&gt;
+&lt;li&gt;認知パターン / Perceptual Patterns&lt;/li&gt;
+&lt;li&gt;機能パターン / Functional Patterns&lt;/li&gt;
+&lt;li&gt;共有言語 / Shared Language&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;デザイン原則というのはそのシステムのデザイン指針を表した短い言葉ですね、airbnbですと、&lt;strong&gt;Unified&lt;/strong&gt;や&lt;strong&gt;Conversational&lt;/strong&gt;といったものがデザイン原則として掲げています。&lt;/p&gt;
+
+&lt;p&gt;認知パターンというのは、カラーやタイポグラフィといったブランドの認知に必要なものです。機能パターンは、ボタンやタブといったUIコンポーネントを指します。&lt;/p&gt;
+
+&lt;p&gt;また共有言語というのは、例えば、そのアプリ・サイト内で一番目立つボタンを何というか？「プライマリーボタン」、「ビックボタン」名前はなんでも良いのですが、それと決めたら、デザイナーだけでなく、エンジニア・ビジネスサイドも同じ言葉で話が通じる状態のことを言います。&lt;/p&gt;
+
+&lt;p&gt;そうゆうものを含んだデザインシステムを利用すると何が良いのでしょうか？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;市場に投入されるまでの時間が短縮される&lt;/li&gt;
+&lt;li&gt;プラットフォームや製品をまたいでもUXが一貫する&lt;/li&gt;
+&lt;li&gt;バージョン管理の問題が減る&lt;/li&gt;
+&lt;li&gt;協力とコミュニケーションが簡単になる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メリットいっぱいですね。というわけで、弊社でもデザインシステム作りたいです。&lt;/p&gt;
+
+&lt;h2 id=&#34;material-designとは&#34;&gt;Material Designとは？&lt;/h2&gt;
+
+&lt;p&gt;正確には上長から「ちょっと、デザインシステム作ってよ」と言われたのですが、調べてみると、UIを実装するためのコードも用意してあったりと、とうていデザイナー１人で作れるようなものではないです。事実、デザインシステムまわりではDevOpsにちなんで&lt;a href=&#34;https://www.designbetter.co/designops-handbook&#34;&gt;DesignOps&lt;/a&gt;エンジニアなんて職種もあるとか。&lt;/p&gt;
+
+&lt;p&gt;それならば、すでにあるものを利用しよう！ということで、Material Designについて説明します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://material.io/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/03.png&#34; alt=&#34;Material Design&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Googleさんが作っているデザインシステムですね。良さそうです。カスタマイズ可能ということで、&lt;a href=&#34;https://material.io/tools/theme-editor/&#34;&gt;Material Theme Editor&lt;/a&gt;というSketchのプラグインを公式で配布しております。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/IaT4wdWTwuo&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Themeについては今年のGoogle IOで良いセッションがありました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/04.png&#34; alt=&#34;Material Theming: Build Expressively with Material Components 01&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;どうせTheme Editorで作るもんなんて、どれも色違いの金太郎アメみたいなもんでしょ？と思われるかもしれません。たしかに、そういった事例が多くありました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/05.png&#34; alt=&#34;Material Theming: Build Expressively with Material Components 02&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;でも、Theme Editorうまく使えば、&lt;a href=&#34;https://material.io/design/material-studies/about-our-material-studies.html#usage&#34;&gt;上記のような&lt;/a&gt;ユニークなUIのアプリを作成可能です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/06.png&#34; alt=&#34;Material Theming: Build Expressively with Material Components 03&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;結局のところ、重要なパラメーターというのは3つしかありません。タイポグラフィとシェイプと色をうまく組み合わせれば、差別化というのは可能なのです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/07.png&#34; alt=&#34;Theme Editor&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;もちろん、Sketchのプラグインでこれらのパラメーター変更可能で、変更すると即座に数百のコンポーネントに適用され利用可能です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/08.png&#34; alt=&#34;Sketch&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;wとは&#34;&gt;Wとは？&lt;/h2&gt;
+
+&lt;p&gt;というわけで、Material Theme Editorを利用すれば、弊社オリジナルのデザインシステムが作れそうです。&lt;/p&gt;
+
+&lt;p&gt;弊社の業務内容的に、既にプロダクションで稼働しているサービスを開発・運用しているわといったわけでなく、さまざまなプロジェクトでPoC検証のモックアップを作ることが多いです。というわけで、このプロトタイプのためのデザインシステムが必要とされています。&lt;/p&gt;
+
+&lt;p&gt;ブランドコンセプトなど固まってない、とりあえず動かしてみまひょか？という段階なので、毎回、色をどうするか？とかボタンの形状をどうするか？とか、そうゆうことで迷っていても仕方がないのです。どのPoC検証プロジェクトも同じデザインシステムで作成すれば、前述のようなメリットがあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;design-principles&#34;&gt;Design Principles&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最小表現で作る&lt;/li&gt;
+&lt;li&gt;最短時間で作る&lt;/li&gt;
+&lt;li&gt;最小コストで作る&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そうゆうわけで、このプロトタイプのためのデザインシステムの原則というものも弊CXOに考えてもらいました。&lt;/p&gt;
+
+&lt;p&gt;はい、この原則をまっとうできるよう、がんばります。&lt;/p&gt;
+
+&lt;h3 id=&#34;perceptual-patterns&#34;&gt;Perceptual Patterns&lt;/h3&gt;
+
+&lt;p&gt;弊社では、デザインツールはSketchではなく、Figmaを使用してるので、一回SketchのMaterial Theme Editorで作成したファイルを移行しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/09.png&#34; alt=&#34;Perceptual Patterns&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;認知パターンに関しては、Figmaに&lt;a href=&#34;https://help.figma.com/article/187-styles-managing-and-sharing-styles&#34;&gt;Shared Style&lt;/a&gt;という機能があるので、これで共有しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;functional-patterns&#34;&gt;Functional Patterns&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/10.png&#34; alt=&#34;Functional Patterns&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;機能パターンに関しては、とりあえずプロジェクト毎に必要になったらコンポーネントを追加していくっていう方向でやっているので今のところ少ないです。元の生成されたSketchファイル見ると分かるのですが、ほんと職人芸のような複雑なコンポーネントになっていて、ちょっと理解できないし、私たちの使用目的からみれば、オーバースペックなので。&lt;/p&gt;
+
+&lt;h2 id=&#34;shared-language&#34;&gt;Shared Language&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://material.io/develop/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/11.png&#34; alt=&#34;Shared Language&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Material Designベースで作成する最大のメリットと言ってもいいのは、そのUIを実装するためのフレームワークが用意されていることです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/12.png&#34; alt=&#34;MDC Web 1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;例えば、Webで言えば、&lt;a href=&#34;https://github.com/material-components/material-components-web&#34;&gt;Material Components for Web&lt;/a&gt;のJSとCSSを読み込んで、&lt;code&gt;mdc-button&lt;/code&gt;というclass属性を与えるだけで、マテリアルデザインの見た目のボタンを作成することができます。一行もスタイルを実装するためのCSS書いてません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0723/13.png&#34; alt=&#34;MDC Web 2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;また、われわれのデザインシステムは青基調としていてフォントもNoto Sans JPを使用しています。この変更に対応をするには、Sassの変数を変更する必要があります。ここでも色とタイポグラフィとシェイプの変数を変えるだけです（実際はもっと多くの変数がありカスタマイズ可能）。&lt;/p&gt;
+
+&lt;p&gt;このようなデザイントークンは一つのファイルにまとめて、&lt;a href=&#34;https://github.com/salesforce-ux/theo&#34;&gt;Theo&lt;/a&gt;というツールで各プラットフォーム向けにエクスポートすることも可能です（FigmaでやってるのでAPIで変更感知して自動ビルドしたい&amp;hellip;）。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;このようにMaterial Designベースのデザインシステムを採用することで、デザイナー・エンジニアも、UIからコードまで一貫した恩恵を得られることができます。&lt;/p&gt;
+
+&lt;p&gt;というわけで、あんまり最初から気負いすぎるのもアレなので、がんばらない程度に取っ掛かりにはいいんじゃないでしょうか。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ＥＡＴ＆ＲＵＮ</title>
+            <link>https://t32k.me/mol/log/978-4140815861-eat-and-run/</link>
+            <pubDate>Sun, 14 Jul 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4140815861-eat-and-run/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4140815868/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/512-Whv8YWL._SX343_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;EAT&amp;RUN 100マイルを走る僕の旅&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;スコット・ジュレク (著), スティーヴ・フリードマン (著), 小原 久典 (翻訳)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;最近、2回目のマラソンを走って自己ベストを更新しウキウキだったので、さらなるモチベーションアップのために本書を手にとった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.wser.org/&#34;&gt;The Western States Endurance Run&lt;/a&gt;で7連覇するなので伝説のウルトラランナー、スコット・ジュレク氏の著書。&lt;/p&gt;
+
+&lt;p&gt;そういえば、Netflixで視聴した「&lt;a href=&#34;https://www.redbull.com/jp-ja/karl-meltzer-appalachian-trail&#34;&gt;カール・メルツァー: スピードヤギの挑戦&lt;/a&gt;」でアパラチアン・トレイルの約3500キロで新記録を達成するんだけど、以前の記録保持者が、このスコット・ジュレク氏でもある。カール・メルツァーはアパラチアン・トレイルで疲れた時、ピザとかこってりしたカロリーのあるものを食べてて美味そうだなと見てて思ったけど、この人の場合はヴィーガンである。&lt;/p&gt;
+
+&lt;p&gt;100マイル（160km）のレース、しかも山の中を駆け上がるトレイルなのでめちゃくちゃカロリーを消費する中で、野菜だけで事足りるのか？と真っ先に思いつく疑問に本書は答えてくれる。EAT&amp;amp;RUNというタイトルどおり、いかに食べるものが大事か、ヴィーガン用のレシピも紹介している。&lt;/p&gt;
+
+&lt;p&gt;以前読んだ&lt;a href=&#34;https://t32k.me/mol/mol/log/978-4799311295-ultramarathon/&#34;&gt;ウルトラマラソンマン&lt;/a&gt;のディーン・カーナゼスは、ロードランナーを機械みたいに正確で面白くない、その点トレイルは自然の中を自由に駆け巡るから好きなんだ、ということを言っていたが、この人の場合ロードランナーのように用意周到で緻密なのに、ウルトラはそれだけで勝てないことを知っていて、勝ちたいという貪欲なガッツも持っているのが、この人の強さなんだろうなと読んでいて理解した。&lt;/p&gt;
+
+&lt;p&gt;自分も1回目のマラソンより2回目のほうがいくぶんか楽に走れた（歩いたけど）ので、あと何回か完走したら、今度は距離を伸ばして100km、100マイルと挑戦してみたいという気持ちが読んでいてこみ上げてきた(走ってるときは走るの止めたいと常に思ってるのに不思議だ)。&lt;/p&gt;
+
+&lt;p&gt;ここに出てくるようなウルトラランナーはやりすぎな感じだが、まぁ食べるものを気をつけて、&lt;strong&gt;適度な&lt;/strong&gt;運動することは健康的な人生を送るうえで必要だな感じた。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>サブスクリプション</title>
+            <link>https://t32k.me/mol/log/978-4478105528-subscribed/</link>
+            <pubDate>Tue, 11 Jun 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4478105528-subscribed/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4478105529/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41S9BEsoOFL._SX344_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;サブスクリプション&lt;br&gt;顧客の成功が収益を生む新時代のビジネスモデル&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ティエン・ツォ (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;最近、サブスクリプションサービスを提供する企業が多くなった。Amazon Primeで商品を配達してもらい、Netflixで映画・ドラマを見、Spotifyで音楽を聞くといったように、自分もいくつかのサービスを定期購読している。&lt;/p&gt;
+
+&lt;p&gt;本書の著者は、SaaSの雄Salesforceの創業期から参加して、自らもSaaS企業を立ち上げたZuora CEOのティエン・ツォ氏。前半の第一部はサブスクリプション経営に移行しているさまざまな業種・業界を解説。後半の第二部はサブスクリプション経営をするための考え方や戦略を解説している。&lt;/p&gt;
+
+&lt;p&gt;昔、Kaizen Platform(デザインリソースのSaaS)で働いてたとき「壁に棚を付けたいと思ったとき、ほしいのは電動ドリルじゃない。穴だ。」という話をよく聞かされた。結局、サブスクリプションというのは、モノや道具を売るというのではなくて、結果の共有なんだと本書を読んで改めて感じた。&lt;/p&gt;
+
+&lt;p&gt;物理的なモノを売ってしまえばそれで終わりだが、SaaS（Software as a Service)として提供しているのであれば、デジタル上でユーザーの行動がすべて把握することができる。ユーザーがなににひっかかっているのか、不満に思っているのか、これまでの経営では分からなかったことがより正確に知ることになり、サービスの改善につながる。カスタマーサポートがカスタマーサクセスと呼ばれるようになったのも継続的なサポートが顧客のサクセスにつながるのに重要な要因となっている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;サブスクリプション・サービスにおいては、必要なすべてのインサイトが自社のシステムの中に存在している&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;サブスクリプション経営をするからといって、万事安泰というわけではない。サブスクリション企業ならではの悩みがつきまとう。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;会員にとって、この新しいサービスの価値は何か？&lt;/li&gt;
+&lt;li&gt;会員は私たちが提供しようとしているようなサポートを受けているか？&lt;/li&gt;
+&lt;li&gt;会員はいつまで会員であり続けてくれるのか？&lt;/li&gt;
+&lt;li&gt;わが社の成長率はどうなるのか？外からはどう見えるのか？&lt;/li&gt;
+&lt;li&gt;利用状態のどこを見れば、どこにリソースを重点配分すればよいかわかるのか？&lt;/li&gt;
+&lt;li&gt;どの会員がチャーン（解約・離脱）しそうか？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;特に、この&lt;strong&gt;チャーン&lt;/strong&gt;という言葉は先の企業にいたときによく聞いたものだ。みんなチャーン、チャーン言ってて最初はなんか可愛らしいなと思ったけど、要は解約の話だ。穴の空いたバケツにいくら水を注いでもたまらないと同じことである。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0611.png&#34; alt=&#34;損益計算書&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;チャーンレートを低く抑えなければ、企業は利益を得られない。&lt;/p&gt;
+
+&lt;p&gt;そこで、Zuoraでは企業にサブスクリプション文化を根付かせるために&lt;strong&gt;PADRE&lt;/strong&gt;というフレームワークを開発した。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;パイプライン（Pipeline）：ウェブとソーシャルメディア、PRなど&lt;/li&gt;
+&lt;li&gt;獲得（Acquire）：営業チーム、セルフサービス&lt;/li&gt;
+&lt;li&gt;導入（Diploy）：実装・導入、カスタマートレーニング&lt;/li&gt;
+&lt;li&gt;利用（Run）：アカウント管理、テクニカルサポート&lt;/li&gt;
+&lt;li&gt;拡大（Expand）：アップセル、クロスセル、カスタマーエバンジェリズ1.&lt;/li&gt;
+&lt;li&gt;人材（People）：採用と研修、キャリア開発&lt;/li&gt;
+&lt;li&gt;製品（Product）：研究開発、ベータ版イノベーション&lt;/li&gt;
+&lt;li&gt;資金（Money）：財務、法務&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;サブスクリプション経営は従来のようなモノを売るだけの経営とは異なる。それを社員全員が一人ひとりが意識しなければ成功に近づけないので、こういったフレームワークが必要になる。&lt;/p&gt;
+
+&lt;p&gt;当たり前だけど、じゃすべてのサービスをサブスクリション化すればよいわけでもない。経営する側も、利用する側もまだまだ理解が必要だなと感じた。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>display=swapとはなにか</title>
+            <link>https://t32k.me/mol/log/font-display-swap/</link>
+            <pubDate>Fri, 17 May 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/font-display-swap/</guid>
+            <description>
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Shipped! &lt;a href=&#34;https://twitter.com/googlefonts?ref_src=twsrc%5Etfw&#34;&gt;@GoogleFonts&lt;/a&gt; now let&amp;#39;s you control web font loading using &lt;code&gt;font-display&lt;/code&gt;. Say hello to the &lt;code&gt;display&lt;/code&gt; parameter 🎉&lt;br&gt;&lt;br&gt;What&amp;#39;s font-display? &lt;a href=&#34;https://t.co/Q7RDeESwkm&#34;&gt;https://t.co/Q7RDeESwkm&lt;/a&gt; &lt;a href=&#34;https://t.co/sn27ySza1B&#34;&gt;pic.twitter.com/sn27ySza1B&lt;/a&gt;&lt;/p&gt;&amp;mdash; Addy Osmani (@addyosmani) &lt;a href=&#34;https://twitter.com/addyosmani/status/1128548064287952896?ref_src=twsrc%5Etfw&#34;&gt;May 15, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=YJGCZCaIZkQ&#34;&gt;Google I/0 2019&lt;/a&gt;に参加してきたのだが、&lt;a href=&#34;https://fonts.google.com/&#34;&gt;Google Fonts&lt;/a&gt;が&lt;code&gt;font-display: swap;&lt;/code&gt;に対応するとかで盛り上がってるのを横目で見てた（5/15の時点で対応済とのこと）。&lt;/p&gt;
+
+&lt;p&gt;最近はCSSもなにもコードを書いていないので、世間に疎くて困るのでリハビリする。&lt;/p&gt;
+
+&lt;h2 id=&#34;the-font-display-timeline&#34;&gt;The font display timeline&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0517-00.png&#34; alt=&#34;&#34; /&gt;
+図出典：&lt;a href=&#34;https://font-display.glitch.me/&#34;&gt;Font-display playground&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;例えば、&lt;strong&gt;Roboto&lt;/strong&gt;フォントがローカルシステムにないとき、ブラウザはテキストを不可視代替フォントで描画する（つまり何も読めない）。これを&lt;strong&gt;ブロック期&lt;/strong&gt;という。&lt;/p&gt;
+
+&lt;p&gt;次に&lt;strong&gt;スワップ期&lt;/strong&gt;という
+ローカルにある代替フォントで描画する段階に移るのだが、この時テキストが何も表示されない状態が見えてしまうので、これを&lt;strong&gt;FOIT(Flash of Invisible Text)&lt;/strong&gt;という。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Roboto&lt;/strong&gt;が読み込まれていれば、すぐさまそのフォントにスワップするという算段だ。またこのとき、代替フォントからWebフォントに切り替わるので、&lt;strong&gt;FOUT(Flash of Unstyled Text)&lt;/strong&gt;という現象が起きる。&lt;/p&gt;
+
+&lt;p&gt;もし、Webフォントが読み込みに失敗すれば、それは&lt;strong&gt;失敗期&lt;/strong&gt;という段階で、以後そのまま代替フォントを使用したままになる。&lt;/p&gt;
+
+&lt;h2 id=&#34;css-font-rendering-controls&#34;&gt;CSS font-rendering controls&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://caniuse.com/#search=font-display&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0517-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この段階をコントロールするのが、&lt;code&gt;font-diplay&lt;/code&gt;プロパティで、&lt;code&gt;@font-face&lt;/code&gt;内に記述する。Linkタグで読みこむGoogle Fontsはこの部分の記述をカスタマイズできなかったが、今回の発表の&lt;code&gt;display=swap&lt;/code&gt;のようにURLパラメーターで指定できるようになった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://fonts.googleapis.com/css?family=Roboto&amp;amp;display=swap
+
+@font-face {
+  font-family: &#39;Roboto&#39;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;  /* display=swapの設定 */
+  src: local(&#39;Roboto&#39;)....
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-text-rendering-delay&#34;&gt;The text rendering delay&lt;/h2&gt;
+
+&lt;p&gt;では、&lt;code&gt;font-diplay&lt;/code&gt;を指定しなかった場合は、どうなっていたのだろうか。値は&lt;code&gt;auto&lt;/code&gt;となり、各ブラウザの挙動に任せられるのだが、Ilya Grigorik大先生によると下記のような状況とのこと。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0517-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;図出典：&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ja#_9&#34;&gt;ウェブフォントの最適化 | Web Fundamentals | Google Developers &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大方のブラウザは3秒をタイムアウトに設定している。つまり、Webフォントの読み込みに3秒以上かかれば、テキストが表示されない状態（ブロック期）が3秒も続くということだ。&lt;/p&gt;
+
+&lt;p&gt;これでは文章が読めなくて困るので、&lt;code&gt;font-display: swap;&lt;/code&gt;にすることで、ブロック期を0秒にできる。ブロック期がない最初からスワップ期なので、ローカルにある代替フォントで表示してくれる。つまり、読める、読めるぞ、文章が！&lt;/p&gt;
+
+&lt;p&gt;だいたいの場合において、この指定はよいと思われる。特に当ブログでは日本語フォントである&lt;strong&gt;Noto Sans JP&lt;/strong&gt;をGoogle Fontsから読み込んでいるので、ダウンロードに多くの時間を必要とするだろうし、その間、ブログの文章が読めないというのはクリティカルだ。&lt;/p&gt;
+
+&lt;p&gt;ただ、代替フォントからWebフォントに切り替わるときのFOUTのちらつきはいかんせん起きてしまう。FOUTが嫌な場合は&lt;code&gt;font-display: optional;&lt;/code&gt;を指定するのも良いだろう。これを指定すると非常に短いブロック期（ほとんどの場合100ms以下が推奨）の後に、スワップ期が0秒になる。つまり、100msくらいでWebフォントを読み込めなければ、そのまま代替フォントで表示したままになる。まぁ、FOITを最小限に防ぎつつ、Webフォントがあればよいといった感じかな。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://fonts.googleapis.com/css?family=Roboto&amp;amp;display=optional
+
+@font-face {
+  font-family: &#39;Roboto&#39;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;  /* display=optionalの設定 */
+  src: local(&#39;Roboto&#39;)....
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もちろん、Google FontsのURLパラメータを&lt;code&gt;optional&lt;/code&gt;に変更すれば対応してくれる。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、良いリハビリになった( ˘ω˘)&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ブチ抜く力</title>
+            <link>https://t32k.me/mol/log/978-4594079437-yozawa/</link>
+            <pubDate>Wed, 01 May 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4594079437-yozawa/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4594079431/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51UiaQcwO0L._SX333_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ブチ抜く力&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;与沢翼 (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;Amazonで評価が高かったので購入してみた。ご存知の”秒速の男”さんの著書。正直言って、この人は情報商材で儲けたうさんくさい人のイメージしかなくて、興味がなかったのだけど、去年の夏くらいにダイエットの経過報告をTwitterでつぶやいているのをリアルタイムで見ていて、そしてみるみる痩せていって、すごい人だと見直した。&lt;/p&gt;
+
+&lt;p&gt;本書では、そのダイエットや仮想通貨で儲けた話を軸に与沢氏の哲学について説明している。要はブチ抜く力が必要で、人と一緒にならないためにどう最短で差別化するかについて持論を述べている。&lt;/p&gt;
+
+&lt;p&gt;例えば、先述のダイエットの件も『1年で10kg痩せます！』と言っても、あーすごいね（棒）、がんばってね、という反応になるが、『1ヶ月で10kg痩せます！』と言えば、いやーそれは無理でしょ？健康に悪いでしょ？などのいろいろなリアクションをもらうことになる。言うだけなら誰でもできるが、実行してしまうのが与沢氏の凄さだ。&lt;/p&gt;
+
+&lt;p&gt;一見、無理そうな短期目標だが、長期目標に比べて集中する時間が短くて済むというメリットもある。1ヶ月目で1kgも痩せれなくても残りの11ヶ月で挽回する！といったように言い訳（逃げ）ができてしまうので、そういったものを断つためにも短期目標で全力で頑張るほうが著者の性に合っているそうだ。&lt;/p&gt;
+
+&lt;p&gt;なるほど、理にかなっている気がする。ただ、ここだけ聞くと単細胞的な努力・根性のみでやってのける印象だが、仮想通貨のときで言えば、Rippleに1億近く投資して、27億になったのが実績なのだが、その前にFactomや他の仮想通貨で小口のお金を投資して痛い目にあっているのも事実なのだ。小さくはじめて、確信を持てたら一気にアクセルを踏むのも与沢流である。&lt;/p&gt;
+
+&lt;p&gt;そもそも、ネオヒルズ族と呼ばれた頃から一文無しになったりと何度も事業で失敗して、その度に学習をし立ち上がってくる様が、彼の魅力なんだろうなと思った。&lt;/p&gt;
+
+&lt;p&gt;ブチ抜くためには相当の覚悟や努力が必要だが、だからこそ、それをやっている様に感化される。GWボケしている中、よい刺激をもらった。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Design Systems</title>
+            <link>https://t32k.me/mol/log/978-4862464125-design-system/</link>
+            <pubDate>Thu, 14 Feb 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4862464125-design-system/</guid>
+            <description>
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4862464122/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51s1RuZ1xiL._SX353_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;Design Systems&lt;br&gt;デジタルプロダクトのためのデザインシステム実践ガイド&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;アラ・コルマトヴァ (著), 佐藤伸哉  (監修), &amp; 1 その他&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;私のキャリアのはじめはWebデザイナーだった。Webデザイナーと言っても簡単なHTML/CSSコーディングもするデザイナーだった。というわけで、自分が作ったUIカンプを自分でコーディングするのだが、どうしてもデザインしているときに後々のコーディング工程を意識してしまうので、できるかぎり角丸は避けたり（当時はCSSのborder-radiusなどなかった）していた。でも世の中的にはWeb 2.0の丸っこいアクアボタンが流行ってたときだ。こうゆうのはよくないなと思いつつも、納期との兼ね合いだったり、いろいろ妥協せざるを得なかった。&lt;/p&gt;
+
+&lt;p&gt;時が経ちフロントエンドエンジニアになった私は、ここで初めてUIデザイナーと分業に入るわけだが、デザイナーからあがってくる無限に増殖するボタンであったり、無限に増殖するカラバリに苦悩する。当時はコーディング都合でUIのクリエイティビティも阻害してはいけないと思っていたが、それでプロダクトのパフォーマンスが低下したら元も子もない。現状の環境においての妥協・最適解を見つけなければならない。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、個人的にCSSフレームワークを探求する日々が続いた。デザイナーの要望をできる限り受け止めつつも、スパゲッティなコードにならない・破綻しない、そんなフレームワークを探していたが、そんなものはなかった。&lt;/p&gt;
+
+&lt;p&gt;また時は経ち、今度はデザイナー側からデザインシステムという単語を聞くようになった。結局それなんてBootstrapよ？と思ってたけど、本書を読み、いくぶんか理解した。デザインシステムの構成要素は以下の通り。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デザイン原則 / Design Principles&lt;/li&gt;
+&lt;li&gt;機能パターン / Functional Patterns&lt;/li&gt;
+&lt;li&gt;認知パターン / Perceptual Patterns&lt;/li&gt;
+&lt;li&gt;共有言語 / Shared Language&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;デザイン原則はそのシステムまたはカルチャーを表す短い文章や単語のことで、Pinterestの場合、『&lt;a href=&#34;https://medium.com/@suprb/redesigning-pinterest-block-by-block-6040a00d80a3&#34;&gt;明快・活気・壊れない&lt;/a&gt;』だそうだ。こうした原則をもとに次のデザインパターンを作成していく。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0214.png&#34; alt=&#34;&#34; /&gt;
+&lt;small&gt;（MDとiOSではSteppersという同じ名前のコンポーネントでも機能は違う）&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;機能パターンは、カードやボタン・スライドショーといった、いわゆるUIコンポーネントのことを指す。認知パターンはカラーやタイポグラフィなどスタイルのこと。そして最後にチーム内での共有言語。例えば、アプリ内で特に目立つボタンをなんと呼ぶのか、『プライマリーボタン』『ビッグボタン』呼び方自体はなんでもいいが、それをデザイナー・エンジニア全員が共有しておく必要がある。&lt;/p&gt;
+
+&lt;p&gt;結局、フロントエンドエンジニアである私が頑張っていた領域というのは機能・認知パターンだけだったのだ。それもUIカンプからエンジニアが抽出したパターンにエンジニアが命名してできたUIフレームワークなどデザイナーには関心がなかったことだろう。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、システムは一人で作れない。プロダクトに関わる全員が関心をもって取り組まなければならない。そうでないとすぐさまメンテもされず廃れていくことだろう。そうならないためにも、みんなでレビューするシステムだったり、いつでもUIコンポーネントを試せるプレイグラウンドであったり、デザインシステムをメンテナンスするシステムが必要になってくるだろう。&lt;/p&gt;
+
+&lt;p&gt;最近では、DevOpsにちなんで&lt;a href=&#34;https://airbnb.design/designops-airbnb/&#34;&gt;DesignOps&lt;/a&gt;という言葉も聞く。Airbnbにはデザインオペレーションチームが存在し、各スペシャリストをつなぐ仕事をしている。これはAirbnbみたいなでっかい会社だからできることであるだろう。数人で開発してるようなスタートアップでのデザイン・システム導入は現実的ではない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yasuhisa.com/could/article/start-with-principles/&#34;&gt;デザインシステムの最初の一歩として原則を作る理由 : could&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最初から大層なデザイン・システムを作ろうとしなくてもよい。上記事のようにデザイン原則だけでも最初に決めておくのは良いことだろう。それがアンカーとなりデザイナー・エンジニアの共通理解となる。要は全員の目先を合わせることが必要なんだろうと思った。デザイン・システムを作ること自体が目的になってはいけない。&lt;/p&gt;
+
+&lt;h2 id=&#34;see-also&#34;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://airbnb.design/the-way-we-build/&#34;&gt;The Way We Build – Airbnb Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://atlassian.design/&#34;&gt;Atlassian Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://style.eurostar.com/&#34;&gt;Eurostar GLU | Eurostar GLU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sipgatedesign.com/&#34;&gt;sipgate design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ted.com/swatch&#34;&gt;TED Swatches&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>【新版】UI GRAPHICS</title>
+            <link>https://t32k.me/mol/log/978-4802511056-ui-graphics/</link>
+            <pubDate>Wed, 09 Jan 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4802511056-ui-graphics/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4802511051/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41sjdrLz6cL._SX377_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;【新版】UI GRAPHICS&lt;br&gt;成功事例と思想から学ぶ、これからのインターフェイスデザインとUX&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;安藤剛 (著), 水野勝仁 (著), 萩原俊矢 (著), &amp; 10 その他&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;旧版も購入したが一度も読まないまま、Twitterで好評だったので新版も購入してしまった。というのも、こうゆう系の本は、最近のアプリスクリーンショットをポンポンおいて、一言二言コメントが載ってあるだけのようなものが多い。そんなもん本で見るより操作感も含めて実際のアプリに触ったほうがいいじゃん！と勝手に思ってたんだけど。違った。&lt;/p&gt;
+
+&lt;p&gt;スクリーンショットなどの事例等も、もちろん載っているのだけど、それよりもなにも、最前線で活躍するデザイナーや研究者のインターフェイスに関する骨太の論考テキストがとてもよかった。決して長ったらしい文章が続くわけでもなく、かと言って物足りない量でもなく、ちょうどよい感じのテキストが9つと、旧版のテキストもアーカイブとして收められている。&lt;/p&gt;
+
+&lt;p&gt;いま日常的に触れているUIやインタラクションは、あまりにも馴染みすぎて何も考えずに使っているかもしれない。そういったものを、なぜそれが受け入れられているのか、受け入れられるようになったのか、歴史を踏まえながら明確にテキストとして説明してくれるのはとても難しいことだと思うし、ありがたいと思う。&lt;/p&gt;
+
+&lt;p&gt;なんなら各人の論考テキストをまとめた短編集になったとしても欲しいくらいの一冊だ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>デザイン思考の先を行くもの</title>
+            <link>https://t32k.me/mol/log/978-4295402473-design-the-future/</link>
+            <pubDate>Mon, 07 Jan 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4295402473-design-the-future/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4295402478/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61TA1P3bT1L.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;デザイン思考の先を行くもの&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;各務 太郎&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;いまだに&lt;a href=&#34;https://note.mu/mikiok/n/n19f6185630f8&#34;&gt;デザイン思考ってよく分からないまま&lt;/a&gt;、デザイン思考の次なるものを扱ったと思われる本書を手にとってしまった。&lt;/p&gt;
+
+&lt;p&gt;一般的にデザイン思考を実践するプロセスとして以下の6つのようなステップに区別することができる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Discover（課題の発見）&lt;/li&gt;
+&lt;li&gt;Define（課題の定義）&lt;/li&gt;
+&lt;li&gt;Ideation（アイデア出し）&lt;/li&gt;
+&lt;li&gt;Prototype（試作）&lt;/li&gt;
+&lt;li&gt;Implement（実装）&lt;/li&gt;
+&lt;li&gt;Evaluate（評価）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;が、著者の主張にしてみれば、これはPDCAサイクルと同じで、アイデアを改善することには長けている（1→10）が、ゼロからアイデアを創出する（0→1）には適してはないのだろうかということ。&lt;/p&gt;
+
+&lt;p&gt;というわけで、0→1のイノベーションには&lt;strong&gt;見立てる力&lt;/strong&gt;が必要だと言っている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;全く関係のないふたつの異なるものも、それぞれをシナリオまで抽象化して捉えることで、同じ土俵で結びつけることができる能力&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;見立てる力を養うために、アイデア出しの方法論や、バックグラウンドの違うもの同士を同じ問題解決に当たらすことの重要性などを説いている。&lt;/p&gt;
+
+&lt;p&gt;再現性あるイノベーションができたら苦労しないわけで、ここで挙げられてるような事例や方法論は、まぁそうだよなという感想しかない。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、2、3時間で読めそうな文量で、最近の動向が簡潔にまとまっているので、手にとってみる再確認するという意味では良いのではないだろうか。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ウルトラマラソン マン</title>
+            <link>https://t32k.me/mol/log/978-4799311295-ultramarathon/</link>
+            <pubDate>Wed, 02 Jan 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4799311295-ultramarathon/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4799311298/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51SI0vHMmrL._SX336_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ウルトラマラソン マン&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ディーン・カーナゼス (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;正月暇なので読んでみた。ウルトラマラソンとはフルマラソン（42km）より長い距離を走る競技。たいてい100kmとか100マイル（160km）とか。著者のディーン・カーナゼスは30歳からマラソンをはじめ、どんどんと過酷なウルトラマラソンに挑戦し続ける。&lt;/p&gt;
+
+&lt;p&gt;レース中、気絶したり、嘔吐したり、痙攣したり、よくやるよなぁ&amp;hellip;と、ランニングを始める前の自分なら思っていたはずだ。作中で言及されているレースは自分にとっては流石に度が過ぎるレベルではあるが、前回よりも速く・遠くへという気持ちは分からないでもない。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;フルの場合、最初は「完走」が目標だとしても、気持ちは徐々に「タイム」へシフトしていく。ランニングを始めて数年間は右肩上がりでタイムは伸びる傾向にあるものの、ある程度のところで頭打ちになってくる。そうなると、走るのが面白くないなと感じてしまう。そんなタイミングでウルトラに新たな“希望”を見いだすランナーが出てくるのだ。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://toyokeizai.net/articles/-/180524&#34;&gt;100km｢ウルトラマラソン｣が爆発人気の理由 | 東洋経済オンライン&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちょうど、うまく説明してある記事があった。確かに今の自分もまだハーフマラソンを一回走っただけなので、このあと何回か走れば、走るたびにタイムは伸びていくだろうけど、頭打ちは目に見えている。そうゆうわけでトレイルランニングもやりたいなと思ってたりする。トレイルもまた15km、30km、60kmとか距離を伸ばしていくんだろう&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;とは言いつつ、最近寒くなってきたので5kmのジョギングも億劫になってきているのも事実。正月太りで体が重くなってきた中、モチベーションが上がる一冊だった。&lt;/p&gt;
+
+&lt;p&gt;最後に、著者が参加したレースを挙げておく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.wser.org/&#34;&gt;Western States Endurance Run&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.badwater.com/&#34;&gt;Badwater | The World&amp;rsquo;s Toughest Foot Race&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.therelay.com/&#34;&gt;Golden Gate Relay&lt;/a&gt;&lt;del&gt;‌&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;いつかは参加してみたいな。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>2019年の抱負</title>
+            <link>https://t32k.me/mol/log/new-years-resolutions-2019/</link>
+            <pubDate>Tue, 01 Jan 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/new-years-resolutions-2019/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2018/&#34;&gt;去年の抱負&lt;/a&gt;、Webサービスに関しては、なんも作らなかったなー。そもそも転職をしてドタバタしてたってのもある。&lt;/p&gt;
+
+&lt;p&gt;あとは仮想通貨関連だけど、コインチェック事変が起こり仮想通貨の相場全体がダウントレンドで僕のポートフォリオとモチベーションも失くなってしまった。ちょっと仮想通貨は時代がはやかったのかもしれない。もう少し近い未来のFinTechを考えていきたい。&lt;/p&gt;
+
+&lt;p&gt;体の幅はちょっとシュッとした。2019年はもランニングと登山を続けていきたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;雪山登る&lt;/li&gt;
+&lt;li&gt;フルマラソン完走する&lt;/li&gt;
+&lt;li&gt;Amazonでの使用金額を前年度より減らす&lt;/li&gt;
+&lt;li&gt;なんかアプリ・サービスつくる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というわけで、2019年もがんばっていきまっしょい！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>今年買って良かったもの（2018）</title>
+            <link>https://t32k.me/mol/log/bestbuy-2018/</link>
+            <pubDate>Mon, 31 Dec 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/bestbuy-2018/</guid>
+            <description>
+
+&lt;p&gt;今年を振り返りつつ、買ってよかったものを推敲するなど。&lt;/p&gt;
+
+&lt;h2 id=&#34;筋トレ&#34;&gt;筋トレ&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00F9VW8V4/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51sc66ohbxL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;LPN ストレッチポール(R)EX&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;LPN&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;今年の春くらいから筋トレを始めた。そこでストレッチをしているとトレーナーさんから『(可動域的に)肩ぜんぜんあがらないですね！』と言われて、これが四十肩なのか！？と恐怖した（おれまだ35だけど）。というわけで、このストレッチポールの上に上半身を乗っけて、腕を動かしたりすると、気持ちい。肩甲骨のまわりがほぐれてきてる気がする。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/UWccDIDX5yQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;あまりにも気持ちいいので、家用にも買った。問題点としては、結構大きいので置く場所に困るというか、まぁ立てておけば、そんなスペースもとらないんだけど、紺色とかだと部屋内での主張が激しいので僕はベージュのポールを買った。似たようなものがいろいろ出回っているけど、&lt;a href=&#34;http://stretchpole.com/&#34;&gt;LPNのポール&lt;/a&gt;がちゃんとした品質で良いので、間違わないように。&lt;/p&gt;
+
+&lt;p&gt;ちゃんとストレッチしていこうな。&lt;/p&gt;
+
+&lt;h2 id=&#34;ランニング&#34;&gt;ランニング&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B078FBN3G7/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/719PMhzl0aL._UL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;HOKA クリフトン 5 ワイド (Clifton 5 Wide) &lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;HOKA ONE ONE ホカ オネオネ&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;筋トレと糖質制限をするようになって、ある程度痩せたので、有酸素運動もしてみるかーと思い、夏くらいから走るようになった。今までは5kmでも走ったもんなら、次の日は筋肉痛で足がとても悲惨な状況になっていたのだが、スクワットなどの筋トレでちゃんと足に筋肉がついてきたのか、そんなに痛みもなく苦もなく走れるようになってた（遅いけど）。&lt;/p&gt;
+
+&lt;p&gt;それで嬉しくなって、ランニングも習慣化するようになった。痩せたといってもまだまだ平均体重よりは重いので、僕みたいな人間はやはり膝に負担がかかりやすい。ということで、クッション性が高いシューズを探していた。&lt;a href=&#34;https://www.nike.com/jp/ja_jp/c/running/marathon/shoe-chart&#34;&gt;Nikeのズームペガサスがバランスが良いシューズ&lt;/a&gt;で気に入っていたのだけど、この靴を履いたら感動した。座布団の上を走ってるみたいでフッカフカだった。これなら20km、30kmをゆっくり無理なく走れそうだ。&lt;/p&gt;
+
+&lt;p&gt;正月はコレを履いて、山手線一周でも走ってみようと思う。&lt;/p&gt;
+
+&lt;h2 id=&#34;登山&#34;&gt;登山&lt;/h2&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B079DG6BGD/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61WxijkNoxL._UL1001_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;[ザ・ノース・フェイス] サンダーフーディ Thunder Hoodie メンズ &lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;THE NORTH FACE(ザノースフェイス)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;12月にハーフマラソンに出てみたのだけど、15kmくらいからパタリと足が重くなり、全然なパフォーマンスだった。というのも、いつも5kmか10kmくらいしか走ったことなかったので、脚がちゃんと作れていなかったというのがある。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、LSD（長い距離をゆっくり走る練習）をしていこうと思ったのだけど、20~30kmを都内で走ると思うと、やっぱり皇居をぐるぐる回るしかないのかなーと思っていて、それだとつまらないなーと思い、マラソンの足腰を鍛えるために&lt;a href=&#34;https://yamap.com/users/796589&#34;&gt;登山をするようにした&lt;/a&gt;。12月は毎週山に登って、5時間・15km以上は山道を歩いていた。&lt;/p&gt;
+
+&lt;p&gt;というわけで登山用具も揃えているのだけど、やはり登山は命にかかわるアクティビティなので、それを防ぐためにも山道具はどれもスペックが高いのが気に入っている。&lt;/p&gt;
+
+&lt;p&gt;なかでも保温着として買ったこのダウンは最高に気に入っている。薄手でありながらも、ちゃんと暖かい。気に入りすぎて山だけじゃなくて毎日着ているくらいだ。ユニクロとかにもこうゆう系のダウンあったけど、なんかテカテカしてペロペロな感じなやつばっかりなんだけど、これはマットな質感でシルエットもよくて本当に良い。&lt;/p&gt;
+
+&lt;p&gt;というわけで、来年は&lt;a href=&#34;https://twitter.com/sisidovski/status/1069107443752304640&#34;&gt;フロントエンド山岳会の結成&lt;/a&gt;が待ち望まれる。&lt;/p&gt;
+
+&lt;h2 id=&#34;おしまい&#34;&gt;おしまい&lt;/h2&gt;
+
+&lt;p&gt;ガジェット系がまったくなく、健康的な一年になったようだ。&lt;strong&gt;なった&lt;/strong&gt;というわけではなく、健康に気を使わなければ&lt;strong&gt;ならない&lt;/strong&gt;年齢なのだ。来年も健康を損なわず、毎月お賃金がもらえるよう頑張って生きていきたい（切実）。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>SONY WH-1000XM2とWH-1000XM3</title>
+            <link>https://t32k.me/mol/log/sony-wh-1000xm3/</link>
+            <pubDate>Thu, 20 Dec 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/sony-wh-1000xm3/</guid>
+            <description>&lt;p&gt;去年の暮れに、SONYのノイズキャンセリングヘッドホンであるWH-1000XM2を購入した。とても満足していたのだけど、ほどなくして、後継のWH-1000XM3が発売されるようになった。最初はスルーしてたのだけど、PayPay祭りを楽しむためにビックカメラでWH-1000XM3を購入した。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;結論、買ってよかった。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;箱です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;箱裏面です。変わり映えしない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;左がXM2、右がXM3。文字部分がカッパー色になって高級感が増した感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;クッション面はほぼ変わってない、クッションの触り心地も違いは感じられない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今回の最大の変更点と個人的に思っているマイクロUSBからUSB-C端子への変更。最近はUSB-C端子のデバイスが増えてきたので、これだけのために買い！であると思っている。あとやっぱり天地関係なく挿せるのはよい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;コレも個人的にはすごくありがたい変更。操作ボタンの変更。XM3からはちゃんとボタンを押しこむタイプになった。というのもXM2の時はヘッドホンの位置を変えようとして、ちょっとボタンに触れるとすぐにモード切替が作動してしまったりという経験がすごく多くてイラついてた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1220-06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;頭上部のバンド部分のクッション性が高まって装着性があがった気がする。ステンレスじゃなくなったのは好みが分かれるが、個人的にはこの季節、金属部分に触れるのは冷たいので革になったのはよい。&lt;/p&gt;
+
+&lt;p&gt;あとは、音質だけどXM3ではノイズキャンセリングの処理能力が約4倍アップしたとか聞くが、もともとXM2でも十分ノイズキャンセリングの性能は高かったので、あんまり違いが分かってない。なんとなくよい気がする。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07GZ8DZC8/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51B826tw4FL._SL1100_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ソニー SONY ワイヤレスノイズキャンセリングヘッドホン WH-1000XM3 : LDAC/Bluetooth/ハイレゾ 最大30時間連続再生 密閉型 マイク付 2018年モデル ブラック WH-1000XM3 B&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ソニー(SONY)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;よい( ˘ω˘)&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>山とメスティンと私</title>
+            <link>https://t32k.me/mol/log/trangia-mestin-teflon/</link>
+            <pubDate>Mon, 10 Dec 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/trangia-mestin-teflon/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-00.jpg&#34; alt=&#34;大岳山からの富士山&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;この記事は&lt;a href=&#34;https://adventar.org/calendars/3111#list-2018-12-10&#34;&gt;登山 Advent Calendar 2018&lt;/a&gt;の10日目です、知らんけど。&lt;/p&gt;
+
+&lt;p&gt;最近山登りをするようになった。登山自体は前々から興味を持っていて登山系漫画はだいたい読んでいた。&lt;a href=&#34;https://www.amazon.co.jp/dp/B07L4MX9WN/?tag=warikiru-22&#34;&gt;岳&lt;/a&gt;でカジュアルに山で人が死に、&lt;a href=&#34;https://www.amazon.co.jp/dp/B00BQ9UYVO/?tag=warikiru-22&#34;&gt;孤高の人&lt;/a&gt;で山にまつわる人々の恐ろしさを知り、 &lt;a href=&#34;https://www.amazon.co.jp/dp/B00WMKOVTW/?tag=warikiru-22&#34;&gt;神々の山嶺&lt;/a&gt;で山の厳しさを知っていたので、山なんて登るもんじゃないと思ってた。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4107718859/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61sX97bG5vL._SX352_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;山と食欲と私 1 (BUNCH COMICS)&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;信濃川 日出雄&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;そんなとき友達に薦められたのが&lt;strong&gt;山と食欲と私&lt;/strong&gt;という漫画。主人公の山ガール（と作中では言ってはいけないので単独登山女子と呼ぶ）が、毎回山でヤマメシを食べるという、のほほんとした漫画。登っている山も関東近郊の低山がほとんどなので、いわゆる聖地巡礼的な意味でも登ってみたいと思っていたのだ。&lt;/p&gt;
+
+&lt;p&gt;また作中で食べるヤマメシもとてもおいしそうに見える。それもヤマメシなので、そんなに凝ったものではない。簡単に作れるものばかりなので、山に登りたいと思っていた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B000AQXZH4/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/81SW2e3JQqL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;trangia(トランギア) メスティン TR-210&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;トランギア(trangia)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;そこで出てきたメスティンという道具があり、なかなか使い勝手が良さそうな道具だったので、思わず購入してしまった。ただ大人気商品なので品簿が続いている。僕は運良く取っ手が赤色のTR-310を購入できた。在庫がある店舗を探しているときに、テフロン加工のメスティンもあるのを知ったが、どこで買えるのか分からなかった。&lt;/p&gt;
+
+&lt;p&gt;何ごともスペック厨の自分なので、テフロン加工のメスティンがどうしても欲しい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;調べてみると&lt;a href=&#34;http://www.mutsumi-chem.jp/&#34;&gt;睦美化成&lt;/a&gt;さんという福岡の会社さんにメスティンを送るとテフロン加工してもらえるのだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;内面フッ素樹脂コーティングのこのきらびやかさ！これで米を炊いてもこびりつかない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;外面セラミックコーティングのサービスもある。セラミック加工することで強度がますらしい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;取っ手部分は外して、睦美化成さんに送るので、そのまま。&lt;/p&gt;
+
+&lt;p&gt;東京から福岡の睦美化成さんにメスティン送るのに送料往復3千円かかるので、この時点でメスティン２個買えるじゃねーかと思ったけども自己満足である。あとメスティンの蓋と本体、また表側と裏側のセラミック加工とテフロン加工で7千円くらいかかるので合計1万円かかった。まぁ自己満である。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4635450325/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51vx9nhnI1L._SX353_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;『山と食欲と私』公式 日々野鮎美の山ごはんレシピ&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;信濃川日出雄 (監修)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;山と食欲と私の作中で出てくるレシピをまとめた本も発売されている。レシピといっても中にはラーメンにソーセージ入れただけとかあるが、まぁおもしろい本なので、その中の豪快オイルサーディン丼を家で作ってみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まぁおいしいよね。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>山の上の珈琲</title>
+            <link>https://t32k.me/mol/log/coffee-top-of-mountain/</link>
+            <pubDate>Sun, 09 Dec 2018 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/coffee-top-of-mountain/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;この記事は&lt;a href=&#34;https://adventar.org/calendars/3647#list-2018-12-09&#34;&gt;Coffee Advent Calendar 2018&lt;/a&gt;の9日目です、知らんけど。&lt;/p&gt;
+
+&lt;p&gt;最近、山登りが好きになってきたのだが、そうなると以前から好きなコーヒーとの掛け算で自然と
+&amp;ldquo;&lt;strong&gt;登山 x 珈琲&lt;/strong&gt;&amp;ldquo;という可能性を思考せざるを得ない。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、友達と行った初めての山、&lt;a href=&#34;https://yamap.com/activities/2673164&#34;&gt;丹沢大山&lt;/a&gt;の山頂でも水筒に家で淹れたコーヒーを飲んだ。11月中旬だったこともあり山頂はとても寒く、温かいコーヒーが身に染みて格段に美味しく感じたものだった。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B00MN84CJ2/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51cjkwZeDqL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;タイガー 水筒 350ml 直飲み ステンレス ミニ ボトル サハラ マグ&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;タイガー魔法瓶(TIGER)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;お手軽で美味しいわけなんだけど、ボトルから直接コーヒーを飲むので、インスタ映えしない。てか、匂いが映るのでコーヒー専用ボトルにしなければならないので、別途水（湯）も持っていかないと考えると無駄に荷物が増える。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B01B77O8FM/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71o-zoUsrWL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ポーレックス コーヒーミル セラミック ミニ&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ポーレックス(Porlex)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B001TPDMLE/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61K7mQ5AkvL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;UNIFLAME ユニフレーム コーヒーバネット ｃｕｔｅ&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ユニフレーム(UNIFLAME)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;かといって、豆を持っていき、山で挽き、ドリップするのも最高にインスタ映えするが最高にめんどい。そもそも家ではミル付きコーヒーメーカーで淹れてるので、豆なんて挽きたくない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-07.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07121SX66/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61OcQMx%2BB0L._SL1003_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;COFFEE BREWER フェアトレードセット(3pcs.) &lt;br&gt;スペシャルティコーヒー6杯分&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;GROWER&#39;S CUP&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;というわけで、好日山荘でよいものを見つけた。&lt;a href=&#34;https://growerscup.universal-trading.jp/&#34;&gt;グロワーズカップ&lt;/a&gt;というものらしい。紅茶バージョンもあるので紅茶党の方もトライして欲しい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;中に粉が入ってる（当たり前だ）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ドリップされたコーヒーが下に溜まって分離される感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;抽出用バック自体が自立できる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは注ぐだけ。こぼれてるのは、どうゆう構造なんだろうかといろいろドリップバッグをいじってたら、コーヒーが漏れたｗ次はないようにしたい。入れ終わったらゴミ袋にいれるだけ。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/k9VlGP3o_uY&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;動画で見ると手軽さが分かる。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00IADMKJ8/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51qyiriKH%2BL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;チタンダブルマグ 220ml&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;スノーピーク(snow peak)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;カップはおしゃれスノーピーク！一回シングルマグも買ったのだけど、ダブルマグ（二重構造）
+が保温性も高くて良い。お値段もちょっと高い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今回登ったのは、&lt;a href=&#34;https://yamap.com/activities/2816910&#34;&gt;高尾山&lt;/a&gt;だったので、荷物になるガスバーナーは持っていかず、単にお湯をボトルに入れて持っていった。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00FH2K69Q/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51LhqLUZDOL._SL1200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;THERMOS(サーモス) 山専用ステンレスボトル９００ｍｌ FFX-900&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;THERMOS(サーモス) &lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;山専用ボトルという6時間後も80℃を保温できるらしいので、十分すぎる性能だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;お湯なので食品にも使えるしカップラーメン食べた。ウインナー持って来るの忘れた。&lt;/p&gt;
+
+&lt;p&gt;ちょっと、コーヒーの今回飲んだフレーバーはあんまり好きくなかったので、次はまた別のフレーバーを試したい。&lt;/p&gt;
+</description>
         </item>
         
     </channel>
