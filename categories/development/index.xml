@@ -330,7 +330,8 @@ Amazon.co.jp で詳細を見る 情報の鮮度は非常に重要だというこ
       
       <guid>https://t32k.me/mol/log/npm-run-script/</guid>
       <description>先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的に以下の記事読んだら分かります。要はGulpとかGruntといったモノ使わずにnpm run hogehogeでビルドしよーぜって話です。
- task automation with npm run オレ的Gruntに対する最新の気持ち - from scratch Node - npm で依存もタスクも一元化する How to Use npm as a Build Tool  // package.json &amp;#34;scripts&amp;#34;: { &amp;#34;start&amp;#34;: &amp;#34;npm run start-serve &amp;amp; npm run watch&amp;#34;, &amp;#34;test&amp;#34;: &amp;#34;stylestats public/files/css/maple.css&amp;#34;, &amp;#34;start-serve&amp;#34;: &amp;#34;browser-sync start --server public/ --files public/files/**/*&amp;#34;, &amp;#34;clean&amp;#34;: &amp;#34;rm -rf public/files/css/*&amp;#34;, &amp;#34;js:min&amp;#34;: &amp;#34;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;#34;, &amp;#34;build:js&amp;#34;: &amp;#34;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;#34;, &amp;#34;css:sass&amp;#34;: &amp;#34;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;#34;, &amp;#34;css:prefix&amp;#34;: &amp;#34;autoprefixer -b &amp;#39;last 2 versions&amp;#39; public/files/css/maple.</description>
+ task automation with npm run オレ的Gruntに対する最新の気持ち - from scratch Node - npm で依存もタスクも一元化する How to Use npm as a Build Tool
+// package.json &amp;#34;scripts&amp;#34;: { &amp;#34;start&amp;#34;: &amp;#34;npm run start-serve &amp;amp; npm run watch&amp;#34;, &amp;#34;test&amp;#34;: &amp;#34;stylestats public/files/css/maple.css&amp;#34;, &amp;#34;start-serve&amp;#34;: &amp;#34;browser-sync start --server public/ --files public/files/**/*&amp;#34;, &amp;#34;clean&amp;#34;: &amp;#34;rm -rf public/files/css/*&amp;#34;, &amp;#34;js:min&amp;#34;: &amp;#34;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;#34;, &amp;#34;build:js&amp;#34;: &amp;#34;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;#34;, &amp;#34;css:sass&amp;#34;: &amp;#34;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;#34;, &amp;#34;css:prefix&amp;#34;: &amp;#34;autoprefixer -b &amp;#39;last 2 versions&amp;#39; public/files/css/maple.</description>
     </item>
     
     <item>
@@ -549,7 +550,8 @@ Mac OS X Installer (.pkg) 幸い、私のような最下級サイヤ戦士でも
  Node.js  しかし、node.jsの進化は凄まじいものがありまして、月単位？週単位？で新しいバージョンがアップデートされていたなんてのはザラです。プラス、私は出来る限り（stableで）最新のバージョンにしておきたいという性格なので、node.jsのバージョンが新しく出るたびに、公式サイト行って、インストーラーDLして、インストール画面をクリック！クリック！クリック！なんて作業はもうやなんだよ！
 ということで、インストーラーによる管理は辞めたい！
 思い立ったら吉日DAY！インストーラーでインストールしたnode.jsをアンインストールしましょう。インストーラがあるのならアンインストーラあるのかなと思ったらなかった／(^o^)＼けど、スクリプトあったよ。
- Mac OS X uninstall script for packaged install of node.js  $ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh $ chmod +x ./uninstall-node.sh $ ./uninstall-node.sh $ rm uninstall-node.sh 上から順番に実行してくだけだよ。
+ Mac OS X uninstall script for packaged install of node.js
+$ curl -ksO https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh $ chmod +x ./uninstall-node.sh $ ./uninstall-node.sh $ rm uninstall-node.sh  上から順番に実行してくだけだよ。
 Homebrew 以前からbrew doctorをするとnodeがlinkしてねーよ！と注意されていたのだが、インストーラでインストールしたnode.jsが優先されていたのだろうと思う。ってことで、今はアンインストールしたから大丈夫ってことで、Homebrewでnode.jsを管理してみる。
 $ brew install node 入ったー！簡単！
 あれ、npm使えなくね？とおもったら、npm install -gしたnpmは以下に、/usr/local/share/npm/bin保存されるらしい。

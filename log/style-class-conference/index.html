@@ -169,22 +169,23 @@
 <p>ちなみにGruntプラグインで利用できるので、これを使って僕のプロフィールページ：t32k.meを改善してみる。</p>
 
 <ul>
-<li><a href="https://github.com/filamentgroup/grunt-criticalcss">filamentgroup/grunt-criticalcss</a></li>
-</ul>
+<li><p><a href="https://github.com/filamentgroup/grunt-criticalcss">filamentgroup/grunt-criticalcss</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">grunt</span>.<span style="color:#a6e22e">initConfig</span>({
-  <span style="color:#a6e22e">criticalcss</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">custom_options</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://localhost:8000&#34;</span>,
-        <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1024</span>,
-        <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">768</span>,
-        <span style="color:#a6e22e">outputfile</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;_templates/includes/critical.css&#34;</span>,
-        <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;skeleton.min.css&#34;</span>
-      }
-    }
+<span style="color:#a6e22e">criticalcss</span><span style="color:#f92672">:</span> {
+<span style="color:#a6e22e">custom_options</span><span style="color:#f92672">:</span> {
+  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://localhost:8000&#34;</span>,
+    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1024</span>,
+    <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">768</span>,
+    <span style="color:#a6e22e">outputfile</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;_templates/includes/critical.css&#34;</span>,
+    <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;skeleton.min.css&#34;</span>
   }
+}
+}
 });
-</code></pre></div>
+</code></pre></div></li>
+</ul>
+
 <p>こんな感じでGruntfileの方は記述する。重要なのはwidht/heightで、ここで自分の好きなAbove the Foldを定義する。で出力したCSSをテンプレート側で読み込む。</p>
 
 <p>今回は、1.) CriticalCSSでクリティカルCSSを生成、2.) CSSOでミニファイ、3.) Jadeでコンパイル読み込むという流れ。詳しくはGitHubにあげてあるので参照してね。</p>

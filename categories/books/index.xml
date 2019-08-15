@@ -2047,7 +2047,7 @@ Webはもっとユニバーサルでなくてはならない、てことは前�
 意味共有のKISS：URIとRDF URI＝グローバルな共有のための名前 （Webの「山田」さんを表現するため） RDF＝さまざまなモデルを単純な三つ組みに分解して表現するための共通枠組み （RDF（レゴブロックのようなもの）はモデルであって、RSSやFOAFなどボキャブラリとは違う）
 RDF made easy 多くのメタデータは、暗黙の主語について「プロパティ―値ペア」 （プログラミングとかやってる人は馴染みがある） RDFトリプルはCSSのスタイル宣言と同じ CSSを書くときはいつでもセレクタで「主語」を明示
 RDFをシンプルに表現するためには トリプルをシンプルに表現する方法
- 既存のrel、rev、href、content、srcを（拡張して）利用 新しい属性property、resource、about、typeof、datatypeを導入  名前（URI）をシンプルに表現する方法  CURIEはURI文字列を2分割し前半を接頭辞（prefix）にマップする（後半は参照と呼ぶ） （長いままだと不便なので） XHTMLではxmlns属性を借用して接頭辞を宣言する HTMLでもxmlns属性を借用できる（代替方法も検討中）  RDFaでの記述  link、meta要素のメタデータ記述をそのまま利用。ただしname属性は他の要素型では異なる意味を持つので、property属性を導入 プロパティはCURIEを用いて記述する。このとき、XHTML定義済みのrel属性値は接頭辞無し（従来と同じ）で使える （下記、copyrightは定義済みなのでCURIEはいらない）  &amp;lt;link rel=“copyright” href=“rights.</description>
+ 既存のrel、rev、href、content、srcを（拡張して）利用 新しい属性property、resource、about、typeof、datatypeを導入  名前（URI）をシンプルに表現する方法  CURIEはURI文字列を2分割し前半を接頭辞（prefix）にマップする（後半は参照と呼ぶ） （長いままだと不便なので） XHTMLではxmlns属性を借用して接頭辞を宣言する HTMLでもxmlns属性を借用できる（代替方法も検討中）  RDFaでの記述  link、meta要素のメタデータ記述をそのまま利用。ただしname属性は他の要素型では異なる意味を持つので、property属性を導入 プロパティはCURIEを用いて記述する。このとき、XHTML定義済みのrel属性値は接頭辞無し（従来と同じ）で使える （下記、copyrightは定義済みなのでCURIEはいらない）</description>
     </item>
     
     <item>

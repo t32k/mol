@@ -169,11 +169,10 @@ test/test.sh YOUR_PRIVATE_INSTANCE_URL</code></pre></div>
 <p>もうこの辺りから全然お手軽でもないんだけども、プライベートインスタンスとか立ち上げるのだるいし（弊社にはあるのでウェーイ♪、今回の例ではAPIキーを利用していない）、とりあえず、Please API Key!ってメール投げてみましょう。1日200回までなら実行可能っぽいす。</p>
 
 <ul>
-<li><a href="https://github.com/marcelduran/webpagetest-api/issues/8">how can i get an api key? · Issue #8 · marcelduran/webpagetest-api</a></li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">webpagetest test https://t32k.me/maple/test/fixtures/perf_test.html --server $1 --poll <span style="color:#ae81ff">3</span> --specs test/spec.json --reporter xunit &gt; webpagetest.xml</code></pre></div>
-<ul>
-<li><a href="https://github.com/t32k/maple/blob/master/test/test.sh">maple/test/test.sh · t32k/maple</a></li>
+<li><p><a href="https://github.com/marcelduran/webpagetest-api/issues/8">how can i get an api key? · Issue #8 · marcelduran/webpagetest-api</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">webpagetest test https://t32k.me/maple/test/fixtures/perf_test.html --server $1 --poll <span style="color:#ae81ff">3</span> --specs test/spec.json --reporter xunit &gt; webpagetest.xml</code></pre></div></li>
+
+<li><p><a href="https://github.com/t32k/maple/blob/master/test/test.sh">maple/test/test.sh · t32k/maple</a></p></li>
 </ul>
 
 <p>とりま、このラッパーを使って上記のようなコマンドをシェルファイルとして実行している。今回は<code>--server $1</code>でプライベートインスタンスのURLを指定しているけど、みなさんは代わりに<code>--key $1</code>でAPIキーを引数でとるようにしてもらえればよいかと思います。</p>

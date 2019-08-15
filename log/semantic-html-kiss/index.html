@@ -141,13 +141,14 @@
 
 <ul>
 <li>link、meta要素のメタデータ記述をそのまま利用。ただしname属性は他の要素型では異なる意味を持つので、property属性を導入</li>
-<li>プロパティはCURIEを用いて記述する。このとき、XHTML定義済みのrel属性値は接頭辞無し（従来と同じ）で使える （下記、copyrightは定義済みなのでCURIEはいらない）</li>
-</ul>
+
+<li><p>プロパティはCURIEを用いて記述する。このとき、XHTML定義済みのrel属性値は接頭辞無し（従来と同じ）で使える （下記、copyrightは定義済みなのでCURIEはいらない）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">“copyright”</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">“rights.html”</span> /&gt;
-&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">“author”</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">“ex:creator”</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">“神崎正英”</span> /&gt;</code></pre></div>
-<ul>
-<li>rel属性、property属性はどんな要素にも記述可能</li>
-<li>rel属性で示したプロパティの目的語がハイパーリンク可能ならhref属性で、そうでなければresource属性 （href属性値にはCURIEはかけないので）</li>
+&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">“author”</span> <span style="color:#a6e22e">property</span><span style="color:#f92672">=</span><span style="color:#e6db74">“ex:creator”</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">“神崎正英”</span> /&gt;</code></pre></div></li>
+
+<li><p>rel属性、property属性はどんな要素にも記述可能</p></li>
+
+<li><p>rel属性で示したプロパティの目的語がハイパーリンク可能ならhref属性で、そうでなければresource属性 （href属性値にはCURIEはかけないので）</p></li>
 </ul>
 
 <h4 id="接頭辞宣言が面倒">接頭辞宣言が面倒？</h4>
