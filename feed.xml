@@ -6,7 +6,47 @@
         
         
         
-        <updated>Thu, 15 Aug 2019 00:00:00 UTC</updated>
+        <updated>Fri, 23 Aug 2019 00:00:00 UTC</updated>
+        
+        <item>
+            <title>デザイニング・ボイスユーザーインターフェース</title>
+            <link>https://t32k.me/mol/log/978-4873118581-designing-voice-user-interfaces/</link>
+            <pubDate>Fri, 23 Aug 2019 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4873118581-designing-voice-user-interfaces/</guid>
+            <description>&lt;p&gt;今年のGoogle I/Oに参加して、個人的に一番熱量を感じたのは&lt;a href=&#34;https://www.youtube.com/playlist?list=PLOU2XLYxmsIK5JcIMUhrPH7T0lHBrKbER&#34;&gt;Googleアシスタント関連のセッション&lt;/a&gt;だった。Google Home / Nest Hubのスマートホームはもちろんのこと、Android携帯から『メールを送って！』と言うだけで送信できるExtend your Android appの面においても、Googleアシスタントの存在感は至るところで増している。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、VUI(ボイスユーザーインターフェース)が最近の興味の対象であり、会社でもGoogleアシスタントアプリを開発するなどしている。なにか良い書籍がないかなと思ったら、まさしくな本があったので読んでみた。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4873118581/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51AGEWxlonL._SX351_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;デザイニング・ボイスユーザーインターフェース&lt;br&gt;―音声で対話するサービスのためのデザイン原則&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Cathy Pearl (著), 川本 大功 (監修), 高橋 信夫 (翻訳)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;VUIと言っても、その歴史は自動音声応答：IVR（Interactive Voice Response）に遡る。いわゆる、『〜でよろしければ、1と#を押してください。最初からやり直す場合は4と#を押してください。』みたいな、電話の自動音声を利用した経験は一度はあるとお思う。&lt;/p&gt;
+
+&lt;p&gt;IVRにおいての知見は、昨今のモバイルデバイスにおけるVUIに関しても適用できるので、
+そういった歴史的な経緯やキーワードを解説してくれる。例えば、音声ガイダンスの途中でもバージイン（割り込み）を有効にすべきかどうかなど。&lt;/p&gt;
+
+&lt;p&gt;また、最近のVUIとIVRの大きな違いは、デバイスによっては画面を利用できることもある。つまり、音声と画面、複数のインタフェースをまたぐことになり、このマルチモーダル・インタフェースは大いに優位性があるといえる。&lt;/p&gt;
+
+&lt;p&gt;全体を通して、基本的な単語の説明や基礎的なことしか説明しておらず、実践的なサンプルアプリケーションを元に解説してくれるともっと良かったかもしれない。ちょっと肩透かし感が否めない。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/oo5dFEW0Vk8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&amp;ndash;&lt;/p&gt;
+
+&lt;p&gt;というわけで、Googleアシスタントアプリを開発してる自分にとっては、I/Oのこのセッションがよかったので、ドンピシャで良かったので、みなさんも見てみると良いかもかも。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>黒い純正キーボードがほしい（2019）</title>
@@ -823,124 +863,6 @@
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1217-06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;まぁおいしいよね。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>山の上の珈琲</title>
-            <link>https://t32k.me/mol/log/coffee-top-of-mountain/</link>
-            <pubDate>Sun, 09 Dec 2018 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/coffee-top-of-mountain/</guid>
-            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;この記事は&lt;a href=&#34;https://adventar.org/calendars/3647#list-2018-12-09&#34;&gt;Coffee Advent Calendar 2018&lt;/a&gt;の9日目です、知らんけど。&lt;/p&gt;
-
-&lt;p&gt;最近、山登りが好きになってきたのだが、そうなると以前から好きなコーヒーとの掛け算で自然と
-&amp;ldquo;&lt;strong&gt;登山 x 珈琲&lt;/strong&gt;&amp;ldquo;という可能性を思考せざるを得ない。&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、友達と行った初めての山、&lt;a href=&#34;https://yamap.com/activities/2673164&#34;&gt;丹沢大山&lt;/a&gt;の山頂でも水筒に家で淹れたコーヒーを飲んだ。11月中旬だったこともあり山頂はとても寒く、温かいコーヒーが身に染みて格段に美味しく感じたものだった。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B00MN84CJ2/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51cjkwZeDqL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;タイガー 水筒 350ml 直飲み ステンレス ミニ ボトル サハラ マグ&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;タイガー魔法瓶(TIGER)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;お手軽で美味しいわけなんだけど、ボトルから直接コーヒーを飲むので、インスタ映えしない。てか、匂いが映るのでコーヒー専用ボトルにしなければならないので、別途水（湯）も持っていかないと考えると無駄に荷物が増える。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B01B77O8FM/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71o-zoUsrWL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;ポーレックス コーヒーミル セラミック ミニ&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;ポーレックス(Porlex)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B001TPDMLE/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61K7mQ5AkvL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;UNIFLAME ユニフレーム コーヒーバネット ｃｕｔｅ&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;ユニフレーム(UNIFLAME)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;かといって、豆を持っていき、山で挽き、ドリップするのも最高にインスタ映えするが最高にめんどい。そもそも家ではミル付きコーヒーメーカーで淹れてるので、豆なんて挽きたくない。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-07.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07121SX66/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61OcQMx%2BB0L._SL1003_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;COFFEE BREWER フェアトレードセット(3pcs.) &lt;br&gt;スペシャルティコーヒー6杯分&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;GROWER&#39;S CUP&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;というわけで、好日山荘でよいものを見つけた。&lt;a href=&#34;https://growerscup.universal-trading.jp/&#34;&gt;グロワーズカップ&lt;/a&gt;というものらしい。紅茶バージョンもあるので紅茶党の方もトライして欲しい。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;中に粉が入ってる（当たり前だ）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;ドリップされたコーヒーが下に溜まって分離される感じ。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;抽出用バック自体が自立できる。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;あとは注ぐだけ。こぼれてるのは、どうゆう構造なんだろうかといろいろドリップバッグをいじってたら、コーヒーが漏れたｗ次はないようにしたい。入れ終わったらゴミ袋にいれるだけ。&lt;/p&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/k9VlGP3o_uY&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;動画で見ると手軽さが分かる。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00IADMKJ8/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51qyiriKH%2BL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;チタンダブルマグ 220ml&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;スノーピーク(snow peak)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;カップはおしゃれスノーピーク！一回シングルマグも買ったのだけど、ダブルマグ（二重構造）
-が保温性も高くて良い。お値段もちょっと高い。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;今回登ったのは、&lt;a href=&#34;https://yamap.com/activities/2816910&#34;&gt;高尾山&lt;/a&gt;だったので、荷物になるガスバーナーは持っていかず、単にお湯をボトルに入れて持っていった。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00FH2K69Q/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51LhqLUZDOL._SL1200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;THERMOS(サーモス) 山専用ステンレスボトル９００ｍｌ FFX-900&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;THERMOS(サーモス) &lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;山専用ボトルという6時間後も80℃を保温できるらしいので、十分すぎる性能だ。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2018/1209-06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;お湯なので食品にも使えるしカップラーメン食べた。ウインナー持って来るの忘れた。&lt;/p&gt;
-
-&lt;p&gt;ちょっと、コーヒーの今回飲んだフレーバーはあんまり好きくなかったので、次はまた別のフレーバーを試したい。&lt;/p&gt;
 </description>
         </item>
         
