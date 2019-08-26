@@ -1,5 +1,5 @@
 ---
-date: 2019-08-30
+date: 2019-08-27
 title: 2019年のデスク環境
 subtitle: iMac Retina 5K, 27-inch, 2019
 excerpt: それなりにケーブル嫌いがデスク周りをスッキリさせるために頑張った話。
