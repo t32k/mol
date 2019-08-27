@@ -5,10 +5,29 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2019年のデスク環境</title>
+      <link>https://t32k.me/mol/log/my-desktop-2019/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/my-desktop-2019/</guid>
+      <description>最近、引っ越しを機にデスクトップ周りを整理してみたお話。正確には@goandoのデスクトップを真似ただけのお話。
+ ケーブル嫌いのためのデスク周りをスッキリさせるテクニック｜Go Ando  2017年の俺的Mac環境でもまとめたが、定期的にiMacだけの環境とMacBook Pro + 周辺機器いっぱいの環境を交互に試したくなる性である。そして今年はiMacシンプル路線である、今のところ。
+Apple iMac (27インチ, Retina 5Kディスプレイモデル, 3.1GHz 6コア第8世代Intel Core i5プロセッサ, 1TB) (2019) Apple(アップル) Amazon.co.jpで詳細を見る   黒い感じでまとめたかったので、一瞬、気の迷いで、iMac Proの購入を考えたが、iMac ProとiMac 2019の性能は大差ないと聞いたので、おとなしく、シルバーのiMacを購入した。
+エルゴトロン LX デスクマウント モニターアーム マットブラック エルゴトロン Amazon.co.jpで詳細を見る   あと今年は絶対VESAマウント搭載のiMacにしようと思っていた。モニターアームブランドのエルゴトロンから、ついにマットブラックのアームが発売されているのを知って、後押しされた感じだ。
+おかげさまでモニターアームが使えるので、iMacのアゴ周り？喉元？がスッキリしてストレスがない。キーボードなども以前の記事のとおり黒色で揃えた。
+iMacから伸びる白い咆哮 黒いモニターアームをつけて、ルンルン気分になったのだが、デスクの下を見てみると一本だけ白いやつがいる&amp;hellip;なんでお前だけ白いねん！！
+電源タップ 雷ガード 10個口 ほこりシャッター付 固定&amp;吊下可能な回転パーツ付き 3m ブラック ECT-0103BK エレコム Amazon.co.jpで詳細を見る   t32kは発狂した。メルカリの中に駆け出し、中古のiMac電源ケーブルを探した。
+人はなぜiMacの電源ケーブルを染めあげるのか...
+全部 @goando さんのせいw pic.twitter.com/51UeS5EVh5
+&amp;mdash; t32k (@t32k) August 18, 2019   果して一本の黒虎が叢の中から躍り出た。
+iMacの電源ケーブルは2012年以降であれば同じタイプだったので、問題なく使えた。だいたい1000~2000円内で買えるのではないだろうか。</description>
+    </item>
     
     <item>
       <title>デザイニング・ボイスユーザーインターフェース</title>
