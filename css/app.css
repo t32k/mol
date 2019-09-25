@@ -44,7 +44,12 @@ body {
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   -moz-font-feature-settings: "palt";
   -webkit-font-feature-settings: "palt";
   font-feature-settings: "palt";
@@ -54,24 +59,56 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1rem; }
-h5 { font-size: 0.8rem; }
-h6 { font-size: 0.6rem; }
+h1 {
+  font-size: 2.2rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.8rem;
+}
+h6 {
+  font-size: 0.6rem;
+}
 
 /* Larger than phablet */
 
 @media (min-width: 550px) {
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 2.2rem; }
-  h3 { font-size: 1.8rem; }
-  h4 { font-size: 1.2rem; }
-  h5 { font-size: 1rem; }
-  h6 { font-size: 0.8rem; }
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 2.2rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h6 {
+    font-size: 0.8rem;
+  }
 }
 
+strong {
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(252, 252, 84, 0.8) 60%
+  );
+  border-radius: 2px;
+}
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -86,8 +123,12 @@ a:hover {
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-ul { list-style: circle; }
-ol { list-style: decimal; }
+ul {
+  list-style: circle;
+}
+ol {
+  list-style: decimal;
+}
 
 ol,
 ul {
@@ -102,7 +143,9 @@ ol ul {
   margin: 1.5rem 0 1.5rem 3rem;
 }
 
-li { margin-bottom: 1rem; }
+li {
+  margin-bottom: 1rem;
+}
 
 /* Code
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -124,7 +167,6 @@ pre > code {
   overflow: hidden;
 }
 
-
 .highlight > pre {
   border-radius: 4px;
 }
@@ -140,16 +182,32 @@ button,
   margin-bottom: 1rem;
 }
 
-input, textarea, select, fieldset {
+input,
+textarea,
+select,
+fieldset {
   margin-bottom: 1.5rem;
 }
 
-pre, blockquote, form, dl, figure, table, p, ul, ol, form {
+pre,
+blockquote,
+form,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
   margin-bottom: 2.5rem;
 }
 
-p { margin-top: 0; }
-img { vertical-align: middle; }
+p {
+  margin-top: 0;
+}
+img {
+  vertical-align: middle;
+}
 
 blockquote {
   margin: 0;
@@ -183,14 +241,30 @@ blockquote {
   box-sizing: border-box;
 }
 
-.u-pull-right { float: right; }
-.u-pull-left { float: left; }
-.u-dn { display: none; }
-.u-mute { color: rgba(var(--rgb-surface), var(--alpha-500)); }
-.u-txs { font-size: 0.8rem; }
-.u-mtn { margin-top: 0 !important; }
-.u-mbn { margin-bottom: 0 !important; }
-.u-mrm { margin-right: 10px !important; }
+.u-pull-right {
+  float: right;
+}
+.u-pull-left {
+  float: left;
+}
+.u-dn {
+  display: none;
+}
+.u-mute {
+  color: rgba(var(--rgb-surface), var(--alpha-500));
+}
+.u-txs {
+  font-size: 0.8rem;
+}
+.u-mtn {
+  margin-top: 0 !important;
+}
+.u-mbn {
+  margin-bottom: 0 !important;
+}
+.u-mrm {
+  margin-right: 10px !important;
+}
 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -328,11 +402,21 @@ a:hover .site-author-pic {
   transition-timing-function: ease-out;
 }
 
-a:hover .social-links-rss { fill: #ff7043; }
-a:hover .social-links-twitter { fill: #29b6f6; }
-a:hover .social-links-github { fill: #444; }
-a:hover .social-links-dribbble { fill: #fe378a; }
-a:hover .social-links-linkedin { fill: #42a5f5; }
+a:hover .social-links-rss {
+  fill: #ff7043;
+}
+a:hover .social-links-twitter {
+  fill: #29b6f6;
+}
+a:hover .social-links-github {
+  fill: #444;
+}
+a:hover .social-links-dribbble {
+  fill: #fe378a;
+}
+a:hover .social-links-linkedin {
+  fill: #42a5f5;
+}
 
 .site-copyright {
   text-align: center;
