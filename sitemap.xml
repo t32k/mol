@@ -3,20 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://t32k.me/mol/log/aukey-ep-b80/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <loc>https://t32k.me/mol/log/new-years-resolutions-2020/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/categories/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/log/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
-    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/categories/blog/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/aukey-ep-b80/</loc>
+    <lastmod>2019-12-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -57,12 +74,6 @@
   <url>
     <loc>https://t32k.me/mol/log/satechi-aluminum-slim-wireless-keyboard/</loc>
     <lastmod>2019-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t32k.me/mol/categories/</loc>
-    <lastmod>2019-07-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -131,12 +142,6 @@
   <url>
     <loc>https://t32k.me/mol/log/new-years-resolutions-2019/</loc>
     <lastmod>2019-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t32k.me/mol/categories/blog/</loc>
-    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
