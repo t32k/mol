@@ -2,6 +2,7 @@
 ---
 date: 2020-05-03
 title: 自粛生活でメンタルを保つ方法
+subtitle: How To Clean Sneakers
 categories: 
     - blog
 ogimage: https://images-na.ssl-images-amazon.com/images/I/61jG-A7nLQL._AC_UL1500_.jpg
@@ -13,7 +14,6 @@ excerpt: 個人的に何かを補修したり直したりキレイにしたり�
 個人的に何かを補修したり直したりキレイにしたりするのが好きな自分にとっては、スニーカーをクリーニングするのは心が落ち着くし、何よりもピカピカになったシューズを履くのは気持ちがよい。
 
 ということで、最近は週末になると家でスニーカーを選択する毎日。
-
 
 {{< tweet 1245595612155752451 >}}
 
