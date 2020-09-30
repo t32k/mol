@@ -5,30 +5,26 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>自粛生活でメンタルを保つ方法</title>
-      <link>https://t32k.me/mol/log/sneaker-cleaning-day/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      <title>SwiftUIでの文字寄せとか</title>
+      <link>https://t32k.me/mol/log/text-align-swiftui/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://t32k.me/mol/log/sneaker-cleaning-day/</guid>
-      <description>みなさん、Stay Homeしてますかー！在宅勤務でどこも行かないとちょっとメンタルに来るものがありますね。外でアウトドアスポーツを楽しむのも憚れる日々で憂鬱だよね。
-ということで、家でできることないかな？と考えた結果、最近は週末になると家でスニーカーを洗濯する毎日。
-個人的に何かを補修したり直したりキレイにしたりするのが好きな自分にとっては、スニーカーをクリーニングするのは心が落ち着くし、何よりもピカピカになったシューズを履くのは気持ちがよい（リファクタリングも好き）。
-そんなわけで、これまでやってきたスニーカークリーニングテクニックを紹介するぞ。
-エアジョーダンシリーズ新品で買うとプレミアがつくんじゃないかと邪な考えのため、いつも履けずにいたのでメルカリで中古を買った👟ジェイソンマークで洗ったらソールまで思いの外キレイになって驚いている。これをまたメルカリで売れ（ｒｙ。。。 pic.twitter.com/gMADEn2UVp
-&amp;mdash; t32k (@t32k) April 2, 2020  ジェイソンマークというスニーカー用の定番クリーニングキットがあるので、まずこれを買う。くすんだホワイトスニーカーもこの通り真っ白になる。
-[ジェイソンマーク] ESSENTIAL KIT ジェイソンマーク Amazon.co.jpで詳細を見る   全国のスニーカーヘッズこんばんわ。今日はレザーの靴に付いたシワのとり方だ。濡れたタオルを箇所に当ててアイロンを当てるだけだ!仕上げに保護クリームを塗って完璧!じゃまた来週👟 pic.twitter.com/kNFN1zgEIQ
-&amp;mdash; t32k (@t32k) April 12, 2020  スニーカーのシワとりもできる。靴の中にパンパンに新聞などを詰めた状態で、濡れタオルの上からアイロンをあてると取れる。
-日立 衣類スチーマー スチームアイロン 3段階温度切替 持ちやすいハンドル ブラシ付き CSI-RX1 W ホワイト 日立(HITACHI) Amazon.co.jpで詳細を見る   全国のスニーカーヘッズこんばんわ。今日はさほど思入れのないスニーカーの洗い方だ。コインランドリーのスニーカーウォッシャーに放り込んどけ‼️じゃ、また来週👟 pic.twitter.com/SH7FA4w5Xf
-&amp;mdash; t32k (@t32k) April 19, 2020  コインランドラリーに行くと、スニーカー用の洗濯機があるところにはあるので、めんどくさかったら放りこもう！
-全国のスニーカーヘッズこんばんわ。今日は黄ばんだクリアソールのとり方だ。VIOLET BRIGHTという溶液をソールに塗りたくって直射日光に数時間あてよう。結構黄ばんでいたソールもこの通り、ちょっとクリアになったｗもっとクリアにしたかったらこの繰り返しだ！ #週末スニーカークリーニング pic.twitter.com/cgIUSzimRb
-&amp;mdash; t32k (@t32k) April 25, 2020  最近のスニーカーはアウトソールにクリア素材を使ってるものが多い。でも、この素材は経年とともに、黄ばみがちだ。そういったものでもVIOLET BRIGHTのような特殊な溶液に浸して、直射日光に当てると回復する。お気に入りのビンテージスニーカーが黄ばんでたらトライしてみよう。
-VIOLET BRIGHT スターターパック vb−sk VIOLET BRIGHT Amazon.</description>
+      <guid>https://t32k.me/mol/log/text-align-swiftui/</guid>
+      <description>最近、SwiftUIデビューをした。太古の昔にTitanium MobileでiOSアプリを作ったことはあるが、基本Web畑で育ってきたt32kにとっては、iOSというかSwiftというかSwiftUIでのユーザーインターフェイス作成は、まるで外国での生活のようで、いろいろカルチャーギャップを感じる。そうゆうことを書きたい。
+まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った。Xcodeでプロジェクトを作成するとHello World!の文字列を表示するボイラープレートが用意されている。
+この文字列は上下・左右・真ん中に表示されている。これを左寄せにしたい。Webでいう、text-align: leftは、SwiftUIではどうするんだろうと私は考える。
+struct ContentView: View { var body: some View { Text(&amp;#34;Hello, World!&amp;#34;) .frame(alignment: .leading) } } frameモディファイアでaligmentというプロパティがあるのでそれに.leading２セットすればよいらしい。
+なるほど。動かない。
+それもそのはずだ、Textビューのサイズ（青枠）を見ればわかる。文字でいっぱいいっぱいなので、どちらか片方に寄せれないっぽい。
+struct ContentView: View { var body: some View { Text(&amp;#34;Hello, World!&amp;#34;) .frame(maxWidth: .infinity, alignment: .leading) } } Frameのサイズを画面いっぱいにひろげてみると、なるほどな、左に寄せることができた。ちなみに右寄せの場合は.trailingだ。
+またStackOveflowでこうゆう回答も見かけた。
+struct ContentView: View { var body: some View { VStack { HStack { Text(&amp;#34;Hello, World!&amp;#34;) Spacer() } HStack { Spacer() Text(&amp;#34;Hello, World!&amp;#34;) } } } } Spacer()使うと楽だぜヒャッハーという。これだとSpacer()が目一杯広がるので、frameのwidthを明示的に指定しなくてもいいし楽っぽい。</description>
     </item>
     
     <item>
@@ -249,16 +245,12 @@ THE LOST DOPE B.I.G JOE Amazon.co.jpで詳細を見る   </description>
       
       <guid>https://t32k.me/mol/log/my-desktop-2019/</guid>
       <description>最近、引っ越しを機にデスクトップ周りを整理してみたお話。正確には@goandoのデスクトップを真似ただけのお話。
- ケーブル嫌いのためのデスク周りをスッキリさせるテクニック｜Go Ando  2017年の俺的Mac環境でもまとめたが、定期的にiMacだけの環境とMacBook Pro + 周辺機器いっぱいの環境を交互に試したくなる性である。そして今年はiMacシンプル路線である、今のところ。
-Apple iMac (27インチ, Retina 5Kディスプレイモデル, 3.1GHz 6コア第8世代Intel Core i5プロセッサ, 1TB) (2019) Apple(アップル) Amazon.co.jpで詳細を見る   黒い感じでまとめたかったので、一瞬、気の迷いで、iMac Proの購入を考えたが、iMac ProとiMac 2019の性能は大差ないと聞いたので、おとなしく、シルバーのiMacを購入した。
-エルゴトロン LX デスクマウント モニターアーム マットブラック エルゴトロン Amazon.co.jpで詳細を見る   あと今年は絶対VESAマウント搭載のiMacにしようと思っていた。モニターアームブランドのエルゴトロンから、ついにマットブラックのアームが発売されているのを知って、後押しされた感じだ。
-おかげさまでモニターアームが使えるので、iMacのアゴ周り？喉元？がスッキリしてストレスがない。キーボードなども以前の記事のとおり黒色で揃えた。
-iMacから伸びる白い咆哮 黒いモニターアームをつけて、ルンルン気分になったのだが、デスクの下を見てみると一本だけ白いやつがいる&amp;hellip;なんでお前だけ白いねん！！
-電源タップ 雷ガード 10個口 ほこりシャッター付 固定&amp;吊下可能な回転パーツ付き 3m ブラック ECT-0103BK エレコム Amazon.co.jpで詳細を見る   t32kは発狂した。メルカリの中に駆け出し、中古のiMac電源ケーブルを探した。
-人はなぜiMacの電源ケーブルを染めあげるのか...
-全部 @goando さんのせいw pic.twitter.com/51UeS5EVh5
-&amp;mdash; t32k (@t32k) August 18, 2019   果して一本の黒虎が叢の中から躍り出た。
-iMacの電源ケーブルは2012年以降であれば同じタイプだったので、問題なく使えた。だいたい1000~2000円内で買えるのではないだろうか。</description>
+ ケーブル嫌いのためのデスク周りをスッキリさせるテクニック｜ Go Ando  2017 年の俺的 Mac 環境でもまとめたが、定期的に iMac だけの環境と MacBook Pro + 周辺機器いっぱいの環境を交互に試したくなる性である。そして今年は iMac シンプル路線である、今のところ。
+Apple iMac (27インチ, Retina 5Kディスプレイモデル, 3.1GHz 6コア第8世代Intel Core i5プロセッサ, 1TB) (2019) Apple(アップル) Amazon.co.jpで詳細を見る   黒い感じでまとめたかったので、一瞬、気の迷いで、iMac Pro の購入を考えたが、iMac Pro と iMac 2019 の性能は大差ないと聞いたので、おとなしく、シルバーの iMac を購入した。
+エルゴトロン LX デスクマウント モニターアーム マットブラック エルゴトロン Amazon.co.jpで詳細を見る   あと今年は絶対 VESA マウント搭載の iMac にしようと思っていた。モニターアームブランドのエルゴトロンから、ついにマットブラックのアームが発売されているのを知って、後押しされた感じだ。
+おかげさまでモニターアームが使えるので、iMac のアゴ周り？喉元？がスッキリしてストレスがない。キーボードなども以前の記事のとおり黒色で揃えた。
+iMac から伸びる白い咆哮 黒いモニターアームをつけて、ルンルン気分になったのだが、デスクの下を見てみると一本だけ白いやつがいる&amp;hellip;なんでお前だけ白いねん！！
+電源タップ 雷ガード 10個口 ほこりシャッター付 固定&amp;吊下可能な回転パーツ付き 3m ブラック ECT-0103BK エレコム Amazon.</description>
     </item>
     
     <item>
