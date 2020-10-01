@@ -33,8 +33,11 @@
 
 &lt;p&gt;あとから気づいたが、これは実にWeb的な考え方である。つまりCSSボックスモデルの呪縛からの脱却が必要だ。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1001/01.png&#34; alt=&#34;&#34; /&gt;　
-&amp;gt; &lt;a href=&#34;https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/The_box_model&#34;&gt;ボックスモデル | MDN&lt;/a&gt;　より&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1001/01.png&#34; alt=&#34;&#34; /&gt;　&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/The_box_model&#34;&gt;ボックスモデル | MDN&lt;/a&gt;　より&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;CSSボックスモデルとは上図のように、一番内側にコンテンツがあり次にPaddingとBorder、Marginと広がっていく。なので、一つのCSSセレクタにPadding/Border/Marginのプロパティは１回しか適用できない。この考えが私の頭にこびりついていたのだ。&lt;/p&gt;
 
