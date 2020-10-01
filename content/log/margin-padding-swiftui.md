@@ -29,6 +29,7 @@ struct ContentView: View {
 あとから気づいたが、これは実にWeb的な考え方である。つまりCSSボックスモデルの呪縛からの脱却が必要だ。
 
 ![](/mol/images/2020/1001/01.png)　
+
 > [ボックスモデル | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/The_box_model)　より
 
 CSSボックスモデルとは上図のように、一番内側にコンテンツがあり次にPaddingとBorder、Marginと広がっていく。なので、一つのCSSセレクタにPadding/Border/Marginのプロパティは１回しか適用できない。この考えが私の頭にこびりついていたのだ。
