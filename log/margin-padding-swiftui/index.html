@@ -3,23 +3,23 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SwiftUIでの文字寄せとか - MOL</title>
+    <title>SwiftUIでの余白のとりかたとか - MOL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="twitter:title" content="SwiftUIでの文字寄せとか - MOL">
+    <meta name="twitter:title" content="SwiftUIでの余白のとりかたとか - MOL">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@t32k">
     
-    <meta name="description" content="まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った">
-    <meta name="twitter:description" content="まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った">
+    <meta name="description" content="こんなの片腕をもがれた状態じゃないか！と思ったが、SwiftUIでは、どうやら勝手が違うようである。">
+    <meta name="twitter:description" content="こんなの片腕をもがれた状態じゃないか！と思ったが、SwiftUIでは、どうやら勝手が違うようである。">
     
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="MOL">
     
-    <meta property="og:image" content="https://t32k.me/mol/images/2020/0928/01.png">
-    <meta name="twitter:image" content="https://t32k.me/mol/images/2020/0928/01.png">
+    <meta property="og:image" content="https://t32k.me/mol/images/2020/1001/02.png">
+    <meta name="twitter:image" content="https://t32k.me/mol/images/2020/1001/02.png">
     
     <meta property="fb:app_id" content="212646065416408">
-    <link rel="canonical" href="https://t32k.me/mol/log/text-align-swiftui/">
+    <link rel="canonical" href="https://t32k.me/mol/log/margin-padding-swiftui/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap">
     <link rel="stylesheet" href="/mol/css/layout.css?20190925">
     <link rel="stylesheet" href="/mol/css/app.css?20190925">
@@ -72,97 +72,85 @@
 <div class="container">
 <article role="main" class="post">
     <header class="post-header">
-        <p class="u-mute u-mbn"><time datetime='2020-09-28T00:00:00Z'>September 28, 2020</time></p>
-        <h1 class="post-h1">SwiftUIでの文字寄せとか</h1>
+        <p class="u-mute u-mbn"><time datetime='2020-10-01T00:00:00Z'>October 1, 2020</time></p>
+        <h1 class="post-h1">SwiftUIでの余白のとりかたとか</h1>
         
     </header>
     <section>
-        <p>最近、SwiftUIデビューをした。太古の昔にTitanium MobileでiOSアプリを作ったことはあるが、基本Web畑で育ってきたt32kにとっては、iOSというかSwiftというかSwiftUIでのユーザーインターフェイス作成は、まるで外国での生活のようで、いろいろカルチャーギャップを感じる。そうゆうことを書きたい。</p>
+        <p>Webレイアウトを組むにあたってMargin/Paddingは非常に重要だ。しかし、SwiftUIにおいてPaddingモディファイアはあるがMarginのそれはない。こんなの片腕をもがれた状態じゃないか！と思ったが、SwiftUIでは、どうやら勝手が違うようである。</p>
 
-<p>まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った。Xcodeでプロジェクトを作成すると<code>Hello World!</code>の文字列を表示するボイラープレートが用意されている。</p>
-
-<p><img src="/mol/images/2020/0928/01.png" alt="" /></p>
-
-<p>この文字列は上下・左右・真ん中に表示されている。これを左寄せにしたい。Webでいう、<code>text-align: left</code>は、SwiftUIではどうするんだろうと私は考える。</p>
-
-<p><img src="/mol/images/2020/0928/02.png" alt="" /></p>
+<p><img src="/mol/images/2020/1001/00.png" alt="" /></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
     <span style="color:#66d9ef">var</span> body: some View {
-        Text(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
-            .frame(alignment: .leading)
-    }
-}</code></pre></div>
-<p><code>frame</code>モディファイアで<code>aligment</code>というプロパティがあるのでそれに<code>.leading</code>２セットすればよいらしい。</p>
-
-<p>なるほど。動かない。</p>
-
-<p>それもそのはずだ、Textビューのサイズ（青枠）を見ればわかる。文字でいっぱいいっぱいなので、どちらか片方に寄せれないっぽい。</p>
-
-<p><img src="/mol/images/2020/0928/03.png" alt="" /></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    <span style="color:#66d9ef">var</span> body: some View {
-        Text(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}</code></pre></div>
-<p>Frameのサイズを画面いっぱいにひろげてみると、なるほどな、左に寄せることができた。ちなみに右寄せの場合は<code>.trailing</code>だ。</p>
-
-<p>またStackOveflowでこうゆう回答も見かけた。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    <span style="color:#66d9ef">var</span> body: some View {
-        VStack {
-            HStack {
-                Text(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
-            }
+        HStack(spacing: <span style="color:#ae81ff">40</span>) {
+            Text(<span style="color:#e6db74">&#34;タグ１&#34;</span>)
+                .padding()
+                .background(Color.yellow)
+            Text(<span style="color:#e6db74">&#34;タグ2&#34;</span>)
+                .padding()
+                .background(Color.blue)
         }
     }
 }</code></pre></div>
-<p><code>Spacer()</code>使うと楽だぜヒャッハーという。これだと<code>Spacer()</code>が目一杯広がるので、frameのwidthを明示的に指定しなくてもいいし楽っぽい。</p>
+<p>上記のように、タグのようなものを横並びにしたいと思ったとき、Marginがないので、どこでタグ間の余白を調整すればよいのかと思っていた。とりあえず、親のHStackに<code>spacing</code>プロパティを持つことができるので、ここでMarginの役割をもたせていた。</p>
 
-<p>でもSpacerというものWebでは邪道と言われ続けたスペーサーGIFのようなものと感じるので、あまり頼りすぎるのではよくないのではないかと思った。<code>alignment</code>で明示的に文字寄せを表現しているのは意味的に正しいと思う。</p>
+<p>あとから気づいたが、これは実にWeb的な考え方である。つまりCSSボックスモデルの呪縛からの脱却が必要だ。</p>
 
-<p>てか、そもそもなんで <code>text-align:left/right</code> を <code>.leading/.trailing</code> というのか考える必要がある。iOSはアラビア語圏などにも対応している。つまり右から左へ読む文化だ。つまり<code>.leading</code>と指定した文字寄せは日本語圏などは左になるが、アラビア語圏などでは右に配置されるので、<strong>先頭</strong> が変わるから<code>left/right</code>という名前なんだと理解した。なるほど、多言語文化対応だ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
-      ContentView().environment(<span style="color:#960050;background-color:#1e0010">\</span>.layoutDirection, .rightToLeft)
+<p><img src="/mol/images/2020/1001/01.png" alt="" />　
+&gt; <a href="https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/The_box_model">ボックスモデル | MDN</a>　より</p>
+
+<p>CSSボックスモデルとは上図のように、一番内側にコンテンツがあり次にPaddingとBorder、Marginと広がっていく。なので、一つのCSSセレクタにPadding/Border/Marginのプロパティは１回しか適用できない。この考えが私の頭にこびりついていたのだ。</p>
+
+<p><img src="/mol/images/2020/1001/02.png" alt="" />　</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+    <span style="color:#66d9ef">var</span> body: some View {
+        Text(<span style="color:#e6db74">&#34;コンテンツ&#34;</span>)
+            .padding()
+            .background(Color.yellow)
+            .padding()
+            .border(Color.red, width: <span style="color:#ae81ff">1</span>)
+            .padding()
+            .padding()
+            .border(Color.green, width: <span style="color:#ae81ff">1</span>)
+            .padding()
     }
 }</code></pre></div>
-<p>というわけで、環境変数レイアウト方向にRTLにセットしてみると、</p>
+<p>実際のSwiftUIにそんなCSSボックスモデルのような制約はない。Paddingは何回使ってもいいし、Borderも何回でもかけることができる。Borderの次にPaddingを指定すれば、Webで言うMargin的な使い方もできる（青枠はデバッグ用のView表示領域）。</p>
 
-<p><img src="/mol/images/2020/0928/04.png" alt="" /></p>
+<p>ゆえにスタイリングのためにDIVを何個も入れ子にする必要はないのである。当初はMargin以上にDIV的なViewはないのかな？とよく思ったものであるが、そもそも最初からSwiftUIに必要なかったのである。</p>
+
+<p><img src="/mol/images/2020/1001/03.png" alt="" />　</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
     <span style="color:#66d9ef">var</span> body: some View {
         VStack {
-            Text(<span style="color:#e6db74">&#34;Hello, alignment　左&#34;</span>)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text(<span style="color:#e6db74">&#34;Hello, alignment　右&#34;</span>)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-            
-            HStack {
-                Text(<span style="color:#e6db74">&#34;Hello, spacer 左&#34;</span>)
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text(<span style="color:#e6db74">&#34;Hello, spacer 右&#34;</span>)
-            }
-            
-            HStack {
-                Text(<span style="color:#e6db74">&#34;左&#34;</span>)
-                Spacer()
-                Text(<span style="color:#e6db74">&#34;右&#34;</span>)
-            }
+            Text(<span style="color:#e6db74">&#34;コンテンツ&#34;</span>)
+                .padding()
+                .background(Color.yellow)
+            Divider()
+            Text(<span style="color:#e6db74">&#34;コンテンツ&#34;</span>)
+                .background(Color.yellow)
+                .padding()
         }
     }
 }</code></pre></div>
-<p><code>alignment</code>で指定した文字寄せは予想通り、反対になっている。予想外だったのは<code>Spacer()</code>で文字寄せしたコードも反対になっている点だ。レイアウト方向にRTLになると<code>HStack</code>(横方向に並べるやつ)の並びも反転するのか。。。これは頭がよいのか、おせっかいなのかよくわからないけど、注意する必要がある。</p>
+<p>ただ、モディファイアの宣言順序は気をつける必要がある。コンテンツと余白に背景色を塗りたい場合は、最初にPaddingを指定しなければならなかったりとか。まぁ言い換えれば宣言順序どおりにSwiftUiはレンダリングしていくのだなと理解すればよい。</p>
 
-<p>まぁ、そんな感じで文字寄せひとつとってもいろいろ発見があるなーと思いました（こなみかん）</p>
+<p><img src="/mol/images/2020/1001/04.png" alt="" />　</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+    <span style="color:#66d9ef">var</span> body: some View {
+        Text(<span style="color:#e6db74">&#34;コンテンツ&#34;</span>)
+            .padding(.leading, <span style="color:#ae81ff">1</span>)
+            .padding(.trailing, <span style="color:#ae81ff">2</span>)
+            .padding(.top, <span style="color:#ae81ff">3</span>)
+            .padding(.bottom, <span style="color:#ae81ff">4</span>)
+            .padding(.vertical, <span style="color:#ae81ff">5</span>)
+            .padding(.horizontal, <span style="color:#ae81ff">6</span>)
+            .padding(.all, <span style="color:#ae81ff">7</span>)
+            .padding(EdgeInsets(top: <span style="color:#ae81ff">1</span>, leading: <span style="color:#ae81ff">2</span>, bottom: <span style="color:#ae81ff">3</span>, trailing: <span style="color:#ae81ff">4</span>))
+            .background(Color.yellow)
+    }
+}</code></pre></div>
+<p>最後にPaddingの値の指定のしかた一覧を書いて終わりにする。</p>
 
 <div class="__media"><a href="https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22" target="_blank" rel="noopener">
 <img src="https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg" alt="" class="__media__image">
@@ -179,13 +167,13 @@
     
 
     <div class="post-social">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=SwiftUI%e3%81%a7%e3%81%ae%e6%96%87%e5%ad%97%e5%af%84%e3%81%9b%e3%81%a8%e3%81%8b - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2ftext-align-swiftui%2f" title="はてなブックマークで共有する"
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=SwiftUI%e3%81%a7%e3%81%ae%e4%bd%99%e7%99%bd%e3%81%ae%e3%81%a8%e3%82%8a%e3%81%8b%e3%81%9f%e3%81%a8%e3%81%8b - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fmargin-padding-swiftui%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
-  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2ftext-align-swiftui%2f&text=SwiftUI%e3%81%a7%e3%81%ae%e6%96%87%e5%ad%97%e5%af%84%e3%81%9b%e3%81%a8%e3%81%8b - MOL" title="Twitterで共有する"
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fmargin-padding-swiftui%2f&text=SwiftUI%e3%81%a7%e3%81%ae%e4%bd%99%e7%99%bd%e3%81%ae%e3%81%a8%e3%82%8a%e3%81%8b%e3%81%9f%e3%81%a8%e3%81%8b - MOL" title="Twitterで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-tw" /></svg></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2ftext-align-swiftui%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fmargin-padding-swiftui%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-fb" /></svg></a>
 </div>
 <hr>
@@ -196,12 +184,11 @@
 <hr>
 <div class="row post-pager">
   <div class="six columns">
-    <div class="post-previous">  Later article<br>
-      <a href="https://t32k.me/mol/log/margin-padding-swiftui/"> SwiftUIでの余白のとりかたとか</a>  </div>
+    <div class="post-previous">  &nbsp;  </div>
   </div>
   <div class="six columns">
     <div class="post-next">  Older article<br>
-      <a href="https://t32k.me/mol/log/wahoo-kickr-2018/"> Wahoo KICKR&#39;18 スマートトレーナー</a>  </div>
+      <a href="https://t32k.me/mol/log/text-align-swiftui/"> SwiftUIでの文字寄せとか</a>  </div>
   </div>
 </div>
 

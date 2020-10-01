@@ -4,14 +4,19 @@
   
   <url>
     <loc>https://t32k.me/mol/log/</loc>
-    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
-    <lastmod>2020-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/margin-padding-swiftui/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
