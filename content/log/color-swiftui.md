@@ -3,6 +3,8 @@ date: 2020-10-07
 title: SwiftUIでの色とか
 excerpt: 書き方の違いなんだろうか？と思ってたけど、全然違った。
 ogimage: https://t32k.me/mol/images/2020/1007/00.png
+categories: 
+    - swiftui
 ---
 
 UIKitの`UIColor`とSwiftUIの`Color`は違うと気づいた最近。

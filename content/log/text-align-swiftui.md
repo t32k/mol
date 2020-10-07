@@ -3,6 +3,8 @@ date: 2020-09-28
 title: SwiftUIでの文字寄せとか
 excerpt: まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った
 ogimage: https://t32k.me/mol/images/2020/0928/01.png
+categories: 
+    - swiftui
 ---
 
 最近、SwiftUIデビューをした。太古の昔にTitanium MobileでiOSアプリを作ったことはあるが、基本Web畑で育ってきたt32kにとっては、iOSというかSwiftというかSwiftUIでのユーザーインターフェイス作成は、まるで外国での生活のようで、いろいろカルチャーギャップを感じる。そうゆうことを書きたい。

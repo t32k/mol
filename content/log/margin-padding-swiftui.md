@@ -3,6 +3,8 @@ date: 2020-10-01
 title: SwiftUIでの余白のとりかたとか
 excerpt: こんなの片腕をもがれた状態じゃないか！と思ったが、SwiftUIでは、どうやら勝手が違うようである。
 ogimage: https://t32k.me/mol/images/2020/1001/02.png
+categories: 
+    - swiftui
 ---
 
 Webレイアウトを組むにあたってMargin/Paddingは非常に重要だ。しかし、SwiftUIにおいてPaddingモディファイアはあるがMarginのそれはない。こんなの片腕をもがれた状態じゃないか！と思ったが、SwiftUIでは、どうやら勝手が違うようである。
