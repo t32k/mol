@@ -3,6 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://t32k.me/mol/categories/</loc>
+    <lastmod>2020-10-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://t32k.me/mol/log/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -20,6 +26,12 @@
   </url>
   
   <url>
+    <loc>https://t32k.me/mol/categories/swiftui/</loc>
+    <lastmod>2020-10-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://t32k.me/mol/log/margin-padding-swiftui/</loc>
     <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
@@ -27,12 +39,6 @@
   <url>
     <loc>https://t32k.me/mol/log/text-align-swiftui/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t32k.me/mol/categories/</loc>
-    <lastmod>2020-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

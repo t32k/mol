@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swiftui on MOL</title>
+    <link>https://t32k.me/mol/categories/swiftui/</link>
+    <description>Recent content in swiftui on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://t32k.me/mol/categories/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SwiftUIでの色とか</title>
+      <link>https://t32k.me/mol/log/color-swiftui/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/color-swiftui/</guid>
+      <description>UIKitのUIColorとSwiftUIのColorは違うと気づいた最近。
+例えば、赤色を表示したいときは、SwiftUIでは Color.red と書く。たまにColor(.red) というのも見かけて、書き方の違いなんだろうか？と思ってたけど、全然違った。Color(.red) は Color(UIColor.red) の略した書き方で、UIColor をSwiftUIのColorとして使う方法だった。
+ややこしいのはText(&amp;quot;hoge&amp;quot;).foregroundColor(.red)のようなケース。文字色を赤色にしたいとき、foregroundColorモディファイアはColorが引数に来ると想定しているので、foregroundColor(Color.red)と同じである。もし、UIColorの方の赤を指定したかったら、foregroundColor(Color(.red))と書かなければならない。
+ちなみに、赤色としても微妙に違う。
+struct ContentView: View { var body: some View { HStack { ZStack { Rectangle().foregroundColor(Color(.red)) Text(&amp;#34;UIColor&amp;#34;).foregroundColor(.white) } ZStack { Rectangle().foregroundColor(Color.red) Text(&amp;#34;SwiftUI&amp;#39;s Color&amp;#34;).foregroundColor(.white) } } } } どうして、気づくの時間がかかったかというと、今作成しているのはモックアプリでシステムカラーしか使ってなかったためである。つまり、Color(. systemRed)のような書き方で統一していたというか、システムカラーはUIColorなので、そう書かざるをえなかった。
+システムカラーを使うと、ダークモードのときや、アクセシビリティモードのときに適切な色味に変換してくれるメリットがある。つまり、システムカラーさえ使っとけば、おーるおっけー。やったね 🤗
+気をつけなければならないのは、黒や白といったものである。コンポーネントの背景色を白色にしたいと思って、安易に Color.white を使わない。当たり前だがColor.white はダークモードのときも白色だがアプリ全体の背景色は黒色になる。そうしたとき、想定していない見た目になるかもしれな。そうゆうときは Color(.systemBackground)を使うと良い。文字色もColor(.label)を使うと、黒と白が反転して良い感じになる。
+濃淡を使い分けたかったら、SystemGrayを使うと良い。
+CSSだけど、このブログをダークモードに対応したとき、めんどくさかったんだよなと思い出した。そういう意味では、ダークモードだけでなくアクセシビリティモードのときのカラーセットもはじめから用意してくれているiOS様様である。
+ Color - Visual Design - iOS - Human Interface Guidelines - Apple Developer  SwiftUI 徹底入門 金田 浩明 Amazon.co.jpで詳細を見る   </description>
+    </item>
+    
+    <item>
+      <title>SwiftUIでの余白のとりかたとか</title>
+      <link>https://t32k.me/mol/log/margin-padding-swiftui/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/margin-padding-swiftui/</guid>
+      <description>Webレイアウトを組むにあたってMargin/Paddingは非常に重要だ。しかし、SwiftUIにおいてPaddingモディファイアはあるがMarginのそれはない。こんなの片腕をもがれた状態じゃないか！と思ったが、SwiftUIでは、どうやら勝手が違うようである。
+struct ContentView: View { var body: some View { HStack(spacing: 40) { Text(&amp;#34;タグ１&amp;#34;) .padding() .background(Color.yellow) Text(&amp;#34;タグ2&amp;#34;) .padding() .background(Color.blue) } } } 上記のように、タグのようなものを横並びにしたいと思ったとき、Marginがないので、どこでタグ間の余白を調整すればよいのかと思っていた。とりあえず、親のHStackにspacingプロパティを持つことができるので、ここでMarginの役割をもたせていた。
+あとから気づいたが、これは実にWeb的な考え方である。つまりCSSボックスモデルの呪縛からの脱却が必要だ。
+ ボックスモデル | MDN　より
+ CSSボックスモデルとは上図のように、一番内側にコンテンツがあり次にPaddingとBorder、Marginと広がっていく。なので、一つのCSSセレクタにPadding/Border/Marginのプロパティは１回しか適用できない。この考えが私の頭にこびりついていたのだ。
+struct ContentView: View { var body: some View { Text(&amp;#34;コンテンツ&amp;#34;) .padding() .background(Color.yellow) .padding() .border(Color.red, width: 1) .padding() .padding() .border(Color.green, width: 1) .padding() } } 実際のSwiftUIにそんなCSSボックスモデルのような制約はない。Paddingは何回使ってもいいし、Borderも何回でもかけることができる。Borderの次にPaddingを指定すれば、Webで言うMargin的な使い方もできる（青枠はデバッグ用のView表示領域）。
+ゆえにスタイリングのためにDIVを何個も入れ子にする必要はないのである。当初はMargin以上にDIV的なViewはないのかな？とよく思ったものであるが、そもそも最初からSwiftUIに必要なかったのである。
+struct ContentView: View { var body: some View { VStack { Text(&amp;#34;コンテンツ&amp;#34;) .padding() .</description>
+    </item>
+    
+    <item>
+      <title>SwiftUIでの文字寄せとか</title>
+      <link>https://t32k.me/mol/log/text-align-swiftui/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/text-align-swiftui/</guid>
+      <description>最近、SwiftUIデビューをした。太古の昔にTitanium MobileでiOSアプリを作ったことはあるが、基本Web畑で育ってきたt32kにとっては、iOSというかSwiftというかSwiftUIでのユーザーインターフェイス作成は、まるで外国での生活のようで、いろいろカルチャーギャップを感じる。そうゆうことを書きたい。
+まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った。Xcodeでプロジェクトを作成するとHello World!の文字列を表示するボイラープレートが用意されている。
+この文字列は上下・左右・真ん中に表示されている。これを左寄せにしたい。Webでいう、text-align: leftは、SwiftUIではどうするんだろうと私は考える。
+struct ContentView: View { var body: some View { Text(&amp;#34;Hello, World!&amp;#34;) .frame(alignment: .leading) } } frameモディファイアでaligmentというプロパティがあるのでそれに.leading２セットすればよいらしい。
+なるほど。動かない。
+それもそのはずだ、Textビューのサイズ（青枠）を見ればわかる。文字でいっぱいいっぱいなので、どちらか片方に寄せれないっぽい。
+struct ContentView: View { var body: some View { Text(&amp;#34;Hello, World!&amp;#34;) .frame(maxWidth: .infinity, alignment: .leading) } } Frameのサイズを画面いっぱいにひろげてみると、なるほどな、左に寄せることができた。ちなみに右寄せの場合は.trailingだ。
+またStackOveflowでこうゆう回答も見かけた。
+struct ContentView: View { var body: some View { VStack { HStack { Text(&amp;#34;Hello, World!&amp;#34;) Spacer() } HStack { Spacer() Text(&amp;#34;Hello, World!&amp;#34;) } } } } Spacer()使うと楽だぜヒャッハーという。これだとSpacer()が目一杯広がるので、frameのwidthを明示的に指定しなくてもいいし楽っぽい。</description>
+    </item>
+    
+  </channel>
+</rss>
