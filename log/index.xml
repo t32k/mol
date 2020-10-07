@@ -5,10 +5,28 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SwiftUIでの色とか</title>
+      <link>https://t32k.me/mol/log/color-swiftui/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/color-swiftui/</guid>
+      <description>UIKitのUIColorとSwiftUIのColorは違うと気づいた最近。
+例えば、赤色を表示したいときは、SwiftUIでは Color.red と書く。たまにColor(.red) というのも見かけて、書き方の違いなんだろうか？と思ってたけど、全然違った。Color(.red) は Color(UIColor.red) の略した書き方で、UIColor をSwiftUIのColorとして使う方法だった。
+ややこしいのはText(&amp;quot;hoge&amp;quot;).foregroundColor(.red)のようなケース。文字色を赤色にしたいとき、foregroundColorモディファイアはColorが引数に来ると想定しているので、foregroundColor(Color.red)と同じである。もし、UIColorの方の赤を指定したかったら、foregroundColor(Color(.red))と書かなければならない。
+ちなみに、赤色としても微妙に違う。
+struct ContentView: View { var body: some View { HStack { ZStack { Rectangle().foregroundColor(Color(.red)) Text(&amp;#34;UIColor&amp;#34;).foregroundColor(.white) } ZStack { Rectangle().foregroundColor(Color.red) Text(&amp;#34;SwiftUI&amp;#39;s Color&amp;#34;).foregroundColor(.white) } } } } どうして、気づくの時間がかかったかというと、今作成しているのはモックアプリでシステムカラーしか使ってなかったためである。つまり、Color(. systemRed)のような書き方で統一していたというか、システムカラーはUIColorなので、そう書かざるをえなかった。
+システムカラーを使うと、ダークモードのときや、アクセシビリティモードのときに適切な色味に変換してくれるメリットがある。つまり、システムカラーさえ使っとけば、おーるおっけー。やったね 🤗
+気をつけなければならないのは、黒や白といったものである。コンポーネントの背景色を白色にしたいと思って、安易に Color.white を使わない。当たり前だがColor.white はダークモードのときも白色だがアプリ全体の背景色は黒色になる。そうしたとき、想定していない見た目になるかもしれな。そうゆうときは Color(.systemBackground)を使うと良い。文字色もColor(.label)を使うと、黒と白が反転して良い感じになる。
+濃淡を使い分けたかったら、SystemGrayを使うと良い。
+CSSだけど、このブログをダークモードに対応したとき、めんどくさかったんだよなと思い出した。そういう意味では、ダークモードだけでなくアクセシビリティモードのときのカラーセットもはじめから用意してくれているiOS様様である。
+ Color - Visual Design - iOS - Human Interface Guidelines - Apple Developer  SwiftUI 徹底入門 金田 浩明 Amazon.co.jpで詳細を見る   </description>
+    </item>
     
     <item>
       <title>SwiftUIでの余白のとりかたとか</title>

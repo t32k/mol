@@ -6,7 +6,65 @@
         
         
         
-        <updated>Thu, 01 Oct 2020 00:00:00 UTC</updated>
+        <updated>Wed, 07 Oct 2020 00:00:00 UTC</updated>
+        
+        <item>
+            <title>SwiftUIでの色とか</title>
+            <link>https://t32k.me/mol/log/color-swiftui/</link>
+            <pubDate>Wed, 07 Oct 2020 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/color-swiftui/</guid>
+            <description>&lt;p&gt;UIKitの&lt;code&gt;UIColor&lt;/code&gt;とSwiftUIの&lt;code&gt;Color&lt;/code&gt;は違うと気づいた最近。&lt;/p&gt;
+
+&lt;p&gt;例えば、赤色を表示したいときは、SwiftUIでは &lt;code&gt;Color.red&lt;/code&gt; と書く。たまに&lt;code&gt;Color(.red)&lt;/code&gt; というのも見かけて、書き方の違いなんだろうか？と思ってたけど、全然違った。&lt;code&gt;Color(.red)&lt;/code&gt; は &lt;code&gt;Color(UIColor.red)&lt;/code&gt; の略した書き方で、&lt;code&gt;UIColor&lt;/code&gt; をSwiftUIの&lt;code&gt;Color&lt;/code&gt;として使う方法だった。&lt;/p&gt;
+
+&lt;p&gt;ややこしいのは&lt;code&gt;Text(&amp;quot;hoge&amp;quot;).foregroundColor(.red)&lt;/code&gt;のようなケース。文字色を赤色にしたいとき、foregroundColorモディファイアは&lt;code&gt;Color&lt;/code&gt;が引数に来ると想定しているので、&lt;code&gt;foregroundColor(Color.red)&lt;/code&gt;と同じである。もし、UIColorの方の赤を指定したかったら、&lt;code&gt;foregroundColor(Color(.red))&lt;/code&gt;と書かなければならない。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、赤色としても微妙に違う。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1007/00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        HStack {
+            ZStack {
+                Rectangle().foregroundColor(Color(.red))
+                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UIColor&amp;#34;&lt;/span&gt;).foregroundColor(.white)
+            }
+            ZStack {
+                Rectangle().foregroundColor(Color.red)
+                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SwiftUI&amp;#39;s Color&amp;#34;&lt;/span&gt;).foregroundColor(.white)
+            }
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;どうして、気づくの時間がかかったかというと、今作成しているのはモックアプリでシステムカラーしか使ってなかったためである。つまり、&lt;code&gt;Color(.    systemRed)&lt;/code&gt;のような書き方で統一していたというか、システムカラーは&lt;code&gt;UIColor&lt;/code&gt;なので、そう書かざるをえなかった。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1007/01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;システムカラーを使うと、ダークモードのときや、アクセシビリティモードのときに適切な色味に変換してくれるメリットがある。つまり、システムカラーさえ使っとけば、おーるおっけー。やったね 🤗&lt;/p&gt;
+
+&lt;p&gt;気をつけなければならないのは、黒や白といったものである。コンポーネントの背景色を白色にしたいと思って、安易に &lt;code&gt;Color.white&lt;/code&gt; を使わない。当たり前だが&lt;code&gt;Color.white&lt;/code&gt; はダークモードのときも白色だがアプリ全体の背景色は黒色になる。そうしたとき、想定していない見た目になるかもしれな。そうゆうときは &lt;code&gt;Color(.systemBackground)&lt;/code&gt;を使うと良い。文字色も&lt;code&gt;Color(.label)&lt;/code&gt;を使うと、黒と白が反転して良い感じになる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1007/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;濃淡を使い分けたかったら、&lt;code&gt;SystemGray&lt;/code&gt;を使うと良い。&lt;/p&gt;
+
+&lt;p&gt;CSSだけど、&lt;a href=&#34;https://t32k.me/mol/mol/log/dive-into-the-dark-side/&#34;&gt;このブログをダークモードに対応&lt;/a&gt;したとき、めんどくさかったんだよなと思い出した。そういう意味では、ダークモードだけでなくアクセシビリティモードのときのカラーセットもはじめから用意してくれているiOS様様である。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/&#34;&gt;Color - Visual Design - iOS - Human Interface Guidelines - Apple Developer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;SwiftUI 徹底入門&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;金田 浩明&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+</description>
+        </item>
         
         <item>
             <title>SwiftUIでの余白のとりかたとか</title>
@@ -997,46 +1055,6 @@
 &lt;p&gt;ただ、良い感じのところにコンセントがないのが玉に瑕。&lt;/p&gt;
 
 &lt;p&gt;おしまい。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>デザイニング・ボイスユーザーインターフェース</title>
-            <link>https://t32k.me/mol/log/978-4873118581-designing-voice-user-interfaces/</link>
-            <pubDate>Fri, 23 Aug 2019 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4873118581-designing-voice-user-interfaces/</guid>
-            <description>&lt;p&gt;今年のGoogle I/Oに参加して、個人的に一番熱量を感じたのは&lt;a href=&#34;https://www.youtube.com/playlist?list=PLOU2XLYxmsIK5JcIMUhrPH7T0lHBrKbER&#34;&gt;Googleアシスタント関連のセッション&lt;/a&gt;だった。Google Home / Nest Hubのスマートホームはもちろんのこと、Android携帯から『メールを送って！』と言うだけで送信できるExtend your Android appの面においても、Googleアシスタントの存在感は至るところで増している。&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、VUI(ボイスユーザーインターフェース)が最近の興味の対象であり、会社でもGoogleアシスタントアプリを開発するなどしている。なにか良い書籍がないかなと思ったら、まさしくな本があったので読んでみた。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4873118581/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51AGEWxlonL._SX351_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;デザイニング・ボイスユーザーインターフェース&lt;br&gt;―音声で対話するサービスのためのデザイン原則&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;Cathy Pearl (著), 川本 大功 (監修), 高橋 信夫 (翻訳)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;VUIと言っても、その歴史は自動音声応答：IVR（Interactive Voice Response）に遡る。いわゆる、『〜でよろしければ、1と#を押してください。最初からやり直す場合は4と#を押してください。』みたいな、電話の自動音声を利用した経験は一度はあるとは思う。&lt;/p&gt;
-
-&lt;p&gt;IVRにおいての知見は、昨今のモバイルデバイスにおけるVUIに関しても適用できるので、
-そういった歴史的な経緯やキーワードを解説してくれる。例えば、音声ガイダンスの途中でもバージイン（割り込み）を有効にすべきかどうかなど。&lt;/p&gt;
-
-&lt;p&gt;また、最近のVUIとIVRの大きな違いは、デバイスによっては画面を利用できることもある。つまり、音声と画面、複数のインタフェースをまたぐことになり、このマルチモーダル・インタフェースは大いに優位性があるといえる。&lt;/p&gt;
-
-&lt;p&gt;全体を通して、基本的な用語の説明や基礎的なことしか説明しておらず、実践的で便利なサンプルアプリケーションを元に解説してくれるともっと良かったかもしれない。ちょっと肩透かし感が否めない。&lt;/p&gt;
-
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;//www.youtube.com/embed/oo5dFEW0Vk8&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;&amp;ndash;&lt;/p&gt;
-
-&lt;p&gt;というわけで、Googleアシスタントアプリを開発してる自分にとっては、I/Oのこのセッションがドンピシャで良かったので、みなさんも見てみると良いかもかも。&lt;/p&gt;
 </description>
         </item>
         
