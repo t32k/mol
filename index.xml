@@ -6,7 +6,153 @@
         
         
         
-        <updated>Wed, 07 Oct 2020 00:00:00 UTC</updated>
+        <updated>Thu, 08 Oct 2020 00:00:00 UTC</updated>
+        
+        <item>
+            <title>SwiftUIでのスタイルのまとめかたとか</title>
+            <link>https://t32k.me/mol/log/styles-swiftui/</link>
+            <pubDate>Thu, 08 Oct 2020 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/styles-swiftui/</guid>
+            <description>
+
+&lt;p&gt;CSSだとスタイルはクラスでまとめられ、BEMなり、なんなりのクラスの命名規則で管理する。SwiftUIだとスタイルはViewに繋げられたモディファイアであり、これがダラダラと記述されているのは、見通しが悪い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1008/00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Swift&#34; data-lang=&#34;Swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
+            .font(.largeTitle)
+            .foregroundColor(Color(.systemRed))
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&#34;カスタムモディファイア&#34;&gt;カスタムモディファイア&lt;/h1&gt;
+
+&lt;p&gt;modifier というまんまのものがある。上記のコードは LargeText という ViewModifier 定義すると、.modifier(LargeText(color: Color(.systemRed))) だけを View に繋げれば良い。また引数を持つことができるので、色の部分を抜き出して、青色のテキストを表示したり、緑色のテキストを表示できるといった具合だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1008/01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
+            .modifier(LargeText(color: Color(.systemRed)))
+    }
+}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;LargeText&lt;/span&gt;: ViewModifier {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; color: Color
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;(content: Content) -&amp;gt; some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(color)
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&#34;カスタムスタイル&#34;&gt;カスタムスタイル&lt;/h1&gt;
+
+&lt;p&gt;modifier と似ているが、特定のコンポーネントにはカスタムスタイルを定義する方法が提供されている。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        Button(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ボタン&amp;#34;&lt;/span&gt;) { print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;タップ&amp;#34;&lt;/span&gt;) }
+            .buttonStyle(MyButtonStyle())
+    }
+}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyButtonStyle&lt;/span&gt;: ButtonStyle {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;makeBody&lt;/span&gt;(configuration: &lt;span style=&#34;color:#66d9ef&#34;&gt;Self&lt;/span&gt;.Configuration) -&amp;gt; some View {
+        configuration.label
+            .padding()
+            .foregroundColor(Color(.systemBlue))
+            .overlay(
+                RoundedRectangle(cornerRadius: &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
+                    .stroke(Color(.systemBlue), lineWidth: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+            )
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Button の場合は ButtonStyle がある。一見すると別に modifier でも問題じゃないかと思うが、ミソは&lt;code&gt;configuration&lt;/code&gt;の部分だ。 configuration.isPressedで、押されているのか、いないのかの状態がわかるので、ボタン押下時のスタイルも定義することができる。同様に、トグルにも ToggleStyle というものが提供されており、configuration.isOn でトグルの on/off 状態がわかるので、on/off でスタイルを変更することができる。ということで、ButtonやToggleのスタイルをまとめたいときはカスタムスタイルでまとめる。&lt;/p&gt;
+
+&lt;h1 id=&#34;構造体でまとめる&#34;&gt;構造体でまとめる&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1008/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        List {
+            HStack {
+                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
+                    .resizable()
+                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hoge Yamada&amp;#34;&lt;/span&gt;).font(.callout).fontWeight(.bold)
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
+                }
+            }
+            HStack {
+                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
+                    .resizable()
+                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Fuga Yamada&amp;#34;&lt;/span&gt;).font(.callout).fontWeight(.bold)
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
+                }
+            }
+            HStack {
+                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
+                    .resizable()
+                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Piyo Yamada&amp;#34;&lt;/span&gt;).font(.callout).fontWeight(.bold)
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
+                }
+            }
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;受信メール一覧的なリストを作る場合、HStack でプロフ画像と文書を並べてとか一つ一つのリストアイテムを作っていく。まぁ愚直に書けば、上記みたいな感じ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; friends = [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hoge Yamada&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Fuga Yamada&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Piyo Yamada&amp;#34;&lt;/span&gt; ]
+    
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        List {
+            ForEach(friends, id: &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;self&lt;/span&gt;) { friend &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt;
+                ListItem(name: friend)
+            }
+        }
+    }
+    
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListItem&lt;/span&gt;: View {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; name: String
+        
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+            HStack {
+                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
+                    .resizable()
+                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
+                    .padding()
+                VStack(alignment: .leading) {
+                    Text(name).font(.callout).fontWeight(.bold)
+                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
+                }
+            }
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;HStack らへんを ListItem 構造体としてまとめるとこんな感じ。スタイルをまとめるというよりかは、ボタンなり、画像なりある程度の粒度をもったUIコンポーネントとしてまとめるといったことに近い。&lt;/p&gt;
+
+&lt;p&gt;今作っているのは簡素な見た目のモックアプリなので、そこまでモディファイアをつなげるてスタイルを作り込んでいくことがないので、modifier はあんまり使わず、構造体でまとめて終わりって感じになっている。&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;SwiftUI 徹底入門&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;金田 浩明&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+</description>
+        </item>
         
         <item>
             <title>SwiftUIでの色とか</title>
@@ -922,139 +1068,6 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;日本記録持っていると、さすがに言葉の重みが違う。はい。がんばります。本書は全体通して、継続の重要性、泥臭く走り続けるといったことが書かれているので、当たり前だけど、マラソンに近道はないと理解した一冊だった。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>2019年のデスク環境</title>
-            <link>https://t32k.me/mol/log/my-desktop-2019/</link>
-            <pubDate>Tue, 27 Aug 2019 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/my-desktop-2019/</guid>
-            <description>
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0827/00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;最近、引っ越しを機にデスクトップ周りを整理してみたお話。正確には&lt;a href=&#34;https://twitter.com/goando&#34;&gt;@goando&lt;/a&gt;のデスクトップを真似ただけのお話。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://note.mu/goando/n/n8569df97318c&#34;&gt;ケーブル嫌いのためのデスク周りをスッキリさせるテクニック｜ Go Ando&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/macbook-pro-late-2016/&#34;&gt;2017 年の俺的 Mac 環境&lt;/a&gt;でもまとめたが、定期的に iMac だけの環境と MacBook Pro + 周辺機器いっぱいの環境を交互に試したくなる性である。そして今年は iMac シンプル路線である、今のところ。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07PRX33WK/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51f-vsakkWL._SL1024_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;Apple iMac (27インチ, Retina 5Kディスプレイモデル, 3.1GHz 6コア第8世代Intel Core i5プロセッサ, 1TB) (2019)&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;Apple(アップル)&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;黒い感じでまとめたかったので、一瞬、気の迷いで、iMac Pro の購入を考えたが、&lt;a href=&#34;https://gori.me/imac/115734&#34;&gt;iMac Pro と iMac 2019 の性能は大差ない&lt;/a&gt;と聞いたので、おとなしく、シルバーの iMac を購入した。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07Q8TJ2KL/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71%2BVZmr4paL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;エルゴトロン LX デスクマウント モニターアーム マットブラック&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;エルゴトロン&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;あと今年は絶対 VESA マウント搭載の iMac にしようと思っていた。モニターアームブランドのエルゴトロンから、ついにマットブラックのアームが発売されているのを知って、後押しされた感じだ。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0827/01.jpg?v1&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;おかげさまでモニターアームが使えるので、iMac のアゴ周り？喉元？がスッキリしてストレスがない。キーボードなども&lt;a href=&#34;https://t32k.me/mol/mol/log/satechi-aluminum-slim-wireless-keyboard/&#34;&gt;以前の記事&lt;/a&gt;のとおり黒色で揃えた。&lt;/p&gt;
-
-&lt;h2 id=&#34;imac-から伸びる白い咆哮&#34;&gt;iMac から伸びる白い咆哮&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0827/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;黒いモニターアームをつけて、ルンルン気分になったのだが、デスクの下を見てみると一本だけ白いやつがいる&amp;hellip;なんでお前だけ白いねん！！&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07QKSJDVW/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61ls5MaAbUL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;電源タップ 雷ガード 10個口 ほこりシャッター付 固定&amp;吊下可能な回転パーツ付き 3m ブラック ECT-0103BK&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;エレコム&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;t32k は発狂した。メルカリの中に駆け出し、中古の iMac 電源ケーブルを探した。&lt;/p&gt;
-
-&lt;p&gt;&amp;ndash;
-果して一本の黒虎が叢の中から躍り出た。&lt;/p&gt;
-
-&lt;p&gt;iMac の電源ケーブルは 2012 年以降であれば同じタイプだったので、問題なく使えた。だいたい 1000~2000 円内で買えるのではないだろうか。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B000BMXRUM/?tag=warikiru-22&#34;&gt;タミヤ メイクアップ材シリーズ No.64 ファインサーフェイサー L (ライトグレイ)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B003JA7LYQ/?tag=warikiru-22&#34;&gt;染め Q エアゾール 264ml ブラック&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あとは@goando おすすめのスプレーで塗装するだけ。正直ケーブルを塗装するなんて正気の沙汰じゃないって思ってたけど、塗ってみると案外大変じゃないし、すごく満足しているので、人生一度は電源ケーブルを染め上げてみるのもいいかもしれない。&lt;/p&gt;
-
-&lt;h2 id=&#34;おんぶに抱っこ&#34;&gt;おんぶに抱っこ&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0827/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;予算の都合上、iMac のストレージが SSD の 512GB しかない。 そうゆうわけで 4TB のポータブル HDD を利用しているのだが、これを VESA マウントの iMac で使うと、常に USB ケーブルが垂れた状態になってしまって、よろしくない。というわけでマジックテープで着脱可能にしている。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B00KE8CX1C/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71gBy2MJsgL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;幅広タイプ 面ファスナー （黒）&lt;br&gt;オス/メス セット【10cm×25cm】&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;Ton sar&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;昔、MIT メディアラボの石井教授が MacBook Pro の背面にマジックテープでポータブル HDD をつけてたのを思い出して、やってみた。基本ディスプレイの裏にあるので特に気にする必要がないので、とりあえず固定できればよいのである。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0827/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07HHYMK9L/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51C0GCQOG6L._SL1100_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;ヘッドホンハンガー 360度回転・スペース節約可能&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;Hommie&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;机の足を固定するネジ部分がちょうどこのヘッドホン掛けの穴にはまったので利用した。&lt;/p&gt;
-
-&lt;h2 id=&#34;木を隠すなら森の中&#34;&gt;木を隠すなら森の中&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0827/05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Google Home Mini、Google Wi-Fi、Nature Remo mini などの白物家電がどうしても存在する。そうゆうのは白い壁に貼り付けとく。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07GP8QY8H/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/71diS5kNudL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;Google Home Mini 専用壁掛けホルダー (ホワイト)&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;MOYASI&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07MMTH4MR/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51q7kWTAW3L._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;Google Wifi 壁掛けホルダー (ホワイト) &lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;KIWI design&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;ただ、良い感じのところにコンセントがないのが玉に瑕。&lt;/p&gt;
-
-&lt;p&gt;おしまい。&lt;/p&gt;
 </description>
         </item>
         

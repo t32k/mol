@@ -5,10 +5,21 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SwiftUIでのスタイルのまとめかたとか</title>
+      <link>https://t32k.me/mol/log/styles-swiftui/</link>
+      <pubDate>Thu, 08 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/styles-swiftui/</guid>
+      <description>CSSだとスタイルはクラスでまとめられ、BEMなり、なんなりのクラスの命名規則で管理する。SwiftUIだとスタイルはViewに繋げられたモディファイアであり、これがダラダラと記述されているのは、見通しが悪い。
+struct ContentView: View { var body: some View { Text(&amp;#34;Hello, World!&amp;#34;) .font(.largeTitle) .foregroundColor(Color(.systemRed)) .padding() .frame(maxWidth: .infinity, alignment: .leading) } } カスタムモディファイア modifier というまんまのものがある。上記のコードは LargeText という ViewModifier 定義すると、.modifier(LargeText(color: Color(.systemRed))) だけを View に繋げれば良い。また引数を持つことができるので、色の部分を抜き出して、青色のテキストを表示したり、緑色のテキストを表示できるといった具合だ。
+struct ContentView: View { var body: some View { Text(&amp;#34;Hello, World!&amp;#34;) .modifier(LargeText(color: Color(.systemRed))) } } struct LargeText: ViewModifier { let color: Color func body(content: Content) -&amp;gt; some View { content .font(.largeTitle) .foregroundColor(color) .padding() .frame(maxWidth: .infinity, alignment: .leading) } } カスタムスタイル modifier と似ているが、特定のコンポーネントにはカスタムスタイルを定義する方法が提供されている。</description>
+    </item>
     
     <item>
       <title>SwiftUIでの色とか</title>
