@@ -4,20 +4,31 @@
   
   <url>
     <loc>https://t32k.me/mol/categories/</loc>
-    <lastmod>2020-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/log/</loc>
-    <lastmod>2020-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
-    <lastmod>2020-10-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/categories/books/</loc>
+    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4297113513-do-not-mode-me-in/</loc>
+    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -54,12 +65,6 @@
   <url>
     <loc>https://t32k.me/mol/categories/gadget/</loc>
     <lastmod>2020-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://t32k.me/mol/categories/books/</loc>
-    <lastmod>2020-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
