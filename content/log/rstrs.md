@@ -198,7 +198,7 @@ StockXでは新品しか取り扱わないと言いましたが、箱もちゃ�
     <div class="__media__text">ブランド: 坂本石灰工業所</div>
     <div>Amazon.co.jpで詳細を見る</div>
 </div>
-</a></div>"
+</a></div>
 
 
 ## 偽物の流通
