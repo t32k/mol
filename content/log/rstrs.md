@@ -273,7 +273,7 @@ StockXでは新品しか取り扱わないと言いましたが、StockXと似�
 
 リシューブネイターはスニーカーのクリーニング・修復などの動画をYouTubeにアップロードしています。チャンネル登録者数は100万人を超え、YouTubeだけの広告収入だけでも結構な額でしょうが、彼らは自社のスニーカーケア用品も販売しています。リシューブネイターのブラシだったり洗剤だったり、パッケージもおされです。
 
-![](/mol/images/2020/1207/22.jpg)
+[![](/mol/images/2020/1207/22.jpg)](https://www.youtube.com/channel/UCrBbduvKVMtnwxnN-UNCwUg)
 
 - [RSTRS \- YouTube](https://www.youtube.com/channel/UCrBbduvKVMtnwxnN-UNCwUg)
 
