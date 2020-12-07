@@ -4,7 +4,7 @@ title: 投資対象としてのスニーカー👟
 subtitle: 
 categories:
   - sneakers
-ogimage: https://t32k.me/mol/images/2020/1207/00.jpg
+ogimage: https://t32k.me/mol/images/2020/1207/22.jpg
 excerpt: マイケル・ジョーダンすげーな！かっこいいな！と思いますし、もうおっさんですが彼のようになりたいと思い、彼のスニーカーを履きたいと思うので、やっぱりスニーカーが大好きです🥰
 ---
 
