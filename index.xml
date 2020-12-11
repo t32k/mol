@@ -6,7 +6,104 @@
         
         
         
-        <updated>Mon, 07 Dec 2020 00:00:00 UTC</updated>
+        <updated>Fri, 11 Dec 2020 00:00:00 UTC</updated>
+        
+        <item>
+            <title>SwiftのOptional型とか</title>
+            <link>https://t32k.me/mol/log/swift-optional/</link>
+            <pubDate>Fri, 11 Dec 2020 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/swift-optional/</guid>
+            <description>
+
+&lt;p&gt;TypeScriptもあんまり使ったことなかったから、型がどうも苦手というか慣れない。 &lt;code&gt;Int&lt;/code&gt; とか &lt;code&gt;String&lt;/code&gt; とかそうゆうシンプルなものだと分かるが、そのシンプルな型をよくわからないものにするのがOptional型だと苦手意識を持っていた。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; a: String = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;swift&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; b: String? = &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; c: Optional&amp;lt;String&amp;gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;b&lt;/code&gt; と &lt;code&gt;c&lt;/code&gt; は書き方が違うだけでどちらもオプショナルString型。まぁ&lt;code&gt;nil&lt;/code&gt;を許容するかどうかって話なのだが、問題は扱い方。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; foo: Int? = &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; bar: Int = foo &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;bar&lt;/code&gt; のところでエラーになる。アンラップしろよとかなんとか注意される。&lt;/p&gt;
+
+&lt;h2 id=&#34;アンラップ-開示&#34;&gt;アンラップ（開示）&lt;/h2&gt;
+
+&lt;p&gt;なんでや!! &lt;code&gt;foo&lt;/code&gt; に3が代入されとるのは明らかやろ！と思っていたが、アンラップしろと言われているので、とりあえずアンラップしてみる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; foo: Int? = &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; bar: Int = foo! &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;foo&lt;/code&gt; は &lt;code&gt;Optional&amp;lt;Int&amp;gt;&lt;/code&gt; であって、 &lt;code&gt;Int&lt;/code&gt; ではないので、違う型同士で足し算はできない。そこで、オプショナルIntからIntを取り出さなければならない。これをアンラップといい、上記のようにビックリマークをおしりにつける。そうするとちゃんと計算を実行できるようになる。&lt;/p&gt;
+
+&lt;p&gt;なんかアンラップしろって言われたら、とりあえずビックリマークつけときゃいいんやなと雑に覚えてしまっっていたので、のちのち困ることになった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; foo: Int?
+&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; bar: Int = foo! &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;foo&lt;/code&gt; に値が代入されていない場合、アンラップしても &lt;code&gt;nil&lt;/code&gt; が返ってくるのでエラーになる。&lt;/p&gt;
+
+&lt;h2 id=&#34;オプショナルバインディング-if-let文&#34;&gt;オプショナルバインディング (if-let文)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; foo: Int? = &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; f = foo {
+    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;答えは&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;f &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;です&amp;#34;&lt;/span&gt;)
+} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;答えは1です&amp;#34;&lt;/span&gt;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;もし値が入ってなかったら、違う処理を記述したいと思う。そうゆうときは &lt;code&gt;if let　~ { }&lt;/code&gt; みたいな感じの構文を書く。これをオプショナルバインディングと呼ぶ。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;foo&lt;/code&gt; に値があれば、&lt;code&gt;f&lt;/code&gt; に代入されて、答えは4です。とprintされるが、&lt;code&gt;foo&lt;/code&gt; が &lt;code&gt;nil&lt;/code&gt; だったら、else節に飛び、答えは1です。とエラーにならずにprintされる。&lt;/p&gt;
+
+&lt;h2 id=&#34;guard文&#34;&gt;guard文&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; foo: String?
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;printStr&lt;/span&gt;(message: String?) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;guard&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; str = message &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;nilです&amp;#34;&lt;/span&gt;)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+    }
+    print(str)
+}
+printStr(message: foo)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;guard文でも似たようなことができる。 &lt;code&gt;guard 条件 else { /* returnやbreak */ }&lt;/code&gt; と書いて、条件が成立しなかった場合、else節にとび、処理を中断したりできる。&lt;/p&gt;
+
+&lt;h2 id=&#34;nil合体演算子-nil-coalescing-operator&#34;&gt;nil合体演算子(Nil-Coalescing Operator)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;(foo &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;) ? foo! : &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;にる！&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;foo&lt;/code&gt; が &lt;code&gt;nil&lt;/code&gt; じゃなかったらその値を使って、 &lt;code&gt;nil&lt;/code&gt; なら &lt;code&gt;にる！&lt;/code&gt;を使うみたいな条件を、三項演算子で書くとこうなるが、&lt;code&gt;??&lt;/code&gt; のnil合体演算子を使うともっとシンプルにこう書ける。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;foo ?? &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;にる！&amp;#34;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;便利。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;とまぁ、そんなムズカシイことではないんだけど。実際のユースケースで体験してこなかったので、身についてなかったんだと思う。&lt;/p&gt;
+
+&lt;p&gt;今、図書管理アプリを作っているのだが、本の情報をGoogle Books APIを叩いてとってきている。しかし、この取ってきたデータに著者情報があったりなかったり、サブタイトルがあったりなかったりと結構チグハグなデータだったのだ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Book&lt;/span&gt; {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; id: String
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; author: String?
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; title: String
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; subtitle: String?
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; description: String?
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; imageLinks: ImageLinks?
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; publisher:  String?
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; publishedDate: String?
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;モデルで表すとこんな感じで、やたらOptional型を多用することになったので、今回Optionalとちゃっと向き合ってみたのだ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;Vstack {
+  Text(book.title)
+  Text(book.subtitle ?? &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; d = publishedDate {
+    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;出版年: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;d&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+ }
+  Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;著者: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;book.author ?? &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;不明&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;SwiftUIで画面を構築するときもこんな感じで、値がなかったときの表示の仕方や、デフォルト値を表示するなど、今回学んだことを大いに活用した。&lt;/p&gt;
+
+&lt;p&gt;もう、Optinal型なんて怖くない＞ｍ＜！&lt;/p&gt;
+
+&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;SwiftUI 徹底入門&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;金田 浩明&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+</description>
+        </item>
         
         <item>
             <title>投資対象としてのスニーカー👟</title>
@@ -1368,61 +1465,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;/a&gt;&lt;/div&gt;
 
 &lt;p&gt;2018年に今まで16年破られてなかった日本記録が二度も更新された。その足には、ヴェイパーフライがあった。もちろん、選手の才能と努力の結果でもあるが、確実に男子マラソン界が盛り上がってきているのは体感できるので、その裏側を知る上でマストな一冊だろう。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>脂肪を燃やすトレーニング</title>
-            <link>https://t32k.me/mol/log/978-4796619707-mafeton/</link>
-            <pubDate>Tue, 24 Sep 2019 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4796619707-mafeton/</guid>
-            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4796619704/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41JwvvbL8pL._SX309_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;脂肪を燃やすトレーニング―&lt;br&gt;体験的マフェトン理論 &lt;br&gt;(宝島社新書)&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;藤原 裕司&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;古い本だが、知ったのはonyourmarkの雑誌を読んでいたら、&lt;strong&gt;マフェトン理論&lt;/strong&gt;という単語が出てきたからだ。&lt;/p&gt;
-
-&lt;p&gt;なんとか理論と難しく聞こえがちだが、覚えるのは以下の&lt;strong&gt;180公式&lt;/strong&gt;だけだ。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;180 - (年齢)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;上記の公式から導き出される数字を最大エアロビック心拍数として、それを超えないように運動するだけだ。私なら36歳なので、だいたい134 ~ 144の心拍数を維持してランニングするだけ。&lt;/p&gt;
-
-&lt;p&gt;運動慣れしている人、病み上がりの人でこの公式の数字はプラスマイナス10くらいするが、まぁ、だいたいこれくらいの心拍数を維持する。やってみれば分かるが、運動したらこの心拍数にすぐ達してしまうので、走っては歩いて、走っては歩いて、というかほんとうにゆっくり走る（ときには歩いてる速度と変わりないくらいに）。&lt;/p&gt;
-
-&lt;p&gt;ゆっくり走る練習といえば、LSD(Long Slow Distance)が有名だが、実際私も知ってたし、それっぽい練習をしていた。でも雰囲気なので、最初の1,2kmは体も軽いので調子こいて、飛ばしめペースで走ってしまう。そうするとすぐに疲れてしまって、あるいは足が痛くなったりして、後半はほぼ歩いているみたいなことが何回かあった。&lt;/p&gt;
-
-&lt;p&gt;これは心拍数を計測するランニング時計をもっていれば、心拍数を気にするだけでLSDがちゃんとできる。ちゃんと長く一定の速さで楽に走れる。これは自分にとってパラダイムシフト級の出来事だった。&lt;/p&gt;
-
-&lt;p&gt;私にとってランニングはここ半年以上、毎月100km以上走っているので、習慣化できていると言えるが、やっぱり走りに行くのは億劫だ。それはやっぱり走るのはしんどいからだ。
-なにかの本で、『きついと感じないと練習じゃない』と読んだことがあるので、たまにダッシュとか、速いペースで1kmとか頑張って走ってみたりするのだけど、すぐ息が上がってきつく感じる。やっぱり自分には無理だなとネガティブな感情になっていたのだが、マフェトン理論の練習でもちゃんと持久力はつく。マフェトン理論の練習を数ヶ月続けると、同じ心拍数の範囲でも走る速度は速くなってるはずだ。&lt;/p&gt;
-
-&lt;p&gt;サブ3とか目指しているトップランナーならともかく、私みたいな42kmちゃんと走り切るみたいな目標のランナーは、脂肪を燃やして体重落として膝に負担をかけない・怪我しない練習を継続するのが一番だ。というわけで、このマフェトン理論の練習のおかげで（つらくないので）先週は初めて週7で走ることができた。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/0924.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;マフェトン様様だ。&lt;/p&gt;
-
-&lt;p&gt;あとは、食事に関しては炭水化物：たん白質：脂肪を40：30：30で摂るようにする。マフェトンの場合、いかに脂肪を運動エネルギーに変えられるかが重要になってくるので、糖質制限しとく。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07QS8DJJ1/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61PuZ6mY8yL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;ランニングウォッチ ForeAthlete 245 心拍 歩数 防水&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;GARMIN&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;180公式をして、ランニングウォッチで心拍数測るだけで、そんなにつらくなく、健康的にランニングを続けれるのだから、やらないほかない。&lt;/p&gt;
 </description>
         </item>
         

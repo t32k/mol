@@ -5,10 +5,25 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 07 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SwiftのOptional型とか</title>
+      <link>https://t32k.me/mol/log/swift-optional/</link>
+      <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/swift-optional/</guid>
+      <description>TypeScriptもあんまり使ったことなかったから、型がどうも苦手というか慣れない。 Int とか String とかそうゆうシンプルなものだと分かるが、そのシンプルな型をよくわからないものにするのがOptional型だと苦手意識を持っていた。
+var a: String = &amp;#34;swift&amp;#34; var b: String? = nil var c: Optional&amp;lt;String&amp;gt; = nil b と c は書き方が違うだけでどちらもオプショナルString型。まぁnilを許容するかどうかって話なのだが、問題は扱い方。
+var foo: Int? = 3 var bar: Int = foo + 1 bar のところでエラーになる。アンラップしろよとかなんとか注意される。
+アンラップ（開示） なんでや!! foo に3が代入されとるのは明らかやろ！と思っていたが、アンラップしろと言われているので、とりあえずアンラップしてみる。
+var foo: Int? = 3 var bar: Int = foo! + 1 foo は Optional&amp;lt;Int&amp;gt; であって、 Int ではないので、違う型同士で足し算はできない。そこで、オプショナルIntからIntを取り出さなければならない。これをアンラップといい、上記のようにビックリマークをおしりにつける。そうするとちゃんと計算を実行できるようになる。
+なんかアンラップしろって言われたら、とりあえずビックリマークつけときゃいいんやなと雑に覚えてしまっっていたので、のちのち困ることになった。
+var foo: Int? var bar: Int = foo! + 1 foo に値が代入されていない場合、アンラップしても nil が返ってくるのでエラーになる。</description>
+    </item>
     
     <item>
       <title>投資対象としてのスニーカー👟</title>
