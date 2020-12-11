@@ -12,10 +12,10 @@
     
     <item>
       <title>SwiftのOptional型とか</title>
-      <link>https://t32k.me/mol/log/swift-optional/</link>
+      <link>https://t32k.me/mol/log/swift-optional-type/</link>
       <pubDate>Fri, 11 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://t32k.me/mol/log/swift-optional/</guid>
+      <guid>https://t32k.me/mol/log/swift-optional-type/</guid>
       <description>TypeScriptもあんまり使ったことなかったから、型がどうも苦手というか慣れない。 Int とか String とかそうゆうシンプルなものだと分かるが、そのシンプルな型をよくわからないものにするのがOptional型だと苦手意識を持っていた。
 var a: String = &amp;#34;swift&amp;#34; var b: String? = nil var c: Optional&amp;lt;String&amp;gt; = nil b と c は書き方が違うだけでどちらもオプショナルString型。まぁnilを許容するかどうかって話なのだが、問題は扱い方。
 var foo: Int? = 3 var bar: Int = foo + 1 bar のところでエラーになる。アンラップしろよとかなんとか注意される。

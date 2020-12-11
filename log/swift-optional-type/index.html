@@ -18,7 +18,7 @@
     <meta name="twitter:image" content="https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg" />
     
     <meta property="fb:app_id" content="212646065416408" />
-    <link rel="canonical" href="https://t32k.me/mol/log/swift-optional/" />
+    <link rel="canonical" href="https://t32k.me/mol/log/swift-optional-type/" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
@@ -154,13 +154,13 @@ printStr(message: foo)</code></pre></div>
     <span style="color:#66d9ef">var</span> publisher:  String?
     <span style="color:#66d9ef">var</span> publishedDate: String?
 }</code></pre></div>
-<p>モデルで表すとこんな感じで、やたらOptional型を多用することになったので、今回Optionalとちゃっと向き合ってみたのだ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">Vstack {
+<p>モデルで表すとこんな感じで、やたらOptional型を多用するはめになった。あるのかないのか、はっきしろ！とGoogleさんには言えないので、今回Optional型とちゃっと向き合わざるをえなかったのである。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">VStack {
   Text(book.title)
   Text(book.subtitle ?? <span style="color:#e6db74">&#34;&#34;</span>)
   <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> d = publishedDate {
     Text(<span style="color:#e6db74">&#34;出版年: </span><span style="color:#e6db74">\(</span>d<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
- }
+  }
   Text(<span style="color:#e6db74">&#34;著者: </span><span style="color:#e6db74">\(</span>book.author ?? <span style="color:#e6db74">&#34;不明&#34;</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 }</code></pre></div>
 <p>SwiftUIで画面を構築するときもこんな感じで、値がなかったときの表示の仕方や、デフォルト値を表示するなど、今回学んだことを大いに活用した。</p>
@@ -184,13 +184,13 @@ printStr(message: foo)</code></pre></div>
     
 
     <div class="post-social">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=Swift%e3%81%aeOptional%e5%9e%8b%e3%81%a8%e3%81%8b - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fswift-optional%2f" title="はてなブックマークで共有する"
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=Swift%e3%81%aeOptional%e5%9e%8b%e3%81%a8%e3%81%8b - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fswift-optional-type%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
-  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fswift-optional%2f&text=Swift%e3%81%aeOptional%e5%9e%8b%e3%81%a8%e3%81%8b - MOL" title="Twitterで共有する"
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fswift-optional-type%2f&text=Swift%e3%81%aeOptional%e5%9e%8b%e3%81%a8%e3%81%8b - MOL" title="Twitterで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-tw" /></svg></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fswift-optional%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fswift-optional-type%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-fb" /></svg></a>
 </div>
 <hr>

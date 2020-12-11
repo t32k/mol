@@ -10,10 +10,10 @@
         
         <item>
             <title>SwiftのOptional型とか</title>
-            <link>https://t32k.me/mol/log/swift-optional/</link>
+            <link>https://t32k.me/mol/log/swift-optional-type/</link>
             <pubDate>Fri, 11 Dec 2020 00:00:00 UTC</pubDate>
             
-            <guid>https://t32k.me/mol/log/swift-optional/</guid>
+            <guid>https://t32k.me/mol/log/swift-optional-type/</guid>
             <description>
 
 &lt;p&gt;TypeScriptもあんまり使ったことなかったから、型がどうも苦手というか慣れない。 &lt;code&gt;Int&lt;/code&gt; とか &lt;code&gt;String&lt;/code&gt; とかそうゆうシンプルなものだと分かるが、そのシンプルな型をよくわからないものにするのがOptional型だと苦手意識を持っていた。&lt;/p&gt;
@@ -81,13 +81,13 @@ printStr(message: foo)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; publisher:  String?
     &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; publishedDate: String?
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;モデルで表すとこんな感じで、やたらOptional型を多用することになったので、今回Optionalとちゃっと向き合ってみたのだ。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;Vstack {
+&lt;p&gt;モデルで表すとこんな感じで、やたらOptional型を多用するはめになった。あるのかないのか、はっきしろ！とGoogleさんには言えないので、今回Optional型とちゃっと向き合わざるをえなかったのである。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;VStack {
   Text(book.title)
   Text(book.subtitle ?? &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
   &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; d = publishedDate {
     Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;出版年: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;d&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
- }
+  }
   Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;著者: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\(&lt;/span&gt;book.author ?? &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;不明&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;SwiftUIで画面を構築するときもこんな感じで、値がなかったときの表示の仕方や、デフォルト値を表示するなど、今回学んだことを大いに活用した。&lt;/p&gt;
