@@ -108,15 +108,15 @@ struct Book {
 }
 ```
 
-モデルで表すとこんな感じで、やたらOptional型を多用することになったので、今回Optionalとちゃっと向き合ってみたのだ。
+モデルで表すとこんな感じで、やたらOptional型を多用するはめになった。あるのかないのか、はっきしろ！とGoogleさんには言えないので、今回Optional型とちゃっと向き合わざるをえなかったのである。
 
 ```swift
-Vstack {
+VStack {
   Text(book.title)
   Text(book.subtitle ?? "")
   if let d = publishedDate {
     Text("出版年: \(d)")
- }
+  }
   Text("著者: \(book.author ?? "不明")")
 }
 ```
