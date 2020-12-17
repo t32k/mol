@@ -6350,10 +6350,7 @@ Amazon.co.jp で詳細を見る タイトルに『理科系』と書いてある
       
       <guid>https://t32k.me/mol/log/textmate-loves-processing/</guid>
       <description>IAMASのオープンキャンパスに行って以来、Processingをちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。
-高機能テキストエディタ：TextMate Textmate: Power Editing for the Macposted at 2015.3.23James Edward, II Gray
-Pragmatic Bookshelf
-売り上げランキング: 264049
-Amazon.co.jp で詳細を見る てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたらTextMateなるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScript書くときでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。
+高機能テキストエディタ：TextMate てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたらTextMateなるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScript書くときでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。
 早速、TextMateを使ってみる。TextMateは補完機能がハンパねぇと聞いていたので、どれほどのものかと期待していたが補完されない&amp;hellip;Aptanaみたいにfun..と入力したら勝手に補完するコードをリストアップして提示してくれるのかと思ったら、これはどうやらTabキーなど押さなきゃいけないらしい。
 funと入力してTabキーを押すと（JavaScriptの場合）
 補完されたコードが表示される。 自動補完よりもこっちの方が慣れたら速いのかもね。
@@ -6363,7 +6360,9 @@ GetBundleをインストール てことで、TextMateの使い方も大体分�
 $ mkdir Library/Application\ Support/TextMate/Bundles $ cd Library/Application\ Support/TextMate/Bundles $ svn co http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/ ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、cdでそのディレクトリに移動、svn coでSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんそんな感じ。
 そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！
 で動かなかった場合、 Bundles &amp;gt; Bundle Editor &amp;gt; Show Bundle Editor &amp;gt; GetBundle&amp;gt; Install BundleのBASE_URL部分を以下に変更。
-BASE_URL=http://svn.textmate.org/trunk/ 再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。</description>
+BASE_URL=http://svn.textmate.org/trunk/ 再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。
+ProcessingのBundleをインストール ProcessingのBundleをインストールして、Bundles &amp;gt; Bundle Editor &amp;gt; Show Bundle Editor &amp;gt; Processing &amp;gt; Run in ProcessingのCommands部分を以下に書き換え。
+osascript &amp;lt;&amp;lt;EOF tell application “Processing” to run tell application “Processing” to activate tell application “Processing” to open POSIX file “${TM_FILEPATH}” delay 1 tell application “System Events” to tell process “Processing” keystroke “r” using command down end tell EOF これで設定完了。TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すとProcessingが立ち上がる。</description>
     </item>
     
     <item>
