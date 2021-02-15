@@ -5,7 +5,6 @@ subtitle: The Missing Editor for Mac OS X
 categories: 
     - development
 excerpt: IAMASのオープンキャンパスに行って以来、Processingをちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。
-ogimage: 
 ---
 
 IAMASのオープンキャンパスに行って以来、[Processing](https://processing.org/)をちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。
@@ -25,9 +24,9 @@ funと入力してTabキーを押すと（JavaScriptの場合）
 
 てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
 
-+ Mac OS X 10.5.8
-+ TextMate 1.5.8
-+ Processing 1.0.5
+- Mac OS X 10.5.8
+- TextMate 1.5.8
+- Processing 1.0.5
 
 まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、__GetBundle__をまずインストールする。
 
