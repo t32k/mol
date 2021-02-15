@@ -4,20 +4,31 @@
   
   <url>
     <loc>https://t32k.me/mol/categories/</loc>
-    <lastmod>2020-12-11T00:00:00+00:00</lastmod>
+    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/log/</loc>
-    <lastmod>2020-12-11T00:00:00+00:00</lastmod>
+    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
-    <lastmod>2020-12-11T00:00:00+00:00</lastmod>
+    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/categories/books/</loc>
+    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/978-4771018242-design-history/</loc>
+    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -40,12 +51,6 @@
   <url>
     <loc>https://t32k.me/mol/log/rstrs/</loc>
     <lastmod>2020-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://t32k.me/mol/categories/books/</loc>
-    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
