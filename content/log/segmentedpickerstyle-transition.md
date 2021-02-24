@@ -14,25 +14,25 @@ struct ContentView: View {
     @State private var selection = 0
     var body: some View {
         VStack(spacing:0) {
-            Picker("", selection: self.$selection) {
+            Picker("画面切替", selection: self.$selection) {
                 Text("A").tag(0)
                 Text("B").tag(1)
             }.pickerStyle(SegmentedPickerStyle()).padding()
             
             if selection == 0 {
-                viewAlpha
+                viewA
             } else {
-                viewBeta
+                viewB
             }
         }
     }
-    private var viewAlpha: some View {
+    private var viewA: some View {
         ZStack {
             Color(.blue).edgesIgnoringSafeArea(.all)
             Text("A").foregroundColor(.white)
         }
     }
-    private var viewBeta: some View {
+    private var viewB: some View {
         ZStack {
             Color(.red).edgesIgnoringSafeArea(.all)
             Text("B").foregroundColor(.white)
@@ -41,7 +41,7 @@ struct ContentView: View {
 }
 ```
 
-よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューを切り替える。
+よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。
 
 ![](/mol/images/2021/0224/00.gif)
 
@@ -51,17 +51,25 @@ struct ContentView: View {
 
 ![](/mol/images/2021/0224/02.png)
 
-セグメントコントロールを右にスライドしているのだから（A->B）、それに関連するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（B->A）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。
+セグメントコントロールを右にスライドしているのだから（A->B）、それに対応するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（A<-B）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。
 
 ```swift
 VStack {
     Picker
     if selection == 0 {
         viewAlpha
-            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+            .transition(
+	            .asymmetric(
+		            insertion: .move(edge: .trailing),
+		            removal: .move(edge: .leading)
+		        ))
     } else {
         viewBeta
-            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+            .transition(
+	            .asymmetric(
+		            insertion: .move(edge: .leading),
+		            removal: .move(edge: .trailing)
+		        ))
     }
 }.animation(.default)
 ```
@@ -76,7 +84,11 @@ VStack {
 
 
 ```swift
-.transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+.transition(
+	.asymmetric(
+		insertion: .move(edge: .trailing),
+		removal: .move(edge: .leading)
+))
 ```
 
 `asymmetric`を利用することで、transitionのinsertionとremovalを個別に指定することができる。
