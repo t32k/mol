@@ -198,7 +198,8 @@ table,
 p,
 ul,
 ol,
-form {
+form,
+.google-auto-placed {
   margin-bottom: 2.5rem;
 }
 
