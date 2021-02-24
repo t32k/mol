@@ -2,26 +2,23 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Categories - MOL</title>
+    <title>SegmentedPickerによるビュー切り替えトランジション - MOL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="twitter:title" content="Categories - MOL" />
+    <meta name="twitter:title" content="SegmentedPickerによるビュー切り替えトランジション - MOL" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@t32k" />
+    
+    <meta name="description" content="うん、なんかそれっぽくなった🤗" />
+    <meta name="twitter:description" content="うん、なんかそれっぽくなった🤗" />
     
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="MOL" />
     
-    <meta
-      property="og:image"
-      content="https://t32k.me/mol/images/people/me.jpg"
-    />
-    <meta
-      name="twitter:image"
-      content="https://t32k.me/mol/images/people/me.jpg"
-    />
+    <meta property="og:image" content="https://t32k.me/mol/images/2021/0224/02.png" />
+    <meta name="twitter:image" content="https://t32k.me/mol/images/2021/0224/02.png" />
     
     <meta property="fb:app_id" content="212646065416408" />
-    <link rel="canonical" href="https://t32k.me/mol/categories/" />
+    <link rel="canonical" href="https://t32k.me/mol/log/segmentedpickerstyle/" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
@@ -79,115 +76,110 @@
     </nav>
   </div>
 </header>
-<div class="container">
 
-<section role="main">
-    <h1>Categories</h1>
-    <hr>
-    <div class="site-ad">
+
+
+<div class="container">
+<article role="main" class="post">
+    <header class="post-header">
+        <p class="u-mute u-mbn"><time datetime='2021-02-24T00:00:00Z'>February 24, 2021</time></p>
+        <h1 class="post-h1">SegmentedPickerによるビュー切り替えトランジション</h1>
+        
+    </header>
+    <section>
+        <p>まぁ題名の通り。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+    @State <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> selection = <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">var</span> body: some View {
+        VStack(spacing:<span style="color:#ae81ff">0</span>) {
+            Picker(<span style="color:#e6db74">&#34;&#34;</span>, selection: <span style="color:#66d9ef">self</span>.<span style="color:#960050;background-color:#1e0010">$</span>selection) {
+                Text(<span style="color:#e6db74">&#34;A&#34;</span>).tag(<span style="color:#ae81ff">0</span>)
+                Text(<span style="color:#e6db74">&#34;B&#34;</span>).tag(<span style="color:#ae81ff">1</span>)
+            }.pickerStyle(SegmentedPickerStyle()).padding()
+            
+            <span style="color:#66d9ef">if</span> selection == <span style="color:#ae81ff">0</span> {
+                viewAlpha
+            } <span style="color:#66d9ef">else</span> {
+                viewBeta
+            }
+        }
+    }
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> viewAlpha: some View {
+        ZStack {
+            Color(.blue).edgesIgnoringSafeArea(.all)
+            Text(<span style="color:#e6db74">&#34;A&#34;</span>).foregroundColor(.white)
+        }
+    }
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> viewBeta: some View {
+        ZStack {
+            Color(.red).edgesIgnoringSafeArea(.all)
+            Text(<span style="color:#e6db74">&#34;B&#34;</span>).foregroundColor(.white)
+        }
+    }
+}</code></pre></div>
+<p>よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューを切り替える。</p>
+
+<p><img src="/mol/images/2021/0224/00.gif" alt="" /></p>
+
+<p>普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。</p>
+
+<p>どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。</p>
+
+<p><img src="/mol/images/2021/0224/02.png" alt="" /></p>
+
+<p>セグメントコントロールを右にスライドしているのだから（A-&gt;B）、それに関連するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（B-&gt;A）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">VStack {
+    Picker
+    <span style="color:#66d9ef">if</span> selection == <span style="color:#ae81ff">0</span> {
+        viewAlpha
+            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+    } <span style="color:#66d9ef">else</span> {
+        viewBeta
+            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+    }
+}.animation(.<span style="color:#66d9ef">default</span>)</code></pre></div>
+<p>最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(.move(edge: .leading)) </code></pre></div>
+<p>普通はこんな感じでtransitionを指定すると思うのだけど、これだと一方方向にしか動かない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))</code></pre></div>
+<p><code>asymmetric</code>を利用することで、transitionのinsertionとremovalを個別に指定することができる。</p>
+
+<p><img src="/mol/images/2021/0224/01.gif" alt="" /></p>
+
+<p>うん、なんかそれっぽくなった🤗</p>
+
+    </section>
+</article>
+
+    
+      <div class="post-tags"><a href="/mol/categories/swiftui/">swiftui</a> </div>
+    
+
+    <div class="post-social">
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=SegmentedPicker%e3%81%ab%e3%82%88%e3%82%8b%e3%83%93%e3%83%a5%e3%83%bc%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle%2f" title="はてなブックマークで共有する"
+    target="_blank" rel="noopener"><svg>
+      <use xlink:href="#post-hb" /></svg></a>
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle%2f&text=SegmentedPicker%e3%81%ab%e3%82%88%e3%82%8b%e3%83%93%e3%83%a5%e3%83%bc%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3 - MOL" title="Twitterで共有する"
+    target="_blank" rel="noopener"><svg>
+      <use xlink:href="#post-tw" /></svg></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
+      <use xlink:href="#post-fb" /></svg></a>
+</div>
+<hr>
+<div class="site-ad">
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1326877318485833" data-ad-slot="7307465775"
     data-ad-format="auto"></ins>
 </div>
-    <hr>
-    
-        <article>
-            <time class="u-txs u-mute">Wednesday, February 24, 2021</time>
-            <h4><a href="https://t32k.me/mol/categories/books/">books</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Wednesday, February 24, 2021</time>
-            <h4><a href="https://t32k.me/mol/categories/swiftui/">swiftui</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Monday, December 7, 2020</time>
-            <h4><a href="https://t32k.me/mol/categories/sneakers/">sneakers</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Monday, March 9, 2020</time>
-            <h4><a href="https://t32k.me/mol/categories/gadget/">gadget</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Wednesday, January 1, 2020</time>
-            <h4><a href="https://t32k.me/mol/categories/blog/">blog</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Wednesday, July 24, 2019</time>
-            <h4><a href="https://t32k.me/mol/categories/design/">design</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Friday, May 17, 2019</time>
-            <h4><a href="https://t32k.me/mol/categories/css/">css</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Monday, December 31, 2018</time>
-            <h4><a href="https://t32k.me/mol/categories/trekking/">trekking</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Friday, November 30, 2018</time>
-            <h4><a href="https://t32k.me/mol/categories/development/">development</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Sunday, December 31, 2017</time>
-            <h4><a href="https://t32k.me/mol/categories/trip/">trip</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Thursday, October 27, 2016</time>
-            <h4><a href="https://t32k.me/mol/categories/analytics/">analytics</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Monday, February 8, 2016</time>
-            <h4><a href="https://t32k.me/mol/categories/coffee/">coffee</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Wednesday, May 20, 2015</time>
-            <h4><a href="https://t32k.me/mol/categories/translation/">translation</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Thursday, January 9, 2014</time>
-            <h4><a href="https://t32k.me/mol/categories/performance/">performance</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Sunday, December 1, 2013</time>
-            <h4><a href="https://t32k.me/mol/categories/report/">report</a></h4>
-            
-        </article>
-    
-        <article>
-            <time class="u-txs u-mute">Monday, December 27, 2010</time>
-            <h4><a href="https://t32k.me/mol/categories/javascript/">javascript</a></h4>
-            
-        </article>
-    
-</section>
-
+<hr>
+<div class="row post-pager">
+  <div class="six columns">
+    <div class="post-previous">  &nbsp;  </div>
+  </div>
+  <div class="six columns">
+    <div class="post-next">  Older article<br>
+      <a href="https://t32k.me/mol/log/978-4808310479-kimura/"> 受け師の道 百折不撓の棋士・木村一基</a>  </div>
+  </div>
+</div>
 
 </div>
 <footer class="site-footer">
@@ -224,11 +216,12 @@
 </footer>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({});
-  window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date
-  ga('create', 'UA-2317436-26', 'auto'); ga('send', 'pageview');
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
+  ga('create', 'UA-2317436-26', 'auto');
+  ga('set', 'contentGroup1', "2021");
+  ga('send', 'pageview');
 </script>
 <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
 <script async src='//www.google-analytics.com/analytics.js'></script>
 </body>
-
 </html>

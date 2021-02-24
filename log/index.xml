@@ -11,6 +11,20 @@
     
     
     <item>
+      <title>SegmentedPickerによるビュー切り替えトランジション</title>
+      <link>https://t32k.me/mol/log/segmentedpickerstyle/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/segmentedpickerstyle/</guid>
+      <description>まぁ題名の通り。
+struct ContentView: View { @State private var selection = 0 var body: some View { VStack(spacing:0) { Picker(&amp;#34;&amp;#34;, selection: self.$selection) { Text(&amp;#34;A&amp;#34;).tag(0) Text(&amp;#34;B&amp;#34;).tag(1) }.pickerStyle(SegmentedPickerStyle()).padding() if selection == 0 { viewAlpha } else { viewBeta } } } private var viewAlpha: some View { ZStack { Color(.blue).edgesIgnoringSafeArea(.all) Text(&amp;#34;A&amp;#34;).foregroundColor(.white) } } private var viewBeta: some View { ZStack { Color(.red).edgesIgnoringSafeArea(.all) Text(&amp;#34;B&amp;#34;).foregroundColor(.white) } } } よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューを切り替える。
+普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。
+どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。
+セグメントコントロールを右にスライドしているのだから（A-&amp;gt;B）、それに関連するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（B-&amp;gt;A）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。
+VStack { Picker if selection == 0 { viewAlpha .</description>
+    </item>
+    
+    <item>
       <title>受け師の道 百折不撓の棋士・木村一基</title>
       <link>https://t32k.me/mol/log/978-4808310479-kimura/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>

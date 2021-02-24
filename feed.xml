@@ -9,6 +9,75 @@
         <updated>Wed, 24 Feb 2021 00:00:00 UTC</updated>
         
         <item>
+            <title>SegmentedPickerによるビュー切り替えトランジション</title>
+            <link>https://t32k.me/mol/log/segmentedpickerstyle/</link>
+            <pubDate>Wed, 24 Feb 2021 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/segmentedpickerstyle/</guid>
+            <description>&lt;p&gt;まぁ題名の通り。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
+    @State &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; selection = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
+        VStack(spacing:&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) {
+            Picker(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, selection: &lt;span style=&#34;color:#66d9ef&#34;&gt;self&lt;/span&gt;.&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;selection) {
+                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A&amp;#34;&lt;/span&gt;).tag(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;B&amp;#34;&lt;/span&gt;).tag(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+            }.pickerStyle(SegmentedPickerStyle()).padding()
+            
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; selection == &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; {
+                viewAlpha
+            } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+                viewBeta
+            }
+        }
+    }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; viewAlpha: some View {
+        ZStack {
+            Color(.blue).edgesIgnoringSafeArea(.all)
+            Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A&amp;#34;&lt;/span&gt;).foregroundColor(.white)
+        }
+    }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; viewBeta: some View {
+        ZStack {
+            Color(.red).edgesIgnoringSafeArea(.all)
+            Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;B&amp;#34;&lt;/span&gt;).foregroundColor(.white)
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューを切り替える。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/00.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。&lt;/p&gt;
+
+&lt;p&gt;どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;セグメントコントロールを右にスライドしているのだから（A-&amp;gt;B）、それに関連するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（B-&amp;gt;A）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;VStack {
+    Picker
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; selection == &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; {
+        viewAlpha
+            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+    } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+        viewBeta
+            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+    }
+}.animation(.&lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(.move(edge: .leading)) &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;普通はこんな感じでtransitionを指定すると思うのだけど、これだと一方方向にしか動かない。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;asymmetric&lt;/code&gt;を利用することで、transitionのinsertionとremovalを個別に指定することができる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/01.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;うん、なんかそれっぽくなった🤗&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
             <title>受け師の道 百折不撓の棋士・木村一基</title>
             <link>https://t32k.me/mol/log/978-4808310479-kimura/</link>
             <pubDate>Wed, 24 Feb 2021 00:00:00 UTC</pubDate>
@@ -1278,115 +1347,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;p&gt;やっと、作りたいものが決まったので作り出している。昨日、&lt;code&gt;create nuxt app&lt;/code&gt; しただけだけど。今年はリリースするぞ。&lt;/p&gt;
 
 &lt;p&gt;というわけで、2020年もがんばっていきまっしょい！&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>2019年買ってよかったイヤホン</title>
-            <link>https://t32k.me/mol/log/aukey-ep-b80/</link>
-            <pubDate>Mon, 23 Dec 2019 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/aukey-ep-b80/</guid>
-            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2019/1223.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Beats by Dreが好きなので、長らくBeatsXを使っていた。最近発売されている、いわゆる完全ワイヤレスイヤホンは仕事中など、しょっちゅう外す機会が多いとき、机の上に置いたつもりが、いつのまにか床に落ちてしまうことが多かったので、自分には合わないなと思っていた。&lt;/p&gt;
-
-&lt;p&gt;ただランニング中などの運動時は、コードが邪魔なので完全ワイヤレスであるPowerbeats Proを購入し、使用していた。もちろん装着感はよく、ランニングエクスペリエンスが向上したのは言うまでもない。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07PRX2XJB/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41u3WUG5PQL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;Powerbeats Pro 完全ワイヤレスイヤホン - ブラック&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;Beats by Dre&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;コードが邪魔で購入したが完全ワイレスだったが思わぬ副産物があった。このPowerbeats ProはAppleの最新H1チップを搭載しており、私はAndroidデバイスであるGoogle Pixel 4ユーザーだが、めちゃんこ接続が速くなった。Powerbeats Proのケースを開けた瞬間に接続するのである。これがめちゃめちゃストレスフリーでよい。&lt;/p&gt;
-
-&lt;p&gt;ここまで接続が速くなると、普段使いのBeatsXの接続の遅さが気になるようになった。BeatsXは一つ前のApple W1チップを搭載している。同じApple製品であるiPhoneで音楽を聞くぶんには問題ないだろうが、私はAndroidである。やはり相性が悪い。&lt;/p&gt;
-
-&lt;p&gt;BeatsXの電源をONにして、しばらくBluetoothの設定画面を見てるが一向に繋がらない。あれ？電源ONじゃなかったのかな？と思い、もう1回電源ボタンを押して電源OFFにしてしまう、なんて最悪の体験を何回もしている。&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、最新のH1チップ搭載の完全ワイヤレスじゃないワイヤレスイヤホン（ややこし）ないかなと思ったけど、評判のよいAirPods Proは完全ワイヤレスだ。いやそもそも品薄で買えないので諦める。ということで、最新のBluetooth規格に沿ったものなら、大丈夫じゃないかと思い、今回AUKEY EP-B80を購入した。&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;発表年&lt;/th&gt;
-&lt;th&gt;名称&lt;/th&gt;
-&lt;th&gt;備考&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;2009&lt;/td&gt;
-&lt;td&gt;Bluetooth 4.0&lt;/td&gt;
-&lt;td&gt;Bluetooth Low Energy (LE) が追加&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;2013&lt;/td&gt;
-&lt;td&gt;Bluetooth 4.1&lt;/td&gt;
-&lt;td&gt;データ転送の効率化、自動の再接続機能&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;2014&lt;/td&gt;
-&lt;td&gt;Bluetooth 4.2&lt;/td&gt;
-&lt;td&gt;データ通信速度が2.5倍高速化&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;2016&lt;/td&gt;
-&lt;td&gt;Apple W1 Chip&lt;/td&gt;
-&lt;td&gt;Bluetooth Class 1（通信範囲100m）&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;2016&lt;/td&gt;
-&lt;td&gt;Bluetooth 5.0&lt;/td&gt;
-&lt;td&gt;データ通信速度が4.0の2倍。通信範囲は最大で4倍の400ｍ&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;2019&lt;/td&gt;
-&lt;td&gt;Apple H1 Chip&lt;/td&gt;
-&lt;td&gt;Bluetooth 5.0サポート。W1より30%省電力化&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;今回のイヤホンを買うにあたって、色々調べた結果、AppleのなんとかチップはBluetoothとは別規格のようで単純に比較ができないが、W1チップは発表された年をかんがみるに、Bluetooth 4.2相当じゃないのかなと思われる。Apple Watch Series5に採用されている後モデルのW3チップがBluetooth 5.0サポートって書いてあったので、多分そうだと思う。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07VVKBR1G/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61mJyGjrCEL._SL1500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;AUKEY ワイヤレスイヤホン Bluetoothイヤホン 最新Bluetooth5.0+EDR Hi-Fi高音質 ハイブリッドドライバー搭載 AAC aptX aptX LL低遅延対応 IPX6防水 次世代規格USB-C充電 8時間再生可能 収納ポーチ付きSiri対応 マイク付き Key Series EP-B80濃いグレー&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;AUKEY&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;で、もっとも最新のテクノロジーであるH1 ChipはBluetooth 5.0サポートって書いてあったので、Bluetooth 5.0対応のイヤホン買えばよいのではないかと思い、色々物色した結果、AUKEY EP-B80を購入した。&lt;/p&gt;
-
-&lt;p&gt;またBluetoothコーデックの規格もあるらしく、これまた無頓着でざっと調べてみるとこんな感じで、下にいくほど高音質らしい。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SBC … 標準コーデック&lt;/li&gt;
-&lt;li&gt;AAC … 主にiOS採用のコーデック&lt;/li&gt;
-&lt;li&gt;aptX … 主にAndroidで採用&lt;/li&gt;
-&lt;li&gt;aptX LL … aptXの低遅延バージョン&lt;/li&gt;
-&lt;li&gt;aptX HD … aptXのハイレゾ対応バージョン&lt;/li&gt;
-&lt;li&gt;LDAC … SONY開発のハイレゾ対応規格&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Pixel 4はBluetooth 5.0 + LE（HD コーデック: AptX、AptX HD、LDAC）に対応してるらしくて、たぶん音質の向上も期待できるのではないか。&lt;/p&gt;
-
-&lt;p&gt;結果、接続はPowerbeats Proのように爆速で繋がり、音質もBeatsXよりクリアな感じがする。。。たぶん。また給電がUSB-Cなので、これまた時流に乗ってる感じがして良い。ライトニング撲滅したい。。。あと当たり前だけどバッテリーも長持ちになった。&lt;/p&gt;
-
-&lt;p&gt;というわけで、家電は新しいのがいいねって話。&lt;/p&gt;
 </description>
         </item>
         
