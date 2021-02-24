@@ -10,41 +10,41 @@
         
         <item>
             <title>SegmentedPickerによるビュー切り替えトランジション</title>
-            <link>https://t32k.me/mol/log/segmentedpickerstyle/</link>
+            <link>https://t32k.me/mol/log/segmentedpickerstyle-transition/</link>
             <pubDate>Wed, 24 Feb 2021 00:00:00 UTC</pubDate>
             
-            <guid>https://t32k.me/mol/log/segmentedpickerstyle/</guid>
+            <guid>https://t32k.me/mol/log/segmentedpickerstyle-transition/</guid>
             <description>&lt;p&gt;まぁ題名の通り。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
     @State &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; selection = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
         VStack(spacing:&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) {
-            Picker(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, selection: &lt;span style=&#34;color:#66d9ef&#34;&gt;self&lt;/span&gt;.&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;selection) {
+            Picker(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;画面切替&amp;#34;&lt;/span&gt;, selection: &lt;span style=&#34;color:#66d9ef&#34;&gt;self&lt;/span&gt;.&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;selection) {
                 Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A&amp;#34;&lt;/span&gt;).tag(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
                 Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;B&amp;#34;&lt;/span&gt;).tag(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
             }.pickerStyle(SegmentedPickerStyle()).padding()
             
             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; selection == &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; {
-                viewAlpha
+                viewA
             } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
-                viewBeta
+                viewB
             }
         }
     }
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; viewAlpha: some View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; viewA: some View {
         ZStack {
             Color(.blue).edgesIgnoringSafeArea(.all)
             Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;A&amp;#34;&lt;/span&gt;).foregroundColor(.white)
         }
     }
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; viewBeta: some View {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; viewB: some View {
         ZStack {
             Color(.red).edgesIgnoringSafeArea(.all)
             Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;B&amp;#34;&lt;/span&gt;).foregroundColor(.white)
         }
     }
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューを切り替える。&lt;/p&gt;
+&lt;p&gt;よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/00.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -54,21 +54,33 @@
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;セグメントコントロールを右にスライドしているのだから（A-&amp;gt;B）、それに関連するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（B-&amp;gt;A）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。&lt;/p&gt;
+&lt;p&gt;セグメントコントロールを右にスライドしているのだから（A-&amp;gt;B）、それに対応するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（A&amp;lt;-B）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;VStack {
     Picker
     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; selection == &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; {
         viewAlpha
-            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+            .transition(
+	            .asymmetric(
+		            insertion: .move(edge: .trailing),
+		            removal: .move(edge: .leading)
+		        ))
     } &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
         viewBeta
-            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+            .transition(
+	            .asymmetric(
+		            insertion: .move(edge: .leading),
+		            removal: .move(edge: .trailing)
+		        ))
     }
 }.animation(.&lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(.move(edge: .leading)) &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;普通はこんな感じでtransitionを指定すると思うのだけど、これだと一方方向にしか動かない。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(
+	.asymmetric(
+		insertion: .move(edge: .trailing),
+		removal: .move(edge: .leading)
+))&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;asymmetric&lt;/code&gt;を利用することで、transitionのinsertionとremovalを個別に指定することができる。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/01.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;

@@ -18,7 +18,7 @@
     <meta name="twitter:image" content="https://t32k.me/mol/images/2021/0224/02.png" />
     
     <meta property="fb:app_id" content="212646065416408" />
-    <link rel="canonical" href="https://t32k.me/mol/log/segmentedpickerstyle/" />
+    <link rel="canonical" href="https://t32k.me/mol/log/segmentedpickerstyle-transition/" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
@@ -92,32 +92,32 @@
     @State <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> selection = <span style="color:#ae81ff">0</span>
     <span style="color:#66d9ef">var</span> body: some View {
         VStack(spacing:<span style="color:#ae81ff">0</span>) {
-            Picker(<span style="color:#e6db74">&#34;&#34;</span>, selection: <span style="color:#66d9ef">self</span>.<span style="color:#960050;background-color:#1e0010">$</span>selection) {
+            Picker(<span style="color:#e6db74">&#34;画面切替&#34;</span>, selection: <span style="color:#66d9ef">self</span>.<span style="color:#960050;background-color:#1e0010">$</span>selection) {
                 Text(<span style="color:#e6db74">&#34;A&#34;</span>).tag(<span style="color:#ae81ff">0</span>)
                 Text(<span style="color:#e6db74">&#34;B&#34;</span>).tag(<span style="color:#ae81ff">1</span>)
             }.pickerStyle(SegmentedPickerStyle()).padding()
             
             <span style="color:#66d9ef">if</span> selection == <span style="color:#ae81ff">0</span> {
-                viewAlpha
+                viewA
             } <span style="color:#66d9ef">else</span> {
-                viewBeta
+                viewB
             }
         }
     }
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> viewAlpha: some View {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> viewA: some View {
         ZStack {
             Color(.blue).edgesIgnoringSafeArea(.all)
             Text(<span style="color:#e6db74">&#34;A&#34;</span>).foregroundColor(.white)
         }
     }
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> viewBeta: some View {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> viewB: some View {
         ZStack {
             Color(.red).edgesIgnoringSafeArea(.all)
             Text(<span style="color:#e6db74">&#34;B&#34;</span>).foregroundColor(.white)
         }
     }
 }</code></pre></div>
-<p>よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューを切り替える。</p>
+<p>よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。</p>
 
 <p><img src="/mol/images/2021/0224/00.gif" alt="" /></p>
 
@@ -127,21 +127,33 @@
 
 <p><img src="/mol/images/2021/0224/02.png" alt="" /></p>
 
-<p>セグメントコントロールを右にスライドしているのだから（A-&gt;B）、それに関連するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（B-&gt;A）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。</p>
+<p>セグメントコントロールを右にスライドしているのだから（A-&gt;B）、それに対応するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（A&lt;-B）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">VStack {
     Picker
     <span style="color:#66d9ef">if</span> selection == <span style="color:#ae81ff">0</span> {
         viewAlpha
-            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+            .transition(
+	            .asymmetric(
+		            insertion: .move(edge: .trailing),
+		            removal: .move(edge: .leading)
+		        ))
     } <span style="color:#66d9ef">else</span> {
         viewBeta
-            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+            .transition(
+	            .asymmetric(
+		            insertion: .move(edge: .leading),
+		            removal: .move(edge: .trailing)
+		        ))
     }
 }.animation(.<span style="color:#66d9ef">default</span>)</code></pre></div>
 <p>最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(.move(edge: .leading)) </code></pre></div>
 <p>普通はこんな感じでtransitionを指定すると思うのだけど、これだと一方方向にしか動かない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(
+	.asymmetric(
+		insertion: .move(edge: .trailing),
+		removal: .move(edge: .leading)
+))</code></pre></div>
 <p><code>asymmetric</code>を利用することで、transitionのinsertionとremovalを個別に指定することができる。</p>
 
 <p><img src="/mol/images/2021/0224/01.gif" alt="" /></p>
@@ -156,13 +168,13 @@
     
 
     <div class="post-social">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=SegmentedPicker%e3%81%ab%e3%82%88%e3%82%8b%e3%83%93%e3%83%a5%e3%83%bc%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle%2f" title="はてなブックマークで共有する"
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=SegmentedPicker%e3%81%ab%e3%82%88%e3%82%8b%e3%83%93%e3%83%a5%e3%83%bc%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle-transition%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
-  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle%2f&text=SegmentedPicker%e3%81%ab%e3%82%88%e3%82%8b%e3%83%93%e3%83%a5%e3%83%bc%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3 - MOL" title="Twitterで共有する"
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle-transition%2f&text=SegmentedPicker%e3%81%ab%e3%82%88%e3%82%8b%e3%83%93%e3%83%a5%e3%83%bc%e5%88%87%e3%82%8a%e6%9b%bf%e3%81%88%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3 - MOL" title="Twitterで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-tw" /></svg></a>
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2fsegmentedpickerstyle-transition%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-fb" /></svg></a>
 </div>
 <hr>
