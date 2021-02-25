@@ -17,9 +17,9 @@
       
       <guid>https://t32k.me/mol/log/segmentedpickerstyle-transition/</guid>
       <description>まぁ題名の通り。
-struct ContentView: View { @State private var selection = 0 var body: some View { VStack(spacing:0) { Picker(&amp;#34;画面切替&amp;#34;, selection: self.$selection) { Text(&amp;#34;A&amp;#34;).tag(0) Text(&amp;#34;B&amp;#34;).tag(1) }.pickerStyle(SegmentedPickerStyle()).padding() if selection == 0 { viewA } else { viewB } } } private var viewA: some View { ZStack { Color(.blue).edgesIgnoringSafeArea(.all) Text(&amp;#34;A&amp;#34;).foregroundColor(.white) } } private var viewB: some View { ZStack { Color(.red).edgesIgnoringSafeArea(.all) Text(&amp;#34;B&amp;#34;).foregroundColor(.white) } } } よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。
+struct ContentView: View { @State private var selection = 0 var body: some View { VStack(spacing:0) { Picker(&amp;#34;画面切替&amp;#34;, selection: self.$selection) { Text(&amp;#34;A&amp;#34;).tag(0) Text(&amp;#34;B&amp;#34;).tag(1) }.pickerStyle(SegmentedPickerStyle()).padding() if selection == 0 { viewA } else { viewB } } } private var viewA: some View { ZStack { Color(.blue).edgesIgnoringSafeArea(.all) Text(&amp;#34;A&amp;#34;).foregroundColor(.white) } } private var viewB: some View { ZStack { Color(.red).edgesIgnoringSafeArea(.all) Text(&amp;#34;B&amp;#34;).foregroundColor(.white) } } } よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠Stateを切り替えることでビューも変わる。
 普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。
-どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。
+どう動かしたら、ビュー遷移のメンタルモデルが自然にできあがるのだろうか。こうゆう感じの。
 セグメントコントロールを右にスライドしているのだから（A-&amp;gt;B）、それに対応するビューも左から右に出てきてほしいものだ。イメージ的に。なんとなく。たぶん。その逆（A&amp;lt;-B）は右から出て左にいってほしいもの。イメージ的に。なんとなく。たぶん。
 VStack { Picker if selection == 0 { viewAlpha .</description>
     </item>

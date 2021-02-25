@@ -44,13 +44,13 @@
         }
     }
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。&lt;/p&gt;
+&lt;p&gt;よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠Stateを切り替えることでビューも変わる。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/00.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。&lt;/p&gt;
 
-&lt;p&gt;どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。&lt;/p&gt;
+&lt;p&gt;どう動かしたら、ビュー遷移のメンタルモデルが自然にできあがるのだろうか。こうゆう感じの。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0224/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
@@ -73,7 +73,9 @@
 		        ))
     }
 }.animation(.&lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！&lt;/p&gt;
+&lt;p&gt;最初はGeometryReaderでビューの幅サイズを求めて、オフセット値をいじって画面外まで移動させればいいのかな？めんどくさいなーいやだなーと思ったけど、&lt;/p&gt;
+
+&lt;p&gt;trainsitionを設定するだけでよかった。そう、SwiftUIならね！&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(.move(edge: .leading)) &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;普通はこんな感じでtransitionを指定すると思うのだけど、これだと一方方向にしか動かない。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;.transition(

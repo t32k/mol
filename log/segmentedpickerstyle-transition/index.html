@@ -117,13 +117,13 @@
         }
     }
 }</code></pre></div>
-<p>よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。</p>
+<p>よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠Stateを切り替えることでビューも変わる。</p>
 
 <p><img src="/mol/images/2021/0224/00.gif" alt="" /></p>
 
 <p>普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。</p>
 
-<p>どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。</p>
+<p>どう動かしたら、ビュー遷移のメンタルモデルが自然にできあがるのだろうか。こうゆう感じの。</p>
 
 <p><img src="/mol/images/2021/0224/02.png" alt="" /></p>
 
@@ -146,7 +146,9 @@
 		        ))
     }
 }.animation(.<span style="color:#66d9ef">default</span>)</code></pre></div>
-<p>最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！</p>
+<p>最初はGeometryReaderでビューの幅サイズを求めて、オフセット値をいじって画面外まで移動させればいいのかな？めんどくさいなーいやだなーと思ったけど、</p>
+
+<p>trainsitionを設定するだけでよかった。そう、SwiftUIならね！</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(.move(edge: .leading)) </code></pre></div>
 <p>普通はこんな感じでtransitionを指定すると思うのだけど、これだと一方方向にしか動かない。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">.transition(
