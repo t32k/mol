@@ -41,13 +41,13 @@ struct ContentView: View {
 }
 ```
 
-よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠State変数を切り替えることでビューも変わる。
+よくあるタブ切り替えのような感じのものをPickerのSegmentedPickerStyleで＠Stateを切り替えることでビューも変わる。
 
 ![](/mol/images/2021/0224/00.gif)
 
 普通に作ったらこんなかんじで、パッパッと切り替わる。当たり前だ。transitionを指定してないから。
 
-どうするのが自然なんだろうと考えたとき、こんな感じのメンタルモデルだと。
+どう動かしたら、ビュー遷移のメンタルモデルが自然にできあがるのだろうか。こうゆう感じの。
 
 ![](/mol/images/2021/0224/02.png)
 
@@ -74,7 +74,9 @@ VStack {
 }.animation(.default)
 ```
 
-最初はオフセット値をいじって画面外まで移動させればいいのかな、めんどくせーなと思ったけど、trainsitionを設定するだけでよかった。そう、SwiftUIならね！
+最初はGeometryReaderでビューの幅サイズを求めて、オフセット値をいじって画面外まで移動させればいいのかな？めんどくさいなーいやだなーと思ったけど、
+
+trainsitionを設定するだけでよかった。そう、SwiftUIならね！
 
 ```swift
 .transition(.move(edge: .leading)) 
