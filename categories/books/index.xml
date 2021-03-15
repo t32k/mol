@@ -5,10 +5,23 @@
     <link>https://t32k.me/mol/categories/books/</link>
     <description>Recent content in books on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/books/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>デザインの伝え方</title>
+      <link>https://t32k.me/mol/log/978-4873117799-design/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/978-4873117799-design/</guid>
+      <description>デザインの伝え方 Tom Greever, 坂田 一倫他 Amazon.co.jpで詳細を見る   エンジニアもコードレビューのときにいろいろ気をつけることはあるが、こちらの本はデザイナーがデザインレビューするときではなくて、デザイナーがデザインの決定権を持つステークホルダーなどに自分のデザインを説明する方法について解説している。
+デザインとは見た目に起因するところが多いので、デザイナー以外から、いろいろ言われやすい職種である。エンジニアをしていて、ディレクターなりPMなりに、そこは三項演算子使わないほうがいいんじゃない？みたいなことはヒャクパー言われたことないのにも関わらず、デザイナーはデザイナーからはもちろん、すべてのステークホルダーからなんやかんや言われる。
+偉大なデザイナーは偉大なコミュニーケーターであるように、本書もまたデザインの本というより、コミュニケーションの本に近い。それは目次をかいつまんでもながめてみると『親しい間柄になる努力を』、『良好な関係を築く・ものを贈る』などと、まぁなんとウェットなコミュニケーションであろうか。
+もちろんデータに基づく決定や、論理的な説明でわかってもらえればそれにこしたことはないが、そうもいかないのが現実で、事前の根回しだったり、そのデザイナーの信頼残高がものを言ったりするのも事実。
+とはいえ、やはり自分はこうゆうのが苦手だったりするので、偉大なデザイナーさんに同情するとともに敬意を持って相対していきたいと思う一冊だった。</description>
+    </item>
     
     <item>
       <title>受け師の道 百折不撓の棋士・木村一基</title>
@@ -115,7 +128,7 @@ D2C ブランドは実際に届けられるパッケージやシーンにもこ�
 正直、スーツケースなんてものは荷物を詰め込めれればなんでもいいコモディティ化した商品だと思う。だからといって RIMOWA のような高級ブランドのスーツケースを何十万円で買うのも違う。シンプルなデザインで適切な価格で共感できる世界観をもつブランドならその商品を手に取る可能性は高いだろう。事実、Away 社はテック企業並の指数関数的な成長をしている。
 では、ユーザーに寄り添って独自の世界観を売ればよいのかといえば、そう簡単な話ではない。ユーザーと深くつながるということ裏切られたときの反動も強いということである。
 Nothing says “maybe you should lose a few pounds” like gifting your already rail thin life partner a Peloton pic.twitter.com/E2M9gFdD5A
-&amp;mdash; Siraj Hashmi in Gitmo (@SirajAHashmi) December 2, 2019   ＣＭが女性差別と炎上、株価急落－フィットネスバイクの米ペロトン | Bloomberg  フィットネスバイクを販売する D2C ブランドのPelotonのクリスマス時期の炎上が記憶に新しい。</description>
+&amp;mdash; Siraj Hashmi in the Gitmo Gulag (@SirajAHashmi) December 2, 2019   ＣＭが女性差別と炎上、株価急落－フィットネスバイクの米ペロトン | Bloomberg  フィットネスバイクを販売する D2C ブランドのPelotonのクリスマス時期の炎上が記憶に新しい。</description>
     </item>
     
     <item>

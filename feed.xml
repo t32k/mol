@@ -6,7 +6,34 @@
         
         
         
-        <updated>Wed, 24 Feb 2021 00:00:00 UTC</updated>
+        <updated>Sun, 14 Mar 2021 00:00:00 UTC</updated>
+        
+        <item>
+            <title>デザインの伝え方</title>
+            <link>https://t32k.me/mol/log/978-4873117799-design/</link>
+            <pubDate>Sun, 14 Mar 2021 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4873117799-design/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4873117798/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41Qw6D84dFL._SX351_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;デザインの伝え方&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Tom Greever, 坂田 一倫他&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;エンジニアもコードレビューのときにいろいろ気をつけることはあるが、こちらの本はデザイナーがデザインレビューするときではなくて、デザイナーがデザインの決定権を持つステークホルダーなどに自分のデザインを説明する方法について解説している。&lt;/p&gt;
+
+&lt;p&gt;デザインとは見た目に起因するところが多いので、デザイナー以外から、いろいろ言われやすい職種である。エンジニアをしていて、ディレクターなりPMなりに、そこは三項演算子使わないほうがいいんじゃない？みたいなことはヒャクパー言われたことないのにも関わらず、デザイナーはデザイナーからはもちろん、すべてのステークホルダーからなんやかんや言われる。&lt;/p&gt;
+
+&lt;p&gt;偉大なデザイナーは偉大なコミュニーケーターであるように、本書もまたデザインの本というより、コミュニケーションの本に近い。それは目次をかいつまんでもながめてみると『親しい間柄になる努力を』、『良好な関係を築く・ものを贈る』などと、まぁなんとウェットなコミュニケーションであろうか。&lt;/p&gt;
+
+&lt;p&gt;もちろんデータに基づく決定や、論理的な説明でわかってもらえればそれにこしたことはないが、そうもいかないのが現実で、事前の根回しだったり、そのデザイナーの信頼残高がものを言ったりするのも事実。&lt;/p&gt;
+
+&lt;p&gt;とはいえ、やはり自分はこうゆうのが苦手だったりするので、偉大なデザイナーさんに同情するとともに敬意を持って相対していきたいと思う一冊だった。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>SegmentedPickerによるビュー切り替えトランジション</title>
@@ -1303,7 +1330,7 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 
 &lt;p&gt;では、ユーザーに寄り添って独自の世界観を売ればよいのかといえば、そう簡単な話ではない。ユーザーと深くつながるということ裏切られたときの反動も強いということである。&lt;/p&gt;
 
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Nothing says “maybe you should lose a few pounds” like gifting your already rail thin life partner a Peloton &lt;a href=&#34;https://t.co/E2M9gFdD5A&#34;&gt;pic.twitter.com/E2M9gFdD5A&lt;/a&gt;&lt;/p&gt;&amp;mdash; Siraj Hashmi in Gitmo (@SirajAHashmi) &lt;a href=&#34;https://twitter.com/SirajAHashmi/status/1201593699521761281?ref_src=twsrc%5Etfw&#34;&gt;December 2, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Nothing says “maybe you should lose a few pounds” like gifting your already rail thin life partner a Peloton &lt;a href=&#34;https://t.co/E2M9gFdD5A&#34;&gt;pic.twitter.com/E2M9gFdD5A&lt;/a&gt;&lt;/p&gt;&amp;mdash; Siraj Hashmi in the Gitmo Gulag (@SirajAHashmi) &lt;a href=&#34;https://twitter.com/SirajAHashmi/status/1201593699521761281?ref_src=twsrc%5Etfw&#34;&gt;December 2, 2019&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 
@@ -1318,49 +1345,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;p&gt;また既存の&lt;a href=&#34;https://www.nike.com/jp/ja_jp/c/nike-plus&#34;&gt;Nike&lt;/a&gt;のような大手ブランドも D2C ブランド化というかデジタルトランスフォーメーション (DX) 改革が進んできている。これまで大手ブランドにとってアプリや Web サービスというのは既存店舗のオマケに過ぎなかったが、データ解析の重要さなどが浸透し、デジタル人材の採用・組織の編成などが目立つようになってきた。&lt;/p&gt;
 
 &lt;p&gt;このような状況で D2C ブランド起業というのはそう簡単なものではないと本書の結末で述べられている。個人的に『これでいい』じゃなくて『これがいい』という商品・ブランドが各分野でいろいろ出てくると生活が豊かになるのではないかと思っているが、選ぶのも大変そうだなって思った。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>2020年の抱負</title>
-            <link>https://t32k.me/mol/log/new-years-resolutions-2020/</link>
-            <pubDate>Wed, 01 Jan 2020 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/new-years-resolutions-2020/</guid>
-            <description>
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/new-years-resolutions-2019/&#34;&gt;去年の抱負&lt;/a&gt;を振り返ってみてる。&lt;/p&gt;
-
-&lt;h2 id=&#34;雪山登る&#34;&gt;雪山登る&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0101/01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;登ったというか、最初から一人で雪山デビューは怖かったので、モンベルの雪山登山技術実践講習会を谷川岳で受けてきた。ピッケル・アイゼンワークを学ぶ講習で滑落停止技術を身につけるため、ひたすらおっさんたちが雪坂を転げ落ちていた。&lt;/p&gt;
-
-&lt;p&gt;今年こそ、身の丈にあったソロ雪山登山する。&lt;/p&gt;
-
-&lt;h2 id=&#34;フルマラソン完走する&#34;&gt;フルマラソン完走する&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0101/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;鹿児島マラソン（3月）5時間53分38秒&lt;/li&gt;
-&lt;li&gt;函館マラソン（7月）5時間21分03秒&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;完走した。まぁだいたい走りきれたら5時間切れるのが普通なので、まだまだ遅い。荒川近くに引っ越したので、今年はいっぱい荒川を走ってサブ4.5（4時間半切り）を目指したい。&lt;/p&gt;
-
-&lt;h2 id=&#34;amazonでの使用金額を前年度より減らす&#34;&gt;Amazonでの使用金額を前年度より減らす&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0101/00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;減らしたけど、前年はカメラとかiMacとか大きな買い物をAmazon以外で買ったので浪費癖は治ってない。浪費癖を直したいと言いたいところだが、SIGMA fp買ったので、Lマウントレンズ沼が待っている&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;なんかアプリ-サービスつくる&#34;&gt;なんかアプリ・サービスつくる&lt;/h2&gt;
-
-&lt;p&gt;やっと、作りたいものが決まったので作り出している。昨日、&lt;code&gt;create nuxt app&lt;/code&gt; しただけだけど。今年はリリースするぞ。&lt;/p&gt;
-
-&lt;p&gt;というわけで、2020年もがんばっていきまっしょい！&lt;/p&gt;
 </description>
         </item>
         
