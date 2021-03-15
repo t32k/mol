@@ -6,7 +6,74 @@
         
         
         
-        <updated>Sun, 14 Mar 2021 00:00:00 UTC</updated>
+        <updated>Mon, 15 Mar 2021 00:00:00 UTC</updated>
+        
+        <item>
+            <title>一人から始めるユーザーエクスペリエンス</title>
+            <link>https://t32k.me/mol/log/978-4621089514-uxone/</link>
+            <pubDate>Mon, 15 Mar 2021 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4621089514-uxone/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://amazon.co.jp/dp/462108951X/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://m.media-amazon.com/images/I/51jGjqYqbbL.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;一人から始めるユーザーエクスペリエンス&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;長谷川 敦士(監修), 深澤 大気(翻訳), 森本 恭平 (翻訳)　他&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;昔、購入して積ん読してあったのをようやく読了。デザイナー向けの本かなと思ったらそうでもなかった。どちらかというと、企業のWeb担当者などがUXデザインやるぞ！と思ったときに、どうやって一人で始めていくかを解説してある。なので、UXデザインで使う各手法について軽く説明してある程度である。自分で実践してもっと知りたいと思ったら、ペルソナなり、ユーザービリティテストなりの専門書を手にとって見るのもよいだろう。&lt;/p&gt;
+
+&lt;p&gt;個人的にUX関連の手法というかワードがいっぱいあって、ごっちゃになっていたので、各ポイントを簡潔に説明してあったのは良かった。またUXデザイナーはいわゆるデザイナーだけのキャリアアップの職種ではなく、エンジニアからUXデザイナーになることもあれば、コンテンツ担当者からUXデザイナーになるこもとある。&lt;/p&gt;
+
+&lt;p&gt;そういうわけで、デザイナーだけでなく、エンジニアなどの方も本書を手に取るとよいかもしれない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;現状把握と計画立案
+
+&lt;ul&gt;
+&lt;li&gt;UXセルフチェック&lt;/li&gt;
+&lt;li&gt;UXプロジェクト計画&lt;/li&gt;
+&lt;li&gt;リスニングツアー&lt;/li&gt;
+&lt;li&gt;機会探索ワークショップ&lt;/li&gt;
+&lt;li&gt;プロジェクトブリーフ&lt;/li&gt;
+&lt;li&gt;UX戦略ワークショップ&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ユーザーリサーチ
+
+&lt;ul&gt;
+&lt;li&gt;ユーザーリサーチ計画&lt;/li&gt;
+&lt;li&gt;ゲリラユーザーリサーチ&lt;/li&gt;
+&lt;li&gt;プロトペルソナ&lt;/li&gt;
+&lt;li&gt;ヒューリスティックマークアップ&lt;/li&gt;
+&lt;li&gt;相対評価&lt;/li&gt;
+&lt;li&gt;コンテンツパターン&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;デザイン
+
+&lt;ul&gt;
+&lt;li&gt;デザインブリーフ&lt;/li&gt;
+&lt;li&gt;デザイン原則&lt;/li&gt;
+&lt;li&gt;スケッチ&lt;/li&gt;
+&lt;li&gt;スケッチボード&lt;/li&gt;
+&lt;li&gt;タスクフロー&lt;/li&gt;
+&lt;li&gt;ワイヤーフレーム&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;テストと検証
+
+&lt;ul&gt;
+&lt;li&gt;ペーパープロトタイプ・インタラクティブプロトタイプ&lt;/li&gt;
+&lt;li&gt;ブラックハットセッション&lt;/li&gt;
+&lt;li&gt;クイックアンドダーティユーザービリティテスト&lt;/li&gt;
+&lt;li&gt;５秒間テスト&lt;/li&gt;
+&lt;li&gt;UXヘルスチェック&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最後に各フェーズにおけるUX手法の目次を置いておく。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>デザインの伝え方</title>
@@ -1296,55 +1363,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;p&gt;スタートアップのエンジニア視点からみれば、リファクタリングやアーキテクチャの変更など、エンドユーザーにはあまりメリットを感じにくい改善施策もCTOなりCEOが近い存在なので、言い続けていれば実行に移すことが可能だと思うし、そういった事例を見聞きしているので、やはり組織が大きくなりすぎて現場の声が届いてなかったのが問題なんだと思う。&lt;/p&gt;
 
 &lt;p&gt;あらためて、組織の未来をどこに向かうのか、どう動くのか決定するのがトップの仕事であり、それを間違えるととんでもない悲惨が待っているのだと理解した1冊だった。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>D2C 「世界観」と「テクノロジー」で勝つブランド戦略</title>
-            <link>https://t32k.me/mol/log/978-4910063034-d2c/</link>
-            <pubDate>Sat, 25 Jan 2020 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4910063034-d2c/</guid>
-            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/491006303X/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/413nBpiqA5L._SX360_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;D2C 「世界観」と「テクノロジー」で勝つブランド戦略 (NewsPicksパブリッシング)&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;佐々木康裕&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;最近、巷で流行っているので読了。D2C という言葉も最近よく目にするようになった。D2C は Direct to Consumer の略であり製造業者が直接、消費者に販売する仕組みのことを言う。&lt;/p&gt;
-
-&lt;p&gt;頭では理解しているが、そもそも小売のことなんて知らないし、Web サービスを作っている我々からしてみれば、ユーザーとはノーティフィケーションやアクセス解析などでダイレクトにつながっているのは当たり前で、いまイチ D2C の凄さがよく分からなかった。&lt;/p&gt;
-
-&lt;p&gt;しかし、本書では D2C ブランドと伝統的なブランドを比較しながら事例を紹介しているので、我々のような Web サービス開発者でも理解しやすかった。要はマットレスなりスーツケースなり商品を作って売ったら、それっきりでその後は特別なフォローもなしである。Web サービスで例えるなら、ローンチしてハイ終了みたいなものである。これは良くない。&lt;/p&gt;
-
-&lt;p&gt;D2C ブランドは実際に届けられるパッケージやシーンにもこだわり、長期間の無料返品に対応したり、フレンドリーなカスタマーサポートも提供している。そして得られたデータを駆使して次の商品開発に役立てている。D2C というのはただのモノづくり屋ではなくテック企業であると本書で述べられていたのが共感できた。&lt;/p&gt;
-
-&lt;p&gt;個人的に D2C ブランドというのはアフターケアなどがしっかりしているくらいの認識だったが、D2C ブランドはモノをうっているのではく、ライフスタイルを提供しているのだと本書では述べられている。&lt;/p&gt;
-
-&lt;p&gt;スーツケースの D2C ブランド&lt;a href=&#34;https://www.awaytravel.com/&#34;&gt;Away&lt;/a&gt;の Instagram を見てみれば理解できるように、そこにあからさまな商品の機能説明をした写真は投稿されていない。たまに旅行というシーンで Away のスーツケースがさり気なく登場しているが、ほとんどはキレイな観光地の写真で埋め尽くされている。これは彼らがスーツケースを売る会社ではなく、『旅のある生活』という世界観を売っているからである。事実、Away はスーツケースを販売する前に HERE という旅行雑誌を販売していた。&lt;/p&gt;
-
-&lt;p&gt;正直、スーツケースなんてものは荷物を詰め込めれればなんでもいいコモディティ化した商品だと思う。だからといって RIMOWA のような高級ブランドのスーツケースを何十万円で買うのも違う。シンプルなデザインで適切な価格で共感できる世界観をもつブランドならその商品を手に取る可能性は高いだろう。事実、Away 社はテック企業並の指数関数的な成長をしている。&lt;/p&gt;
-
-&lt;p&gt;では、ユーザーに寄り添って独自の世界観を売ればよいのかといえば、そう簡単な話ではない。ユーザーと深くつながるということ裏切られたときの反動も強いということである。&lt;/p&gt;
-
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Nothing says “maybe you should lose a few pounds” like gifting your already rail thin life partner a Peloton &lt;a href=&#34;https://t.co/E2M9gFdD5A&#34;&gt;pic.twitter.com/E2M9gFdD5A&lt;/a&gt;&lt;/p&gt;&amp;mdash; Siraj Hashmi in the Gitmo Gulag (@SirajAHashmi) &lt;a href=&#34;https://twitter.com/SirajAHashmi/status/1201593699521761281?ref_src=twsrc%5Etfw&#34;&gt;December 2, 2019&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bloomberg.co.jp/news/articles/2019-12-04/Q1YZ4CT1UM1101&#34;&gt;ＣＭが女性差別と炎上、株価急落－フィットネスバイクの米ペロトン | Bloomberg&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;フィットネスバイクを販売する D2C ブランドの&lt;a href=&#34;https://www.onepeloton.com/&#34;&gt;Peloton&lt;/a&gt;のクリスマス時期の炎上が記憶に新しい。&lt;/p&gt;
-
-&lt;p&gt;また、指数関数的に成長する D2C ブランドも売上高 500 億ぐらいに達すると踊り場が見えてくるという事実だ。しかし、D2C 企業に投資した VC はより大きな成長を要求してくるので、結局 D2C ブランドも伝統的なブランドのように自社商品を他のマーケットに卸したりしている。&lt;/p&gt;
-
-&lt;p&gt;また既存の&lt;a href=&#34;https://www.nike.com/jp/ja_jp/c/nike-plus&#34;&gt;Nike&lt;/a&gt;のような大手ブランドも D2C ブランド化というかデジタルトランスフォーメーション (DX) 改革が進んできている。これまで大手ブランドにとってアプリや Web サービスというのは既存店舗のオマケに過ぎなかったが、データ解析の重要さなどが浸透し、デジタル人材の採用・組織の編成などが目立つようになってきた。&lt;/p&gt;
-
-&lt;p&gt;このような状況で D2C ブランド起業というのはそう簡単なものではないと本書の結末で述べられている。個人的に『これでいい』じゃなくて『これがいい』という商品・ブランドが各分野でいろいろ出てくると生活が豊かになるのではないかと思っているが、選ぶのも大変そうだなって思った。&lt;/p&gt;
 </description>
         </item>
         
