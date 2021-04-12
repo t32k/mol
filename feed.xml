@@ -6,7 +6,32 @@
         
         
         
-        <updated>Sun, 28 Mar 2021 00:00:00 UTC</updated>
+        <updated>Mon, 12 Apr 2021 00:00:00 UTC</updated>
+        
+        <item>
+            <title>ユーザーインタビューをはじめよう</title>
+            <link>https://t32k.me/mol/log/978-4802510585-user-interviews/</link>
+            <pubDate>Mon, 12 Apr 2021 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4802510585-user-interviews/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://amazon.co.jp/dp/4802510586/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://m.media-amazon.com/images/P/B071X9BKPC.01._SCLZZZZZZZ_SX500_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;ユーザーインタビューをはじめよう&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;スティーブ・ポーチガル (著), 安藤貴子 (翻訳)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;サブタイトルにあるように「聞くこと」入門の本だなぁという小並感。UXリサーチのためのユーザーインタビューと聞くと小難しいテクニック満載なのかなと思ったのだけど、読んでみると、信頼関係（ラポール）構築とか静かな環境を準備するとか当たり前だけど大事なことについて解説している。&lt;/p&gt;
+
+&lt;p&gt;ユーザーインタビューする機会なんて、まぁそうそうにはないが「聞くこと」に関しては、日常的にしている行為であるので、聞き上手になりたければ本書を手にとってみるのもありだろう。&lt;/p&gt;
+
+&lt;p&gt;最近では、エンジニアがポッドキャストを配信したりYoutuberになったりしてるから、そうゆうケースで、ゲストから面白い話を聞く術を身につけるという点でも良いかもしれない。&lt;/p&gt;
+
+&lt;p&gt;そいうゆうわけで当たり前をちゃんとやっていくために必要な本だと思った。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>100Wの急速充電器を購入した</title>
@@ -1245,79 +1270,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;div class=&#34;__media__body&#34;&gt;
     &lt;div&gt;SwiftUI 徹底入門&lt;/div&gt;
     &lt;div class=&#34;__media__text&#34;&gt;金田 浩明&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>Wahoo KICKR&#39;18 スマートトレーナー</title>
-            <link>https://t32k.me/mol/log/wahoo-kickr-2018/</link>
-            <pubDate>Mon, 09 Mar 2020 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/wahoo-kickr-2018/</guid>
-            <description>
-
-&lt;h1 id=&#34;activity-data-platform&#34;&gt;Activity Data Platform&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/look-back-2019/&#34;&gt;以前の記事&lt;/a&gt;で、ランニングが続いてる（その割には痩せていない&amp;hellip;）と書いたが、なぜ1年以上も続いているのか、自分なりに考えてみると、やはりアクティビティログが貯まるのが自分の性に合っているのだと思う。ランニングであれば、月間の走行距離であり、&lt;a href=&#34;https://www.nike.com/jp/nrc-app&#34;&gt;Nike Run Club&lt;/a&gt;などで友人たちとどれくらい走ったか、競い合うというか、走行距離が積み上がっていくのは見ていて楽しい。貯金に似てるのかもしれない（健康貯金みたいなもんだし）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、走行距離だけを生きがいにしてきたわけだが、別に距離を稼ぐだけならジョグとか、それこそウォーキングとかで距離を稼いでもいいわけで、月間100km歩くのと、ゼェゼェ言うほどのスピードで走り切るのとは全然違う負荷である。&lt;/p&gt;
-
-&lt;p&gt;ソーシャルフィットネスネットワークである&lt;a href=&#34;https://www.strava.com/&#34;&gt;Strava&lt;/a&gt;の有料会員（Summit）になると、アナリシスパックが有効になり、Fitness &amp;amp; Freshnessを確認することができる。まぁこれは体力のレベルみたいなもんだと思えば分かりやすいだろう。だいたいFitnessスコアが100になると身体が仕上がってるらしい（数値は相対的なものなので、私の100スコアとあなたの100スコアで体力は違う）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;まぁ見てみると僕の場合、大会がある日(オレンジ色のところ)はグーッとスコアがあがるが、その後下降傾向にある。もちろん大会のときは全力なので心肺に長時間の負荷がかかる。逆に日々のトレーニングをしているにも関わらず、スコアが下がっているのは自分を追い込めていないのである。つまり、毎日ちんたら走っててもこのスコアは上がらない（LSDが要らないというわけではない）。&lt;/p&gt;
-
-&lt;p&gt;というわけで、日々のトレーニングで最低限スコアを下げないようにしたい。&lt;/p&gt;
-
-&lt;h1 id=&#34;indoor-training&#34;&gt;Indoor training&lt;/h1&gt;
-
-&lt;p&gt;しかし、最近は徐々に暖かくなりつつあるが、それでも寒い。寒いのは嫌いだ。あと花粉もか。あとあと雨も多いということで、ランニングをサボりがちである。ジムに行ってトレッドミルで走るという選択もあるが、トレッドミルは風景が変わらないのでつまらない。モチベーションが続かない問題がある。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wattcycling.jp/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;そんなときに、近所のジムにWattbikeがあるのを知った。これは手持ちのスマホのアプリと連携ができて、そのデータをStravaにアップロードができる。つまり、Fitnessスコアに寄与できる。ランニングばかり続けていても膝に負担がかるし、膝に負担をかけずに心肺機能を鍛えるにはチャリ最高では？とt32kは思った。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;トレッドミルで申し上げたが、エアロバイクでも風景は変わらないのでつまらない。そこでなにかいいものがないかと探したら、&lt;a href=&#34;https://zwift.com/ja&#34;&gt;Zwift&lt;/a&gt;というオンラインサイクリングアプリがあるということを知る。これはセカンドライフの自転車版みたいなもので、エアロバイク（じゃなくてもいいが）で実際にこいだパワーがアプリ上に反映されてバーチャルライディングを楽しむものである。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;またワークアウトというメニューがあり、アプリが指定したパワー（ワット：w）でこぐことで効率的な練習ができる。これが辛いけど、ただやみくもに自転車こいでた自分にとっては楽しいものであった。&lt;/p&gt;
-
-&lt;h1 id=&#34;the-smart-trainer&#34;&gt;The Smart Trainer&lt;/h1&gt;
-
-&lt;p&gt;そうゆうわけで、ジムでZwiftを楽しんでいたのだけど、ジムのWiFiがしょぼくて、せっかくワークアウトしたのにデータがStravaがアップロードできていない、ということが何回かあった。だいぶテンション下がる事態である。&lt;/p&gt;
-
-&lt;p&gt;また、昨今のCOVID-19騒ぎでジムを積極的に利用するのも控えられる現状、また在宅勤務が日常化し運動不足が懸念されるので、家で安定したネットワークで落ち着いてZwiftできないものか考えるようになった。&lt;/p&gt;
-
-&lt;p&gt;先程のWattbikeは35万円くらいする。さすがにおいそれとは購入できない金額である。というわけでまたググってみると、手持ちの自転車の後輪にスマートトレイナーと呼ばれるモーターみたいなものをつけると、Zwiftと連携できるらしい。スマートトレイナー自体、10数万位の価格でエアロバイクを買うよりかは安い。自転車と取り外しができるので、飽きたら自転車だけで外で乗ればいいし、と思って購入を決めた。&lt;/p&gt;
-
-&lt;p&gt;と思ったが、自分は自転車を持っていない。ましてやロードバイクなんて買うのも初めてだが、同僚の熱いアドバイスとメルカリの売上金もあったので中古で購入した。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;空力性能に特化したエアロロードバイクなんだけど、別に室内でするZwiftにはまったくいらない。もっと安いロードバイクでもよかったが、自分が乗っていてテンションあがるかどうかが大事だ（と言い聞かせている）。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/06.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;そうゆうわけで、めでたく自転車も購入したので、KICKR&amp;rsquo;18スマートトレーナーも購入した。ロードバイク初心者でも簡単にセットアップできたし、静音性も高い。チェーンの音しかしない。Zwift完全対応しているので坂道を走ったり、ワークアウトでターゲット負荷が変わると、自動的に負荷が変更するので、いちいち自分でケイデンスやギアを変更する必要もないのもよい。ただ私はこくだけ( ˘ω˘)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0309/07.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;というわけで、こんなご時世だからこそ、家ジム化してみませんか？&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B07HCDQ348/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51H8kWwHRrL._SL1000_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;WAHOO KICKR Smart ワフー キッカー スマート 自転車トレーナー WFBKTR118&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;Wahoo&lt;/div&gt;
     &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
 &lt;/div&gt;
 &lt;/a&gt;&lt;/div&gt;
