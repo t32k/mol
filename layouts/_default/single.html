@@ -4,34 +4,37 @@
 {{ with .Params.hero }}<div class="hero" style="background-image:url('{{ . }}')"></div>{{ end }}
 
 <div class="container">
-<article role="main" class="post">
+  <article role="main" class="post">
     <header class="post-header">
-        <p class="u-mute u-mbn"><time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format "January 2, 2006" }}</time></p>
-        <h1 class="post-h1">{{ .Title }}</h1>
-        {{ with .Params.subtitle }} <h3 class="u-mute u-mtn">{{ . }}</h3>{{ end }}
+      <p class="u-mute u-mbn"><time
+          datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format "January 2, 2006" }}</time></p>
+      <h1 class="post-h1">{{ .Title }}</h1>
+      {{ with .Params.subtitle }} <h3 class="u-mute u-mtn">{{ . }}</h3>{{ end }}
     </header>
     <section>
-        {{ .Content }}
+      {{ .Content }}
     </section>
-</article>
+  </article>
 
-    {{ with .Params.categories }}
-      <div class="post-tags">{{ range . }}<a href="/mol/categories/{{ . }}/">{{ . }}</a> {{ end }}</div>
-    {{ end }}
+  {{ with .Params.categories }}
+  <div class="post-tags">{{ range . }}<a href="/mol/categories/{{ . }}/">{{ . }}</a> {{ end }}</div>
+  {{ end }}
 
-    {{ partial "social.html" .}}
-<hr>
-{{ partial "ad.html" . }}
-{{ partial "pager.html" .}}
-{{ partial "footer.html" . }}
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
-  ga('create', 'UA-2317436-26', 'auto');
-  ga('set', 'contentGroup1', {{ .Date.Format "2006" }});
-  ga('send', 'pageview');
-</script>
-<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-</body>
-</html>
+  {{ partial "social.html" .}}
+  <hr>
+  {{ partial "ad.html" . }}
+  {{ partial "pager.html" .}}
+  {{ partial "footer.html" . }}
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date
+    ga('create', 'UA-2317436-26', 'auto');
+    ga('set', 'contentGroup1', {{ .Date.Format "2006" }});
+    ga('send', 'pageview');
+  </script>
+  <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+  <script async src='//www.google-analytics.com/analytics.js'></script>
+
+  </body>
+
+  </html>

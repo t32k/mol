@@ -2,19 +2,21 @@
 {{ partial "header.html" . }}
 <div class="container">
 
-<section role="main">
-    <h1>{{.Title}}</h1>
-    <hr>
-    {{ partial "ad.html" . }}
-    <hr>
-    {{ range .Data.Pages }}
+    <section role="main">
+        <h1>{{.Title}}</h1>
+        <hr>
+        {{ partial "ad.html" . }}
+        <hr>
+        {{ range .Data.Pages }}
         <article>
             <time class="u-txs u-mute">{{ .Date.Format "Monday, January 2, 2006" }}</time>
             <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
             {{ with .Params.excerpt }}<p class="post-desc">{{ . }}</p>{{ end }}
         </article>
-    {{ end }}
-</section>
+        {{ end }}
+    </section>
 
-{{ partial "footer.html" . }}
-{{ partial "tail.html" . }}
+    {{ partial "footer.html" . }}
+    </body>
+
+    </html>
