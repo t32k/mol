@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>Sassの親セレクタ参照&amp;について - MOL</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="twitter:title" content="Sassの親セレクタ参照&amp;について - MOL" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@t32k" />
-    
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="MOL" />
-    
-    <meta
-      property="og:image"
-      content="https://t32k.me/mol/images/people/me.jpg"
-    />
-    <meta
-      name="twitter:image"
-      content="https://t32k.me/mol/images/people/me.jpg"
-    />
-    
-    <meta property="fb:app_id" content="212646065416408" />
-    <link rel="canonical" href="https://t32k.me/mol/log/referencing-parent-selectors/" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
-    />
-    <link rel="stylesheet" href="/mol/css/layout.css?20190925" />
-    <link rel="stylesheet" href="/mol/css/app.css?20190925" />
-    <link
-      rel="alternate"
-      href="/mol/index.xml"
-      type="application/rss+xml"
-      title="MOL"
-    />
-  </head>
 
-  <body>
-    <svg class="u-dn">
+<head>
+  <meta charset="utf-8" />
+  <title>Sassの親セレクタ参照&amp;について - MOL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="twitter:title" content="Sassの親セレクタ参照&amp;について - MOL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@t32k" />
+  
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="MOL" />
+  
+  <meta property="og:image" content="https://t32k.me/mol/images/people/me.jpg" />
+  <meta name="twitter:image" content="https://t32k.me/mol/images/people/me.jpg" />
+  
+  <meta property="fb:app_id" content="212646065416408" />
+  <link rel="canonical" href="https://t32k.me/mol/log/referencing-parent-selectors/" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" />
+  <link rel="stylesheet" href="/mol/css/layout.css?20190925" />
+  <link rel="stylesheet" href="/mol/css/app.css?20190925" />
+  <link rel="alternate" href="/mol/index.xml" type="application/rss+xml" title="MOL" />
+  <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2317436-26"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-2317436-26');
+  </script>
+</head>
+
+<body>
+  <svg class="u-dn">
 	<symbol id="post-fb" viewBox="0 0 24 24">
 		<path d="M21.087 0H2.913C1.303 0 0 1.304 0 2.913v18.174C0 22.697 1.304 24 2.913 24h18.174C22.697 24 24 22.696 24 21.087V2.913C24 1.303 22.696 0 21.087 0zm-5.14 6.446h-1.864c-.658 0-.795.27-.795.95V9.04h2.658l-.256 2.887h-2.402v8.623H9.845v-8.587h-1.79V9.04h1.79V6.738c0-2.16 1.155-3.288 3.717-3.288h2.384v2.996z"
 		 fill="#334F8D" fill-rule="evenodd" />
@@ -67,9 +63,9 @@
 		<path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
 	</symbol>
 </svg>
-  </body>
-</html>
+</body>
 
+</html>
 <header class="site-header">
   <div class="container">
     <nav class="u-cf">
@@ -83,14 +79,15 @@
 
 
 <div class="container">
-<article role="main" class="post">
+  <article role="main" class="post">
     <header class="post-header">
-        <p class="u-mute u-mbn"><time datetime='2012-09-06T00:00:00Z'>September 6, 2012</time></p>
-        <h1 class="post-h1">Sassの親セレクタ参照&amp;について</h1>
-        
+      <p class="u-mute u-mbn"><time
+          datetime='2012-09-06T00:00:00Z'>September 6, 2012</time></p>
+      <h1 class="post-h1">Sassの親セレクタ参照&amp;について</h1>
+      
     </header>
     <section>
-        <p><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_">Sassの親セレクター参照の<strong>&amp;</strong></a>の話。</p>
+      <p><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_">Sassの親セレクター参照の<strong>&amp;</strong></a>の話。</p>
 
 <p>Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。</p>
 
@@ -183,13 +180,13 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
 
 <p>だからといって、<strong>&amp;</strong>使うなよってことはないです。最初に紹介したリンクパターンやモジュールパターンのような単純に<strong>”親”</strong>を参照しているものであれば、特に問題ないかと思います。親の更に親が〜といったような使い方も環境（HTML）が変わるようなことがないかぎり、特に問題無いと思うけど、いざ流用したいってなったとき（人生なにが起きるかわかりません）ネストの仕方によっては今回のようなことが起きてしまうなーって。て！</p>
     </section>
-</article>
+  </article>
 
-    
-      <div class="post-tags"><a href="/mol/categories/css/">css</a> </div>
-    
+  
+  <div class="post-tags"><a href="/mol/categories/css/">css</a> </div>
+  
 
-    <div class="post-social">
+  <div class="post-social">
   <a href="http://b.hatena.ne.jp/add?mode=confirm&title=Sass%e3%81%ae%e8%a6%aa%e3%82%bb%e3%83%ac%e3%82%af%e3%82%bf%e5%8f%82%e7%85%a7%26%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2freferencing-parent-selectors%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
@@ -199,12 +196,12 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2freferencing-parent-selectors%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-fb" /></svg></a>
 </div>
-<hr>
-<div class="site-ad">
+  <hr>
+  <div class="site-ad">
   <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1326877318485833" data-ad-slot="7307465775"
     data-ad-format="auto"></ins>
 </div>
-<hr>
+  <hr>
 <div class="row post-pager">
   <div class="six columns">
     <div class="post-previous">  Later article<br>
@@ -215,7 +212,7 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
       <a href="https://t32k.me/mol/log/compass-ie-hex-str-function/"> パフォーマンスからみるSass/Compass 番外編：MSは青かった</a>  </div>
   </div>
 </div>
-
+  
 </div>
 <footer class="site-footer">
   <div class="container">
@@ -249,14 +246,16 @@ Sassのコードだと、aのセレクタの下層にリンクの擬似クラス
     
   </div>
 </footer>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
-  ga('create', 'UA-2317436-26', 'auto');
-  ga('set', 'contentGroup1', "2012");
-  ga('send', 'pageview');
-</script>
-<script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-</body>
-</html>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date
+    ga('create', 'UA-2317436-26', 'auto');
+    ga('set', 'contentGroup1', "2012");
+    ga('send', 'pageview');
+  </script>
+  <script async src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+  <script async src='//www.google-analytics.com/analytics.js'></script>
+
+  </body>
+
+  </html>
