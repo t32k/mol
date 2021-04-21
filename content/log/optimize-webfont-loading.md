@@ -1,9 +1,9 @@
 ---
 date: 2021-04-21
-title: WebFont 読み込み戦略
+title: Webフォント読み込み戦略（2021年）
 subtitle: Avoid invisible text during font loading
 excerpt: 目標をセンターに入れて、display=swap...
-ogimage: https://t32k.me/mol/images/2021/0421/02.png
+ogimage: https://t32k.me/mol/images/2021/0421/02.png?v2
 categories: 
     - css
     - development
@@ -11,23 +11,23 @@ categories:
 
 # Preload web fonts
 
-前回といっても2年前だが、[display=swapとはなにか](/mol/log/font-display-swap/)で、Google Fontsを読み込むときはURLパラメータに `display=swap` をつけるといいよと言った。というわけで、『目標をセンターに入れて、display=swap...』と盲目的に考えるようになってた。
+前回、といっても2年前だが、[display=swapとはなにか](/mol/log/font-display-swap/)で、Google Fontsを読み込むときはURLパラメータに `display=swap` をつけるといいよと言った。というわけで、それ以降、『目標をセンターに入れて、display=swap...』と盲目的に考えるようになってた。
 
-おさらいとして `display=swap` では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる **FOUT (flash of unstyled text)** が起こってしまう。
+おさらいとして `display=swap` では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる **FOUT (flash of unstyled text)** が起こってしまう。こんな感じ↓
 
-![](/mol/images/2021/0421/00.png)
+![](/mol/images/2021/0421/00.png?v2)
 出典：[font\-face descriptor playground](https://codepen.io/simonjhearne/pen/rNMGJyr)
 
-まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、[Web Vitals](https://web.dev/vitals/)というものがある。その中の[CLS](https://web.dev/cls/)（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。ということで、代替フォントからWebフォントへ切り替わる際の、レイアウトのズレ、ちらつきが、このCLSを下げてしまう原因になる。
+まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、[Web Vitals](https://web.dev/vitals/)というものがある。その中の[CLS](https://web.dev/cls/)（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。つまり、代替フォントからWebフォントへ切り替わる際のレイアウトのズレ・ちらつきが、このCLSを下げてしまう原因になる。
 
-![](/mol/images/2021/0421/01.png)
+![](/mol/images/2021/0421/01.png?v2)
 出典：[Fontastic web performance \- Speaker Deck](https://speakerdeck.com/notwaldorf/fontastic-web-performance?slide=74)
 
-ということで、今回紹介する `font-display: optional` とはなにかなんだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという挙動。
+ということで、今回紹介する `font-display: optional` の場合はどうなるかだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという分かりやすい挙動。
 
 この場合、FOUTはないが、最初に100msのブロック期があるので不可視テキストが表示される **FOIT(Flash of Invisible Text)** が起こってしまう。
 
-![](/mol/images/2021/0421/02.png)
+![](/mol/images/2021/0421/02.png?v2)
 
 出典：[Prevent layout shifting and flashes of invisible text \(FOIT\) by preloading optional fonts](https://web.dev/preload-optional-fonts/)
 
@@ -51,11 +51,11 @@ categories:
 }
 ```
 
-こんな感じに設定すればよい。
+こんな感じに、fontファイルをpreloadして、optional設定すれば、レイアウトジャンクなしにWebフォントを読み込める。
 
 # Google Fonts
 
-Google Fontsから読み込む場合の最善手は、CSS Wizardryさんが詳解な説明をしている。
+Google Fontsから読み込む場合の最善手については、CSS Wizardryさんが詳解な説明をしているので下記を読んでほしい。
 
 - [The Fastest Google Fonts – CSS Wizardry – Web Performance Optimisation](https://csswizardry.com/2020/05/the-fastest-google-fonts/)
 
@@ -87,13 +87,13 @@ media="print" onload="this.media='all'"
 
 - [The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.](https://www.filamentgroup.com/lab/load-css-simpler/) 
 
-これが一番簡単に非同期でCSSを読み込みハックっぽい。`display=optional`ではないのは、この読み込み方と相性が悪いっぽい。
+これが一番簡単に非同期でCSSを読み込めるハックっぽい。`display=optional`ではないのは、この読み込み方と相性が悪いためだそうだ。
 
 ![](/mol/images/2021/0421/03.png)
 
-というわけで、本ブログでもNoto Sans JP を読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLSというよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は0.004 -> 0 になったので、まぁ、うん^^;
+というわけで、本ブログでもNoto Sans JPを読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLS改善というよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は`0.004 -> 0`になったので、まぁ、うん。。。
 
-結局、色々調べた結果、t32kにはWebFontは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。
+結局、色々調べた結果、t32kにはWebフォントは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。
 
 ### 参考資料
 
