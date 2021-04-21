@@ -32,7 +32,7 @@ html {
   background: rgb(var(--rgb-background));
   line-height: 1.6;
   font-size: 16px;
-  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+  font-family: -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
 }
 
