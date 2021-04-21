@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>WebFont 読み込み戦略 - MOL</title>
+  <title>Webフォント読み込み戦略（2021年） - MOL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="twitter:title" content="WebFont 読み込み戦略 - MOL" />
+  <meta name="twitter:title" content="Webフォント読み込み戦略（2021年） - MOL" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@t32k" />
   
@@ -15,8 +15,8 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="MOL" />
   
-  <meta property="og:image" content="https://t32k.me/mol/images/2021/0421/02.png" />
-  <meta name="twitter:image" content="https://t32k.me/mol/images/2021/0421/02.png" />
+  <meta property="og:image" content="https://t32k.me/mol/images/2021/0421/02.png?v2" />
+  <meta name="twitter:image" content="https://t32k.me/mol/images/2021/0421/02.png?v2" />
   
   <meta property="fb:app_id" content="212646065416408" />
   <link rel="canonical" href="https://t32k.me/mol/log/optimize-webfont-loading/" />
@@ -84,7 +84,7 @@
     <header class="post-header">
       <p class="u-mute u-mbn"><time
           datetime='2021-04-21T00:00:00Z'>April 21, 2021</time></p>
-      <h1 class="post-h1">WebFont 読み込み戦略</h1>
+      <h1 class="post-h1">Webフォント読み込み戦略（2021年）</h1>
        <h3 class="u-mute u-mtn">Avoid invisible text during font loading</h3>
     </header>
     <section>
@@ -92,23 +92,23 @@
 
 <h1 id="preload-web-fonts">Preload web fonts</h1>
 
-<p>前回といっても2年前だが、<a href="/mol/log/font-display-swap/">display=swapとはなにか</a>で、Google Fontsを読み込むときはURLパラメータに <code>display=swap</code> をつけるといいよと言った。というわけで、『目標をセンターに入れて、display=swap&hellip;』と盲目的に考えるようになってた。</p>
+<p>前回、といっても2年前だが、<a href="/mol/log/font-display-swap/">display=swapとはなにか</a>で、Google Fontsを読み込むときはURLパラメータに <code>display=swap</code> をつけるといいよと言った。というわけで、それ以降、『目標をセンターに入れて、display=swap&hellip;』と盲目的に考えるようになってた。</p>
 
-<p>おさらいとして <code>display=swap</code> では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる <strong>FOUT (flash of unstyled text)</strong> が起こってしまう。</p>
+<p>おさらいとして <code>display=swap</code> では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる <strong>FOUT (flash of unstyled text)</strong> が起こってしまう。こんな感じ↓</p>
 
-<p><img src="/mol/images/2021/0421/00.png" alt="" />
+<p><img src="/mol/images/2021/0421/00.png?v2" alt="" />
 出典：<a href="https://codepen.io/simonjhearne/pen/rNMGJyr">font-face descriptor playground</a></p>
 
-<p>まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、<a href="https://web.dev/vitals/">Web Vitals</a>というものがある。その中の<a href="https://web.dev/cls/">CLS</a>（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。ということで、代替フォントからWebフォントへ切り替わる際の、レイアウトのズレ、ちらつきが、このCLSを下げてしまう原因になる。</p>
+<p>まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、<a href="https://web.dev/vitals/">Web Vitals</a>というものがある。その中の<a href="https://web.dev/cls/">CLS</a>（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。つまり、代替フォントからWebフォントへ切り替わる際のレイアウトのズレ・ちらつきが、このCLSを下げてしまう原因になる。</p>
 
-<p><img src="/mol/images/2021/0421/01.png" alt="" />
+<p><img src="/mol/images/2021/0421/01.png?v2" alt="" />
 出典：<a href="https://speakerdeck.com/notwaldorf/fontastic-web-performance?slide=74">Fontastic web performance - Speaker Deck</a></p>
 
-<p>ということで、今回紹介する <code>font-display: optional</code> とはなにかなんだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという挙動。</p>
+<p>ということで、今回紹介する <code>font-display: optional</code> の場合はどうなるかだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという分かりやすい挙動。</p>
 
 <p>この場合、FOUTはないが、最初に100msのブロック期があるので不可視テキストが表示される <strong>FOIT(Flash of Invisible Text)</strong> が起こってしまう。</p>
 
-<p><img src="/mol/images/2021/0421/02.png" alt="" /></p>
+<p><img src="/mol/images/2021/0421/02.png?v2" alt="" /></p>
 
 <p>出典：<a href="https://web.dev/preload-optional-fonts/">Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts</a></p>
 
@@ -122,11 +122,11 @@
   <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">local</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Noto Sans JP&#39;</span><span style="color:#f92672">),</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">NotoSansJP-Regular</span>.<span style="color:#a6e22e">woff2</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff2&#39;</span><span style="color:#f92672">);</span>
   <span style="color:#f92672">font-display</span><span style="color:#f92672">:</span> <span style="color:#f92672">optional</span><span style="color:#f92672">;</span>
 }</code></pre></div>
-<p>こんな感じに設定すればよい。</p>
+<p>こんな感じに、fontファイルをpreloadして、optional設定すれば、レイアウトジャンクなしにWebフォントを読み込める。</p>
 
 <h1 id="google-fonts">Google Fonts</h1>
 
-<p>Google Fontsから読み込む場合の最善手は、CSS Wizardryさんが詳解な説明をしている。</p>
+<p>Google Fontsから読み込む場合の最善手については、CSS Wizardryさんが詳解な説明をしているので下記を読んでほしい。</p>
 
 <ul>
 <li><p><a href="https://csswizardry.com/2020/05/the-fastest-google-fonts/">The Fastest Google Fonts – CSS Wizardry – Web Performance Optimisation</a></p>
@@ -155,13 +155,13 @@
 <li><a href="https://www.filamentgroup.com/lab/load-css-simpler/">The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.</a></li>
 </ul>
 
-<p>これが一番簡単に非同期でCSSを読み込みハックっぽい。<code>display=optional</code>ではないのは、この読み込み方と相性が悪いっぽい。</p>
+<p>これが一番簡単に非同期でCSSを読み込めるハックっぽい。<code>display=optional</code>ではないのは、この読み込み方と相性が悪いためだそうだ。</p>
 
 <p><img src="/mol/images/2021/0421/03.png" alt="" /></p>
 
-<p>というわけで、本ブログでもNoto Sans JP を読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLSというよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は0.004 -&gt; 0 になったので、まぁ、うん^^;</p>
+<p>というわけで、本ブログでもNoto Sans JPを読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLS改善というよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は<code>0.004 -&gt; 0</code>になったので、まぁ、うん。。。</p>
 
-<p>結局、色々調べた結果、t32kにはWebFontは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。</p>
+<p>結局、色々調べた結果、t32kにはWebフォントは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。</p>
 
 <h3 id="参考資料">参考資料</h3>
 
@@ -183,10 +183,10 @@
   
 
   <div class="post-social">
-  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=WebFont%20%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf%e6%88%a6%e7%95%a5 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2foptimize-webfont-loading%2f" title="はてなブックマークで共有する"
+  <a href="http://b.hatena.ne.jp/add?mode=confirm&title=Web%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf%e6%88%a6%e7%95%a5%ef%bc%882021%e5%b9%b4%ef%bc%89 - MOL&url=https%3a%2f%2ft32k.me%2fmol%2flog%2foptimize-webfont-loading%2f" title="はてなブックマークで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-hb" /></svg></a>
-  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2foptimize-webfont-loading%2f&text=WebFont%20%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf%e6%88%a6%e7%95%a5 - MOL" title="Twitterで共有する"
+  <a href="https://twitter.com/share?url=https%3a%2f%2ft32k.me%2fmol%2flog%2foptimize-webfont-loading%2f&text=Web%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf%e6%88%a6%e7%95%a5%ef%bc%882021%e5%b9%b4%ef%bc%89 - MOL" title="Twitterで共有する"
     target="_blank" rel="noopener"><svg>
       <use xlink:href="#post-tw" /></svg></a>
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ft32k.me%2fmol%2flog%2foptimize-webfont-loading%2f" title="Facebookで共有する" target="_blank" rel="noopener"><svg>

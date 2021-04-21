@@ -9,7 +9,7 @@
         <updated>Wed, 21 Apr 2021 00:00:00 UTC</updated>
         
         <item>
-            <title>WebFont 読み込み戦略</title>
+            <title>Webフォント読み込み戦略（2021年）</title>
             <link>https://t32k.me/mol/log/optimize-webfont-loading/</link>
             <pubDate>Wed, 21 Apr 2021 00:00:00 UTC</pubDate>
             
@@ -18,23 +18,23 @@
 
 &lt;h1 id=&#34;preload-web-fonts&#34;&gt;Preload web fonts&lt;/h1&gt;
 
-&lt;p&gt;前回といっても2年前だが、&lt;a href=&#34;https://t32k.me/mol/mol/log/font-display-swap/&#34;&gt;display=swapとはなにか&lt;/a&gt;で、Google Fontsを読み込むときはURLパラメータに &lt;code&gt;display=swap&lt;/code&gt; をつけるといいよと言った。というわけで、『目標をセンターに入れて、display=swap&amp;hellip;』と盲目的に考えるようになってた。&lt;/p&gt;
+&lt;p&gt;前回、といっても2年前だが、&lt;a href=&#34;https://t32k.me/mol/mol/log/font-display-swap/&#34;&gt;display=swapとはなにか&lt;/a&gt;で、Google Fontsを読み込むときはURLパラメータに &lt;code&gt;display=swap&lt;/code&gt; をつけるといいよと言った。というわけで、それ以降、『目標をセンターに入れて、display=swap&amp;hellip;』と盲目的に考えるようになってた。&lt;/p&gt;
 
-&lt;p&gt;おさらいとして &lt;code&gt;display=swap&lt;/code&gt; では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる &lt;strong&gt;FOUT (flash of unstyled text)&lt;/strong&gt; が起こってしまう。&lt;/p&gt;
+&lt;p&gt;おさらいとして &lt;code&gt;display=swap&lt;/code&gt; では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる &lt;strong&gt;FOUT (flash of unstyled text)&lt;/strong&gt; が起こってしまう。こんな感じ↓&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/00.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/00.png?v2&#34; alt=&#34;&#34; /&gt;
 出典：&lt;a href=&#34;https://codepen.io/simonjhearne/pen/rNMGJyr&#34;&gt;font-face descriptor playground&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、&lt;a href=&#34;https://web.dev/vitals/&#34;&gt;Web Vitals&lt;/a&gt;というものがある。その中の&lt;a href=&#34;https://web.dev/cls/&#34;&gt;CLS&lt;/a&gt;（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。ということで、代替フォントからWebフォントへ切り替わる際の、レイアウトのズレ、ちらつきが、このCLSを下げてしまう原因になる。&lt;/p&gt;
+&lt;p&gt;まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、&lt;a href=&#34;https://web.dev/vitals/&#34;&gt;Web Vitals&lt;/a&gt;というものがある。その中の&lt;a href=&#34;https://web.dev/cls/&#34;&gt;CLS&lt;/a&gt;（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。つまり、代替フォントからWebフォントへ切り替わる際のレイアウトのズレ・ちらつきが、このCLSを下げてしまう原因になる。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/01.png&#34; alt=&#34;&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/01.png?v2&#34; alt=&#34;&#34; /&gt;
 出典：&lt;a href=&#34;https://speakerdeck.com/notwaldorf/fontastic-web-performance?slide=74&#34;&gt;Fontastic web performance - Speaker Deck&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;ということで、今回紹介する &lt;code&gt;font-display: optional&lt;/code&gt; とはなにかなんだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという挙動。&lt;/p&gt;
+&lt;p&gt;ということで、今回紹介する &lt;code&gt;font-display: optional&lt;/code&gt; の場合はどうなるかだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという分かりやすい挙動。&lt;/p&gt;
 
 &lt;p&gt;この場合、FOUTはないが、最初に100msのブロック期があるので不可視テキストが表示される &lt;strong&gt;FOIT(Flash of Invisible Text)&lt;/strong&gt; が起こってしまう。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/02.png?v2&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;出典：&lt;a href=&#34;https://web.dev/preload-optional-fonts/&#34;&gt;Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts&lt;/a&gt;&lt;/p&gt;
 
@@ -48,11 +48,11 @@
   &lt;span style=&#34;color:#f92672&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;local&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Noto Sans JP&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;NotoSansJP-Regular&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;woff2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;format&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;woff2&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
   &lt;span style=&#34;color:#f92672&#34;&gt;font-display&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;optional&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;こんな感じに設定すればよい。&lt;/p&gt;
+&lt;p&gt;こんな感じに、fontファイルをpreloadして、optional設定すれば、レイアウトジャンクなしにWebフォントを読み込める。&lt;/p&gt;
 
 &lt;h1 id=&#34;google-fonts&#34;&gt;Google Fonts&lt;/h1&gt;
 
-&lt;p&gt;Google Fontsから読み込む場合の最善手は、CSS Wizardryさんが詳解な説明をしている。&lt;/p&gt;
+&lt;p&gt;Google Fontsから読み込む場合の最善手については、CSS Wizardryさんが詳解な説明をしているので下記を読んでほしい。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://csswizardry.com/2020/05/the-fastest-google-fonts/&#34;&gt;The Fastest Google Fonts – CSS Wizardry – Web Performance Optimisation&lt;/a&gt;&lt;/p&gt;
@@ -81,13 +81,13 @@
 &lt;li&gt;&lt;a href=&#34;https://www.filamentgroup.com/lab/load-css-simpler/&#34;&gt;The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;これが一番簡単に非同期でCSSを読み込みハックっぽい。&lt;code&gt;display=optional&lt;/code&gt;ではないのは、この読み込み方と相性が悪いっぽい。&lt;/p&gt;
+&lt;p&gt;これが一番簡単に非同期でCSSを読み込めるハックっぽい。&lt;code&gt;display=optional&lt;/code&gt;ではないのは、この読み込み方と相性が悪いためだそうだ。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;というわけで、本ブログでもNoto Sans JP を読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLSというよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は0.004 -&amp;gt; 0 になったので、まぁ、うん^^;&lt;/p&gt;
+&lt;p&gt;というわけで、本ブログでもNoto Sans JPを読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLS改善というよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は&lt;code&gt;0.004 -&amp;gt; 0&lt;/code&gt;になったので、まぁ、うん。。。&lt;/p&gt;
 
-&lt;p&gt;結局、色々調べた結果、t32kにはWebFontは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。&lt;/p&gt;
+&lt;p&gt;結局、色々調べた結果、t32kにはWebフォントは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。&lt;/p&gt;
 
 &lt;h3 id=&#34;参考資料&#34;&gt;参考資料&lt;/h3&gt;
 
