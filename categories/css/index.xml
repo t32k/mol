@@ -5,10 +5,28 @@
     <link>https://t32k.me/mol/categories/css/</link>
     <description>Recent content in css on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 17 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/css/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WebFont 読み込み戦略</title>
+      <link>https://t32k.me/mol/log/optimize-webfont-loading/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/optimize-webfont-loading/</guid>
+      <description>Preload web fonts 前回といっても2年前だが、display=swapとはなにかで、Google Fontsを読み込むときはURLパラメータに display=swap をつけるといいよと言った。というわけで、『目標をセンターに入れて、display=swap&amp;hellip;』と盲目的に考えるようになってた。
+おさらいとして display=swap では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる FOUT (flash of unstyled text) が起こってしまう。
+出典：font-face descriptor playground
+まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、Web Vitalsというものがある。その中のCLS（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。ということで、代替フォントからWebフォントへ切り替わる際の、レイアウトのズレ、ちらつきが、このCLSを下げてしまう原因になる。
+出典：Fontastic web performance - Speaker Deck
+ということで、今回紹介する font-display: optional とはなにかなんだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという挙動。
+この場合、FOUTはないが、最初に100msのブロック期があるので不可視テキストが表示される FOIT(Flash of Invisible Text) が起こってしまう。
+出典：Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts
+と思っていたら、Chrome 83で改善が行われ、&amp;lt;link rel=&amp;quot;preload&amp;quot;&amp;gt; と一緒に使うことで、ブロック期に不可視テキストを表示せず、というかレンダリング自体をブロックして、100ms後に一気に表示することでレイアウトのカタツキを無くすことにしているようだ。
+&amp;lt;!-- HTML --&amp;gt; &amp;lt;link rel=&amp;#34;preload&amp;#34; href=&amp;#34;NotoSansJP-Regular.woff2&amp;#34; as=&amp;#34;font&amp;#34; type=&amp;#34;font/woff2&amp;#34; crossorigin /&amp;gt;/* CSS */ @font-face { font-family: &amp;#39;Noto Sans JP&amp;#39;; font-style: normal; font-weight: 400; src: local(&amp;#39;Noto Sans JP&amp;#39;), url(NotoSansJP-Regular.</description>
+    </item>
     
     <item>
       <title>display=swapとはなにか</title>

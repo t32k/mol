@@ -6,7 +6,102 @@
         
         
         
-        <updated>Mon, 12 Apr 2021 00:00:00 UTC</updated>
+        <updated>Wed, 21 Apr 2021 00:00:00 UTC</updated>
+        
+        <item>
+            <title>WebFont 読み込み戦略</title>
+            <link>https://t32k.me/mol/log/optimize-webfont-loading/</link>
+            <pubDate>Wed, 21 Apr 2021 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/optimize-webfont-loading/</guid>
+            <description>
+
+&lt;h1 id=&#34;preload-web-fonts&#34;&gt;Preload web fonts&lt;/h1&gt;
+
+&lt;p&gt;前回といっても2年前だが、&lt;a href=&#34;https://t32k.me/mol/mol/log/font-display-swap/&#34;&gt;display=swapとはなにか&lt;/a&gt;で、Google Fontsを読み込むときはURLパラメータに &lt;code&gt;display=swap&lt;/code&gt; をつけるといいよと言った。というわけで、『目標をセンターに入れて、display=swap&amp;hellip;』と盲目的に考えるようになってた。&lt;/p&gt;
+
+&lt;p&gt;おさらいとして &lt;code&gt;display=swap&lt;/code&gt; では、まず代替フォントを表示し、Webフォントをダウンロードしたら、随時スワップするという挙動になる。この場合、代替フォントからWebフォントへ切り替わる &lt;strong&gt;FOUT (flash of unstyled text)&lt;/strong&gt; が起こってしまう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/00.png&#34; alt=&#34;&#34; /&gt;
+出典：&lt;a href=&#34;https://codepen.io/simonjhearne/pen/rNMGJyr&#34;&gt;font-face descriptor playground&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;まぁ何も表示されないよりかは良いかと思うわけだが、時は流れ、最近ではWebの指標として、&lt;a href=&#34;https://web.dev/vitals/&#34;&gt;Web Vitals&lt;/a&gt;というものがある。その中の&lt;a href=&#34;https://web.dev/cls/&#34;&gt;CLS&lt;/a&gt;（Cumulative Layout Shift）では、レイアウトの安定性というのも評価する。ということで、代替フォントからWebフォントへ切り替わる際の、レイアウトのズレ、ちらつきが、このCLSを下げてしまう原因になる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/01.png&#34; alt=&#34;&#34; /&gt;
+出典：&lt;a href=&#34;https://speakerdeck.com/notwaldorf/fontastic-web-performance?slide=74&#34;&gt;Fontastic web performance - Speaker Deck&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ということで、今回紹介する &lt;code&gt;font-display: optional&lt;/code&gt; とはなにかなんだが、100msのブロック期までにWebフォントを取得できたらWebフォントを表示する、できなかったら代替フォントを表示するという挙動。&lt;/p&gt;
+
+&lt;p&gt;この場合、FOUTはないが、最初に100msのブロック期があるので不可視テキストが表示される &lt;strong&gt;FOIT(Flash of Invisible Text)&lt;/strong&gt; が起こってしまう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;出典：&lt;a href=&#34;https://web.dev/preload-optional-fonts/&#34;&gt;Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;と思っていたら、Chrome 83で改善が行われ、&lt;code&gt;&amp;lt;link rel=&amp;quot;preload&amp;quot;&amp;gt;&lt;/code&gt; と一緒に使うことで、ブロック期に不可視テキストを表示せず、というかレンダリング自体をブロックして、100ms後に一気に表示することでレイアウトのカタツキを無くすことにしているようだ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- HTML --&amp;gt;&lt;/span&gt;
+ &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;preload&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;NotoSansJP-Regular.woff2&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;font&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;font/woff2&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;crossorigin&lt;/span&gt; /&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/* CSS */&lt;/span&gt;
+@&lt;span style=&#34;color:#66d9ef&#34;&gt;font-face&lt;/span&gt; {
+  &lt;span style=&#34;color:#f92672&#34;&gt;font-family&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Noto Sans JP&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;font-style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;normal&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;font-weight&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;400&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;local&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Noto Sans JP&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;NotoSansJP-Regular&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;woff2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;format&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;woff2&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;font-display&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;optional&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;こんな感じに設定すればよい。&lt;/p&gt;
+
+&lt;h1 id=&#34;google-fonts&#34;&gt;Google Fonts&lt;/h1&gt;
+
+&lt;p&gt;Google Fontsから読み込む場合の最善手は、CSS Wizardryさんが詳解な説明をしている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://csswizardry.com/2020/05/the-fastest-google-fonts/&#34;&gt;The Fastest Google Fonts – CSS Wizardry – Web Performance Optimisation&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-HTML&#34; data-lang=&#34;HTML&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;preconnect&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://fonts.gstatic.com&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;crossorigin&lt;/span&gt; /&amp;gt;
+
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;preload&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;as&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;style&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$CSS&amp;amp;display=swap&amp;#34;&lt;/span&gt; /&amp;gt;
+
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$CSS&amp;amp;display=swap&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;media&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;print&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;onload&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;this.media=&amp;#39;all&amp;#39;&amp;#34;&lt;/span&gt; /&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;長いので要点は上のように設定すればよい。&lt;code&gt;$CSS&lt;/code&gt; のところに自分の読み込みたいフォントのURLが当たる。まず最初に、woffファイルなどの配信元である&lt;code&gt;fonts.gstatic.com&lt;/code&gt;に事前に接続しておく。&lt;/p&gt;
+
+&lt;p&gt;そいで、 &lt;code&gt;display=swap&lt;/code&gt;でスタイルシートをpreloadしておく。&lt;/p&gt;
+
+&lt;p&gt;そいで、最後にGoogle Fontsのスタイルシートを設定するのだが、見慣れない記述がある。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;media=&amp;#34;print&amp;#34; onload=&amp;#34;this.media=&amp;#39;all&amp;#39;&amp;#34;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;ちょっまっ！印刷用CSSになってんじゃん！と思うじゃん。それでいい。ブラウザはこのCSSを印刷メディアのCSSだと理解して、現在のレンダリングと無関係に読み込み始める。これが狙いだ。そして読み込み終わったら現在のメディアに適用するといったことをしている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.filamentgroup.com/lab/load-css-simpler/&#34;&gt;The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これが一番簡単に非同期でCSSを読み込みハックっぽい。&lt;code&gt;display=optional&lt;/code&gt;ではないのは、この読み込み方と相性が悪いっぽい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2021/0421/03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;というわけで、本ブログでもNoto Sans JP を読み込んでいたので、CSS Wizardryさんのやり方で読み込んだら大幅にPeformanceが改善した。これはCLSというよりCSSの非同期読み込みによる改善が大きな要因だ。CLS自体は0.004 -&amp;gt; 0 になったので、まぁ、うん^^;&lt;/p&gt;
+
+&lt;p&gt;結局、色々調べた結果、t32kにはWebFontは早すぎると感じたので、本ブログでのNoto Sans JPの読み込みを辞めた。うん、スッキリ。お後がよろしいようで。&lt;/p&gt;
+
+&lt;h3 id=&#34;参考資料&#34;&gt;参考資料&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.dev/preload-optional-fonts/&#34;&gt;Prevent layout shifting and flashes of invisible text (FOIT) by preloading optional fonts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.dev/font-display/&#34;&gt;Ensure text remains visible during webfont load&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.dev/avoid-invisible-text/&#34;&gt;Avoid invisible text during font loading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.dev/optimize-webfont-loading/&#34;&gt;Optimize WebFont loading and rendering&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.dev/reduce-webfont-size/&#34;&gt;Reduce WebFont Size&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.jxck.io/entries/2021-02-25/font-metrics-override.html&#34;&gt;Web Font のメトリクス上書きによる CLS の改善 | blog.jxck.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.jxck.io/entries/2018-02-13/web-font-woff2.html&#34;&gt;WebFont の WOFF2 対応によるサイズ最適化 | blog.jxck.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
         
         <item>
             <title>ユーザーインタビューをはじめよう</title>
@@ -1160,110 +1255,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
     }
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;最後にPaddingの値の指定のしかた一覧を書いて終わりにする。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;SwiftUI 徹底入門&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;金田 浩明&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>SwiftUIでの文字寄せとか</title>
-            <link>https://t32k.me/mol/log/text-align-swiftui/</link>
-            <pubDate>Mon, 28 Sep 2020 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/text-align-swiftui/</guid>
-            <description>&lt;p&gt;最近、SwiftUIデビューをした。太古の昔にTitanium MobileでiOSアプリを作ったことはあるが、基本Web畑で育ってきたt32kにとっては、iOSというかSwiftというかSwiftUIでのユーザーインターフェイス作成は、まるで外国での生活のようで、いろいろカルチャーギャップを感じる。そうゆうことを書きたい。&lt;/p&gt;
-
-&lt;p&gt;まず初めに、文字寄せだが、テキストを左寄せ・右寄せにしたいときどうすればよいんだろうと思った。Xcodeでプロジェクトを作成すると&lt;code&gt;Hello World!&lt;/code&gt;の文字列を表示するボイラープレートが用意されている。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0928/01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;この文字列は上下・左右・真ん中に表示されている。これを左寄せにしたい。Webでいう、&lt;code&gt;text-align: left&lt;/code&gt;は、SwiftUIではどうするんだろうと私は考える。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0928/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
-            .frame(alignment: .leading)
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;frame&lt;/code&gt;モディファイアで&lt;code&gt;aligment&lt;/code&gt;というプロパティがあるのでそれに&lt;code&gt;.leading&lt;/code&gt;２セットすればよいらしい。&lt;/p&gt;
-
-&lt;p&gt;なるほど。動かない。&lt;/p&gt;
-
-&lt;p&gt;それもそのはずだ、Textビューのサイズ（青枠）を見ればわかる。文字でいっぱいいっぱいなので、どちらか片方に寄せれないっぽい。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0928/03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Frameのサイズを画面いっぱいにひろげてみると、なるほどな、左に寄せることができた。ちなみに右寄せの場合は&lt;code&gt;.trailing&lt;/code&gt;だ。&lt;/p&gt;
-
-&lt;p&gt;またStackOveflowでこうゆう回答も見かけた。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        VStack {
-            HStack {
-                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
-            }
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;Spacer()&lt;/code&gt;使うと楽だぜヒャッハーという。これだと&lt;code&gt;Spacer()&lt;/code&gt;が目一杯広がるので、frameのwidthを明示的に指定しなくてもいいし楽っぽい。&lt;/p&gt;
-
-&lt;p&gt;でもSpacerというものWebでは邪道と言われ続けたスペーサーGIFのようなものと感じるので、あまり頼りすぎるのではよくないのではないかと思った。&lt;code&gt;alignment&lt;/code&gt;で明示的に文字寄せを表現しているのは意味的に正しいと思う。&lt;/p&gt;
-
-&lt;p&gt;てか、そもそもなんで &lt;code&gt;text-align:left/right&lt;/code&gt; を &lt;code&gt;.leading/.trailing&lt;/code&gt; というのか考える必要がある。iOSはアラビア語圏などにも対応している。つまり右から左へ読む文化だ。つまり&lt;code&gt;.leading&lt;/code&gt;と指定した文字寄せは日本語圏などは左になるが、アラビア語圏などでは右に配置されるので、&lt;strong&gt;先頭&lt;/strong&gt; が変わるから&lt;code&gt;left/right&lt;/code&gt;という名前なんだと理解した。なるほど、多言語文化対応だ。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView_Previews&lt;/span&gt;: PreviewProvider {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; previews: some View {
-      ContentView().environment(&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;.layoutDirection, .rightToLeft)
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;というわけで、環境変数レイアウト方向にRTLにセットしてみると、&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/0928/04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        VStack {
-            Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, alignment　左&amp;#34;&lt;/span&gt;)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, alignment　右&amp;#34;&lt;/span&gt;)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-            
-            HStack {
-                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, spacer 左&amp;#34;&lt;/span&gt;)
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, spacer 右&amp;#34;&lt;/span&gt;)
-            }
-            
-            HStack {
-                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;左&amp;#34;&lt;/span&gt;)
-                Spacer()
-                Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;右&amp;#34;&lt;/span&gt;)
-            }
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;alignment&lt;/code&gt;で指定した文字寄せは予想通り、反対になっている。予想外だったのは&lt;code&gt;Spacer()&lt;/code&gt;で文字寄せしたコードも反対になっている点だ。レイアウト方向にRTLになると&lt;code&gt;HStack&lt;/code&gt;(横方向に並べるやつ)の並びも反転するのか。。。これは頭がよいのか、おせっかいなのかよくわからないけど、注意する必要がある。&lt;/p&gt;
-
-&lt;p&gt;まぁ、そんな感じで文字寄せひとつとってもいろいろ発見があるなーと思いました（こなみかん）&lt;/p&gt;
 
 &lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
 &lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
