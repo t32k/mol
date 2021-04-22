@@ -491,7 +491,8 @@ a:hover .social-links-linkedin {
 .post img {
   position: relative;
   z-index: 1;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
   border-radius: 0.4rem;
 }
 
