@@ -28,12 +28,12 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 html {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8;
   color: rgba(var(--rgb-surface), var(--alpha-600));
   background: rgb(var(--rgb-background));
-  line-height: 1.6;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont,
-    "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
@@ -56,7 +56,6 @@ h6 {
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300;
-  line-height: 1.2;
 }
 
 h1 {
@@ -485,7 +484,6 @@ a:hover .social-links-linkedin {
 
 .post p {
   font-size: 18px;
-  line-height: 1.75;
 }
 
 .post img {
