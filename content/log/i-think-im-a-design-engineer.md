@@ -1,5 +1,5 @@
 ---
-date: 2021-04-26
+date: 2021-04-27
 title: 【翻訳】私ってデザインエンジニアかも...
 subtitle: On Design Engineering
 excerpt: この記事はデザインエンジニアリングについてのシリーズの一部です。Web開発者の役割の変化やデザインとエンジニアリングの違いについて議論していきたいと思います。
@@ -10,7 +10,7 @@ categories:
 
 <cite class="citation">
 ![Trys Mudford](/mol/images/people/trys_mudford.jpg)
-Original：[I think I might be a design engineer...](http://timkadlec.com/2010/12/the-color-of-speed/)（<time>2021-02-17</time>）by [Trys Mudford](https://twitter.com/trysmudford)
+Original：[I think I might be a design engineer...](https://www.trysmudford.com/blog/i-think-im-a-design-engineer/)（<time>2021-02-17</time>）by [Trys Mudford](https://twitter.com/trysmudford)
 </cite>
 
 この記事はデザインエンジニアリングについてのシリーズの一部です。Web開発者の役割の変化やデザインとエンジニアリングの違いについて議論していきたいと思います。長くなりそうだったので、この記事を補足するために [Prototyping](https://www.trysmudford.com/blog/prototyping/)、[Systemised design foundations](https://www.trysmudford.com/blog/design-foundations/)と[The designer & developer relationship](https://www.trysmudford.com/blog/designer-and-developer-relationship/)に記事を分けました。それでは始めましょう。
