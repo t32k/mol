@@ -5,10 +5,22 @@
     <link>https://t32k.me/mol/log/</link>
     <description>Recent content in Logs on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/log/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>株式会社プレイドにジョインしました！</title>
+      <link>https://t32k.me/mol/log/joining-plaidinc/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/joining-plaidinc/</guid>
+      <description>気づいたら、入社してました。社内を見渡すとツヨツヨなエンジニアばかりでガクブルですが、自分はデザイナー職での採用でした。といってもWebフロントエンドのコード(front-of-the-front-end)も書くのですが、いわゆるデザインエンジニアって感じです。最近は、デザインエンジニアって何するんだろう？と思いながら、下記の記事を訳してました。
+ 【翻訳】私ってデザインエンジニアかも... - MOL  といってもこれはクライアントワークを主とするClearleft社のデザインエンジニアの話なわけで、KARTEを提供するSaaS会社のデザインエンジニアにはまた違った側面があったりするんだろうなと思ったり、難しい。
+自分でデザインしてコーディングするぶんには問題ないわけですが、バックエンドも書くエンジニア（ややこしい）の皆さんも不慣れなUIコードを書くわけで、そこでいかに負担をかけずにデザイナーの意図したUIをちゃんと再現できるかを考えると、デザインシステムみたいな仕組みも必要になってくるわけで、いろいろとやることは多いです&amp;hellip;
+ SaaSのブラッシュアップに高速で挑むデザイナー - 株式会社プレイドの求人 - Wantedly  そういうわけで、プレイドではデザインエンジニア絶賛募集中なので応募してね！</description>
+    </item>
     
     <item>
       <title>【翻訳】私ってデザインエンジニアかも...</title>
