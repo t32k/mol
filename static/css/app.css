@@ -3,7 +3,7 @@
 :root {
   --rgb-surface: 0, 0, 0;
   --rgb-background: 255, 255, 255;
-  --rgb-primary: 255, 2, 102;
+  --rgb-primary: 42, 171, 159;
   --rgb-secondary: 0, 120, 210;
   --alpha-100: 0.07;
   --alpha-200: 0.14;
@@ -19,7 +19,7 @@
   :root {
     --rgb-surface: 255, 255, 255;
     --rgb-background: 45, 45, 45;
-    --rgb-primary: 0, 253, 153;
+    --rgb-primary: 42, 171, 159;
     --rgb-secondary: 255, 135, 45;
   }
 }
@@ -597,7 +597,6 @@ a:hover .social-links-linkedin {
   }
 }
 
-
 .container {
   position: relative;
   width: 90%;
@@ -606,7 +605,8 @@ a:hover .social-links-linkedin {
   box-sizing: border-box;
 }
 
-.column, .columns {
+.column,
+.columns {
   width: 100%;
   float: left;
   box-sizing: border-box;
@@ -639,24 +639,52 @@ a:hover .social-links-linkedin {
     margin-left: 0;
   }
   .one.column,
-  .one.columns { width: 4.66666666667%; }
-  .two.columns { width: 13.3333333333%; }
-  .three.columns { width: 22%; }
-  .four.columns { width: 30.6666666667%; }
-  .five.columns { width: 39.3333333333%; }
-  .six.columns { width: 48%; }
-  .seven.columns { width: 56.6666666667%; }
-  .eight.columns { width: 65.3333333333%; }
-  .nine.columns { width: 74%; }
-  .ten.columns { width: 82.6666666667%; }
-  .eleven.columns { width: 91.3333333333%; }
+  .one.columns {
+    width: 4.66666666667%;
+  }
+  .two.columns {
+    width: 13.3333333333%;
+  }
+  .three.columns {
+    width: 22%;
+  }
+  .four.columns {
+    width: 30.6666666667%;
+  }
+  .five.columns {
+    width: 39.3333333333%;
+  }
+  .six.columns {
+    width: 48%;
+  }
+  .seven.columns {
+    width: 56.6666666667%;
+  }
+  .eight.columns {
+    width: 65.3333333333%;
+  }
+  .nine.columns {
+    width: 74%;
+  }
+  .ten.columns {
+    width: 82.6666666667%;
+  }
+  .eleven.columns {
+    width: 91.3333333333%;
+  }
   .twelve.columns {
     width: 100%;
     margin-left: 0;
   }
-  .one-third.column { width: 30.6666666667%; }
-  .two-thirds.column { width: 65.3333333333%; }
-  .one-half.column { width: 48%; }
+  .one-third.column {
+    width: 30.6666666667%;
+  }
+  .two-thirds.column {
+    width: 65.3333333333%;
+  }
+  .one-half.column {
+    width: 48%;
+  }
   /* Offsets */
   .offset-by-one.column,
   .offset-by-one.columns {
