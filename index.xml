@@ -6,7 +6,45 @@
         
         
         
-        <updated>Tue, 01 Jun 2021 00:00:00 UTC</updated>
+        <updated>Wed, 14 Jul 2021 00:00:00 UTC</updated>
+        
+        <item>
+            <title>UXデザインの法則</title>
+            <link>https://t32k.me/mol/log/978-4873119496-law-of-ux/</link>
+            <pubDate>Wed, 14 Jul 2021 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4873119496-law-of-ux/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4873119499/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51uSGP2lHHS._SX350_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;UXデザインの法則 &lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;Jon Yablonski (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;心理学と聞くと、ちょっと仰々しい感じがするが、中身は一度は聞いたことがある法則だたったり、デザイナーなら無意識でやってるようなテクニックであったり、そんなに小難しくない。中には知らない法則もあったりして、自分が作成したデザインを説明するときに、これらの引用を添えて説明すると説得力も増すだろう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ヤコブの法則：慣れ的なアレ&lt;/li&gt;
+&lt;li&gt;フィッツの法則：ターゲットの大きさと近さのアレ&lt;/li&gt;
+&lt;li&gt;ヒックの法則：選択肢の多さについてのアレ&lt;/li&gt;
+&lt;li&gt;ミラーの法則：マジックナンバーのアレ&lt;/li&gt;
+&lt;li&gt;ポステルの法則：寛容な入力に対応しよう&lt;/li&gt;
+&lt;li&gt;ピークエンドの法則：ピークとエンドが大事&lt;/li&gt;
+&lt;li&gt;美的ユーザビリティ効果：ふつくしい is よい&lt;/li&gt;
+&lt;li&gt;フォン・レストルフ効果：リズムを変える的なアレ&lt;/li&gt;
+&lt;li&gt;テスラーの法則：a.k.a. 複雑性保存の法則&lt;/li&gt;
+&lt;li&gt;ドハティのしきい値：応答が0.4秒以内にしろ！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;中でも良かったのは第11章の『力には責任が伴う』だ。上記のような法則をうまく使えば、自身のサービスを使いやすいものとすることができる反面、中毒性のあるものにしてしまうかもしれない。FacebookのようなSNSサービスで承認欲求を満たしたいなど。&lt;/p&gt;
+
+&lt;p&gt;デザイナーはなにも悪いものを作ろうとしているわけではないが、結果としてそうなってしまう可能性があるということに意識を向けないといけない。スタートアップでは、早く作って、早く出すというようなマインドがあるが、本書ではその歩みを緩め、倫理観を持ってプロダクトを作ろうと提言しているのが、個人的に印象深かった。&lt;/p&gt;
+
+&lt;p&gt;デジタルサービスはますます私たちの生活に深く入り込んできているので、それをデザインし、ユーザーの行動に良くも悪くも影響を与える私たちの役割は大きくもあり責任重大だ。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>株式会社プレイドにジョインしました！</title>
@@ -1165,152 +1203,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;p&gt;昨今、React/Vue/AngularなどのMVVMフレームワークを使用していると、状態を変更してUIにすぐに反映することができるので、「サブミットボタンをなくす」といったことができる。以前の記事・&lt;a href=&#34;https://t32k.me/mol/mol/log/microinteractions/&#34;&gt;マイクロインタラクション事始め以前&lt;/a&gt;でもちょっと解説したが、やはりモードレスを意識してないと、惰性的に「モーダルダイアログ展開して〜」といった実装をしがちである。気をつけないと。&lt;/p&gt;
 
 &lt;p&gt;全体的に、toC向けのサービスを作っているデザイナーであれば、まぁそんな画面デザインにはならないだろうと思うが、なぜそうなのかと言われるとうまく言語化できないので、そういった意味で明快に解説している本書は一読の価値があると思う。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>SwiftUIでのスタイルのまとめかたとか</title>
-            <link>https://t32k.me/mol/log/styles-swiftui/</link>
-            <pubDate>Thu, 08 Oct 2020 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/styles-swiftui/</guid>
-            <description>
-
-&lt;p&gt;CSSだとスタイルはクラスでまとめられ、BEMなり、なんなりのクラスの命名規則で管理する。SwiftUIだとスタイルはViewに繋げられたモディファイアであり、これがダラダラと記述されているのは、見通しが悪い。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1008/00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Swift&#34; data-lang=&#34;Swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
-            .font(.largeTitle)
-            .foregroundColor(Color(.systemRed))
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&#34;カスタムモディファイア&#34;&gt;カスタムモディファイア&lt;/h1&gt;
-
-&lt;p&gt;modifier というまんまのものがある。上記のコードは LargeText という ViewModifier 定義すると、.modifier(LargeText(color: Color(.systemRed))) だけを View に繋げれば良い。また引数を持つことができるので、色の部分を抜き出して、青色のテキストを表示したり、緑色のテキストを表示できるといった具合だ。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1008/01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
-            .modifier(LargeText(color: Color(.systemRed)))
-    }
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;LargeText&lt;/span&gt;: ViewModifier {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; color: Color
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;body&lt;/span&gt;(content: Content) -&amp;gt; some View {
-        content
-            .font(.largeTitle)
-            .foregroundColor(color)
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&#34;カスタムスタイル&#34;&gt;カスタムスタイル&lt;/h1&gt;
-
-&lt;p&gt;modifier と似ているが、特定のコンポーネントにはカスタムスタイルを定義する方法が提供されている。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        Button(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ボタン&amp;#34;&lt;/span&gt;) { print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;タップ&amp;#34;&lt;/span&gt;) }
-            .buttonStyle(MyButtonStyle())
-    }
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MyButtonStyle&lt;/span&gt;: ButtonStyle {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;makeBody&lt;/span&gt;(configuration: &lt;span style=&#34;color:#66d9ef&#34;&gt;Self&lt;/span&gt;.Configuration) -&amp;gt; some View {
-        configuration.label
-            .padding()
-            .foregroundColor(Color(.systemBlue))
-            .overlay(
-                RoundedRectangle(cornerRadius: &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
-                    .stroke(Color(.systemBlue), lineWidth: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-            )
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Button の場合は ButtonStyle がある。一見すると別に modifier でも問題じゃないかと思うが、ミソは&lt;code&gt;configuration&lt;/code&gt;の部分だ。 configuration.isPressedで、押されているのか、いないのかの状態がわかるので、ボタン押下時のスタイルも定義することができる。同様に、トグルにも ToggleStyle というものが提供されており、configuration.isOn でトグルの on/off 状態がわかるので、on/off でスタイルを変更することができる。ということで、ButtonやToggleのスタイルをまとめたいときはカスタムスタイルでまとめる。&lt;/p&gt;
-
-&lt;h1 id=&#34;構造体でまとめる&#34;&gt;構造体でまとめる&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2020/1008/02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        List {
-            HStack {
-                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
-                    .resizable()
-                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
-                    .padding()
-                VStack(alignment: .leading) {
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hoge Yamada&amp;#34;&lt;/span&gt;).font(.callout).fontWeight(.bold)
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
-                }
-            }
-            HStack {
-                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
-                    .resizable()
-                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
-                    .padding()
-                VStack(alignment: .leading) {
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Fuga Yamada&amp;#34;&lt;/span&gt;).font(.callout).fontWeight(.bold)
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
-                }
-            }
-            HStack {
-                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
-                    .resizable()
-                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
-                    .padding()
-                VStack(alignment: .leading) {
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Piyo Yamada&amp;#34;&lt;/span&gt;).font(.callout).fontWeight(.bold)
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
-                }
-            }
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;受信メール一覧的なリストを作る場合、HStack でプロフ画像と文書を並べてとか一つ一つのリストアイテムを作っていく。まぁ愚直に書けば、上記みたいな感じ。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ContentView&lt;/span&gt;: View {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; friends = [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hoge Yamada&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Fuga Yamada&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Piyo Yamada&amp;#34;&lt;/span&gt; ]
-    
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-        List {
-            ForEach(friends, id: &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;self&lt;/span&gt;) { friend &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt;
-                ListItem(name: friend)
-            }
-        }
-    }
-    
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ListItem&lt;/span&gt;: View {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; name: String
-        
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; body: some View {
-            HStack {
-                Image(systemName: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;person.crop.circle.fill&amp;#34;&lt;/span&gt;)
-                    .resizable()
-                    .frame(width: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;, height: &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;)
-                    .padding()
-                VStack(alignment: .leading) {
-                    Text(name).font(.callout).fontWeight(.bold)
-                    Text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&amp;#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&amp;#34;&lt;/span&gt;).lineLimit(&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;).font(.caption)
-                }
-            }
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;HStack らへんを ListItem 構造体としてまとめるとこんな感じ。スタイルをまとめるというよりかは、ボタンなり、画像なりある程度の粒度をもったUIコンポーネントとしてまとめるといったことに近い。&lt;/p&gt;
-
-&lt;p&gt;今作っているのは簡素な見た目のモックアプリなので、そこまでモディファイアをつなげるてスタイルを作り込んでいくことがないので、modifier はあんまり使わず、構造体でまとめて終わりって感じになっている。&lt;/p&gt;
-
-&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4815604061/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/416ZqsPCCjL._SX393_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;SwiftUI 徹底入門&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;金田 浩明&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
 </description>
         </item>
         

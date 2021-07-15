@@ -5,10 +5,19 @@
     <link>https://t32k.me/mol/categories/</link>
     <description>Recent content in Categories on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jul 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>books</title>
+      <link>https://t32k.me/mol/categories/books/</link>
+      <pubDate>Wed, 14 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/categories/books/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blog</title>
@@ -43,15 +52,6 @@
       <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>books</title>
-      <link>https://t32k.me/mol/categories/books/</link>
-      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://t32k.me/mol/categories/books/</guid>
       <description></description>
     </item>
     
