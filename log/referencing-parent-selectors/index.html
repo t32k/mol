@@ -103,98 +103,99 @@
       
     </header>
     <section>
-      <p><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_">Sassの親セレクター参照の<strong>&amp;</strong></a>の話。</p>
+      <p><a href="https://sass-lang.com/documentation/style-rules/parent-selector">Sassの親セレクター参照の&amp;</a>の話。</p>
 
 <p>Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。</p>
-
-<p><pre><code>// SCSS
-#main {
-  color: black;
-  a {
-    font-weight: bold;
-    &amp;:hover { color: red; }
-    &amp;:visited { color: blue; }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#75715e">// SCSS
+</span><span style="color:#75715e"></span>#main {
+  <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">black</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">a</span> {
+    <span style="color:#f92672">font-weight</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">bold</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">:hover</span> { <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">;</span> }
+    <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">:visited</span> { <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">blue</span><span style="color:#f92672">;</span> }
   }
-}</code></pre>
-↑上がコンパイルされて↓こんな風になります。
-<pre><code>/* CSS */
+}</code></pre></div>
+<p>↑上がコンパイルされて↓こんな風になります。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* CSS */</span>
 #main {
-  color: black;}
-#main a {
-  font-weight: bold;}
-#main a:hover {
-  color: red;}
-#main a:visited {
-  color: blue;}</code></pre>
-Sassのコードだと、aのセレクタの下層にリンクの擬似クラスのスタイルがまとまり、コードが見やすくなってますね。この例だと<strong>&amp;</strong>の部分が#main aに置き換わるわけです。はい。</p>
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>;}
+#main <span style="color:#f92672">a</span> {
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;}
+#main <span style="color:#f92672">a</span>:<span style="color:#a6e22e">hover</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;}
+#main <span style="color:#f92672">a</span>:<span style="color:#a6e22e">visited</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;}</code></pre></div>
+<p>Sassのコードだと、aのセレクタの下層にリンクの擬似クラスのスタイルがまとまり、コードが見やすくなってますね。この例だと <strong>&amp;</strong> の部分が <code>#main a</code> に置き換わるわけです。はい。</p>
 
-<p>ほかには、モジュールごとでスタイルを変えたい時とか。
-<pre><code>// SCSS
-.mod {
-　color: black;
-　font-weight: bold;
-　&amp;.hoge { color: red; }
-　&amp;.fuga { color: blue; }
-}</code></pre>
-.modでひとつのモジュールの基本的なスタイルを記述して、.mod.hogeといった感じでclassの複数づけしたときに、基本スタイルから微妙に変化をつけるみたいなやりかたのときとかも便利です。たぶん。</p>
+<p>ほかには、モジュールごとでスタイルを変えたい時とか。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#75715e">// SCSS
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">.mod</span> {
+　<span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">black</span><span style="color:#f92672">;</span>
+<span style="color:#960050;background-color:#1e0010">　</span><span style="color:#f92672">font-weight</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">bold</span><span style="color:#f92672">;</span>
+<span style="color:#960050;background-color:#1e0010">　</span><span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">.hoge</span> { <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">;</span> }
+　<span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">.fuga</span> { <span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">blue</span><span style="color:#f92672">;</span> }
+}</code></pre></div>
+<p><code>.mod</code> でひとつのモジュールの基本的なスタイルを記述して、<code>.mod.hoge</code> といった感じでclassの複数づけしたときに、基本スタイルから微妙に変化をつけるみたいなやりかたのときとかも便利です。たぶん。</p>
 
-<p>これもまた、.modのブロックの中に派生するスタイルが１つにまとまっていてナイスな気がします。</p>
+<p>これもまた、<code>.mod</code> のブロックの中に派生するスタイルが１つにまとまっていてナイスな気がします。</p>
 
-<p>んで、調子こいてこんな風にも&amp;を使うようになりました。
-<pre><code>// local.scss
-.kanazawa {
-　color: blue;
-　.ishikawa &amp; {
-　　color: red;
-　}
-}</code></pre>
-親が違う親を持っていた時のスタイルみたいな。なんか文字にすると複雑な家庭事情ですね。心中お察しします。
-<pre><code>/* CSS */
-.kanazawa {
-　color: blue;}
-.ishikawa .kanazawa {
-　color: red;}</code></pre>
-展開するとなんてことのない感じです。.kanazawaだと横浜の金沢なのか、石川の金沢なのわかんねーから、石川の金沢のときは文字を赤くしましょうよって思想です。たぶん。しらんけど。</p>
+<p>んで、調子こいてこんな風にも&amp;を使うようになりました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#75715e">// local.scss
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">.kanazawa</span> {
+　<span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">blue</span><span style="color:#f92672">;</span>
+<span style="color:#960050;background-color:#1e0010">　</span><span style="color:#a6e22e">.ishikawa</span> <span style="color:#66d9ef">&amp;</span> {
+　　<span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">;</span>
+<span style="color:#960050;background-color:#1e0010">　</span>}
+}</code></pre></div>
+<p>親が違う親を持っていた時のスタイルみたいな。なんか文字にすると複雑な家庭事情ですね。心中お察しします。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#75715e">/* CSS */</span>
+.<span style="color:#a6e22e">kanazawa</span> {
+　<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;}
+.<span style="color:#a6e22e">ishikawa</span> .<span style="color:#a6e22e">kanazawa</span> {
+　<span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;}</code></pre></div>
+<p>展開するとなんてことのない感じです。<code>.kanazawa</code> だと横浜の金沢なのか、石川の金沢なのわかんねーから、石川の金沢のときは文字を赤くしましょうよって思想です。たぶん。しらんけど。</p>
 
-<p>んで、このCSSを流用したい。北陸で流用したいという欲情に駆られたのがこんな感じのHTML。
-<pre><code>&lt;div class=&ldquo;hokuriku&rdquo;&gt;
- 北陸良いとこ～♪
- &lt;div class=&ldquo;ishikawa&rdquo;&gt;
-  細長い県なの～♪
-  &lt;div class=&ldquo;kanazawa&rdquo;&gt;
-   そこの県庁所在地なの～♪
-  &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class=&ldquo;kanazawa&rdquo;&gt;
-  どこの金沢よ～。それどこ情報よ～。俺が寝てないってどこ情報よ～。
- &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-今まで地方レベルで考えてこなかったんだけど、急に、.hokuriku（北陸地方）という上位概念がでてきて、この中でさっきのlocal.scssを流用したい場合。こんな感じなると思う。
-<pre><code>// SCSS
-.hokuriku {
- @import &ldquo;local.scss&rdquo;;
+<p>んで、このCSSを流用したい。北陸で流用したいという欲情に駆られたのがこんな感じのHTML。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hokuriku&#34;</span>&gt;
+北陸良いとこ～♪
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ishikawa&#34;</span>&gt;
+        細長い県なの～♪
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;kanazawa&#34;</span>&gt;
+            そこの県庁所在地なの～♪
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;kanazawa&#34;</span>&gt;
+        どこの金沢よ～。それどこ情報よ～。俺が寝てないってどこ情報よ～。
+    &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<p>今まで地方レベルで考えてこなかったんだけど、急に、<code>.hokuriku</code>（北陸地方）という上位概念がでてきて、この中でさっきのlocal.scssを流用したい場合。こんな感じなると思う。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#75715e">// SCSS
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">.hokuriku</span> {
+ <span style="color:#66d9ef">@import</span> <span style="color:#e6db74">&#34;local.scss&#34;</span>;
 }
-// つまり↑これは↓これということ。
-.hokuriku {
-　.kanazawa {
-　　color: blue;
-　　.ishikawa &amp; {
-　　　color: red;
-　　}
+<span style="color:#75715e">// つまり↑これは↓これということ。
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">.hokuriku</span> {
+　<span style="color:#a6e22e">.kanazawa</span> {
+　　<span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">blue</span><span style="color:#f92672">;</span>
+<span style="color:#960050;background-color:#1e0010">　　</span><span style="color:#a6e22e">.ishikawa</span> <span style="color:#66d9ef">&amp;</span> {
+　　　<span style="color:#f92672">color</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">;</span>
+<span style="color:#960050;background-color:#1e0010">　　</span>}
 　}
-}</code></pre>
-んで、コンパイル。
-<pre><code>.hokuriku .kanazawa {
-  color: blue;
+}</code></pre></div>
+<p>んで、コンパイル。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">hokuriku</span> .<span style="color:#a6e22e">kanazawa</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">blue</span>;
 }
-.ishikawa .hokuriku .kanazawa {
-  color: red;
-}</code></pre>
-問題は2個めのやつですよね。親参照使ったやつ。石川県北陸地方金沢市になっててイミフｗｗｗｗウケるｗｗｗｗｗ</p>
+.<span style="color:#a6e22e">ishikawa</span> .<span style="color:#a6e22e">hokuriku</span> .<span style="color:#a6e22e">kanazawa</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+}</code></pre></div>
+<p>問題は2個めのやつですよね。親参照使ったやつ。石川県北陸地方金沢市になっててイミフｗｗｗｗウケるｗｗｗｗｗ</p>
 
-<p>HTML内では.hokurikuが最も祖先なので、この場合の.ishikawa .hokuriku .kanazawaのスタイルは有効になりませんね。実際のこの問題に出くわしたときは。もっとコード量が多くてなおかつ複雑で、この親参照の仕様をちゃんと理解せずにいたので、理解に時間がかかりました（スタイルがなぜか効かないので!importantしたりとか&hellip;）。なんでメモがてら書いておきました。</p>
+<p>HTML内では <code>.hokuriku</code> が最も祖先なので、この場合の <code>.ishikawa .hokuriku .kanazawa</code> のスタイルは有効になりませんね。実際のこの問題に出くわしたときは。もっとコード量が多くてなおかつ複雑で、この親参照の仕様をちゃんと理解せずにいたので、理解に時間がかかりました（スタイルがなぜか効かないので!importantしたりとか&hellip;）。なんでメモがてら書いておきました。</p>
 
-<p>だからといって、<strong>&amp;</strong>使うなよってことはないです。最初に紹介したリンクパターンやモジュールパターンのような単純に<strong>”親”</strong>を参照しているものであれば、特に問題ないかと思います。親の更に親が〜といったような使い方も環境（HTML）が変わるようなことがないかぎり、特に問題無いと思うけど、いざ流用したいってなったとき（人生なにが起きるかわかりません）ネストの仕方によっては今回のようなことが起きてしまうなーって。て！</p>
+<p>だからといって、<strong>&amp;</strong> 使うなよってことはないです。最初に紹介したリンクパターンやモジュールパターンのような単純に <strong>親</strong> を参照しているものであれば、特に問題ないかと思います。親の更に親が〜といったような使い方も環境（HTML）が変わるようなことがないかぎり、特に問題無いと思うけど、いざ流用したいってなったとき（人生なにが起きるかわかりません）ネストの仕方によっては今回のようなことが起きてしまうなーって。て！</p>
+
     </section>
   </article>
 

@@ -405,7 +405,7 @@ D2C ブランドは実際に届けられるパッケージやシーンにもこ�
 正直、スーツケースなんてものは荷物を詰め込めれればなんでもいいコモディティ化した商品だと思う。だからといって RIMOWA のような高級ブランドのスーツケースを何十万円で買うのも違う。シンプルなデザインで適切な価格で共感できる世界観をもつブランドならその商品を手に取る可能性は高いだろう。事実、Away 社はテック企業並の指数関数的な成長をしている。
 では、ユーザーに寄り添って独自の世界観を売ればよいのかといえば、そう簡単な話ではない。ユーザーと深くつながるということ裏切られたときの反動も強いということである。
 Nothing says “maybe you should lose a few pounds” like gifting your already rail thin life partner a Peloton pic.twitter.com/E2M9gFdD5A
-&amp;mdash; Siraj Hashmi 6’9” IQ 420 (@SirajAHashmi) December 2, 2019   ＣＭが女性差別と炎上、株価急落－フィットネスバイクの米ペロトン | Bloomberg  フィットネスバイクを販売する D2C ブランドのPelotonのクリスマス時期の炎上が記憶に新しい。</description>
+&amp;mdash; Siraj Hashmi (@SirajAHashmi) December 2, 2019   ＣＭが女性差別と炎上、株価急落－フィットネスバイクの米ペロトン | Bloomberg  フィットネスバイクを販売する D2C ブランドのPelotonのクリスマス時期の炎上が記憶に新しい。</description>
     </item>
     
     <item>
@@ -4907,9 +4907,12 @@ Google Analyticsの実行コスト そこでjQueryのテストのGoogle Analytic
       <pubDate>Thu, 06 Sep 2012 00:00:00 +0000</pubDate>
       
       <guid>https://t32k.me/mol/log/referencing-parent-selectors/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_&#34;&gt;Sassの親セレクター参照の&lt;strong&gt;&amp;amp;&lt;/strong&gt;&lt;/a&gt;の話。&lt;/p&gt;
-
-&lt;p&gt;Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。&lt;/p&gt;</description>
+      <description>Sassの親セレクター参照の&amp;amp;の話。
+Sassでどんどんネストして書いてると「親セレクタ参照してーわー、できるなら親孝行してーわー」ってたまになりますよね。僕はそんなにならないんですけど、一番わかりやすい例としてリンクの擬似クラスがあります。こんな例です。
+// SCSS #main { color: black; a { font-weight: bold; &amp;amp;:hover { color: red; } &amp;amp;:visited { color: blue; } } } ↑上がコンパイルされて↓こんな風になります。
+/* CSS */ #main { color: black;} #main a { font-weight: bold;} #main a:hover { color: red;} #main a:visited { color: blue;} Sassのコードだと、aのセレクタの下層にリンクの擬似クラスのスタイルがまとまり、コードが見やすくなってますね。この例だと &amp;amp; の部分が #main a に置き換わるわけです。はい。
+ほかには、モジュールごとでスタイルを変えたい時とか。
+// SCSS .mod { color: black; font-weight: bold; &amp;amp;.hoge { color: red; } &amp;amp;.fuga { color: blue; } } .</description>
     </item>
     
     <item>
