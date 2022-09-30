@@ -6,7 +6,37 @@
         
         
         
-        <updated>Wed, 14 Jul 2021 00:00:00 UTC</updated>
+        <updated>Fri, 30 Sep 2022 00:00:00 UTC</updated>
+        
+        <item>
+            <title>文字レイアウトの法則</title>
+            <link>https://t32k.me/mol/log/978-4802512459-type-tricks/</link>
+            <pubDate>Fri, 30 Sep 2022 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4802512459-type-tricks/</guid>
+            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4802512457/?tag=warikiru-22&#34; target=&#34;_blank&#34;&gt;
+&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/413-iZ1IZFL._SX371_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
+&lt;div class=&#34;__media__body&#34;&gt;
+    &lt;div&gt;1ページずつ学ぶ 文字レイアウトの法則&lt;/div&gt;
+    &lt;div class=&#34;__media__text&#34;&gt;ソフィー・バイヤー (著)&lt;/div&gt;
+    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
+&lt;/div&gt;
+&lt;/a&gt;&lt;/div&gt;
+
+&lt;p&gt;読書の秋なんで、山積みになってるのを読もうと思う。&lt;/p&gt;
+
+&lt;p&gt;タイポグラフィというと小林章さんの欧文書体が有名だけど、本書はもっと初心者向けというか基本をまとめたもの。200くらいのルールがあるという。まぁ最初の方のルールは、当たり前やろ！みたいなことも多いが、非常にためになる一冊である。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;レディング
+活版印刷では、文字と文字の間には金属製や木製の板を、行と行の間には薄い鉛板を入れて余白を作っていました。そのため、英語では行送り（行間）のことは、いまでも鉛（lead）に由来する『レディング』（leading）と呼ばれています。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;へーと思った。&lt;/p&gt;
+
+&lt;p&gt;最後の方にちょっとだけだけど、（Web）インタフェースのお約束についても触れてあったのが、今どきに合わせてきたなという印象。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>UXデザインの法則</title>
@@ -1151,58 +1181,6 @@ AJシリーズのシューズデザイナーのドキュメンタリー（seaso
 &lt;li&gt;&lt;a href=&#34;https://www.netflix.com/title/80223149&#34;&gt;ビンス・カーター: カナダにバスケをもたらした男&lt;/a&gt;&lt;br /&gt;
 バスケとポップカルチャーとの密接な関係&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>オブジェクト指向UIデザイン</title>
-            <link>https://t32k.me/mol/log/978-4297113513-do-not-mode-me-in/</link>
-            <pubDate>Fri, 20 Nov 2020 00:00:00 UTC</pubDate>
-            
-            <guid>https://t32k.me/mol/log/978-4297113513-do-not-mode-me-in/</guid>
-            <description>&lt;div class=&#34;__media&#34;&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/4297113511/?tag=warikiru-22&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41ncKIL-yRL._SX350_BO1,204,203,200_.jpg&#34; alt=&#34;&#34; class=&#34;__media__image&#34;&gt;
-&lt;div class=&#34;__media__body&#34;&gt;
-    &lt;div&gt;オブジェクト指向UIデザイン──使いやすいソフトウェアの原理 (WEB+DB PRESS plusシリーズ)&lt;/div&gt;
-    &lt;div class=&#34;__media__text&#34;&gt;上野 学&lt;/div&gt;
-    &lt;div&gt;Amazon.co.jpで詳細を見る&lt;/div&gt;
-&lt;/div&gt;
-&lt;/a&gt;&lt;/div&gt;
-
-&lt;p&gt;いわゆる、銀の弾丸を読んだ。&lt;/p&gt;
-
-&lt;p&gt;オブジェクト指向UIとはまず対象となるオブジェクトを選択して、それに対するアクションを行う。例えば、デスクトップで書類ファイルを削除したければ、マウスなどで対象の書類ファイルをクリックし、「削除する」などのメニューを選ぶ。つまり、「名詞 -&amp;gt; 動詞」の流れだ。これに対しタスク志向UIというのは、例えば、CLIでdeleteコマンドみたいなものをまず打ち込み、次に対象となる書類ファイルのパスを入力するといった「動詞 -&amp;gt; 名詞」の流れだ。&lt;/p&gt;
-
-&lt;p&gt;CLIアプリケーションなら理解できるが、GUIのアプリケーションにおいてこういったものをあまり目にしたことがないような気がする。&lt;/p&gt;
-
-&lt;p&gt;タスク志向UI（モード）を作らざるを得ない状況として、次のような場合だという。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;タスクによって処理対象となるオブジェクト集合が異なる場合。この場合、タスク選択はアプリケーションの選択と同じような位置づけとなる。&lt;/li&gt;
-&lt;li&gt;タスクによって、ユーザーに提示すべきオブジェクトの属性やアクションが大きく異る場合。この場合、先にオブジェクトを提示しようとすると、情報量が多くなりすぎてUIに収まりきらなくなる&lt;/li&gt;
-&lt;li&gt;オブジェクトが（ユーザーのメンタルモデルにおいて）意識されてない、あるいはオブジェクトがひとつだけで選択の必要がなく、アクションの引数としての入力がタスクの大部分である場合。たとえばATM&lt;/li&gt;
-&lt;li&gt;ユーザーの創造的な作業を禁止し、一定の順序で限定的な操作をさせたい場合&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;いわゆる業務アプリケーションで多いという。確かに、C向けアプリケーションを作ってきた経験が多い自分にとっては、あまり悩んだ記憶がない。だからといって、気にしなくてよい問題かというそうでもない。&lt;/p&gt;
-
-&lt;p&gt;タスク志向は「動詞 -&amp;gt; 名詞」の流れと説明したが、その動詞を選択すると&lt;strong&gt;モード&lt;/strong&gt;になる。ビデオカメラで「録画する」ならば、そのときは録画モードで、録画に関すること以外、システムは受け付けないだろう。これはユーザーからコントロール権を奪う行為であり、あまりよろしくない。&lt;/p&gt;
-
-&lt;p&gt;GUIでモーダルな代表例としてはモーダルダイアログであろう。モーダルダイアログと言われると、たしかになにも考えず使ってる気がする&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;モードレスにする方法としては以下のようなことがある。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;「名詞 -&amp;gt; 動詞」の操作をひとつのジェスチャで行う&lt;/li&gt;
-&lt;li&gt;パラメータを保存してオブジェクト化する&lt;/li&gt;
-&lt;li&gt;アクションを分割する&lt;/li&gt;
-&lt;li&gt;サブミットボタンをなくす&lt;/li&gt;
-&lt;li&gt;モーダルダイアログなくす&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;昨今、React/Vue/AngularなどのMVVMフレームワークを使用していると、状態を変更してUIにすぐに反映することができるので、「サブミットボタンをなくす」といったことができる。以前の記事・&lt;a href=&#34;https://t32k.me/mol/mol/log/microinteractions/&#34;&gt;マイクロインタラクション事始め以前&lt;/a&gt;でもちょっと解説したが、やはりモードレスを意識してないと、惰性的に「モーダルダイアログ展開して〜」といった実装をしがちである。気をつけないと。&lt;/p&gt;
-
-&lt;p&gt;全体的に、toC向けのサービスを作っているデザイナーであれば、まぁそんな画面デザインにはならないだろうと思うが、なぜそうなのかと言われるとうまく言語化できないので、そういった意味で明快に解説している本書は一読の価値があると思う。&lt;/p&gt;
 </description>
         </item>
         
