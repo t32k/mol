@@ -5,10 +5,22 @@
     <link>https://t32k.me/mol/categories/books/</link>
     <description>Recent content in books on MOL</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Oct 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://t32k.me/mol/categories/books/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Visual Studio Code完全入門</title>
+      <link>https://t32k.me/mol/log/978-4295013457-vsc/</link>
+      <pubDate>Thu, 06 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://t32k.me/mol/log/978-4295013457-vsc/</guid>
+      <description>Visual Studio Code完全入門 リブロワークス (著) Amazon.co.jpで詳細を見る   読書の秋なんで、山積みになってるのを読もうと思う。
+Visual Studio Codeは、リリースされたときから割と使っているが、ファッション的になんか良さげ！と波に乗っただけで、使いこなしてるわけではなかった。我流と言ったらなんだが、とりあえず仕事してて必要そうなところからかいつまんで、身につけていったかんじだ。
+というわけで、基本から学ぶには本書はうってつけの本だった。VSCの各UIがなんという名前なのか（アクティビティバーとかパネルとか）とか、ドロップダウンメニューの奥に隠れてたいたZenモードを見つけたとか、いろいろ発見があった。
+内容的には拡張機能の種類からいってもWeb系をターゲットしているみたいなので、駆け出しフロントエンドエンジニアの方などに良いかもしれない。しらんけど。</description>
+    </item>
     
     <item>
       <title>文字レイアウトの法則</title>
