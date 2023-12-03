@@ -4,19 +4,30 @@
   
   <url>
     <loc>https://t32k.me/mol/categories/</loc>
-    <lastmod>2023-04-11T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/log/</loc>
-    <lastmod>2023-04-11T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://t32k.me/mol/</loc>
-    <lastmod>2023-04-11T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/log/zwift-env-2023/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/categories/hobby/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
