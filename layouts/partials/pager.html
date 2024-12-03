@@ -1,11 +1,11 @@
 <hr>
 <div class="row post-pager">
   <div class="six columns">
-    <div class="post-previous"> {{with .NextPage}} Later article<br>
+    <div class="post-previous"> {{with .Next}} Later article<br>
       <a href="{{.Permalink}}"> {{.Title}}</a> {{else}} &nbsp; {{end}} </div>
   </div>
   <div class="six columns">
-    <div class="post-next"> {{with .PrevPage}} Older article<br>
+    <div class="post-next"> {{with .Prev}} Older article<br>
       <a href="{{.Permalink}}"> {{.Title}}</a> {{else}} &nbsp; {{end}} </div>
   </div>
 </div>

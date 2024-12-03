@@ -7,3 +7,5 @@ pygmentsCodeFences = true
 [params]
   description = "Designing for User Interface"
   author = "Koji Ishimoto"
+[markup.goldmark.renderer]
+unsafe= true
