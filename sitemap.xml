@@ -37,17 +37,6 @@
   </url>
   
   <url>
-    <loc>https://t32k.me/mol/categories/blog/</loc>
-    <lastmod>2023-04-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://t32k.me/mol/log/teikyo-university/</loc>
-    <lastmod>2023-04-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://t32k.me/mol/categories/books/</loc>
     <lastmod>2022-10-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -71,6 +60,12 @@
   <url>
     <loc>https://t32k.me/mol/log/978-4873119496-law-of-ux/</loc>
     <lastmod>2021-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://t32k.me/mol/categories/blog/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -200,7 +195,7 @@
   </url>
   
   <url>
-    <loc>https://t32k.me/mol/log/wahoo-kickr-2018/</loc>
+    <loc>https://t32k.me/mol/log/zwift-env-2020/</loc>
     <lastmod>2020-03-09T00:00:00+00:00</lastmod>
   </url>
   
