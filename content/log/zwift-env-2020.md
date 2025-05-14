@@ -1,7 +1,7 @@
 
 ---
 date: 2020-03-09
-title: Wahoo KICKR'18 スマートトレーナー
+title: Zwift 環境 2020
 categories: 
     - gadget
 ogimage: https://images-na.ssl-images-amazon.com/images/I/51H8kWwHRrL._SL1000_.jpg
